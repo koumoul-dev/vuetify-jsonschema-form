@@ -1,0 +1,48 @@
+{
+  "name": "@koumoul/vuetify-jsonschema-form",
+  "version": "0.1.0",
+  "description": "Generate forms for the vuetify UI library (vuejs) based on annotated JSON schemas.",
+  "main": "dist/main.js",
+  "scripts": {
+    "lint": "eslint --ext js,vue --ignore-path .gitignore .",
+    "build": "webpack",
+    "dev": "NODE_ENV=development webpack-dev-server",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koumoul-dev/vuetify-jsonschema-form.git"
+  },
+  "author": "Alban Mouton <alban.mouton@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/koumoul-dev/vuetify-jsonschema-form/issues"
+  },
+  "homepage": "https://github.com/koumoul-dev/vuetify-jsonschema-form#readme",
+  "dependencies": {
+    "@koumoul/gh-pages-multi": "^0.6.0",
+    "css-loader": "^1.0.0",
+    "style-loader": "^0.23.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.54",
+    "@babel/core": "^7.0.0-beta.54",
+    "@babel/preset-env": "^7.0.0-beta.54",
+    "babel-eslint": "^9.0.0",
+    "babel-loader": "^8.0.0-beta",
+    "eslint": "^4.18.2",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-vue": "^4.7.1",
+    "vue": "^2.5.17",
+    "vue-loader": "^15.4.1",
+    "vue-template-compiler": "^2.5.17",
+    "vuetify": "^1.2.3",
+    "webpack": "^4.12.2",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.7"
+  }
+}
