@@ -1,1 +1,1 @@
-module.exports = [require('./basic'), require('./arrays')]
+module.exports = [require('./basic'), require('./arrays'), require('./pickers')]

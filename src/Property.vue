@@ -1,14 +1,38 @@
 <template lang="html">
   <div>
     <!-- Simple fields -->
+    <v-menu v-if="schema.type === 'string' && ['date', 'date-time'].includes(schema.format)" ref="menu" :close-on-content-click="false" v-model="menu"
+            :nudge-right="40"
+            :return-value.sync="modelWrapper[modelKey]"
+            lazy
+            transition="scale-transition"
+            offset-y
+            full-width
+            min-width="290px"
+    >
+      <v-text-field
+        slot="activator"
+        v-model="modelWrapper[modelKey]"
+        :label="label"
+        :name="fullKey"
+        :hint="schema.description"
+        prepend-icon="event"
+        readonly
+      />
+      <v-date-picker v-model="modelWrapper[modelKey]" no-title scrollable>
+        <v-spacer/>
+        <v-btn flat color="primary" @click="menu = false">Cancel</v-btn>
+        <v-btn flat color="primary" @click="$refs.menu.save(modelWrapper[modelKey])">OK</v-btn>
+      </v-date-picker>
+    </v-menu>
 
-    <v-text-field v-if="schema.type === 'string'"
+    <v-text-field v-else-if="schema.type === 'string'"
                   v-model="modelWrapper[modelKey]"
                   :name="fullKey"
                   :label="label"
                   :hint="schema.description"/>
 
-    <v-text-field v-if="schema.type === 'number' || schema.type === 'integer'"
+    <v-text-field v-else-if="schema.type === 'number' || schema.type === 'integer'"
                   v-model.number="modelWrapper[modelKey]"
                   :name="fullKey"
                   :label="label"
@@ -18,7 +42,7 @@
                   :step="schema.type === 'integer' ? 1 : 0.01"
                   type="number"/>
 
-    <v-checkbox v-if="schema.type === 'boolean'"
+    <v-checkbox v-else-if="schema.type === 'boolean'"
                 v-model="modelWrapper[modelKey]"
                 :label="label"
                 :name="fullKey"
@@ -84,7 +108,7 @@ export default {
   components: {Draggable},
   props: ['schema', 'modelWrapper', 'modelKey', 'debug', 'parentKey'],
   data() {
-    return {ready: false}
+    return {ready: false, menu: false}
   },
   computed: {
     fullKey() { return (this.parentKey + this.modelKey).replace('root.', '') },
