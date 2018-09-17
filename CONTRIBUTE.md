@@ -13,4 +13,4 @@ Push demo of published version:
 
     npm run build
     cp index.html dist/
-    ./node_modules/.bin/gh-pages-multi -s dist -t vX.X.X
+    ./node_modules/.bin/gh-pages-multi deploy -s dist -t vX.X.X

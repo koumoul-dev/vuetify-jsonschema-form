@@ -4,20 +4,32 @@
       <v-toolbar-title>vuetify-jsonschema-form demo</v-toolbar-title>
     </v-toolbar>
     <v-content>
-      <v-container fluid>
+      <v-container fluid grid-list-md>
         <v-layout row>
-          <v-flex xs 6>
-            <h2 class="title">Schema:</h2>
-            <v-textarea v-model="schemaStr" :error-messages="schemaError ? [schemaError.message] : []"/>
-            <div>
-              <v-btn @click="applySchema">Apply</v-btn>
-              <v-btn @click="formatSchema">Format</v-btn>
-            </div>
-            <h2 class="title">Data:</h2>
-            <pre>{{ JSON.stringify(dataObject), null, 2 }}</pre>
+          <v-flex xs6>
+            <h2 class="title my-4">Schema:</h2>
+            <v-layout row wrap>
+              <v-flex xs6>
+                <v-select :items="examples" v-model="example" :return-object="true" item-text="title" label="Choose an example" @change="applyExample" />
+              </v-flex>
+              <v-flex xs6>
+                <v-container>
+                  <v-layout row wrap>
+                    <v-spacer/>
+                    <v-btn color="primary" @click="applySchema">Apply</v-btn>
+                    <v-btn @click="formatSchema">Format</v-btn>
+                  </v-layout>
+                </v-container>
+              </v-flex>
+            </v-layout>
+
+            <v-textarea v-model="schemaStr" :error-messages="schemaError ? [schemaError.message] : []" :rows="20"/>
           </v-flex>
           <v-flex xs 6>
-            <v-jsonschema-form :schema="schema" :data="dataObject" />
+            <h2 class="title my-4">Form:</h2>
+            <v-jsonschema-form v-if="schema" :schema="schema" :model="dataObject" :debug="true" />
+            <h2 class="title my-4">Data:</h2>
+            <pre>{{ JSON.stringify(dataObject, null, 2) }}</pre>
           </v-flex>
         </v-layout>
       </v-container>
@@ -27,21 +39,28 @@
 
 <script>
 import VJsonschemaForm from '../src/index.vue'
+import examples from './examples'
+import hjson from 'hjson' // more tolerant parsing of the schema for easier UX
 
 export default {
   components: {VJsonschemaForm},
   data: function() {
     return {
-      schema: {},
+      schema: null,
       schemaStr: '{}',
       schemaError: null,
-      dataObject: {}
+      dataObject: {},
+      examples,
+      example: examples[1]
     }
+  },
+  mounted() {
+    this.applyExample()
   },
   methods: {
     applySchema() {
       try {
-        this.schema = JSON.parse(this.schemaStr)
+        this.schema = hjson.parse(this.schemaStr)
         this.schemaError = null
       } catch (err) {
         this.schemaError = err
@@ -49,12 +68,20 @@ export default {
     },
     formatSchema() {
       try {
-        const schema = JSON.parse(this.schemaStr)
+        const schema = hjson.parse(this.schemaStr)
         this.schemaStr = JSON.stringify(schema, null, 2)
         this.schemaError = null
       } catch (err) {
         this.schemaError = err
       }
+    },
+    applyExample() {
+      this.schema = null
+      setTimeout(() => {
+        this.dataObject = JSON.parse(JSON.stringify(this.example.data || {}))
+        this.schemaStr = JSON.stringify(this.example.schema, null, 2)
+        this.applySchema()
+      }, 1)
     }
   }
 }
