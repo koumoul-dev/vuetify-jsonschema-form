@@ -18,10 +18,16 @@
                   :step="schema.type === 'integer' ? 1 : 0.01"
                   type="number"/>
 
+    <v-checkbox v-if="schema.type === 'boolean'"
+                v-model="modelWrapper[modelKey]"
+                :label="label"
+                :name="fullKey"
+                :hint="schema.description"/>
+
     <!-- Sub containers -->
 
     <div v-else-if="schema.type === 'object'">
-      <v-subheader>{{ schema.title }}</v-subheader>
+      <v-subheader v-if="schema.title">{{ schema.title }}</v-subheader>
       <property v-for="childKey in Object.keys(schema.properties)" :key="childKey"
                 :schema="schema.properties[childKey]"
                 :model-wrapper="modelWrapper[modelKey]"
@@ -105,7 +111,14 @@ export default {
 <style lang="less">
 .array-card {
   .v-card__text {
-    padding: 0 16px 0 16px;
+    padding: 6px 16px 0 16px;
   }
+  .v-card__actions {
+    padding: 0 16px 6px 16px;
+  }
+}
+
+.v-input--selection-controls {
+  margin-top: 0;
 }
 </style>
