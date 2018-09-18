@@ -16,6 +16,8 @@
         :label="label"
         :name="fullKey"
         :hint="schema.description"
+        :required="required"
+        :rules="rules"
         prepend-icon="event"
         readonly
       />
@@ -30,7 +32,10 @@
                   v-model="modelWrapper[modelKey]"
                   :name="fullKey"
                   :label="label"
-                  :hint="schema.description"/>
+                  :hint="schema.description"
+                  :required="required"
+                  :rules="rules"
+    />
 
     <v-text-field v-else-if="schema.type === 'number' || schema.type === 'integer'"
                   v-model.number="modelWrapper[modelKey]"
@@ -40,13 +45,18 @@
                   :min="schema.minimum"
                   :max="schema.maximum"
                   :step="schema.type === 'integer' ? 1 : 0.01"
+                  :required="required"
+                  :rules="rules"
                   type="number"/>
 
     <v-checkbox v-else-if="schema.type === 'boolean'"
                 v-model="modelWrapper[modelKey]"
                 :label="label"
                 :name="fullKey"
-                :hint="schema.description"/>
+                :hint="schema.description"
+                :required="required"
+                :rules="rules"
+    />
 
     <!-- Sub containers -->
 
@@ -56,7 +66,10 @@
                 :schema="schema.properties[childKey]"
                 :model-wrapper="modelWrapper[modelKey]"
                 :model-key="childKey"
-                :parent-key="fullKey + '.'" />
+                :parent-key="fullKey + '.'"
+                :required="!!(schema.required && schema.required.includes(childKey))"
+                :rules="rules"
+      />
     </div>
 
     <div v-else-if="schema.type === 'array'">
@@ -106,13 +119,18 @@ import Draggable from 'vuedraggable'
 export default {
   name: 'Property',
   components: {Draggable},
-  props: ['schema', 'modelWrapper', 'modelKey', 'debug', 'parentKey'],
+  props: ['schema', 'modelWrapper', 'modelKey', 'debug', 'parentKey', 'required'],
   data() {
     return {ready: false, menu: false}
   },
   computed: {
     fullKey() { return (this.parentKey + this.modelKey).replace('root.', '') },
-    label() { return this.schema.title || (typeof this.modelKey === 'string' ? this.modelKey : '') }
+    label() { return this.schema.title || (typeof this.modelKey === 'string' ? this.modelKey : '') },
+    rules() {
+      const rules = []
+      if (this.required) rules.push((val) => (val !== undefined && val !== null && val) !== '' || '')
+      return rules
+    }
   },
   created() {
     // this.modelWrapper[this.modelKey] = this.modelWrapper[this.modelKey] || null

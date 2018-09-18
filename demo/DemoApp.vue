@@ -26,8 +26,15 @@
             <v-textarea v-model="schemaStr" :error-messages="schemaError ? [schemaError.message] : []" :rows="20"/>
           </v-flex>
           <v-flex xs 6>
-            <h2 class="title my-4">Form:</h2>
-            <v-jsonschema-form v-if="schema" :schema="schema" :model="dataObject" :debug="true" />
+            <h2 class="title my-4">
+              Form
+              <v-chip v-if="formValid" color="success">valid</v-chip>
+              <v-chip v-else color="danger">invalid</v-chip>
+            </h2>
+
+            <v-form v-model="formValid" lazy-validation>
+              <v-jsonschema-form v-if="schema" :schema="schema" :model="dataObject" :debug="true" />
+            </v-form>
             <h2 class="title my-4">Data:</h2>
             <pre>{{ JSON.stringify(dataObject, null, 2) }}</pre>
           </v-flex>
@@ -51,7 +58,8 @@ export default {
       schemaError: null,
       dataObject: {},
       examples,
-      example: examples[2]
+      example: examples[3],
+      formValid: false
     }
   },
   mounted() {
