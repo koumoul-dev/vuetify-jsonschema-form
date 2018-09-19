@@ -128,7 +128,21 @@
       />
     </div>
 
-    <!-- Array sub container -->
+    <!-- Tuples array sub container -->
+    <div v-else-if="schema.type === 'array' && Array.isArray(schema.items)">
+      <v-subheader v-if="schema.title">{{ schema.title }}</v-subheader>
+      <property v-for="(child, i) in schema.items" :key="i"
+                :schema="child"
+                :model-wrapper="modelWrapper[modelKey]"
+                :model-root="modelRoot"
+                :model-key="i"
+                :parent-key="fullKey + '.'"
+                :options="options"
+                @error="e => $emit('error', e)"
+      />
+    </div>
+
+    <!-- Dynamic size array sub container -->
     <div v-else-if="schema.type === 'array'">
       <v-layout row>
         <v-subheader>{{ label }}</v-subheader>
@@ -228,9 +242,7 @@ export default {
     if (this.fromUrl) this.getSelectItems()
     // Case of a select based on an array somewhere in the data
     if (this.schema['x-fromData']) {
-      console.log('BOUL', 'modelRoot.' + this.schema['x-fromData'])
       this.$watch('modelRoot.' + this.schema['x-fromData'], (val) => {
-        console.log('VAL', val)
         this.rawSelectItems = val
       }, {immediate: true})
     }

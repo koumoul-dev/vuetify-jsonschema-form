@@ -15,6 +15,11 @@ module.exports = {
       'vegetables': {
         'type': 'array',
         'items': { '$ref': '#/definitions/veggie' }
+      },
+      coordinate: {
+        type: 'array',
+        title: 'Lat/lon coordinates as a tuple',
+        items: [{type: 'number', title: 'Latitude'}, {type: 'number', title: 'Longitude'}]
       }
     },
     'definitions': {
