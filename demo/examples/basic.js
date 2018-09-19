@@ -6,6 +6,10 @@ module.exports = {
     'title': 'Person',
     'type': 'object',
     'properties': {
+      type: {
+        type: 'string',
+        const: 'person'
+      },
       'firstName': {
         'type': 'string',
         'description': "The person's first name."

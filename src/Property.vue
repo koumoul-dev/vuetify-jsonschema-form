@@ -1,7 +1,10 @@
 <template lang="html">
   <div>
+    <!-- Hide const ? Or make a readonly field -->
+    <div v-if="schema.const !== undefined" />
+
     <!-- Date picker -->
-    <v-menu v-if="schema.type === 'string' && ['date', 'date-time'].includes(schema.format)" ref="menu" :close-on-content-click="false" v-model="menu"
+    <v-menu v-else-if="schema.type === 'string' && ['date', 'date-time'].includes(schema.format)" ref="menu" :close-on-content-click="false" v-model="menu"
             :nudge-right="40"
             :return-value.sync="modelWrapper[modelKey]"
             lazy
@@ -235,7 +238,10 @@ export default {
   created() {
     // this.modelWrapper[this.modelKey] = this.modelWrapper[this.modelKey] || null
     if (this.modelWrapper[this.modelKey] === undefined) {
-      this.$set(this.modelWrapper, this.modelKey, this.schema.default || this.defaultValue(this.schema.type))
+      let def = this.defaultValue(this.schema.type)
+      if (this.schema.const !== undefined) def = this.schema.const
+      else if (this.schema.default !== undefined) def = this.schema.default
+      this.$set(this.modelWrapper, this.modelKey, def)
     }
     this.ready = true
     // Case of a select based on ajax query
