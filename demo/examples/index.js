@@ -1,1 +1,7 @@
-module.exports = [require('./basic'), require('./arrays'), require('./pickers'), require('./validation')]
+module.exports = [
+  require('./basic'),
+  require('./arrays'),
+  require('./pickers'),
+  require('./validation'),
+  require('./selects')
+]

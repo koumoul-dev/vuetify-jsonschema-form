@@ -33,7 +33,7 @@
             </h2>
 
             <v-form v-model="formValid" lazy-validation>
-              <v-jsonschema-form v-if="schema" :schema="schema" :model="dataObject" :debug="true" />
+              <v-jsonschema-form v-if="schema" :schema="schema" :model="dataObject" :debug="true" @error="e => window.alert(e)" />
             </v-form>
             <h2 class="title my-4">Data:</h2>
             <pre>{{ JSON.stringify(dataObject, null, 2) }}</pre>
@@ -53,12 +53,13 @@ export default {
   components: {VJsonschemaForm},
   data: function() {
     return {
+      window,
       schema: null,
       schemaStr: '{}',
       schemaError: null,
       dataObject: {},
       examples,
-      example: examples[3],
+      example: examples[4],
       formValid: false
     }
   },
