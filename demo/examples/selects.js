@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Basic',
+  title: 'Selects',
   schema: {
     'title': 'Person',
     'type': 'object',
@@ -50,11 +50,44 @@ module.exports = {
         'x-fromData': 'fromAjaxObject.schema',
         'x-itemTitle': 'x-originalName',
         'x-itemKey': 'key'
+      },
+      chartDef: {
+        title: 'Chose from a type',
+        description: 'A conditional form will be rendered below',
+        type: 'object',
+        'x-itemKey': 'type',
+        oneOf: [{
+          title: 'Bar chart',
+          properties: {
+            type: {
+              const: 'bar'
+            },
+            xLabel: {
+              type: 'string'
+            },
+            yLabel: {
+              type: 'string'
+            }
+          }
+        }, {
+          title: 'Pie chart',
+          properties: {
+            type: {
+              const: 'pie'
+            },
+            diameter: {
+              type: 'integer'
+            }
+          }
+        }]
       }
     }
   },
   data: {
     'gender': 'male',
-    genderWithTitles: 'm'
+    genderWithTitles: 'm',
+    chartDef: {
+      type: 'pie'
+    }
   }
 }

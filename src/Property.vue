@@ -63,8 +63,8 @@
               :hint="schema.description"
               :required="required"
               :rules="rules"
-              :item-text="schema['x-itemTitle'] || 'title'"
-              :item-value="schema['x-itemKey'] || 'value'"
+              :item-text="itemTitle"
+              :item-value="itemKey"
               :return-object="schema.type === 'object'"
     />
 
@@ -78,8 +78,8 @@
                     :hint="schema.description"
                     :required="required"
                     :rules="rules"
-                    :item-text="schema['x-itemTitle'] || 'title'"
-                    :item-value="schema['x-itemKey'] || 'value'"
+                    :item-text="itemTitle"
+                    :item-value="itemKey"
                     :return-object="schema.type === 'object'"
     />
 
@@ -116,8 +116,31 @@
                 :rules="rules"
     />
 
-    <!-- Object sub container -->
-    <div v-else-if="schema.type === 'object'">
+    <!-- Object sub container with a choice of schema base on oneOf -->
+    <div v-else-if="schema.type === 'object' && schema.oneOf">
+      <v-subheader v-if="schema.title">{{ schema.title }}</v-subheader>
+      <v-select
+        :items="schema.oneOf"
+        v-model="currentOneOf"
+        item-value="title"
+        item-text="title"
+        return-object
+      />
+      <div v-if="currentOneOf">
+        <property
+          :schema="Object.assign({}, currentOneOf, {title: null})"
+          :model-wrapper="modelWrapper"
+          :model-root="modelRoot"
+          :model-key="modelKey"
+          :parent-key="parentKey"
+          :options="options"
+          @error="e => $emit('error', e)"
+        />
+      </div>
+    </div>
+
+    <!-- Simple object sub container -->
+    <div v-else-if="schema.type === 'object' && schema.properties">
       <v-subheader v-if="schema.title">{{ schema.title }}</v-subheader>
       <property v-for="childKey in Object.keys(schema.properties)" :key="childKey"
                 :schema="schema.properties[childKey]"
@@ -181,7 +204,6 @@
             </v-flex>
           </draggable>
         </v-layout>
-
       </v-container>
 
     </div>
@@ -198,7 +220,7 @@ export default {
   components: {Draggable},
   props: ['schema', 'modelWrapper', 'modelRoot', 'modelKey', 'parentKey', 'required', 'options'],
   data() {
-    return {ready: false, menu: false, rawSelectItems: null, q: ''}
+    return {ready: false, menu: false, rawSelectItems: null, q: '', currentOneOf: null}
   },
   computed: {
     fullKey() { return (this.parentKey + this.modelKey).replace('root.', '') },
@@ -228,30 +250,24 @@ export default {
       } else {
         return this.rawSelectItems
       }
+    },
+    itemKey() {
+      return this.schema['x-itemKey'] || 'key'
+    },
+    itemTitle() {
+      return this.schema['x-itemTitle'] || 'title'
     }
   },
   watch: {
     q() {
       this.getSelectItems()
+    },
+    schema() {
+      this.initFromSchema()
     }
   },
   created() {
-    // this.modelWrapper[this.modelKey] = this.modelWrapper[this.modelKey] || null
-    if (this.modelWrapper[this.modelKey] === undefined) {
-      let def = this.defaultValue(this.schema.type)
-      if (this.schema.const !== undefined) def = this.schema.const
-      else if (this.schema.default !== undefined) def = this.schema.default
-      this.$set(this.modelWrapper, this.modelKey, def)
-    }
-    this.ready = true
-    // Case of a select based on ajax query
-    if (this.fromUrl) this.getSelectItems()
-    // Case of a select based on an array somewhere in the data
-    if (this.schema['x-fromData']) {
-      this.$watch('modelRoot.' + this.schema['x-fromData'], (val) => {
-        this.rawSelectItems = val
-      }, {immediate: true})
-    }
+    this.initFromSchema()
   },
   methods: {
     defaultValue(type) {
@@ -268,6 +284,51 @@ export default {
         if (!Array.isArray(items)) throw new Error(`Result of http fetch ${url} is not an array`)
         this.rawSelectItems = items
       }).catch(err => this.$emit('error', err.message))
+    },
+    initFromSchema() {
+      // Manage default values
+      if (this.modelWrapper[this.modelKey] === undefined) {
+        let def = this.defaultValue(this.schema.type)
+        if (this.schema.default !== undefined) def = this.schema.default
+        this.$set(this.modelWrapper, this.modelKey, def)
+      }
+      // const always wins
+      if (this.schema.const !== undefined) this.$set(this.modelWrapper, this.modelKey, this.schema.const)
+      // cleanup extra properties
+      if (this.schema.type === 'object' && this.schema.properties) {
+        Object.keys(this.modelWrapper[this.modelKey]).forEach(key => {
+          if (!this.schema.properties[key]) delete this.modelWrapper[this.modelKey][key]
+        })
+      }
+
+      this.ready = true
+
+      // Case of a select based on ajax query
+      if (this.fromUrl) this.getSelectItems()
+      // Case of a select based on an array somewhere in the data
+      if (this.schema['x-fromData']) {
+        this.$watch('modelRoot.' + this.schema['x-fromData'], (val) => {
+          this.rawSelectItems = val
+        }, {immediate: true})
+      }
+      // Fill oneOf items with shared elements
+      if (this.schema.oneOf) {
+        this.schema.oneOf.forEach(item => {
+          item.title = item.title || this.schema.title
+          item.type = item.type || this.schema.type
+          if (item.properties || this.schema.properties) {
+            item.properties = {...this.schema.properties, ...item.properties}
+          }
+        })
+      }
+      // Case of a sub type selection based on a oneOf
+      if (this.schema.type === 'object' && this.schema.oneOf) {
+        if (this.modelWrapper[this.modelKey] && this.modelWrapper[this.modelKey][this.itemKey]) {
+          this.currentOneOf = this.schema.oneOf.find(item => item.properties[this.itemKey].const === this.modelWrapper[this.modelKey][this.itemKey])
+        } else {
+          this.currentOneOf = this.schema.oneOf[0]
+        }
+      }
     }
   }
 }
