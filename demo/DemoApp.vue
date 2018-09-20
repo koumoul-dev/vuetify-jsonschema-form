@@ -59,7 +59,7 @@ export default {
       schemaError: null,
       dataObject: {},
       examples,
-      example: examples[4],
+      example: examples[0],
       formValid: false
     }
   },
