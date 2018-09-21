@@ -331,8 +331,12 @@ export default {
           this.$watch('modelRoot.' + key, (val) => {
             this.fromUrlParams[key] = val
             if (this.fromUrl) this.getSelectItems()
-          })
+          }, {immediate: true})
         })
+      }
+      // Case of an auto-complete field already defined
+      if (this.fromUrlWithQuery && this.modelWrapper[this.modelKey] && this.modelWrapper[this.modelKey][this.itemTitle] !== undefined) {
+        this.q = this.modelWrapper[this.modelKey][this.itemTitle]
       }
       // Fill oneOf items with shared elements
       if (this.schema.oneOf) {
