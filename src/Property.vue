@@ -81,6 +81,7 @@
                     :item-text="itemTitle"
                     :item-value="itemKey"
                     :return-object="schema.type === 'object'"
+                    placeholder="Search..."
     />
 
     <!-- Simple text field -->
@@ -260,6 +261,8 @@ export default {
   },
   watch: {
     q() {
+      // This line prevents reloading the list just after selecting an item in an auto-complete
+      if (this.modelWrapper[this.modelKey] && this.modelWrapper[this.modelKey][this.itemTitle] === this.q) return
       this.getSelectItems()
     },
     schema() {

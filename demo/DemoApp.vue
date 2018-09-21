@@ -25,7 +25,7 @@
 
             <v-textarea v-model="schemaStr" :error-messages="schemaError ? [schemaError.message] : []" :rows="20"/>
           </v-flex>
-          <v-flex xs 6>
+          <v-flex xs6>
             <h2 class="title my-4">
               Form
               <v-chip v-if="formValid" color="success">valid</v-chip>

@@ -17,7 +17,7 @@ module.exports = {
       'fromAjaxString': {
         'type': 'string',
         'description': 'The values come from an HTTP request.',
-        'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets',
+        'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&',
         'x-itemsProp': 'results',
         'x-itemTitle': 'title',
         'x-itemKey': 'href'
@@ -25,7 +25,7 @@ module.exports = {
       'fromAjaxObject': {
         'type': 'object',
         'description': 'The values come from an HTTP request and are stored as object.',
-        'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets',
+        'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&',
         'x-itemsProp': 'results',
         'x-itemTitle': 'title',
         'x-itemKey': 'href',
@@ -37,9 +37,9 @@ module.exports = {
         }
       },
       'fromAjaxWithQuery': {
-        'type': 'string',
+        'type': 'object',
         'description': 'The values come from an HTTP request with textual filter.',
-        'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?q={q}',
+        'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&q={q}',
         'x-itemsProp': 'results',
         'x-itemTitle': 'title',
         'x-itemKey': 'href'
