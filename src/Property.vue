@@ -119,7 +119,7 @@
 
     <!-- Object sub container with a choice of schema base on oneOf -->
     <div v-else-if="schema.type === 'object' && schema.oneOf">
-      <v-subheader v-if="schema.title">{{ schema.title }}</v-subheader>
+      <v-subheader v-if="schema.title" class="mt-4">{{ schema.title }}</v-subheader>
       <v-select
         :items="schema.oneOf"
         v-model="currentOneOf"
@@ -142,7 +142,7 @@
 
     <!-- Simple object sub container -->
     <div v-else-if="schema.type === 'object' && schema.properties">
-      <v-subheader v-if="schema.title">{{ schema.title }}</v-subheader>
+      <v-subheader v-if="schema.title" class="mt-4">{{ schema.title }}</v-subheader>
       <property v-for="childKey in Object.keys(schema.properties)" :key="childKey"
                 :schema="schema.properties[childKey]"
                 :model-wrapper="modelWrapper[modelKey]"
@@ -157,7 +157,7 @@
 
     <!-- Tuples array sub container -->
     <div v-else-if="schema.type === 'array' && Array.isArray(schema.items)">
-      <v-subheader v-if="schema.title">{{ schema.title }}</v-subheader>
+      <v-subheader v-if="schema.title" class="mt-4">{{ schema.title }}</v-subheader>
       <property v-for="(child, i) in schema.items" :key="i"
                 :schema="child"
                 :model-wrapper="modelWrapper[modelKey]"
@@ -171,7 +171,7 @@
 
     <!-- Dynamic size array sub container -->
     <div v-else-if="schema.type === 'array'">
-      <v-layout row>
+      <v-layout row class="mt-4">
         <v-subheader>{{ label }}</v-subheader>
         <v-btn icon color="primary" @click="modelWrapper[modelKey].push(schema.items.default || defaultValue(schema.items.type))">
           <v-icon>add</v-icon>
