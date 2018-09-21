@@ -336,6 +336,7 @@ export default {
       }
       // Case of an auto-complete field already defined
       if (this.fromUrlWithQuery && this.modelWrapper[this.modelKey] && this.modelWrapper[this.modelKey][this.itemTitle] !== undefined) {
+        this.rawSelectItems = [this.modelWrapper[this.modelKey]]
         this.q = this.modelWrapper[this.modelKey][this.itemTitle]
       }
       // Fill oneOf items with shared elements
