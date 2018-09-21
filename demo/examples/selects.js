@@ -36,6 +36,13 @@ module.exports = {
           schema: {type: 'array'}
         }
       },
+      fromData: {
+        type: 'object',
+        description: 'The values come from another part of the data.',
+        'x-fromData': 'fromAjaxObject.schema',
+        'x-itemTitle': 'x-originalName',
+        'x-itemKey': 'key'
+      },
       'fromAjaxWithQuery': {
         'type': 'object',
         'description': 'The values come from an HTTP request with textual filter.',
@@ -44,10 +51,11 @@ module.exports = {
         'x-itemTitle': 'title',
         'x-itemKey': 'href'
       },
-      fromData: {
-        type: 'object',
-        description: 'The values come from another part of the data.',
-        'x-fromData': 'fromAjaxObject.schema',
+      'fromAjaxWithDep': {
+        'type': 'object',
+        'description': 'The values come from an HTTP request with a part of the url that depends on another part of the model.',
+        'x-fromUrl': '{fromAjaxWithQuery.href}',
+        'x-itemsProp': 'schema',
         'x-itemTitle': 'x-originalName',
         'x-itemKey': 'key'
       },

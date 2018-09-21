@@ -215,13 +215,14 @@
 
 <script>
 import Draggable from 'vuedraggable'
+const matchAll = require('match-all')
 
 export default {
   name: 'Property',
   components: {Draggable},
   props: ['schema', 'modelWrapper', 'modelRoot', 'modelKey', 'parentKey', 'required', 'options'],
   data() {
-    return {ready: false, menu: false, rawSelectItems: null, q: '', currentOneOf: null}
+    return {ready: false, menu: false, rawSelectItems: null, q: '', currentOneOf: null, fromUrlParams: {}}
   },
   computed: {
     fullKey() { return (this.parentKey + this.modelKey).replace('root.', '') },
@@ -236,6 +237,11 @@ export default {
     },
     fromUrlWithQuery() {
       return !!(this.schema['x-fromUrl'] && this.schema['x-fromUrl'].indexOf('{q}') !== -1)
+    },
+    fromUrlKeys() {
+      // Look for variable parts in the URL used to fetch data
+      if (!this.schema['x-fromUrl']) return null
+      return matchAll(this.schema['x-fromUrl'], /\{(.*?)\}/g).toArray().filter(key => key !== 'q')
     },
     selectItems() {
       if (!this.rawSelectItems) return []
@@ -280,7 +286,12 @@ export default {
     },
     getSelectItems() {
       if (!this.options.httpLib) return this.$emit('error', 'No http lib found to perform ajax request')
-      const url = this.schema['x-fromUrl'].replace('{q}', this.q)
+      let url = this.schema['x-fromUrl'].replace('{q}', this.q)
+      for (let key of this.fromUrlKeys) {
+        // URL parameters are incomplete
+        if (this.fromUrlParams[key] === undefined) return
+        else url = url.replace(`{${key}}`, this.fromUrlParams[key])
+      }
       this.options.httpLib.get(url).then(res => {
         const body = res.data || res.body
         const items = this.schema['x-itemsProp'] ? body[this.schema['x-itemsProp']] : body
@@ -313,6 +324,15 @@ export default {
         this.$watch('modelRoot.' + this.schema['x-fromData'], (val) => {
           this.rawSelectItems = val
         }, {immediate: true})
+      }
+      // Watch the dynamic parts of the URL used to fill the select field
+      if (this.fromUrlKeys) {
+        this.fromUrlKeys.forEach(key => {
+          this.$watch('modelRoot.' + key, (val) => {
+            this.fromUrlParams[key] = val
+            if (this.fromUrl) this.getSelectItems()
+          })
+        })
       }
       // Fill oneOf items with shared elements
       if (this.schema.oneOf) {
