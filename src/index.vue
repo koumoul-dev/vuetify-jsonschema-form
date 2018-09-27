@@ -12,27 +12,23 @@
 </template>
 
 <script>
-import jrefs from 'json-refs'
+import jrefs from './json-refs'
 import Property from './Property.vue'
 export default {
   name: 'VJsonschemaForm',
   components: {Property},
   props: ['schema', 'model', 'options'],
   data() {
-    return {modelWrapper: {root: this.model}, resolvedSchema: null}
+    return {modelWrapper: {root: this.model}}
   },
   computed: {
+    resolvedSchema() {
+      return jrefs.resolve(this.schema)
+    },
     fullOptions() {
       const httpLib = this.axios || this.$http || this.$axios
       return Object.assign({}, {debug: false, httpLib, disableAll: false}, this.options)
     }
-  },
-  created() {
-    jrefs.resolveRefs(this.schema).then(res => {
-      this.resolvedSchema = res.resolved
-    }, err => {
-      this.$emit('error', err)
-    })
   }
 }
 </script>
