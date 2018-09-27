@@ -223,12 +223,10 @@
 </template>
 
 <script>
-import Draggable from 'vuedraggable'
 const matchAll = require('match-all')
 
 export default {
   name: 'Property',
-  components: {Draggable},
   props: ['schema', 'modelWrapper', 'modelRoot', 'modelKey', 'parentKey', 'required', 'options'],
   data() {
     return {ready: false, menu: false, rawSelectItems: null, q: '', currentOneOf: null, fromUrlParams: {}}

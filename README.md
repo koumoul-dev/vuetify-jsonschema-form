@@ -20,6 +20,7 @@ For a view of all the functionalities check the [demo](https://koumoul-dev.githu
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import Draggable from 'vuedraggable'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VJsonschemaForm from '@koumoul/vuetify-jsonschema-form'
@@ -28,7 +29,7 @@ Vue.use(Vuetify)
 Vue.use(VueAxios, axios)
 
 export default {
-  components: {VJsonschemaForm},
+  components: {VJsonschemaForm, Draggable},
   data: function() {
     return {
       schema: {...},

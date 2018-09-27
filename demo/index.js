@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import DemoApp from './DemoApp.vue'
+import Draggable from 'vuedraggable'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
@@ -10,6 +11,6 @@ Vue.use(VueAxios, axios)
 
 new Vue({
   el: '#app',
-  components: {DemoApp},
+  components: {DemoApp, Draggable},
   render: h => h('demo-app')
 })
