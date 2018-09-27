@@ -26,7 +26,7 @@ export default {
     },
     fullOptions() {
       const httpLib = this.axios || this.$http || this.$axios
-      return Object.assign({}, {debug: false, httpLib}, this.options)
+      return Object.assign({}, {debug: false, httpLib, disableAll: false}, this.options)
     }
   }
 }

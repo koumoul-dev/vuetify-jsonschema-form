@@ -7,6 +7,7 @@
     <v-menu v-else-if="schema.type === 'string' && ['date', 'date-time'].includes(schema.format)" ref="menu" :close-on-content-click="false" v-model="menu"
             :nudge-right="40"
             :return-value.sync="modelWrapper[modelKey]"
+            :disabled="disabled"
             lazy
             transition="scale-transition"
             offset-y
@@ -40,6 +41,7 @@
               :hint="schema.description"
               :required="required"
               :rules="rules"
+              :disabled="disabled"
     />
 
     <!-- Select field based on a oneOf on a simple type -->
@@ -51,6 +53,7 @@
               :label="label"
               :hint="schema.description"
               :required="required"
+              :disabled="disabled"
               :rules="rules"
     />
 
@@ -61,6 +64,7 @@
               :name="fullKey"
               :label="label"
               :hint="schema.description"
+              :disabled="disabled"
               :required="required"
               :rules="rules"
               :item-text="itemTitle"
@@ -76,6 +80,7 @@
                     :name="fullKey"
                     :label="label"
                     :hint="schema.description"
+                    :disabled="disabled"
                     :required="required"
                     :rules="rules"
                     :item-text="itemTitle"
@@ -90,6 +95,7 @@
                   :name="fullKey"
                   :label="label"
                   :hint="schema.description"
+                  :disabled="disabled"
                   :required="required"
                   :rules="rules"
     />
@@ -103,6 +109,7 @@
                   :min="schema.minimum"
                   :max="schema.maximum"
                   :step="schema.type === 'integer' ? 1 : 0.01"
+                  :disabled="disabled"
                   :required="required"
                   :rules="rules"
                   type="number"/>
@@ -113,6 +120,7 @@
                 :label="label"
                 :name="fullKey"
                 :hint="schema.description"
+                :disabled="disabled"
                 :required="required"
                 :rules="rules"
     />
@@ -123,6 +131,7 @@
       <v-select
         :items="schema.oneOf"
         v-model="currentOneOf"
+        :disabled="disabled"
         item-value="title"
         item-text="title"
         return-object
@@ -173,7 +182,7 @@
     <div v-else-if="schema.type === 'array'">
       <v-layout row class="mt-4">
         <v-subheader>{{ label }}</v-subheader>
-        <v-btn icon color="primary" @click="modelWrapper[modelKey].push(schema.items.default || defaultValue(schema.items.type))">
+        <v-btn v-if="!disabled" icon color="primary" @click="modelWrapper[modelKey].push(schema.items.default || defaultValue(schema.items.type))">
           <v-icon>add</v-icon>
         </v-btn>
       </v-layout>
@@ -192,7 +201,7 @@
                             :options="options"
                             @error="e => $emit('error', e)"/>
                 </v-card-text>
-                <v-card-actions>
+                <v-card-actions v-if="!disabled">
                   <v-btn flat icon class="handle">
                     <v-icon>drag_handle</v-icon>
                   </v-btn>
@@ -263,6 +272,9 @@ export default {
     },
     itemTitle() {
       return this.schema['x-itemTitle'] || 'title'
+    },
+    disabled() {
+      return this.options.disableAll
     }
   },
   watch: {
