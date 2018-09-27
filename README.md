@@ -11,7 +11,7 @@ For a view of all the functionalities check the [demo](https://koumoul-dev.githu
 ```
 <template>
   <v-form v-model="formValid">
-    <v-jsonschema-form v-if="schema" :schema="schema" :model="dataObject" @error="showError" />
+    <v-jsonschema-form v-if="schema" :schema="schema" :model="dataObject" :options="options" @error="showError" />
   </v-form>
 </template>
 
@@ -33,7 +33,11 @@ export default {
     return {
       schema: {...},
       dataObject: {},
-      formValid: false
+      formValid: false,
+      options: {
+        debug: false,
+        disableAll: false
+      }
     }
   },
   methods: {
