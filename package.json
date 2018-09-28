@@ -43,6 +43,7 @@
     "hjson": "^3.1.1",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
+    "mini-css-extract-plugin": "^0.4.3",
     "property-expr": "^1.5.1",
     "style-loader": "^0.23.0",
     "vue": "^2.5.17",

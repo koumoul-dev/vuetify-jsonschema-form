@@ -1,5 +1,5 @@
 <template lang="html">
-  <div>
+  <div class="vjsf-property">
     <!-- Hide const ? Or make a readonly field -->
     <div v-if="schema.const !== undefined" />
 
@@ -374,16 +374,18 @@ export default {
 </script>
 
 <style lang="less">
-.array-card {
-  .v-card__text {
-    padding: 6px 16px 0 16px;
+.vjsf-property{
+  .array-card {
+    .v-card__text {
+      padding: 6px 16px 0 16px;
+    }
+    .v-card__actions {
+      padding: 0 16px 6px 16px;
+    }
   }
-  .v-card__actions {
-    padding: 0 16px 6px 16px;
-  }
-}
 
-.v-input--selection-controls {
-  margin-top: 0;
+  .v-input--selection-controls {
+    margin-top: 0;
+  }
 }
 </style>
