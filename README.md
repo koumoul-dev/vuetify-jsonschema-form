@@ -23,13 +23,18 @@ import 'vuetify/dist/vuetify.min.css'
 import Draggable from 'vuedraggable'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import Swatches from 'vue-swatches'
+import 'vue-swatches/dist/vue-swatches.min.css'
 import VJsonschemaForm from '@koumoul/vuetify-jsonschema-form'
 
 Vue.use(Vuetify)
 Vue.use(VueAxios, axios)
 
+Vue.component('swatches', Swatches)
+Vue.component('draggable', Draggable)
+
 export default {
-  components: {VJsonschemaForm, Draggable},
+  components: {VJsonschemaForm},
   data: function() {
     return {
       schema: {...},

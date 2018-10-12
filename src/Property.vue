@@ -234,13 +234,10 @@
 </template>
 
 <script>
-import Swatches from 'vue-swatches'
-import 'vue-swatches/dist/vue-swatches.min.css'
 const matchAll = require('match-all')
 
 export default {
   name: 'Property',
-  components: {Swatches},
   props: ['schema', 'modelWrapper', 'modelRoot', 'modelKey', 'parentKey', 'required', 'options'],
   data() {
     return {ready: false, menu: false, rawSelectItems: null, q: '', currentOneOf: null, fromUrlParams: {}}
