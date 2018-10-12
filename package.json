@@ -22,7 +22,8 @@
   "homepage": "https://github.com/koumoul-dev/vuetify-jsonschema-form#readme",
   "dependencies": {
     "match-all": "^1.2.4",
-    "vuedraggable": "^2.16.0"
+    "vuedraggable": "^2.16.0",
+    "vue-swatches": "^1.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.54",

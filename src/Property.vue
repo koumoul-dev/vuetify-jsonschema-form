@@ -32,6 +32,17 @@
       </v-date-picker>
     </v-menu>
 
+    <!-- Color picking -->
+    <v-input v-else-if="schema.format === 'hexcolor'"
+             :name="fullKey"
+             :label="label"
+             :hint="schema.description"
+             :required="required"
+             :rules="rules"
+             :disabled="disabled">
+      &nbsp;&nbsp;<swatches v-model="modelWrapper[modelKey]" :disabled="disabled" :colors="colors" :trigger-style="{width:'36px', height:'36px'}" shapes="circles" />
+    </v-input>
+
     <!-- Select field based on an enum -->
     <v-select v-else-if="schema.enum"
               :items="schema.enum"
@@ -223,13 +234,17 @@
 </template>
 
 <script>
+import Swatches from 'vue-swatches'
+import 'vue-swatches/dist/vue-swatches.min.css'
+import colors from './colors'
 const matchAll = require('match-all')
 
 export default {
   name: 'Property',
+  components: {Swatches},
   props: ['schema', 'modelWrapper', 'modelRoot', 'modelKey', 'parentKey', 'required', 'options'],
   data() {
-    return {ready: false, menu: false, rawSelectItems: null, q: '', currentOneOf: null, fromUrlParams: {}}
+    return {ready: false, menu: false, rawSelectItems: null, q: '', currentOneOf: null, fromUrlParams: {}, colors}
   },
   computed: {
     fullKey() { return (this.parentKey + this.modelKey).replace('root.', '') },
