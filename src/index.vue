@@ -14,6 +14,7 @@
 <script>
 import jrefs from './json-refs'
 import Property from './Property.vue'
+import colors from './colors'
 export default {
   name: 'VJsonschemaForm',
   components: {Property},
@@ -27,7 +28,7 @@ export default {
     },
     fullOptions() {
       const httpLib = this.axios || this.$http || this.$axios
-      return Object.assign({}, {debug: false, httpLib, disableAll: false}, this.options)
+      return Object.assign({}, {debug: false, httpLib, disableAll: false, colors}, this.options)
     }
   }
 }
