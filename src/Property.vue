@@ -198,7 +198,7 @@
         </v-btn>
       </v-layout>
 
-      <v-container grid-list-md>
+      <v-container v-if="modelWrapper[modelKey] && modelWrapper[modelKey].length" grid-list-md>
         <v-layout row wrap>
           <draggable v-model="modelWrapper[modelKey]" :options="{handle:'.handle'}" style="width: 100%;">
             <v-flex v-for="(itemModel, i) in modelWrapper[modelKey]" :key="i" xs12>
