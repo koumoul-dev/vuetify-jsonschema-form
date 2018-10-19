@@ -349,10 +349,17 @@ export default {
       // Watch the dynamic parts of the URL used to fill the select field
       if (this.fromUrlKeys) {
         this.fromUrlKeys.forEach(key => {
-          this.$watch('modelRoot.' + key, (val) => {
-            this.fromUrlParams[key] = val
-            if (this.fromUrl) this.getSelectItems()
-          }, {immediate: true})
+          if (key.startsWith('context.')) {
+            this.$watch('options.' + key, (val) => {
+              this.fromUrlParams[key] = val
+              if (this.fromUrl) this.getSelectItems()
+            }, {immediate: true})
+          } else {
+            this.$watch('modelRoot.' + key, (val) => {
+              this.fromUrlParams[key] = val
+              if (this.fromUrl) this.getSelectItems()
+            }, {immediate: true})
+          }
         })
       }
       // Case of an auto-complete field already defined

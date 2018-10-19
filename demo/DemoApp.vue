@@ -33,7 +33,7 @@
             </h2>
 
             <v-form v-model="formValid" lazy-validation>
-              <v-jsonschema-form v-if="schema" :schema="schema" :model="dataObject" :options="{debug: true, disableAll: false}" @error="e => window.alert(e)" />
+              <v-jsonschema-form v-if="schema" :schema="schema" :model="dataObject" :options="{debug: true, disableAll: false, context: {owner: {type: 'organization', id: '5a5dc47163ebd4a6f438589b'}}}" @error="e => window.alert(e)" />
             </v-form>
             <h2 class="title my-4">Data:</h2>
             <pre>{{ JSON.stringify(dataObject, null, 2) }}</pre>

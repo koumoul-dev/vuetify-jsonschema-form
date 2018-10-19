@@ -17,7 +17,8 @@ module.exports = {
       'fromAjaxString': {
         'type': 'string',
         'description': 'The values come from an HTTP request.',
-        'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&',
+        // 'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&owner={context.owner.type}:{context.owner.id}',
+        'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized',
         'x-itemsProp': 'results',
         'x-itemTitle': 'title',
         'x-itemKey': 'href'
