@@ -340,6 +340,11 @@ export default {
 
       // Case of a select based on ajax query
       if (this.fromUrl) this.getSelectItems()
+      // Case of an auto-complete field already defined
+      if (this.fromUrlWithQuery && this.modelWrapper[this.modelKey] && this.modelWrapper[this.modelKey][this.itemTitle] !== undefined) {
+        this.rawSelectItems = [this.modelWrapper[this.modelKey]]
+        this.q = this.modelWrapper[this.modelKey][this.itemTitle]
+      }
       // Case of a select based on an array somewhere in the data
       if (this.schema['x-fromData']) {
         this.$watch('modelRoot.' + this.schema['x-fromData'], (val) => {
@@ -361,11 +366,6 @@ export default {
             }, {immediate: true})
           }
         })
-      }
-      // Case of an auto-complete field already defined
-      if (this.fromUrlWithQuery && this.modelWrapper[this.modelKey] && this.modelWrapper[this.modelKey][this.itemTitle] !== undefined) {
-        this.rawSelectItems = [this.modelWrapper[this.modelKey]]
-        this.q = this.modelWrapper[this.modelKey][this.itemTitle]
       }
       // Fill oneOf items with shared elements
       if (this.schema.oneOf) {
