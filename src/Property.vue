@@ -307,7 +307,7 @@ export default {
     },
     getSelectItems() {
       if (!this.options.httpLib) return this.$emit('error', 'No http lib found to perform ajax request')
-      let url = this.schema['x-fromUrl'].replace('{q}', this.q)
+      let url = this.schema['x-fromUrl'].replace('{q}', this.q || '')
       for (let key of this.fromUrlKeys) {
         // URL parameters are incomplete
         if (this.fromUrlParams[key] === undefined) return
@@ -352,12 +352,12 @@ export default {
           if (key.startsWith('context.')) {
             this.$watch('options.' + key, (val) => {
               this.fromUrlParams[key] = val
-              if (this.fromUrl) this.getSelectItems()
+              this.getSelectItems()
             }, {immediate: true})
           } else {
             this.$watch('modelRoot.' + key, (val) => {
               this.fromUrlParams[key] = val
-              if (this.fromUrl) this.getSelectItems()
+              this.getSelectItems()
             }, {immediate: true})
           }
         })
