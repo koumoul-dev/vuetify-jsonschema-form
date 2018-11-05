@@ -3,6 +3,7 @@ module.exports = {
   schema: {
     'title': 'Person',
     'type': 'object',
+    required: ['gender'],
     'properties': {
       'gender': {
         'type': 'string',
@@ -11,7 +12,7 @@ module.exports = {
       },
       'genderWithTitles': {
         'type': 'string',
-        'description': "The person's gender with separate value and title.",
+        'description': "The person's gender with separate value and title. Also clearable, because not required.",
         oneOf: [{const: 'm', title: 'male'}, {const: 'f', title: 'female'}]
       },
       'fromAjaxString': {

@@ -22,6 +22,7 @@
         :hint="schema.description"
         :required="required"
         :rules="rules"
+        :clearable="!required"
         prepend-icon="event"
         readonly
       />
@@ -53,6 +54,7 @@
               :required="required"
               :rules="rules"
               :disabled="disabled"
+              :clearable="!required"
     />
 
     <!-- Select field based on a oneOf on a simple type -->
@@ -66,6 +68,7 @@
               :required="required"
               :disabled="disabled"
               :rules="rules"
+              :clearable="!required"
     />
 
     <!-- Select field on an ajax response -->
@@ -81,6 +84,7 @@
               :item-text="itemTitle"
               :item-value="itemKey"
               :return-object="schema.type === 'object'"
+              :clearable="!required"
     />
 
     <!-- auto-complete field on an ajax response with query -->
@@ -97,6 +101,7 @@
                     :item-text="itemTitle"
                     :item-value="itemKey"
                     :return-object="schema.type === 'object'"
+                    :clearable="!required"
                     placeholder="Search..."
     />
 
