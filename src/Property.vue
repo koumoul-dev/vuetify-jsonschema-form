@@ -100,6 +100,17 @@
                     placeholder="Search..."
     />
 
+    <!-- Long text field in a textarea -->
+    <v-textarea v-else-if="schema.type === 'string' && (schema.maxLength && schema.maxLength > 1000 && schema['x-display'] !== 'single-line')"
+                v-model="modelWrapper[modelKey]"
+                :name="fullKey"
+                :label="label"
+                :hint="schema.description"
+                :disabled="disabled"
+                :required="required"
+                :rules="rules"
+    />
+
     <!-- Simple text field -->
     <v-text-field v-else-if="schema.type === 'string'"
                   v-model="modelWrapper[modelKey]"

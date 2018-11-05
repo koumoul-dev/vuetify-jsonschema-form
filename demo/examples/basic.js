@@ -22,6 +22,17 @@ module.exports = {
         'description': 'Age in years which must be equal to or greater than zero.',
         'type': 'integer',
         'minimum': 0
+      },
+      'description': {
+        'description': 'A longer text for the description.',
+        'type': 'string',
+        'maxLength': 2000
+      },
+      'homepage': {
+        'description': 'A long string also, but display is forced on single line',
+        'type': 'string',
+        'maxLength': 2000,
+        'x-display': 'single-line'
       }
     }
   },
