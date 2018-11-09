@@ -231,7 +231,7 @@
                 </v-card-text>
                 <v-card-actions v-if="!disabled">
                   <v-btn flat icon class="handle">
-                    <v-icon>drag_handle</v-icon>
+                    <v-icon>reorder</v-icon>
                   </v-btn>
                   <v-spacer/>
                   <v-btn flat icon color="warning" @click="modelWrapper[modelKey].splice(i, 1)">
