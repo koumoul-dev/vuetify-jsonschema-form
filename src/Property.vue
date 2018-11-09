@@ -102,6 +102,7 @@
                     :item-value="itemKey"
                     :return-object="schema.type === 'object'"
                     :clearable="!required"
+                    :filter="() => true"
                     placeholder="Search..."
     />
 
