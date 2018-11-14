@@ -115,6 +115,7 @@
                 :disabled="disabled"
                 :required="required"
                 :rules="rules"
+                box
     />
 
     <!-- Simple text field -->
@@ -156,6 +157,7 @@
     <!-- Object sub container with a choice of schema base on oneOf -->
     <div v-else-if="schema.type === 'object' && schema.oneOf">
       <v-subheader v-if="schema.title" class="mt-4">{{ schema.title }}</v-subheader>
+      <p v-if="schema.description">{{ schema.description }}</p>
       <v-select
         :items="schema.oneOf"
         v-model="currentOneOf"
@@ -180,6 +182,7 @@
     <!-- Simple object sub container -->
     <div v-else-if="schema.type === 'object' && schema.properties">
       <v-subheader v-if="schema.title" class="mt-4">{{ schema.title }}</v-subheader>
+      <p v-if="schema.description">{{ schema.description }}</p>
       <property v-for="childKey in Object.keys(schema.properties)" :key="childKey"
                 :schema="schema.properties[childKey]"
                 :model-wrapper="modelWrapper[modelKey]"
@@ -195,6 +198,7 @@
     <!-- Tuples array sub container -->
     <div v-else-if="schema.type === 'array' && Array.isArray(schema.items)">
       <v-subheader v-if="schema.title" class="mt-4">{{ schema.title }}</v-subheader>
+      <p v-if="schema.description">{{ schema.description }}</p>
       <property v-for="(child, i) in schema.items" :key="i"
                 :schema="child"
                 :model-wrapper="modelWrapper[modelKey]"
@@ -210,6 +214,7 @@
     <div v-else-if="schema.type === 'array'">
       <v-layout row class="mt-4">
         <v-subheader>{{ label }}</v-subheader>
+        <p v-if="schema.description">{{ schema.description }}</p>
         <v-btn v-if="!disabled" icon color="primary" @click="modelWrapper[modelKey].push(schema.items.default || defaultValue(schema.items.type))">
           <v-icon>add</v-icon>
         </v-btn>
@@ -230,7 +235,7 @@
                             @error="e => $emit('error', e)"/>
                 </v-card-text>
                 <v-card-actions v-if="!disabled">
-                  <v-btn flat icon class="handle">
+                  <v-btn v-if="schema['x-sortable'] !== false" flat icon class="handle">
                     <v-icon>reorder</v-icon>
                   </v-btn>
                   <v-spacer/>
@@ -264,7 +269,7 @@ export default {
     label() { return this.schema.title || (typeof this.modelKey === 'string' ? this.modelKey : '') },
     rules() {
       const rules = []
-      if (this.required) rules.push((val) => (val !== undefined && val !== null && val) !== '' || '')
+      if (this.required) rules.push((val) => (val !== undefined && val !== null && val !== '') || this.options.requiredMessage)
       return rules
     },
     fromUrl() {
@@ -317,9 +322,9 @@ export default {
     this.initFromSchema()
   },
   methods: {
-    defaultValue(type) {
-      if (type === 'object') return {}
-      if (type === 'array') return []
+    defaultValue(schema) {
+      if (schema.type === 'object' && !schema['x-fromUrl'] && !schema['x-fromData']) return {}
+      if (schema.type === 'array') return []
       return null
     },
     getSelectItems() {
@@ -340,14 +345,14 @@ export default {
     initFromSchema() {
       // Manage default values
       if (this.modelWrapper[this.modelKey] === undefined) {
-        let def = this.defaultValue(this.schema.type)
+        let def = this.defaultValue(this.schema)
         if (this.schema.default !== undefined) def = this.schema.default
         this.$set(this.modelWrapper, this.modelKey, def)
       }
       // const always wins
       if (this.schema.const !== undefined) this.$set(this.modelWrapper, this.modelKey, this.schema.const)
       // cleanup extra properties
-      if (this.schema.type === 'object' && this.schema.properties) {
+      if (this.schema.type === 'object' && this.schema.properties && this.modelWrapper[this.modelKey]) {
         Object.keys(this.modelWrapper[this.modelKey]).forEach(key => {
           if (!this.schema.properties[key]) delete this.modelWrapper[this.modelKey][key]
         })

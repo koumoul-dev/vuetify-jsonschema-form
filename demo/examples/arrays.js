@@ -8,6 +8,7 @@ module.exports = {
     'properties': {
       'fruits': {
         'type': 'array',
+        'x-sortable': false,
         'items': {
           'type': 'string'
         }

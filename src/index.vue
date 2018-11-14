@@ -28,7 +28,13 @@ export default {
     },
     fullOptions() {
       const httpLib = this.axios || this.$http || this.$axios
-      return Object.assign({}, {debug: false, httpLib, disableAll: false, colors}, this.options)
+      return Object.assign({}, {
+        debug: false,
+        httpLib,
+        disableAll: false,
+        colors,
+        requiredMessage: 'This information is required'
+      }, this.options)
     }
   }
 }
