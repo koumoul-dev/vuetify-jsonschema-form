@@ -34,7 +34,8 @@ export default {
         disableAll: false,
         colors,
         requiredMessage: 'This information is required',
-        noDataMessage: 'No matching value found'
+        noDataMessage: 'No matching value found',
+        searchMessage: 'Search...'
       }, this.options)
     }
   }

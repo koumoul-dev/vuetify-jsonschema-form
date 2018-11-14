@@ -16,6 +16,8 @@ module.exports = {
         format: 'date-time'
       },
       'aHexColor': {
+        title: 'My color',
+        description: 'A hex color',
         'type': 'string',
         format: 'hexcolor'
       }

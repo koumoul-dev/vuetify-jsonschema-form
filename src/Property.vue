@@ -40,7 +40,8 @@
              :hint="schema.description"
              :required="required"
              :rules="rules"
-             :disabled="disabled">
+             :disabled="disabled"
+             persistent-hint>
       &nbsp;&nbsp;<swatches v-model="modelWrapper[modelKey]" :disabled="disabled" :colors="options.colors" :trigger-style="{width:'36px', height:'36px'}" shapes="circles" />
     </v-input>
 
@@ -51,7 +52,7 @@
               :name="fullKey"
               :label="label"
               :hint="schema.description"
-              :persistent-hint="true"
+              :persistent-hint="!modelWrapper[modelKey]"
               :required="required"
               :rules="rules"
               :disabled="disabled"
@@ -66,7 +67,7 @@
               :name="fullKey"
               :label="label"
               :hint="schema.description"
-              :persistent-hint="true"
+              :persistent-hint="!modelWrapper[modelKey]"
               :required="required"
               :disabled="disabled"
               :rules="rules"
@@ -80,7 +81,7 @@
               :name="fullKey"
               :label="label"
               :hint="schema.description"
-              :persistent-hint="true"
+              :persistent-hint="!modelWrapper[modelKey]"
               :no-data-text="options.noDataMessage"
               :disabled="disabled"
               :required="required"
@@ -89,6 +90,7 @@
               :item-value="itemKey"
               :return-object="schema.type === 'object'"
               :clearable="!required"
+              :loading="loading"
     />
 
     <!-- auto-complete field on an ajax response with query -->
@@ -99,7 +101,7 @@
                     :name="fullKey"
                     :label="label"
                     :hint="schema.description"
-                    :persistent-hint="true"
+                    :persistent-hint="!modelWrapper[modelKey]"
                     :no-data-text="options.noDataMessage"
                     :disabled="disabled"
                     :required="required"
@@ -109,7 +111,8 @@
                     :return-object="schema.type === 'object'"
                     :clearable="!required"
                     :filter="() => true"
-                    placeholder="Search..."
+                    :placeholder="options.searchMessage"
+                    :loading="loading"
     />
 
     <!-- Long text field in a textarea -->
@@ -268,7 +271,15 @@ export default {
   name: 'Property',
   props: ['schema', 'modelWrapper', 'modelRoot', 'modelKey', 'parentKey', 'required', 'options'],
   data() {
-    return {ready: false, menu: false, rawSelectItems: null, q: '', currentOneOf: null, fromUrlParams: {}}
+    return {
+      ready: false,
+      menu: false,
+      rawSelectItems: null,
+      q: '',
+      currentOneOf: null,
+      fromUrlParams: {},
+      loading: false
+    }
   },
   computed: {
     fullKey() { return (this.parentKey + this.modelKey).replace('root.', '') },
@@ -341,12 +352,19 @@ export default {
         if (this.fromUrlParams[key] === undefined) return
         else url = url.replace(`{${key}}`, this.fromUrlParams[key])
       }
-      this.options.httpLib.get(url).then(res => {
-        const body = res.data || res.body
-        const items = this.schema['x-itemsProp'] ? body[this.schema['x-itemsProp']] : body
-        if (!Array.isArray(items)) throw new Error(`Result of http fetch ${url} is not an array`)
-        this.rawSelectItems = items
-      }).catch(err => this.$emit('error', err.message))
+      this.loading = true
+      this.options.httpLib.get(url)
+        .then(res => {
+          const body = res.data || res.body
+          const items = this.schema['x-itemsProp'] ? body[this.schema['x-itemsProp']] : body
+          if (!Array.isArray(items)) throw new Error(`Result of http fetch ${url} is not an array`)
+          this.rawSelectItems = items
+          this.loading = false
+        })
+        .catch(err => {
+          this.$emit('error', err.message)
+          this.loading = false
+        })
     },
     initFromSchema() {
       // Manage default values
