@@ -33,7 +33,8 @@ export default {
         httpLib,
         disableAll: false,
         colors,
-        requiredMessage: 'This information is required'
+        requiredMessage: 'This information is required',
+        noDataMessage: 'No matching value found'
       }, this.options)
     }
   }
