@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
   mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
   entry: {
-    main: './src/index.vue',
+    main: './lib/index.vue',
     demo: './demo/index.js'
   },
   output: {

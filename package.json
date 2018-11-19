@@ -23,7 +23,8 @@
   "dependencies": {
     "match-all": "^1.2.4",
     "vuedraggable": "^2.16.0",
-    "vue-swatches": "^1.0.2"
+    "vue-swatches": "^1.0.2",
+    "property-expr": "^1.5.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.54",
@@ -42,10 +43,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^4.7.1",
     "hjson": "^3.1.1",
-    "less": "^3.8.1",
-    "less-loader": "^4.1.0",
     "mini-css-extract-plugin": "^0.4.3",
-    "property-expr": "^1.5.1",
     "style-loader": "^0.23.0",
     "vue": "^2.5.17",
     "vue-axios": "^2.1.3",

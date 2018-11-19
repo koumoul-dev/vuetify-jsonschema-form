@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import VJsonschemaForm from '../src/index.vue'
+import VJsonschemaForm from '../lib/index.vue'
 import examples from './examples'
 import hjson from 'hjson' // more tolerant parsing of the schema for easier UX
 
