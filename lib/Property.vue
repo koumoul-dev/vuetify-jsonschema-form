@@ -242,7 +242,7 @@
       <v-layout row class="mt-4">
         <v-subheader>{{ label }}</v-subheader>
         <p v-if="schema.description">{{ schema.description }}</p>
-        <v-btn v-if="!disabled" icon color="primary" @click="modelWrapper[modelKey].push(schema.items.default || defaultValue(schema.items.type))">
+        <v-btn v-if="!disabled" icon color="primary" @click="modelWrapper[modelKey].push(schema.items.default || defaultValue(schema.items))">
           <v-icon>add</v-icon>
         </v-btn>
       </v-layout>
