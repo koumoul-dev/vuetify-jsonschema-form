@@ -3,5 +3,6 @@ module.exports = [
   require('./arrays'),
   require('./pickers'),
   require('./validation'),
-  require('./selects')
+  require('./selects'),
+  require('./nested')
 ]

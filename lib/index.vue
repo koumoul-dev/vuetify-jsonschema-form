@@ -33,6 +33,7 @@ export default {
         httpLib,
         disableAll: false,
         colors,
+        autoFoldObjects: false,
         requiredMessage: 'This information is required',
         noDataMessage: 'No matching value found',
         searchMessage: 'Search...'

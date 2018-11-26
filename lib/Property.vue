@@ -190,33 +190,47 @@
 
     <!-- Simple object sub container -->
     <div v-else-if="schema.type === 'object' && schema.properties">
-      <v-subheader v-if="schema.title" class="mt-4">{{ schema.title }}</v-subheader>
-      <p v-if="schema.description">{{ schema.description }}</p>
-      <property v-for="childKey in Object.keys(schema.properties)" :key="childKey"
-                :schema="schema.properties[childKey]"
-                :model-wrapper="modelWrapper[modelKey]"
-                :model-root="modelRoot"
-                :model-key="childKey"
-                :parent-key="fullKey + '.'"
-                :required="!!(schema.required && schema.required.includes(childKey))"
-                :options="options"
-                @error="e => $emit('error', e)"
-      />
+      <v-subheader v-if="schema.title" :style="foldable ? 'cursor:pointer;' :'' " class="mt-4" @click="folded = !folded">
+        {{ schema.title }}
+        &nbsp;
+        <v-icon v-if="foldable && folded">unfold_more</v-icon>
+        <v-icon v-if="foldable && !folded">unfold_less</v-icon>
+      </v-subheader>
+      <template v-if="!foldable || !folded">
+        <p v-if="schema.description">{{ schema.description }}</p>
+        <property v-for="childKey in Object.keys(schema.properties)" :key="childKey"
+                  :schema="schema.properties[childKey]"
+                  :model-wrapper="modelWrapper[modelKey]"
+                  :model-root="modelRoot"
+                  :model-key="childKey"
+                  :parent-key="fullKey + '.'"
+                  :required="!!(schema.required && schema.required.includes(childKey))"
+                  :options="options"
+                  @error="e => $emit('error', e)"
+        />
+      </template>
     </div>
 
     <!-- Tuples array sub container -->
     <div v-else-if="schema.type === 'array' && Array.isArray(schema.items)">
-      <v-subheader v-if="schema.title" class="mt-4">{{ schema.title }}</v-subheader>
-      <p v-if="schema.description">{{ schema.description }}</p>
-      <property v-for="(child, i) in schema.items" :key="i"
-                :schema="child"
-                :model-wrapper="modelWrapper[modelKey]"
-                :model-root="modelRoot"
-                :model-key="i"
-                :parent-key="fullKey + '.'"
-                :options="options"
-                @error="e => $emit('error', e)"
-      />
+      <v-subheader v-if="schema.title" :style="foldable ? 'cursor:pointer;' :'' " class="mt-4" @click="folded = !folded">
+        {{ schema.title }}
+        &nbsp;
+        <v-icon v-if="foldable && folded">unfold_more</v-icon>
+        <v-icon v-if="foldable && !folded">unfold_less</v-icon>
+      </v-subheader>
+      <template v-if="!foldable || !folded">
+        <p v-if="schema.description">{{ schema.description }}</p>
+        <property v-for="(child, i) in schema.items" :key="i"
+                  :schema="child"
+                  :model-wrapper="modelWrapper[modelKey]"
+                  :model-root="modelRoot"
+                  :model-key="i"
+                  :parent-key="fullKey + '.'"
+                  :options="options"
+                  @error="e => $emit('error', e)"
+        />
+      </template>
     </div>
 
     <!-- Dynamic size array sub container -->
@@ -278,7 +292,8 @@ export default {
       q: '',
       currentOneOf: null,
       fromUrlParams: {},
-      loading: false
+      loading: false,
+      folded: true
     }
   },
   computed: {
@@ -323,6 +338,9 @@ export default {
     },
     disabled() {
       return this.options.disableAll
+    },
+    foldable() {
+      return this.options.autoFoldObjects && this.parentKey && this.schema.title
     }
   },
   watch: {

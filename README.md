@@ -42,7 +42,8 @@ export default {
       formValid: false,
       options: {
         debug: false,
-        disableAll: false
+        disableAll: false,
+        autoFoldObjects: true
       }
     }
   },
