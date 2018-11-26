@@ -196,19 +196,21 @@
         <v-icon v-if="foldable && folded">unfold_more</v-icon>
         <v-icon v-if="foldable && !folded">unfold_less</v-icon>
       </v-subheader>
-      <template v-if="!foldable || !folded">
-        <p v-if="schema.description">{{ schema.description }}</p>
-        <property v-for="childKey in Object.keys(schema.properties)" :key="childKey"
-                  :schema="schema.properties[childKey]"
-                  :model-wrapper="modelWrapper[modelKey]"
-                  :model-root="modelRoot"
-                  :model-key="childKey"
-                  :parent-key="fullKey + '.'"
-                  :required="!!(schema.required && schema.required.includes(childKey))"
-                  :options="options"
-                  @error="e => $emit('error', e)"
-        />
-      </template>
+      <v-slide-y-transition>
+        <div v-show="!foldable || !folded">
+          <p v-if="schema.description">{{ schema.description }}</p>
+          <property v-for="childKey in Object.keys(schema.properties)" :key="childKey"
+                    :schema="schema.properties[childKey]"
+                    :model-wrapper="modelWrapper[modelKey]"
+                    :model-root="modelRoot"
+                    :model-key="childKey"
+                    :parent-key="fullKey + '.'"
+                    :required="!!(schema.required && schema.required.includes(childKey))"
+                    :options="options"
+                    @error="e => $emit('error', e)"
+          />
+        </div>
+      </v-slide-y-transition>
     </div>
 
     <!-- Tuples array sub container -->
@@ -219,18 +221,20 @@
         <v-icon v-if="foldable && folded">unfold_more</v-icon>
         <v-icon v-if="foldable && !folded">unfold_less</v-icon>
       </v-subheader>
-      <template v-if="!foldable || !folded">
-        <p v-if="schema.description">{{ schema.description }}</p>
-        <property v-for="(child, i) in schema.items" :key="i"
-                  :schema="child"
-                  :model-wrapper="modelWrapper[modelKey]"
-                  :model-root="modelRoot"
-                  :model-key="i"
-                  :parent-key="fullKey + '.'"
-                  :options="options"
-                  @error="e => $emit('error', e)"
-        />
-      </template>
+      <v-slide-y-transition>
+        <div v-show="!foldable || !folded">
+          <p v-if="schema.description">{{ schema.description }}</p>
+          <property v-for="(child, i) in schema.items" :key="i"
+                    :schema="child"
+                    :model-wrapper="modelWrapper[modelKey]"
+                    :model-root="modelRoot"
+                    :model-key="i"
+                    :parent-key="fullKey + '.'"
+                    :options="options"
+                    @error="e => $emit('error', e)"
+          />
+        </div>
+      </v-slide-y-transition>
     </div>
 
     <!-- Dynamic size array sub container -->

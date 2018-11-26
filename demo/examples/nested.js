@@ -30,6 +30,10 @@ module.exports = {
         type: 'object',
         title: 'Other optional data',
         properties: {
+          alive: {
+            type: 'boolean',
+            default: true
+          },
           'age': {
             'description': 'Age in years which must be equal to or greater than zero.',
             'type': 'integer',
