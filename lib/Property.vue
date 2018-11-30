@@ -314,10 +314,17 @@ export default {
       if (fullSchema.dependencies) {
         Object.keys(fullSchema.dependencies).forEach(depKey => {
           const dep = fullSchema.dependencies[depKey]
-          if (this.modelWrapper[this.modelKey] && this.modelWrapper[this.modelKey][depKey]) {
-            if (dep.required) fullSchema.required = fullSchema.required ? fullSchema.required.concat(dep.required) : dep.required
-            if (dep.properties) fullSchema.properties = {...fullSchema.properties, ...dep.properties}
-          }
+
+          // cases where dependency does not apply
+          if (!this.modelWrapper[this.modelKey]) return
+          const val = this.getDeepKey(this.modelWrapper[this.modelKey], depKey)
+          if ([null, undefined].includes(val)) return
+          if (Array.isArray(val) && val.length === 0) return
+          if (typeof val === 'object' && Object.keys(val).length === 0) return
+
+          // dependency applies
+          if (dep.required) fullSchema.required = fullSchema.required ? fullSchema.required.concat(dep.required) : dep.required
+          if (dep.properties) fullSchema.properties = {...fullSchema.properties, ...dep.properties}
         })
       }
 
@@ -383,6 +390,14 @@ export default {
     }
   },
   methods: {
+    getDeepKey(obj, key) {
+      const keys = key.split('.')
+      for (let i = 0; i < keys.length; i++) {
+        obj = obj[keys[i]]
+        if ([null, undefined].includes(obj)) break
+      }
+      return obj
+    },
     defaultValue(schema) {
       if (schema.type === 'object' && !schema['x-fromUrl'] && !schema['x-fromData']) return {}
       if (schema.type === 'array') return []
@@ -471,8 +486,8 @@ export default {
       if (this.fullSchema.type === 'object' && this.fullSchema.oneOf) {
         if (this.modelWrapper[this.modelKey] && this.modelWrapper[this.modelKey][this.itemKey]) {
           this.currentOneOf = this.fullSchema.oneOf.find(item => item.properties[this.itemKey].const === this.modelWrapper[this.modelKey][this.itemKey])
-        } else {
-          this.currentOneOf = this.fullSchema.oneOf[0]
+        } else if (this.fulleSchema.default) {
+          this.currentOneOf = this.fullSchema.oneOf.find(item => item.properties[this.itemKey].const === this.fullSchema.default[this.itemKey])
         }
       }
     }
