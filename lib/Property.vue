@@ -165,9 +165,14 @@
 
     <!-- Object sub container with a choice of schema base on oneOf -->
     <div v-else-if="schema.type === 'object' && schema.oneOf">
-      <v-subheader v-if="schema.title" class="mt-4">{{ schema.title }}</v-subheader>
-      <p v-if="schema.description">{{ schema.description }}</p>
+      <!-- If there is a description with create a small header
+      otherwise we just set a label to the select -->
+      <template v-if="schema.description">
+        <v-subheader v-if="schema.title" class="mt-4">{{ schema.title }}</v-subheader>
+        <p v-if="schema.description">{{ schema.description }}</p>
+      </template>
       <v-select
+        :label="schema.description ? null : label"
         :items="schema.oneOf"
         v-model="currentOneOf"
         :disabled="disabled"

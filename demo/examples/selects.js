@@ -90,6 +90,35 @@ module.exports = {
             }
           }
         }]
+      },
+      chartDef2: {
+        title: 'Same without large header',
+        type: 'object',
+        'x-itemKey': 'type',
+        oneOf: [{
+          title: 'Bar chart',
+          properties: {
+            type: {
+              const: 'bar'
+            },
+            xLabel: {
+              type: 'string'
+            },
+            yLabel: {
+              type: 'string'
+            }
+          }
+        }, {
+          title: 'Pie chart',
+          properties: {
+            type: {
+              const: 'pie'
+            },
+            diameter: {
+              type: 'integer'
+            }
+          }
+        }]
       }
     }
   },
