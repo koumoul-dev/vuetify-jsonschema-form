@@ -1,10 +1,11 @@
 <template lang="html">
-  <div class="vjsf-property">
+  <div v-if="fullSchema" class="vjsf-property">
+
     <!-- Hide const ? Or make a readonly field -->
-    <div v-if="schema.const !== undefined" />
+    <div v-if="fullSchema.const !== undefined" />
 
     <!-- Date picker -->
-    <v-menu v-else-if="schema.type === 'string' && ['date', 'date-time'].includes(schema.format)" ref="menu" :close-on-content-click="false" v-model="menu"
+    <v-menu v-else-if="fullSchema.type === 'string' && ['date', 'date-time'].includes(fullSchema.format)" ref="menu" :close-on-content-click="false" v-model="menu"
             :nudge-right="40"
             :return-value.sync="modelWrapper[modelKey]"
             :disabled="disabled"
@@ -19,7 +20,7 @@
         v-model="modelWrapper[modelKey]"
         :label="label"
         :name="fullKey"
-        :hint="schema.description"
+        :hint="fullSchema.description"
         :required="required"
         :rules="rules"
         :clearable="!required"
@@ -34,10 +35,10 @@
     </v-menu>
 
     <!-- Color picking -->
-    <v-input v-else-if="schema.format === 'hexcolor'"
+    <v-input v-else-if="fullSchema.format === 'hexcolor'"
              :name="fullKey"
              :label="label"
-             :hint="schema.description"
+             :hint="fullSchema.description"
              :required="required"
              :rules="rules"
              :disabled="disabled"
@@ -46,12 +47,12 @@
     </v-input>
 
     <!-- Select field based on an enum -->
-    <v-select v-else-if="schema.enum"
-              :items="schema.enum"
+    <v-select v-else-if="fullSchema.enum"
+              :items="fullSchema.enum"
               v-model="modelWrapper[modelKey]"
               :name="fullKey"
               :label="label"
-              :hint="schema.description"
+              :hint="fullSchema.description"
               :persistent-hint="!modelWrapper[modelKey]"
               :required="required"
               :rules="rules"
@@ -60,13 +61,13 @@
     />
 
     <!-- Select field based on a oneOf on a simple type -->
-    <!-- cf https://github.com/mozilla-services/react-jsonschema-form/issues/532 -->
-    <v-select v-else-if="['string', 'integer', 'number'].includes(schema.type) && schema.oneOf"
-              :items="schema.oneOf.map(item => ({value: item.const || (item.enum && item.enum[0]), text: item.title}))"
+    <!-- cf https://github.com/mozilla-services/react-jsonfullSchema-form/issues/532 -->
+    <v-select v-else-if="['string', 'integer', 'number'].includes(fullSchema.type) && fullSchema.oneOf"
+              :items="fullSchema.oneOf.map(item => ({value: item.const || (item.enum && item.enum[0]), text: item.title}))"
               v-model="modelWrapper[modelKey]"
               :name="fullKey"
               :label="label"
-              :hint="schema.description"
+              :hint="fullSchema.description"
               :persistent-hint="!modelWrapper[modelKey]"
               :required="required"
               :disabled="disabled"
@@ -75,12 +76,12 @@
     />
 
     <!-- Select field on an ajax response -->
-    <v-select v-else-if="fromUrl || schema['x-fromData']"
+    <v-select v-else-if="fromUrl || fullSchema['x-fromData']"
               :items="selectItems"
               v-model="modelWrapper[modelKey]"
               :name="fullKey"
               :label="label"
-              :hint="schema.description"
+              :hint="fullSchema.description"
               :persistent-hint="!modelWrapper[modelKey]"
               :no-data-text="options.noDataMessage"
               :disabled="disabled"
@@ -88,7 +89,7 @@
               :rules="rules"
               :item-text="itemTitle"
               :item-value="itemKey"
-              :return-object="schema.type === 'object'"
+              :return-object="fullSchema.type === 'object'"
               :clearable="!required"
               :loading="loading"
     />
@@ -100,7 +101,7 @@
                     v-model="modelWrapper[modelKey]"
                     :name="fullKey"
                     :label="label"
-                    :hint="schema.description"
+                    :hint="fullSchema.description"
                     :persistent-hint="!modelWrapper[modelKey]"
                     :no-data-text="options.noDataMessage"
                     :disabled="disabled"
@@ -108,7 +109,7 @@
                     :rules="rules"
                     :item-text="itemTitle"
                     :item-value="itemKey"
-                    :return-object="schema.type === 'object'"
+                    :return-object="fullSchema.type === 'object'"
                     :clearable="!required"
                     :filter="() => true"
                     :placeholder="options.searchMessage"
@@ -116,11 +117,11 @@
     />
 
     <!-- Long text field in a textarea -->
-    <v-textarea v-else-if="schema.type === 'string' && (schema.maxLength && schema.maxLength > 1000 && schema['x-display'] !== 'single-line')"
+    <v-textarea v-else-if="fullSchema.type === 'string' && (fullSchema.maxLength && fullSchema.maxLength > 1000 && fullSchema['x-display'] !== 'single-line')"
                 v-model="modelWrapper[modelKey]"
                 :name="fullKey"
                 :label="label"
-                :hint="schema.description"
+                :hint="fullSchema.description"
                 :disabled="disabled"
                 :required="required"
                 :rules="rules"
@@ -128,52 +129,52 @@
     />
 
     <!-- Simple text field -->
-    <v-text-field v-else-if="schema.type === 'string'"
+    <v-text-field v-else-if="fullSchema.type === 'string'"
                   v-model="modelWrapper[modelKey]"
                   :name="fullKey"
                   :label="label"
-                  :hint="schema.description"
+                  :hint="fullSchema.description"
                   :disabled="disabled"
                   :required="required"
                   :rules="rules"
     />
 
     <!-- Simple number fields -->
-    <v-text-field v-else-if="schema.type === 'number' || schema.type === 'integer'"
+    <v-text-field v-else-if="fullSchema.type === 'number' || fullSchema.type === 'integer'"
                   v-model.number="modelWrapper[modelKey]"
                   :name="fullKey"
                   :label="label"
-                  :hint="schema.description"
-                  :min="schema.minimum"
-                  :max="schema.maximum"
-                  :step="schema.type === 'integer' ? 1 : 0.01"
+                  :hint="fullSchema.description"
+                  :min="fullSchema.minimum"
+                  :max="fullSchema.maximum"
+                  :step="fullSchema.type === 'integer' ? 1 : 0.01"
                   :disabled="disabled"
                   :required="required"
                   :rules="rules"
                   type="number"/>
 
     <!-- Simple boolean field -->
-    <v-checkbox v-else-if="schema.type === 'boolean'"
+    <v-checkbox v-else-if="fullSchema.type === 'boolean'"
                 v-model="modelWrapper[modelKey]"
                 :label="label"
                 :name="fullKey"
-                :hint="schema.description"
+                :hint="fullSchema.description"
                 :disabled="disabled"
                 :required="required"
                 :rules="rules"
     />
 
-    <!-- Object sub container with a choice of schema base on oneOf -->
-    <div v-else-if="schema.type === 'object' && schema.oneOf">
+    <!-- Object sub container with a choice of fullSchema base on oneOf -->
+    <div v-else-if="fullSchema.type === 'object' && fullSchema.oneOf">
       <!-- If there is a description with create a small header
       otherwise we just set a label to the select -->
-      <template v-if="schema.description">
-        <v-subheader v-if="schema.title" class="mt-4">{{ schema.title }}</v-subheader>
-        <p v-if="schema.description">{{ schema.description }}</p>
+      <template v-if="fullSchema.description">
+        <v-subheader v-if="fullSchema.title" class="mt-4">{{ fullSchema.title }}</v-subheader>
+        <p v-if="fullSchema.description">{{ fullSchema.description }}</p>
       </template>
       <v-select
-        :label="schema.description ? null : label"
-        :items="schema.oneOf"
+        :label="fullSchema.description ? null : label"
+        :items="fullSchema.oneOf"
         v-model="currentOneOf"
         :disabled="disabled"
         item-value="title"
@@ -194,23 +195,23 @@
     </div>
 
     <!-- Simple object sub container -->
-    <div v-else-if="schema.type === 'object' && schema.properties">
-      <v-subheader v-if="schema.title" :style="foldable ? 'cursor:pointer;' :'' " class="mt-4" @click="folded = !folded">
-        {{ schema.title }}
+    <div v-else-if="fullSchema.type === 'object' && fullSchema.properties">
+      <v-subheader v-if="fullSchema.title" :style="foldable ? 'cursor:pointer;' :'' " class="mt-4" @click="folded = !folded">
+        {{ fullSchema.title }}
         &nbsp;
         <v-icon v-if="foldable && folded">unfold_more</v-icon>
         <v-icon v-if="foldable && !folded">unfold_less</v-icon>
       </v-subheader>
       <v-slide-y-transition>
         <div v-show="!foldable || !folded">
-          <p v-if="schema.description">{{ schema.description }}</p>
-          <property v-for="childKey in Object.keys(schema.properties)" :key="childKey"
-                    :schema="schema.properties[childKey]"
+          <p v-if="fullSchema.description">{{ fullSchema.description }}</p>
+          <property v-for="childKey in Object.keys(fullSchema.properties)" :key="childKey"
+                    :schema="fullSchema.properties[childKey]"
                     :model-wrapper="modelWrapper[modelKey]"
                     :model-root="modelRoot"
                     :model-key="childKey"
                     :parent-key="fullKey + '.'"
-                    :required="!!(schema.required && schema.required.includes(childKey))"
+                    :required="!!(fullSchema.required && fullSchema.required.includes(childKey))"
                     :options="options"
                     @error="e => $emit('error', e)"
           />
@@ -219,17 +220,17 @@
     </div>
 
     <!-- Tuples array sub container -->
-    <div v-else-if="schema.type === 'array' && Array.isArray(schema.items)">
-      <v-subheader v-if="schema.title" :style="foldable ? 'cursor:pointer;' :'' " class="mt-4" @click="folded = !folded">
-        {{ schema.title }}
+    <div v-else-if="fullSchema.type === 'array' && Array.isArray(fullSchema.items)">
+      <v-subheader v-if="fullSchema.title" :style="foldable ? 'cursor:pointer;' :'' " class="mt-4" @click="folded = !folded">
+        {{ fullSchema.title }}
         &nbsp;
         <v-icon v-if="foldable && folded">unfold_more</v-icon>
         <v-icon v-if="foldable && !folded">unfold_less</v-icon>
       </v-subheader>
       <v-slide-y-transition>
         <div v-show="!foldable || !folded">
-          <p v-if="schema.description">{{ schema.description }}</p>
-          <property v-for="(child, i) in schema.items" :key="i"
+          <p v-if="fullSchema.description">{{ fullSchema.description }}</p>
+          <property v-for="(child, i) in fullSchema.items" :key="i"
                     :schema="child"
                     :model-wrapper="modelWrapper[modelKey]"
                     :model-root="modelRoot"
@@ -243,11 +244,11 @@
     </div>
 
     <!-- Dynamic size array sub container -->
-    <div v-else-if="schema.type === 'array'">
+    <div v-else-if="fullSchema.type === 'array'">
       <v-layout row class="mt-4">
         <v-subheader>{{ label }}</v-subheader>
-        <p v-if="schema.description">{{ schema.description }}</p>
-        <v-btn v-if="!disabled" icon color="primary" @click="modelWrapper[modelKey].push(schema.items.default || defaultValue(schema.items))">
+        <p v-if="fullSchema.description">{{ fullSchema.description }}</p>
+        <v-btn v-if="!disabled" icon color="primary" @click="modelWrapper[modelKey].push(fullSchema.items.default || defaultValue(fullSchema.items))">
           <v-icon>add</v-icon>
         </v-btn>
       </v-layout>
@@ -258,7 +259,7 @@
             <v-flex v-for="(itemModel, i) in modelWrapper[modelKey]" :key="i" xs12>
               <v-card class="array-card">
                 <v-card-text>
-                  <property :schema="schema.items"
+                  <property :schema="fullSchema.items"
                             :model-wrapper="modelWrapper[modelKey]"
                             :model-root="modelRoot"
                             :model-key="i"
@@ -267,7 +268,7 @@
                             @error="e => $emit('error', e)"/>
                 </v-card-text>
                 <v-card-actions v-if="!disabled">
-                  <v-btn v-if="schema['x-sortable'] !== false" flat icon class="handle">
+                  <v-btn v-if="fullSchema['x-sortable'] !== false" flat icon class="handle">
                     <v-icon>reorder</v-icon>
                   </v-btn>
                   <v-spacer/>
@@ -283,7 +284,7 @@
 
     </div>
 
-    <p v-else-if="options.debug">Unsupported type "{{ schema.type }}"</p>
+    <p v-else-if="options.debug">Unsupported type "{{ fullSchema.type }}"</p>
   </div>
 </template>
 
@@ -306,28 +307,44 @@ export default {
     }
   },
   computed: {
+    fullSchema() {
+      const fullSchema = {...this.schema}
+
+      // Extend schema based on satisfied dependencies
+      if (fullSchema.dependencies) {
+        Object.keys(fullSchema.dependencies).forEach(depKey => {
+          const dep = fullSchema.dependencies[depKey]
+          if (this.modelWrapper[this.modelKey] && this.modelWrapper[this.modelKey][depKey]) {
+            if (dep.required) fullSchema.required = fullSchema.required ? fullSchema.required.concat(dep.required) : dep.required
+            if (dep.properties) fullSchema.properties = {...fullSchema.properties, ...dep.properties}
+          }
+        })
+      }
+
+      return fullSchema
+    },
     fullKey() { return (this.parentKey + this.modelKey).replace('root.', '') },
-    label() { return this.schema.title || (typeof this.modelKey === 'string' ? this.modelKey : '') },
+    label() { return this.fullSchema.title || (typeof this.modelKey === 'string' ? this.modelKey : '') },
     rules() {
       const rules = []
       if (this.required) rules.push((val) => (val !== undefined && val !== null && val !== '') || this.options.requiredMessage)
       return rules
     },
     fromUrl() {
-      return !!(this.schema['x-fromUrl'] && this.schema['x-fromUrl'].indexOf('{q}') === -1)
+      return !!(this.fullSchema['x-fromUrl'] && this.fullSchema['x-fromUrl'].indexOf('{q}') === -1)
     },
     fromUrlWithQuery() {
-      return !!(this.schema['x-fromUrl'] && this.schema['x-fromUrl'].indexOf('{q}') !== -1)
+      return !!(this.fullSchema['x-fromUrl'] && this.fullSchema['x-fromUrl'].indexOf('{q}') !== -1)
     },
     fromUrlKeys() {
       // Look for variable parts in the URL used to fetch data
-      if (!this.schema['x-fromUrl']) return null
-      return matchAll(this.schema['x-fromUrl'], /\{(.*?)\}/g).toArray().filter(key => key !== 'q')
+      if (!this.fullSchema['x-fromUrl']) return null
+      return matchAll(this.fullSchema['x-fromUrl'], /\{(.*?)\}/g).toArray().filter(key => key !== 'q')
     },
     selectItems() {
       if (!this.rawSelectItems) return []
-      if (this.schema.type === 'object' && this.schema.properties) {
-        const keys = Object.keys(this.schema.properties)
+      if (this.fullSchema.type === 'object' && this.fullSchema.properties) {
+        const keys = Object.keys(this.fullSchema.properties)
         return this.rawSelectItems.map(item => {
           const filteredItem = {}
           keys.forEach(key => {
@@ -340,16 +357,16 @@ export default {
       }
     },
     itemKey() {
-      return this.schema['x-itemKey'] || 'key'
+      return this.fullSchema['x-itemKey'] || 'key'
     },
     itemTitle() {
-      return this.schema['x-itemTitle'] || 'title'
+      return this.fullSchema['x-itemTitle'] || 'title'
     },
     disabled() {
       return this.options.disableAll
     },
     foldable() {
-      return this.options.autoFoldObjects && this.parentKey && this.schema.title
+      return this.options.autoFoldObjects && this.parentKey && this.fullSchema.title
     }
   },
   watch: {
@@ -358,12 +375,12 @@ export default {
       if (this.modelWrapper[this.modelKey] && this.modelWrapper[this.modelKey][this.itemTitle] === this.q) return
       this.getSelectItems()
     },
-    schema() {
-      this.initFromSchema()
+    fullSchema: {
+      handler() {
+        if (this.fullSchema) this.initFromSchema()
+      },
+      immediate: true
     }
-  },
-  created() {
-    this.initFromSchema()
   },
   methods: {
     defaultValue(schema) {
@@ -373,7 +390,7 @@ export default {
     },
     getSelectItems() {
       if (!this.options.httpLib) return this.$emit('error', 'No http lib found to perform ajax request')
-      let url = this.schema['x-fromUrl'].replace('{q}', this.q || '')
+      let url = this.fullSchema['x-fromUrl'].replace('{q}', this.q || '')
       for (let key of this.fromUrlKeys) {
         // URL parameters are incomplete
         if (this.fromUrlParams[key] === undefined) return
@@ -383,7 +400,7 @@ export default {
       this.options.httpLib.get(url)
         .then(res => {
           const body = res.data || res.body
-          const items = this.schema['x-itemsProp'] ? body[this.schema['x-itemsProp']] : body
+          const items = this.fullSchema['x-itemsProp'] ? body[this.fullSchema['x-itemsProp']] : body
           if (!Array.isArray(items)) throw new Error(`Result of http fetch ${url} is not an array`)
           this.rawSelectItems = items
           this.loading = false
@@ -396,16 +413,16 @@ export default {
     initFromSchema() {
       // Manage default values
       if (this.modelWrapper[this.modelKey] === undefined) {
-        let def = this.defaultValue(this.schema)
-        if (this.schema.default !== undefined) def = this.schema.default
+        let def = this.defaultValue(this.fullSchema)
+        if (this.fullSchema.default !== undefined) def = this.fullSchema.default
         this.$set(this.modelWrapper, this.modelKey, def)
       }
       // const always wins
-      if (this.schema.const !== undefined) this.$set(this.modelWrapper, this.modelKey, this.schema.const)
+      if (this.fullSchema.const !== undefined) this.$set(this.modelWrapper, this.modelKey, this.fullSchema.const)
       // cleanup extra properties
-      if (this.schema.type === 'object' && this.schema.properties && this.modelWrapper[this.modelKey]) {
+      if (this.fullSchema.type === 'object' && this.fullSchema.properties && this.modelWrapper[this.modelKey]) {
         Object.keys(this.modelWrapper[this.modelKey]).forEach(key => {
-          if (!this.schema.properties[key]) delete this.modelWrapper[this.modelKey][key]
+          if (!this.fullSchema.properties[key]) delete this.modelWrapper[this.modelKey][key]
         })
       }
 
@@ -419,8 +436,8 @@ export default {
         this.q = this.modelWrapper[this.modelKey][this.itemTitle]
       }
       // Case of a select based on an array somewhere in the data
-      if (this.schema['x-fromData']) {
-        this.$watch('modelRoot.' + this.schema['x-fromData'], (val) => {
+      if (this.fullSchema['x-fromData']) {
+        this.$watch('modelRoot.' + this.fullSchema['x-fromData'], (val) => {
           this.rawSelectItems = val
         }, {immediate: true})
       }
@@ -441,21 +458,21 @@ export default {
         })
       }
       // Fill oneOf items with shared elements
-      if (this.schema.oneOf) {
-        this.schema.oneOf.forEach(item => {
-          item.title = item.title || this.schema.title
-          item.type = item.type || this.schema.type
-          if (item.properties || this.schema.properties) {
-            item.properties = {...this.schema.properties, ...item.properties}
+      if (this.fullSchema.oneOf) {
+        this.fullSchema.oneOf.forEach(item => {
+          item.title = item.title || this.fullSchema.title
+          item.type = item.type || this.fullSchema.type
+          if (item.properties || this.fullSchema.properties) {
+            item.properties = {...this.fullSchema.properties, ...item.properties}
           }
         })
       }
       // Case of a sub type selection based on a oneOf
-      if (this.schema.type === 'object' && this.schema.oneOf) {
+      if (this.fullSchema.type === 'object' && this.fullSchema.oneOf) {
         if (this.modelWrapper[this.modelKey] && this.modelWrapper[this.modelKey][this.itemKey]) {
-          this.currentOneOf = this.schema.oneOf.find(item => item.properties[this.itemKey].const === this.modelWrapper[this.modelKey][this.itemKey])
+          this.currentOneOf = this.fullSchema.oneOf.find(item => item.properties[this.itemKey].const === this.modelWrapper[this.modelKey][this.itemKey])
         } else {
-          this.currentOneOf = this.schema.oneOf[0]
+          this.currentOneOf = this.fullSchema.oneOf[0]
         }
       }
     }

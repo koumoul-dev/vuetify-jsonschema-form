@@ -4,5 +4,6 @@ module.exports = [
   require('./pickers'),
   require('./validation'),
   require('./selects'),
-  require('./nested')
+  require('./nested'),
+  require('./dependencies')
 ]
