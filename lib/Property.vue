@@ -46,9 +46,9 @@
       &nbsp;&nbsp;<swatches v-model="modelWrapper[modelKey]" :disabled="disabled" :colors="options.colors" :trigger-style="{width:'36px', height:'36px'}" shapes="circles" />
     </v-input>
 
-    <!-- Select field based on an enum -->
-    <v-select v-else-if="fullSchema.enum"
-              :items="fullSchema.enum"
+    <!-- Select field based on an enum (array or simple value) -->
+    <v-select v-else-if="(fullSchema.type === 'array' && fullSchema.items.enum) || fullSchema.enum"
+              :items="fullSchema.type === 'array' ? fullSchema.items.enum : fullSchema.enum"
               v-model="modelWrapper[modelKey]"
               :name="fullKey"
               :label="label"
@@ -58,12 +58,13 @@
               :rules="rules"
               :disabled="disabled"
               :clearable="!required"
+              :multiple="fullSchema.type === 'array'"
     />
 
-    <!-- Select field based on a oneOf on a simple type -->
+    <!-- Select field based on a oneOf on a simple type (array or simple value) -->
     <!-- cf https://github.com/mozilla-services/react-jsonfullSchema-form/issues/532 -->
-    <v-select v-else-if="['string', 'integer', 'number'].includes(fullSchema.type) && fullSchema.oneOf"
-              :items="fullSchema.oneOf.map(item => ({value: item.const || (item.enum && item.enum[0]), text: item.title}))"
+    <v-select v-else-if="(fullSchema.type === 'array' && ['string', 'integer', 'number'].includes(fullSchema.items.type) && fullSchema.items.oneOf) || (['string', 'integer', 'number'].includes(fullSchema.type) && fullSchema.oneOf)"
+              :items="(fullSchema.type === 'array' ? fullSchema.items : fullSchema).oneOf.map(item => ({value: item.const || (item.enum && item.enum[0]), text: item.title}))"
               v-model="modelWrapper[modelKey]"
               :name="fullKey"
               :label="label"
@@ -73,6 +74,7 @@
               :disabled="disabled"
               :rules="rules"
               :clearable="!required"
+              :multiple="fullSchema.type === 'array'"
     />
 
     <!-- Select field on an ajax response -->
@@ -89,9 +91,10 @@
               :rules="rules"
               :item-text="itemTitle"
               :item-value="itemKey"
-              :return-object="fullSchema.type === 'object'"
+              :return-object="(fullSchema.type === 'array' && fullSchema.items.type === 'object') || fullSchema.type === 'object'"
               :clearable="!required"
               :loading="loading"
+              :multiple="fullSchema.type === 'array'"
     />
 
     <!-- auto-complete field on an ajax response with query -->
@@ -109,11 +112,12 @@
                     :rules="rules"
                     :item-text="itemTitle"
                     :item-value="itemKey"
-                    :return-object="fullSchema.type === 'object'"
+                    :return-object="(fullSchema.type === 'array' && fullSchema.items.type === 'object') || fullSchema.type === 'object'"
                     :clearable="!required"
                     :filter="() => true"
                     :placeholder="options.searchMessage"
                     :loading="loading"
+                    :multiple="fullSchema.type === 'array'"
     />
 
     <!-- Long text field in a textarea -->
@@ -163,6 +167,32 @@
                 :required="required"
                 :rules="rules"
     />
+
+    <!-- Simple strings array -->
+    <v-combobox
+      v-else-if="fullSchema.type === 'array' && fullSchema.items.type === 'string'"
+      v-model="modelWrapper[modelKey]"
+      :name="fullKey"
+      :label="label"
+      :hint="fullSchema.description"
+      :persistent-hint="!modelWrapper[modelKey]"
+      :required="required"
+      :rules="rules"
+      :disabled="disabled"
+      chips
+      multiple
+      append-icon=""
+    >
+      <template slot="selection" slot-scope="data">
+        <v-chip
+          :selected="data.selected"
+          close
+          @input="modelWrapper[modelKey].splice(modelWrapper[modelKey].indexOf(data.item))"
+        >
+          {{ data.item }}
+        </v-chip>
+      </template>
+    </v-combobox>
 
     <!-- Object sub container with a choice of fullSchema base on oneOf -->
     <div v-else-if="fullSchema.type === 'object' && fullSchema.oneOf">
@@ -243,7 +273,7 @@
       </v-slide-y-transition>
     </div>
 
-    <!-- Dynamic size array sub container -->
+    <!-- Dynamic size array of complex types sub container -->
     <div v-else-if="fullSchema.type === 'array'">
       <v-layout row class="mt-4">
         <v-subheader>{{ label }}</v-subheader>
@@ -486,7 +516,7 @@ export default {
       if (this.fullSchema.type === 'object' && this.fullSchema.oneOf) {
         if (this.modelWrapper[this.modelKey] && this.modelWrapper[this.modelKey][this.itemKey]) {
           this.currentOneOf = this.fullSchema.oneOf.find(item => item.properties[this.itemKey].const === this.modelWrapper[this.modelKey][this.itemKey])
-        } else if (this.fulleSchema.default) {
+        } else if (this.fullSchema.default) {
           this.currentOneOf = this.fullSchema.oneOf.find(item => item.properties[this.itemKey].const === this.fullSchema.default[this.itemKey])
         }
       }

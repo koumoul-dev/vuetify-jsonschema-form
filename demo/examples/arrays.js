@@ -8,9 +8,15 @@ module.exports = {
     'properties': {
       'fruits': {
         'type': 'array',
-        'x-sortable': false,
         'items': {
           'type': 'string'
+        }
+      },
+      'sizes': {
+        'type': 'array',
+        'items': {
+          'type': 'string',
+          enum: ['small', 'medium', 'large']
         }
       },
       'vegetables': {
