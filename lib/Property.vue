@@ -194,38 +194,8 @@
       </template>
     </v-combobox>
 
-    <!-- Object sub container with a choice of fullSchema base on oneOf -->
-    <div v-else-if="fullSchema.type === 'object' && fullSchema.oneOf">
-      <!-- If there is a description with create a small header
-      otherwise we just set a label to the select -->
-      <template v-if="fullSchema.description">
-        <v-subheader v-if="fullSchema.title" class="mt-4">{{ fullSchema.title }}</v-subheader>
-        <p v-if="fullSchema.description">{{ fullSchema.description }}</p>
-      </template>
-      <v-select
-        :label="fullSchema.description ? null : label"
-        :items="fullSchema.oneOf"
-        v-model="currentOneOf"
-        :disabled="disabled"
-        item-value="title"
-        item-text="title"
-        return-object
-      />
-      <div v-if="currentOneOf">
-        <property
-          :schema="Object.assign({}, currentOneOf, {title: null})"
-          :model-wrapper="modelWrapper"
-          :model-root="modelRoot"
-          :model-key="modelKey"
-          :parent-key="parentKey"
-          :options="options"
-          @error="e => $emit('error', e)"
-        />
-      </div>
-    </div>
-
-    <!-- Simple object sub container -->
-    <div v-else-if="fullSchema.type === 'object' && fullSchema.properties">
+    <!-- Object sub container with properties that may include a select based on a oneOf and subparts base on a allOf -->
+    <div v-else-if="fullSchema.type === 'object' && fullSchema.properties && fullSchema.properties.length">
       <v-subheader v-if="fullSchema.title" :style="foldable ? 'cursor:pointer;' :'' " class="mt-4" @click="folded = !folded">
         {{ fullSchema.title }}
         &nbsp;
@@ -235,16 +205,52 @@
       <v-slide-y-transition>
         <div v-show="!foldable || !folded">
           <p v-if="fullSchema.description">{{ fullSchema.description }}</p>
-          <property v-for="childKey in Object.keys(fullSchema.properties)" :key="childKey"
-                    :schema="fullSchema.properties[childKey]"
+          <property v-for="childProp in fullSchema.properties" :key="childProp.key"
+                    :schema="childProp"
                     :model-wrapper="modelWrapper[modelKey]"
                     :model-root="modelRoot"
-                    :model-key="childKey"
+                    :model-key="childProp.key"
                     :parent-key="fullKey + '.'"
-                    :required="!!(fullSchema.required && fullSchema.required.includes(childKey))"
+                    :required="!!(fullSchema.required && fullSchema.required.includes(childProp.key))"
                     :options="options"
                     @error="e => $emit('error', e)"
           />
+
+          {{ fullSchema.allOf }}
+          <!--
+          <property
+            v-for="(currentAllOf, i) in (fullSchema.allOf || [])" :key="i"
+            :schema="Object.assign({}, currentAllOf, {type: 'object'})"
+            :model-wrapper="modelWrapper"
+            :model-root="modelRoot"
+            :model-key="modelKey"
+            :parent-key="parentKey"
+            :options="options"
+            @error="e => $emit('error', e)"
+          />
+        -->
+
+          <v-select
+            v-if="fullSchema.oneOf"
+            :items="fullSchema.oneOf"
+            v-model="currentOneOf"
+            :disabled="disabled"
+            :item-value="item => {return oneOfConstProp ? item.properties[oneOfConstProp.key].const : item.title}"
+            :label="oneOfConstProp ? oneOfConstProp.title : 'Type'"
+            item-text="title"
+            return-object
+          />
+          <template v-if="currentOneOf">
+            <property
+              :schema="Object.assign({}, currentOneOf, {title: null, type: 'object'})"
+              :model-wrapper="modelWrapper"
+              :model-root="modelRoot"
+              :model-key="modelKey"
+              :parent-key="parentKey"
+              :options="options"
+              @error="e => $emit('error', e)"
+            />
+          </template>
         </div>
       </v-slide-y-transition>
     </div>
@@ -314,7 +320,7 @@
 
     </div>
 
-    <p v-else-if="options.debug">Unsupported type "{{ fullSchema.type }}"</p>
+    <p v-else-if="options.debug">Unsupported type "{{ fullSchema.type }}" - {{ fullSchema }}</p>
   </div>
 </template>
 
@@ -338,10 +344,30 @@ export default {
   },
   computed: {
     fullSchema() {
-      const fullSchema = {...this.schema}
+      console.log('Calculate full schema', JSON.stringify(this.schema))
+      const fullSchema = JSON.parse(JSON.stringify(this.schema))
+
+      if (fullSchema.type !== 'object') return fullSchema
+
+      // Properties as array, because order matters
+      fullSchema.properties = JSON.parse(JSON.stringify(this.objectToArray(fullSchema.properties)))
+      fullSchema.required = fullSchema.required || []
+      fullSchema.dependencies = fullSchema.dependencies || {}
+
+      /*
+      // Properties that are rendered separately but belong to the same object
+      fullSchema.extendedProperties = [...fullSchema.properties]
+      if (this.currentOneOf) fullSchema.extendedProperties = fullSchema.extendedProperties.concat(this.objectToArray(this.currentOneOf.properties))
+      if (fullSchema.allOf) {
+        for (let s of fullSchema.allOf) {
+          fullSchema.required = fullSchema.required.concat(s.required || [])
+          fullSchema.properties = fullSchema.properties.concat(this.objectToArray(s.properties))
+          fullSchema.dependencies = {...fullSchema.dependencies, ...s.dependencies}
+        }
+      } */
 
       // Extend schema based on satisfied dependencies
-      if (fullSchema.dependencies) {
+      /* if (fullSchema.dependencies) {
         Object.keys(fullSchema.dependencies).forEach(depKey => {
           const dep = fullSchema.dependencies[depKey]
 
@@ -353,10 +379,10 @@ export default {
           if (typeof val === 'object' && Object.keys(val).length === 0) return
 
           // dependency applies
-          if (dep.required) fullSchema.required = fullSchema.required ? fullSchema.required.concat(dep.required) : dep.required
-          if (dep.properties) fullSchema.properties = {...fullSchema.properties, ...dep.properties}
+          fullSchema.required = fullSchema.required.concat(dep.required || [])
+          fullSchema.properties = fullSchema.properties.concat(this.objectToArray(dep.properties))
         })
-      }
+      } */
 
       return fullSchema
     },
@@ -381,7 +407,7 @@ export default {
     selectItems() {
       if (!this.rawSelectItems) return []
       if (this.fullSchema.type === 'object' && this.fullSchema.properties) {
-        const keys = Object.keys(this.fullSchema.properties)
+        const keys = this.fullSchema.properties.map(p => p.key)
         return this.rawSelectItems.map(item => {
           const filteredItem = {}
           keys.forEach(key => {
@@ -404,6 +430,13 @@ export default {
     },
     foldable() {
       return this.options.autoFoldObjects && this.parentKey && this.fullSchema.title
+    },
+    oneOfConstProp() {
+      if (!this.fullSchema.oneOf) return
+      const props = this.fullSchema.oneOf[0].properties
+      const key = Object.keys(props).find(p => !!props[p].const)
+      if (!key) return
+      return {...props[key], key}
     }
   },
   watch: {
@@ -419,6 +452,9 @@ export default {
       immediate: true
     }
   },
+  created() {
+    console.log('created', this.schema)
+  },
   methods: {
     getDeepKey(obj, key) {
       const keys = key.split('.')
@@ -427,6 +463,9 @@ export default {
         if ([null, undefined].includes(obj)) break
       }
       return obj
+    },
+    objectToArray(obj) {
+      return Object.keys(obj || {}).map(key => ({...obj[key], key}))
     },
     defaultValue(schema) {
       if (schema.type === 'object' && !schema['x-fromUrl'] && !schema['x-fromData']) return {}
@@ -459,7 +498,7 @@ export default {
       // Manage default values
       if (this.modelWrapper[this.modelKey] === undefined) {
         let def = this.defaultValue(this.fullSchema)
-        if (this.fullSchema.default !== undefined) def = this.fullSchema.default
+        if (this.fullSchema.default !== undefined) def = JSON.parse(JSON.stringify(this.fullSchema.default))
         this.$set(this.modelWrapper, this.modelKey, def)
       }
       // const always wins
@@ -467,7 +506,7 @@ export default {
       // cleanup extra properties
       if (this.fullSchema.type === 'object' && this.fullSchema.properties && this.modelWrapper[this.modelKey]) {
         Object.keys(this.modelWrapper[this.modelKey]).forEach(key => {
-          if (!this.fullSchema.properties[key]) delete this.modelWrapper[this.modelKey][key]
+          if (!this.fullSchema.properties.find(p => p.key === key)) delete this.modelWrapper[this.modelKey][key]
         })
       }
 
@@ -502,24 +541,6 @@ export default {
           }
         })
       }
-      // Fill oneOf items with shared elements
-      if (this.fullSchema.oneOf) {
-        this.fullSchema.oneOf.forEach(item => {
-          item.title = item.title || this.fullSchema.title
-          item.type = item.type || this.fullSchema.type
-          if (item.properties || this.fullSchema.properties) {
-            item.properties = {...this.fullSchema.properties, ...item.properties}
-          }
-        })
-      }
-      // Case of a sub type selection based on a oneOf
-      if (this.fullSchema.type === 'object' && this.fullSchema.oneOf) {
-        if (this.modelWrapper[this.modelKey] && this.modelWrapper[this.modelKey][this.itemKey]) {
-          this.currentOneOf = this.fullSchema.oneOf.find(item => item.properties[this.itemKey].const === this.modelWrapper[this.modelKey][this.itemKey])
-        } else if (this.fullSchema.default) {
-          this.currentOneOf = this.fullSchema.oneOf.find(item => item.properties[this.itemKey].const === this.fullSchema.default[this.itemKey])
-        }
-      }
     }
   }
 }
@@ -537,4 +558,5 @@ export default {
 .vjsf-property .v-input--selection-controls {
   margin-top: 0;
 }
+
 </style>

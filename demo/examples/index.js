@@ -5,5 +5,6 @@ module.exports = [
   require('./validation'),
   require('./selects'),
   require('./nested'),
-  require('./dependencies')
+  require('./dependencies'),
+  require('./combinations')
 ]

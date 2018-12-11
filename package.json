@@ -8,7 +8,7 @@
     "build": "webpack",
     "dev": "NODE_ENV=development webpack-dev-server",
     "prepublish": "npm run build",
-    "publish-demo": "npm run build && gh-pages-multi deploy -v -s dist"
+    "postpublish": "gh-pages-multi deploy -v -s dist"
   },
   "repository": {
     "type": "git",
