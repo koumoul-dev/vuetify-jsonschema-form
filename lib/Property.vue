@@ -353,6 +353,22 @@ export default {
       fullSchema.required = fullSchema.required || []
       fullSchema.dependencies = fullSchema.dependencies || {}
 
+      // Extend schema based on satisfied dependencies
+      if (fullSchema.dependencies) {
+        Object.keys(fullSchema.dependencies).forEach(depKey => {
+          const dep = fullSchema.dependencies[depKey]
+          // cases where dependency does not apply
+          if (!this.modelWrapper[this.modelKey]) return
+          const val = this.getDeepKey(this.modelWrapper[this.modelKey], depKey)
+          if ([null, undefined].includes(val)) return
+          if (Array.isArray(val) && val.length === 0) return
+          if (typeof val === 'object' && Object.keys(val).length === 0) return
+          // dependency applies
+          fullSchema.required = fullSchema.required.concat(dep.required || [])
+          fullSchema.properties = fullSchema.properties.concat(this.objectToArray(dep.properties))
+        })
+      }
+
       return fullSchema
     },
     fullKey() { return (this.parentKey + this.modelKey).replace('root.', '') },
