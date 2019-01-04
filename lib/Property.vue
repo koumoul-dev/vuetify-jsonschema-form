@@ -367,6 +367,8 @@ export default {
           // dependency applies
           fullSchema.required = fullSchema.required.concat(dep.required || [])
           fullSchema.properties = fullSchema.properties.concat(this.objectToArray(dep.properties))
+          if (dep.oneOf) fullSchema.oneOf = (fullSchema.oneOf || []).concat(dep.oneOf)
+          if (dep.allOf) fullSchema.allOf = (fullSchema.allOf || []).concat(dep.allOf)
         })
       }
 
@@ -534,6 +536,15 @@ export default {
             }, {immediate: true})
           }
         })
+      }
+
+      // Case of a sub type selection based on a oneOf
+      if (this.fullSchema.type === 'object' && this.fullSchema.oneOf && !this.currentOneOf) {
+        if (this.modelWrapper[this.modelKey] && this.modelWrapper[this.modelKey][this.itemKey]) {
+          this.currentOneOf = this.fullSchema.oneOf.find(item => item.properties[this.itemKey].const === this.modelWrapper[this.modelKey][this.itemKey])
+        } else if (this.fullSchema.default) {
+          this.currentOneOf = this.fullSchema.oneOf.find(item => item.properties[this.itemKey].const === this.fullSchema.default[this.itemKey])
+        }
       }
     }
   }
