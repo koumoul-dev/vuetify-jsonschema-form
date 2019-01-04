@@ -195,7 +195,7 @@
 
     <!-- Object sub container with properties that may include a select based on a oneOf and subparts base on a allOf -->
     <div v-else-if="fullSchema.type === 'object'">
-      <v-subheader v-if="hasTitleHeader" :style="foldable ? 'cursor:pointer;' :'' " class="mt-2" @click="folded = !folded">
+      <v-subheader v-if="fullSchema.title" :style="foldable ? 'cursor:pointer;' :'' " class="mt-2" @click="folded = !folded">
         {{ fullSchema.title }}
         &nbsp;
         <v-icon v-if="foldable && folded">arrow_drop_down</v-icon>
@@ -257,7 +257,7 @@
 
     <!-- Tuples array sub container -->
     <div v-else-if="fullSchema.type === 'array' && Array.isArray(fullSchema.items)">
-      <v-subheader v-if="hasTitleHeader" :style="foldable ? 'cursor:pointer;' :'' " class="mt-2" @click="folded = !folded">
+      <v-subheader v-if="fullSchema.title" :style="foldable ? 'cursor:pointer;' :'' " class="mt-2" @click="folded = !folded">
         {{ fullSchema.title }}
         &nbsp;
         <v-icon v-if="foldable && folded">arrow_drop_down</v-icon>
@@ -289,7 +289,7 @@
         </v-btn>
       </v-layout>
 
-      <v-container v-if="modelWrapper[modelKey] && modelWrapper[modelKey].length" grid-list-md>
+      <v-container v-if="modelWrapper[modelKey] && modelWrapper[modelKey].length" grid-list-md class="pt-0 px-2">
         <v-layout row wrap>
           <draggable v-model="modelWrapper[modelKey]" :options="{handle:'.handle'}" style="width: 100%;">
             <v-flex v-for="(itemModel, i) in modelWrapper[modelKey]" :key="i" xs12>
@@ -414,14 +414,8 @@ export default {
     disabled() {
       return this.options.disableAll
     },
-    hasTitleHeader() {
-      if (!['object', 'array'].includes(this.fullSchema.type)) return false
-      if (!this.fullSchema.title) return false
-      if (this.fullSchema.type === 'object' && !(this.fullSchema.description || this.fullSchema.allOf || Object.keys(this.fullSchema.properties).length)) return false
-      return true
-    },
     foldable() {
-      return this.options.autoFoldObjects && this.parentKey && this.hasTitleHeader
+      return this.options.autoFoldObjects && this.parentKey && this.fullSchema.title
     },
     oneOfConstProp() {
       if (!this.fullSchema.oneOf) return
