@@ -34,6 +34,7 @@ module.exports = {
         }
       },
       socialMediaEntity: {
+        title: 'Social media',
         properties: {
           twitter: {
             type: 'string'

@@ -216,20 +216,19 @@
                     @error="e => $emit('error', e)"
           />
 
-          {{ fullSchema.allOf }}
-          <!--
+          <!-- Sub containers for allOfs -->
           <property
             v-for="(currentAllOf, i) in (fullSchema.allOf || [])" :key="i"
             :schema="Object.assign({}, currentAllOf, {type: 'object'})"
-            :model-wrapper="modelWrapper"
+            :model-wrapper="subModels"
             :model-root="modelRoot"
-            :model-key="modelKey"
+            :model-key="'allOf-' + i"
             :parent-key="parentKey"
             :options="options"
             @error="e => $emit('error', e)"
           />
-        -->
 
+          <!-- Sub container with a select for oneOfs -->
           <v-select
             v-if="fullSchema.oneOf"
             :items="fullSchema.oneOf"
@@ -243,11 +242,11 @@
           <template v-if="currentOneOf">
             <property
               :schema="Object.assign({}, currentOneOf, {title: null, type: 'object'})"
-              :model-wrapper="modelWrapper"
+              :model-wrapper="subModels"
               :model-root="modelRoot"
-              :model-key="modelKey"
               :parent-key="parentKey"
               :options="options"
+              model-key="currentOneOf"
               @error="e => $emit('error', e)"
             />
           </template>
@@ -339,12 +338,12 @@ export default {
       currentOneOf: null,
       fromUrlParams: {},
       loading: false,
-      folded: true
+      folded: true,
+      subModels: {} // a container for objects from root oneOfs and allOfs
     }
   },
   computed: {
     fullSchema() {
-      console.log('Calculate full schema', JSON.stringify(this.schema))
       const fullSchema = JSON.parse(JSON.stringify(this.schema))
 
       if (fullSchema.type !== 'object') return fullSchema
@@ -353,36 +352,6 @@ export default {
       fullSchema.properties = JSON.parse(JSON.stringify(this.objectToArray(fullSchema.properties)))
       fullSchema.required = fullSchema.required || []
       fullSchema.dependencies = fullSchema.dependencies || {}
-
-      /*
-      // Properties that are rendered separately but belong to the same object
-      fullSchema.extendedProperties = [...fullSchema.properties]
-      if (this.currentOneOf) fullSchema.extendedProperties = fullSchema.extendedProperties.concat(this.objectToArray(this.currentOneOf.properties))
-      if (fullSchema.allOf) {
-        for (let s of fullSchema.allOf) {
-          fullSchema.required = fullSchema.required.concat(s.required || [])
-          fullSchema.properties = fullSchema.properties.concat(this.objectToArray(s.properties))
-          fullSchema.dependencies = {...fullSchema.dependencies, ...s.dependencies}
-        }
-      } */
-
-      // Extend schema based on satisfied dependencies
-      /* if (fullSchema.dependencies) {
-        Object.keys(fullSchema.dependencies).forEach(depKey => {
-          const dep = fullSchema.dependencies[depKey]
-
-          // cases where dependency does not apply
-          if (!this.modelWrapper[this.modelKey]) return
-          const val = this.getDeepKey(this.modelWrapper[this.modelKey], depKey)
-          if ([null, undefined].includes(val)) return
-          if (Array.isArray(val) && val.length === 0) return
-          if (typeof val === 'object' && Object.keys(val).length === 0) return
-
-          // dependency applies
-          fullSchema.required = fullSchema.required.concat(dep.required || [])
-          fullSchema.properties = fullSchema.properties.concat(this.objectToArray(dep.properties))
-        })
-      } */
 
       return fullSchema
     },
@@ -450,10 +419,18 @@ export default {
         if (this.fullSchema) this.initFromSchema()
       },
       immediate: true
+    },
+    subModels: {
+      handler() {
+        if (this.fullSchema) this.initFromSchema()
+        Object.keys(this.subModels).forEach(subModel => {
+          Object.keys(this.subModels[subModel]).forEach(key => {
+            this.$set(this.modelWrapper[this.modelKey], key, this.subModels[subModel][key])
+          })
+        })
+      },
+      deep: true
     }
-  },
-  created() {
-    console.log('created', this.schema)
   },
   methods: {
     getDeepKey(obj, key) {
