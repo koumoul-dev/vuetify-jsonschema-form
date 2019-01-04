@@ -1,6 +1,5 @@
 <template lang="html">
   <div v-if="fullSchema" class="vjsf-property">
-
     <!-- Hide const ? Or make a readonly field -->
     <div v-if="fullSchema.const !== undefined" />
 
@@ -77,7 +76,7 @@
               :multiple="fullSchema.type === 'array'"
     />
 
-    <!-- Select field on an ajax response -->
+    <!-- Select field on an ajax response or from an array in another part of the data -->
     <v-select v-else-if="fromUrl || fullSchema['x-fromData']"
               :items="selectItems"
               v-model="modelWrapper[modelKey]"
@@ -195,14 +194,16 @@
     </v-combobox>
 
     <!-- Object sub container with properties that may include a select based on a oneOf and subparts base on a allOf -->
-    <div v-else-if="fullSchema.type === 'object' && fullSchema.properties && fullSchema.properties.length">
-      <v-subheader v-if="fullSchema.title" :style="foldable ? 'cursor:pointer;' :'' " class="mt-4" @click="folded = !folded">
+    <div v-else-if="fullSchema.type === 'object'">
+      <v-subheader v-if="hasTitleHeader" :style="foldable ? 'cursor:pointer;' :'' " class="mt-4" @click="folded = !folded">
         {{ fullSchema.title }}
         &nbsp;
-        <v-icon v-if="foldable && folded">unfold_more</v-icon>
-        <v-icon v-if="foldable && !folded">unfold_less</v-icon>
+        <v-icon v-if="foldable && folded">arrow_drop_down</v-icon>
+        <v-icon v-if="foldable && !folded">arrow_drop_up</v-icon>
       </v-subheader>
+
       <v-slide-y-transition>
+
         <div v-show="!foldable || !folded">
           <p v-if="fullSchema.description">{{ fullSchema.description }}</p>
           <property v-for="childProp in fullSchema.properties" :key="childProp.key"
@@ -235,7 +236,7 @@
             v-model="currentOneOf"
             :disabled="disabled"
             :item-value="item => {return oneOfConstProp ? item.properties[oneOfConstProp.key].const : item.title}"
-            :label="oneOfConstProp ? oneOfConstProp.title : 'Type'"
+            :label="oneOfConstProp ? (oneOfConstProp.title || oneOfConstProp.key) : 'Type'"
             item-text="title"
             return-object
           />
@@ -256,11 +257,11 @@
 
     <!-- Tuples array sub container -->
     <div v-else-if="fullSchema.type === 'array' && Array.isArray(fullSchema.items)">
-      <v-subheader v-if="fullSchema.title" :style="foldable ? 'cursor:pointer;' :'' " class="mt-4" @click="folded = !folded">
+      <v-subheader v-if="hasTitleHeader" :style="foldable ? 'cursor:pointer;' :'' " class="mt-4" @click="folded = !folded">
         {{ fullSchema.title }}
         &nbsp;
-        <v-icon v-if="foldable && folded">unfold_more</v-icon>
-        <v-icon v-if="foldable && !folded">unfold_less</v-icon>
+        <v-icon v-if="foldable && folded">arrow_drop_down</v-icon>
+        <v-icon v-if="foldable && !folded">arrow_drop_up</v-icon>
       </v-subheader>
       <v-slide-y-transition>
         <div v-show="!foldable || !folded">
@@ -391,7 +392,7 @@ export default {
     },
     selectItems() {
       if (!this.rawSelectItems) return []
-      if (this.fullSchema.type === 'object' && this.fullSchema.properties) {
+      if (this.fullSchema.type === 'object' && this.fullSchema.properties && Object.keys(this.fullSchema.properties).length) {
         const keys = this.fullSchema.properties.map(p => p.key)
         return this.rawSelectItems.map(item => {
           const filteredItem = {}
@@ -413,8 +414,14 @@ export default {
     disabled() {
       return this.options.disableAll
     },
+    hasTitleHeader() {
+      if (!['object', 'array'].includes(this.fullSchema.type)) return false
+      if (!this.fullSchema.title) return false
+      if (this.fullSchema.type === 'object' && !(this.fullSchema.description || this.fullSchema.allOf || Object.keys(this.fullSchema.properties).length)) return false
+      return true
+    },
     foldable() {
-      return this.options.autoFoldObjects && this.parentKey && this.fullSchema.title
+      return this.options.autoFoldObjects && this.parentKey && this.hasTitleHeader
     },
     oneOfConstProp() {
       if (!this.fullSchema.oneOf) return

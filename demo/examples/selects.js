@@ -19,7 +19,7 @@ module.exports = {
         'type': 'string',
         'description': 'The values come from an HTTP request.',
         // 'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&owner={context.owner.type}:{context.owner.id}',
-        'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized',
+        'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title',
         'x-itemsProp': 'results',
         'x-itemTitle': 'title',
         'x-itemKey': 'href'
@@ -31,7 +31,7 @@ module.exports = {
         },
         'description': 'The values come from an HTTP request.',
         // 'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&owner={context.owner.type}:{context.owner.id}',
-        'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized',
+        'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title',
         'x-itemsProp': 'results',
         'x-itemTitle': 'title',
         'x-itemKey': 'href'
@@ -39,7 +39,7 @@ module.exports = {
       'fromAjaxObject': {
         'type': 'object',
         'description': 'The values come from an HTTP request and are stored as object.',
-        'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&',
+        'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title,schema',
         'x-itemsProp': 'results',
         'x-itemTitle': 'title',
         'x-itemKey': 'href',
@@ -60,7 +60,7 @@ module.exports = {
       'fromAjaxWithQuery': {
         'type': 'object',
         'description': 'The values come from an HTTP request with textual filter.',
-        'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&q={q}',
+        'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title&q={q}',
         'x-itemsProp': 'results',
         'x-itemTitle': 'title',
         'x-itemKey': 'href'
@@ -74,15 +74,15 @@ module.exports = {
         'x-itemKey': 'key'
       },
       chartDef: {
-        title: 'Chose from a type',
-        description: 'A conditional form will be rendered below',
+        // Simple oneOf on object, the title of const property is used as title of the select
         type: 'object',
         'x-itemKey': 'type',
         oneOf: [{
           title: 'Bar chart',
           properties: {
             type: {
-              const: 'bar'
+              const: 'bar',
+              title: 'Chose from a type'
             },
             xLabel: {
               type: 'string'
@@ -104,7 +104,8 @@ module.exports = {
         }]
       },
       chartDef2: {
-        title: 'Same without large header',
+        title: 'Chose from a type',
+        description: 'A conditional form will be rendered below',
         type: 'object',
         'x-itemKey': 'type',
         oneOf: [{
