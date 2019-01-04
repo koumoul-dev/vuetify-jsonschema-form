@@ -65,14 +65,6 @@ module.exports = {
         'x-itemTitle': 'title',
         'x-itemKey': 'href'
       },
-      'fromAjaxWithDep': {
-        'type': 'object',
-        'description': 'The values come from an HTTP request with a part of the url that depends on another part of the model.',
-        'x-fromUrl': '{fromAjaxWithQuery.href}',
-        'x-itemsProp': 'schema',
-        'x-itemTitle': 'x-originalName',
-        'x-itemKey': 'key'
-      },
       chartDef: {
         // Simple oneOf on object, the title of const property is used as title of the select
         type: 'object',
@@ -89,6 +81,14 @@ module.exports = {
             },
             yLabel: {
               type: 'string'
+            },
+            'fromAjaxWithDep': {
+              'type': 'object',
+              title: 'choisir un colonne',
+              'description': 'The values come from an HTTP request with a part of the url that depends on another part of the model.',
+              'x-fromUrl': '{fromAjaxWithQuery.href}/schema',
+              'x-itemTitle': 'label',
+              'x-itemKey': 'key'
             }
           }
         }, {

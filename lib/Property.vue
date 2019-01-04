@@ -504,7 +504,7 @@ export default {
       // const always wins
       if (this.fullSchema.const !== undefined) this.$set(this.modelWrapper, this.modelKey, this.fullSchema.const)
       // cleanup extra properties
-      if (this.fullSchema.type === 'object' && this.fullSchema.properties && this.modelWrapper[this.modelKey]) {
+      if (this.fullSchema.type === 'object' && this.fullSchema.properties && Object.keys(this.fullSchema.properties).length && this.modelWrapper[this.modelKey]) {
         Object.keys(this.modelWrapper[this.modelKey]).forEach(key => {
           if (!this.fullSchema.properties.find(p => p.key === key)) delete this.modelWrapper[this.modelKey][key]
         })
