@@ -5,7 +5,7 @@
   "main": "dist/main.js",
   "scripts": {
     "lint": "eslint --ext js,vue --ignore-path .gitignore .",
-    "build": "webpack",
+    "build": "rm -rf dist && webpack && cp index.html dist/",
     "dev": "NODE_ENV=development webpack-dev-server",
     "prepublish": "npm run build",
     "postpublish": "gh-pages-multi deploy -v -s dist"
