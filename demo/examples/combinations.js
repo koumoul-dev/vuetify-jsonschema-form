@@ -93,8 +93,10 @@ module.exports = {
     }
   },
   data: {
-    'firstName': 'John',
-    'lastName': 'Doe',
-    'age': 21
+    presentation: 'lorem ipsum',
+    twitter: 'koumoul_fr',
+    type: 'physicalPerson',
+    firstName: 'Alban',
+    lastName: 'Mouton'
   }
 }
