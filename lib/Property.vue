@@ -502,47 +502,12 @@ export default {
       if (this.fullSchema.type === 'object' && this.fullSchema.properties && Object.keys(this.fullSchema.properties).length && this.modelWrapper[this.modelKey]) {
         Object.keys(this.modelWrapper[this.modelKey]).forEach(key => {
           if (!this.fullSchema.properties.find(p => p.key === key)) {
-            console.log(`delete property ${this.modelKey}.${key}`)
             delete this.modelWrapper[this.modelKey][key]
           }
         })
       }
     },
     initFromSchema() {
-      // Init subModels for allOf subschemas
-      if (this.fullSchema.type === 'object' && this.fullSchema.allOf) {
-        this.fullSchema.allOf.forEach((allOf, i) => {
-          this.$set(this.subModels, 'allOf-' + i, this.subModels['allOf-' + i] || {})
-          const props = this.fullSchema.allOf[i].properties || {}
-          Object.keys(props).forEach(propKey => {
-            if (this.subModels['allOf-' + i][propKey] === undefined) {
-              this.$set(this.subModels['allOf-' + i], propKey, this.modelWrapper[this.modelKey][propKey])
-            }
-          })
-        })
-      }
-
-      // Case of a sub type selection based on a oneOf
-      if (this.fullSchema.type === 'object' && this.fullSchema.oneOf && !this.currentOneOf && this.oneOfConstProp) {
-        if (this.modelWrapper[this.modelKey] && this.modelWrapper[this.modelKey][this.oneOfConstProp.key]) {
-          this.currentOneOf = this.fullSchema.oneOf.find(item => item.properties[this.oneOfConstProp.key].const === this.modelWrapper[this.modelKey][this.oneOfConstProp.key])
-        } else if (this.fullSchema.default) {
-          this.currentOneOf = this.fullSchema.oneOf.find(item => item.properties[this.oneOfConstProp.key].const === this.fullSchema.default[this.oneOfConstProp.key])
-        }
-      }
-
-      // Init subModel for current oneOf
-      if (this.currentOneOf) {
-        console.log('currentOneOf ?', this.currentOneOf)
-        this.$set(this.subModels, 'currentOneOf', this.subModels['currentOneOf'] || {})
-        const props = this.currentOneOf.properties || {}
-        Object.keys(props).forEach(propKey => {
-          if (this.subModels['currentOneOf'][propKey] === undefined) {
-            this.$set(this.subModels['currentOneOf'], propKey, this.modelWrapper[this.modelKey][propKey])
-          }
-        })
-      }
-
       // Manage default values
       if (this.modelWrapper[this.modelKey] === undefined) {
         let def = this.defaultValue(this.fullSchema)
@@ -578,6 +543,39 @@ export default {
               this.fromUrlParams[key] = val
               this.getSelectItems()
             }, {immediate: true})
+          }
+        })
+      }
+
+      // Init subModels for allOf subschemas
+      if (this.fullSchema.type === 'object' && this.fullSchema.allOf) {
+        this.fullSchema.allOf.forEach((allOf, i) => {
+          this.$set(this.subModels, 'allOf-' + i, this.subModels['allOf-' + i] || {})
+          const props = this.fullSchema.allOf[i].properties || {}
+          Object.keys(props).forEach(propKey => {
+            if (this.subModels['allOf-' + i][propKey] === undefined) {
+              this.$set(this.subModels['allOf-' + i], propKey, this.modelWrapper[this.modelKey][propKey])
+            }
+          })
+        })
+      }
+
+      // Case of a sub type selection based on a oneOf
+      if (this.fullSchema.type === 'object' && this.fullSchema.oneOf && !this.currentOneOf && this.oneOfConstProp) {
+        if (this.modelWrapper[this.modelKey] && this.modelWrapper[this.modelKey][this.oneOfConstProp.key]) {
+          this.currentOneOf = this.fullSchema.oneOf.find(item => item.properties[this.oneOfConstProp.key].const === this.modelWrapper[this.modelKey][this.oneOfConstProp.key])
+        } else if (this.fullSchema.default) {
+          this.currentOneOf = this.fullSchema.oneOf.find(item => item.properties[this.oneOfConstProp.key].const === this.fullSchema.default[this.oneOfConstProp.key])
+        }
+      }
+
+      // Init subModel for current oneOf
+      if (this.currentOneOf) {
+        this.$set(this.subModels, 'currentOneOf', this.subModels['currentOneOf'] || {})
+        const props = this.currentOneOf.properties || {}
+        Object.keys(props).forEach(propKey => {
+          if (this.subModels['currentOneOf'][propKey] === undefined) {
+            this.$set(this.subModels['currentOneOf'], propKey, this.modelWrapper[this.modelKey][propKey])
           }
         })
       }
