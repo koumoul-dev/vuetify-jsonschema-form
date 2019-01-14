@@ -243,6 +243,7 @@
             item-text="title"
             return-object
           />
+          <!--{{ currentOneOf }}-->
           <template v-if="currentOneOf">
             <property
               :schema="Object.assign({}, currentOneOf, {title: null, type: 'object'})"
@@ -465,6 +466,7 @@ export default {
     },
     subModels: {
       handler() {
+        this.cleanUpExtraProperties()
         this.applySubModels()
       },
       deep: true
@@ -526,7 +528,7 @@ export default {
       Object.keys(this.subModels).forEach(subModel => {
         Object.keys(this.subModels[subModel]).forEach(key => {
           if (this.modelWrapper[this.modelKey][key] !== this.subModels[subModel][key]) {
-            // console.log(`Apply submodel ${this.modelKey}.${key}`, this.subModels[subModel][key])
+            // console.log(`Apply submodel ${this.modelKey}.${key}`, JSON.stringify(this.subModels[subModel][key]))
             this.$set(this.modelWrapper[this.modelKey], key, this.subModels[subModel][key])
           }
         })
@@ -577,13 +579,7 @@ export default {
       // Init subModels for allOf subschemas
       if (this.fullSchema.type === 'object' && this.fullSchema.allOf) {
         this.fullSchema.allOf.forEach((allOf, i) => {
-          this.$set(this.subModels, 'allOf-' + i, this.subModels['allOf-' + i] || {})
-          const props = this.fullSchema.allOf[i].properties || {}
-          Object.keys(props).forEach(propKey => {
-            if (this.subModels['allOf-' + i][propKey] === undefined) {
-              this.$set(this.subModels['allOf-' + i], propKey, model[propKey])
-            }
-          })
+          this.$set(this.subModels, 'allOf-' + i, JSON.parse(JSON.stringify(model)))
         })
       }
 
@@ -599,13 +595,7 @@ export default {
 
       // Init subModel for current oneOf
       if (this.currentOneOf) {
-        this.$set(this.subModels, 'currentOneOf', this.subModels['currentOneOf'] || {})
-        const props = this.currentOneOf.properties || {}
-        Object.keys(props).forEach(propKey => {
-          if (this.subModels['currentOneOf'][propKey] === undefined) {
-            this.$set(this.subModels['currentOneOf'], propKey, model[propKey])
-          }
-        })
+        this.$set(this.subModels, 'currentOneOf', JSON.parse(JSON.stringify(model)))
       } else {
         this.$set(this.subModels, 'currentOneOf', {})
       }
