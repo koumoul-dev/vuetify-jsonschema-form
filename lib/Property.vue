@@ -345,6 +345,7 @@ export default {
   },
   computed: {
     fullSchema() {
+      // console.log('Re process full schema')
       const fullSchema = JSON.parse(JSON.stringify(this.schema))
 
       if (fullSchema.type !== 'object') return fullSchema
@@ -361,7 +362,7 @@ export default {
           // cases where dependency does not apply
           if (!this.modelWrapper[this.modelKey]) return
           const val = this.getDeepKey(this.modelWrapper[this.modelKey], depKey)
-          if ([null, undefined].includes(val)) return
+          if ([null, undefined, false].includes(val)) return
           if (Array.isArray(val) && val.length === 0) return
           if (typeof val === 'object' && Object.keys(val).length === 0) return
           // dependency applies
@@ -372,7 +373,7 @@ export default {
           if (dep.allOf) fullSchema.allOf = (fullSchema.allOf || []).concat(dep.allOf)
         })
       }
-
+      // console.log('Full schema', fullSchema)
       return fullSchema
     },
     fullKey() { return (this.parentKey + this.modelKey).replace('root.', '') },
@@ -436,24 +437,24 @@ export default {
     },
     fullSchema: {
       handler() {
-        if (this.fullSchema) {
+        if (this.fullSchema && JSON.stringify(this.fullSchema) !== this.lastFullSchema) {
+          this.lastFullSchema = JSON.stringify(this.fullSchema)
+          // console.log('Schema changed', JSON.stringify(this.fullSchema))
           this.initFromSchema()
           this.cleanUpExtraProperties()
+          this.applySubModels()
           this.ready = true
         }
       },
       immediate: true
     },
     currentOneOf(newVal, oldVal) {
+      // console.log('Current one of changed')
       this.cleanUpExtraProperties()
     },
     subModels: {
       handler() {
-        Object.keys(this.subModels).forEach(subModel => {
-          Object.keys(this.subModels[subModel]).forEach(key => {
-            this.$set(this.modelWrapper[this.modelKey], key, this.subModels[subModel][key])
-          })
-        })
+        this.applySubModels()
       },
       deep: true
     }
@@ -462,8 +463,8 @@ export default {
     getDeepKey(obj, key) {
       const keys = key.split('.')
       for (let i = 0; i < keys.length; i++) {
-        obj = obj[keys[i]]
         if ([null, undefined].includes(obj)) break
+        obj = obj[keys[i]]
       }
       return obj
     },
@@ -498,31 +499,46 @@ export default {
         })
     },
     cleanUpExtraProperties() {
+      // console.log('Cleanup extra properties')
       // cleanup extra properties
       if (this.fullSchema.type === 'object' && this.fullSchema.properties && Object.keys(this.fullSchema.properties).length && this.modelWrapper[this.modelKey]) {
         Object.keys(this.modelWrapper[this.modelKey]).forEach(key => {
           if (!this.fullSchema.properties.find(p => p.key === key)) {
+            // console.log(`Remove key ${this.modelKey}.${key}`)
             delete this.modelWrapper[this.modelKey][key]
           }
         })
       }
     },
+    applySubModels() {
+      // console.log('Apply sub models')
+      Object.keys(this.subModels).forEach(subModel => {
+        Object.keys(this.subModels[subModel]).forEach(key => {
+          if (this.modelWrapper[this.modelKey][key] !== this.subModels[subModel][key]) {
+            // console.log(`Apply submodel ${this.modelKey}.${key}`, this.subModels[subModel][key])
+            this.$set(this.modelWrapper[this.modelKey], key, this.subModels[subModel][key])
+          }
+        })
+      })
+    },
     initFromSchema() {
+      // console.log('Init from schema')
+      let model = this.modelWrapper[this.modelKey]
+
       // Manage default values
-      if (this.modelWrapper[this.modelKey] === undefined) {
-        let def = this.defaultValue(this.fullSchema)
-        if (this.fullSchema.default !== undefined) def = JSON.parse(JSON.stringify(this.fullSchema.default))
-        this.$set(this.modelWrapper, this.modelKey, def)
+      if (model === undefined) {
+        model = this.defaultValue(this.fullSchema)
+        if (this.fullSchema.default !== undefined) model = JSON.parse(JSON.stringify(this.fullSchema.default))
       }
       // const always wins
-      if (this.fullSchema.const !== undefined) this.$set(this.modelWrapper, this.modelKey, this.fullSchema.const)
+      if (this.fullSchema.const !== undefined) model = this.fullSchema.const
 
       // Case of a select based on ajax query
       if (this.fromUrl) this.getSelectItems()
       // Case of an auto-complete field already defined
-      if (this.fromUrlWithQuery && this.modelWrapper[this.modelKey] && this.modelWrapper[this.modelKey][this.itemTitle] !== undefined) {
-        this.rawSelectItems = [this.modelWrapper[this.modelKey]]
-        this.q = this.modelWrapper[this.modelKey][this.itemTitle]
+      if (this.fromUrlWithQuery && model && model[this.itemTitle] !== undefined) {
+        this.rawSelectItems = [model]
+        this.q = model[this.itemTitle]
       }
       // Case of a select based on an array somewhere in the data
       if (this.fullSchema['x-fromData']) {
@@ -554,16 +570,17 @@ export default {
           const props = this.fullSchema.allOf[i].properties || {}
           Object.keys(props).forEach(propKey => {
             if (this.subModels['allOf-' + i][propKey] === undefined) {
-              this.$set(this.subModels['allOf-' + i], propKey, this.modelWrapper[this.modelKey][propKey])
+              this.$set(this.subModels['allOf-' + i], propKey, model[propKey])
             }
           })
         })
       }
 
       // Case of a sub type selection based on a oneOf
+      this.currentOneOf = null
       if (this.fullSchema.type === 'object' && this.fullSchema.oneOf && !this.currentOneOf && this.oneOfConstProp) {
-        if (this.modelWrapper[this.modelKey] && this.modelWrapper[this.modelKey][this.oneOfConstProp.key]) {
-          this.currentOneOf = this.fullSchema.oneOf.find(item => item.properties[this.oneOfConstProp.key].const === this.modelWrapper[this.modelKey][this.oneOfConstProp.key])
+        if (model && model[this.oneOfConstProp.key]) {
+          this.currentOneOf = this.fullSchema.oneOf.find(item => item.properties[this.oneOfConstProp.key].const === model[this.oneOfConstProp.key])
         } else if (this.fullSchema.default) {
           this.currentOneOf = this.fullSchema.oneOf.find(item => item.properties[this.oneOfConstProp.key].const === this.fullSchema.default[this.oneOfConstProp.key])
         }
@@ -575,10 +592,14 @@ export default {
         const props = this.currentOneOf.properties || {}
         Object.keys(props).forEach(propKey => {
           if (this.subModels['currentOneOf'][propKey] === undefined) {
-            this.$set(this.subModels['currentOneOf'], propKey, this.modelWrapper[this.modelKey][propKey])
+            this.$set(this.subModels['currentOneOf'], propKey, model[propKey])
           }
         })
+      } else {
+        this.$set(this.subModels, 'currentOneOf', {})
       }
+
+      this.$set(this.modelWrapper, this.modelKey, model)
     }
   }
 }
