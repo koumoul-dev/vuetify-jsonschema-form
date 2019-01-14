@@ -13,6 +13,7 @@ module.exports = {
         'maxLength': 2000
       }
     },
+    required: ['type'],
     allOf: [{$ref: '#/definitions/realWorldEntity'}, {$ref: '#/definitions/socialMediaEntity'}],
     oneOf: [{$ref: '#/definitions/physicalPerson'}, {$ref: '#/definitions/moralPerson'}],
     definitions: {
@@ -94,9 +95,9 @@ module.exports = {
   },
   data: {
     presentation: 'lorem ipsum',
-    twitter: 'koumoul_fr',
-    type: 'physicalPerson',
+    twitter: 'koumoul_fr'
+    /* type: 'physicalPerson',
     firstName: 'Alban',
-    lastName: 'Mouton'
+    lastName: 'Mouton' */
   }
 }

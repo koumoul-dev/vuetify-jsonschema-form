@@ -237,6 +237,9 @@
             :disabled="disabled"
             :item-value="item => {return oneOfConstProp ? item.properties[oneOfConstProp.key].const : item.title}"
             :label="oneOfConstProp ? (oneOfConstProp.title || oneOfConstProp.key) : 'Type'"
+            :required="oneOfRequired"
+            :clearable="!oneOfRequired"
+            :rules="oneOfRules"
             item-text="title"
             return-object
           />
@@ -427,6 +430,14 @@ export default {
       const key = Object.keys(props).find(p => !!props[p].const)
       if (!key) return
       return {...props[key], key}
+    },
+    oneOfRequired() {
+      return !!(this.oneOfConstProp && this.fullSchema && this.fullSchema.required && this.fullSchema.required.find(r => r === this.oneOfConstProp.key))
+    },
+    oneOfRules() {
+      const rules = []
+      if (this.oneOfRequired) rules.push((val) => (val !== undefined && val !== null && val !== '') || this.options.requiredMessage)
+      return rules
     }
   },
   watch: {
@@ -449,7 +460,7 @@ export default {
       immediate: true
     },
     currentOneOf(newVal, oldVal) {
-      // console.log('Current one of changed')
+      if (!this.currentOneOf) this.$set(this.subModels, 'currentOneOf', {})
       this.cleanUpExtraProperties()
     },
     subModels: {

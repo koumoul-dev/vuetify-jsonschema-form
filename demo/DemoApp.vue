@@ -30,9 +30,10 @@
               Form
               <v-chip v-if="formValid" color="success">valid</v-chip>
               <v-chip v-else color="danger">invalid</v-chip>
+              <v-btn color="primary" @click="$refs.myForm.validate()">validate</v-btn>
             </h2>
 
-            <v-form v-model="formValid">
+            <v-form ref="myForm" v-model="formValid">
               <v-jsonschema-form v-if="schema" :schema="schema" :model="dataObject" :options="{debug: true, disableAll: false, autoFoldObjects: true, context: {owner: {type: 'organization', id: '5a5dc47163ebd4a6f438589b'}}}" @error="e => window.alert(e)" />
             </v-form>
             <h2 class="title my-4">Data:</h2>
@@ -59,7 +60,7 @@ export default {
       schemaError: null,
       dataObject: {},
       examples,
-      example: examples[0],
+      example: examples[7],
       formValid: false
     }
   },
