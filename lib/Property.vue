@@ -325,12 +325,16 @@
 
     <!-- Dynamic size array of complex types sub container -->
     <div v-else-if="fullSchema.type === 'array'">
-      <v-layout row class="mt-2">
+      <v-layout row class="mt-2 pr-1">
         <v-subheader>{{ label }}</v-subheader>
-        <p v-if="fullSchema.description">{{ fullSchema.description }}</p>
         <v-btn v-if="!disabled" icon color="primary" @click="modelWrapper[modelKey].push(fullSchema.items.default || defaultValue(fullSchema.items))">
           <v-icon>add</v-icon>
         </v-btn>
+        <v-spacer/>
+        <v-tooltip v-if="fullSchema.description" left>
+          <v-icon slot="activator">info</v-icon>
+          <div class="vjsf-tooltip" v-html="htmlDescription"/>
+        </v-tooltip>
       </v-layout>
 
       <v-container v-if="modelWrapper[modelKey] && modelWrapper[modelKey].length" grid-list-md class="pt-0 px-2">

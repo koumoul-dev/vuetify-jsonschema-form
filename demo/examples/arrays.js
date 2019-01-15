@@ -22,6 +22,7 @@ module.exports = {
       },
       'vegetables': {
         'type': 'array',
+        'description': 'A list of vegetables as editable objects.',
         'items': { '$ref': '#/definitions/veggie' }
       },
       coordinate: {
