@@ -60,7 +60,8 @@ module.exports = {
         properties: {
           type: {
             type: 'string',
-            title: 'The type of person',
+            title: 'Type of person',
+            description: 'A longer description, blah blah',
             const: 'physicalPerson'
           },
           'firstName': {

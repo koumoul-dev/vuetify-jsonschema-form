@@ -8,6 +8,7 @@ module.exports = {
     'properties': {
       'fruits': {
         'type': 'array',
+        description: 'This is a simple array of strings',
         'items': {
           'type': 'string'
         }

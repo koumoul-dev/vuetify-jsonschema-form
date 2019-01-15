@@ -3,7 +3,7 @@ module.exports = {
   schema: {
     'title': 'Person',
     'type': 'object',
-    required: ['gender', 'fromAjaxObject'],
+    required: ['gender', 'fromAjaxObject', 'fromAjaxString'],
     'properties': {
       'gender': {
         'type': 'string',

@@ -19,13 +19,16 @@
         v-model="modelWrapper[modelKey]"
         :label="label"
         :name="fullKey"
-        :hint="fullSchema.description"
         :required="required"
         :rules="rules"
         :clearable="!required"
         prepend-icon="event"
-        readonly
-      />
+        readonly >
+        <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
+          <v-icon slot="activator">info</v-icon>
+          <div class="vjsf-tooltip" v-html="htmlDescription" />
+        </v-tooltip>
+      </v-text-field>
       <v-date-picker v-model="modelWrapper[modelKey]" no-title scrollable>
         <v-spacer/>
         <v-btn flat color="primary" @click="menu = false">Cancel</v-btn>
@@ -37,12 +40,20 @@
     <v-input v-else-if="fullSchema.format === 'hexcolor'"
              :name="fullKey"
              :label="label"
-             :hint="fullSchema.description"
              :required="required"
              :rules="rules"
-             :disabled="disabled"
-             persistent-hint>
-      &nbsp;&nbsp;<swatches v-model="modelWrapper[modelKey]" :disabled="disabled" :colors="options.colors" :trigger-style="{width:'36px', height:'36px'}" shapes="circles" />
+             :disabled="disabled">
+      <v-tooltip v-if="fullSchema.description" slot="append" left>
+        <v-icon slot="activator">info</v-icon>
+        <div class="vjsf-tooltip" v-html="htmlDescription" />
+      </v-tooltip>
+      &nbsp;&nbsp;
+      <swatches
+        v-model="modelWrapper[modelKey]"
+        :disabled="disabled"
+        :colors="options.colors"
+        :trigger-style="{width:'36px', height:'36px'}"
+        shapes="circles" />
     </v-input>
 
     <!-- Select field based on an enum (array or simple value) -->
@@ -51,14 +62,16 @@
               v-model="modelWrapper[modelKey]"
               :name="fullKey"
               :label="label"
-              :hint="fullSchema.description"
-              :persistent-hint="!modelWrapper[modelKey]"
               :required="required"
               :rules="rules"
               :disabled="disabled"
               :clearable="!required"
-              :multiple="fullSchema.type === 'array'"
-    />
+              :multiple="fullSchema.type === 'array'" >
+      <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
+        <v-icon slot="activator">info</v-icon>
+        <div class="vjsf-tooltip" v-html="htmlDescription" />
+      </v-tooltip>
+    </v-select>
 
     <!-- Select field based on a oneOf on a simple type (array or simple value) -->
     <!-- cf https://github.com/mozilla-services/react-jsonfullSchema-form/issues/532 -->
@@ -67,14 +80,16 @@
               v-model="modelWrapper[modelKey]"
               :name="fullKey"
               :label="label"
-              :hint="fullSchema.description"
-              :persistent-hint="!modelWrapper[modelKey]"
               :required="required"
               :disabled="disabled"
               :rules="rules"
               :clearable="!required"
-              :multiple="fullSchema.type === 'array'"
-    />
+              :multiple="fullSchema.type === 'array'" >
+      <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
+        <v-icon slot="activator">info</v-icon>
+        <div class="vjsf-tooltip" v-html="htmlDescription" />
+      </v-tooltip>
+    </v-select>
 
     <!-- Select field on an ajax response or from an array in another part of the data -->
     <v-select v-else-if="fromUrl || fullSchema['x-fromData']"
@@ -82,8 +97,6 @@
               v-model="modelWrapper[modelKey]"
               :name="fullKey"
               :label="label"
-              :hint="fullSchema.description"
-              :persistent-hint="!modelWrapper[modelKey]"
               :no-data-text="options.noDataMessage"
               :disabled="disabled"
               :required="required"
@@ -93,8 +106,12 @@
               :return-object="(fullSchema.type === 'array' && fullSchema.items.type === 'object') || fullSchema.type === 'object'"
               :clearable="!required"
               :loading="loading"
-              :multiple="fullSchema.type === 'array'"
-    />
+              :multiple="fullSchema.type === 'array'">
+      <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
+        <v-icon slot="activator">info</v-icon>
+        <div class="vjsf-tooltip" v-html="htmlDescription" />
+      </v-tooltip>
+    </v-select>
 
     <!-- auto-complete field on an ajax response with query -->
     <v-autocomplete v-else-if="fromUrlWithQuery"
@@ -103,8 +120,6 @@
                     v-model="modelWrapper[modelKey]"
                     :name="fullKey"
                     :label="label"
-                    :hint="fullSchema.description"
-                    :persistent-hint="!modelWrapper[modelKey]"
                     :no-data-text="options.noDataMessage"
                     :disabled="disabled"
                     :required="required"
@@ -116,56 +131,75 @@
                     :filter="() => true"
                     :placeholder="options.searchMessage"
                     :loading="loading"
-                    :multiple="fullSchema.type === 'array'"
-    />
+                    :multiple="fullSchema.type === 'array'" >
+      <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
+        <v-icon slot="activator">info</v-icon>
+        <div class="vjsf-tooltip" v-html="htmlDescription" />
+      </v-tooltip>
+    </v-autocomplete>
 
     <!-- Long text field in a textarea -->
     <v-textarea v-else-if="fullSchema.type === 'string' && (fullSchema.maxLength && fullSchema.maxLength > 1000 && fullSchema['x-display'] !== 'single-line')"
                 v-model="modelWrapper[modelKey]"
                 :name="fullKey"
                 :label="label"
-                :hint="fullSchema.description"
                 :disabled="disabled"
                 :required="required"
                 :rules="rules"
                 box
-    />
+    >
+      <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
+        <v-icon slot="activator">info</v-icon>
+        <div class="vjsf-tooltip" v-html="htmlDescription" />
+      </v-tooltip>
+    </v-textarea>
 
     <!-- Simple text field -->
     <v-text-field v-else-if="fullSchema.type === 'string'"
                   v-model="modelWrapper[modelKey]"
                   :name="fullKey"
                   :label="label"
-                  :hint="fullSchema.description"
                   :disabled="disabled"
                   :required="required"
                   :rules="rules"
-    />
+    >
+      <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
+        <v-icon slot="activator">info</v-icon>
+        <div class="vjsf-tooltip" v-html="htmlDescription" />
+      </v-tooltip>
+    </v-text-field>
 
     <!-- Simple number fields -->
     <v-text-field v-else-if="fullSchema.type === 'number' || fullSchema.type === 'integer'"
                   v-model.number="modelWrapper[modelKey]"
                   :name="fullKey"
                   :label="label"
-                  :hint="fullSchema.description"
                   :min="fullSchema.minimum"
                   :max="fullSchema.maximum"
                   :step="fullSchema.type === 'integer' ? 1 : 0.01"
                   :disabled="disabled"
                   :required="required"
                   :rules="rules"
-                  type="number"/>
+                  type="number">
+      <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
+        <v-icon slot="activator">info</v-icon>
+        <div class="vjsf-tooltip" v-html="htmlDescription" />
+      </v-tooltip>
+    </v-text-field>
 
     <!-- Simple boolean field -->
     <v-checkbox v-else-if="fullSchema.type === 'boolean'"
                 v-model="modelWrapper[modelKey]"
                 :label="label"
                 :name="fullKey"
-                :hint="fullSchema.description"
                 :disabled="disabled"
                 :required="required"
-                :rules="rules"
-    />
+                :rules="rules" >
+      <v-tooltip v-if="fullSchema.description" slot="append" left>
+        <v-icon slot="activator">info</v-icon>
+        <div class="vjsf-tooltip" v-html="htmlDescription" />
+      </v-tooltip>
+    </v-checkbox>
 
     <!-- Simple strings array -->
     <v-combobox
@@ -173,8 +207,6 @@
       v-model="modelWrapper[modelKey]"
       :name="fullKey"
       :label="label"
-      :hint="fullSchema.description"
-      :persistent-hint="!modelWrapper[modelKey]"
       :required="required"
       :rules="rules"
       :disabled="disabled"
@@ -182,6 +214,10 @@
       multiple
       append-icon=""
     >
+      <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
+        <v-icon slot="activator">info</v-icon>
+        <div class="vjsf-tooltip" v-html="htmlDescription" />
+      </v-tooltip>
       <template slot="selection" slot-scope="data">
         <v-chip
           :selected="data.selected"
@@ -241,8 +277,12 @@
             :clearable="!oneOfRequired"
             :rules="oneOfRules"
             item-text="title"
-            return-object
-          />
+            return-object>
+            <v-tooltip v-if="oneOfConstProp && oneOfConstProp.description" slot="append-outer" left>
+              <v-icon slot="activator">info</v-icon>
+              <div class="vjsf-tooltip" v-html="oneOfConstProp.htmlDescription"/>
+            </v-tooltip>
+          </v-select>
           <!--{{ currentOneOf }}-->
           <template v-if="currentOneOf">
             <property
@@ -330,6 +370,7 @@
 
 <script>
 const matchAll = require('match-all')
+const md = require('markdown-it')()
 
 export default {
   name: 'Property',
@@ -379,6 +420,9 @@ export default {
       }
       // console.log('Full schema', fullSchema)
       return fullSchema
+    },
+    htmlDescription() {
+      if (this.fullSchema && this.fullSchema.description) return md.render(this.fullSchema.description)
     },
     fullKey() { return (this.parentKey + this.modelKey).replace('root.', '') },
     label() { return this.fullSchema.title || (typeof this.modelKey === 'string' ? this.modelKey : '') },
@@ -430,7 +474,7 @@ export default {
       const props = this.fullSchema.oneOf[0].properties
       const key = Object.keys(props).find(p => !!props[p].const)
       if (!key) return
-      return {...props[key], key}
+      return {...props[key], key, htmlDescription: md.render(props[key].description || '')}
     },
     oneOfRequired() {
       return !!(this.oneOfConstProp && this.fullSchema && this.fullSchema.required && this.fullSchema.required.find(r => r === this.oneOfConstProp.key))
@@ -617,6 +661,10 @@ export default {
 
 .vjsf-property .v-input--selection-controls {
   margin-top: 0;
+}
+
+.vjsf-tooltip p:last-child {
+  margin-bottom: 0;
 }
 
 </style>

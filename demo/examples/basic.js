@@ -14,7 +14,14 @@ module.exports = {
       },
       'firstName': {
         'type': 'string',
-        'description': "The person's first name."
+        'description': `
+The person's first name.
+
+This description can be a long text with markdown content.
+
+  - a list item
+  - another one
+  `
       },
       'lastName': {
         'type': 'string',
@@ -24,6 +31,10 @@ module.exports = {
         'description': 'Age in years which must be equal to or greater than zero.',
         'type': 'integer',
         'minimum': 0
+      },
+      citizen: {
+        description: 'Is this person a citizen of this country.',
+        type: 'boolean'
       },
       'description': {
         'description': 'A longer text for the description.',
