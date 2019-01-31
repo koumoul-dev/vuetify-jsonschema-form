@@ -6,5 +6,6 @@ module.exports = [
   require('./selects'),
   require('./nested'),
   require('./dependencies'),
-  require('./combinations')
+  require('./combinations'),
+  require('./accordion')
 ]

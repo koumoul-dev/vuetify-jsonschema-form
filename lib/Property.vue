@@ -254,16 +254,42 @@
           />
 
           <!-- Sub containers for allOfs -->
-          <property
-            v-for="(currentAllOf, i) in (fullSchema.allOf || [])" :key="i"
-            :schema="Object.assign({}, currentAllOf, {type: 'object'})"
-            :model-wrapper="subModels"
-            :model-root="modelRoot"
-            :model-key="'allOf-' + i"
-            :parent-key="parentKey"
-            :options="options"
-            @error="e => $emit('error', e)"
-          />
+          <template v-if="fullSchema.allOf && fullSchema.allOf.length">
+            <template v-if="!parentKey && fullSchema.allOf[0].title">
+              <!-- Accordion / expansion panets at root level -->
+              <v-expansion-panel :value="0" :inset="options.accordionMode === 'inset'" :popout="options.accordionMode === 'popout'">
+                <v-expansion-panel-content v-for="(currentAllOf, i) in fullSchema.allOf" :key="i">
+                  <v-subheader slot="header">{{ currentAllOf.title }}</v-subheader>
+                  <v-card>
+                    <v-card-text>
+                      <property
+                        :schema="Object.assign({}, currentAllOf, {type: 'object', title: null})"
+                        :model-wrapper="subModels"
+                        :model-root="modelRoot"
+                        :model-key="'allOf-' + i"
+                        :parent-key="parentKey"
+                        :options="options"
+                        @error="e => $emit('error', e)"
+                      />
+                    </v-card-text>
+                  </v-card>
+                </v-expansion-panel-content>
+              </v-expansion-panel>
+            </template>
+            <template v-else>
+              <!-- simple objects if we are at first level -->
+              <property
+                v-for="(currentAllOf, i) in (fullSchema.allOf || [])" :key="i"
+                :schema="Object.assign({}, currentAllOf, {type: 'object'})"
+                :model-wrapper="subModels"
+                :model-root="modelRoot"
+                :model-key="'allOf-' + i"
+                :parent-key="parentKey"
+                :options="options"
+                @error="e => $emit('error', e)"
+              />
+            </template>
+          </template>
 
           <!-- Sub container with a select for oneOfs -->
           <v-select
@@ -325,7 +351,7 @@
 
     <!-- Dynamic size array of complex types sub container -->
     <div v-else-if="fullSchema.type === 'array'">
-      <v-layout row class="mt-2 pr-1">
+      <v-layout row class="mt-2 mb-1 pr-1">
         <v-subheader>{{ label }}</v-subheader>
         <v-btn v-if="!disabled" icon color="primary" @click="modelWrapper[modelKey].push(fullSchema.items.default || defaultValue(fullSchema.items))">
           <v-icon>add</v-icon>
