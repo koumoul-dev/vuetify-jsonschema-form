@@ -1,6 +1,6 @@
 {
   "name": "@koumoul/vuetify-jsonschema-form",
-  "version": "0.18.2",
+  "version": "0.19.0",
   "description": "Generate forms for the vuetify UI library (vuejs) based on annotated JSON schemas.",
   "main": "dist/main.js",
   "scripts": {
