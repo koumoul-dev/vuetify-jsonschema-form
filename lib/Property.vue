@@ -257,11 +257,11 @@
           <template v-if="fullSchema.allOf && fullSchema.allOf.length">
             <template v-if="!parentKey && fullSchema.allOf[0].title">
               <!-- Accordion / expansion panets at root level -->
-              <v-expansion-panel :value="0" :inset="options.accordionMode === 'inset'" :popout="options.accordionMode === 'popout'">
+              <v-expansion-panel :inset="options.accordionMode === 'inset'" :popout="options.accordionMode === 'popout'" focusable>
                 <v-expansion-panel-content v-for="(currentAllOf, i) in fullSchema.allOf" :key="i">
-                  <v-subheader slot="header">{{ currentAllOf.title }}</v-subheader>
+                  <span slot="header" style="font-weight:bold">{{ currentAllOf.title }}</span>
                   <v-card>
-                    <v-card-text>
+                    <v-card-text >
                       <property
                         :schema="Object.assign({}, currentAllOf, {type: 'object', title: null})"
                         :model-wrapper="subModels"
