@@ -18,7 +18,8 @@ module.exports = {
         'items': {
           'type': 'string',
           enum: ['small', 'medium', 'large']
-        }
+        },
+        minItems: 1
       },
       'vegetables': {
         'type': 'array',

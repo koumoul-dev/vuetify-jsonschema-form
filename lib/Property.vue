@@ -458,7 +458,21 @@ export default {
     label() { return this.fullSchema.title || (typeof this.modelKey === 'string' ? this.modelKey : '') },
     rules() {
       const rules = []
-      if (this.required) rules.push((val) => (val !== undefined && val !== null && val !== '') || this.options.requiredMessage)
+      if (this.required) {
+        rules.push((val) => (val !== undefined && val !== null && val !== '') || this.options.requiredMessage)
+      }
+      if (this.fullSchema.type === 'array' && this.fullSchema.minItems !== undefined) {
+        rules.push((val) => (!val || val.length >= this.fullSchema.minItems) || '')
+      }
+      if (this.fullSchema.type === 'array' && this.fullSchema.maxItems !== undefined) {
+        rules.push((val) => (!val || val.length <= this.fullSchema.maxItems) || '')
+      }
+      if (this.fullSchema.type === 'string' && this.fullSchema.minLength !== undefined) {
+        rules.push((val) => (val === undefined || val.length >= this.fullSchema.minLength) || '')
+      }
+      if (this.fullSchema.type === 'string' && this.fullSchema.maxLength !== undefined) {
+        rules.push((val) => (val === undefined || val.length <= this.fullSchema.maxLength) || '')
+      }
       return rules
     },
     fromUrl() {
