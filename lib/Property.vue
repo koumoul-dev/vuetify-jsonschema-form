@@ -468,10 +468,10 @@ export default {
         rules.push((val) => (!val || val.length <= this.fullSchema.maxItems) || '')
       }
       if (this.fullSchema.type === 'string' && this.fullSchema.minLength !== undefined) {
-        rules.push((val) => (val === undefined || val.length >= this.fullSchema.minLength) || '')
+        rules.push((val) => (val === undefined || val === null || val.length >= this.fullSchema.minLength) || '')
       }
       if (this.fullSchema.type === 'string' && this.fullSchema.maxLength !== undefined) {
-        rules.push((val) => (val === undefined || val.length <= this.fullSchema.maxLength) || '')
+        rules.push((val) => (val === undefined || val === null || val.length <= this.fullSchema.maxLength) || '')
       }
       return rules
     },
