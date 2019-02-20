@@ -154,6 +154,22 @@
       </v-tooltip>
     </v-textarea>
 
+    <!-- text field displayed as password -->
+    <v-text-field v-else-if="fullSchema.type === 'string' && fullSchema['x-display'] === 'password'"
+                  v-model="modelWrapper[modelKey]"
+                  :name="fullKey"
+                  :label="label"
+                  :disabled="disabled"
+                  :required="required"
+                  :rules="rules"
+                  type="password"
+    >
+      <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
+        <v-icon slot="activator">info</v-icon>
+        <div class="vjsf-tooltip" v-html="htmlDescription" />
+      </v-tooltip>
+    </v-text-field>
+
     <!-- Simple text field -->
     <v-text-field v-else-if="fullSchema.type === 'string'"
                   v-model="modelWrapper[modelKey]"
