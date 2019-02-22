@@ -4,11 +4,15 @@ Generate forms for the [vuetify](https://vuetifyjs.com/en/) UI library (vuejs) b
 
 For a view of all the functionalities check the [demo](https://koumoul-dev.github.io/vuetify-jsonschema-form/latest/).
 
+## Installation
+
+```bash
+npm i --save @koumoul/vuetify-jsonschema-form
+```
+
 ## Usage
 
-    npm i --save @koumoul/vuetify-jsonschema-form
-
-```
+```html
 <template>
   <v-form v-model="formValid">
     <v-jsonschema-form v-if="schema" :schema="schema" :model="dataObject" :options="options" @error="showError" />
@@ -16,7 +20,6 @@ For a view of all the functionalities check the [demo](https://koumoul-dev.githu
 </template>
 
 <script>
-
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
@@ -53,6 +56,5 @@ export default {
     }
   }
 }
-
 </script>
 ```
