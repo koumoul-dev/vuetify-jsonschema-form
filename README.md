@@ -38,7 +38,7 @@ Vue.component('draggable', Draggable)
 
 export default {
   components: {VJsonschemaForm},
-  data: function() {
+  data() {
     return {
       schema: {...},
       dataObject: {},
