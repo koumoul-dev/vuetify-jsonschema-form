@@ -1,7 +1,10 @@
 <template lang="html">
   <div v-if="fullSchema" class="vjsf-property">
     <!-- Hide const ? Or make a readonly field -->
-    <div v-if="fullSchema.const !== undefined" />
+    <template v-if="fullSchema.const !== undefined" />
+
+    <!-- explicitly hide this field -->
+    <template v-if="fullSchema['x-display'] === 'hidden'" />
 
     <!-- Date picker -->
     <v-menu v-else-if="fullSchema.type === 'string' && ['date', 'date-time'].includes(fullSchema.format)" ref="menu" :close-on-content-click="false" v-model="menu"

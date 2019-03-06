@@ -36,6 +36,11 @@ This description can be a long text with markdown content.
         'type': 'integer',
         'minimum': 0
       },
+      'internalKey': {
+        'description': 'A property managed only internally by programs and hidden from user',
+        'type': 'string',
+        'x-display': 'hidden'
+      },
       citizen: {
         description: 'Is this person a citizen of this country.',
         type: 'boolean'
