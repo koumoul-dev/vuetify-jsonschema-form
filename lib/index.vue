@@ -8,6 +8,8 @@
     model-key="root"
     parent-key=""
     @error="e => $emit('error', e)"
+    @change="e => $emit('change', e)"
+    @input="e => $emit('input', e)"
   />
 </template>
 

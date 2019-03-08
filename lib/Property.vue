@@ -26,7 +26,7 @@
         :rules="rules"
         :clearable="!required"
         prepend-icon="event"
-        readonly >
+        readonly>
         <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
           <v-icon slot="activator">info</v-icon>
           <div class="vjsf-tooltip" v-html="htmlDescription" />
@@ -35,7 +35,7 @@
       <v-date-picker v-model="modelWrapper[modelKey]" no-title scrollable>
         <v-spacer/>
         <v-btn flat color="primary" @click="menu = false">Cancel</v-btn>
-        <v-btn flat color="primary" @click="$refs.menu.save(modelWrapper[modelKey])">OK</v-btn>
+        <v-btn flat color="primary" @click="$refs.menu.save(modelWrapper[modelKey]); change(); input()">OK</v-btn>
       </v-date-picker>
     </v-menu>
 
@@ -56,7 +56,8 @@
         :disabled="disabled"
         :colors="options.colors"
         :trigger-style="{width:'36px', height:'36px'}"
-        shapes="circles" />
+        shapes="circles"
+        @input="input();change()"/>
     </v-input>
 
     <!-- Select field based on an enum (array or simple value) -->
@@ -69,7 +70,9 @@
               :rules="rules"
               :disabled="disabled"
               :clearable="!required"
-              :multiple="fullSchema.type === 'array'" >
+              :multiple="fullSchema.type === 'array'"
+              @change="change"
+              @input="input">
       <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
         <v-icon slot="activator">info</v-icon>
         <div class="vjsf-tooltip" v-html="htmlDescription" />
@@ -87,7 +90,9 @@
               :disabled="disabled"
               :rules="rules"
               :clearable="!required"
-              :multiple="fullSchema.type === 'array'" >
+              :multiple="fullSchema.type === 'array'"
+              @change="change"
+              @input="input">
       <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
         <v-icon slot="activator">info</v-icon>
         <div class="vjsf-tooltip" v-html="htmlDescription" />
@@ -109,7 +114,9 @@
               :return-object="(fullSchema.type === 'array' && fullSchema.items.type === 'object') || fullSchema.type === 'object'"
               :clearable="!required"
               :loading="loading"
-              :multiple="fullSchema.type === 'array'">
+              :multiple="fullSchema.type === 'array'"
+              @change="change"
+              @input="input">
       <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
         <v-icon slot="activator">info</v-icon>
         <div class="vjsf-tooltip" v-html="htmlDescription" />
@@ -134,7 +141,9 @@
                     :filter="() => true"
                     :placeholder="options.searchMessage"
                     :loading="loading"
-                    :multiple="fullSchema.type === 'array'" >
+                    :multiple="fullSchema.type === 'array'"
+                    @change="change"
+                    @input="input">
       <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
         <v-icon slot="activator">info</v-icon>
         <div class="vjsf-tooltip" v-html="htmlDescription" />
@@ -150,7 +159,8 @@
                 :required="required"
                 :rules="rules"
                 box
-    >
+                @change="change"
+                @input="input">
       <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
         <v-icon slot="activator">info</v-icon>
         <div class="vjsf-tooltip" v-html="htmlDescription" />
@@ -166,7 +176,8 @@
                   :required="required"
                   :rules="rules"
                   type="password"
-    >
+                  @change="change"
+                  @input="input">
       <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
         <v-icon slot="activator">info</v-icon>
         <div class="vjsf-tooltip" v-html="htmlDescription" />
@@ -181,7 +192,8 @@
                   :disabled="disabled"
                   :required="required"
                   :rules="rules"
-    >
+                  @change="change"
+                  @input="input">
       <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
         <v-icon slot="activator">info</v-icon>
         <div class="vjsf-tooltip" v-html="htmlDescription" />
@@ -199,7 +211,9 @@
                   :disabled="disabled"
                   :required="required"
                   :rules="rules"
-                  type="number">
+                  type="number"
+                  @change="change"
+                  @input="input">
       <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
         <v-icon slot="activator">info</v-icon>
         <div class="vjsf-tooltip" v-html="htmlDescription" />
@@ -213,7 +227,9 @@
                 :name="fullKey"
                 :disabled="disabled"
                 :required="required"
-                :rules="rules" >
+                :rules="rules"
+                @change="change"
+                @input="input">
       <v-tooltip v-if="fullSchema.description" slot="append" left>
         <v-icon slot="activator">info</v-icon>
         <div class="vjsf-tooltip" v-html="htmlDescription" />
@@ -232,7 +248,8 @@
       chips
       multiple
       append-icon=""
-    >
+      @change="change"
+      @input="input">
       <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
         <v-icon slot="activator">info</v-icon>
         <div class="vjsf-tooltip" v-html="htmlDescription" />
@@ -241,7 +258,7 @@
         <v-chip
           :selected="data.selected"
           close
-          @input="modelWrapper[modelKey].splice(modelWrapper[modelKey].indexOf(data.item))"
+          @input="modelWrapper[modelKey].splice(modelWrapper[modelKey].indexOf(data.item)); change(); input()"
         >
           {{ data.item }}
         </v-chip>
@@ -270,7 +287,8 @@
                     :required="!!(fullSchema.required && fullSchema.required.includes(childProp.key))"
                     :options="options"
                     @error="e => $emit('error', e)"
-          />
+                    @change="e => $emit('change', e)"
+                    @input="e => $emit('input', e)" />
 
           <!-- Sub containers for allOfs -->
           <template v-if="fullSchema.allOf && fullSchema.allOf.length">
@@ -289,7 +307,8 @@
                         :parent-key="parentKey"
                         :options="options"
                         @error="e => $emit('error', e)"
-                      />
+                        @change="e => $emit('change', e)"
+                        @input="e => $emit('input', e)" />
                     </v-card-text>
                   </v-card>
                 </v-expansion-panel-content>
@@ -306,7 +325,8 @@
                 :parent-key="parentKey"
                 :options="options"
                 @error="e => $emit('error', e)"
-              />
+                @change="e => $emit('change', e)"
+                @input="e => $emit('input', e)" />
             </template>
           </template>
 
@@ -322,7 +342,9 @@
             :clearable="!oneOfRequired"
             :rules="oneOfRules"
             item-text="title"
-            return-object>
+            return-object
+            @change="change"
+            @input="input">
             <v-tooltip v-if="oneOfConstProp && oneOfConstProp.description" slot="append-outer" left>
               <v-icon slot="activator">info</v-icon>
               <div class="vjsf-tooltip" v-html="oneOfConstProp.htmlDescription"/>
@@ -338,7 +360,8 @@
               :options="options"
               model-key="currentOneOf"
               @error="e => $emit('error', e)"
-            />
+              @change="e => $emit('change', e)"
+              @input="e => $emit('input', e)" />
           </template>
         </div>
       </v-slide-y-transition>
@@ -363,7 +386,8 @@
                     :parent-key="fullKey + '.'"
                     :options="options"
                     @error="e => $emit('error', e)"
-          />
+                    @change="e => $emit('change', e)"
+                    @input="e => $emit('input', e)" />
         </div>
       </v-slide-y-transition>
     </div>
@@ -372,7 +396,7 @@
     <div v-else-if="fullSchema.type === 'array'">
       <v-layout row class="mt-2 mb-1 pr-1">
         <v-subheader>{{ label }}</v-subheader>
-        <v-btn v-if="!disabled" icon color="primary" @click="modelWrapper[modelKey].push(fullSchema.items.default || defaultValue(fullSchema.items))">
+        <v-btn v-if="!disabled" icon color="primary" @click="modelWrapper[modelKey].push(fullSchema.items.default || defaultValue(fullSchema.items)); change(); input()">
           <v-icon>add</v-icon>
         </v-btn>
         <v-spacer/>
@@ -388,20 +412,23 @@
             <v-flex v-for="(itemModel, i) in modelWrapper[modelKey]" :key="i" xs12>
               <v-card class="array-card">
                 <v-card-text>
+
                   <property :schema="fullSchema.items"
                             :model-wrapper="modelWrapper[modelKey]"
                             :model-root="modelRoot"
                             :model-key="i"
-                            :parent-key="`${fullKey}.${i}.`"
+                            :parent-key="`${fullKey}.`"
                             :options="options"
-                            @error="e => $emit('error', e)"/>
+                            @error="e => $emit('error', e)"
+                            @change="e => $emit('change', e)"
+                            @input="e => $emit('input', e)" />
                 </v-card-text>
                 <v-card-actions v-if="!disabled">
                   <v-btn v-if="fullSchema['x-sortable'] !== false" flat icon class="handle">
                     <v-icon>reorder</v-icon>
                   </v-btn>
                   <v-spacer/>
-                  <v-btn flat icon color="warning" @click="modelWrapper[modelKey].splice(i, 1)">
+                  <v-btn flat icon color="warning" @click="modelWrapper[modelKey].splice(i, 1); change(); input()">
                     <v-icon>delete</v-icon>
                   </v-btn>
                 </v-card-actions>
@@ -580,6 +607,12 @@ export default {
     }
   },
   methods: {
+    change() {
+      this.$emit('change', {key: this.fullKey.replace(/allOf-([0-9]+)\./g, ''), model: this.modelWrapper[this.modelKey]})
+    },
+    input() {
+      this.$emit('input', {key: this.fullKey.replace(/allOf-([0-9]+)\./g, ''), model: this.modelWrapper[this.modelKey]})
+    },
     getDeepKey(obj, key) {
       const keys = key.split('.')
       for (let i = 0; i < keys.length; i++) {

@@ -34,7 +34,14 @@
             </h2>
 
             <v-form ref="myForm" v-model="formValid">
-              <v-jsonschema-form v-if="schema" :schema="schema" :model="dataObject" :options="{debug: true, disableAll: false, autoFoldObjects: true, context: {owner: {type: 'organization', id: '5a5dc47163ebd4a6f438589b'}}, accordionMode: 'normal'}" @error="e => window.alert(e)" />
+              <v-jsonschema-form
+                v-if="schema"
+                :schema="schema"
+                :model="dataObject"
+                :options="{debug: true, disableAll: false, autoFoldObjects: true, context: {owner: {type: 'organization', id: '5a5dc47163ebd4a6f438589b'}}, accordionMode: 'normal'}"
+                @error="e => window.alert(e)"
+                @change="change"
+                @input="input" />
             </v-form>
             <h2 class="title my-4">Data:</h2>
             <pre>{{ JSON.stringify(dataObject, null, 2) }}</pre>
@@ -92,6 +99,12 @@ export default {
         this.schemaStr = JSON.stringify(this.example.schema, null, 2)
         this.applySchema()
       }, 1)
+    },
+    change(e) {
+      console.log('"change" event', e)
+    },
+    input(e) {
+      console.log('"input" event', e)
     }
   }
 }
