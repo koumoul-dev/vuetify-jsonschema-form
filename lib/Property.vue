@@ -464,6 +464,7 @@ export default {
       ready: false,
       menu: false,
       rawSelectItems: null,
+      selectItems: null,
       q: '',
       currentOneOf: null,
       fromUrlParams: {},
@@ -558,47 +559,6 @@ export default {
       if (!this.fullSchema['x-fromUrl']) return null
       return matchAll(this.fullSchema['x-fromUrl'], /\{(.*?)\}/g).toArray().filter(key => key !== 'q')
     },
-    selectItems() {
-      const selectItems = []
-
-      if (!this.rawSelectItems) {
-        // nothing to do
-      } else if (
-        (this.fullSchema.type === 'object' && this.fullSchema.properties && Object.keys(this.fullSchema.properties).length) ||
-        (this.fullSchema.type === 'array' && this.fullSchema.items && this.fullSchema.items.type === 'object' && this.fullSchema.items.properties && Object.keys(this.fullSchema.items.properties).length)
-      ) {
-        const keys = this.fullSchema.properties.map(p => p.key)
-        this.rawSelectItems.forEach(item => {
-          const filteredItem = {}
-          keys.forEach(key => {
-            if (item[key] !== undefined) filteredItem[key] = item[key]
-          })
-          selectItems.push(filteredItem)
-        })
-      } else {
-        this.rawSelectItems.forEach(item => selectItems.push(item))
-      }
-
-      // always propose the existing values so they can be unchecked
-      const model = this.modelWrapper[this.modelKey]
-      const matchItem = (selectItem, item) => {
-        const selectItemStr = JSON.stringify(typeof selectItem === 'object' ? selectItem[this.itemKey] : selectItem)
-        const itemStr = JSON.stringify(typeof item === 'object' ? item[this.itemKey] : item)
-        return selectItemStr === itemStr
-      }
-      if (model) {
-        if (this.fullSchema.type === 'array') {
-          model.reverse().forEach(item => {
-            if (!selectItems.find(selectItem => matchItem(selectItem, item))) {
-              selectItems.push(item)
-            }
-          })
-        } else if (!selectItems.find(selectItem => matchItem(selectItem, model))) {
-          selectItems.push(model)
-        }
-      }
-      return selectItems
-    },
     itemKey() {
       return this.fullSchema['x-itemKey'] || 'key'
     },
@@ -659,10 +619,59 @@ export default {
         this.applySubModels()
       },
       deep: true
+    },
+    rawSelectItems() {
+      this.updateSelectItems()
     }
   },
   methods: {
+    updateSelectItems() {
+      const selectItems = []
+
+      if (!this.rawSelectItems) {
+        // nothing to do
+      } else if (
+        (this.fullSchema.type === 'object' && this.fullSchema.properties && Object.keys(this.fullSchema.properties).length) ||
+        (this.fullSchema.type === 'array' && this.fullSchema.items && this.fullSchema.items.type === 'object' && this.fullSchema.items.properties && Object.keys(this.fullSchema.items.properties).length)
+      ) {
+        const keys = this.fullSchema.properties.map(p => p.key)
+        this.rawSelectItems.forEach(item => {
+          const filteredItem = {}
+          keys.forEach(key => {
+            if (item[key] !== undefined) filteredItem[key] = item[key]
+          })
+          selectItems.push(filteredItem)
+        })
+      } else {
+        this.rawSelectItems.forEach(item => selectItems.push(item))
+      }
+
+      // always propose the existing values so they can be unchecked
+      const model = this.modelWrapper[this.modelKey]
+      const matchItem = (selectItem, item) => {
+        const selectItemStr = JSON.stringify(typeof selectItem === 'object' ? selectItem[this.itemKey] : selectItem)
+        const itemStr = JSON.stringify(typeof item === 'object' ? item[this.itemKey] : item)
+        return selectItemStr === itemStr
+      }
+      if (model) {
+        if (this.fullSchema.type === 'array') {
+          model.reverse().forEach(item => {
+            if (!selectItems.find(selectItem => matchItem(selectItem, item))) {
+              selectItems.push(item)
+            }
+          })
+        } else if (!selectItems.find(selectItem => matchItem(selectItem, model))) {
+          selectItems.push(model)
+        }
+      }
+
+      // we check for actual differences in order to prevent infinite loops
+      if (JSON.stringify(selectItems) !== JSON.stringify(this.selectItems)) {
+        this.selectItems = selectItems
+      }
+    },
     change() {
+      this.updateSelectItems()
       this.$emit('change', {key: this.fullKey.replace(/allOf-([0-9]+)\./g, ''), model: this.modelWrapper[this.modelKey]})
     },
     input() {
