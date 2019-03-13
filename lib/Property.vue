@@ -519,6 +519,12 @@ export default {
       if (this.fullSchema.type === 'string' && this.fullSchema.maxLength !== undefined) {
         rules.push((val) => (val === undefined || val === null || val.length <= this.fullSchema.maxLength) || '')
       }
+      if (['number', 'integer'].includes(this.fullSchema.type) && this.fullSchema.maximum !== undefined) {
+        rules.push((val) => (val === undefined || val === null || val <= this.fullSchema.maximum) || '')
+      }
+      if (['number', 'integer'].includes(this.fullSchema.type) && this.fullSchema.minimum !== undefined) {
+        rules.push((val) => (val === undefined || val === null || val >= this.fullSchema.minimum) || '')
+      }
       return rules
     },
     fromUrl() {

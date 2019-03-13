@@ -34,7 +34,8 @@ This description can be a long text with markdown content.
       'age': {
         'description': 'Age in years which must be equal to or greater than zero.',
         'type': 'integer',
-        'minimum': 0
+        'minimum': 0,
+        maximum: 150
       },
       'internalKey': {
         'description': 'A property managed only internally by programs and hidden from user',
