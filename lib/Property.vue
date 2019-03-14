@@ -1,13 +1,9 @@
-<template lang="html">
-  <div v-if="fullSchema" class="vjsf-property">
-    <!-- Hide const ? Or make a readonly field -->
-    <template v-if="fullSchema.const !== undefined" />
-
-    <!-- explicitly hide this field -->
-    <template v-else-if="fullSchema['x-display'] === 'hidden'" />
+<template>
+  <!-- Hide const ? Or make a readonly field -->
+  <div v-if="fullSchema && fullSchema.const === undefined && fullSchema['x-display'] !== 'hidden'" class="vjsf-property">
 
     <!-- Date picker -->
-    <v-menu v-else-if="fullSchema.type === 'string' && ['date', 'date-time'].includes(fullSchema.format)" ref="menu" :close-on-content-click="false" v-model="menu"
+    <v-menu v-if="fullSchema.type === 'string' && ['date', 'date-time'].includes(fullSchema.format)" ref="menu" :close-on-content-click="false" v-model="menu"
             :nudge-right="40"
             :return-value.sync="modelWrapper[modelKey]"
             :disabled="disabled"
@@ -818,7 +814,7 @@ export default {
 
 </script>
 
-<style>
+<style lang="css">
 .vjsf-property .array-card .v-card__text {
   padding: 6px 16px 0 16px;
 }
