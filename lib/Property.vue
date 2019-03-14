@@ -616,8 +616,11 @@ export default {
       },
       deep: true
     },
-    rawSelectItems() {
-      this.updateSelectItems()
+    rawSelectItems: {
+      handler() {
+        this.updateSelectItems()
+      },
+      immediate: true
     }
   },
   methods: {
