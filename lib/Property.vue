@@ -354,7 +354,7 @@
               </v-tooltip>
             </v-select>
             <!--{{ currentOneOf }}-->
-            <template v-if="currentOneOf">
+            <template v-if="currentOneOf && showCurrentOneOf">
               <property
                 :schema="Object.assign({}, currentOneOf, {title: null, type: 'object'})"
                 :model-wrapper="subModels"
@@ -463,6 +463,7 @@ export default {
       selectItems: null,
       q: '',
       currentOneOf: null,
+      showCurrentOneOf: true,
       fromUrlParams: {},
       loading: false,
       folded: true,
@@ -605,7 +606,12 @@ export default {
       },
       immediate: true
     },
-    currentOneOf(newVal, oldVal) {
+    async currentOneOf(newVal, oldVal) {
+      // use this coolean to force removing then re-creating the object property
+      // base on the currentOneOf sub schema. If we don't the component is reused and reactivity creates some difficult bugs.
+      this.showCurrentOneOf = false
+      await this.$nextTick()
+      this.showCurrentOneOf = true
       if (!this.currentOneOf) this.$set(this.subModels, 'currentOneOf', {})
       this.cleanUpExtraProperties()
     },

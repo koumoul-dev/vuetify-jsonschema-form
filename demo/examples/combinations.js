@@ -1,23 +1,29 @@
 module.exports = {
   title: 'Combinations',
   schema: {
-    '$id': 'https://example.com/person.schema.json',
     '$schema': 'http://json-schema.org/draft-07/schema#',
     'title': 'Combinations',
-    description: 'using anyOf and allOf combinations',
+    description: 'Using anyOf and allOf combinations. ',
     'type': 'object',
-    'properties': {
-      'presentation': {
-        'description': 'A longer text for the description.',
-        'type': 'string',
-        'maxLength': 2000
+    properties: {
+      entity: {
+        type: 'object',
+        'properties': {
+          'presentation': {
+            title: 'Presentation (neither in a anyOf or a oneOf)',
+            'description': 'A longer text for the description.',
+            'type': 'string',
+            'maxLength': 2000
+          }
+        },
+        required: ['type'],
+        allOf: [{$ref: '#/definitions/realWorldEntity'}, {$ref: '#/definitions/socialMediaEntity'}],
+        oneOf: [{$ref: '#/definitions/physicalPerson'}, {$ref: '#/definitions/moralPerson'}]
       }
     },
-    required: ['type'],
-    allOf: [{$ref: '#/definitions/realWorldEntity'}, {$ref: '#/definitions/socialMediaEntity'}],
-    oneOf: [{$ref: '#/definitions/physicalPerson'}, {$ref: '#/definitions/moralPerson'}],
     definitions: {
       realWorldEntity: {
+        title: 'Real world (first part of allOf)',
         properties: {
           address: {
             type: 'string',
@@ -35,7 +41,7 @@ module.exports = {
         }
       },
       socialMediaEntity: {
-        title: 'Social media',
+        title: 'Social media (second part of allOf)',
         properties: {
           twitter: {
             type: 'string'
@@ -60,24 +66,38 @@ module.exports = {
         properties: {
           type: {
             type: 'string',
-            title: 'Type of person',
-            description: 'A longer description, blah blah',
+            title: 'Type of person (select based on a oneOf)',
             const: 'physicalPerson'
-          },
-          'firstName': {
-            'type': 'string',
-            'description': "The person's first name."
-          },
-          'lastName': {
-            'type': 'string',
-            'description': "The person's last name."
-          },
-          'age': {
-            'description': 'Age in years which must be equal to or greater than zero.',
-            'type': 'integer',
-            'minimum': 0
           }
-        }
+        },
+        allOf: [{
+          type: 'object',
+          title: 'Name (first part of a allOf inside the oneOf)',
+          properties: {
+            'firstName': {
+              'type': 'string',
+              'description': "The person's first name."
+            },
+            'lastName': {
+              'type': 'string',
+              'description': "The person's last name."
+            }
+          }
+        }, {
+          type: 'object',
+          title: 'Other info (second part of allOf inside the oneOf)',
+          properties: {
+            'age': {
+              'description': 'Age in years which must be equal to or greater than zero.',
+              'type': 'integer',
+              'minimum': 0
+            },
+            gender: {
+              type: 'string',
+              enum: ['male', 'female', 'other']
+            }
+          }
+        }]
       },
       moralPerson: {
         title: 'Moral person',
@@ -95,10 +115,12 @@ module.exports = {
     }
   },
   data: {
-    presentation: 'lorem ipsum',
-    twitter: 'koumoul_fr',
-    type: 'physicalPerson',
-    firstName: 'Alban',
-    lastName: 'Mouton'
+    entity: {
+      presentation: 'lorem ipsum',
+      twitter: 'koumoul_fr',
+      type: 'moralPerson',
+      firstName: 'Alban',
+      lastName: 'Mouton'
+    }
   }
 }

@@ -92,7 +92,7 @@ module.exports = {
           properties: {
             type: {
               const: 'bar',
-              title: 'Chose from a type'
+              title: 'Chose from a type (from oneOf of objects)'
             },
             xLabel: {
               type: 'string'
@@ -122,7 +122,7 @@ module.exports = {
         }]
       },
       chartDef2: {
-        title: 'Chose from a type',
+        title: 'Chose from a type (fron oneOf of objects with a description)',
         description: 'A conditional form will be rendered below',
         type: 'object',
         'x-itemKey': 'type',
@@ -165,6 +165,10 @@ module.exports = {
     fromAjaxWithQuery: {href: 'other', title: 'Other'},
     */
     chartDef: {
+      type: 'pie',
+      diameter: '10'
+    },
+    chartDef2: {
       type: 'pie'
     }
   }
