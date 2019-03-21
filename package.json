@@ -24,6 +24,7 @@
     "markdown-it": "^8.4.2",
     "match-all": "^1.2.4",
     "property-expr": "^1.5.1",
+    "vue-color": "^2.7.0",
     "vue-swatches": "^1.0.2",
     "vuedraggable": "^2.16.0"
   },

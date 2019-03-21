@@ -36,25 +36,47 @@
     </v-menu>
 
     <!-- Color picking -->
-    <v-input v-else-if="fullSchema.format === 'hexcolor'"
-             :name="fullKey"
-             :label="label"
-             :required="required"
-             :rules="rules"
-             :disabled="disabled">
-      <v-tooltip v-if="fullSchema.description" slot="append" left>
-        <v-icon slot="activator">info</v-icon>
-        <div class="vjsf-tooltip" v-html="htmlDescription" />
-      </v-tooltip>
-      &nbsp;&nbsp;
-      <swatches
-        v-model="modelWrapper[modelKey]"
-        :disabled="disabled"
-        :colors="options.colors"
-        :trigger-style="{width:'36px', height:'36px'}"
-        shapes="circles"
-        @input="input();change()"/>
-    </v-input>
+    <template v-if="fullSchema.format === 'hexcolor'">
+      <template v-if="fullSchema['x-display'] === 'color-picker'">
+        <v-input
+          :name="fullKey"
+          :label="label"
+          :required="required"
+          :rules="rules"
+          :disabled="disabled">
+          <v-tooltip v-if="fullSchema.description" slot="append" left>
+            <v-icon slot="activator">info</v-icon>
+            <div class="vjsf-tooltip" v-html="htmlDescription" />
+          </v-tooltip>
+          &nbsp;&nbsp;
+          <v-menu :close-on-content-click="false" :close-on-click="true" direction="bottom" offset-y>
+            <template slot="activator">
+              <div :style="`background-color: ${modelWrapper[modelKey]};`" :class="modelWrapper[modelKey] ? 'color-picker-trigger' : 'color-picker-trigger color-picker-trigger-empty'" />
+            </template>
+            <color-picker :value="modelWrapper[modelKey]" :preset-colors="options.colors.swatches" @input="(val) => {modelWrapper[modelKey] = val.hex; input(); change()}" />
+          </v-menu>
+        </v-input>
+      </template>
+      <v-input v-else
+               :name="fullKey"
+               :label="label"
+               :required="required"
+               :rules="rules"
+               :disabled="disabled">
+        <v-tooltip v-if="fullSchema.description" slot="append" left>
+          <v-icon slot="activator">info</v-icon>
+          <div class="vjsf-tooltip" v-html="htmlDescription" />
+        </v-tooltip>
+        &nbsp;&nbsp;
+        <swatches
+          v-model="modelWrapper[modelKey]"
+          :disabled="disabled"
+          :colors="options.colors"
+          :trigger-style="{width:'36px', height:'36px'}"
+          shapes="circles"
+          @input="input();change()"/>
+      </v-input>
+    </template>
 
     <!-- Select field based on an enum (array or simple value) -->
     <template v-else-if="(fullSchema.type === 'array' && fullSchema.items.enum) || fullSchema.enum">
@@ -467,6 +489,7 @@ export default {
       fromUrlParams: {},
       loading: false,
       folded: true,
+      showColorPicker: false,
       subModels: {} // a container for objects from root oneOfs and allOfs
     }
   },
@@ -756,6 +779,9 @@ export default {
       // const always wins
       if (this.fullSchema.const !== undefined) model = this.fullSchema.const
 
+      // color pickers do not like null values
+      if (this.fullSchema.type === 'string' && this.fullSchema.format === 'hexcolor') model = model || ''
+
       // Case of a select based on ajax query
       if (this.fromUrl) this.getSelectItems()
       // Case of select based on an enum
@@ -838,6 +864,19 @@ export default {
 
 .vjsf-tooltip p:last-child {
   margin-bottom: 0;
+}
+
+.vjsf-property .color-picker-trigger {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.vjsf-property .color-picker-trigger-empty {
+  border: 2px solid #ccc;
+  background: linear-gradient(to top right,transparent 0,transparent calc(50% - 2.4px),#de080a 50%,transparent calc(50% + 2.4px),transparent);
 }
 
 </style>
