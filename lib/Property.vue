@@ -606,14 +606,15 @@ export default {
       },
       immediate: true
     },
-    async currentOneOf(newVal, oldVal) {
+    currentOneOf(newVal, oldVal) {
       // use this coolean to force removing then re-creating the object property
       // base on the currentOneOf sub schema. If we don't the component is reused and reactivity creates some difficult bugs.
       this.showCurrentOneOf = false
-      await this.$nextTick()
-      this.showCurrentOneOf = true
-      if (!this.currentOneOf) this.$set(this.subModels, 'currentOneOf', {})
-      this.cleanUpExtraProperties()
+      this.$nextTick(() => {
+        this.showCurrentOneOf = true
+        if (!this.currentOneOf) this.$set(this.subModels, 'currentOneOf', {})
+        this.cleanUpExtraProperties()
+      })
     },
     subModels: {
       handler() {
