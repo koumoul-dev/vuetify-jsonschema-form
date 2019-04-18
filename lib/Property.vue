@@ -36,7 +36,7 @@
     </v-menu>
 
     <!-- Color picking -->
-    <template v-if="fullSchema.format === 'hexcolor'">
+    <template v-else-if="fullSchema.format === 'hexcolor'">
       <template v-if="fullSchema['x-display'] === 'color-picker'">
         <v-input
           :name="fullKey"
