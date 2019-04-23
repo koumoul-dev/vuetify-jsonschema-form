@@ -26,6 +26,24 @@ module.exports = {
         'description': 'A list of vegetables as editable objects.',
         'items': { '$ref': '#/definitions/veggie' }
       },
+      'fromAjaxObjects': {
+        type: 'array',
+        title: 'Tableau d\'objets depuis ajax présentés en liste',
+        description: 'The values come from an HTTP request and are stored as an array of objects.',
+        'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title,schema&owner={context.owner.type}:{context.owner.id}',
+        'x-itemsProp': 'results',
+        'x-itemTitle': 'title',
+        'x-itemKey': 'href',
+        'x-display': 'list',
+        items: {
+          type: 'object',
+          properties: {
+            href: { type: 'string', 'x-display': 'hidden' },
+            title: { type: 'string', 'x-display': 'hidden' },
+            txtFromUser: { type: 'string', title: 'Additional field for user' }
+          }
+        }
+      },
       coordinate: {
         type: 'array',
         title: 'Lat/lon coordinates as a tuple',
@@ -60,6 +78,14 @@ module.exports = {
         'veggieName': 'broccoli',
         'veggieLike': false
       }
-    ]
+    ],
+    fromAjaxObjects: [{
+      'href': 'https://koumoul.com/s/data-fair/api/v1/datasets/jep-2018-france',
+      'title': 'Journées européennes du patrimoine en France Métropolitaine',
+      'txtFromUser': 'User already wrote stuff here'
+    }, {
+      'href': 'OLD KEY',
+      'title': 'This one does not match anymore an item from ajax query'
+    }]
   }
 }

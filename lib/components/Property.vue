@@ -143,7 +143,7 @@
     </v-select>
 
     <!-- Select field on an ajax response or from an array in another part of the data -->
-    <v-select v-else-if="fromUrl || fullSchema['x-fromData']"
+    <v-select v-else-if="fullSchema['x-display'] !== 'list' && (fromUrl || fullSchema['x-fromData'])"
               v-model="modelWrapper[modelKey]"
               :items="selectItems"
               :name="fullKey"
@@ -484,7 +484,7 @@
     <div v-else-if="fullSchema.type === 'array'">
       <v-layout row class="mt-2 mb-1 pr-1">
         <v-subheader>{{ label }}</v-subheader>
-        <v-btn v-if="!disabled" icon color="primary" @click="modelWrapper[modelKey].push(fullSchema.items.default || defaultValue(fullSchema.items)); change(); input()">
+        <v-btn v-if="!disabled && !(fromUrl || fullSchema.fromData)" icon color="primary" @click="modelWrapper[modelKey].push(fullSchema.items.default || defaultValue(fullSchema.items)); change(); input()">
           <v-icon>add</v-icon>
         </v-btn>
         <v-spacer />
@@ -501,6 +501,16 @@
           <draggable v-model="modelWrapper[modelKey]" :options="{handle:'.handle'}" style="width: 100%;">
             <v-flex v-for="(itemModel, i) in modelWrapper[modelKey]" :key="i" xs12>
               <v-card class="array-card">
+                <v-card-title primary-title class="pa-0">
+                  <v-btn v-if="!disabled && fullSchema['x-sortable'] !== false" flat icon class="handle">
+                    <v-icon>reorder</v-icon>
+                  </v-btn>
+                  <span v-if="itemTitle">{{ modelWrapper[modelKey][i][itemTitle] }}</span>
+                  <v-spacer />
+                  <v-btn v-if="!disabled && !(fromUrl || fullSchema.fromData)" flat icon color="warning" @click="modelWrapper[modelKey].splice(i, 1); change(); input()">
+                    <v-icon>delete</v-icon>
+                  </v-btn>
+                </v-card-title>
                 <v-card-text>
                   <property :schema="fullSchema.items"
                             :model-wrapper="modelWrapper[modelKey]"
@@ -513,15 +523,6 @@
                             @input="e => $emit('input', e)"
                   />
                 </v-card-text>
-                <v-card-actions v-if="!disabled">
-                  <v-btn v-if="fullSchema['x-sortable'] !== false" flat icon class="handle">
-                    <v-icon>reorder</v-icon>
-                  </v-btn>
-                  <v-spacer />
-                  <v-btn flat icon color="warning" @click="modelWrapper[modelKey].splice(i, 1); change(); input()">
-                    <v-icon>delete</v-icon>
-                  </v-btn>
-                </v-card-actions>
               </v-card>
             </v-flex>
           </draggable>
@@ -660,6 +661,11 @@ export default {
   methods: {
     updateSelectItems() {
       const selectItems = selectUtils.getSelectItems(this.rawSelectItems, this.fullSchema, this.modelWrapper, this.modelKey, this.itemKey)
+      if (this.fullSchema['x-display'] === 'list') {
+        selectUtils.fillList(this.fullSchema, this.modelWrapper, this.modelKey, selectItems, this.itemKey)
+      } else {
+        selectUtils.fillSelectItems(this.fullSchema, this.modelWrapper, this.modelKey, selectItems, this.itemKey)
+      }
 
       // we check for actual differences in order to prevent infinite loops
       if (JSON.stringify(selectItems) !== JSON.stringify(this.selectItems)) {
