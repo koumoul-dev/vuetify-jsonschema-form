@@ -19,10 +19,10 @@ import colors from './utils/colors'
 import Property from './components/Property.vue'
 export default {
   name: 'VJsonschemaForm',
-  components: {Property},
+  components: { Property },
   props: ['schema', 'model', 'options'],
   data() {
-    return {modelWrapper: {root: this.model}}
+    return { modelWrapper: { root: this.model } }
   },
   computed: {
     resolvedSchema() {

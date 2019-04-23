@@ -17,8 +17,8 @@ module.exports = {
           }
         },
         required: ['type'],
-        allOf: [{$ref: '#/definitions/realWorldEntity'}, {$ref: '#/definitions/socialMediaEntity'}],
-        oneOf: [{$ref: '#/definitions/physicalPerson'}, {$ref: '#/definitions/moralPerson'}]
+        allOf: [{ $ref: '#/definitions/realWorldEntity' }, { $ref: '#/definitions/socialMediaEntity' }],
+        oneOf: [{ $ref: '#/definitions/physicalPerson' }, { $ref: '#/definitions/moralPerson' }]
       }
     },
     definitions: {

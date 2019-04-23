@@ -24,7 +24,7 @@ module.exports = {
         title: 'From oneOf',
         type: 'string',
         description: "The values are simple strings coming from a oneOf choice with 'const' and 'title' attributes.",
-        oneOf: [{const: 'v1', title: 'title1'}, {const: 'v2', title: 'title2'}]
+        oneOf: [{ const: 'v1', title: 'title1' }, { const: 'v2', title: 'title2' }]
       },
       'fromOneOfArray': {
         title: 'From oneOf in array',
@@ -32,7 +32,7 @@ module.exports = {
         description: "The values are simple strings coming from a oneOf choice with 'const' and 'title' attributes and put into an array.",
         items: {
           type: 'string',
-          oneOf: [{const: 'v1', title: 'title1'}, {const: 'v2', title: 'title2'}]
+          oneOf: [{ const: 'v1', title: 'title1' }, { const: 'v2', title: 'title2' }]
         }
       },
       'fromAjaxString': {
@@ -62,10 +62,10 @@ module.exports = {
         'x-itemTitle': 'title',
         'x-itemKey': 'href',
         properties: {
-          href: {type: 'string'},
-          title: {type: 'string'},
-          page: {type: 'string'},
-          schema: {type: 'array'}
+          href: { type: 'string' },
+          title: { type: 'string' },
+          page: { type: 'string' },
+          schema: { type: 'array' }
         }
       },
       fromData: {

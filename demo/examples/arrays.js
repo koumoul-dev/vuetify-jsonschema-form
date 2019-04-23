@@ -29,7 +29,7 @@ module.exports = {
       coordinate: {
         type: 'array',
         title: 'Lat/lon coordinates as a tuple',
-        items: [{type: 'number', title: 'Latitude'}, {type: 'number', title: 'Longitude'}]
+        items: [{ type: 'number', title: 'Latitude' }, { type: 'number', title: 'Longitude' }]
       }
     },
     'definitions': {

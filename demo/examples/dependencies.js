@@ -11,14 +11,14 @@ module.exports = {
     },
     dependencies: {
       acceptTC: {
-        oneOf: [{$ref: '#/definitions/creditCardPayment'}, {$ref: '#/definitions/paypalPayment'}]
+        oneOf: [{ $ref: '#/definitions/creditCardPayment' }, { $ref: '#/definitions/paypalPayment' }]
       }
     },
     definitions: {
       'creditCardPayment': {
         title: 'Credit card payment',
         'properties': {
-          type: {const: 'creditcardpayment'},
+          type: { const: 'creditcardpayment' },
           'credit_card': { 'type': 'number' }
         },
         'required': ['name'],
@@ -34,7 +34,7 @@ module.exports = {
       'paypalPayment': {
         title: 'Paypal payment',
         'properties': {
-          type: {const: 'paypalpayment'},
+          type: { const: 'paypalpayment' },
           'paypal account': { 'type': 'string' }
         },
         'required': ['account']

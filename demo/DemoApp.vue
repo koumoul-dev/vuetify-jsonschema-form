@@ -7,30 +7,42 @@
       <v-container fluid grid-list-md>
         <v-layout row>
           <v-flex xs6>
-            <h2 class="title my-4">Schema:</h2>
+            <h2 class="title my-4">
+              Schema:
+            </h2>
             <v-layout row wrap>
               <v-flex xs6>
-                <v-select :items="examples" v-model="example" :return-object="true" item-text="title" label="Choose an example" @change="applyExample" />
+                <v-select v-model="example" :items="examples" :return-object="true" item-text="title" label="Choose an example" @change="applyExample" />
               </v-flex>
               <v-flex xs6>
                 <v-container>
                   <v-layout row wrap>
-                    <v-spacer/>
-                    <v-btn color="primary" @click="applySchema">Apply</v-btn>
-                    <v-btn @click="formatSchema">Format</v-btn>
+                    <v-spacer />
+                    <v-btn color="primary" @click="applySchema">
+                      Apply
+                    </v-btn>
+                    <v-btn @click="formatSchema">
+                      Format
+                    </v-btn>
                   </v-layout>
                 </v-container>
               </v-flex>
             </v-layout>
 
-            <v-textarea v-model="schemaStr" :error-messages="schemaError ? [schemaError.message] : []" :rows="20"/>
+            <v-textarea v-model="schemaStr" :error-messages="schemaError ? [schemaError.message] : []" :rows="20" />
           </v-flex>
           <v-flex xs6>
             <h2 class="title my-4">
               Form
-              <v-chip v-if="formValid" color="success">valid</v-chip>
-              <v-chip v-else color="danger">invalid</v-chip>
-              <v-btn color="primary" @click="$refs.myForm.validate()">validate</v-btn>
+              <v-chip v-if="formValid" color="success">
+                valid
+              </v-chip>
+              <v-chip v-else color="danger">
+                invalid
+              </v-chip>
+              <v-btn color="primary" @click="$refs.myForm.validate()">
+                validate
+              </v-btn>
             </h2>
 
             <v-form ref="myForm" v-model="formValid">
@@ -41,9 +53,12 @@
                 :options="{debug: true, disableAll: false, autoFoldObjects: true, context: {owner: {type: 'organization', id: '5a5dc47163ebd4a6f438589b'}}, accordionMode: 'normal'}"
                 @error="e => window.alert(e)"
                 @change="change"
-                @input="input" />
+                @input="input"
+              />
             </v-form>
-            <h2 class="title my-4">Data:</h2>
+            <h2 class="title my-4">
+              Data:
+            </h2>
             <pre>{{ JSON.stringify(dataObject, null, 2) }}</pre>
           </v-flex>
         </v-layout>
@@ -58,7 +73,7 @@ import examples from './examples'
 import hjson from 'hjson' // more tolerant parsing of the schema for easier UX
 
 export default {
-  components: {VJsonschemaForm},
+  components: { VJsonschemaForm },
   data: function() {
     return {
       window,

@@ -18,6 +18,6 @@ Vue.component('color-picker', Sketch)
 
 new Vue({
   el: '#app',
-  components: {DemoApp},
+  components: { DemoApp },
   render: h => h('demo-app')
 })

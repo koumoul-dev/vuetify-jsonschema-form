@@ -6,7 +6,7 @@ module.exports = {
     'title': 'Combinations',
     description: 'using a root allOf as an accordion',
     'type': 'object',
-    allOf: [{$ref: '#/definitions/realWorldEntity'}, {$ref: '#/definitions/socialMediaEntity'}],
+    allOf: [{ $ref: '#/definitions/realWorldEntity' }, { $ref: '#/definitions/socialMediaEntity' }],
     definitions: {
       realWorldEntity: {
         title: 'Main infos',
