@@ -82,7 +82,7 @@ export default {
       schemaError: null,
       dataObject: {},
       examples,
-      example: examples[1],
+      example: examples[0],
       formValid: false
     }
   },
