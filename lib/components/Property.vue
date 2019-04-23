@@ -872,10 +872,10 @@ export default {
   border-radius: 50%;
   cursor: pointer;
   display: inline-block;
+  border: 2px solid #ccc;
 }
 
 .vjsf-property .color-picker-trigger-empty {
-  border: 2px solid #ccc;
   background: linear-gradient(to top right,transparent 0,transparent calc(50% - 2.4px),#de080a 50%,transparent calc(50% + 2.4px),transparent);
 }
 

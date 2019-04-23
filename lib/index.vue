@@ -14,9 +14,9 @@
 </template>
 
 <script>
-import jrefs from './json-refs'
-import Property from './Property.vue'
-import colors from './colors'
+import jrefs from './utils/json-refs'
+import colors from './utils/colors'
+import Property from './components/Property.vue'
 export default {
   name: 'VJsonschemaForm',
   components: {Property},
