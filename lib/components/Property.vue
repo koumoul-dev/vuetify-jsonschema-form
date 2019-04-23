@@ -536,6 +536,8 @@
 </template>
 
 <script>
+import schemaUtils from '../utils/schema'
+import selectUtils from '../utils/select'
 const matchAll = require('match-all')
 const md = require('markdown-it')()
 
@@ -560,36 +562,7 @@ export default {
   },
   computed: {
     fullSchema() {
-      // console.log('Re process full schema')
-      const fullSchema = JSON.parse(JSON.stringify(this.schema))
-
-      if (fullSchema.type !== 'object') return fullSchema
-
-      // Properties as array, because order matters
-      fullSchema.properties = JSON.parse(JSON.stringify(this.objectToArray(fullSchema.properties)))
-      fullSchema.required = fullSchema.required || []
-      fullSchema.dependencies = fullSchema.dependencies || {}
-
-      // Extend schema based on satisfied dependencies
-      if (fullSchema.dependencies) {
-        Object.keys(fullSchema.dependencies).forEach(depKey => {
-          const dep = fullSchema.dependencies[depKey]
-          // cases where dependency does not apply
-          if (!this.modelWrapper[this.modelKey]) return
-          const val = this.getDeepKey(this.modelWrapper[this.modelKey], depKey)
-          if ([null, undefined, false].includes(val)) return
-          if (Array.isArray(val) && val.length === 0) return
-          if (typeof val === 'object' && Object.keys(val).length === 0) return
-          // dependency applies
-          fullSchema.required = fullSchema.required.concat(dep.required || [])
-          fullSchema.properties = fullSchema.properties.concat(this.objectToArray(dep.properties))
-          // fullSchema.extraProperties = []
-          if (dep.oneOf) fullSchema.oneOf = (fullSchema.oneOf || []).concat(dep.oneOf)
-          if (dep.allOf) fullSchema.allOf = (fullSchema.allOf || []).concat(dep.allOf)
-        })
-      }
-      // console.log('Full schema', fullSchema)
-      return fullSchema
+      return schemaUtils.prepareFullSchema(this.schema, this.modelWrapper, this.modelKey)
     },
     htmlDescription() {
       return (this.fullSchema && this.fullSchema.description) ? md.render(this.fullSchema.description) : null
@@ -597,41 +570,7 @@ export default {
     fullKey() { return (this.parentKey + this.modelKey).replace('root.', '') },
     label() { return this.fullSchema.title || (typeof this.modelKey === 'string' ? this.modelKey : '') },
     rules() {
-      const rules = []
-      if (this.required) {
-        rules.push((val) => (val !== undefined && val !== null && val !== '') || this.options.requiredMessage)
-      }
-      if (this.fullSchema.type === 'array' && this.fullSchema.minItems !== undefined) {
-        rules.push((val) => (!val || val.length >= this.fullSchema.minItems) || '')
-      }
-      if (this.fullSchema.type === 'array' && this.fullSchema.maxItems !== undefined) {
-        rules.push((val) => (!val || val.length <= this.fullSchema.maxItems) || '')
-      }
-      if (this.fullSchema.type === 'string' && this.fullSchema.minLength !== undefined) {
-        rules.push((val) => (val === undefined || val === null || val.length >= this.fullSchema.minLength) || '')
-      }
-      if (this.fullSchema.type === 'string' && this.fullSchema.maxLength !== undefined) {
-        rules.push((val) => (val === undefined || val === null || val.length <= this.fullSchema.maxLength) || '')
-      }
-      if (['number', 'integer'].includes(this.fullSchema.type) && this.fullSchema.maximum !== undefined) {
-        rules.push((val) => (val === undefined || val === null || val <= this.fullSchema.maximum) || '')
-      }
-      if (['number', 'integer'].includes(this.fullSchema.type) && this.fullSchema.minimum !== undefined) {
-        rules.push((val) => (val === undefined || val === null || val >= this.fullSchema.minimum) || '')
-      }
-      if (this.fullSchema.enum) {
-        rules.push((val) => (val === undefined || val === null || !!this.fullSchema.enum.find(item => JSON.stringify(item) === JSON.stringify(val))) || '')
-      }
-      if (this.fullSchema.type === 'array' && this.fullSchema.items.enum) {
-        rules.push((val) => (val === undefined || val === null || !val.find(valItem => !this.fullSchema.items.enum.find(item => JSON.stringify(item) === JSON.stringify(valItem)))) || '')
-      }
-      if (this.oneOfSelect && this.fullSchema.type !== 'array') {
-        rules.push((val) => (val === undefined || val === null || !!this.fullSchema.oneOf.find(item => item.const === val)) || '')
-      }
-      if (this.oneOfSelect && this.fullSchema.type === 'array') {
-        rules.push((val) => (val === undefined || val === null || !val.find(valItem => !this.fullSchema.items.oneOf.find(item => item.const === valItem))) || '')
-      }
-      return rules
+      return schemaUtils.getRules(this.fullSchema, this.required, this.options)
     },
     fromUrl() {
       return !!(this.fullSchema['x-fromUrl'] && this.fullSchema['x-fromUrl'].indexOf('{q}') === -1)
@@ -672,14 +611,14 @@ export default {
       return rules
     },
     oneOfSelect() {
-      return (this.fullSchema.type === 'array' && ['string', 'integer', 'number'].includes(this.fullSchema.items.type) && this.fullSchema.items.oneOf) || (['string', 'integer', 'number'].includes(this.fullSchema.type) && this.fullSchema.oneOf)
+      return schemaUtils.isOneOfSelect(this.fullSchema)
     }
   },
   watch: {
     q() {
       // This line prevents reloading the list just after selecting an item in an auto-complete
       if (this.modelWrapper[this.modelKey] && this.modelWrapper[this.modelKey][this.itemTitle] === this.q) return
-      this.getSelectItems()
+      this.fetchSelectItems()
     },
     fullSchema: {
       handler() {
@@ -695,7 +634,7 @@ export default {
       immediate: true
     },
     currentOneOf(newVal, oldVal) {
-      // use this coolean to force removing then re-creating the object property
+      // use this boolean to force removing then re-creating the object property
       // base on the currentOneOf sub schema. If we don't the component is reused and reactivity creates some difficult bugs.
       this.showCurrentOneOf = false
       this.$nextTick(() => {
@@ -720,44 +659,7 @@ export default {
   },
   methods: {
     updateSelectItems() {
-      const selectItems = []
-
-      if (!this.rawSelectItems) {
-        // nothing to do
-      } else if (
-        (this.fullSchema.type === 'object' && this.fullSchema.properties && Object.keys(this.fullSchema.properties).length) ||
-        (this.fullSchema.type === 'array' && this.fullSchema.items && this.fullSchema.items.type === 'object' && this.fullSchema.items.properties && Object.keys(this.fullSchema.items.properties).length)
-      ) {
-        const keys = this.fullSchema.properties.map(p => p.key)
-        this.rawSelectItems.forEach(item => {
-          const filteredItem = {}
-          keys.forEach(key => {
-            if (item[key] !== undefined) filteredItem[key] = item[key]
-          })
-          selectItems.push(filteredItem)
-        })
-      } else {
-        this.rawSelectItems.forEach(item => selectItems.push(item))
-      }
-
-      // always propose the existing values so they can be unchecked
-      const model = this.modelWrapper[this.modelKey]
-      const matchItem = (selectItem, item) => {
-        const selectItemStr = JSON.stringify(typeof selectItem === 'object' ? selectItem[this.itemKey] : selectItem)
-        const itemStr = JSON.stringify(typeof item === 'object' ? item[this.itemKey] : item)
-        return selectItemStr === itemStr
-      }
-      if (model) {
-        if (this.fullSchema.type === 'array') {
-          model.reverse().forEach(item => {
-            if (!selectItems.find(selectItem => matchItem(selectItem, item))) {
-              selectItems.push(item)
-            }
-          })
-        } else if (!selectItems.find(selectItem => matchItem(selectItem, model))) {
-          selectItems.push(model)
-        }
-      }
+      const selectItems = selectUtils.getSelectItems(this.rawSelectItems, this.fullSchema, this.modelWrapper, this.modelKey, this.itemKey)
 
       // we check for actual differences in order to prevent infinite loops
       if (JSON.stringify(selectItems) !== JSON.stringify(this.selectItems)) {
@@ -771,23 +673,12 @@ export default {
     input() {
       this.$emit('input', { key: this.fullKey.replace(/allOf-([0-9]+)\./g, ''), model: this.modelWrapper[this.modelKey] })
     },
-    getDeepKey(obj, key) {
-      const keys = key.split('.')
-      for (let i = 0; i < keys.length; i++) {
-        if ([null, undefined].includes(obj)) break
-        obj = obj[keys[i]]
-      }
-      return obj
-    },
-    objectToArray(obj) {
-      return Object.keys(obj || {}).map(key => ({ ...obj[key], key }))
-    },
     defaultValue(schema) {
       if (schema.type === 'object' && !schema['x-fromUrl'] && !schema['x-fromData']) return {}
       if (schema.type === 'array') return []
       return null
     },
-    getSelectItems() {
+    fetchSelectItems() {
       if (!this.options.httpLib) return this.$emit('error', 'No http lib found to perform ajax request')
       let url = this.fullSchema['x-fromUrl'].replace('{q}', this.q || '')
       for (let key of this.fromUrlKeys) {
@@ -848,7 +739,7 @@ export default {
       if (this.fullSchema.type === 'string' && this.fullSchema.format === 'hexcolor') model = model || ''
 
       // Case of a select based on ajax query
-      if (this.fromUrl) this.getSelectItems()
+      if (this.fromUrl) this.fetchSelectItems()
       // Case of select based on an enum
       if ((this.fullSchema.type === 'array' && this.fullSchema.items.enum) || this.fullSchema.enum) {
         this.rawSelectItems = this.fullSchema.type === 'array' ? this.fullSchema.items.enum : this.fullSchema.enum
@@ -873,12 +764,12 @@ export default {
           if (key.startsWith('context.')) {
             this.$watch('options.' + key, (val) => {
               this.fromUrlParams[key] = val
-              this.getSelectItems()
+              this.fetchSelectItems()
             }, { immediate: true })
           } else {
             this.$watch('modelRoot.' + key, (val) => {
               this.fromUrlParams[key] = val
-              this.getSelectItems()
+              this.fetchSelectItems()
             }, { immediate: true })
           }
         })
