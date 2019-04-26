@@ -29,6 +29,7 @@ import VueAxios from 'vue-axios'
 import Swatches from 'vue-swatches'
 import 'vue-swatches/dist/vue-swatches.min.css'
 import VJsonschemaForm from '@koumoul/vuetify-jsonschema-form'
+import '@koumoul/vuetify-jsonschema-form/dist/main.css'
 import { Sketch } from 'vue-color'
 
 Vue.use(Vuetify)
@@ -64,5 +65,27 @@ export default {
     }
   }
 }
+</script>
+```
+
+The library can also be loaded from source if you use [Vuetify "à la carte"](https://vuetifyjs.com/en/framework/a-la-carte). In this case you will have to instruct your build tool to transpile the source with babel.
+
+```
+import VJsonschemaForm from '@koumoul/vuetify-jsonschema-form/lib/index.vue'
+```
+
+I you don't use a build tool, and want to load the library through script tags, you can do something like this.
+
+```
+...
+<script src="https://cdn.jsdelivr.net/npm/@koumoul/vuetify-jsonschema-form@0.26/dist/main.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/@koumoul/vuetify-jsonschema-form@0.26/dist/main.js" rel="stylesheet">
+...
+<script>
+  ...
+  components: {
+    "v-jsonschema-form": VJsonschemaForm.default
+  }
+  ...
 </script>
 ```
