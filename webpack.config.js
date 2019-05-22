@@ -32,6 +32,9 @@ module.exports = {
     }, {
       test: /\.less$/,
       loader: [ MiniCssExtractPlugin.loader, 'css-loader', 'less-loader' ]
+    }, {
+      test: /\.(svg|eot|woff|ttf|woff2)$/,
+      loader: [ 'file-loader' ]
     }]
   },
   plugins: [

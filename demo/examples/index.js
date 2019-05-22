@@ -7,5 +7,6 @@ module.exports = [
   require('./nested'),
   require('./dependencies'),
   require('./combinations'),
-  require('./accordion')
+  require('./accordion'),
+  require('./icons')
 ]

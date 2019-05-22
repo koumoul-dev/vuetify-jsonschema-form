@@ -108,6 +108,19 @@
         @change="change"
         @input="input"
       >
+        <template slot="selection" slot-scope="data">
+          <div class="v-select__selection v-select__selection--comma">
+            <select-icon v-if="itemIcon" :value="data.item" />
+            <span>{{ data.item + (fullSchema.type === 'array' && data.index !== modelWrapper[modelKey].length - 1 ? ',&nbsp;' : '') }}</span>
+          </div>
+        </template>
+        <template slot="item" slot-scope="data">
+          <select-icon v-if="itemIcon" :value="data.item" />
+          <v-list-tile-content>
+            <v-list-tile-title>{{ data.item }}</v-list-tile-title>
+          </v-list-tile-content>
+        </template>
+
         <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
           <v-icon slot="activator">
             info
@@ -119,28 +132,43 @@
 
     <!-- Select field based on a oneOf on a simple type (array or simple value) -->
     <!-- cf https://github.com/mozilla-services/react-jsonfullSchema-form/issues/532 -->
-    <v-select v-else-if="oneOfSelect"
-              v-model="modelWrapper[modelKey]"
-              :items="selectItems"
-              :name="fullKey"
-              :label="label"
-              :required="required"
-              :disabled="disabled"
-              :rules="rules"
-              :clearable="!required"
-              :multiple="fullSchema.type === 'array'"
-              :item-text="itemTitle"
-              :item-value="itemKey"
-              @change="change"
-              @input="input"
-    >
-      <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
-        <v-icon slot="activator">
-          info
-        </v-icon>
-        <div class="vjsf-tooltip" v-html="htmlDescription" />
-      </v-tooltip>
-    </v-select>
+    <template v-else-if="oneOfSelect">
+      <v-select
+        v-model="modelWrapper[modelKey]"
+        :items="selectItems"
+        :name="fullKey"
+        :label="label"
+        :required="required"
+        :disabled="disabled"
+        :rules="rules"
+        :clearable="!required"
+        :multiple="fullSchema.type === 'array'"
+        :item-text="itemTitle"
+        :item-value="itemKey"
+        @change="change"
+        @input="input"
+      >
+        <template slot="selection" slot-scope="data">
+          <div class="v-select__selection v-select__selection--comma">
+            <select-icon v-if="itemIcon" :value="data.item[itemIcon]" />
+            <span>{{ data.item[itemTitle] + (fullSchema.type === 'array' && data.index !== modelWrapper[modelKey].length - 1 ? ',&nbsp;' : '') }}</span>
+          </div>
+        </template>
+        <template slot="item" slot-scope="data">
+          <select-icon v-if="itemIcon" :value="data.item[itemIcon]" />
+          <v-list-tile-content>
+            <v-list-tile-title>{{ data.item[itemTitle] }}</v-list-tile-title>
+          </v-list-tile-content>
+        </template>
+
+        <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
+          <v-icon slot="activator">
+            info
+          </v-icon>
+          <div class="vjsf-tooltip" v-html="htmlDescription" />
+        </v-tooltip>
+      </v-select>
+    </template>
 
     <!-- Select field on an ajax response or from an array in another part of the data -->
     <v-select v-else-if="fullSchema['x-display'] !== 'list' && (fromUrl || fullSchema['x-fromData'])"
@@ -161,6 +189,19 @@
               @change="change"
               @input="input"
     >
+      <template slot="selection" slot-scope="data">
+        <div class="v-select__selection v-select__selection--comma">
+          <select-icon v-if="itemIcon" :value="data.item[itemIcon]" />
+          <span>{{ data.item[itemTitle] + (fullSchema.type === 'array' && data.index !== modelWrapper[modelKey].length - 1 ? ',&nbsp;' : '') }}</span>
+        </div>
+      </template>
+      <template slot="item" slot-scope="data">
+        <select-icon v-if="itemIcon" :value="data.item[itemIcon]" />
+        <v-list-tile-content>
+          <v-list-tile-title>{{ data.item[itemTitle] }}</v-list-tile-title>
+        </v-list-tile-content>
+      </template>
+
       <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
         <v-icon slot="activator">
           info
@@ -191,6 +232,17 @@
                     @change="change"
                     @input="input"
     >
+      <template slot="selection" slot-scope="data">
+        <select-icon v-if="itemIcon" :value="data.item[itemIcon]" />
+        <div>{{ data.item[itemTitle] + (fullSchema.type === 'array' && data.index !== modelWrapper[modelKey].length - 1 ? ',&nbsp;' : '') }}</div>
+      </template>
+      <template slot="item" slot-scope="data">
+        <select-icon v-if="itemIcon" :value="data.item[itemIcon]" />
+        <v-list-tile-content>
+          <v-list-tile-title>{{ data.item[itemTitle] }}</v-list-tile-title>
+        </v-list-tile-content>
+      </template>
+
       <v-tooltip v-if="fullSchema.description" slot="append-outer" left>
         <v-icon slot="activator">
           info
@@ -537,6 +589,7 @@
 </template>
 
 <script>
+import SelectIcon from './SelectIcon.vue'
 import schemaUtils from '../utils/schema'
 import selectUtils from '../utils/select'
 const matchAll = require('match-all')
@@ -544,6 +597,7 @@ const md = require('markdown-it')()
 
 export default {
   name: 'Property',
+  components: { SelectIcon },
   props: ['schema', 'modelWrapper', 'modelRoot', 'modelKey', 'parentKey', 'required', 'options'],
   data() {
     return {
@@ -589,6 +643,9 @@ export default {
     },
     itemTitle() {
       return this.fullSchema['x-itemTitle'] || 'title'
+    },
+    itemIcon() {
+      return this.fullSchema['x-itemIcon'] || (this.fullSchema['x-display'] === 'icon' ? this.itemKey : null)
     },
     disabled() {
       return this.options.disableAll
@@ -752,7 +809,7 @@ export default {
       }
       // Case of select based on a oneof on simple types
       if (this.oneOfSelect) {
-        this.rawSelectItems = (this.fullSchema.type === 'array' ? this.fullSchema.items : this.fullSchema).oneOf.map(item => ({ [this.itemKey]: item.const || (item.enum && item.enum[0]), [this.itemTitle]: item.title }))
+        this.rawSelectItems = (this.fullSchema.type === 'array' ? this.fullSchema.items : this.fullSchema).oneOf.map(item => ({ ...item, [this.itemKey]: item.const || (item.enum && item.enum[0]), [this.itemTitle]: item.title }))
       }
       // Case of an auto-complete field already defined
       if (this.fromUrlWithQuery && model && model[this.itemTitle] !== undefined) {
