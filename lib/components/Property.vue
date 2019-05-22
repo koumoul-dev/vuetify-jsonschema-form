@@ -111,7 +111,7 @@
         <template slot="selection" slot-scope="data">
           <div class="v-select__selection v-select__selection--comma">
             <select-icon v-if="itemIcon" :value="data.item" />
-            <span>{{ data.item + (fullSchema.type === 'array' && data.index !== modelWrapper[modelKey].length - 1 ? ',&nbsp;' : '') }}</span>
+            <span v-if="![null, undefined].includes(data.item)">{{ data.item + (fullSchema.type === 'array' && data.index !== modelWrapper[modelKey].length - 1 ? ',&nbsp;' : '') }}</span>
           </div>
         </template>
         <template slot="item" slot-scope="data">
@@ -151,7 +151,7 @@
         <template slot="selection" slot-scope="data">
           <div class="v-select__selection v-select__selection--comma">
             <select-icon v-if="itemIcon" :value="data.item[itemIcon]" />
-            <span>{{ data.item[itemTitle] + (fullSchema.type === 'array' && data.index !== modelWrapper[modelKey].length - 1 ? ',&nbsp;' : '') }}</span>
+            <span v-if="![null, undefined].includes(data.item[itemTitle])">{{ data.item[itemTitle] + (fullSchema.type === 'array' && data.index !== modelWrapper[modelKey].length - 1 ? ',&nbsp;' : '') }}</span>
           </div>
         </template>
         <template slot="item" slot-scope="data">
@@ -192,7 +192,7 @@
       <template slot="selection" slot-scope="data">
         <div class="v-select__selection v-select__selection--comma">
           <select-icon v-if="itemIcon" :value="data.item[itemIcon]" />
-          <span>{{ data.item[itemTitle] + (fullSchema.type === 'array' && data.index !== modelWrapper[modelKey].length - 1 ? ',&nbsp;' : '') }}</span>
+          <span v-if="![null, undefined].includes(data.item[itemTitle])">{{ data.item[itemTitle] + (fullSchema.type === 'array' && data.index !== modelWrapper[modelKey].length - 1 ? ',&nbsp;' : '') }}</span>
         </div>
       </template>
       <template slot="item" slot-scope="data">
@@ -234,7 +234,9 @@
     >
       <template slot="selection" slot-scope="data">
         <select-icon v-if="itemIcon" :value="data.item[itemIcon]" />
-        <div>{{ data.item[itemTitle] + (fullSchema.type === 'array' && data.index !== modelWrapper[modelKey].length - 1 ? ',&nbsp;' : '') }}</div>
+        <div v-if="![null, undefined].includes(data.item[itemTitle])">
+          {{ data.item[itemTitle] + (fullSchema.type === 'array' && data.index !== modelWrapper[modelKey].length - 1 ? ',&nbsp;' : '') }}
+        </div>
       </template>
       <template slot="item" slot-scope="data">
         <select-icon v-if="itemIcon" :value="data.item[itemIcon]" />
@@ -557,7 +559,7 @@
                   <v-btn v-if="!disabled && fullSchema['x-sortable'] !== false" flat icon class="handle">
                     <v-icon>reorder</v-icon>
                   </v-btn>
-                  <span v-if="itemTitle">{{ modelWrapper[modelKey][i][itemTitle] }}</span>
+                  <span v-if="itemTitle && modelWrapper[modelKey][i]">{{ modelWrapper[modelKey][i][itemTitle] }}</span>
                   <v-spacer />
                   <v-btn v-if="!disabled && !(fromUrl || fullSchema.fromData)" flat icon color="warning" @click="modelWrapper[modelKey].splice(i, 1); change(); input()">
                     <v-icon>delete</v-icon>
@@ -860,6 +862,11 @@ export default {
         this.$set(this.subModels, 'currentOneOf', JSON.parse(JSON.stringify(model)))
       } else {
         this.$set(this.subModels, 'currentOneOf', {})
+      }
+
+      // Cleanup arrays of empty items
+      if (this.fullSchema.type === 'array') {
+        model = model.filter(item => ![undefined, null].includes(item))
       }
 
       this.$set(this.modelWrapper, this.modelKey, model)
