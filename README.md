@@ -57,10 +57,10 @@ export default {
     showError(err) {
       window.alert(err)
     },
-    change(e) {
+    showChange(e) {
       console.log('"change" event', e)
     },
-    input(e) {
+    showInput(e) {
       console.log('"input" event', e)
     }
   }
