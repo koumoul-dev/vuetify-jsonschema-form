@@ -1,9 +1,9 @@
 module.exports = {
   title: 'Dependencies',
   schema: {
-    'type': 'object',
+    type: 'object',
     properties: {
-      'name': { 'type': 'string' },
+      name: { type: 'string' },
       acceptTC: {
         title: 'Accept terms and conditions',
         type: 'boolean'
@@ -15,29 +15,29 @@ module.exports = {
       }
     },
     definitions: {
-      'creditCardPayment': {
+      creditCardPayment: {
         title: 'Credit card payment',
-        'properties': {
+        properties: {
           type: { const: 'creditcardpayment' },
-          'credit_card': { 'type': 'number' }
+          credit_card: { type: 'number' }
         },
-        'required': ['name'],
-        'dependencies': {
-          'credit_card': {
-            'properties': {
-              'billing_address': { 'type': 'string' }
+        required: ['name'],
+        dependencies: {
+          credit_card: {
+            properties: {
+              billing_address: { type: 'string' }
             },
-            'required': ['billing_address']
+            required: ['billing_address']
           }
         }
       },
-      'paypalPayment': {
+      paypalPayment: {
         title: 'Paypal payment',
-        'properties': {
+        properties: {
           type: { const: 'paypalpayment' },
-          'paypal account': { 'type': 'string' }
+          'paypal account': { type: 'string' }
         },
-        'required': ['account']
+        required: ['account']
       }
     }
   },

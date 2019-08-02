@@ -1,11 +1,11 @@
 module.exports = {
   title: 'Accordion',
   schema: {
-    '$id': 'https://example.com/person.schema.json',
-    '$schema': 'http://json-schema.org/draft-07/schema#',
-    'title': 'Combinations',
+    $id: 'https://example.com/person.schema.json',
+    $schema: 'http://json-schema.org/draft-07/schema#',
+    title: 'Combinations',
     description: 'using a root allOf as an accordion',
-    'type': 'object',
+    type: 'object',
     allOf: [{ $ref: '#/definitions/realWorldEntity' }, { $ref: '#/definitions/socialMediaEntity' }],
     definitions: {
       realWorldEntity: {
@@ -15,14 +15,14 @@ module.exports = {
             type: 'string',
             maxLength: 2000
           },
-          'credit_card': { 'type': 'number' }
+          credit_card: { type: 'number' }
         },
-        'dependencies': {
-          'credit_card': {
-            'properties': {
-              'billing_address': { 'type': 'string' }
+        dependencies: {
+          credit_card: {
+            properties: {
+              billing_address: { type: 'string' }
             },
-            'required': ['billing_address']
+            required: ['billing_address']
           }
         }
       },

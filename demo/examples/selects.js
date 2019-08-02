@@ -1,17 +1,17 @@
 module.exports = {
   title: 'Selects',
   schema: {
-    'title': 'Person',
+    title: 'Person',
     type: 'object',
     required: ['gender', 'fromAjaxObject', 'fromAjaxString'],
-    'properties': {
-      'fromEnum': {
+    properties: {
+      fromEnum: {
         title: 'From enum',
         type: 'string',
         description: 'The values are simple strings coming from an enum.',
         enum: ['value1', 'value2', 'value3']
       },
-      'fromEnumArray': {
+      fromEnumArray: {
         title: 'From enum in array',
         type: 'array',
         description: 'The values are simple strings coming from an enum and are put into an array',
@@ -20,13 +20,13 @@ module.exports = {
           enum: ['value1', 'value2', 'value3']
         }
       },
-      'fromOneOf': {
+      fromOneOf: {
         title: 'From oneOf',
         type: 'string',
         description: "The values are simple strings coming from a oneOf choice with 'const' and 'title' attributes.",
         oneOf: [{ const: 'v1', title: 'title1' }, { const: 'v2', title: 'title2' }]
       },
-      'fromOneOfArray': {
+      fromOneOfArray: {
         title: 'From oneOf in array',
         type: 'array',
         description: "The values are simple strings coming from a oneOf choice with 'const' and 'title' attributes and put into an array.",
@@ -35,7 +35,7 @@ module.exports = {
           oneOf: [{ const: 'v1', title: 'title1' }, { const: 'v2', title: 'title2' }]
         }
       },
-      'fromAjaxString': {
+      fromAjaxString: {
         type: 'string',
         description: 'The values come from an HTTP request.',
         'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title&owner={context.owner.type}:{context.owner.id}',
@@ -43,7 +43,7 @@ module.exports = {
         'x-itemTitle': 'title',
         'x-itemKey': 'href'
       },
-      'fromAjaxStringArray': {
+      fromAjaxStringArray: {
         type: 'array',
         items: {
           type: 'string'
@@ -54,7 +54,7 @@ module.exports = {
         'x-itemTitle': 'title',
         'x-itemKey': 'href'
       },
-      'fromAjaxObject': {
+      fromAjaxObject: {
         type: 'object',
         description: 'The values come from an HTTP request and are stored as object.',
         'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title,schema&owner={context.owner.type}:{context.owner.id}',
@@ -75,7 +75,7 @@ module.exports = {
         'x-itemTitle': 'x-originalName',
         'x-itemKey': 'key'
       },
-      'fromAjaxWithQuery': {
+      fromAjaxWithQuery: {
         type: 'object',
         description: 'The values come from an HTTP request with textual filter.',
         'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title&q={q}&owner={context.owner.type}:{context.owner.id}',
@@ -100,7 +100,7 @@ module.exports = {
             yLabel: {
               type: 'string'
             },
-            'fromAjaxWithDep': {
+            fromAjaxWithDep: {
               type: 'object',
               title: 'choisir un colonne',
               description: 'The values come from an HTTP request with a part of the url that depends on another part of the model.',

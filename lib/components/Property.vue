@@ -697,7 +697,7 @@ export default {
     fetchSelectItems() {
       if (!this.options.httpLib) return this.$emit('error', 'No http lib found to perform ajax request')
       let url = this.fullSchema['x-fromUrl'].replace('{q}', this.q || '')
-      for (let key of this.fromUrlKeys) {
+      for (const key of this.fromUrlKeys) {
         // URL parameters are incomplete
         if (this.fromUrlParams[key] === undefined) return
         else url = url.replace(`{${key}}`, this.fromUrlParams[key])

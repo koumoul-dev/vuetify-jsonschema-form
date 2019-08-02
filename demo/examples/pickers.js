@@ -1,32 +1,32 @@
 module.exports = {
   title: 'Pickers: date, time and color.',
   schema: {
-    '$id': 'https://example.com/person.schema.json',
-    '$schema': 'http://json-schema.org/draft-07/schema#',
-    'title': 'Person',
-    'type': 'object',
-    'properties': {
-      'aDate': {
+    $id: 'https://example.com/person.schema.json',
+    $schema: 'http://json-schema.org/draft-07/schema#',
+    title: 'Person',
+    type: 'object',
+    properties: {
+      aDate: {
         title: 'A date',
-        'type': 'string',
+        type: 'string',
         format: 'date',
-        'description': 'A date.'
+        description: 'A date.'
       },
-      'aDateTime': {
+      aDateTime: {
         title: 'A date in date-time format',
-        'type': 'string',
+        type: 'string',
         format: 'date-time'
       },
-      'colorSwatches': {
+      colorSwatches: {
         title: 'A color using the minimalist swatches picker',
         description: 'In hex format',
-        'type': 'string',
+        type: 'string',
         format: 'hexcolor'
       },
-      'colorPicker': {
+      colorPicker: {
         title: 'A color using a more complete picker',
         description: 'In hex format',
-        'type': 'string',
+        type: 'string',
         format: 'hexcolor',
         'x-display': 'color-picker'
       }

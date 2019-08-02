@@ -1,11 +1,11 @@
 module.exports = {
   title: 'Lists',
   schema: {
-    'title': 'Person',
+    title: 'Person',
     type: 'object',
     required: ['gender', 'fromAjaxObject', 'fromAjaxString'],
-    'properties': {
-      'fromEnumArray': {
+    properties: {
+      fromEnumArray: {
         title: 'From enum in array displayed as a list',
         type: 'array',
         description: 'The values are simple strings coming from an enum and are put into an array',
@@ -15,7 +15,7 @@ module.exports = {
         },
         'x-display': 'list'
       },
-      'fromOneOfArray': {
+      fromOneOfArray: {
         title: 'From oneOf in array displayed as a list',
         type: 'array',
         description: "The values are simple strings coming from a oneOf choice with 'const' and 'title' attributes and put into an array.",
@@ -25,7 +25,7 @@ module.exports = {
         },
         'x-display': 'list'
       },
-      'fromAjaxStringArray': {
+      fromAjaxStringArray: {
         title: 'From ajax in array displayed as a list',
         type: 'array',
         items: {
@@ -38,7 +38,7 @@ module.exports = {
         'x-itemKey': 'href',
         'x-display': 'list'
       },
-      'fromAjaxObjectArray': {
+      fromAjaxObjectArray: {
         type: 'array',
         title: 'From ajax object in array displayed as a list',
         description: 'The values come from an HTTP request and are stored as objects in an array.',

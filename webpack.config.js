@@ -29,13 +29,13 @@ module.exports = {
       loader: 'vue-loader'
     }, {
       test: /\.css$/,
-      loader: [ MiniCssExtractPlugin.loader, 'css-loader' ]
+      loader: [MiniCssExtractPlugin.loader, 'css-loader']
     }, {
       test: /\.less$/,
-      loader: [ MiniCssExtractPlugin.loader, 'css-loader', 'less-loader' ]
+      loader: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader']
     }, {
       test: /\.(svg|eot|woff|ttf|woff2)$/,
-      loader: [ 'file-loader' ]
+      loader: ['file-loader']
     }]
   },
   plugins: [

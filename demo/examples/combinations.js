@@ -1,19 +1,19 @@
 module.exports = {
   title: 'Combinations',
   schema: {
-    '$schema': 'http://json-schema.org/draft-07/schema#',
-    'title': 'Combinations',
+    $schema: 'http://json-schema.org/draft-07/schema#',
+    title: 'Combinations',
     description: 'Using anyOf and allOf combinations. ',
-    'type': 'object',
+    type: 'object',
     properties: {
       entity: {
         type: 'object',
-        'properties': {
-          'presentation': {
+        properties: {
+          presentation: {
             title: 'Presentation (neither in a anyOf or a oneOf)',
-            'description': 'A longer text for the description.',
-            'type': 'string',
-            'maxLength': 2000
+            description: 'A longer text for the description.',
+            type: 'string',
+            maxLength: 2000
           }
         },
         required: ['type'],
@@ -29,14 +29,14 @@ module.exports = {
             type: 'string',
             maxLength: 2000
           },
-          'credit_card': { 'type': 'number' }
+          credit_card: { type: 'number' }
         },
-        'dependencies': {
-          'credit_card': {
-            'properties': {
-              'billing_address': { 'type': 'string' }
+        dependencies: {
+          credit_card: {
+            properties: {
+              billing_address: { type: 'string' }
             },
-            'required': ['billing_address']
+            required: ['billing_address']
           }
         }
       },
@@ -74,23 +74,23 @@ module.exports = {
           type: 'object',
           title: 'Name (first part of a allOf inside the oneOf)',
           properties: {
-            'firstName': {
-              'type': 'string',
-              'description': "The person's first name."
+            firstName: {
+              type: 'string',
+              description: "The person's first name."
             },
-            'lastName': {
-              'type': 'string',
-              'description': "The person's last name."
+            lastName: {
+              type: 'string',
+              description: "The person's last name."
             }
           }
         }, {
           type: 'object',
           title: 'Other info (second part of allOf inside the oneOf)',
           properties: {
-            'age': {
-              'description': 'Age in years which must be equal to or greater than zero.',
-              'type': 'integer',
-              'minimum': 0
+            age: {
+              description: 'Age in years which must be equal to or greater than zero.',
+              type: 'integer',
+              minimum: 0
             },
             gender: {
               type: 'string',
@@ -107,7 +107,7 @@ module.exports = {
             const: 'moralPerson'
           },
           organizationType: {
-            'type': 'string',
+            type: 'string',
             enum: ['non-profit', 'for-profit']
           }
         }

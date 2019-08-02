@@ -2,15 +2,15 @@ module.exports = {
   title: 'Icons',
   schema: {
     type: 'object',
-    'properties': {
-      'fromEnum': {
+    properties: {
+      fromEnum: {
         title: 'From enum',
         type: 'string',
         description: 'The values are icon codes coming from an enum.',
         'x-display': 'icon',
         enum: ['alarm', 'alarm_add', 'alarm_off']
       },
-      'fromEnumArray': {
+      fromEnumArray: {
         title: 'From enum in array',
         type: 'array',
         description: 'The values are icon codes coming from an enum and are put into an array',
