@@ -4,6 +4,8 @@ Generate forms for the [vuetify](https://vuetifyjs.com/en/) UI library (vuejs) b
 
 For a view of all the functionalities check the [demo](https://koumoul-dev.github.io/vuetify-jsonschema-form/latest/).
 
+Compatible with vuetify 1 and 2. Check this [alternative demo](https://koumoul-dev.github.io/vuetify-jsonschema-form/latest/vuetify1.html) for support of vuetify 1.
+
 ## Installation
 
 ```bash
