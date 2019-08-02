@@ -1,11 +1,11 @@
 <template lang="html">
   <v-app>
-    <v-app-bar color="primary" dark fixed app>
-      <v-toolbar-title>vuetify-jsonschema-form demo</v-toolbar-title>
-    </v-app-bar>
+    <v-toolbar color="primary" dark fixed app>
+      <v-toolbar-title>vuetify-jsonschema-form demo (Vuetify 2)</v-toolbar-title>
+    </v-toolbar>
     <v-content>
       <v-container fluid grid-list-md>
-        <v-layout row>
+        <v-layout>
           <v-flex xs6>
             <h2 class="title my-4">
               Schema:
@@ -69,7 +69,7 @@
 
 <script>
 import VJsonschemaForm from '../lib/index.vue'
-import examples from './examples'
+import examples from '../demo/examples'
 import hjson from 'hjson' // more tolerant parsing of the schema for easier UX
 
 export default {

@@ -38,7 +38,9 @@ export default {
         autoFoldObjects: false,
         requiredMessage: 'This information is required',
         noDataMessage: 'No matching value found',
-        searchMessage: 'Search...'
+        searchMessage: 'Search...',
+        // we use the multi-themes functionality of vuetify2 as a clue of the version
+        vuetifyVersion: !this.$vuetify.theme.themes ? 1 : 2
       }, this.options)
     }
   }

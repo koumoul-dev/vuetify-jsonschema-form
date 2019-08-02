@@ -6,7 +6,8 @@ module.exports = {
   mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
   entry: {
     main: './lib/index.vue',
-    demo: './demo/index.js'
+    demo: './demo/index.js',
+    'demo-vuetify1': './demo-vuetify1/index.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
