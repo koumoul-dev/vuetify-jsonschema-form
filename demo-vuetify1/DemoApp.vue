@@ -1,7 +1,7 @@
 <template lang="html">
   <v-app>
     <v-toolbar color="primary" dark fixed app>
-      <v-toolbar-title>vuetify-jsonschema-form demo (Vuetify 2)</v-toolbar-title>
+      <v-toolbar-title>vuetify-jsonschema-form demo (Vuetify 1)</v-toolbar-title>
     </v-toolbar>
     <v-content>
       <v-container fluid grid-list-md>
