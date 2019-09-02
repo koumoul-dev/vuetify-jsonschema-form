@@ -2,7 +2,7 @@
   <v-tooltip v-if="htmlDescription" v-model="show" left :open-on-hover="false" :open-on-click="false">
     <template v-slot:activator="{on}">
       <v-icon @click="show = !show">
-        info
+        {{ options.icons.info }}
       </v-icon>
     </template>
     <div class="vjsf-tooltip" v-html="htmlDescription" />
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  props: ['htmlDescription'],
+  props: ['htmlDescription', 'options'],
   data() {
     return { show: false }
   }

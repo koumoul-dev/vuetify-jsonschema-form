@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import '@mdi/font/css/materialdesignicons.css'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import DemoApp from './DemoApp.vue'
@@ -22,7 +23,7 @@ new Vue({
   render: h => h('demo-app'),
   vuetify: new Vuetify({
     icons: {
-      iconfont: 'md'
+      iconfont: 'mdi'
     }
   })
 })

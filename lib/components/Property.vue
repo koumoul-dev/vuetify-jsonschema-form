@@ -19,11 +19,11 @@
           :required="required"
           :rules="rules"
           :clearable="!required"
-          prepend-icon="event"
+          :prepend-icon="options.icons.calendar"
           readonly
           v-on="on"
         >
-          <tooltip slot="append-outer" :html-description="htmlDescription" />
+          <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
         </v-text-field>
       </template>
       <v-date-picker v-model="modelWrapper[modelKey]" no-title scrollable>
@@ -47,7 +47,7 @@
           :rules="rules"
           :disabled="disabled"
         >
-          <tooltip slot="append" :html-description="htmlDescription" />
+          <tooltip slot="append" :options="options" :html-description="htmlDescription" />
           &nbsp;&nbsp;
           <v-menu :close-on-content-click="false" :close-on-click="true" direction="bottom" offset-y>
             <template v-slot:activator="{on}">
@@ -64,7 +64,7 @@
                :rules="rules"
                :disabled="disabled"
       >
-        <tooltip slot="append" :html-description="htmlDescription" />
+        <tooltip slot="append" :options="options" :html-description="htmlDescription" />
         &nbsp;&nbsp;
         <swatches
           v-model="modelWrapper[modelKey]"
@@ -104,7 +104,7 @@
           <select-icon v-if="itemIcon" :value="data.item" />
           <select-item :title="data.item" :options="options" />
         </template>
-        <tooltip slot="append-outer" :html-description="htmlDescription" />
+        <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
       </v-select>
     </template>
 
@@ -136,7 +136,7 @@
           <select-icon v-if="itemIcon" :value="data.item[itemIcon]" />
           <select-item :title="data.item[itemTitle]" :options="options" />
         </template>
-        <tooltip slot="append-outer" :html-description="htmlDescription" />
+        <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
       </v-select>
     </template>
 
@@ -169,7 +169,7 @@
         <select-icon v-if="itemIcon" :value="data.item[itemIcon]" />
         <select-item :title="data.item[itemTitle]" :options="options" />
       </template>
-      <tooltip slot="append-outer" :html-description="htmlDescription" />
+      <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
     </v-select>
 
     <!-- auto-complete field on an ajax response with query -->
@@ -204,7 +204,7 @@
         <select-icon v-if="itemIcon" :value="data.item[itemIcon]" />
         <select-item :title="data.item[itemTitle]" :options="options" />
       </template>
-      <tooltip slot="append-outer" :html-description="htmlDescription" />
+      <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
     </v-autocomplete>
 
     <!-- Long text field in a textarea -->
@@ -221,7 +221,7 @@
       @change="change"
       @input="input"
     >
-      <tooltip slot="append-outer" :html-description="htmlDescription" />
+      <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
     </v-textarea>
 
     <!-- text field displayed as password -->
@@ -236,7 +236,7 @@
                   @change="change"
                   @input="input"
     >
-      <tooltip slot="append-outer" :html-description="htmlDescription" />
+      <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
     </v-text-field>
 
     <!-- Simple text field -->
@@ -250,7 +250,7 @@
                   @change="change"
                   @input="input"
     >
-      <tooltip slot="append-outer" :html-description="htmlDescription" />
+      <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
     </v-text-field>
 
     <!-- Simple number fields -->
@@ -268,7 +268,7 @@
                   @change="change"
                   @input="input"
     >
-      <tooltip slot="append-outer" :html-description="htmlDescription" />
+      <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
     </v-text-field>
 
     <!-- Simple boolean field -->
@@ -282,7 +282,7 @@
                 @change="change"
                 @input="input"
     >
-      <tooltip slot="append" :html-description="htmlDescription" />
+      <tooltip slot="append" :options="options" :html-description="htmlDescription" />
     </v-checkbox>
 
     <!-- Simple strings array -->
@@ -300,7 +300,7 @@
       @change="change"
       @input="input"
     >
-      <tooltip slot="append-outer" :html-description="htmlDescription" />
+      <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
       <template slot="selection" slot-scope="data">
         <v-chip close @input="modelWrapper[modelKey].splice(modelWrapper[modelKey].indexOf(data.item)); change(); input()">
           {{ data.item }}
@@ -314,10 +314,10 @@
         {{ fullSchema.title }}
         &nbsp;
         <v-icon v-if="foldable && folded">
-          arrow_drop_down
+          {{ options.icons.dropdown }}
         </v-icon>
         <v-icon v-if="foldable && !folded">
-          arrow_drop_up
+          {{ options.icons.dropup }}
         </v-icon>
       </v-subheader>
 
@@ -430,7 +430,7 @@
               @change="change"
               @input="input"
             >
-              <tooltip slot="append-outer" :html-description="oneOfConstProp && oneOfConstProp.htmlDescription" />
+              <tooltip slot="append-outer" :options="options" :html-description="oneOfConstProp && oneOfConstProp.htmlDescription" />
             </v-select>
             <!--{{ currentOneOf }}-->
             <template v-if="currentOneOf && showCurrentOneOf">
@@ -457,10 +457,10 @@
         {{ fullSchema.title }}
         &nbsp;
         <v-icon v-if="foldable && folded">
-          arrow_drop_down
+          {{ options.icons.dropdown }}
         </v-icon>
         <v-icon v-if="foldable && !folded">
-          arrow_drop_up
+          {{ options.icons.dropup }}
         </v-icon>
       </v-subheader>
       <v-slide-y-transition>
@@ -487,11 +487,11 @@
     <div v-else-if="fullSchema.type === 'array'">
       <v-layout row class="mt-2 mb-1 pr-1">
         <v-subheader>{{ label }}</v-subheader>
-        <v-btn v-if="!disabled && !(fromUrl || fullSchema.fromData)" icon color="primary" @click="modelWrapper[modelKey].push(fullSchema.items.default || defaultValue(fullSchema.items)); change(); input()">
-          <v-icon>add</v-icon>
+        <v-btn v-if="!disabled && !(fromUrl || fullSchema.fromData)" fab small color="primary" @click="modelWrapper[modelKey].push(fullSchema.items.default || defaultValue(fullSchema.items)); change(); input()">
+          <v-icon>{{ options.icons.add }}</v-icon>
         </v-btn>
         <v-spacer />
-        <tooltip :html-description="htmlDescription" />
+        <tooltip :options="options" :html-description="htmlDescription" />
       </v-layout>
 
       <v-container v-if="modelWrapper[modelKey] && modelWrapper[modelKey].length" grid-list-md class="pt-0 px-2">
@@ -501,12 +501,12 @@
               <v-card class="array-card">
                 <v-card-title primary-title class="pa-0">
                   <v-btn v-if="!disabled && fullSchema['x-sortable'] !== false" icon class="handle">
-                    <v-icon>reorder</v-icon>
+                    <v-icon>{{ options.icons.reorder }}</v-icon>
                   </v-btn>
                   <span v-if="itemTitle && modelWrapper[modelKey][i]">{{ modelWrapper[modelKey][i][itemTitle] }}</span>
                   <v-spacer />
                   <v-btn v-if="!disabled && !(fromUrl || fullSchema.fromData)" icon color="warning" @click="modelWrapper[modelKey].splice(i, 1); change(); input()">
-                    <v-icon>delete</v-icon>
+                    <v-icon>{{ options.icons.delete }}</v-icon>
                   </v-btn>
                 </v-card-title>
                 <v-card-text>
