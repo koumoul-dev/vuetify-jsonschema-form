@@ -487,7 +487,7 @@
     <div v-else-if="fullSchema.type === 'array'">
       <v-layout row class="mt-2 mb-1 pr-1">
         <v-subheader>{{ label }}</v-subheader>
-        <v-btn v-if="!disabled && !(fromUrl || fullSchema.fromData)" fab small color="primary" @click="modelWrapper[modelKey].push(fullSchema.items.default || defaultValue(fullSchema.items)); change(); input()">
+        <v-btn v-if="!disabled && !(fromUrl || fullSchema.fromData)" :disabled="maxCountReached" fab small color="primary" @click="modelWrapper[modelKey].push(fullSchema.items.default || defaultValue(fullSchema.items)); change(); input()">
           <v-icon>{{ options.icons.add }}</v-icon>
         </v-btn>
         <v-spacer />
@@ -505,7 +505,7 @@
                   </v-btn>
                   <span v-if="itemTitle && modelWrapper[modelKey][i]">{{ modelWrapper[modelKey][i][itemTitle] }}</span>
                   <v-spacer />
-                  <v-btn v-if="!disabled && !(fromUrl || fullSchema.fromData)" icon color="warning" @click="modelWrapper[modelKey].splice(i, 1); change(); input()">
+                  <v-btn v-if="!disabled && !(fromUrl || fullSchema.fromData)" :disabled="minCountReached" icon color="warning" @click="modelWrapper[modelKey].splice(i, 1); change(); input()">
                     <v-icon>{{ options.icons.delete }}</v-icon>
                   </v-btn>
                 </v-card-title>
@@ -623,6 +623,14 @@ export default {
     },
     oneOfSelect() {
       return schemaUtils.isOneOfSelect(this.fullSchema)
+    },
+
+    maxCountReached() {
+      return this.modelWrapper[this.modelKey].length >= this.fullSchema.maxItems
+    },
+
+    minCountReached() {
+      return this.modelWrapper[this.modelKey].length <= this.fullSchema.minItems
     }
   },
   watch: {
@@ -818,6 +826,12 @@ export default {
       // Cleanup arrays of empty items
       if (this.fullSchema.type === 'array') {
         model = model.filter(item => ![undefined, null].includes(item))
+        if (this.fullSchema.maxItems < this.fullSchema.minItems) throw new Error(`maxItems (${this.fullSchema.maxItems}) < minItems (${this.fullSchema.minItems})`)
+
+        // Add the minimum number of items
+        for(var i = 0; i < this.fullSchema.minItems; i++) {
+          model.push(this.fullSchema.items.default || this.defaultValue(this.fullSchema.items))
+        }
       }
 
       this.$set(this.modelWrapper, this.modelKey, model)
