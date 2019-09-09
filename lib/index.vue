@@ -37,6 +37,7 @@ export default {
       const icons = {
         md: {
           calendar: 'event',
+          clock: 'clock',
           info: 'info',
           dropdown: 'arrow_drop_down',
           dropup: 'arrow_drop_up',
@@ -46,6 +47,7 @@ export default {
         },
         mdi: {
           calendar: 'mdi-calendar',
+          clock: 'mdi-clock',
           info: 'mdi-information',
           dropdown: 'mdi-menu-down',
           dropup: 'mdi-menu-up',
