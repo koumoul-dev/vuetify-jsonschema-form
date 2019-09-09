@@ -37,6 +37,42 @@
       </v-date-picker>
     </v-menu>
 
+    <!-- Time picker -->
+    <v-menu v-else-if="fullSchema.type === 'string' && fullSchema.format === 'time'" ref="menu" v-model="menu" :close-on-content-click="false"
+            :nudge-right="40"
+            :return-value.sync="modelWrapper[modelKey]"
+            :disabled="disabled"
+            transition="scale-transition"
+            offset-y
+            full-width
+            min-width="290px"
+    >
+      <template v-slot:activator="{on}">
+        <v-text-field
+          v-model="modelWrapper[modelKey]"
+          :label="label"
+          :name="fullKey"
+          :required="required"
+          :rules="rules"
+          :clearable="!required"
+          :prepend-icon="options.icons.clock"
+          readonly
+          v-on="on"
+        >
+          <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
+        </v-text-field>
+      </template>
+      <v-time-picker v-model="modelWrapper[modelKey]">
+        <v-spacer />
+        <v-btn text class="v-btn--flat" :style="oldFlat" @click="menu = false">
+          Cancel
+        </v-btn>
+        <v-btn text class="v-btn--flat primary--text" @click="$refs.menu.save(modelWrapper[modelKey]); change(); input()">
+          OK
+        </v-btn>
+      </v-time-picker>
+    </v-menu>
+
     <!-- Color picking -->
     <template v-else-if="fullSchema.format === 'hexcolor'">
       <template v-if="fullSchema['x-display'] === 'color-picker'">
@@ -243,7 +279,7 @@
     <v-text-field v-else-if="fullSchema.type === 'string'"
                   v-model="modelWrapper[modelKey]"
                   :name="fullKey"
-                  :label="label"
+                  :label="label+'string'"
                   :disabled="disabled"
                   :required="required"
                   :rules="rules"
@@ -541,7 +577,7 @@ import Tooltip from './Tooltip.vue'
 import schemaUtils from '../utils/schema'
 import selectUtils from '../utils/select'
 const matchAll = require('match-all')
-const md = require('markdown-it')({ html: true })
+const md = require('markdown-it')()
 
 export default {
   name: 'Property',
