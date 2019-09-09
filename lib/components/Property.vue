@@ -541,7 +541,7 @@ import Tooltip from './Tooltip.vue'
 import schemaUtils from '../utils/schema'
 import selectUtils from '../utils/select'
 const matchAll = require('match-all')
-const md = require('markdown-it')()
+const md = require('markdown-it')({ html: true })
 
 export default {
   name: 'Property',
