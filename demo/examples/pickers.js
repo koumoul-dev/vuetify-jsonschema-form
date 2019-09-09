@@ -17,6 +17,12 @@ module.exports = {
         type: 'string',
         format: 'date-time'
       },
+      aTime: {
+        title: 'A time',
+        type: 'string',
+        format: 'time',
+        description: 'A time.'
+      },
       colorSwatches: {
         title: 'A color using the minimalist swatches picker',
         description: 'In hex format',
