@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/koumoul-dev/vuetify-jsonschema-form#readme",
   "dependencies": {
-    "markdown-it": "^9.0.1",
+    "markdown-it": "^8.4.2",
     "match-all": "^1.2.5",
     "property-expr": "^1.5.1",
     "vue-color": "^2.7.0",
