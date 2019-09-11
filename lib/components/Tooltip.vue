@@ -1,11 +1,11 @@
 <template>
-  <v-tooltip v-if="htmlDescription" v-model="show" left :open-on-hover="false" :open-on-click="false">
+  <v-tooltip v-if="htmlDescription" v-model="show" left :open-on-hover="false" :open-on-click="false" content-class="vjsf-tooltip">
     <template v-slot:activator="{on}">
       <v-icon @click="show = !show">
         {{ options.icons.info }}
       </v-icon>
     </template>
-    <div class="vjsf-tooltip" v-html="htmlDescription" />
+    <div v-html="htmlDescription" />
   </v-tooltip>
 </template>
 
