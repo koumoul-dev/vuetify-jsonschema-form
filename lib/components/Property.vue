@@ -875,10 +875,6 @@ export default {
   margin-top: 0;
 }
 
-.vjsf-tooltip {
-  margin-right: 40px;
-}
-
 .vjsf-tooltip p:last-child {
   margin-bottom: 0;
 }

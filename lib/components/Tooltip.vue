@@ -5,7 +5,7 @@
         {{ options.icons.info }}
       </v-icon>
     </template>
-    <div v-html="htmlDescription" />
+    <div :style="`max-width: ${maxWidth}px`" v-html="htmlDescription" />
   </v-tooltip>
 </template>
 
@@ -13,7 +13,14 @@
 export default {
   props: ['htmlDescription', 'options'],
   data() {
-    return { show: false }
+    return {
+      show: false,
+      maxWidth: 200
+    }
+  },
+  mounted() {
+    if (!this.htmlDescription) return
+    this.maxWidth = this.$el.getBoundingClientRect().left - 80
   }
 }
 </script>
