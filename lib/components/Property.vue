@@ -289,6 +289,23 @@
       <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
     </v-text-field>
 
+    <!-- Number fields displayed in slider -->
+    <v-slider v-else-if="fullSchema['x-display'] === 'slider' && (fullSchema.type === 'number' || fullSchema.type === 'integer')"
+              v-model.number="modelWrapper[modelKey]"
+              :name="fullKey"
+              :label="label"
+              :min="fullSchema.minimum"
+              :max="fullSchema.maximum"
+              :step="fullSchema['x-step'] || (fullSchema.type === 'integer' ? 1 : 0.01)"
+              :disabled="disabled"
+              :required="required"
+              :rules="rules"
+              thumb-label
+              @change="change"
+              @input="input"
+    >
+      <tooltip slot="append" :options="options" :html-description="htmlDescription" />
+    </v-slider>
     <!-- Simple number fields -->
     <v-text-field v-else-if="fullSchema.type === 'number' || fullSchema.type === 'integer'"
                   v-model.number="modelWrapper[modelKey]"
@@ -296,7 +313,7 @@
                   :label="label"
                   :min="fullSchema.minimum"
                   :max="fullSchema.maximum"
-                  :step="fullSchema.type === 'integer' ? 1 : 0.01"
+                  :step="fullSchema['x-step'] || (fullSchema.type === 'integer' ? 1 : 0.01)"
                   :disabled="disabled"
                   :required="required"
                   :rules="rules"

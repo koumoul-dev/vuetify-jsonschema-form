@@ -37,6 +37,13 @@ This description can be a long text with markdown content.
         minimum: 0,
         maximum: 150
       },
+      ageSlider: {
+        description: 'Same age, but in a slider.',
+        type: 'integer',
+        'x-display': 'slider',
+        minimum: 0,
+        maximum: 150
+      },
       internalKey: {
         description: 'A property managed only internally by programs and hidden from user',
         type: 'string',
