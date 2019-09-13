@@ -62,11 +62,13 @@ export default {
         disableAll: false,
         colors,
         autoFoldObjects: false,
+        allOfTabs: false,
         requiredMessage: 'This information is required',
         noDataMessage: 'No matching value found',
         searchMessage: 'Search...',
         vuetifyVersion,
-        icons: Object.assign(icons, this.options.icons || {})
+        icons: Object.assign(icons, this.options.icons || {}),
+        tabsMode: 'grow'
       }, this.options)
     }
   }

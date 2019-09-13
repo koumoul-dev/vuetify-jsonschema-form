@@ -378,10 +378,36 @@
           <!-- Sub containers for allOfs -->
           <template v-if="fullSchema.allOf && fullSchema.allOf.length">
             <template v-if="!parentKey && fullSchema.allOf[0].title">
-              <!-- Accordion / expansion panets at root level -->
-              <!-- For vuetify 2 -->
+              <!-- tabs at root level -->
+              <v-tabs
+                v-if="options.allOfTabs"
+                show-arrows
+                :grow="options.tabsMode.includes('grow')"
+                :centered="options.tabsMode.includes('centered')"
+                :vertical="options.tabsMode.includes('vertical')"
+              >
+                <v-tabs-slider />
+                <v-tab v-for="(currentAllOf, i) in fullSchema.allOf" :key="i" :href="`#tab-${i}`">
+                  {{ currentAllOf.title }}
+                </v-tab>
+                <v-tab-item v-for="(currentAllOf, i) in fullSchema.allOf" :key="i" :value="`tab-${i}`">
+                  <property
+                    class="mt-2"
+                    :schema="Object.assign({}, currentAllOf, {type: 'object', title: null})"
+                    :model-wrapper="subModels"
+                    :model-root="modelRoot"
+                    :model-key="'allOf-' + i"
+                    :parent-key="parentKey"
+                    :options="options"
+                    @error="e => $emit('error', e)"
+                    @change="e => $emit('change', e)"
+                    @input="e => $emit('input', e)"
+                  />
+                </v-tab-item>
+              </v-tabs>
+              <!-- Accordion for vuetify 2 -->
               <v-expansion-panels
-                v-if="options.vuetifyVersion === 2"
+                v-else-if="options.vuetifyVersion === 2"
                 :inset="options.accordionMode === 'inset'"
                 :popout="options.accordionMode === 'popout'"
                 focusable
@@ -405,7 +431,7 @@
                   </v-expansion-panel-content>
                 </v-expansion-panel>
               </v-expansion-panels>
-              <!-- Vor vuetify 1 -->
+              <!-- Accordion for vuetify 1 -->
               <v-expansion-panel
                 v-else
                 :inset="options.accordionMode === 'inset'"

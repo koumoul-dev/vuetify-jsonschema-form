@@ -50,7 +50,7 @@
                 v-if="schema"
                 :schema="schema"
                 :model="dataObject"
-                :options="{debug: true, disableAll: false, autoFoldObjects: true, context: {owner: {type: 'organization', id: '5a5dc47163ebd4a6f438589b'}}, accordionMode: 'normal'}"
+                :options="options"
                 @error="e => window.alert(e)"
                 @change="change"
                 @input="input"
@@ -83,7 +83,8 @@ export default {
       dataObject: {},
       examples,
       example: examples[0],
-      formValid: false
+      formValid: false,
+      options: null
     }
   },
   mounted() {
@@ -110,6 +111,14 @@ export default {
     applyExample() {
       this.schema = null
       setTimeout(() => {
+        this.options = {
+          debug: true,
+          disableAll: false,
+          autoFoldObjects: true,
+          context: { owner: { type: 'organization', id: '5a5dc47163ebd4a6f438589b' } },
+          accordionMode: 'normal',
+          ...this.example.options || {}
+        }
         this.dataObject = JSON.parse(JSON.stringify(this.example.data || {}))
         this.schemaStr = JSON.stringify(this.example.schema, null, 2)
         this.applySchema()

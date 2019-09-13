@@ -8,5 +8,7 @@ module.exports = [
   require('./dependencies'),
   require('./combinations'),
   require('./accordion'),
+  require('./tabs'),
+  require('./vertical-tabs'),
   require('./icons')
 ]
