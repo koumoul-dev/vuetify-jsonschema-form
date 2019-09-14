@@ -279,7 +279,7 @@
     <v-text-field v-else-if="fullSchema.type === 'string'"
                   v-model="modelWrapper[modelKey]"
                   :name="fullKey"
-                  :label="label+'string'"
+                  :label="label"
                   :disabled="disabled"
                   :required="required"
                   :rules="rules"
