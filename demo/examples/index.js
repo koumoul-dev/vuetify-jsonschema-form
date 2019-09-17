@@ -10,5 +10,6 @@ module.exports = [
   require('./accordion'),
   require('./tabs'),
   require('./vertical-tabs'),
-  require('./icons')
+  require('./icons'),
+  require('./slots')
 ]

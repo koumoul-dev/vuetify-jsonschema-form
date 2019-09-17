@@ -54,7 +54,20 @@
                 @error="e => window.alert(e)"
                 @change="change"
                 @input="input"
-              />
+              >
+                <template v-slot:prepend-fullKeySlot="{fullSchema}">
+                  Prepend slot<br>
+                </template>
+                <template v-slot:append-fullKeySlot="{fullSchema}">
+                  Append slot
+                </template>
+                <template v-slot:fullKeySlot="{fullSchema}">
+                  Full key slot: {{ fullSchema.description }}<br>
+                </template>
+                <template v-slot:custom-1="{fullSchema}">
+                  Custom display slot: {{ fullSchema.description }}
+                </template>
+              </v-jsonschema-form>
             </v-form>
             <h2 class="title my-4">
               Data:

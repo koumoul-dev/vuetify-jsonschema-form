@@ -10,7 +10,13 @@
     @error="e => $emit('error', e)"
     @change="e => $emit('change', e)"
     @input="e => $emit('input', e)"
-  />
+  >
+    <!-- propagate slots to children, see https://gist.github.com/Loilo/73c55ed04917ecf5d682ec70a2a1b8e2 -->
+    <slot v-for="(_, name) in $slots" :slot="name" :name="name" />
+    <template v-for="(_, name) in $scopedSlots" :slot="name" slot-scope="slotData">
+      <slot :name="name" v-bind="slotData" />
+    </template>
+  </property>
 </template>
 
 <script>
