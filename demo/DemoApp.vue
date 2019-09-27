@@ -30,6 +30,11 @@
             </v-layout>
 
             <v-textarea v-model="schemaStr" :error-messages="schemaError ? [schemaError.message] : []" :rows="20" />
+
+            <h2 class="title my-4">
+              Options:
+            </h2>
+            <pre>{{ JSON.stringify(options, null, 2) }}</pre>
           </v-flex>
           <v-flex xs6>
             <h2 class="title my-4">
