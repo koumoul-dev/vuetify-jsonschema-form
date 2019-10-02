@@ -4,7 +4,7 @@ module.exports = {
     $id: 'https://example.com/person.schema.json',
     $schema: 'http://json-schema.org/draft-07/schema#',
     title: 'Person',
-    description: 'A few metadata about some person.',
+    description: 'A few metadata about some person. Rendered as a form by [vuetify-jsonschema-form](https://github.com/koumoul-dev/vuetify-jsonschema-form).',
     type: 'object',
     required: ['firstName', 'lastName'],
     properties: {

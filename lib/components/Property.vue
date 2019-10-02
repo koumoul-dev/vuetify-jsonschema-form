@@ -378,9 +378,7 @@
 
         <v-slide-y-transition>
           <div v-show="!foldable || !folded">
-            <p v-if="fullSchema.description">
-              {{ fullSchema.description }}
-            </p>
+            <p v-if="fullSchema.description" v-html="htmlDescription" />
             <property v-for="childProp in fullSchema.properties" :key="childProp.key"
                       :schema="childProp"
                       :model-wrapper="modelWrapper[modelKey]"
@@ -582,9 +580,7 @@
         </v-subheader>
         <v-slide-y-transition>
           <div v-show="!foldable || !folded">
-            <p v-if="fullSchema.description">
-              {{ fullSchema.description }}
-            </p>
+            <p v-if="fullSchema.description" v-html="htmlDescription" />
             <property v-for="(child, i) in fullSchema.items" :key="i"
                       :schema="child"
                       :model-wrapper="modelWrapper[modelKey]"
