@@ -341,27 +341,29 @@
       </v-checkbox>
 
       <!-- Simple strings array -->
-      <v-combobox
-        v-else-if="fullSchema.type === 'array' && fullSchema.items.type === 'string'"
-        v-model="modelWrapper[modelKey]"
-        :name="fullKey"
-        :label="label"
-        :required="required"
-        :rules="rules"
-        :disabled="disabled"
-        chips
-        multiple
-        append-icon=""
-        @change="change"
-        @input="input"
-      >
-        <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
-        <template slot="selection" slot-scope="data">
-          <v-chip close @input="modelWrapper[modelKey].splice(modelWrapper[modelKey].indexOf(data.item)); change(); input()">
-            {{ data.item }}
-          </v-chip>
-        </template>
-      </v-combobox>
+      <template v-else-if="fullSchema.type === 'array' && fullSchema.items.type === 'string'">
+        <v-combobox
+          v-model="modelWrapper[modelKey]"
+          :name="fullKey"
+          :label="label"
+          :required="required"
+          :rules="rules"
+          :disabled="disabled"
+          chips
+          multiple
+          append-icon=""
+          @change="change"
+          @input="input"
+        >
+          <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
+          <template slot="selection" slot-scope="data">
+            <!-- @input is for vuetify1 and @click:close is for vuetify 2 -->
+            <v-chip close @input="modelWrapper[modelKey].splice(data.index, 1); change(); input()" @click:close="modelWrapper[modelKey].splice(data.index, 1); change(); input()">
+              {{ data.item }}
+            </v-chip>
+          </template>
+        </v-combobox>
+      </template>
 
       <!-- Object sub container with properties that may include a select based on a oneOf and subparts base on a allOf -->
       <div v-else-if="fullSchema.type === 'object'">
