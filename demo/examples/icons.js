@@ -8,7 +8,7 @@ module.exports = {
         type: 'string',
         description: 'The values are icon codes coming from an enum.',
         'x-display': 'icon',
-        enum: ['alarm', 'alarm_add', 'alarm_off']
+        enum: ['mdi-alarm', 'mdi-alarm-plus', 'mdi-alarm-off']
       },
       fromEnumArray: {
         title: 'From enum in array',
@@ -17,7 +17,7 @@ module.exports = {
         'x-display': 'icon',
         items: {
           type: 'string',
-          enum: ['alarm', 'alarm_add', 'alarm_off']
+          enum: ['mdi-alarm', 'mdi-alarm-plus', 'mdi-alarm-off']
         }
       },
       fromOneOf: {
@@ -25,7 +25,7 @@ module.exports = {
         type: 'string',
         description: "The values are icon codes coming from a oneOf choice with 'const' and 'title' attributes.",
         'x-display': 'icon',
-        oneOf: [{ const: 'alarm', title: 'Alarm', icon: 'alarm' }, { const: 'alarm_add', title: 'Alarm add', icon: 'alarm_add' }]
+        oneOf: [{ const: 'mdi-alarm', title: 'Alarm', icon: 'mdi-alarm' }, { const: 'mdi-alarm-plus', title: 'Alarm plus', icon: 'mdi-alarm-plus' }]
       },
       fromAjaxImages: {
         title: 'From Ajax Images',
@@ -66,7 +66,7 @@ module.exports = {
     }
   },
   data: {
-    fromEnumArray: ['alarm', 'alarm_add'],
-    fromOneOf: 'alarm'
+    fromEnumArray: ['mdi-alarm', 'mdi-alarm-plus'],
+    fromOneOf: 'mdi-alarm'
   }
 }
