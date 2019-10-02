@@ -62,7 +62,8 @@ export default {
           delete: 'mdi-delete'
         }
       }[iconfont]
-      return Object.assign({}, {
+
+      const defaultOptions = {
         debug: false,
         httpLib,
         disableAll: false,
@@ -73,9 +74,11 @@ export default {
         noDataMessage: 'No matching value found',
         searchMessage: 'Search...',
         vuetifyVersion,
-        icons: Object.assign(icons, (this.options && this.options.icons) || {}),
         tabsMode: 'grow'
-      }, this.resolvedSchema['x-options']||{}, this.options || {})
+      }
+      const fullOptions = Object.assign({}, defaultOptions, this.resolvedSchema['x-options'] || {}, this.options || {})
+      fullOptions.icons = Object.assign(icons, fullOptions.icons || {})
+      return fullOptions
     }
   }
 }
