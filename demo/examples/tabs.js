@@ -1,14 +1,14 @@
 module.exports = {
   title: 'Tabs',
-  options: {
-    allOfTabs: true
-  },
   schema: {
     $id: 'https://example.com/person.schema.json',
     $schema: 'http://json-schema.org/draft-07/schema#',
     title: 'Combinations',
     description: 'Rendering a root allOf as tabs',
     type: 'object',
+    'x-options': {
+      allOfTabs: true
+    },
     allOf: [{ $ref: '#/definitions/realWorldEntity' }, { $ref: '#/definitions/socialMediaEntity' }],
     definitions: {
       realWorldEntity: {

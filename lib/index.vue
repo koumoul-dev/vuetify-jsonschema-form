@@ -73,9 +73,9 @@ export default {
         noDataMessage: 'No matching value found',
         searchMessage: 'Search...',
         vuetifyVersion,
-        icons: Object.assign(icons, this.options.icons || {}),
+        icons: Object.assign(icons, (this.options && this.options.icons) || {}),
         tabsMode: 'grow'
-      }, this.options)
+      }, this.resolvedSchema['x-options']||{}, this.options || {})
     }
   }
 }
