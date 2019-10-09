@@ -36,8 +36,10 @@ required: []
 properties:
   firstname:
     type: string
+    title: First name
   lastname:
     type: string
+    title: Last name
 `,
       schemaError: null,
       dataObject: {},

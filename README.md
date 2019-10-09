@@ -2,6 +2,8 @@
 
 Generate forms for the [vuetify](https://vuetifyjs.com/en/) UI library (vuejs) based on annotated JSON schemas.
 
+![](assets/demo-video.gif)
+
 All basic types, nested objects, nested arrays, various display options, simple validation rules, custom content injected using slots, etc. For a view of all the functionalities check the [demo](https://koumoul-dev.github.io/vuetify-jsonschema-form/latest/).
 
 Compatible with vuetify 1 and 2. Check this [alternative demo](https://koumoul-dev.github.io/vuetify-jsonschema-form/latest/vuetify1.html) for support of vuetify 1.
