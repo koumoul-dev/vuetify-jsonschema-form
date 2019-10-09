@@ -22,13 +22,12 @@
             :rules="rules"
             :clearable="!required"
             :prepend-icon="options.icons.calendar"
-            readonly
             v-on="on"
           >
             <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
           </v-text-field>
         </template>
-        <v-date-picker v-model="modelWrapper[modelKey]" no-title scrollable>
+        <v-date-picker v-model="modelWrapper[modelKey]" scrollable landscape :locale="options.locale">
           <v-spacer />
           <v-btn text class="v-btn--flat" :style="oldFlat" @click="menu = false">
             Cancel

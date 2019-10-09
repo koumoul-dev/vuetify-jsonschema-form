@@ -74,7 +74,8 @@ export default {
         noDataMessage: 'No matching value found',
         searchMessage: 'Search...',
         vuetifyVersion,
-        tabsMode: 'grow'
+        tabsMode: 'grow',
+        locale: 'en'
       }
       const fullOptions = Object.assign({}, defaultOptions, this.resolvedSchema['x-options'] || {}, this.options || {})
       fullOptions.icons = Object.assign(icons, fullOptions.icons || {})
