@@ -18,10 +18,7 @@
                 <v-container>
                   <v-layout row wrap>
                     <v-spacer />
-                    <v-btn color="primary" @click="applySchema">
-                      Apply
-                    </v-btn>
-                    <v-btn @click="formatSchema">
+                    <v-btn text @click="formatSchema">
                       Format
                     </v-btn>
                   </v-layout>
@@ -29,7 +26,7 @@
               </v-flex>
             </v-layout>
 
-            <v-textarea v-model="schemaStr" :error-messages="schemaError ? [schemaError.message] : []" :rows="20" />
+            <v-textarea v-model="schemaStr" :error-messages="schemaError ? [schemaError.message] : []" :rows="20" @input="applySchema" />
 
             <h2 class="title my-4">
               Options:

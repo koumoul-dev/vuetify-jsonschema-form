@@ -7,7 +7,8 @@ module.exports = {
   entry: {
     main: './lib/index.vue',
     demo: './demo/index.js',
-    'demo-vuetify1': './demo-vuetify1/index.js'
+    'demo-vuetify1': './demo-vuetify1/index.js',
+    'raw-editor': './raw-editor/index.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
