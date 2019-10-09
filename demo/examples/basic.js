@@ -21,11 +21,13 @@ This description can be a long text with markdown content.
 
   - a list item
   - another one
-  `
+  `,
+        'x-class': 'sm6 pr-4'
       },
       lastName: {
         type: 'string',
-        description: "The person's last name."
+        description: "The person's last name.",
+        'x-class': 'sm6'
       },
       password: {
         type: 'string',

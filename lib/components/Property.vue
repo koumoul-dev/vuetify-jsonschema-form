@@ -1,6 +1,6 @@
 <template>
   <!-- Hide const ? Or make a readonly field -->
-  <div v-if="fullSchema && fullSchema.const === undefined && fullSchema['x-display'] !== 'hidden'" class="vjsf-property">
+  <v-flex v-if="fullSchema && fullSchema.const === undefined && fullSchema['x-display'] !== 'hidden'" :class="propertyClass" :style="fullSchema['x-style'] || ''">
     <slot :name="`prepend-${slotName}`" :fullKey="fullKey" :fullSchema="fullSchema" :modelWrapper="modelWrapper" :modelKey="modelKey" :model="modelWrapper[modelKey]" :required="required" :disabled="disabled" :rule="rules" :htmlDescription="htmlDescription" />
     <slot :name="slotName" :fullKey="fullKey" :fullSchema="fullSchema" :modelWrapper="modelWrapper" :modelKey="modelKey" :model="modelWrapper[modelKey]" :required="required" :disabled="disabled" :rule="rules" :htmlDescription="htmlDescription">
       <!-- Date picker -->
@@ -379,7 +379,7 @@
         </v-subheader>
 
         <v-slide-y-transition>
-          <div v-show="!foldable || !folded">
+          <v-layout v-show="!foldable || !folded" row wrap>
             <p v-if="fullSchema.description" v-html="htmlDescription" />
             <property v-for="childProp in fullSchema.properties" :key="childProp.key"
                       :schema="childProp"
@@ -564,7 +564,7 @@
                 </property>
               </template>
             </template>
-          </div>
+          </v-layout>
         </v-slide-y-transition>
       </div>
 
@@ -660,7 +660,7 @@
       </p>
     </slot>
     <slot :name="`append-${slotName}`" :fullKey="fullKey" :fullSchema="fullSchema" :modelWrapper="modelWrapper" :modelKey="modelKey" :model="modelWrapper[modelKey]" :required="required" :disabled="disabled" :rule="rules" :htmlDescription="htmlDescription" />
-  </div>
+  </v-flex>
 </template>
 
 <script>
@@ -755,6 +755,10 @@ export default {
     },
     slotName() {
       return this.fullSchema['x-display'] && this.fullSchema['x-display'].startsWith('custom-') ? this.fullSchema['x-display'] : this.fullKey
+    },
+    propertyClass() {
+      const cleanKey = this.fullKey.replace(/\./g, '-').replace(/[0-9]/g, '')
+      return `vjsf-property vjsf-property-${cleanKey} xs12 ${this.fullSchema['x-class'] || ''}`
     }
   },
   watch: {
