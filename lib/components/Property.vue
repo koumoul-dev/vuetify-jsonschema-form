@@ -685,6 +685,7 @@ export default {
       currentOneOf: null,
       showCurrentOneOf: true,
       fromUrlParams: {},
+      fullSchema: schemaUtils.prepareFullSchema(this.schema, this.modelWrapper, this.modelKey),
       loading: false,
       folded: true,
       showColorPicker: false,
@@ -697,9 +698,6 @@ export default {
     }
   },
   computed: {
-    fullSchema() {
-      return schemaUtils.prepareFullSchema(this.schema, this.modelWrapper, this.modelKey)
-    },
     htmlDescription() {
       return (this.fullSchema && this.fullSchema.description) ? md.render(this.fullSchema.description) : null
     },
