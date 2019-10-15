@@ -408,7 +408,7 @@
         </v-subheader>
 
         <v-slide-y-transition>
-          <v-layout v-show="!foldable || !folded" row wrap>
+          <v-layout v-show="!foldable || !folded" row wrap class="ma-0">
             <p v-if="fullSchema.description" v-html="htmlDescription" />
             <property v-for="childProp in fullSchema.properties" :key="childProp.key"
                       :schema="childProp"
@@ -645,7 +645,7 @@
         </v-layout>
 
         <v-container v-if="modelWrapper[modelKey] && modelWrapper[modelKey].length" grid-list-md class="pt-0 px-2">
-          <v-layout row wrap>
+          <v-layout row wrap class="ma-0">
             <draggable v-model="modelWrapper[modelKey]" handle=".handle" style="width: 100%;">
               <v-flex v-for="(itemModel, i) in modelWrapper[modelKey]" :key="i" xs12>
                 <v-card class="array-card">
