@@ -12,7 +12,7 @@ module.exports = {
         enum: ['value1', 'value2', 'value3']
       },
       fromEnumOfObjects: {
-        title: 'From enum',
+        title: 'From enum of objects',
         type: 'object',
         description: 'The values are objects coming from an enum.',
         enum: [{ value: 'v1', title: 'title1' }, { value: 'v2', title: 'title2' }],

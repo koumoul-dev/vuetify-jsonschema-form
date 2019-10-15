@@ -114,10 +114,40 @@
         </v-input>
       </template>
 
-      <!-- Select field based on an enum (array or simple value) -->
+      <!-- Select field of objects based on an enum (array or not) -->
+      <template v-else-if="(fullSchema.type === 'array' && fullSchema.items.enum && fullSchema.items.type === 'object') || (fullSchema.enum && fullSchema.type === 'object')">
+        <v-select
+          v-model="modelWrapper[modelKey]"
+          :items="selectItems"
+          :name="fullKey"
+          :label="label"
+          :required="required"
+          :rules="rules"
+          :disabled="disabled"
+          :clearable="!required"
+          :multiple="fullSchema.type === 'array'"
+          :item-text="itemTitle"
+          :item-value="itemKey"
+          :return-object="true"
+          @change="change"
+          @input="input"
+        >
+          <template slot="selection" slot-scope="data">
+            <div class="v-select__selection v-select__selection--comma">
+              <select-icon v-if="itemIcon" :value="data.item[itemIcon]" />
+              <span v-if="![null, undefined].includes(data.item[itemTitle])">{{ data.item[itemTitle] + (fullSchema.type === 'array' && data.index !== modelWrapper[modelKey].length - 1 ? ',&nbsp;' : '') }}</span>
+            </div>
+          </template>
+          <template slot="item" slot-scope="data">
+            <select-icon v-if="itemIcon" :value="data.item[itemIcon]" />
+            <select-item :title="data.item[itemTitle]" :options="options" />
+          </template>
+          <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
+        </v-select>
+      </template>
+
+      <!-- Select field of simple types based on an enum (array or simple value) -->
       <template v-else-if="(fullSchema.type === 'array' && fullSchema.items.enum) || fullSchema.enum">
-        <!--{{ selectItems }}<br>
-      {{ modelWrapper[modelKey] }}-->
         <v-select
           v-model="modelWrapper[modelKey]"
           :items="selectItems"
@@ -825,7 +855,7 @@ export default {
       this.$emit('input', { key: this.fullKey.replace(/allOf-([0-9]+)\./g, ''), model: this.modelWrapper[this.modelKey] })
     },
     defaultValue(schema) {
-      if (schema.type === 'object' && !schema['x-fromUrl'] && !schema['x-fromData']) return {}
+      if (schema.type === 'object' && !schema['x-fromUrl'] && !schema['x-fromData'] && !schema.enum) return {}
       if (schema.type === 'array') return []
       return null
     },
