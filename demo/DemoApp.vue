@@ -103,6 +103,10 @@ export default {
     }
   },
   mounted() {
+    if (window.location.search) {
+      const key = window.location.search.replace('?example=', '')
+      this.example = examples.find(e => e.key === key)
+    }
     this.applyExample()
   },
   methods: {
@@ -124,6 +128,9 @@ export default {
       }
     },
     applyExample() {
+      const queryParams = `?example=${this.example.key}`
+      if (window.location.search !== queryParams) window.location.search = queryParams
+
       this.schema = null
       setTimeout(() => {
         this.options = {

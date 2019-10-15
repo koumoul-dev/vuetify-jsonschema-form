@@ -1,15 +1,17 @@
-module.exports = [
-  require('./basic'),
-  require('./arrays'),
-  require('./pickers'),
-  require('./validation'),
-  require('./selects'),
-  require('./nested'),
-  require('./dependencies'),
-  require('./combinations'),
-  require('./accordion'),
-  require('./tabs'),
-  require('./vertical-tabs'),
-  require('./icons'),
-  require('./slots')
+const keys = [
+  'basic',
+  'arrays',
+  'pickers',
+  'validation',
+  'selects',
+  'nested',
+  'dependencies',
+  'combinations',
+  'accordion',
+  'tabs',
+  'vertical-tabs',
+  'icons',
+  'slots'
 ]
+
+module.exports = keys.map(key => ({ ...require('./' + key), key }))

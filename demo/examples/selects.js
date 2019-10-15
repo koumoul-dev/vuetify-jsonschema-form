@@ -11,6 +11,14 @@ module.exports = {
         description: 'The values are simple strings coming from an enum.',
         enum: ['value1', 'value2', 'value3']
       },
+      fromEnumOfObjects: {
+        title: 'From enum',
+        type: 'object',
+        description: 'The values are objects coming from an enum.',
+        enum: [{ value: 'v1', title: 'title1' }, { value: 'v2', title: 'title2' }],
+        'x-itemTitle': 'title',
+        'x-itemKey': 'value'
+      },
       fromEnumArray: {
         title: 'From enum in array',
         type: 'array',
