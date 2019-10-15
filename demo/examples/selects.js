@@ -76,6 +76,21 @@ module.exports = {
           schema: { type: 'array' }
         }
       },
+      fromAjaxArrayOfObjects: {
+        type: 'array',
+        description: 'The values come from an HTTP request and are stored as objects in an array.',
+        'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title,schema&owner={context.owner.type}:{context.owner.id}',
+        'x-itemsProp': 'results',
+        'x-itemTitle': 'title',
+        'x-itemKey': 'href',
+        items: {
+          type: 'object',
+          properties: {
+            href: { type: 'string' },
+            title: { type: 'string' }
+          }
+        }
+      },
       fromData: {
         type: 'object',
         description: 'The values come from another part of the data.',
