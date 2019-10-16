@@ -1,8 +1,8 @@
 <template>
   <!-- Hide const ? Or make a readonly field -->
   <v-flex v-if="fullSchema && fullSchema.const === undefined && fullSchema['x-display'] !== 'hidden'" :class="propertyClass" :style="fullSchema['x-style'] || ''">
-    <slot :name="`prepend-${slotName}`" :fullKey="fullKey" :fullSchema="fullSchema" :modelWrapper="modelWrapper" :modelKey="modelKey" :model="modelWrapper[modelKey]" :required="required" :disabled="disabled" :rule="rules" :htmlDescription="htmlDescription" />
-    <slot :name="slotName" :fullKey="fullKey" :fullSchema="fullSchema" :modelWrapper="modelWrapper" :modelKey="modelKey" :model="modelWrapper[modelKey]" :required="required" :disabled="disabled" :rule="rules" :htmlDescription="htmlDescription">
+    <slot :name="`prepend-${slotName}`" :fullKey="fullKey" :fullSchema="fullSchema" :modelWrapper="modelWrapper" :modelKey="modelKey" :model="modelWrapper[modelKey]" :required="required" :disabled="disabled" :rule="rules" :options="options" :modelRoot="modelRoot" :htmlDescription="htmlDescription" />
+    <slot :name="slotName" :fullKey="fullKey" :fullSchema="fullSchema" :modelWrapper="modelWrapper" :modelKey="modelKey" :model="modelWrapper[modelKey]" :required="required" :disabled="disabled" :rule="rules" :options="options" :modelRoot="modelRoot" :htmlDescription="htmlDescription">
       <!-- Date picker -->
       <v-menu v-if="fullSchema.type === 'string' && ['date', 'date-time'].includes(fullSchema.format)" ref="menu" v-model="menu" :close-on-content-click="false"
               :nudge-right="40"
@@ -688,7 +688,7 @@
         Unsupported type "{{ fullSchema.type }}" - {{ fullSchema }}
       </p>
     </slot>
-    <slot :name="`append-${slotName}`" :fullKey="fullKey" :fullSchema="fullSchema" :modelWrapper="modelWrapper" :modelKey="modelKey" :model="modelWrapper[modelKey]" :required="required" :disabled="disabled" :rule="rules" :htmlDescription="htmlDescription" />
+    <slot :name="`append-${slotName}`" :fullKey="fullKey" :fullSchema="fullSchema" :modelWrapper="modelWrapper" :modelKey="modelKey" :model="modelWrapper[modelKey]" :required="required" :disabled="disabled" :rule="rules" :options="options" :modelRoot="modelRoot" :htmlDescription="htmlDescription" />
   </v-flex>
 </template>
 
