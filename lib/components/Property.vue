@@ -853,16 +853,25 @@ export default {
   },
   methods: {
     changeImage(event) {
+      console.log('change im 1')
       this.updateSelectItems()
+      console.log('change im 2')
       var input = event.target;
       var target = this.fullKey
+      console.log('change im 3')
       if (input.files && input.files[0]) {
+      console.log('change im 4')
         var reader = new FileReader();
+      console.log('change im 5')
         reader.onload = (e) => {
+          console.log('change im 6')
           this.modelWrapper[this.modelKey] = e.target.result;
+          console.log('change im 7')
           this.$emit('change', { key: this.fullKey.replace(/allOf-([0-9]+)\./g, ''), model: this.modelWrapper[this.modelKey] })
+          console.log('change im 8')
         }
         reader.readAsDataURL(input.files[0]);
+        console.log('change im 9')
       }
     },
     updateSelectItems() {
