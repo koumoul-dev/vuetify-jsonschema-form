@@ -328,13 +328,13 @@
             <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
         </div>
         <div v-if="modelRoot[modelKey]" class="image-preview">
+          <!--
          <v-img 
-                :src = "modelWrapper[modelKey]"
+                :src="modelWrapper[modelKey]"
                 :name="fullKey"
-                :required="required"
-                :rules="rules"
           >
           </v-img>
+          -->
         </div>
       </div>
 
