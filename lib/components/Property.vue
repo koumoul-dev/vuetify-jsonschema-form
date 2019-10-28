@@ -320,6 +320,24 @@
         <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
       </v-text-field>
 
+       <!-- Simple image field -->
+      <div v-else-if="fullSchema.type === 'image'">
+        <div class="file-upload-form">
+            Upload an image file:
+            <input type="file" @change="changeImage" accept="image/*">
+            <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
+        </div>
+        <div v-if="modelRoot[modelKey]" class="image-preview">
+         <v-img 
+                :src = "modelWrapper[modelKey]"
+                :name="fullKey"
+                :required="required"
+                :rules="rules"
+          >
+          </v-img>
+        </div>
+      </div>
+
       <!-- Number fields displayed in slider -->
       <v-slider v-else-if="fullSchema['x-display'] === 'slider' && (fullSchema.type === 'number' || fullSchema.type === 'integer')"
                 v-model.number="modelWrapper[modelKey]"
@@ -834,6 +852,19 @@ export default {
     }
   },
   methods: {
+    changeImage(event) {
+      this.updateSelectItems()
+      var input = event.target;
+      var target = this.fullKey
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = (e) => {
+          this.modelWrapper[this.modelKey] = e.target.result;
+          this.$emit('change', { key: this.fullKey.replace(/allOf-([0-9]+)\./g, ''), model: this.modelWrapper[this.modelKey] })
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    },
     updateSelectItems() {
       const selectItems = selectUtils.getSelectItems(this.rawSelectItems, this.fullSchema, this.modelWrapper, this.modelKey, this.itemKey)
       if (this.fullSchema['x-display'] === 'list') {
