@@ -327,10 +327,10 @@
             <input type="file" @change="changeImage" accept="image/*">
             <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
         </div>
-        <div v-if="modelRoot[modelKey]" class="image-preview">
+        <div v-if="modelWrapper[modelKey] !== 'null' && modelWrapper[modelKey] !== null && modelWrapper[modelKey] !== undefined" class="image-preview">
          <v-img 
-                :src="modelWrapper[modelKey]"
-                :name="fullKey"
+            :src="modelWrapper[modelKey]"
+            :name="fullKey"
           >
           </v-img>
         </div>
