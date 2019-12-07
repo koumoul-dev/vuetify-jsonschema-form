@@ -126,7 +126,7 @@
           :disabled="disabled"
           :clearable="!required"
           :multiple="fullSchema.type === 'array'"
-          :item-text="itemTitle"
+          :item-text="item => item[itemTitle] || item[itemKey]"
           :item-value="itemKey"
           :return-object="true"
           @change="change"
@@ -188,7 +188,7 @@
           :rules="rules"
           :clearable="!required"
           :multiple="fullSchema.type === 'array'"
-          :item-text="itemTitle"
+          :item-text="item => item[itemTitle] || item[itemKey]"
           :item-value="itemKey"
           @change="change"
           @input="input"
@@ -217,7 +217,7 @@
                 :disabled="disabled"
                 :required="required"
                 :rules="rules"
-                :item-text="itemTitle"
+                :item-text="item => item[itemTitle] || item[itemKey]"
                 :item-value="itemKey"
                 :return-object="(fullSchema.type === 'array' && fullSchema.items.type === 'object') || fullSchema.type === 'object'"
                 :clearable="!required"
@@ -250,7 +250,7 @@
                       :disabled="disabled"
                       :required="required"
                       :rules="rules"
-                      :item-text="itemTitle"
+                      :item-text="item => item[itemTitle] || item[itemKey]"
                       :item-value="itemKey"
                       :return-object="(fullSchema.type === 'array' && fullSchema.items.type === 'object') || fullSchema.type === 'object'"
                       :clearable="!required"
@@ -882,9 +882,14 @@ export default {
         })
     },
     cleanUpExtraProperties() {
-      // console.log('Cleanup extra properties')
       // cleanup extra properties
-      if (this.fullSchema.type === 'object' && this.fullSchema.properties && Object.keys(this.fullSchema.properties).length && this.modelWrapper[this.modelKey]) {
+      if (
+        this.fullSchema.type === 'object' &&
+        (this.options.removeAdditionalProperties || this.fullSchema.additionalProperties === false) &&
+        this.fullSchema.properties &&
+        Object.keys(this.fullSchema.properties).length &&
+        this.modelWrapper[this.modelKey]
+      ) {
         Object.keys(this.modelWrapper[this.modelKey]).forEach(key => {
           if (!this.fullSchema.properties.find(p => p.key === key)) {
             // console.log(`Remove key ${this.modelKey}.${key}`)

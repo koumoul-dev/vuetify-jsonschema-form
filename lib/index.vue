@@ -75,7 +75,8 @@ export default {
         searchMessage: 'Search...',
         vuetifyVersion,
         tabsMode: 'grow',
-        locale: 'en'
+        locale: 'en',
+        removeAdditionalProperties: true
       }
       const fullOptions = Object.assign({}, defaultOptions, this.resolvedSchema['x-options'] || {}, this.options || {})
       fullOptions.icons = Object.assign(icons, fullOptions.icons || {})
