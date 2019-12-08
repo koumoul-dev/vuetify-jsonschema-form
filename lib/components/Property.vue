@@ -291,8 +291,15 @@
         <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
       </v-textarea>
 
+      <simple-field v-else-if="fullSchema.type === 'string' || fullSchema.type === 'number' || fullSchema.type === 'integer' || fullSchema.type === 'boolean' || fullSchema.type === 'array' && fullSchema.items.type === 'string'"
+                    v-model="modelWrapper[modelKey]"
+                    :context="{fullSchema, fullKey, label, disabled, required, rules, options, htmlDescription}"
+                    @change="change"
+                    @input="input"
+      />
+
       <!-- text field displayed as password -->
-      <v-text-field v-else-if="fullSchema.type === 'string' && fullSchema['x-display'] === 'password'"
+      <!--<v-text-field v-else-if="fullSchema.type === 'string' && fullSchema['x-display'] === 'password'"
                     v-model="modelWrapper[modelKey]"
                     :name="fullKey"
                     :label="label"
@@ -304,10 +311,10 @@
                     @input="input"
       >
         <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
-      </v-text-field>
+      </v-text-field>-->
 
       <!-- Simple text field -->
-      <v-text-field v-else-if="fullSchema.type === 'string'"
+      <!--<v-text-field v-else-if="fullSchema.type === 'string'"
                     v-model="modelWrapper[modelKey]"
                     :name="fullKey"
                     :label="label"
@@ -318,10 +325,10 @@
                     @input="input"
       >
         <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
-      </v-text-field>
+      </v-text-field>-->
 
       <!-- Number fields displayed in slider -->
-      <v-slider v-else-if="fullSchema['x-display'] === 'slider' && (fullSchema.type === 'number' || fullSchema.type === 'integer')"
+      <!--<v-slider v-else-if="fullSchema['x-display'] === 'slider' && (fullSchema.type === 'number' || fullSchema.type === 'integer')"
                 v-model.number="modelWrapper[modelKey]"
                 :name="fullKey"
                 :label="label"
@@ -336,9 +343,10 @@
                 @input="input"
       >
         <tooltip slot="append" :options="options" :html-description="htmlDescription" />
-      </v-slider>
+      </v-slider>-->
+
       <!-- Simple number fields -->
-      <v-text-field v-else-if="fullSchema.type === 'number' || fullSchema.type === 'integer'"
+      <!--<v-text-field v-else-if="fullSchema.type === 'number' || fullSchema.type === 'integer'"
                     v-model.number="modelWrapper[modelKey]"
                     :name="fullKey"
                     :label="label"
@@ -353,10 +361,10 @@
                     @input="input"
       >
         <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
-      </v-text-field>
+      </v-text-field>-->
 
       <!-- Simple boolean field -->
-      <v-checkbox v-else-if="fullSchema.type === 'boolean'"
+      <!--<v-checkbox v-else-if="fullSchema.type === 'boolean'"
                   v-model="modelWrapper[modelKey]"
                   :label="label"
                   :name="fullKey"
@@ -367,10 +375,10 @@
                   @input="input"
       >
         <tooltip slot="append" :options="options" :html-description="htmlDescription" />
-      </v-checkbox>
+      </v-checkbox>-->
 
       <!-- Simple strings array -->
-      <template v-else-if="fullSchema.type === 'array' && fullSchema.items.type === 'string'">
+      <!--<template v-else-if="fullSchema.type === 'array' && fullSchema.items.type === 'string'">
         <v-combobox
           v-model="modelWrapper[modelKey]"
           :name="fullKey"
@@ -385,14 +393,14 @@
           @input="input"
         >
           <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
-          <template slot="selection" slot-scope="data">
-            <!-- @input is for vuetify1 and @click:close is for vuetify 2 -->
-            <v-chip close @input="modelWrapper[modelKey].splice(data.index, 1); change(); input()" @click:close="modelWrapper[modelKey].splice(data.index, 1); change(); input()">
+          <template slot="selection" slot-scope="data">-->
+      <!-- @input is for vuetify1 and @click:close is for vuetify 2 -->
+      <!--<v-chip close @input="modelWrapper[modelKey].splice(data.index, 1); change(); input()" @click:close="modelWrapper[modelKey].splice(data.index, 1); change(); input()">
               {{ data.item }}
             </v-chip>
           </template>
         </v-combobox>
-      </template>
+      </template>-->
 
       <!-- Object sub container with properties that may include a select based on a oneOf and subparts base on a allOf -->
       <div v-else-if="fullSchema.type === 'object'">
@@ -693,6 +701,8 @@
 </template>
 
 <script>
+
+import SimpleField from './SimpleField'
 import SelectIcon from './SelectIcon.vue'
 import SelectItem from './SelectItem.vue'
 import Tooltip from './Tooltip.vue'
@@ -703,7 +713,7 @@ const md = require('markdown-it')()
 
 export default {
   name: 'Property',
-  components: { SelectIcon, SelectItem, Tooltip },
+  components: { SelectIcon, SelectItem, Tooltip, SimpleField },
   props: ['schema', 'modelWrapper', 'modelRoot', 'modelKey', 'parentKey', 'required', 'options'],
   data() {
     return {

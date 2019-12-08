@@ -25,6 +25,7 @@
     "match-all": "^1.2.5",
     "property-expr": "^1.5.1",
     "vue-color": "^2.7.0",
+    "vue-fragment": "^1.5.1",
     "vue-swatches": "^1.0.3",
     "vuedraggable": "^2.23.0"
   },

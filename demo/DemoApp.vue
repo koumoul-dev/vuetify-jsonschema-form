@@ -69,6 +69,9 @@
                 <template v-slot:custom-1="{fullSchema}">
                   Custom display slot: {{ fullSchema.description }}
                 </template>
+                <template v-slot:prepend-inner-homepage="{}">
+                  <v-icon>mdi-web</v-icon>
+                </template>
               </v-jsonschema-form>
             </v-form>
             <h2 class="title my-4">
@@ -97,7 +100,7 @@ export default {
       schemaError: null,
       dataObject: {},
       examples,
-      example: examples[0],
+      example: examples[1],
       formValid: false,
       options: null
     }
