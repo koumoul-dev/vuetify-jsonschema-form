@@ -78,7 +78,7 @@ export default {
         locale: 'en'
       }
       const fullOptions = Object.assign({}, defaultOptions, this.resolvedSchema['x-options'] || {}, this.options || {})
-      fullOptions.icons = Object.assign(icons, fullOptions.icons || {})
+      fullOptions.icons = Object.assign(icons || {}, fullOptions.icons || {})
       return fullOptions
     }
   }
