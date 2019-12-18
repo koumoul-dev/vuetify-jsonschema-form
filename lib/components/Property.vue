@@ -274,8 +274,15 @@
         <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
       </v-autocomplete>
 
+      <simple-field v-else-if="fullSchema.type === 'string' || fullSchema.type === 'number' || fullSchema.type === 'integer' || fullSchema.type === 'boolean' || fullSchema.type === 'array' && fullSchema.items.type === 'string'"
+                    v-model="modelWrapper[modelKey]"
+                    :context="{fullSchema, fullKey, label, disabled, required, rules, options, htmlDescription}"
+                    @change="change"
+                    @input="input"
+      />
+
       <!-- Long text field in a textarea -->
-      <v-textarea
+      <!--<v-textarea
         v-else-if="fullSchema.type === 'string' && (fullSchema.maxLength && fullSchema.maxLength > 1000 && fullSchema['x-display'] !== 'single-line')"
         v-model="modelWrapper[modelKey]"
         :name="fullKey"
@@ -289,14 +296,7 @@
         @input="input"
       >
         <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
-      </v-textarea>
-
-      <simple-field v-else-if="fullSchema.type === 'string' || fullSchema.type === 'number' || fullSchema.type === 'integer' || fullSchema.type === 'boolean' || fullSchema.type === 'array' && fullSchema.items.type === 'string'"
-                    v-model="modelWrapper[modelKey]"
-                    :context="{fullSchema, fullKey, label, disabled, required, rules, options, htmlDescription}"
-                    @change="change"
-                    @input="input"
-      />
+      </v-textarea>-->
 
       <!-- text field displayed as password -->
       <!--<v-text-field v-else-if="fullSchema.type === 'string' && fullSchema['x-display'] === 'password'"

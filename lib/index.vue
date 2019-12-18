@@ -22,7 +22,7 @@
 <script>
 import jrefs from './utils/json-refs'
 import colors from './utils/colors'
-import Property from './components/Property.vue'
+import Property from './components/Property.js'
 export default {
   name: 'VJsonschemaForm',
   components: { Property },
