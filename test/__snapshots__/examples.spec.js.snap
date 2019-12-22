@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Examples snapshot Basic types 1`] = `
+<div
+  class="flex vjsf-property vjsf-property-root xs12 "
+  description="All basic types are supported : string, number, integer, boolean"
+  id="basic"
+  title="Basic types"
+/>
+`;
+
+exports[`Examples snapshot Dates 1`] = `
+<div
+  class="flex vjsf-property vjsf-property-root xs12 "
+  description="The formats relative to date management are managed using the the date and time pickers from Vuetify."
+  id="date-picker"
+  template="
+<p>BIM</p>
+"
+  title="Dates"
+/>
+`;
