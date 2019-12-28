@@ -11,15 +11,21 @@
       <p v-if="prettyDescription" v-html="prettyDescription" />
     </v-col>
     <v-col xs="12" sm="12" md="6">
-      <v-card>
+      <v-card :dark="dark">
         <v-toolbar color="primary" dark dense flat>
           <v-spacer />
+          <v-btn icon title="show parameters" @click="dark = !dark">
+            <v-icon>mdi-invert-colors</v-icon>
+          </v-btn>
           <v-btn icon title="show parameters" @click="showCode = showCode ? 0 : 1">
             <v-icon>mdi-code-braces</v-icon>
           </v-btn>
-          <v-btn icon title="open example in codepen">
-            <v-icon>mdi-codepen</v-icon>
-          </v-btn>
+          <form action="https://codepen.io/pen/define" method="POST" target="_blank">
+            <input type="hidden" name="data" :value="JSON.stringify(codepenParams)">
+            <v-btn icon title="open example in codepen" type="submit">
+              <v-icon>mdi-codepen</v-icon>
+            </v-btn>
+          </form>
         </v-toolbar>
         <client-only>
           <v-card-text class="pb-10">
@@ -80,6 +86,7 @@
 
 import Example from './example.js'
 const md = require('markdown-it')()
+const stringifyObject = require('stringify-object')
 
 export default {
   components: { Example },
@@ -89,7 +96,8 @@ export default {
   data: () => ({
     showCode: 0,
     valid: null,
-    validated: false
+    validated: false,
+    dark: false
   }),
   computed: {
     prettySchema() {
@@ -111,6 +119,34 @@ export default {
       if (this.valid) return 'success'
       else if (!this.validated) return 'light'
       else return 'error'
+    },
+    codepenParams() {
+      const template = this.params.template || `<v-jsf :model="model" :options="options" :schema="schema" />`
+      return {
+        title: `vjsf - ${this.params.title}`,
+        description: this.params.description,
+        editors: '101', // HTML=1 CSS=0 JS=1
+        html: `<v-app>
+  ${template}
+</v-app>`,
+        js: `
+const model = ${stringifyObject(this.params.model || {})}
+
+const options =  ${stringifyObject(this.params.options) || {}}
+
+const schema = ${stringifyObject(this.params.schema)}
+
+new Vue({
+  el: 'v-app',
+  data: {
+    model,
+    options,
+    schema
+  }
+});`,
+        css_external: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900;https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css;https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css;https://cdn.jsdelivr.net/npm/@koumoul/vuetify-jsonschema-form@0.26/dist/main.css',
+        js_external: 'https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js;https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js;https://cdn.jsdelivr.net/npm/@koumoul/vuetify-jsonschema-form@0.26/dist/main.js'
+      }
     }
   },
   methods: {

@@ -32,12 +32,5 @@ module.exports = {
       { hid: 'description', name: 'description', content: `vuetify-jsonschema-form - documentation` },
       { hid: 'robots', name: 'robots', content: 'noindex' }
     ]
-  },
-  hooks: {
-    build: {
-      templates(params) {
-        console.log('BIM', params)
-      }
-    }
   }
 }

@@ -1,4 +1,7 @@
-module.exports = [
-  require('./basic'),
-  require('./date-picker')
+import basic from './basic'
+import datePicker from './date-picker'
+
+export default [
+  basic,
+  datePicker
 ]

@@ -1,23 +1,31 @@
-exports.id = 'basic'
+const id = 'basic'
 
-exports.title = 'Basic types'
+const title = 'Basic types'
 
-exports.description = `All basic types are supported : string, number, integer, boolean`
+const description = `All basic types are supported : string, number, integer, boolean`
 
-exports.schema = {
+const schema = {
   type: 'object',
-  required: ['stringProp'],
   properties: {
-    stringProp: { type: 'string', title: `I'm a string` },
+    stringProp: { type: 'string', title: `I'm a string`, description: 'This description is used as a help message.' },
     numberProp: { type: 'number', title: `I'm a number` },
     integerProp: { type: 'integer', title: `I'm an integer` },
     booleanProp: { type: 'boolean', title: `I'm a boolean` }
   }
 }
 
-exports.model = {
+const model = {
   firstName: 'Alban',
   lastName: 'Mouton'
 }
 
-exports.options = {}
+const options = {}
+
+const test = (wrapper) => {
+  const properties = wrapper.findAll('.vjsf-property')
+  expect(properties).toHaveLength(5)
+  expect(wrapper.findAll('.v-tooltip')).toHaveLength(1)
+  expect(properties.at(1).contains('.v-text-field')).toBeTruthy()
+}
+
+export default { id, title, description, schema, model, options, test }

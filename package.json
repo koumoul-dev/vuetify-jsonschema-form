@@ -45,6 +45,7 @@
     "markdown-it": "^8.4.2",
     "match-all": "^1.2.5",
     "property-expr": "^1.5.1",
+    "stringify-object": "^3.3.0",
     "vue-color": "^2.7.0",
     "vue-fragment": "^1.5.1",
     "vue-swatches": "^1.0.3",

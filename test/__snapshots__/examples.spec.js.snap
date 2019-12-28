@@ -1,22 +1,355 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Examples snapshot Basic types 1`] = `
+exports[`Examples used as simple test cases Basic types 1`] = `
 <div
   class="flex vjsf-property vjsf-property-root xs12 "
   description="All basic types are supported : string, number, integer, boolean"
   id="basic"
+  test="function test(wrapper) {
+  var properties = wrapper.findAll('.vjsf-property');
+  expect(properties).toHaveLength(5);
+  expect(wrapper.findAll('.v-tooltip')).toHaveLength(1);
+  expect(properties.at(1).contains('.v-text-field')).toBeTruthy();
+}"
   title="Basic types"
-/>
+>
+  <div>
+    <div
+      class="layout row wrap ma-0"
+    >
+      <div
+        class="flex vjsf-property vjsf-property-stringProp xs12 "
+      >
+        <div
+          class="v-input theme--light v-text-field"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-text-field__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="input-6"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a string
+                </label>
+                <input
+                  id="input-6"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <div
+                  class="v-messages__wrapper"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="v-input__append-outer"
+          >
+            <span
+              class="v-tooltip v-tooltip--left"
+            >
+              <div
+                class="v-tooltip__content vjsf-tooltip"
+                style="left: 12px; max-width: auto; opacity: 0; top: 12px; z-index: 0; display: none;"
+              />
+              <i
+                class="v-icon notranslate v-icon--link mdi mdi-information theme--light"
+                role="button"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex vjsf-property vjsf-property-numberProp xs12 "
+      >
+        <div
+          class="v-input theme--light v-text-field"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-text-field__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="input-14"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a number
+                </label>
+                <input
+                  id="input-14"
+                  type="number"
+                />
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <div
+                  class="v-messages__wrapper"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex vjsf-property vjsf-property-integerProp xs12 "
+      >
+        <div
+          class="v-input theme--light v-text-field"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-text-field__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="input-18"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm an integer
+                </label>
+                <input
+                  id="input-18"
+                  type="number"
+                />
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <div
+                  class="v-messages__wrapper"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex vjsf-property vjsf-property-booleanProp xs12 "
+      >
+        <div
+          class="v-input theme--light v-input--selection-controls v-input--checkbox"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-input--selection-controls__input"
+              >
+                <input
+                  aria-checked="false"
+                  id="input-22"
+                  role="checkbox"
+                  type="checkbox"
+                  value=""
+                />
+                <div
+                  class="v-input--selection-controls__ripple"
+                />
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-checkbox-blank-outline theme--light"
+                />
+              </div>
+              <label
+                class="v-label theme--light"
+                for="input-22"
+                style="left: 0px; position: relative;"
+              >
+                I'm a boolean
+              </label>
+            </div>
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 `;
 
-exports[`Examples snapshot Dates 1`] = `
+exports[`Examples used as simple test cases Dates 1`] = `
 <div
   class="flex vjsf-property vjsf-property-root xs12 "
-  description="The formats relative to date management are managed using the the date and time pickers from Vuetify."
-  id="date-picker"
-  template="
-<p>BIM</p>
-"
+  description="The formats relative to dates are managed using the date and time pickers from Vuetify."
+  id="dates"
   title="Dates"
-/>
+>
+  <div>
+    <div
+      class="layout row wrap ma-0"
+    >
+      <div
+        class="flex vjsf-property vjsf-property-dateProp xs12 "
+      >
+        <div
+          class="v-input theme--light v-text-field"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-text-field__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="input-44"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a simple date
+                </label>
+                <input
+                  id="input-44"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <div
+                  class="v-messages__wrapper"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex vjsf-property vjsf-property-dateTimeProp xs12 "
+      >
+        <div
+          class="v-input theme--light v-text-field"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-text-field__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="input-48"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a date with time
+                </label>
+                <input
+                  id="input-48"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <div
+                  class="v-messages__wrapper"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex vjsf-property vjsf-property-dateTime xs12 "
+      >
+        <div
+          class="v-input theme--light v-text-field"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-text-field__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="input-52"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a simple time of day
+                </label>
+                <input
+                  id="input-52"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <div
+                  class="v-messages__wrapper"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 `;

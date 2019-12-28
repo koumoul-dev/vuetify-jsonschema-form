@@ -31,7 +31,7 @@
 
 <script>
 
-const examples = require('~/examples')
+import examples from '~/examples'
 
 export default {
   data: () => ({ examples })

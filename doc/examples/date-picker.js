@@ -1,18 +1,15 @@
-exports.id = 'date-picker'
+exports.id = 'dates'
 
 exports.title = 'Dates'
 
-exports.description = `The formats relative to date management are managed using the the date and time pickers from Vuetify.`
-
-exports.template = `
-<p>BIM</p>
-`
+exports.description = `The formats relative to dates are managed using the date and time pickers from Vuetify.`
 
 exports.schema = {
   type: 'object',
   properties: {
-    firstName: { type: 'string' },
-    lastName: { type: 'string' }
+    dateProp: { type: 'string', title: `I'm a simple date`, format: 'date' },
+    dateTimeProp: { type: 'string', title: `I'm a date with time`, format: 'date-time' },
+    dateTime: { type: 'string', title: `I'm a simple time of day`, format: 'time' }
   }
 }
 

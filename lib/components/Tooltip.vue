@@ -1,5 +1,5 @@
 <template>
-  <v-tooltip v-if="htmlDescription" v-model="show" left :open-on-hover="false" :open-on-click="false" content-class="vjsf-tooltip">
+  <v-tooltip v-model="show" left :open-on-hover="false" :open-on-click="false" content-class="vjsf-tooltip">
     <template v-slot:activator="{on}">
       <v-icon @click="show = !show">
         {{ options.icons.info }}

@@ -6,7 +6,7 @@
 
 <script>
 import ExampleWrapper from '~/components/example-wrapper'
-const examples = require('~/examples')
+import examples from '~/examples'
 
 export default {
   components: { ExampleWrapper },
