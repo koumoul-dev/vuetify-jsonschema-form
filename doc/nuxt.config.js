@@ -2,6 +2,7 @@ import colors from 'vuetify/lib/util/colors'
 
 module.exports = {
   build: {
+    transpile: ['../../lib/index.vue'],
     extend(config, ctx) {
       // Include the compiler version of Vue so that we can compile examples templates
       config.resolve.alias['vue$'] = 'vue/dist/vue.esm.js'
@@ -23,6 +24,9 @@ module.exports = {
         }
       }
     }
+  },
+  router: {
+    base: process.env.BASE || '/'
   },
   head: {
     title: 'vuetify-jsonschema-form - documentation',

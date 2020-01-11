@@ -31,7 +31,7 @@
 
 <script>
 
-import examples from '~/examples'
+import { examples } from '~/examples'
 
 export default {
   data: () => ({ examples })

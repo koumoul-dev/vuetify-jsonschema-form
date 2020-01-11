@@ -2,3 +2,4 @@
 /dist
 .nuxt
 coverage
+/doc/dist

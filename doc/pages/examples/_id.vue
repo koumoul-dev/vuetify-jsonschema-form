@@ -6,7 +6,7 @@
 
 <script>
 import ExampleWrapper from '~/components/example-wrapper'
-import examples from '~/examples'
+import { examples } from '~/examples'
 
 export default {
   components: { ExampleWrapper },

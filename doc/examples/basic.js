@@ -26,6 +26,7 @@ const test = (wrapper) => {
   expect(properties).toHaveLength(5)
   expect(wrapper.findAll('.v-tooltip')).toHaveLength(1)
   expect(properties.at(1).contains('.v-text-field')).toBeTruthy()
+  expect(wrapper.vm.valid).toBe(true)
 }
 
 export default { id, title, description, schema, model, options, test }

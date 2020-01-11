@@ -1,17 +1,19 @@
 {
-  "name": "@koumoul/vuetify-jsonschema-form",
+  "name": "@koumoul/vjsf",
   "version": "0.36.0",
   "description": "Generate forms for the vuetify UI library (vuejs) based on annotated JSON schemas.",
   "main": "dist/main.js",
   "scripts": {
     "lint": "eslint --ext js,vue .",
-    "build": "rm -rf dist && webpack && cp index.html dist/ && cp vuetify1.html dist/",
+    "build": "rm -rf dist && webpack",
     "dev": "NODE_ENV=development webpack-dev-server",
     "prepublish": "npm run lint && npm test && npm run build",
-    "postpublish": "gh-pages-multi deploy -v -s dist",
+    "postpublish": "gh-pages-multi deploy -v -s doc/dist -t render-functions",
     "test": "jest --verbose",
+    "test-update": "jest --updateSnapshot",
+    "doc-link": "npm link && pushd doc && npm link @koumoul/vjsf && popd",
     "doc-dev": "nuxt doc",
-    "doc-lunr": "node doc/lunr.js"
+    "doc-build": "BASE=/vuetify-jsonschema-form/render-functions/ nuxt generate doc"
   },
   "jest": {
     "moduleFileExtensions": [

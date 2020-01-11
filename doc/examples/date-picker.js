@@ -8,14 +8,11 @@ exports.schema = {
   type: 'object',
   properties: {
     dateProp: { type: 'string', title: `I'm a simple date`, format: 'date' },
-    dateTimeProp: { type: 'string', title: `I'm a date with time`, format: 'date-time' },
-    dateTime: { type: 'string', title: `I'm a simple time of day`, format: 'time' }
+    timeProp: { type: 'string', title: `I'm a simple time of day`, format: 'time' },
+    dateTimeProp: { type: 'string', title: `I'm a date with time`, format: 'date-time' }
   }
 }
 
-exports.model = {
-  firstName: 'Alban',
-  lastName: 'Mouton'
-}
+exports.model = {}
 
 exports.options = {}

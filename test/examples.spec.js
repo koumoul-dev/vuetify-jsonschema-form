@@ -1,26 +1,40 @@
 import Vue from 'vue'
-import { mount } from '@vue/test-utils'
 import Vuetify from 'vuetify'
+import { createLocalVue, mount } from '@vue/test-utils'
 import VJsf from '../lib/index.vue'
-import examples from '../doc/examples'
+import ExampleForm from './example-form.vue'
+import { examples, defaultTemplate } from '../doc/examples'
+
 Vue.use(Vuetify)
+const localVue = createLocalVue()
+localVue.component('v-jsf', VJsf)
 
 describe('Examples used as simple test cases', () => {
-  let vuetify
-
-  beforeEach(() => {
-    vuetify = new Vuetify({
-      mocks: {
-        $vuetify: {
-          theme: { themes: {} }
-        }
-      }
-    })
-  })
-
   examples.forEach(example => {
     test(example.title, () => {
-      const wrapper = mount(VJsf, { vuetify, propsData: example })
+      const vuetify = new Vuetify({ mocks: { $vuetify: { theme: { themes: {} } } } })
+
+      // localVue.use(Vuetify)
+
+      // const wrapper = mount(VJsf, { vuetify, propsData: example })
+      // Vue.options.components.VForm.$options.components = Vue.options.components
+      // const wrapper = mount(localVue.options.components.VForm, {
+      const template = (example.template || defaultTemplate)
+        .replace('"model"', '"props.model"')
+        .replace('"schema"', '"props.schema"')
+        .replace('"options"', '"props.options"')
+      const wrapper = mount(ExampleForm, {
+        localVue,
+        vuetify,
+        scopedSlots: {
+          default: template
+        },
+        propsData: {
+          model: example.model,
+          schema: example.schema,
+          options: example.options
+        }
+      })
       expect(wrapper.isVueInstance()).toBeTruthy()
       expect(wrapper.element).toMatchSnapshot()
       if (example.test) example.test(wrapper)

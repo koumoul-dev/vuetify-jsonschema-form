@@ -1,7 +1,11 @@
 import basic from './basic'
 import datePicker from './date-picker'
 
-export default [
+const examples = [
   basic,
   datePicker
 ]
+
+const defaultTemplate = '<v-jsf :model="model" :schema="schema" :options="options" />'
+
+export { examples, defaultTemplate }
