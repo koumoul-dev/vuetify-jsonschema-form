@@ -1,10 +1,10 @@
-exports.id = 'dates'
+const id = 'date-picker'
 
-exports.title = 'Dates'
+const title = 'Dates'
 
-exports.description = `The formats relative to dates are managed using the date and time pickers from Vuetify.`
+const description = `The formats relative to dates are managed using the date and time pickers from Vuetify.`
 
-exports.schema = {
+const schema = {
   type: 'object',
   properties: {
     dateProp: { type: 'string', title: `I'm a simple date`, format: 'date' },
@@ -13,6 +13,8 @@ exports.schema = {
   }
 }
 
-exports.model = {}
+const model = {}
 
-exports.options = {}
+const options = {}
+
+export default { id, title, description, schema, model, options }
