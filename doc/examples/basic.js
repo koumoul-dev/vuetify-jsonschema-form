@@ -14,10 +14,7 @@ const schema = {
   }
 }
 
-const model = {
-  firstName: 'Alban',
-  lastName: 'Mouton'
-}
+const model = {}
 
 const options = {}
 

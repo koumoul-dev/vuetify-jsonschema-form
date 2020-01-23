@@ -1,7 +1,7 @@
 <template>
-  <v-row>
+  <v-row class="example-wrapper">
     <v-col xs="12" sm="12" md="6">
-      <h2 v-if="params.title" :id="params.id" class="headline mb-2">
+      <h2 v-if="params.title" :id="params.id" class="headline mb-2 pt-2">
         <v-btn color="primary" icon text :to="{name: 'examples', hash: '#' + params.id}" class="mr-1">
           <v-icon>
             mdi-link
@@ -10,11 +10,11 @@
       </h2>
       <p v-if="prettyDescription" v-html="prettyDescription" />
     </v-col>
-    <v-col xs="12" sm="12" md="6">
+    <v-col xs="12" sm="12" md="6" class="mt-2">
       <v-card :dark="dark">
         <v-toolbar color="primary" dark dense flat>
           <v-spacer />
-          <v-btn icon title="show parameters" @click="dark = !dark">
+          <v-btn icon title="dark mode / light mode" @click="dark = !dark">
             <v-icon>mdi-invert-colors</v-icon>
           </v-btn>
           <v-btn icon title="show parameters" @click="showCode = showCode ? 0 : 1">

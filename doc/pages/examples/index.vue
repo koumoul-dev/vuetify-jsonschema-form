@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="examples-container">
     <example-wrapper v-for="example in examples" :key="example.key" :params="example" />
   </v-container>
 </template>
@@ -15,4 +15,7 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.example-wrapper:last-child {
+  height: 100vh;
+}
 </style>

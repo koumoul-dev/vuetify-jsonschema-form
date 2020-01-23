@@ -10,7 +10,7 @@ Default uses [Vue Swatches](https://saintplay.github.io/vue-swatches/) but you c
 const schema = {
   type: 'object',
   properties: {
-    swatchColorProp: { type: 'string', title: `I'm a color picked with Vue Swatches`, format: 'hexcolor' },
+    swatchColorProp: { type: 'string', title: `I'm a color picked with Vue Swatches`, format: 'hexcolor', description: 'This description is used as a help message.' },
     colorPickerProp: { type: 'string', title: `I'm a color picked with vue-color`, format: 'hexcolor', 'x-display': 'color-picker' }
   }
 }

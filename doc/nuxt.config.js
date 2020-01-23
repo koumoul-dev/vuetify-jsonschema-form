@@ -1,6 +1,7 @@
 import colors from 'vuetify/lib/util/colors'
 
 module.exports = {
+  mode: 'spa',
   build: {
     transpile: ['../../lib/index.vue'],
     extend(config, ctx) {
