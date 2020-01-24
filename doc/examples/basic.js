@@ -10,7 +10,8 @@ const schema = {
     stringProp: { type: 'string', title: `I'm a string`, description: 'This description is used as a help message.' },
     numberProp: { type: 'number', title: `I'm a number` },
     integerProp: { type: 'integer', title: `I'm an integer` },
-    booleanProp: { type: 'boolean', title: `I'm a boolean` }
+    booleanProp: { type: 'boolean', title: `I'm a boolean` },
+    stringArrayProp: { type: 'array', title: `I'm an array of strings`, items: { type: 'string' } }
   }
 }
 
