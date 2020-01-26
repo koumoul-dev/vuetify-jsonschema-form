@@ -9,12 +9,12 @@ This functionality is tightly coupled to Vuetify for simplicity and power.`
 const schema = {
   type: 'object',
   properties: {
-    chipsEnum: { type: 'array', description: `I'm an array of strings from an enum with a bunch of additional props`, 'x-props': { chips: true, deletableChips: true, soloInverted: true, prependIcon: 'mdi-heart' }, items: { type: 'string', enum: ['value 1', 'value 2'] } }
+    chipsEnumProp: { type: 'array', description: `I'm an array of strings from an enum with a bunch of additional props`, 'x-props': { chips: true, deletableChips: true, soloInverted: true, prependIcon: 'mdi-heart' }, items: { type: 'string', enum: ['value 1', 'value 2'] } }
   }
 }
 
 const model = {
-  chipsEnum: ['value 1']
+  chipsEnumProp: ['value 1']
 }
 
 const options = {}
