@@ -2,7 +2,7 @@ const id = 'vuetify-props'
 
 const title = 'Vuetify props'
 
-const description = `The x-props annotation can be used to add properties to underlying Vuetify components.
+const description = `The \`x-props\` annotation can be used to add properties to underlying Vuetify components.
 
 This functionality is tightly coupled to Vuetify for simplicity and power.`
 
