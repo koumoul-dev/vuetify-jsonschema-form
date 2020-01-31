@@ -11,13 +11,13 @@ Possible values can be listed in enums, oneOfs or fetched from HTTP requests.`
 const schema = {
   type: 'object',
   properties: {
-    fromEnum: {
+    iconEnum: {
       title: `I'm a simple select with icon codes in enum`,
       type: 'string',
       'x-display': 'icon',
       enum: ['mdi-alarm', 'mdi-alarm-plus', 'mdi-alarm-off']
     },
-    fromEnumArray: {
+    iconEnumArray: {
       title: `I'm a multiple select with icon codes in enum`,
       type: 'array',
       'x-display': 'icon',
@@ -26,13 +26,13 @@ const schema = {
         enum: ['mdi-alarm', 'mdi-alarm-plus', 'mdi-alarm-off']
       }
     },
-    fromOneOf: {
+    iconOneOf: {
       title: `I'm a select with icon codes and titles in a oneOf`,
       type: 'string',
       'x-display': 'icon',
       oneOf: [{ const: 'mdi-alarm', title: 'Alarm', icon: 'mdi-alarm' }, { const: 'mdi-alarm-plus', title: 'Alarm plus', icon: 'mdi-alarm-plus' }]
     },
-    fromAjaxImages: {
+    iconAjaxImages: {
       title: `I'm a select based on HTTP requests with links to icons`,
       type: 'object',
       'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets/icons-mdi-latest/lines?q={q}',
@@ -49,7 +49,7 @@ const schema = {
         }
       }
     },
-    fromAjaxSVG: {
+    iconAjaxSVG: {
       title: `I'm a select based on HTTP requests with SVG code in response`,
       type: 'object',
       'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets/icons-mdi-latest/lines?q={q}',
@@ -71,6 +71,4 @@ const schema = {
 
 const model = {}
 
-const options = {}
-
-export default { id, title, description, schema, model, options }
+export default { id, title, description, schema, model }

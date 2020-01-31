@@ -55,6 +55,15 @@
                     </v-sheet>
                   </v-tab-item>
 
+                  <v-tab v-if="params.options" :href="`#tab-${params.id}-options`">
+                    Options
+                  </v-tab>
+                  <v-tab-item :value="`tab-${params.id}-options`">
+                    <v-sheet dark class="pa-2" tile>
+                      <pre v-html="prettyOptions" />
+                    </v-sheet>
+                  </v-tab-item>
+
                   <v-tab :href="`#tab-${params.id}-schema`">
                     Schema
                   </v-tab>
@@ -107,6 +116,10 @@ export default {
     prettyModel() {
       if (!this.$hljs || !this.params.model) return null
       return this.$hljs.highlight('json', JSON.stringify(this.params.model, null, 2)).value
+    },
+    prettyOptions() {
+      if (!this.$hljs || !this.params.options) return null
+      return this.$hljs.highlight('json', JSON.stringify(this.params.options, null, 2)).value
     },
     prettyDescription() {
       return md.render(this.params.description || '')

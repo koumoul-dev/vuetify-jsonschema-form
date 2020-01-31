@@ -17,8 +17,6 @@ const schema = {
 
 const model = {}
 
-const options = {}
-
 const test = (wrapper) => {
   const properties = wrapper.findAll('.vjsf-property')
   expect(properties).toHaveLength(5)
@@ -27,4 +25,4 @@ const test = (wrapper) => {
   expect(wrapper.vm.valid).toBe(true)
 }
 
-export default { id, title, description, schema, model, options, test }
+export default { id, title, description, schema, model, test }

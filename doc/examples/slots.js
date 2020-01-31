@@ -18,12 +18,10 @@ const schema = {
 
 const model = {}
 
-const options = {}
-
 const template = `<v-jsf :model="model" :schema="schema" :options="options">
   <template slot="stringProp1-prepend">this is a code slot <v-icon>mdi-heart</v-icon></template>
   <template v-slot:stringProp2-before="slotProps">this is a code slot before 2nd property (fullKey={{slotProps.fullKey}}).</template>
   <template v-slot:stringProp2="{modelWrapper, modelKey}"><p class="mt-4">this is the default slot of the 2nd property <input type="text" v-model="modelWrapper[modelKey]" style="border:1px solid red;">.</p></template>
 </v-jsf>`
 
-export default { id, title, description, schema, model, options, template }
+export default { id, title, description, schema, model, template }

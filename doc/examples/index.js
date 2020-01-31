@@ -2,6 +2,7 @@ import basic from './basic'
 import datePicker from './date-picker'
 import colorPicker from './color-picker'
 import select from './select'
+import selectHTTP from './select-http'
 import selectIcon from './select-icon'
 import vuetifyProps from './vuetify-props'
 import slots from './slots'
@@ -11,6 +12,7 @@ const examples = [
   datePicker,
   colorPicker,
   select,
+  selectHTTP,
   selectIcon,
   vuetifyProps,
   slots

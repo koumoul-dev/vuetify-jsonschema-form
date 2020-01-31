@@ -15,6 +15,4 @@ const schema = {
 
 const model = {}
 
-const options = {}
-
-export default { id, title, description, schema, model, options }
+export default { id, title, description, schema, model }
