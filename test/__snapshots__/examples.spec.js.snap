@@ -208,6 +208,103 @@ exports[`Examples used as simple test cases Basic types 1`] = `
 </form>
 `;
 
+exports[`Examples used as simple test cases Colors 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="flex vjsf-property vjsf-property-root xs12 "
+  >
+    <div
+      class="flex vjsf-property vjsf-property-swatchColorProp xs12 "
+    >
+      <div
+        class="v-input theme--light"
+      >
+        <div
+          class="v-input__control"
+        >
+          <div
+            class="v-input__slot"
+          >
+            <label
+              class="v-label theme--light"
+              for="input-124"
+              style="left: 0px; position: relative;"
+            >
+              I'm a color picked with Vue Swatches
+            </label>
+            <swatches
+              style="margin-left: 10px;"
+            />
+          </div>
+          <div
+            class="v-messages theme--light"
+          >
+            <div
+              class="v-messages__wrapper"
+            />
+          </div>
+        </div>
+        <div
+          class="v-input__append-outer"
+        >
+          <span
+            class="v-tooltip v-tooltip--left"
+          >
+            <!---->
+            <button
+              class="v-icon notranslate v-icon--link mdi mdi-information theme--light"
+              type="button"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex vjsf-property vjsf-property-colorPickerProp xs12 "
+    >
+      <div
+        class="v-input theme--light"
+      >
+        <div
+          class="v-input__control"
+        >
+          <div
+            class="v-input__slot"
+          >
+            <label
+              class="v-label theme--light"
+              for="input-131"
+              style="left: 0px; position: relative;"
+            >
+              I'm a color picked with vue-color
+            </label>
+            <div
+              class="v-menu"
+            >
+              <div
+                class="color-picker-trigger color-picker-trigger-empty"
+                style="margin-left: 10px;"
+              />
+              <!---->
+            </div>
+          </div>
+          <div
+            class="v-messages theme--light"
+          >
+            <div
+              class="v-messages__wrapper"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`Examples used as simple test cases Dates 1`] = `
 <form
   class="v-form"
@@ -447,6 +544,2178 @@ exports[`Examples used as simple test cases Dates 1`] = `
               style="max-height: auto; min-width: 290px; max-width: auto; top: 12px; left: 0px; transform-origin: top left; z-index: 0; display: none;"
             />
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases Sections 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="flex vjsf-property vjsf-property-root xs12 "
+  >
+    <div
+      class="layout row wrap ma-0"
+    >
+      <span
+        class="headline"
+      >
+        I'm a section 
+      </span>
+      <div
+        class="flex vjsf-property vjsf-property-objectSection xs12 "
+      >
+        <div
+          class="xs12"
+        >
+          <p>
+            I'm a description shown as a paragraph on top of section
+          </p>
+          
+
+        </div>
+        <div
+          class="flex vjsf-property vjsf-property-objectSection-stringProp xs12 "
+        >
+          <div
+            class="v-input theme--light v-text-field"
+          >
+            <div
+              class="v-input__control"
+            >
+              <div
+                class="v-input__slot"
+              >
+                <div
+                  class="v-text-field__slot"
+                >
+                  <label
+                    class="v-label theme--light"
+                    for="input-504"
+                    style="left: 0px; position: absolute;"
+                  >
+                    I'm a property in section 1
+                  </label>
+                  <input
+                    id="input-504"
+                    type="text"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-text-field__details"
+              >
+                <div
+                  class="v-messages theme--light"
+                >
+                  <div
+                    class="v-messages__wrapper"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="layout row wrap ma-0"
+    >
+      <span
+        class="headline"
+      >
+        I'm another section 
+      </span>
+      <div
+        class="flex vjsf-property vjsf-property-objectSection xs12 "
+      >
+        <div
+          class="flex vjsf-property vjsf-property-objectSection-stringProp xs12 "
+        >
+          <div
+            class="v-input theme--light v-text-field"
+          >
+            <div
+              class="v-input__control"
+            >
+              <div
+                class="v-input__slot"
+              >
+                <div
+                  class="v-text-field__slot"
+                >
+                  <label
+                    class="v-label theme--light"
+                    for="input-509"
+                    style="left: 0px; position: absolute;"
+                  >
+                    I'm a property in section 2
+                  </label>
+                  <input
+                    id="input-509"
+                    type="text"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-text-field__details"
+              >
+                <div
+                  class="v-messages theme--light"
+                >
+                  <div
+                    class="v-messages__wrapper"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="layout row wrap ma-0"
+        >
+          <span
+            class="title"
+          >
+            I'm a subsection 
+          </span>
+          <div
+            class="flex vjsf-property vjsf-property-objectSection-allOf- xs12 "
+          >
+            <div
+              class="flex vjsf-property vjsf-property-objectSection-allOf--stringProp xs12 "
+            >
+              <div
+                class="v-input theme--light v-text-field"
+              >
+                <div
+                  class="v-input__control"
+                >
+                  <div
+                    class="v-input__slot"
+                  >
+                    <div
+                      class="v-text-field__slot"
+                    >
+                      <label
+                        class="v-label theme--light"
+                        for="input-514"
+                        style="left: 0px; position: absolute;"
+                      >
+                        I'm a property in subsection 2.1
+                      </label>
+                      <input
+                        id="input-514"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="v-text-field__details"
+                  >
+                    <div
+                      class="v-messages theme--light"
+                    >
+                      <div
+                        class="v-messages__wrapper"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="layout row wrap ma-0"
+        >
+          <span
+            class="title"
+          >
+            I'm another subsection 
+          </span>
+          <div
+            class="flex vjsf-property vjsf-property-objectSection-allOf- xs12 "
+          >
+            <div
+              class="flex vjsf-property vjsf-property-objectSection-allOf--stringProp xs12 "
+            >
+              <div
+                class="v-input theme--light v-text-field"
+              >
+                <div
+                  class="v-input__control"
+                >
+                  <div
+                    class="v-input__slot"
+                  >
+                    <div
+                      class="v-text-field__slot"
+                    >
+                      <label
+                        class="v-label theme--light"
+                        for="input-519"
+                        style="left: 0px; position: absolute;"
+                      >
+                        I'm a property in subsection 2.2
+                      </label>
+                      <input
+                        id="input-519"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="v-text-field__details"
+                  >
+                    <div
+                      class="v-messages theme--light"
+                    >
+                      <div
+                        class="v-messages__wrapper"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="flex vjsf-property vjsf-property-root xs12 "
+  >
+    <div
+      class="v-item-group theme--light v-expansion-panels v-expansion-panels--flat"
+    >
+      <div
+        aria-expanded="false"
+        class="v-expansion-panel"
+      >
+        <button
+          class="v-expansion-panel-header"
+          type="button"
+        >
+          I'm a section
+          <div
+            class="v-expansion-panel-header__icon"
+          >
+            <i
+              aria-hidden="true"
+              class="v-icon notranslate mdi mdi-chevron-down theme--light"
+            />
+          </div>
+        </button>
+        <!---->
+      </div>
+      <div
+        aria-expanded="false"
+        class="v-expansion-panel"
+      >
+        <button
+          class="v-expansion-panel-header"
+          type="button"
+        >
+          I'm another section
+          <div
+            class="v-expansion-panel-header__icon"
+          >
+            <i
+              aria-hidden="true"
+              class="v-icon notranslate mdi mdi-chevron-down theme--light"
+            />
+          </div>
+        </button>
+        <!---->
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases Selects 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="flex vjsf-property vjsf-property-root xs12 "
+  >
+    <div
+      class="flex vjsf-property vjsf-property-stringEnum xs12 "
+    >
+      <div
+        class="v-input theme--light v-text-field v-select"
+      >
+        <div
+          class="v-input__control"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="list-148"
+            class="v-input__slot"
+            role="button"
+          >
+            <div
+              class="v-select__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-148"
+                style="left: 0px; position: absolute;"
+              >
+                I'm a string with values from an enum
+              </label>
+              <div
+                class="v-select__selections"
+              >
+                <input
+                  aria-readonly="false"
+                  autocomplete="off"
+                  id="input-148"
+                  readonly="readonly"
+                  type="text"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--append"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-menu-down theme--light"
+                  />
+                </div>
+              </div>
+              <input
+                type="hidden"
+              />
+            </div>
+            <div
+              class="v-menu"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="v-input__append-outer"
+        >
+          <span
+            class="v-tooltip v-tooltip--left"
+          >
+            <!---->
+            <button
+              class="v-icon notranslate v-icon--link mdi mdi-information theme--light"
+              type="button"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex vjsf-property vjsf-property-stringsArrayEnum xs12 "
+    >
+      <div
+        class="v-input theme--light v-text-field v-select v-select--is-multi"
+      >
+        <div
+          class="v-input__control"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="list-159"
+            class="v-input__slot"
+            role="button"
+          >
+            <div
+              class="v-select__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-159"
+                style="left: 0px; position: absolute;"
+              >
+                I'm an array of strings with values from an enum
+              </label>
+              <div
+                class="v-select__selections"
+              >
+                <input
+                  aria-readonly="false"
+                  autocomplete="off"
+                  id="input-159"
+                  readonly="readonly"
+                  type="text"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--append"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-menu-down theme--light"
+                  />
+                </div>
+              </div>
+              <input
+                type="hidden"
+              />
+            </div>
+            <div
+              class="v-menu"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex vjsf-property vjsf-property-stringOneOf xs12 "
+    >
+      <div
+        class="v-input theme--light v-text-field v-select"
+      >
+        <div
+          class="v-input__control"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="list-167"
+            class="v-input__slot"
+            role="button"
+          >
+            <div
+              class="v-select__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-167"
+                style="left: 0px; position: absolute;"
+              >
+                I'm a string with values/labels from a oneOf
+              </label>
+              <div
+                class="v-select__selections"
+              >
+                <input
+                  aria-readonly="false"
+                  autocomplete="off"
+                  id="input-167"
+                  readonly="readonly"
+                  type="text"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--append"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-menu-down theme--light"
+                  />
+                </div>
+              </div>
+              <input
+                type="hidden"
+              />
+            </div>
+            <div
+              class="v-menu"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex vjsf-property vjsf-property-stringArrayOneOf xs12 "
+    >
+      <div
+        class="v-input theme--light v-text-field v-select v-select--is-multi"
+      >
+        <div
+          class="v-input__control"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="list-175"
+            class="v-input__slot"
+            role="button"
+          >
+            <div
+              class="v-select__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-175"
+                style="left: 0px; position: absolute;"
+              >
+                I'm an array of strings with values/labels from a oneOf
+              </label>
+              <div
+                class="v-select__selections"
+              >
+                <input
+                  aria-readonly="false"
+                  autocomplete="off"
+                  id="input-175"
+                  readonly="readonly"
+                  type="text"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--append"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-menu-down theme--light"
+                  />
+                </div>
+              </div>
+              <input
+                type="hidden"
+              />
+            </div>
+            <div
+              class="v-menu"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex vjsf-property vjsf-property-stringEnumLarge xs12 "
+    >
+      <div
+        class="v-input theme--light v-text-field v-text-field--placeholder v-select v-autocomplete"
+      >
+        <div
+          class="v-input__control"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="list-183"
+            class="v-input__slot"
+            role="combobox"
+          >
+            <div
+              class="v-select__slot"
+            >
+              <label
+                class="v-label v-label--active theme--light"
+                for="input-183"
+                style="left: 0px; position: absolute;"
+              >
+                I'm a string with values from a large enum
+              </label>
+              <div
+                class="v-select__selections"
+              >
+                <input
+                  autocomplete="off"
+                  id="input-183"
+                  placeholder="Search..."
+                  type="text"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--append"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-menu-down theme--light"
+                  />
+                </div>
+              </div>
+              <input
+                type="hidden"
+              />
+            </div>
+            <div
+              class="v-menu"
+            >
+              <div
+                class="v-menu__content theme--light v-autocomplete__content"
+                style="max-height: 304px; min-width: 0px; max-width: auto; top: 12px; left: 0px; transform-origin: top left; z-index: 0; display: none;"
+              >
+                <div
+                  class="v-list v-select-list v-sheet v-sheet--tile theme--light theme--light"
+                  id="list-183"
+                  role="listbox"
+                  tabindex="-1"
+                >
+                  <div
+                    class="v-list-item theme--light"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="v-list-item__content"
+                    >
+                      <div
+                        class="v-list-item__title"
+                      >
+                        No matching value found
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="v-input__append-outer"
+        >
+          <span
+            class="v-tooltip v-tooltip--left"
+          >
+            <!---->
+            <button
+              class="v-icon notranslate v-icon--link mdi mdi-information theme--light"
+              type="button"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases Selects from HTTP 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="flex vjsf-property vjsf-property-root xs12 "
+  >
+    <div
+      class="flex vjsf-property vjsf-property-selectAjaxString xs12 "
+    >
+      <div
+        class="v-input theme--light v-text-field v-select"
+      >
+        <div
+          class="v-input__control"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="list-281"
+            class="v-input__slot"
+            role="button"
+          >
+            <div
+              class="v-select__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-281"
+                style="left: 0px; position: absolute;"
+              >
+                I'm a string selected from results of an HTTP request
+              </label>
+              <div
+                class="v-select__selections"
+              >
+                <input
+                  aria-readonly="false"
+                  autocomplete="off"
+                  id="input-281"
+                  readonly="readonly"
+                  type="text"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--append"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-menu-down theme--light"
+                  />
+                </div>
+              </div>
+              <input
+                type="hidden"
+              />
+            </div>
+            <div
+              class="v-menu"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex vjsf-property vjsf-property-selectAjaxStringArray xs12 "
+    >
+      <div
+        class="v-input theme--light v-text-field v-select v-select--is-multi"
+      >
+        <div
+          class="v-input__control"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="list-289"
+            class="v-input__slot"
+            role="button"
+          >
+            <div
+              class="v-select__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-289"
+                style="left: 0px; position: absolute;"
+              >
+                I'm an array of strings selected from results of an HTTP request
+              </label>
+              <div
+                class="v-select__selections"
+              >
+                <input
+                  aria-readonly="false"
+                  autocomplete="off"
+                  id="input-289"
+                  readonly="readonly"
+                  type="text"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--append"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-menu-down theme--light"
+                  />
+                </div>
+              </div>
+              <input
+                type="hidden"
+              />
+            </div>
+            <div
+              class="v-menu"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex vjsf-property vjsf-property-selectAjaxObject xs12 "
+    >
+      <div
+        class="v-input theme--light v-text-field v-select"
+      >
+        <div
+          class="v-input__control"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="list-297"
+            class="v-input__slot"
+            role="button"
+          >
+            <div
+              class="v-select__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-297"
+                style="left: 0px; position: absolute;"
+              >
+                I'm an object selected from results of an HTTP request
+              </label>
+              <div
+                class="v-select__selections"
+              >
+                <input
+                  aria-readonly="false"
+                  autocomplete="off"
+                  id="input-297"
+                  readonly="readonly"
+                  type="text"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--append"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-menu-down theme--light"
+                  />
+                </div>
+              </div>
+              <input
+                type="hidden"
+              />
+            </div>
+            <div
+              class="v-menu"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex vjsf-property vjsf-property-selectAjaxArrayOfObjects xs12 "
+    >
+      <div
+        class="v-input theme--light v-text-field v-select v-select--is-multi"
+      >
+        <div
+          class="v-input__control"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="list-305"
+            class="v-input__slot"
+            role="button"
+          >
+            <div
+              class="v-select__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-305"
+                style="left: 0px; position: absolute;"
+              >
+                I'm an array of objects selected from results of an HTTP request
+              </label>
+              <div
+                class="v-select__selections"
+              >
+                <input
+                  aria-readonly="false"
+                  autocomplete="off"
+                  id="input-305"
+                  readonly="readonly"
+                  type="text"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--append"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-menu-down theme--light"
+                  />
+                </div>
+              </div>
+              <input
+                type="hidden"
+              />
+            </div>
+            <div
+              class="v-menu"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex vjsf-property vjsf-property-selectAjaxLarge xs12 "
+    >
+      <div
+        class="v-input theme--light v-text-field v-select"
+      >
+        <div
+          class="v-input__control"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="list-313"
+            class="v-input__slot"
+            role="button"
+          >
+            <div
+              class="v-select__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-313"
+                style="left: 0px; position: absolute;"
+              >
+                I'm an object from a large HTTP request
+              </label>
+              <div
+                class="v-select__selections"
+              >
+                <input
+                  aria-readonly="false"
+                  autocomplete="off"
+                  id="input-313"
+                  readonly="readonly"
+                  type="text"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--append"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-menu-down theme--light"
+                  />
+                </div>
+              </div>
+              <input
+                type="hidden"
+              />
+            </div>
+            <div
+              class="v-menu"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex vjsf-property vjsf-property-selectAjaxWithQuery xs12 "
+    >
+      <div
+        class="v-input theme--light v-text-field v-text-field--placeholder v-select v-autocomplete"
+      >
+        <div
+          class="v-input__control"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="list-321"
+            class="v-input__slot"
+            role="combobox"
+          >
+            <div
+              class="v-select__slot"
+            >
+              <label
+                class="v-label v-label--active theme--light"
+                for="input-321"
+                style="left: 0px; position: absolute;"
+              >
+                I'm an object from a HTTP request with query
+              </label>
+              <div
+                class="v-select__selections"
+              >
+                <input
+                  autocomplete="off"
+                  id="input-321"
+                  placeholder="Search..."
+                  type="text"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--append"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-menu-down theme--light"
+                  />
+                </div>
+              </div>
+              <input
+                type="hidden"
+              />
+            </div>
+            <div
+              class="v-menu"
+            >
+              <div
+                class="v-menu__content theme--light v-autocomplete__content"
+                style="max-height: 304px; min-width: 0px; max-width: auto; top: 12px; left: 0px; transform-origin: top left; z-index: 0; display: none;"
+              >
+                <div
+                  class="v-list v-select-list v-sheet v-sheet--tile theme--light theme--light"
+                  id="list-321"
+                  role="listbox"
+                  tabindex="-1"
+                >
+                  <div
+                    class="v-list-item theme--light"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="v-list-item__content"
+                    >
+                      <div
+                        class="v-list-item__title"
+                      >
+                        No matching value found
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases Selects with dependencies 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="flex vjsf-property vjsf-property-root xs12 "
+  >
+    <div
+      class="flex vjsf-property vjsf-property-selectAjaxObject xs12 "
+    >
+      <div
+        class="v-input theme--light v-text-field v-select"
+      >
+        <div
+          class="v-input__control"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="list-484"
+            class="v-input__slot"
+            role="button"
+          >
+            <div
+              class="v-select__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-484"
+                style="left: 0px; position: absolute;"
+              >
+                I'm an object from HTTP request used as source for next select
+              </label>
+              <div
+                class="v-select__selections"
+              >
+                <input
+                  aria-readonly="false"
+                  autocomplete="off"
+                  id="input-484"
+                  readonly="readonly"
+                  type="text"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--append"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-menu-down theme--light"
+                  />
+                </div>
+              </div>
+              <input
+                type="hidden"
+              />
+            </div>
+            <div
+              class="v-menu"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases Selects with icons 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="flex vjsf-property vjsf-property-root xs12 "
+  >
+    <div
+      class="flex vjsf-property vjsf-property-iconEnum xs12 "
+    >
+      <div
+        class="v-input theme--light v-text-field v-select"
+      >
+        <div
+          class="v-input__control"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="list-385"
+            class="v-input__slot"
+            role="button"
+          >
+            <div
+              class="v-select__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-385"
+                style="left: 0px; position: absolute;"
+              >
+                I'm a simple select with icon codes in enum
+              </label>
+              <div
+                class="v-select__selections"
+              >
+                <input
+                  aria-readonly="false"
+                  autocomplete="off"
+                  id="input-385"
+                  readonly="readonly"
+                  type="text"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--append"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-menu-down theme--light"
+                  />
+                </div>
+              </div>
+              <input
+                type="hidden"
+              />
+            </div>
+            <div
+              class="v-menu"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex vjsf-property vjsf-property-iconEnumArray xs12 "
+    >
+      <div
+        class="v-input theme--light v-text-field v-select v-select--is-multi"
+      >
+        <div
+          class="v-input__control"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="list-393"
+            class="v-input__slot"
+            role="button"
+          >
+            <div
+              class="v-select__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-393"
+                style="left: 0px; position: absolute;"
+              >
+                I'm a multiple select with icon codes in enum
+              </label>
+              <div
+                class="v-select__selections"
+              >
+                <input
+                  aria-readonly="false"
+                  autocomplete="off"
+                  id="input-393"
+                  readonly="readonly"
+                  type="text"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--append"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-menu-down theme--light"
+                  />
+                </div>
+              </div>
+              <input
+                type="hidden"
+              />
+            </div>
+            <div
+              class="v-menu"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex vjsf-property vjsf-property-iconOneOf xs12 "
+    >
+      <div
+        class="v-input theme--light v-text-field v-select"
+      >
+        <div
+          class="v-input__control"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="list-401"
+            class="v-input__slot"
+            role="button"
+          >
+            <div
+              class="v-select__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-401"
+                style="left: 0px; position: absolute;"
+              >
+                I'm a select with icon codes and titles in a oneOf
+              </label>
+              <div
+                class="v-select__selections"
+              >
+                <input
+                  aria-readonly="false"
+                  autocomplete="off"
+                  id="input-401"
+                  readonly="readonly"
+                  type="text"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--append"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-menu-down theme--light"
+                  />
+                </div>
+              </div>
+              <input
+                type="hidden"
+              />
+            </div>
+            <div
+              class="v-menu"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex vjsf-property vjsf-property-iconAjaxImages xs12 "
+    >
+      <div
+        class="v-input theme--light v-text-field v-text-field--placeholder v-select v-autocomplete"
+      >
+        <div
+          class="v-input__control"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="list-409"
+            class="v-input__slot"
+            role="combobox"
+          >
+            <div
+              class="v-select__slot"
+            >
+              <label
+                class="v-label v-label--active theme--light"
+                for="input-409"
+                style="left: 0px; position: absolute;"
+              >
+                I'm a select based on HTTP requests with links to icons
+              </label>
+              <div
+                class="v-select__selections"
+              >
+                <input
+                  autocomplete="off"
+                  id="input-409"
+                  placeholder="Search..."
+                  type="text"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--append"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-menu-down theme--light"
+                  />
+                </div>
+              </div>
+              <input
+                type="hidden"
+              />
+            </div>
+            <div
+              class="v-menu"
+            >
+              <div
+                class="v-menu__content theme--light v-autocomplete__content"
+                style="max-height: 304px; min-width: 0px; max-width: auto; top: 12px; left: 0px; transform-origin: top left; z-index: 0; display: none;"
+              >
+                <div
+                  class="v-list v-select-list v-sheet v-sheet--tile theme--light theme--light"
+                  id="list-409"
+                  role="listbox"
+                  tabindex="-1"
+                >
+                  <div
+                    class="v-list-item theme--light"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="v-list-item__content"
+                    >
+                      <div
+                        class="v-list-item__title"
+                      >
+                        No matching value found
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex vjsf-property vjsf-property-iconAjaxSVG xs12 "
+    >
+      <div
+        class="v-input theme--light v-text-field v-text-field--placeholder v-select v-autocomplete"
+      >
+        <div
+          class="v-input__control"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="list-420"
+            class="v-input__slot"
+            role="combobox"
+          >
+            <div
+              class="v-select__slot"
+            >
+              <label
+                class="v-label v-label--active theme--light"
+                for="input-420"
+                style="left: 0px; position: absolute;"
+              >
+                I'm a select based on HTTP requests with SVG code in response
+              </label>
+              <div
+                class="v-select__selections"
+              >
+                <input
+                  autocomplete="off"
+                  id="input-420"
+                  placeholder="Search..."
+                  type="text"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--append"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-menu-down theme--light"
+                  />
+                </div>
+              </div>
+              <input
+                type="hidden"
+              />
+            </div>
+            <div
+              class="v-menu"
+            >
+              <div
+                class="v-menu__content theme--light v-autocomplete__content"
+                style="max-height: 304px; min-width: 0px; max-width: auto; top: 12px; left: 0px; transform-origin: top left; z-index: 0; display: none;"
+              >
+                <div
+                  class="v-list v-select-list v-sheet v-sheet--tile theme--light theme--light"
+                  id="list-420"
+                  role="listbox"
+                  tabindex="-1"
+                >
+                  <div
+                    class="v-list-item theme--light"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="v-list-item__content"
+                    >
+                      <div
+                        class="v-list-item__title"
+                      >
+                        No matching value found
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases Slots 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="flex vjsf-property vjsf-property-root xs12 "
+  >
+    <div
+      class="flex vjsf-property vjsf-property-stringProp xs12 "
+    >
+      <div
+        class="v-input theme--light v-text-field"
+      >
+        <div
+          class="v-input__prepend-outer"
+        >
+          this is a code slot 
+          <i
+            aria-hidden="true"
+            class="v-icon notranslate mdi mdi-heart theme--light"
+          />
+        </div>
+        <div
+          class="v-input__control"
+        >
+          <div
+            class="v-input__slot"
+          >
+            <div
+              class="v-text-field__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-601"
+                style="left: 0px; position: absolute;"
+              >
+                I'm a property with Vuetify slots
+              </label>
+              <input
+                id="input-601"
+                type="text"
+              />
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="v-input__append-outer"
+        >
+          <div>
+            <p>
+              this is a markdown 
+              <strong>
+                slot
+              </strong>
+            </p>
+            
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex vjsf-property vjsf-property-stringProp xs12 "
+    >
+      this is a code slot before 2nd property (fullKey=stringProp2).
+      <p
+        class="mt-4"
+      >
+        this is the default slot of the 2nd property 
+        <input
+          style="border: 1px solid red;"
+          type="text"
+        />
+        .
+      </p>
+      <div>
+        <p>
+          this is a markdown 
+          <strong>
+            after slot
+          </strong>
+        </p>
+        
+
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases Vuetify props 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="flex vjsf-property vjsf-property-root xs12 "
+  >
+    <div
+      class="flex vjsf-property vjsf-property-chipsEnumProp xs12 "
+    >
+      <div
+        class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--single-line v-text-field--solo v-text-field--solo-inverted v-text-field--enclosed v-select v-select--chips v-select--is-multi"
+      >
+        <div
+          class="v-input__prepend-outer"
+        >
+          <div
+            class="v-input__icon v-input__icon--prepend"
+          >
+            <i
+              aria-hidden="true"
+              class="v-icon notranslate mdi mdi-heart theme--light"
+            />
+          </div>
+        </div>
+        <div
+          class="v-input__control"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="list-578"
+            class="v-input__slot"
+            role="button"
+          >
+            <div
+              class="v-select__slot"
+            >
+              <div
+                class="v-select__selections"
+              >
+                <div
+                  class="v-select__selection v-select__selection--comma"
+                >
+                  <span
+                    class="mt-1"
+                  />
+                </div>
+                <input
+                  aria-readonly="false"
+                  autocomplete="off"
+                  id="input-578"
+                  readonly="readonly"
+                  type="text"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--link mdi mdi-close theme--light"
+                    type="button"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--append"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-menu-down theme--light"
+                  />
+                </div>
+              </div>
+              <input
+                type="hidden"
+                value="value 1"
+              />
+            </div>
+            <div
+              class="v-menu"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="v-input__append-outer"
+        >
+          <span
+            class="v-tooltip v-tooltip--left"
+          >
+            <!---->
+            <button
+              class="v-icon notranslate v-icon--link mdi mdi-information theme--light"
+              type="button"
+            />
+          </span>
         </div>
       </div>
     </div>

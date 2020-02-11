@@ -11,7 +11,7 @@ All slots are passed either as textual content in a \`x-slots\` annotation in th
 const schema = {
   type: 'object',
   properties: {
-    stringProp1: { type: 'string', title: `I'm a property with a Vuetify slots`, 'x-slots': { 'append-outer': 'this is a markdown **slot**' } },
+    stringProp1: { type: 'string', title: `I'm a property with Vuetify slots`, 'x-slots': { 'append-outer': 'this is a markdown **slot**' } },
     stringProp2: { type: 'string', title: `I'm a property with a before/after/default slots`, 'x-slots': { after: 'this is a markdown **after slot**' } }
   }
 }

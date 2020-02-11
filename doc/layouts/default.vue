@@ -11,7 +11,7 @@
       </v-list-item>
       <v-divider />
 
-      <v-list dense shaped>
+      <v-list dense shaped class="mb-6">
         <v-subheader>EXAMPLES</v-subheader>
         <v-list-item v-for="example in examples" :key="example.id" :to="{name: 'examples', hash: '#' + example.id}">
           <v-list-item-title>{{ example.title }}</v-list-item-title>

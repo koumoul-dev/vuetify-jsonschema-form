@@ -5,6 +5,10 @@ import select from './select'
 import selectHTTP from './select-http'
 import selectIcon from './select-icon'
 import selectDeps from './select-deps'
+import selectSubschemas from './select-subschemas'
+import sections from './sections'
+import sectionsExpansionPanels from './sections-expansion-panels'
+import sectionsTab from './sections-tabs'
 import vuetifyProps from './vuetify-props'
 import slots from './slots'
 
@@ -16,6 +20,10 @@ const examples = [
   selectHTTP,
   selectIcon,
   selectDeps,
+  selectSubschemas,
+  sections,
+  sectionsExpansionPanels,
+  sectionsTab,
   vuetifyProps,
   slots
 ]

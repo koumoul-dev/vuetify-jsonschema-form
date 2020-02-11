@@ -2,7 +2,7 @@ const id = 'select-deps'
 
 const title = 'Selects with dependencies'
 
-const description = `It is possible to use a create a select based on values from another part of the model.
+const description = `It is possible to create a select based on values from another part of the model.
 
 It is also possible to inject properties from the model inside the URL for an HTTP based select.`
 

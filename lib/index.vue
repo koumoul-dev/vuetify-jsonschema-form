@@ -7,6 +7,7 @@
     :options="fullOptions"
     model-key="root"
     parent-key=""
+    :section-depth="0"
     @error="e => $emit('error', e)"
     @change="e => $emit('change', e)"
     @input="e => $emit('input', e)"
