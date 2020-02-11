@@ -24,70 +24,24 @@
 </template>
 
 <script>
-import jrefs from "./utils/json-refs";
-import colors from "./utils/colors";
-import Property from "./components/Property.vue";
+import jrefs from './utils/json-refs'
+import colors from './utils/colors'
+import Property from './components/Property.vue'
 export default {
-  name: "VJsonschemaForm",
+  name: 'VJsonschemaForm',
   components: { Property },
-  props: ["schema", "model", "options"],
+  props: ['schema', 'model', 'options'],
   data() {
-    return { modelWrapper: { root: this.model } };
-  },
-  methods: {
-    getIcons(vuetifyVersion) {
-      const supportedIcons = {
-        md: {
-          calendar: "event",
-          clock: "clock",
-          info: "info",
-          dropdown: "arrow_drop_down",
-          dropup: "arrow_drop_up",
-          add: "add",
-          reorder: "reorder",
-          delete: "delete"
-        },
-        mdi: {
-          calendar: "mdi-calendar",
-          clock: "mdi-clock",
-          info: "mdi-information",
-          dropdown: "mdi-menu-down",
-          dropup: "mdi-menu-up",
-          add: "mdi-plus",
-          reorder: "mdi-reorder-horizontal",
-          delete: "mdi-delete"
-        },
-        fa: {
-          calendar: "fa-calendar-alt",
-          clock: "fa-clock",
-          info: "fa-info-circle",
-          dropdown: "fa-caret-down",
-          dropup: "fa-caret-up",
-          add: "fa-plus",
-          reorder: "fa-ellipsis-v-alt",
-          delete: "fa-trash-alt"
-        }
-      };
-
-      if (vuetifyVersion === 1) {
-        return supportedIcons.md;
-      } else if (
-        this.$vuetify.icons &&
-        this.$vuetify.icons.iconfont &&
-        supportedIcons[this.$vuetify.icons.iconfont]
-      ) {
-        return supportedIcons[this.$vuetify.icons.iconfont];
-      } else return supportedIcons.mdi;
-    }
+    return { modelWrapper: { root: this.model } }
   },
   computed: {
     resolvedSchema() {
-      return jrefs.resolve(this.schema);
+      return jrefs.resolve(this.schema)
     },
     fullOptions() {
-      const httpLib = this.axios || this.$http || this.$axios;
+      const httpLib = this.axios || this.$http || this.$axios
       // we use the multi-themes functionality of vuetify2 as a clue of the version
-      const vuetifyVersion = !this.$vuetify.theme.themes ? 1 : 2;
+      const vuetifyVersion = !this.$vuetify.theme.themes ? 1 : 2
       // icons font is only variable in vuetify 2
       const defaultOptions = {
         debug: false,
@@ -96,25 +50,71 @@ export default {
         colors,
         autoFoldObjects: false,
         allOfTabs: false,
-        requiredMessage: "This information is required",
-        noDataMessage: "No matching value found",
-        searchMessage: "Search...",
+        requiredMessage: 'This information is required',
+        noDataMessage: 'No matching value found',
+        searchMessage: 'Search...',
         vuetifyVersion,
-        tabsMode: "grow",
-        locale: "en"
-      };
+        tabsMode: 'grow',
+        locale: 'en'
+      }
       const fullOptions = Object.assign(
         {},
         defaultOptions,
-        this.resolvedSchema["x-options"] || {},
+        this.resolvedSchema['x-options'] || {},
         this.options || {}
-      );
+      )
       fullOptions.icons = Object.assign(
         this.getIcons(vuetifyVersion),
         fullOptions.icons || {}
-      );
-      return fullOptions;
+      )
+      return fullOptions
+    }
+  },
+  methods: {
+    getIcons(vuetifyVersion) {
+      const supportedIcons = {
+        md: {
+          calendar: 'event',
+          clock: 'clock',
+          info: 'info',
+          dropdown: 'arrow_drop_down',
+          dropup: 'arrow_drop_up',
+          add: 'add',
+          reorder: 'reorder',
+          delete: 'delete'
+        },
+        mdi: {
+          calendar: 'mdi-calendar',
+          clock: 'mdi-clock',
+          info: 'mdi-information',
+          dropdown: 'mdi-menu-down',
+          dropup: 'mdi-menu-up',
+          add: 'mdi-plus',
+          reorder: 'mdi-reorder-horizontal',
+          delete: 'mdi-delete'
+        },
+        fa: {
+          calendar: 'fa-calendar-alt',
+          clock: 'fa-clock',
+          info: 'fa-info-circle',
+          dropdown: 'fa-caret-down',
+          dropup: 'fa-caret-up',
+          add: 'fa-plus',
+          reorder: 'fa-ellipsis-v-alt',
+          delete: 'fa-trash-alt'
+        }
+      }
+
+      if (vuetifyVersion === 1) {
+        return supportedIcons.md
+      } else if (
+        this.$vuetify.icons &&
+        this.$vuetify.icons.iconfont &&
+        supportedIcons[this.$vuetify.icons.iconfont]
+      ) {
+        return supportedIcons[this.$vuetify.icons.iconfont]
+      } else return supportedIcons.mdi
     }
   }
-};
+}
 </script>
