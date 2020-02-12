@@ -11,6 +11,8 @@ import sectionsExpansionPanels from './sections-expansion-panels'
 import sectionsTab from './sections-tabs'
 import vuetifyProps from './vuetify-props'
 import slots from './slots'
+import validationBasic from './validation-basic'
+import validationSections from './validation-sections'
 
 const examples = [
   basic,
@@ -25,7 +27,9 @@ const examples = [
   sectionsExpansionPanels,
   sectionsTab,
   vuetifyProps,
-  slots
+  slots,
+  validationBasic,
+  validationSections
 ]
 
 const defaultTemplate = '<v-jsf :model="model" :schema="schema" :options="options" />'
