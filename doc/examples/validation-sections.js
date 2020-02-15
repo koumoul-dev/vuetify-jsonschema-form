@@ -10,22 +10,51 @@ Click on the button at bottom-right of the example to trigger validation.`
 
 const schema = {
   type: 'object',
-  'x-display': 'tabs',
   properties: {
-    section1: {
+    tabs: {
       type: 'object',
-      title: `Section 1`,
-      required: ['requiredStringProp1'],
+      title: 'Tabs with required fields',
+      'x-display': 'tabs',
       properties: {
-        requiredStringProp1: { type: 'string', title: `I'm a required string` }
+        section1: {
+          type: 'object',
+          title: `Section 1`,
+          required: ['requiredStringProp1'],
+          properties: {
+            requiredStringProp1: { type: 'string', title: `I'm a required string` }
+          }
+        },
+        section2: {
+          type: 'object',
+          title: `Section 2`,
+          required: ['requiredStringProp2'],
+          properties: {
+            requiredStringProp2: { type: 'string', title: `I'm another required string` }
+          }
+        }
       }
     },
-    section2: {
+    panels: {
       type: 'object',
-      title: `Section 2`,
-      required: ['requiredStringProp2'],
+      title: 'Panels with required fields',
+      'x-display': 'expansion-panels',
       properties: {
-        requiredStringProp2: { type: 'string', title: `I'm another required string` }
+        section1: {
+          type: 'object',
+          title: `Section 1`,
+          required: ['requiredStringProp1'],
+          properties: {
+            requiredStringProp1: { type: 'string', title: `I'm a required string` }
+          }
+        },
+        section2: {
+          type: 'object',
+          title: `Section 2`,
+          required: ['requiredStringProp2'],
+          properties: {
+            requiredStringProp2: { type: 'string', title: `I'm another required string` }
+          }
+        }
       }
     }
   }

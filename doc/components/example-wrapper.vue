@@ -28,7 +28,7 @@
           </form>
         </v-toolbar>
         <client-only>
-          <v-card-text class="pb-10">
+          <v-card-text class="pb-12">
             <v-form ref="form" v-model="valid">
               <example :model="params.model" :schema="params.schema" :options="params.options || {}" :template="params.template" />
             </v-form>

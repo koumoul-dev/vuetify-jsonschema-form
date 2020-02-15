@@ -6,13 +6,14 @@ const description = `Some JSON schema syntax elements are translated as validati
 
 If you wrap the \`vjsf\` element in a \`v-form\` the validation mechanisms will work.
 
-Click the button at bottom-right of the example to trigger validation.`
+Click on the button at bottom-right of the example to trigger validation.`
 
 const schema = {
   type: 'object',
   required: ['requiredStringProp'],
   properties: {
-    requiredStringProp: { type: 'string', title: `I'm a required string` }
+    requiredStringProp: { type: 'string', title: `I'm a required string` },
+    limitedInteger: { type: 'integer', title: `I'm a integer with min/max`, minimum: 0, maximum: 100 }
   }
 }
 

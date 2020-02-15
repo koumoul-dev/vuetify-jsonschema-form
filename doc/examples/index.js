@@ -13,6 +13,7 @@ import vuetifyProps from './vuetify-props'
 import slots from './slots'
 import validationBasic from './validation-basic'
 import validationSections from './validation-sections'
+import editableArray from './editable-array'
 
 const examples = [
   basic,
@@ -29,7 +30,8 @@ const examples = [
   vuetifyProps,
   slots,
   validationBasic,
-  validationSections
+  validationSections,
+  editableArray
 ]
 
 const defaultTemplate = '<v-jsf :model="model" :schema="schema" :options="options" />'
