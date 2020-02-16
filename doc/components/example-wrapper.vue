@@ -30,7 +30,7 @@
         <client-only>
           <v-card-text class="pb-12">
             <v-form ref="form" v-model="valid">
-              <example :model="params.model" :schema="params.schema" :options="params.options || {}" :template="params.template" />
+              <example :params="params" />
             </v-form>
             <div style="position:absolute;bottom: 10px;right: 10px;">
               <v-btn :color="validationColor" small fab :title="validated ? 'Reset validation' : 'Validate form'" @click="toggleValidate">

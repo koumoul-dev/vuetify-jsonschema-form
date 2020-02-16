@@ -6,10 +6,10 @@ import { defaultTemplate } from '../examples'
 export default {
   components: { VJsf },
   props: {
-    template: { type: String, required: false },
-    model: { type: Object, required: true },
-    schema: { type: Object, required: true },
-    options: { type: Object, required: true }
+    params: { type: Object, required: true }
+  },
+  data() {
+    return { options: {}, ...this.params }
   },
   render(h) {
     this.compiledTemplate = this.compiledTemplate || Vue.compile(this.template || defaultTemplate)

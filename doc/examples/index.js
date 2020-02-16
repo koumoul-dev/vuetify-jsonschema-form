@@ -34,6 +34,6 @@ const examples = [
   editableArray
 ]
 
-const defaultTemplate = '<v-jsf :model="model" :schema="schema" :options="options" />'
+const defaultTemplate = '<v-jsf v-model="model" :schema="schema" :options="options" />'
 
 export { examples, defaultTemplate }

@@ -1,16 +1,16 @@
 <template lang="html">
   <property
     v-if="!!resolvedSchema"
+    :value="value"
     :schema="resolvedSchema"
-    :model-root="modelWrapper.root"
-    :model-wrapper="modelWrapper"
-    :options="fullOptions"
+    :model-root="value"
     model-key="root"
+    :options="fullOptions"
     parent-key=""
     :section-depth="0"
     @error="e => $emit('error', e)"
     @change="e => $emit('change', e)"
-    @input="e => $emit('input', e)"
+    @input="input"
   >
     <!-- propagate slots to children, see https://gist.github.com/Loilo/73c55ed04917ecf5d682ec70a2a1b8e2 -->
     <slot v-for="(_, name) in $slots" :slot="name" :name="name" />
@@ -28,10 +28,7 @@ import Property from './components/Property.js'
 export default {
   name: 'VJsonschemaForm',
   components: { Property },
-  props: ['schema', 'model', 'options'],
-  data() {
-    return { modelWrapper: { root: this.model } }
-  },
+  props: ['schema', 'value', 'options'],
   computed: {
     resolvedSchema() {
       return jrefs.resolve(this.schema)
@@ -83,6 +80,12 @@ export default {
       const fullOptions = Object.assign({}, defaultOptions, this.resolvedSchema['x-options'] || {}, this.options || {})
       fullOptions.icons = Object.assign(icons, fullOptions.icons || {})
       return fullOptions
+    }
+  },
+  methods: {
+    input(value) {
+      // console.log('MAIN INPUT', value)
+      this.$emit('input', value)
     }
   }
 }
