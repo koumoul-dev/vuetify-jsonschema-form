@@ -12,7 +12,7 @@
     </v-col>
     <v-col xs="12" sm="12" md="6" class="mt-2">
       <v-card :dark="dark">
-        <v-toolbar color="primary" dark dense flat>
+        <v-toolbar dark dense flat>
           <v-spacer />
           <v-btn icon title="dark mode / light mode" @click="dark = !dark">
             <v-icon>mdi-invert-colors</v-icon>

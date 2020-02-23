@@ -4,7 +4,9 @@ const title = 'Editable array'
 
 const description = `Arrays of objects are presented as an editable list of cards.
 
-The list can optionaly be sortable also.`
+Each item is validated separately and does not impact global form validity. Saving an item is blocked if it is not valid.
+
+The list is sortable by dragging the card elements.`
 
 const schema = {
   type: 'object',
@@ -13,10 +15,12 @@ const schema = {
       type: 'array',
       title: `I'm an array of objects`,
       description: 'This description is used as a help message.',
+      'x-itemTitle': 'titleProp',
       items: {
         type: 'object',
+        required: ['titleProp'],
         properties: {
-          stringProp: { type: 'string', title: `I'm a string` },
+          titleProp: { type: 'string', title: `I'm a required string used as title` },
           numberProp: { type: 'number', title: `I'm a number` },
           integerProp: { type: 'integer', title: `I'm an integer` },
           booleanProp: { type: 'boolean', title: `I'm a boolean` },

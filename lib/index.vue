@@ -47,6 +47,7 @@ export default {
           dropdown: 'arrow_drop_down',
           dropup: 'arrow_drop_up',
           add: 'add',
+          edit: 'create',
           reorder: 'reorder',
           delete: 'delete'
         },
@@ -57,6 +58,7 @@ export default {
           dropdown: 'mdi-menu-down',
           dropup: 'mdi-menu-up',
           add: 'mdi-plus',
+          edit: 'mdi-pencil',
           reorder: 'mdi-reorder-horizontal',
           delete: 'mdi-delete'
         }
@@ -92,12 +94,6 @@ export default {
 </script>
 
 <style lang="css">
-.vjsf-property .array-card .v-card__text {
-  padding: 6px 16px 0 16px;
-}
-.vjsf-property .array-card .v-card__actions {
-  padding: 0 16px 6px 16px;
-}
 
 .vjsf-property .v-input--selection-controls {
   margin-top: 0;
