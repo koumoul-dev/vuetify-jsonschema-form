@@ -14,6 +14,7 @@ import slots from './slots'
 import validationBasic from './validation-basic'
 import validationSections from './validation-sections'
 import editableArray from './editable-array'
+import tuples from './tuples'
 
 const examples = [
   basic,
@@ -31,7 +32,8 @@ const examples = [
   slots,
   validationBasic,
   validationSections,
-  editableArray
+  editableArray,
+  tuples
 ]
 
 const defaultTemplate = '<v-jsf v-model="model" :schema="schema" :options="options" />'
