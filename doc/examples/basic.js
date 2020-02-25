@@ -19,7 +19,7 @@ const model = {}
 
 const test = (wrapper) => {
   const properties = wrapper.findAll('.vjsf-property')
-  expect(properties).toHaveLength(5)
+  expect(properties).toHaveLength(6)
   expect(wrapper.findAll('.v-tooltip')).toHaveLength(1)
   expect(properties.at(1).contains('.v-text-field')).toBeTruthy()
   expect(wrapper.vm.valid).toBe(true)

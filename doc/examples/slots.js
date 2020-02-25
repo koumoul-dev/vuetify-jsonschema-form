@@ -2,7 +2,7 @@ const id = 'slots'
 
 const title = 'Slots'
 
-const description = `Each property has \`before\`, \`after\` and \`default\` slots. This is true for object containers, arrays, simple properties, etc. Before and after are handy mostly to pass paragraphs of texts, titles, etc. Default can be used to entirely rewrite the way the property is rendered.
+const description = `Each property has \`before\`, \`after\` and \`default\` slots. This is true for object containers, arrays, simple properties, etc. Before and after are handy mostly to display paragraphs of texts, titles, etc. Default can be used to entirely rewrite the way the property is rendered.
 
 You can define any slot of the main underlying Vuetify component for each property (append, prepend, etc.).
 

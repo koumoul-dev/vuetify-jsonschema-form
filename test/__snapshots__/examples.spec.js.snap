@@ -8,197 +8,368 @@ exports[`Examples used as simple test cases Basic types 1`] = `
   <div
     class="flex vjsf-property vjsf-property-root xs12 "
   >
-    <div>
+    <div
+      class="flex vjsf-property vjsf-property-stringProp xs12 "
+    >
       <div
-        class="layout row wrap ma-0"
+        class="v-input theme--light v-text-field"
       >
         <div
-          class="flex vjsf-property vjsf-property-stringProp xs12 "
+          class="v-input__control"
         >
           <div
-            class="v-input theme--light v-text-field"
+            class="v-input__slot"
           >
             <div
-              class="v-input__control"
+              class="v-text-field__slot"
             >
-              <div
-                class="v-input__slot"
+              <label
+                class="v-label theme--light"
+                for="input-8"
+                style="left: 0px; position: absolute;"
               >
-                <div
-                  class="v-text-field__slot"
-                >
-                  <label
-                    class="v-label theme--light"
-                    for="input-9"
-                    style="left: 0px; position: absolute;"
-                  >
-                    I'm a string
-                  </label>
-                  <input
-                    id="input-9"
-                    type="text"
-                  />
-                </div>
-              </div>
-              <div
-                class="v-text-field__details"
-              >
-                <div
-                  class="v-messages theme--light"
-                >
-                  <div
-                    class="v-messages__wrapper"
-                  />
-                </div>
-              </div>
+                I'm a string
+              </label>
+              <input
+                id="input-8"
+                type="text"
+              />
             </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
             <div
-              class="v-input__append-outer"
+              class="v-messages theme--light"
             >
-              <span
-                class="v-tooltip v-tooltip--left"
-              >
-                <div
-                  class="v-tooltip__content vjsf-tooltip"
-                  style="left: 12px; max-width: auto; opacity: 0; top: 12px; z-index: 0; display: none;"
-                />
-                <i
-                  class="v-icon notranslate v-icon--link mdi mdi-information theme--light"
-                  role="button"
-                />
-              </span>
+              <div
+                class="v-messages__wrapper"
+              />
             </div>
           </div>
         </div>
         <div
-          class="flex vjsf-property vjsf-property-numberProp xs12 "
+          class="v-input__append-outer"
+        >
+          <span
+            class="v-tooltip v-tooltip--left"
+          >
+            <!---->
+            <button
+              class="v-icon notranslate v-icon--link mdi mdi-information theme--light"
+              type="button"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex vjsf-property vjsf-property-numberProp xs12 "
+    >
+      <div
+        class="v-input theme--light v-text-field"
+      >
+        <div
+          class="v-input__control"
         >
           <div
-            class="v-input theme--light v-text-field"
+            class="v-input__slot"
           >
             <div
-              class="v-input__control"
+              class="v-text-field__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-15"
+                style="left: 0px; position: absolute;"
+              >
+                I'm a number
+              </label>
+              <input
+                id="input-15"
+                type="number"
+              />
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
             >
               <div
-                class="v-input__slot"
-              >
-                <div
-                  class="v-text-field__slot"
-                >
-                  <label
-                    class="v-label theme--light"
-                    for="input-17"
-                    style="left: 0px; position: absolute;"
-                  >
-                    I'm a number
-                  </label>
-                  <input
-                    id="input-17"
-                    type="number"
-                  />
-                </div>
-              </div>
-              <div
-                class="v-text-field__details"
-              >
-                <div
-                  class="v-messages theme--light"
-                >
-                  <div
-                    class="v-messages__wrapper"
-                  />
-                </div>
-              </div>
+                class="v-messages__wrapper"
+              />
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div
+      class="flex vjsf-property vjsf-property-integerProp xs12 "
+    >
+      <div
+        class="v-input theme--light v-text-field"
+      >
         <div
-          class="flex vjsf-property vjsf-property-integerProp xs12 "
+          class="v-input__control"
         >
           <div
-            class="v-input theme--light v-text-field"
+            class="v-input__slot"
           >
             <div
-              class="v-input__control"
+              class="v-text-field__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-19"
+                style="left: 0px; position: absolute;"
+              >
+                I'm an integer
+              </label>
+              <input
+                id="input-19"
+                type="number"
+              />
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
             >
               <div
-                class="v-input__slot"
-              >
-                <div
-                  class="v-text-field__slot"
-                >
-                  <label
-                    class="v-label theme--light"
-                    for="input-21"
-                    style="left: 0px; position: absolute;"
-                  >
-                    I'm an integer
-                  </label>
-                  <input
-                    id="input-21"
-                    type="number"
-                  />
-                </div>
-              </div>
-              <div
-                class="v-text-field__details"
-              >
-                <div
-                  class="v-messages theme--light"
-                >
-                  <div
-                    class="v-messages__wrapper"
-                  />
-                </div>
-              </div>
+                class="v-messages__wrapper"
+              />
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div
+      class="flex vjsf-property vjsf-property-booleanProp xs12 "
+    >
+      <div
+        class="v-input theme--light v-input--selection-controls v-input--checkbox"
+      >
         <div
-          class="flex vjsf-property vjsf-property-booleanProp xs12 "
+          class="v-input__control"
         >
           <div
-            class="v-input theme--light v-input--selection-controls v-input--checkbox"
+            class="v-input__slot"
           >
             <div
-              class="v-input__control"
+              class="v-input--selection-controls__input"
             >
+              <i
+                aria-hidden="true"
+                class="v-icon notranslate mdi mdi-checkbox-blank-outline theme--light"
+              />
+              <input
+                aria-checked="false"
+                id="input-23"
+                role="checkbox"
+                type="checkbox"
+                value=""
+              />
               <div
-                class="v-input__slot"
+                class="v-input--selection-controls__ripple primary--text"
+              />
+            </div>
+            <label
+              class="v-label theme--light"
+              for="input-23"
+              style="left: 0px; position: relative;"
+            >
+              I'm a boolean
+            </label>
+          </div>
+          <div
+            class="v-messages theme--light"
+          >
+            <div
+              class="v-messages__wrapper"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex vjsf-property vjsf-property-stringArrayProp xs12 "
+    >
+      <div
+        class="v-input theme--light v-text-field v-select v-select--chips v-select--is-multi v-autocomplete"
+      >
+        <div
+          class="v-input__control"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="list-28"
+            class="v-input__slot"
+            role="combobox"
+          >
+            <div
+              class="v-select__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-28"
+                style="left: 0px; position: absolute;"
               >
-                <div
-                  class="v-input--selection-controls__input"
-                >
-                  <input
-                    aria-checked="false"
-                    id="input-25"
-                    role="checkbox"
-                    type="checkbox"
-                    value=""
-                  />
-                  <div
-                    class="v-input--selection-controls__ripple"
-                  />
-                  <i
-                    aria-hidden="true"
-                    class="v-icon notranslate mdi mdi-checkbox-blank-outline theme--light"
-                  />
-                </div>
-                <label
-                  class="v-label theme--light"
-                  for="input-25"
-                  style="left: 0px; position: relative;"
-                >
-                  I'm a boolean
-                </label>
-              </div>
+                I'm an array of strings
+              </label>
               <div
-                class="v-messages theme--light"
+                class="v-select__selections"
               >
-                <div
-                  class="v-messages__wrapper"
+                <input
+                  autocomplete="off"
+                  id="input-28"
+                  type="text"
                 />
               </div>
+              <input
+                type="hidden"
+              />
+            </div>
+            <div
+              class="v-menu"
+            >
+              <div
+                class="v-menu__content theme--light v-autocomplete__content"
+                style="max-height: 304px; min-width: 0px; max-width: auto; top: 12px; left: 0px; transform-origin: top left; z-index: 0; display: none;"
+              >
+                <div
+                  class="v-list v-select-list v-sheet v-sheet--tile theme--light theme--light"
+                  id="list-28"
+                  role="listbox"
+                  tabindex="-1"
+                >
+                  <div
+                    class="v-list-item theme--light"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="v-list-item__content"
+                    >
+                      <div
+                        class="v-list-item__title"
+                      >
+                        No data available
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases Basic validation 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="flex vjsf-property vjsf-property-root xs12 "
+  >
+    <div
+      class="flex vjsf-property vjsf-property-requiredStringProp xs12 "
+    >
+      <div
+        class="v-input theme--light v-text-field"
+      >
+        <div
+          class="v-input__control"
+        >
+          <div
+            class="v-input__slot"
+          >
+            <div
+              class="v-text-field__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-765"
+                style="left: 0px; position: absolute;"
+              >
+                I'm a required string
+              </label>
+              <input
+                id="input-765"
+                type="text"
+              />
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex vjsf-property vjsf-property-limitedInteger xs12 "
+    >
+      <div
+        class="v-input theme--light v-text-field"
+      >
+        <div
+          class="v-input__control"
+        >
+          <div
+            class="v-input__slot"
+          >
+            <div
+              class="v-text-field__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-769"
+                style="left: 0px; position: absolute;"
+              >
+                I'm a integer with min/max
+              </label>
+              <input
+                id="input-769"
+                type="number"
+              />
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
             </div>
           </div>
         </div>
@@ -235,9 +406,619 @@ exports[`Examples used as simple test cases Colors 1`] = `
             >
               I'm a color picked with Vue Swatches
             </label>
-            <swatches
+            <div
+              class="vue-swatches"
               style="margin-left: 10px;"
-            />
+              tabindex="0"
+            >
+              <div>
+                <div
+                  class="vue-swatches__trigger vue-swatches--is-empty"
+                  style="width: 36px; height: 36px; background-color: rgb(255, 255, 255); border-radius: 50%;"
+                >
+                  <div
+                    class="vue-swatches__diagonal--wrapper vue-swatches--has-children-centered"
+                  >
+                    <div
+                      class="vue-swatches__diagonal"
+                    />
+                  </div>
+                </div>
+              </div>
+               
+              <div
+                class="vue-swatches__container"
+                style="left: 0px; background-color: rgb(255, 255, 255); max-height: 300px; display: none;"
+              >
+                <div
+                  class="vue-swatches__wrapper"
+                  style="padding-top: 11px; padding-left: 11px; width: 212px;"
+                >
+                  <div
+                    class="vue-swatches__swatch"
+                    style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(244, 67, 54); cursor: pointer;"
+                  >
+                    <!---->
+                     
+                    <div
+                      class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
+                      style="display: none;"
+                    >
+                      <div
+                        class="vue-swatches__check__circle vue-swatches--has-children-centered"
+                      >
+                        <svg
+                          class="check"
+                          height="12"
+                          role="presentation"
+                          version="1.1"
+                          viewBox="0 0 1792 1792"
+                          width="12"
+                        >
+                          <path
+                            class="vue-swatches__check__path"
+                            d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="vue-swatches__swatch"
+                    style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(233, 30, 99); cursor: pointer;"
+                  >
+                    <!---->
+                     
+                    <div
+                      class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
+                      style="display: none;"
+                    >
+                      <div
+                        class="vue-swatches__check__circle vue-swatches--has-children-centered"
+                      >
+                        <svg
+                          class="check"
+                          height="12"
+                          role="presentation"
+                          version="1.1"
+                          viewBox="0 0 1792 1792"
+                          width="12"
+                        >
+                          <path
+                            class="vue-swatches__check__path"
+                            d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="vue-swatches__swatch"
+                    style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(156, 39, 176); cursor: pointer;"
+                  >
+                    <!---->
+                     
+                    <div
+                      class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
+                      style="display: none;"
+                    >
+                      <div
+                        class="vue-swatches__check__circle vue-swatches--has-children-centered"
+                      >
+                        <svg
+                          class="check"
+                          height="12"
+                          role="presentation"
+                          version="1.1"
+                          viewBox="0 0 1792 1792"
+                          width="12"
+                        >
+                          <path
+                            class="vue-swatches__check__path"
+                            d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="vue-swatches__swatch"
+                    style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(103, 58, 183); cursor: pointer;"
+                  >
+                    <!---->
+                     
+                    <div
+                      class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
+                      style="display: none;"
+                    >
+                      <div
+                        class="vue-swatches__check__circle vue-swatches--has-children-centered"
+                      >
+                        <svg
+                          class="check"
+                          height="12"
+                          role="presentation"
+                          version="1.1"
+                          viewBox="0 0 1792 1792"
+                          width="12"
+                        >
+                          <path
+                            class="vue-swatches__check__path"
+                            d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="vue-swatches__swatch"
+                    style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(63, 81, 181); cursor: pointer;"
+                  >
+                    <!---->
+                     
+                    <div
+                      class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
+                      style="display: none;"
+                    >
+                      <div
+                        class="vue-swatches__check__circle vue-swatches--has-children-centered"
+                      >
+                        <svg
+                          class="check"
+                          height="12"
+                          role="presentation"
+                          version="1.1"
+                          viewBox="0 0 1792 1792"
+                          width="12"
+                        >
+                          <path
+                            class="vue-swatches__check__path"
+                            d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="vue-swatches__swatch"
+                    style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(33, 150, 243); cursor: pointer;"
+                  >
+                    <!---->
+                     
+                    <div
+                      class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
+                      style="display: none;"
+                    >
+                      <div
+                        class="vue-swatches__check__circle vue-swatches--has-children-centered"
+                      >
+                        <svg
+                          class="check"
+                          height="12"
+                          role="presentation"
+                          version="1.1"
+                          viewBox="0 0 1792 1792"
+                          width="12"
+                        >
+                          <path
+                            class="vue-swatches__check__path"
+                            d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="vue-swatches__swatch"
+                    style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(3, 169, 244); cursor: pointer;"
+                  >
+                    <!---->
+                     
+                    <div
+                      class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
+                      style="display: none;"
+                    >
+                      <div
+                        class="vue-swatches__check__circle vue-swatches--has-children-centered"
+                      >
+                        <svg
+                          class="check"
+                          height="12"
+                          role="presentation"
+                          version="1.1"
+                          viewBox="0 0 1792 1792"
+                          width="12"
+                        >
+                          <path
+                            class="vue-swatches__check__path"
+                            d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="vue-swatches__swatch"
+                    style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(0, 188, 212); cursor: pointer;"
+                  >
+                    <!---->
+                     
+                    <div
+                      class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
+                      style="display: none;"
+                    >
+                      <div
+                        class="vue-swatches__check__circle vue-swatches--has-children-centered"
+                      >
+                        <svg
+                          class="check"
+                          height="12"
+                          role="presentation"
+                          version="1.1"
+                          viewBox="0 0 1792 1792"
+                          width="12"
+                        >
+                          <path
+                            class="vue-swatches__check__path"
+                            d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="vue-swatches__swatch"
+                    style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(0, 150, 136); cursor: pointer;"
+                  >
+                    <!---->
+                     
+                    <div
+                      class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
+                      style="display: none;"
+                    >
+                      <div
+                        class="vue-swatches__check__circle vue-swatches--has-children-centered"
+                      >
+                        <svg
+                          class="check"
+                          height="12"
+                          role="presentation"
+                          version="1.1"
+                          viewBox="0 0 1792 1792"
+                          width="12"
+                        >
+                          <path
+                            class="vue-swatches__check__path"
+                            d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="vue-swatches__swatch"
+                    style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(76, 175, 80); cursor: pointer;"
+                  >
+                    <!---->
+                     
+                    <div
+                      class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
+                      style="display: none;"
+                    >
+                      <div
+                        class="vue-swatches__check__circle vue-swatches--has-children-centered"
+                      >
+                        <svg
+                          class="check"
+                          height="12"
+                          role="presentation"
+                          version="1.1"
+                          viewBox="0 0 1792 1792"
+                          width="12"
+                        >
+                          <path
+                            class="vue-swatches__check__path"
+                            d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="vue-swatches__swatch"
+                    style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(139, 195, 74); cursor: pointer;"
+                  >
+                    <!---->
+                     
+                    <div
+                      class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
+                      style="display: none;"
+                    >
+                      <div
+                        class="vue-swatches__check__circle vue-swatches--has-children-centered"
+                      >
+                        <svg
+                          class="check"
+                          height="12"
+                          role="presentation"
+                          version="1.1"
+                          viewBox="0 0 1792 1792"
+                          width="12"
+                        >
+                          <path
+                            class="vue-swatches__check__path"
+                            d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="vue-swatches__swatch"
+                    style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(205, 220, 57); cursor: pointer;"
+                  >
+                    <!---->
+                     
+                    <div
+                      class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
+                      style="display: none;"
+                    >
+                      <div
+                        class="vue-swatches__check__circle vue-swatches--has-children-centered"
+                      >
+                        <svg
+                          class="check"
+                          height="12"
+                          role="presentation"
+                          version="1.1"
+                          viewBox="0 0 1792 1792"
+                          width="12"
+                        >
+                          <path
+                            class="vue-swatches__check__path"
+                            d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="vue-swatches__swatch"
+                    style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(255, 235, 59); cursor: pointer;"
+                  >
+                    <!---->
+                     
+                    <div
+                      class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
+                      style="display: none;"
+                    >
+                      <div
+                        class="vue-swatches__check__circle vue-swatches--has-children-centered"
+                      >
+                        <svg
+                          class="check"
+                          height="12"
+                          role="presentation"
+                          version="1.1"
+                          viewBox="0 0 1792 1792"
+                          width="12"
+                        >
+                          <path
+                            class="vue-swatches__check__path"
+                            d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="vue-swatches__swatch"
+                    style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(255, 193, 7); cursor: pointer;"
+                  >
+                    <!---->
+                     
+                    <div
+                      class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
+                      style="display: none;"
+                    >
+                      <div
+                        class="vue-swatches__check__circle vue-swatches--has-children-centered"
+                      >
+                        <svg
+                          class="check"
+                          height="12"
+                          role="presentation"
+                          version="1.1"
+                          viewBox="0 0 1792 1792"
+                          width="12"
+                        >
+                          <path
+                            class="vue-swatches__check__path"
+                            d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="vue-swatches__swatch"
+                    style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(255, 152, 0); cursor: pointer;"
+                  >
+                    <!---->
+                     
+                    <div
+                      class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
+                      style="display: none;"
+                    >
+                      <div
+                        class="vue-swatches__check__circle vue-swatches--has-children-centered"
+                      >
+                        <svg
+                          class="check"
+                          height="12"
+                          role="presentation"
+                          version="1.1"
+                          viewBox="0 0 1792 1792"
+                          width="12"
+                        >
+                          <path
+                            class="vue-swatches__check__path"
+                            d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="vue-swatches__swatch"
+                    style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(255, 87, 34); cursor: pointer;"
+                  >
+                    <!---->
+                     
+                    <div
+                      class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
+                      style="display: none;"
+                    >
+                      <div
+                        class="vue-swatches__check__circle vue-swatches--has-children-centered"
+                      >
+                        <svg
+                          class="check"
+                          height="12"
+                          role="presentation"
+                          version="1.1"
+                          viewBox="0 0 1792 1792"
+                          width="12"
+                        >
+                          <path
+                            class="vue-swatches__check__path"
+                            d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="vue-swatches__swatch"
+                    style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(121, 85, 72); cursor: pointer;"
+                  >
+                    <!---->
+                     
+                    <div
+                      class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
+                      style="display: none;"
+                    >
+                      <div
+                        class="vue-swatches__check__circle vue-swatches--has-children-centered"
+                      >
+                        <svg
+                          class="check"
+                          height="12"
+                          role="presentation"
+                          version="1.1"
+                          viewBox="0 0 1792 1792"
+                          width="12"
+                        >
+                          <path
+                            class="vue-swatches__check__path"
+                            d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="vue-swatches__swatch"
+                    style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(158, 158, 158); cursor: pointer;"
+                  >
+                    <!---->
+                     
+                    <div
+                      class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
+                      style="display: none;"
+                    >
+                      <div
+                        class="vue-swatches__check__circle vue-swatches--has-children-centered"
+                      >
+                        <svg
+                          class="check"
+                          height="12"
+                          role="presentation"
+                          version="1.1"
+                          viewBox="0 0 1792 1792"
+                          width="12"
+                        >
+                          <path
+                            class="vue-swatches__check__path"
+                            d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="vue-swatches__swatch"
+                    style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(96, 125, 139); cursor: pointer;"
+                  >
+                    <!---->
+                     
+                    <div
+                      class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
+                      style="display: none;"
+                    >
+                      <div
+                        class="vue-swatches__check__circle vue-swatches--has-children-centered"
+                      >
+                        <svg
+                          class="check"
+                          height="12"
+                          role="presentation"
+                          version="1.1"
+                          viewBox="0 0 1792 1792"
+                          width="12"
+                        >
+                          <path
+                            class="vue-swatches__check__path"
+                            d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="vue-swatches__swatch"
+                    style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(0, 0, 0); cursor: pointer;"
+                  >
+                    <!---->
+                     
+                    <div
+                      class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
+                      style="display: none;"
+                    >
+                      <div
+                        class="vue-swatches__check__circle vue-swatches--has-children-centered"
+                      >
+                        <svg
+                          class="check"
+                          height="12"
+                          role="presentation"
+                          version="1.1"
+                          viewBox="0 0 1792 1792"
+                          width="12"
+                        >
+                          <path
+                            class="vue-swatches__check__path"
+                            d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                 
+                <!---->
+              </div>
+            </div>
           </div>
           <div
             class="v-messages theme--light"
@@ -276,7 +1057,7 @@ exports[`Examples used as simple test cases Colors 1`] = `
           >
             <label
               class="v-label theme--light"
-              for="input-131"
+              for="input-173"
               style="left: 0px; position: relative;"
             >
               I'm a color picked with vue-color
@@ -313,237 +1094,307 @@ exports[`Examples used as simple test cases Dates 1`] = `
   <div
     class="flex vjsf-property vjsf-property-root xs12 "
   >
-    <div>
+    <div
+      class="flex vjsf-property vjsf-property-dateProp xs12 "
+    >
       <div
-        class="layout row wrap ma-0"
+        class="v-menu"
       >
         <div
-          class="flex vjsf-property vjsf-property-dateProp xs12 "
+          class="v-input v-input--is-readonly theme--light v-text-field"
         >
           <div
-            class="v-menu"
+            class="v-input__prepend-outer"
           >
             <div
-              class="v-input v-input--is-readonly theme--light v-text-field"
+              class="v-input__icon v-input__icon--prepend"
+            >
+              <i
+                aria-hidden="true"
+                class="v-icon notranslate mdi mdi-calendar theme--light"
+              />
+            </div>
+          </div>
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
             >
               <div
-                class="v-input__prepend-outer"
+                class="v-text-field__slot"
               >
-                <div
-                  class="v-input__icon v-input__icon--prepend"
+                <label
+                  class="v-label theme--light"
+                  for="input-72"
+                  style="left: 0px; position: absolute;"
                 >
-                  <i
-                    aria-hidden="true"
-                    class="v-icon notranslate mdi mdi-calendar theme--light"
-                  />
-                </div>
+                  I'm a simple date
+                </label>
+                <input
+                  id="input-72"
+                  readonly="readonly"
+                  type="text"
+                />
               </div>
               <div
-                class="v-input__control"
+                class="v-input__append-inner"
               >
                 <div
-                  class="v-input__slot"
+                  class="v-input__icon v-input__icon--clear"
                 >
-                  <div
-                    class="v-text-field__slot"
-                  >
-                    <label
-                      class="v-label theme--light"
-                      for="input-51"
-                      style="left: 0px; position: absolute;"
-                    >
-                      I'm a simple date
-                    </label>
-                    <input
-                      id="input-51"
-                      readonly="readonly"
-                      type="text"
-                    />
-                  </div>
-                  <div
-                    class="v-input__append-inner"
-                  >
-                    <div
-                      class="v-input__icon v-input__icon--"
-                    >
-                      <i
-                        class="v-icon notranslate v-icon--link material-icons theme--light"
-                        role="button"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="v-text-field__details"
-                >
-                  <div
-                    class="v-messages theme--light"
-                  >
-                    <div
-                      class="v-messages__wrapper"
-                    />
-                  </div>
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
                 </div>
               </div>
             </div>
             <div
-              class="v-menu__content theme--light "
-              role="menu"
-              style="max-height: auto; min-width: 290px; max-width: auto; top: 12px; left: 0px; transform-origin: top left; z-index: 0; display: none;"
-            />
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <div
+                  class="v-messages__wrapper"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="v-input__append-outer"
+          >
+            <span
+              class="v-tooltip v-tooltip--left"
+            >
+              <!---->
+              <button
+                class="v-icon notranslate v-icon--link mdi mdi-information theme--light"
+                type="button"
+              />
+            </span>
           </div>
         </div>
+        <!---->
+      </div>
+    </div>
+    <div
+      class="flex vjsf-property vjsf-property-timeProp xs12 "
+    >
+      <div
+        class="v-menu"
+      >
         <div
-          class="flex vjsf-property vjsf-property-timeProp xs12 "
+          class="v-input v-input--is-readonly theme--light v-text-field"
         >
           <div
-            class="v-menu"
+            class="v-input__prepend-outer"
           >
             <div
-              class="v-input v-input--is-readonly theme--light v-text-field"
+              class="v-input__icon v-input__icon--prepend"
+            >
+              <i
+                aria-hidden="true"
+                class="v-icon notranslate mdi mdi-clock theme--light"
+              />
+            </div>
+          </div>
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
             >
               <div
-                class="v-input__prepend-outer"
+                class="v-text-field__slot"
               >
-                <div
-                  class="v-input__icon v-input__icon--prepend"
+                <label
+                  class="v-label theme--light"
+                  for="input-83"
+                  style="left: 0px; position: absolute;"
                 >
-                  <i
-                    aria-hidden="true"
-                    class="v-icon notranslate mdi mdi-clock theme--light"
-                  />
-                </div>
+                  I'm a simple time of day
+                </label>
+                <input
+                  id="input-83"
+                  readonly="readonly"
+                  type="text"
+                />
               </div>
               <div
-                class="v-input__control"
+                class="v-input__append-inner"
               >
                 <div
-                  class="v-input__slot"
+                  class="v-input__icon v-input__icon--clear"
                 >
-                  <div
-                    class="v-text-field__slot"
-                  >
-                    <label
-                      class="v-label theme--light"
-                      for="input-60"
-                      style="left: 0px; position: absolute;"
-                    >
-                      I'm a simple time of day
-                    </label>
-                    <input
-                      id="input-60"
-                      readonly="readonly"
-                      type="text"
-                    />
-                  </div>
-                  <div
-                    class="v-input__append-inner"
-                  >
-                    <div
-                      class="v-input__icon v-input__icon--"
-                    >
-                      <i
-                        class="v-icon notranslate v-icon--link material-icons theme--light"
-                        role="button"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="v-text-field__details"
-                >
-                  <div
-                    class="v-messages theme--light"
-                  >
-                    <div
-                      class="v-messages__wrapper"
-                    />
-                  </div>
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
                 </div>
               </div>
             </div>
             <div
-              class="v-menu__content theme--light "
-              role="menu"
-              style="max-height: auto; min-width: 290px; max-width: auto; top: 12px; left: 0px; transform-origin: top left; z-index: 0; display: none;"
-            />
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <div
+                  class="v-messages__wrapper"
+                />
+              </div>
+            </div>
           </div>
         </div>
+        <!---->
+      </div>
+    </div>
+    <div
+      class="flex vjsf-property vjsf-property-dateTimeProp xs12 "
+    >
+      <div
+        class="v-menu"
+      >
         <div
-          class="flex vjsf-property vjsf-property-dateTimeProp xs12 "
+          class="v-input v-input--is-readonly theme--light v-text-field"
         >
           <div
-            class="v-menu"
+            class="v-input__prepend-outer"
           >
             <div
-              class="v-input v-input--is-readonly theme--light v-text-field"
+              class="v-input__icon v-input__icon--prepend"
+            >
+              <i
+                aria-hidden="true"
+                class="v-icon notranslate mdi mdi-calendar theme--light"
+              />
+            </div>
+          </div>
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
             >
               <div
-                class="v-input__prepend-outer"
+                class="v-text-field__slot"
               >
-                <div
-                  class="v-input__icon v-input__icon--prepend"
+                <label
+                  class="v-label theme--light"
+                  for="input-91"
+                  style="left: 0px; position: absolute;"
                 >
-                  <i
-                    aria-hidden="true"
-                    class="v-icon notranslate mdi mdi-calendar theme--light"
-                  />
-                </div>
+                  I'm a date with time
+                </label>
+                <input
+                  id="input-91"
+                  readonly="readonly"
+                  type="text"
+                />
               </div>
               <div
-                class="v-input__control"
+                class="v-input__append-inner"
               >
                 <div
-                  class="v-input__slot"
+                  class="v-input__icon v-input__icon--clear"
                 >
-                  <div
-                    class="v-text-field__slot"
-                  >
-                    <label
-                      class="v-label theme--light"
-                      for="input-69"
-                      style="left: 0px; position: absolute;"
-                    >
-                      I'm a date with time
-                    </label>
-                    <input
-                      id="input-69"
-                      readonly="readonly"
-                      type="text"
-                    />
-                  </div>
-                  <div
-                    class="v-input__append-inner"
-                  >
-                    <div
-                      class="v-input__icon v-input__icon--"
-                    >
-                      <i
-                        class="v-icon notranslate v-icon--link material-icons theme--light"
-                        role="button"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="v-text-field__details"
-                >
-                  <div
-                    class="v-messages theme--light"
-                  >
-                    <div
-                      class="v-messages__wrapper"
-                    />
-                  </div>
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
                 </div>
               </div>
             </div>
             <div
-              class="v-menu__content theme--light "
-              role="menu"
-              style="max-height: auto; min-width: 290px; max-width: auto; top: 12px; left: 0px; transform-origin: top left; z-index: 0; display: none;"
-            />
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <div
+                  class="v-messages__wrapper"
+                />
+              </div>
+            </div>
           </div>
+        </div>
+        <!---->
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases Editable array 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="flex vjsf-property vjsf-property-root xs12 "
+  >
+    <div
+      class="flex vjsf-property vjsf-property-objectArrayProp xs12 "
+    >
+      <div
+        class="layout mt-2 mb-1 pr-1"
+      >
+        <div
+          class="v-subheader theme--light"
+        >
+          I'm an array of objects
+        </div>
+        <div
+          class="v-dialog__container"
+          role="dialog"
+        >
+          <button
+            class="v-btn v-btn--contained v-btn--fab v-btn--round theme--light v-size--small primary"
+            type="button"
+          >
+            <span
+              class="v-btn__content"
+            >
+              <i
+                aria-hidden="true"
+                class="v-icon notranslate mdi mdi-plus theme--light"
+              />
+            </span>
+          </button>
+          <!---->
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases Prefilled arrays 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="flex vjsf-property vjsf-property-root xs12 "
+  >
+    <div
+      class="flex vjsf-property vjsf-property-filledArray xs12 "
+    >
+      <div
+        class="layout mt-2 mb-1 pr-1"
+      >
+        <div
+          class="v-subheader theme--light"
+        >
+          I'm an array filled by HTTP request
         </div>
       </div>
     </div>
@@ -563,7 +1414,7 @@ exports[`Examples used as simple test cases Sections 1`] = `
       class="layout row wrap ma-0"
     >
       <span
-        class="headline"
+        class="pa-2 headline"
       >
         I'm a section 
       </span>
@@ -596,13 +1447,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
                 >
                   <label
                     class="v-label theme--light"
-                    for="input-504"
+                    for="input-569"
                     style="left: 0px; position: absolute;"
                   >
                     I'm a property in section 1
                   </label>
                   <input
-                    id="input-504"
+                    id="input-569"
                     type="text"
                   />
                 </div>
@@ -627,7 +1478,7 @@ exports[`Examples used as simple test cases Sections 1`] = `
       class="layout row wrap ma-0"
     >
       <span
-        class="headline"
+        class="pa-2 headline"
       >
         I'm another section 
       </span>
@@ -651,13 +1502,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
                 >
                   <label
                     class="v-label theme--light"
-                    for="input-509"
+                    for="input-574"
                     style="left: 0px; position: absolute;"
                   >
                     I'm a property in section 2
                   </label>
                   <input
-                    id="input-509"
+                    id="input-574"
                     type="text"
                   />
                 </div>
@@ -680,7 +1531,7 @@ exports[`Examples used as simple test cases Sections 1`] = `
           class="layout row wrap ma-0"
         >
           <span
-            class="title"
+            class="pa-2 title"
           >
             I'm a subsection 
           </span>
@@ -704,13 +1555,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
                     >
                       <label
                         class="v-label theme--light"
-                        for="input-514"
+                        for="input-579"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a property in subsection 2.1
                       </label>
                       <input
-                        id="input-514"
+                        id="input-579"
                         type="text"
                       />
                     </div>
@@ -735,7 +1586,7 @@ exports[`Examples used as simple test cases Sections 1`] = `
           class="layout row wrap ma-0"
         >
           <span
-            class="title"
+            class="pa-2 title"
           >
             I'm another subsection 
           </span>
@@ -759,13 +1610,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
                     >
                       <label
                         class="v-label theme--light"
-                        for="input-519"
+                        for="input-584"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a property in subsection 2.2
                       </label>
                       <input
-                        id="input-519"
+                        id="input-584"
                         type="text"
                       />
                     </div>
@@ -801,14 +1652,31 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="v-item-group theme--light v-expansion-panels v-expansion-panels--flat"
+      class="xs12"
+    >
+      <p>
+        I'm an object with sections rendered as expansions panels with the 
+        <code>
+          tile
+        </code>
+         and 
+        <code>
+          mandatory
+        </code>
+         options.
+      </p>
+      
+
+    </div>
+    <div
+      class="v-item-group theme--light v-expansion-panels v-expansion-panels--tile"
     >
       <div
-        aria-expanded="false"
-        class="v-expansion-panel"
+        aria-expanded="true"
+        class="v-expansion-panel v-expansion-panel--active v-item--active"
       >
         <button
-          class="v-expansion-panel-header"
+          class="v-expansion-panel-header v-expansion-panel-header--active"
           type="button"
         >
           I'm a section
@@ -821,7 +1689,69 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
             />
           </div>
         </button>
-        <!---->
+        <div
+          class="v-expansion-panel-content"
+        >
+          <div
+            class="v-expansion-panel-content__wrap"
+          >
+            <div
+              class="flex vjsf-property vjsf-property-objectSection xs12 "
+            >
+              <div
+                class="xs12"
+              >
+                <p>
+                  I'm a description shown as a paragraph on top of section
+                </p>
+                
+
+              </div>
+              <div
+                class="flex vjsf-property vjsf-property-objectSection-stringProp xs12 "
+              >
+                <div
+                  class="v-input theme--light v-text-field"
+                >
+                  <div
+                    class="v-input__control"
+                  >
+                    <div
+                      class="v-input__slot"
+                    >
+                      <div
+                        class="v-text-field__slot"
+                      >
+                        <label
+                          class="v-label theme--light"
+                          for="input-631"
+                          style="left: 0px; position: absolute;"
+                        >
+                          I'm a property in section 1
+                        </label>
+                        <input
+                          id="input-631"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="v-text-field__details"
+                    >
+                      <div
+                        class="v-messages theme--light"
+                      >
+                        <div
+                          class="v-messages__wrapper"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div
         aria-expanded="false"
@@ -841,7 +1771,653 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
             />
           </div>
         </button>
-        <!---->
+        <div
+          class="v-expansion-panel-content"
+          style="display: none;"
+        >
+          <div
+            class="v-expansion-panel-content__wrap"
+          >
+            <div
+              class="flex vjsf-property vjsf-property-objectSection xs12 "
+            >
+              <div
+                class="flex vjsf-property vjsf-property-objectSection-stringProp xs12 "
+              >
+                <div
+                  class="v-input theme--light v-text-field"
+                >
+                  <div
+                    class="v-input__control"
+                  >
+                    <div
+                      class="v-input__slot"
+                    >
+                      <div
+                        class="v-text-field__slot"
+                      >
+                        <label
+                          class="v-label theme--light"
+                          for="input-642"
+                          style="left: 0px; position: absolute;"
+                        >
+                          I'm a property in section 2
+                        </label>
+                        <input
+                          id="input-642"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="v-text-field__details"
+                    >
+                      <div
+                        class="v-messages theme--light"
+                      >
+                        <div
+                          class="v-messages__wrapper"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases Sections as tabs 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="flex vjsf-property vjsf-property-root xs12 "
+  >
+    <div
+      class="xs12"
+    >
+      <p>
+        I'm an object with sections rendered as expansions panels with the 
+        <code>
+          grow
+        </code>
+         prop.
+      </p>
+      
+
+    </div>
+    <div
+      class="v-tabs v-tabs--grow theme--light"
+    >
+      <div
+        class="v-item-group theme--light v-slide-group v-tabs-bar v-tabs-bar--is-mobile primary--text"
+        role="tablist"
+      >
+        <div
+          class="v-slide-group__prev v-slide-group__prev--disabled"
+        >
+          <!---->
+        </div>
+        <div
+          class="v-slide-group__wrapper"
+        >
+          <div
+            class="v-slide-group__content v-tabs-bar__content"
+          >
+            <div
+              class="v-tabs-slider-wrapper"
+              style="transition: none;"
+            >
+              <div
+                class="v-tabs-slider"
+              />
+            </div>
+            <a
+              aria-selected="true"
+              class="v-tab v-tab--active"
+              href="#tab-root-objectSection1"
+              role="tab"
+              tabindex="0"
+            >
+              <span
+                class=""
+              >
+                I'm a section
+              </span>
+            </a>
+            <a
+              aria-selected="false"
+              class="v-tab"
+              href="#tab-root-objectSection2"
+              role="tab"
+              tabindex="0"
+            >
+              <span
+                class=""
+              >
+                I'm another section
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="v-window v-item-group theme--light v-tabs-items"
+      >
+        <div
+          class="v-window__container"
+        >
+          <div
+            class="v-window-item"
+            id="tab-root-objectSection1"
+            style="display: none;"
+          >
+            <div
+              class="v-card v-card--flat v-sheet v-sheet--tile theme--light"
+            >
+              <div
+                class="v-card__text"
+              >
+                <div
+                  class="flex vjsf-property vjsf-property-objectSection xs12 "
+                >
+                  <div
+                    class="xs12"
+                  >
+                    <p>
+                      I'm a description shown as a paragraph on top of section
+                    </p>
+                    
+
+                  </div>
+                  <div
+                    class="flex vjsf-property vjsf-property-objectSection-stringProp xs12 "
+                  >
+                    <div
+                      class="v-input theme--light v-text-field"
+                    >
+                      <div
+                        class="v-input__control"
+                      >
+                        <div
+                          class="v-input__slot"
+                        >
+                          <div
+                            class="v-text-field__slot"
+                          >
+                            <label
+                              class="v-label theme--light"
+                              for="input-678"
+                              style="left: 0px; position: absolute;"
+                            >
+                              I'm a property in section 1
+                            </label>
+                            <input
+                              id="input-678"
+                              type="text"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="v-text-field__details"
+                        >
+                          <div
+                            class="v-messages theme--light"
+                          >
+                            <div
+                              class="v-messages__wrapper"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="v-window-item"
+            id="tab-root-objectSection2"
+            style="display: none;"
+          >
+            <div
+              class="v-card v-card--flat v-sheet v-sheet--tile theme--light"
+            >
+              <div
+                class="v-card__text"
+              >
+                <div
+                  class="flex vjsf-property vjsf-property-objectSection xs12 "
+                >
+                  <div
+                    class="flex vjsf-property vjsf-property-objectSection-stringProp xs12 "
+                  >
+                    <div
+                      class="v-input theme--light v-text-field"
+                    >
+                      <div
+                        class="v-input__control"
+                      >
+                        <div
+                          class="v-input__slot"
+                        >
+                          <div
+                            class="v-text-field__slot"
+                          >
+                            <label
+                              class="v-label theme--light"
+                              for="input-686"
+                              style="left: 0px; position: absolute;"
+                            >
+                              I'm a property in section 2
+                            </label>
+                            <input
+                              id="input-686"
+                              type="text"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="v-text-field__details"
+                        >
+                          <div
+                            class="v-messages theme--light"
+                          >
+                            <div
+                              class="v-messages__wrapper"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases Sections validation 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="flex vjsf-property vjsf-property-root xs12 "
+  >
+    <div
+      class="layout row wrap ma-0"
+    >
+      <span
+        class="pa-2 headline"
+      >
+        Tabs with required fields 
+      </span>
+      <div
+        class="flex vjsf-property vjsf-property-tabs xs12 "
+      >
+        <div
+          class="v-tabs theme--light"
+        >
+          <div
+            class="v-item-group theme--light v-slide-group v-tabs-bar v-tabs-bar--is-mobile primary--text"
+            role="tablist"
+          >
+            <div
+              class="v-slide-group__prev v-slide-group__prev--disabled"
+            >
+              <!---->
+            </div>
+            <div
+              class="v-slide-group__wrapper"
+            >
+              <div
+                class="v-slide-group__content v-tabs-bar__content"
+              >
+                <div
+                  class="v-tabs-slider-wrapper"
+                  style="transition: none;"
+                >
+                  <div
+                    class="v-tabs-slider"
+                  />
+                </div>
+                <a
+                  aria-selected="true"
+                  class="v-tab v-tab--active"
+                  href="#tab-tabs-section1"
+                  role="tab"
+                  tabindex="0"
+                >
+                  <span
+                    class=""
+                  >
+                    Section 1
+                  </span>
+                </a>
+                <a
+                  aria-selected="false"
+                  class="v-tab"
+                  href="#tab-tabs-section2"
+                  role="tab"
+                  tabindex="0"
+                >
+                  <span
+                    class=""
+                  >
+                    Section 2
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="v-window v-item-group theme--light v-tabs-items"
+          >
+            <div
+              class="v-window__container"
+            >
+              <div
+                class="v-window-item"
+                id="tab-tabs-section1"
+                style="display: none;"
+              >
+                <div
+                  class="v-card v-card--flat v-sheet v-sheet--tile theme--light"
+                >
+                  <div
+                    class="v-card__text"
+                  >
+                    <div
+                      class="flex vjsf-property vjsf-property-tabs-section xs12 "
+                    >
+                      <div
+                        class="flex vjsf-property vjsf-property-tabs-section-requiredStringProp xs12 "
+                      >
+                        <div
+                          class="v-input theme--light v-text-field"
+                        >
+                          <div
+                            class="v-input__control"
+                          >
+                            <div
+                              class="v-input__slot"
+                            >
+                              <div
+                                class="v-text-field__slot"
+                              >
+                                <label
+                                  class="v-label theme--light"
+                                  for="input-796"
+                                  style="left: 0px; position: absolute;"
+                                >
+                                  I'm a required string
+                                </label>
+                                <input
+                                  id="input-796"
+                                  type="text"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="v-text-field__details"
+                            >
+                              <div
+                                class="v-messages theme--light"
+                              >
+                                <div
+                                  class="v-messages__wrapper"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="v-window-item"
+                id="tab-tabs-section2"
+                style="display: none;"
+              >
+                <div
+                  class="v-card v-card--flat v-sheet v-sheet--tile theme--light"
+                >
+                  <div
+                    class="v-card__text"
+                  >
+                    <div
+                      class="flex vjsf-property vjsf-property-tabs-section xs12 "
+                    >
+                      <div
+                        class="flex vjsf-property vjsf-property-tabs-section-requiredStringProp xs12 "
+                      >
+                        <div
+                          class="v-input theme--light v-text-field"
+                        >
+                          <div
+                            class="v-input__control"
+                          >
+                            <div
+                              class="v-input__slot"
+                            >
+                              <div
+                                class="v-text-field__slot"
+                              >
+                                <label
+                                  class="v-label theme--light"
+                                  for="input-804"
+                                  style="left: 0px; position: absolute;"
+                                >
+                                  I'm another required string
+                                </label>
+                                <input
+                                  id="input-804"
+                                  type="text"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="v-text-field__details"
+                            >
+                              <div
+                                class="v-messages theme--light"
+                              >
+                                <div
+                                  class="v-messages__wrapper"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="layout row wrap ma-0"
+    >
+      <span
+        class="pa-2 headline"
+      >
+        Panels with required fields 
+      </span>
+      <div
+        class="flex vjsf-property vjsf-property-panels xs12 "
+      >
+        <div
+          class="v-item-group theme--light v-expansion-panels"
+        >
+          <div
+            aria-expanded="false"
+            class="v-expansion-panel"
+          >
+            <button
+              class="v-expansion-panel-header"
+              type="button"
+            >
+              Section 1
+              <div
+                class="v-expansion-panel-header__icon"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-chevron-down theme--light"
+                />
+              </div>
+            </button>
+            <div
+              class="v-expansion-panel-content"
+              style="display: none;"
+            >
+              <div
+                class="v-expansion-panel-content__wrap"
+              >
+                <div
+                  class="flex vjsf-property vjsf-property-panels-section xs12 "
+                >
+                  <div
+                    class="flex vjsf-property vjsf-property-panels-section-requiredStringProp xs12 "
+                  >
+                    <div
+                      class="v-input theme--light v-text-field"
+                    >
+                      <div
+                        class="v-input__control"
+                      >
+                        <div
+                          class="v-input__slot"
+                        >
+                          <div
+                            class="v-text-field__slot"
+                          >
+                            <label
+                              class="v-label theme--light"
+                              for="input-817"
+                              style="left: 0px; position: absolute;"
+                            >
+                              I'm a required string
+                            </label>
+                            <input
+                              id="input-817"
+                              type="text"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="v-text-field__details"
+                        >
+                          <div
+                            class="v-messages theme--light"
+                          >
+                            <div
+                              class="v-messages__wrapper"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-expanded="false"
+            class="v-expansion-panel"
+          >
+            <button
+              class="v-expansion-panel-header"
+              type="button"
+            >
+              Section 2
+              <div
+                class="v-expansion-panel-header__icon"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-chevron-down theme--light"
+                />
+              </div>
+            </button>
+            <div
+              class="v-expansion-panel-content"
+              style="display: none;"
+            >
+              <div
+                class="v-expansion-panel-content__wrap"
+              >
+                <div
+                  class="flex vjsf-property vjsf-property-panels-section xs12 "
+                >
+                  <div
+                    class="flex vjsf-property vjsf-property-panels-section-requiredStringProp xs12 "
+                  >
+                    <div
+                      class="v-input theme--light v-text-field"
+                    >
+                      <div
+                        class="v-input__control"
+                      >
+                        <div
+                          class="v-input__slot"
+                        >
+                          <div
+                            class="v-text-field__slot"
+                          >
+                            <label
+                              class="v-label theme--light"
+                              for="input-828"
+                              style="left: 0px; position: absolute;"
+                            >
+                              I'm another required string
+                            </label>
+                            <input
+                              id="input-828"
+                              type="text"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="v-text-field__details"
+                        >
+                          <div
+                            class="v-messages theme--light"
+                          >
+                            <div
+                              class="v-messages__wrapper"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -868,7 +2444,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-148"
+            aria-owns="list-190"
             class="v-input__slot"
             role="button"
           >
@@ -877,7 +2453,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-148"
+                for="input-190"
                 style="left: 0px; position: absolute;"
               >
                 I'm a string with values from an enum
@@ -888,7 +2464,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-148"
+                  id="input-190"
                   readonly="readonly"
                   type="text"
                 />
@@ -968,7 +2544,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-159"
+            aria-owns="list-201"
             class="v-input__slot"
             role="button"
           >
@@ -977,7 +2553,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-159"
+                for="input-201"
                 style="left: 0px; position: absolute;"
               >
                 I'm an array of strings with values from an enum
@@ -988,7 +2564,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-159"
+                  id="input-201"
                   readonly="readonly"
                   type="text"
                 />
@@ -1055,7 +2631,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-167"
+            aria-owns="list-209"
             class="v-input__slot"
             role="button"
           >
@@ -1064,7 +2640,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-167"
+                for="input-209"
                 style="left: 0px; position: absolute;"
               >
                 I'm a string with values/labels from a oneOf
@@ -1075,7 +2651,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-167"
+                  id="input-209"
                   readonly="readonly"
                   type="text"
                 />
@@ -1142,7 +2718,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-175"
+            aria-owns="list-217"
             class="v-input__slot"
             role="button"
           >
@@ -1151,7 +2727,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-175"
+                for="input-217"
                 style="left: 0px; position: absolute;"
               >
                 I'm an array of strings with values/labels from a oneOf
@@ -1162,7 +2738,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-175"
+                  id="input-217"
                   readonly="readonly"
                   type="text"
                 />
@@ -1229,7 +2805,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-183"
+            aria-owns="list-225"
             class="v-input__slot"
             role="combobox"
           >
@@ -1238,7 +2814,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             >
               <label
                 class="v-label v-label--active theme--light"
-                for="input-183"
+                for="input-225"
                 style="left: 0px; position: absolute;"
               >
                 I'm a string with values from a large enum
@@ -1248,7 +2824,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
               >
                 <input
                   autocomplete="off"
-                  id="input-183"
+                  id="input-225"
                   placeholder="Search..."
                   type="text"
                 />
@@ -1292,7 +2868,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
               >
                 <div
                   class="v-list v-select-list v-sheet v-sheet--tile theme--light theme--light"
-                  id="list-183"
+                  id="list-225"
                   role="listbox"
                   tabindex="-1"
                 >
@@ -1365,7 +2941,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-281"
+            aria-owns="list-327"
             class="v-input__slot"
             role="button"
           >
@@ -1374,7 +2950,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-281"
+                for="input-327"
                 style="left: 0px; position: absolute;"
               >
                 I'm a string selected from results of an HTTP request
@@ -1385,7 +2961,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-281"
+                  id="input-327"
                   readonly="readonly"
                   type="text"
                 />
@@ -1452,7 +3028,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-289"
+            aria-owns="list-335"
             class="v-input__slot"
             role="button"
           >
@@ -1461,7 +3037,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-289"
+                for="input-335"
                 style="left: 0px; position: absolute;"
               >
                 I'm an array of strings selected from results of an HTTP request
@@ -1472,7 +3048,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-289"
+                  id="input-335"
                   readonly="readonly"
                   type="text"
                 />
@@ -1539,7 +3115,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-297"
+            aria-owns="list-343"
             class="v-input__slot"
             role="button"
           >
@@ -1548,7 +3124,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-297"
+                for="input-343"
                 style="left: 0px; position: absolute;"
               >
                 I'm an object selected from results of an HTTP request
@@ -1559,7 +3135,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-297"
+                  id="input-343"
                   readonly="readonly"
                   type="text"
                 />
@@ -1626,7 +3202,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-305"
+            aria-owns="list-351"
             class="v-input__slot"
             role="button"
           >
@@ -1635,7 +3211,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-305"
+                for="input-351"
                 style="left: 0px; position: absolute;"
               >
                 I'm an array of objects selected from results of an HTTP request
@@ -1646,7 +3222,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-305"
+                  id="input-351"
                   readonly="readonly"
                   type="text"
                 />
@@ -1713,7 +3289,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-313"
+            aria-owns="list-359"
             class="v-input__slot"
             role="button"
           >
@@ -1722,7 +3298,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-313"
+                for="input-359"
                 style="left: 0px; position: absolute;"
               >
                 I'm an object from a large HTTP request
@@ -1733,7 +3309,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-313"
+                  id="input-359"
                   readonly="readonly"
                   type="text"
                 />
@@ -1800,7 +3376,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-321"
+            aria-owns="list-367"
             class="v-input__slot"
             role="combobox"
           >
@@ -1809,7 +3385,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             >
               <label
                 class="v-label v-label--active theme--light"
-                for="input-321"
+                for="input-367"
                 style="left: 0px; position: absolute;"
               >
                 I'm an object from a HTTP request with query
@@ -1819,7 +3395,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
               >
                 <input
                   autocomplete="off"
-                  id="input-321"
+                  id="input-367"
                   placeholder="Search..."
                   type="text"
                 />
@@ -1863,7 +3439,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
               >
                 <div
                   class="v-list v-select-list v-sheet v-sheet--tile theme--light theme--light"
-                  id="list-321"
+                  id="list-367"
                   role="listbox"
                   tabindex="-1"
                 >
@@ -1903,6 +3479,104 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
 </form>
 `;
 
+exports[`Examples used as simple test cases Selects of sub-schemas 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="flex vjsf-property vjsf-property-root xs12 "
+  >
+    <div
+      class="v-input theme--light v-text-field v-select"
+    >
+      <div
+        class="v-input__control"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="list-548"
+          class="v-input__slot"
+          role="button"
+        >
+          <div
+            class="v-select__slot"
+          >
+            <label
+              class="v-label theme--light"
+              for="input-548"
+              style="left: 0px; position: absolute;"
+            >
+              Select a sub-schema
+            </label>
+            <div
+              class="v-select__selections"
+            >
+              <input
+                aria-readonly="false"
+                autocomplete="off"
+                id="input-548"
+                readonly="readonly"
+                type="text"
+              />
+            </div>
+            <div
+              class="v-input__append-inner"
+            >
+              <div
+                class="v-input__icon v-input__icon--clear"
+              >
+                <button
+                  aria-label="clear icon"
+                  class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                  disabled="disabled"
+                  type="button"
+                />
+              </div>
+            </div>
+            <div
+              class="v-input__append-inner"
+            >
+              <div
+                class="v-input__icon v-input__icon--append"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-menu-down theme--light"
+                />
+              </div>
+            </div>
+            <input
+              type="hidden"
+            />
+          </div>
+          <div
+            class="v-menu"
+          >
+            <!---->
+          </div>
+        </div>
+        <div
+          class="v-text-field__details"
+        >
+          <div
+            class="v-messages theme--light"
+          >
+            <div
+              class="v-messages__wrapper"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex vjsf-property vjsf-property-currentOneOf xs12 "
+    />
+  </div>
+</form>
+`;
+
 exports[`Examples used as simple test cases Selects with dependencies 1`] = `
 <form
   class="v-form"
@@ -1923,7 +3597,7 @@ exports[`Examples used as simple test cases Selects with dependencies 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-484"
+            aria-owns="list-530"
             class="v-input__slot"
             role="button"
           >
@@ -1932,7 +3606,7 @@ exports[`Examples used as simple test cases Selects with dependencies 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-484"
+                for="input-530"
                 style="left: 0px; position: absolute;"
               >
                 I'm an object from HTTP request used as source for next select
@@ -1943,7 +3617,7 @@ exports[`Examples used as simple test cases Selects with dependencies 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-484"
+                  id="input-530"
                   readonly="readonly"
                   type="text"
                 />
@@ -2022,7 +3696,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-385"
+            aria-owns="list-431"
             class="v-input__slot"
             role="button"
           >
@@ -2031,7 +3705,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-385"
+                for="input-431"
                 style="left: 0px; position: absolute;"
               >
                 I'm a simple select with icon codes in enum
@@ -2042,7 +3716,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-385"
+                  id="input-431"
                   readonly="readonly"
                   type="text"
                 />
@@ -2109,7 +3783,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-393"
+            aria-owns="list-439"
             class="v-input__slot"
             role="button"
           >
@@ -2118,7 +3792,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-393"
+                for="input-439"
                 style="left: 0px; position: absolute;"
               >
                 I'm a multiple select with icon codes in enum
@@ -2129,7 +3803,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-393"
+                  id="input-439"
                   readonly="readonly"
                   type="text"
                 />
@@ -2196,7 +3870,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-401"
+            aria-owns="list-447"
             class="v-input__slot"
             role="button"
           >
@@ -2205,7 +3879,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-401"
+                for="input-447"
                 style="left: 0px; position: absolute;"
               >
                 I'm a select with icon codes and titles in a oneOf
@@ -2216,7 +3890,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-401"
+                  id="input-447"
                   readonly="readonly"
                   type="text"
                 />
@@ -2283,7 +3957,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-409"
+            aria-owns="list-455"
             class="v-input__slot"
             role="combobox"
           >
@@ -2292,7 +3966,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             >
               <label
                 class="v-label v-label--active theme--light"
-                for="input-409"
+                for="input-455"
                 style="left: 0px; position: absolute;"
               >
                 I'm a select based on HTTP requests with links to icons
@@ -2302,7 +3976,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
               >
                 <input
                   autocomplete="off"
-                  id="input-409"
+                  id="input-455"
                   placeholder="Search..."
                   type="text"
                 />
@@ -2346,7 +4020,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
               >
                 <div
                   class="v-list v-select-list v-sheet v-sheet--tile theme--light theme--light"
-                  id="list-409"
+                  id="list-455"
                   role="listbox"
                   tabindex="-1"
                 >
@@ -2394,7 +4068,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-420"
+            aria-owns="list-466"
             class="v-input__slot"
             role="combobox"
           >
@@ -2403,7 +4077,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             >
               <label
                 class="v-label v-label--active theme--light"
-                for="input-420"
+                for="input-466"
                 style="left: 0px; position: absolute;"
               >
                 I'm a select based on HTTP requests with SVG code in response
@@ -2413,7 +4087,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
               >
                 <input
                   autocomplete="off"
-                  id="input-420"
+                  id="input-466"
                   placeholder="Search..."
                   type="text"
                 />
@@ -2457,7 +4131,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
               >
                 <div
                   class="v-list v-select-list v-sheet v-sheet--tile theme--light theme--light"
-                  id="list-420"
+                  id="list-466"
                   role="listbox"
                   tabindex="-1"
                 >
@@ -2531,13 +4205,13 @@ exports[`Examples used as simple test cases Slots 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-601"
+                for="input-750"
                 style="left: 0px; position: absolute;"
               >
                 I'm a property with Vuetify slots
               </label>
               <input
-                id="input-601"
+                id="input-750"
                 type="text"
               />
             </div>
@@ -2599,6 +4273,115 @@ exports[`Examples used as simple test cases Slots 1`] = `
 </form>
 `;
 
+exports[`Examples used as simple test cases Tuples 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="flex vjsf-property vjsf-property-root xs12 "
+  >
+    <div
+      class="layout row wrap ma-0"
+    >
+      <span
+        class="pa-2 headline"
+      >
+        I'm a tuple of 2 numbers 
+      </span>
+      <div
+        class="flex vjsf-property vjsf-property-tupleProp xs12 "
+      >
+        <div
+          class="flex vjsf-property vjsf-property-tupleProp- xs12 "
+        >
+          <div
+            class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
+          >
+            <div
+              class="v-input__control"
+            >
+              <div
+                class="v-input__slot"
+              >
+                <div
+                  class="v-text-field__slot"
+                >
+                  <label
+                    class="v-label v-label--active theme--light"
+                    for="input-950"
+                    style="left: 0px; position: absolute;"
+                  >
+                    I'm a number
+                  </label>
+                  <input
+                    id="input-950"
+                    type="number"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-text-field__details"
+              >
+                <div
+                  class="v-messages theme--light"
+                >
+                  <div
+                    class="v-messages__wrapper"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex vjsf-property vjsf-property-tupleProp- xs12 "
+        >
+          <div
+            class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
+          >
+            <div
+              class="v-input__control"
+            >
+              <div
+                class="v-input__slot"
+              >
+                <div
+                  class="v-text-field__slot"
+                >
+                  <label
+                    class="v-label v-label--active theme--light"
+                    for="input-954"
+                    style="left: 0px; position: absolute;"
+                  >
+                    I'm another number
+                  </label>
+                  <input
+                    id="input-954"
+                    type="number"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-text-field__details"
+              >
+                <div
+                  class="v-messages theme--light"
+                >
+                  <div
+                    class="v-messages__wrapper"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`Examples used as simple test cases Vuetify props 1`] = `
 <form
   class="v-form"
@@ -2631,7 +4414,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-578"
+            aria-owns="list-723"
             class="v-input__slot"
             role="button"
           >
@@ -2651,7 +4434,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-578"
+                  id="input-723"
                   readonly="readonly"
                   type="text"
                 />
