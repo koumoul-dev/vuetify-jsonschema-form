@@ -27,6 +27,10 @@
             </v-btn>
           </form>
         </v-toolbar>
+        <v-alert v-if="ajvErrors && valid" color="error" dark tile>
+          <p>Warning ! V-jsf considered this form valid while a JSON schema validator dit not. This is not normal and you might consider filing a bug report.</p>
+          <code>{{ ajvErrors }}</code>
+        </v-alert>
         <client-only>
           <v-card-text class="pb-12">
             <v-form ref="form" v-model="valid">
@@ -96,6 +100,9 @@
 import Example from './example.js'
 const md = require('markdown-it')()
 const stringifyObject = require('stringify-object')
+const Ajv = require('ajv')
+const ajv = new Ajv()
+ajv.addFormat('hexcolor', /^#[0-9A-Fa-f]{6}$/)
 
 export default {
   components: { Example },
@@ -109,6 +116,13 @@ export default {
     dark: false
   }),
   computed: {
+    validate() {
+      return ajv.compile(this.params.schema)
+    },
+    ajvErrors() {
+      const valid = this.validate(this.params.model)
+      return !valid && this.validate.errors
+    },
     prettySchema() {
       if (!this.$hljs || !this.params.schema) return null
       return this.$hljs.highlight('json', JSON.stringify(this.params.schema, null, 2)).value
