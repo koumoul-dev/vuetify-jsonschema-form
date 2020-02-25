@@ -77,7 +77,8 @@ export default {
         vuetifyVersion,
         tabsMode: 'grow',
         locale: 'en',
-        removeAdditionalProperties: true
+        removeAdditionalProperties: true,
+        maxDialogWidth: 500
       }
       const fullOptions = Object.assign({}, defaultOptions, this.resolvedSchema['x-options'] || {}, this.options || {})
       fullOptions.icons = Object.assign(icons, fullOptions.icons || {})

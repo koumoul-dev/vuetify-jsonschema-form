@@ -14,6 +14,7 @@ import slots from './slots'
 import validationBasic from './validation-basic'
 import validationSections from './validation-sections'
 import editableArray from './editable-array'
+import prefilledArrays from './prefilled-arrays'
 import tuples from './tuples'
 
 const examples = [
@@ -33,6 +34,7 @@ const examples = [
   validationBasic,
   validationSections,
   editableArray,
+  prefilledArrays,
   tuples
 ]
 

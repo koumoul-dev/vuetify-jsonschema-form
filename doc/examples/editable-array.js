@@ -22,9 +22,7 @@ const schema = {
         properties: {
           titleProp: { type: 'string', title: `I'm a required string used as title` },
           numberProp: { type: 'number', title: `I'm a number` },
-          integerProp: { type: 'integer', title: `I'm an integer` },
-          booleanProp: { type: 'boolean', title: `I'm a boolean` },
-          stringArrayProp: { type: 'array', title: `I'm an array of strings`, items: { type: 'string' } }
+          booleanProp: { type: 'boolean', title: `I'm a boolean` }
         }
       }
     }
