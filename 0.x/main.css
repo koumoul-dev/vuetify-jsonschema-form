@@ -1,0 +1,26 @@
+
+.vjsf-property .array-card .v-card__text {
+  padding: 6px 16px 0 16px;
+}
+.vjsf-property .array-card .v-card__actions {
+  padding: 0 16px 6px 16px;
+}
+.vjsf-property .v-input--selection-controls {
+  margin-top: 0;
+}
+.vjsf-tooltip p:last-child {
+  margin-bottom: 0;
+}
+.vjsf-property .color-picker-trigger {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+  border: 2px solid #ccc;
+}
+.vjsf-property .color-picker-trigger-empty {
+  background: linear-gradient(to top right,transparent 0,transparent calc(50% - 2.4px),#de080a 50%,transparent calc(50% + 2.4px),transparent);
+}
+
+
