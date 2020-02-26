@@ -15,6 +15,9 @@ module.exports = {
     libraryTarget: 'umd',
     globalObject: 'this'
   },
+  externals: {
+    'vuetify/lib': 'commonjs2 vuetify/lib'
+  },
   module: {
     rules: [{
       test: /\.js$/,

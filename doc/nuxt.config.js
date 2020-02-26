@@ -3,7 +3,7 @@ import colors from 'vuetify/lib/util/colors'
 module.exports = {
   mode: 'spa',
   build: {
-    transpile: ['../../lib/index.vue'],
+    transpile: [/\.\.\//],
     extend(config, ctx) {
       // Include the compiler version of Vue so that we can compile examples templates
       config.resolve.alias['vue$'] = 'vue/dist/vue.esm.js'
