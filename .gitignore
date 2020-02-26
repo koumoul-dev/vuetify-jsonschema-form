@@ -1,5 +1,5 @@
 /node_modules
 /dist
 .nuxt
-coverage
+/coverage
 /doc/dist

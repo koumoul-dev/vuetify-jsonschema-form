@@ -2,7 +2,7 @@
 
 Local development server:
 
-    npm run dev
+    npm run doc-dev
 
 Publish version:
 

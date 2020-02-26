@@ -1,5 +1,6 @@
-node_modules/
-lib/utils/json-refs.js
+/node_modules/
+/lib/utils/json-refs.js
 /dist
-.nuxt
-coverage
+/doc/.nuxt
+/doc/dist
+/coverage
