@@ -8,7 +8,7 @@
     "build": "rm -rf dist && webpack && cp index.html dist/ && cp vuetify1.html dist/",
     "dev": "NODE_ENV=development webpack-dev-server",
     "prepublish": "npm run lint && npm run build",
-    "postpublish": "gh-pages-multi deploy -v -s doc/dist -t 0.x"
+    "postpublish": "gh-pages-multi deploy -v -s dist -t 0.x"
   },
   "repository": {
     "type": "git",
