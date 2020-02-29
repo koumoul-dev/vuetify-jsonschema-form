@@ -13,6 +13,7 @@
     "test-update": "jest --updateSnapshot",
     "doc-link": "npm link && pushd doc && npm link @koumoul/vjsf && popd",
     "doc-dev": "nuxt doc",
+    "doc-start": "nuxt build doc && nuxt start doc",
     "doc-build": "BASE=/vuetify-jsonschema-form/render-functions/ nuxt generate doc"
   },
   "jest": {
