@@ -155,14 +155,25 @@ export default {
         description: this.params.description,
         editors: '101', // HTML=1 CSS=0 JS=1
         html: `<v-app id="app">
-  ${template || defaultTemplate}
+  <v-container>
+    <p>valid={{valid}}</p>
+    <v-form ref="form" v-model="valid">
+      ${template || defaultTemplate}
+    </v-form>
+    <v-layout row class="mt-2">
+      <v-spacer></v-spacer>
+      <v-btn color="primary" @click="$refs.form.validate()">Validate</v-btn>
+    </v-layout>
+  </v-container>
 </v-app>`,
         js: `
 const model = ${stringifyObject(this.params.model || {})}
 
-const options =  ${stringifyObject(this.params.options) || {}}
+const options =  ${stringifyObject(this.params.options || {})}
 
 const schema = ${stringifyObject(this.params.schema)}
+
+Vue.component('VJsf', VJsf.default)
 
 new Vue({
   el: '#app',
@@ -170,11 +181,12 @@ new Vue({
   data: {
     model,
     options,
-    schema
+    schema,
+    valid: null
   }
 });`,
-        css_external: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900;https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css;https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css;https://cdn.jsdelivr.net/npm/@koumoul/vjsf@beta/dist/main.css',
-        js_external: 'https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js;https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js;https://cdn.jsdelivr.net/npm/@koumoul/vjsf@beta/dist/main.js'
+        css_external: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900;https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css;https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css;https://cdn.jsdelivr.net/npm/@koumoul/vjsf@1.0.0-beta.4/dist/main.css',
+        js_external: 'https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js;https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js;https://cdn.jsdelivr.net/npm/@koumoul/vjsf@1.0.0-beta.4/dist/main.js'
       }
     }
   },
