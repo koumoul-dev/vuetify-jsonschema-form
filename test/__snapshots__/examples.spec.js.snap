@@ -1399,11 +1399,7 @@ exports[`Examples used as simple test cases Sections 1`] = `
         <div
           class="xs12"
         >
-          <p>
-            I'm a description shown as a paragraph on top of section
-          </p>
-          
-
+          I'm a description shown as a paragraph on top of section
         </div>
         <div
           class="flex vjsf-property vjsf-property-objectSection-stringProp xs12 "
@@ -1629,19 +1625,7 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
     <div
       class="xs12"
     >
-      <p>
-        I'm an object with sections rendered as expansions panels with the 
-        <code>
-          tile
-        </code>
-         and 
-        <code>
-          mandatory
-        </code>
-         options.
-      </p>
-      
-
+      I'm an object with sections rendered as expansions panels with the \`tile\` and \`mandatory\` options.
     </div>
     <div
       class="v-item-group theme--light v-expansion-panels v-expansion-panels--tile"
@@ -1676,11 +1660,7 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
               <div
                 class="xs12"
               >
-                <p>
-                  I'm a description shown as a paragraph on top of section
-                </p>
-                
-
+                I'm a description shown as a paragraph on top of section
               </div>
               <div
                 class="flex vjsf-property vjsf-property-objectSection-stringProp xs12 "
@@ -1818,15 +1798,7 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
     <div
       class="xs12"
     >
-      <p>
-        I'm an object with sections rendered as expansions panels with the 
-        <code>
-          grow
-        </code>
-         prop.
-      </p>
-      
-
+      I'm an object with sections rendered as expansions panels with the \`grow\` prop.
     </div>
     <div
       class="v-tabs v-tabs--grow theme--light"
@@ -1906,11 +1878,7 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
                   <div
                     class="xs12"
                   >
-                    <p>
-                      I'm a description shown as a paragraph on top of section
-                    </p>
-                    
-
+                    I'm a description shown as a paragraph on top of section
                   </div>
                   <div
                     class="flex vjsf-property vjsf-property-objectSection-stringProp xs12 "
@@ -4093,14 +4061,7 @@ exports[`Examples used as simple test cases Slots 1`] = `
           class="v-input__append-outer"
         >
           <div>
-            <p>
-              this is a markdown 
-              <strong>
-                slot
-              </strong>
-            </p>
-            
-
+            this is a markdown **slot**
           </div>
         </div>
       </div>
@@ -4120,14 +4081,7 @@ exports[`Examples used as simple test cases Slots 1`] = `
         .
       </p>
       <div>
-        <p>
-          this is a markdown 
-          <strong>
-            after slot
-          </strong>
-        </p>
-        
-
+        this is a markdown **after slot**
       </div>
     </div>
   </div>
