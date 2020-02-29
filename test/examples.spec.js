@@ -5,7 +5,7 @@ import Swatches from 'vue-swatches'
 import { Sketch } from 'vue-color'
 
 import { createLocalVue, mount } from '@vue/test-utils'
-import VJsf from '../lib/index.vue'
+import VJsf from '../lib/VJsfNoDeps.js'
 import ExampleForm from './example-form.vue'
 import { examples, defaultTemplate } from '../doc/examples'
 

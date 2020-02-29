@@ -98,6 +98,7 @@
 <script>
 
 import Example from './example.js'
+import { defaultTemplate } from '../examples'
 const md = require('markdown-it')()
 const stringifyObject = require('stringify-object')
 const Ajv = require('ajv')
@@ -148,13 +149,13 @@ export default {
       else return 'error'
     },
     codepenParams() {
-      const template = this.params.template || `<v-jsf :model="model" :options="options" :schema="schema" />`
+      const template = this.params.template
       return {
         title: `vjsf - ${this.params.title}`,
         description: this.params.description,
         editors: '101', // HTML=1 CSS=0 JS=1
-        html: `<v-app>
-  ${template}
+        html: `<v-app id="app">
+  ${template || defaultTemplate}
 </v-app>`,
         js: `
 const model = ${stringifyObject(this.params.model || {})}
@@ -164,15 +165,16 @@ const options =  ${stringifyObject(this.params.options) || {}}
 const schema = ${stringifyObject(this.params.schema)}
 
 new Vue({
-  el: 'v-app',
+  el: '#app',
+  vuetify: new Vuetify(),
   data: {
     model,
     options,
     schema
   }
 });`,
-        css_external: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900;https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css;https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css;https://cdn.jsdelivr.net/npm/@koumoul/vuetify-jsonschema-form@0.26/dist/main.css',
-        js_external: 'https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js;https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js;https://cdn.jsdelivr.net/npm/@koumoul/vuetify-jsonschema-form@0.26/dist/main.js'
+        css_external: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900;https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css;https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css;https://cdn.jsdelivr.net/npm/@koumoul/vjsf@beta/dist/main.css',
+        js_external: 'https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js;https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js;https://cdn.jsdelivr.net/npm/@koumoul/vjsf@beta/dist/main.js'
       }
     }
   },

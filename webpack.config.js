@@ -5,18 +5,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
   mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
   entry: {
-    main: './lib/index.vue',
+    main: './lib/VJsfNoDeps.js',
     'third-party': './lib/deps/third-party.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
-    library: 'VJsonschemaForm',
+    library: 'VJsf',
     libraryTarget: 'umd',
     globalObject: 'this'
-  },
-  externals: {
-    'vuetify/lib': 'commonjs2 vuetify/lib'
   },
   module: {
     rules: [{

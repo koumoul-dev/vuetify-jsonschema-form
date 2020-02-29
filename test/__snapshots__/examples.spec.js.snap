@@ -25,13 +25,13 @@ exports[`Examples used as simple test cases Basic types 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-8"
+                for="input-7"
                 style="left: 0px; position: absolute;"
               >
                 I'm a string
               </label>
               <input
-                id="input-8"
+                id="input-7"
                 type="text"
               />
             </div>
@@ -80,13 +80,13 @@ exports[`Examples used as simple test cases Basic types 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-14"
+                for="input-13"
                 style="left: 0px; position: absolute;"
               >
                 I'm a number
               </label>
               <input
-                id="input-14"
+                id="input-13"
                 type="number"
               />
             </div>
@@ -122,13 +122,13 @@ exports[`Examples used as simple test cases Basic types 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-18"
+                for="input-17"
                 style="left: 0px; position: absolute;"
               >
                 I'm an integer
               </label>
               <input
-                id="input-18"
+                id="input-17"
                 type="number"
               />
             </div>
@@ -168,7 +168,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
               />
               <input
                 aria-checked="false"
-                id="input-22"
+                id="input-21"
                 role="checkbox"
                 type="checkbox"
                 value=""
@@ -179,7 +179,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
             </div>
             <label
               class="v-label theme--light"
-              for="input-22"
+              for="input-21"
               style="left: 0px; position: relative;"
             >
               I'm a boolean
@@ -207,7 +207,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-27"
+            aria-owns="list-26"
             class="v-input__slot"
             role="combobox"
           >
@@ -216,7 +216,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-27"
+                for="input-26"
                 style="left: 0px; position: absolute;"
               >
                 I'm an array of strings
@@ -226,7 +226,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
               >
                 <input
                   autocomplete="off"
-                  id="input-27"
+                  id="input-26"
                   type="text"
                 />
               </div>
@@ -283,13 +283,13 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-619"
+                for="input-575"
                 style="left: 0px; position: absolute;"
               >
                 I'm a required string
               </label>
               <input
-                id="input-619"
+                id="input-575"
                 type="text"
               />
             </div>
@@ -325,13 +325,13 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-623"
+                for="input-579"
                 style="left: 0px; position: absolute;"
               >
                 I'm a integer with min/max
               </label>
               <input
-                id="input-623"
+                id="input-579"
                 type="number"
               />
             </div>
@@ -376,7 +376,7 @@ exports[`Examples used as simple test cases Colors 1`] = `
           >
             <label
               class="v-label theme--light"
-              for="input-103"
+              for="input-100"
               style="left: 0px; position: relative;"
             >
               I'm a color picked with Vue Swatches
@@ -1032,7 +1032,7 @@ exports[`Examples used as simple test cases Colors 1`] = `
           >
             <label
               class="v-label theme--light"
-              for="input-151"
+              for="input-148"
               style="left: 0px; position: relative;"
             >
               I'm a color picked with vue-color
@@ -1101,13 +1101,13 @@ exports[`Examples used as simple test cases Dates 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-58"
+                  for="input-56"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a simple date
                 </label>
                 <input
-                  id="input-58"
+                  id="input-56"
                   readonly="readonly"
                   type="text"
                 />
@@ -1188,13 +1188,13 @@ exports[`Examples used as simple test cases Dates 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-67"
+                  for="input-65"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a simple time of day
                 </label>
                 <input
-                  id="input-67"
+                  id="input-65"
                   readonly="readonly"
                   type="text"
                 />
@@ -1262,13 +1262,13 @@ exports[`Examples used as simple test cases Dates 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-74"
+                  for="input-72"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a date with time
                 </label>
                 <input
-                  id="input-74"
+                  id="input-72"
                   readonly="readonly"
                   type="text"
                 />
@@ -1422,13 +1422,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
                 >
                   <label
                     class="v-label theme--light"
-                    for="input-427"
+                    for="input-418"
                     style="left: 0px; position: absolute;"
                   >
                     I'm a property in section 1
                   </label>
                   <input
-                    id="input-427"
+                    id="input-418"
                     type="text"
                   />
                 </div>
@@ -1477,13 +1477,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
                 >
                   <label
                     class="v-label theme--light"
-                    for="input-432"
+                    for="input-423"
                     style="left: 0px; position: absolute;"
                   >
                     I'm a property in section 2
                   </label>
                   <input
-                    id="input-432"
+                    id="input-423"
                     type="text"
                   />
                 </div>
@@ -1530,13 +1530,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
                     >
                       <label
                         class="v-label theme--light"
-                        for="input-437"
+                        for="input-428"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a property in subsection 2.1
                       </label>
                       <input
-                        id="input-437"
+                        id="input-428"
                         type="text"
                       />
                     </div>
@@ -1585,13 +1585,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
                     >
                       <label
                         class="v-label theme--light"
-                        for="input-442"
+                        for="input-433"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a property in subsection 2.2
                       </label>
                       <input
-                        id="input-442"
+                        id="input-433"
                         type="text"
                       />
                     </div>
@@ -1699,13 +1699,13 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
                       >
                         <label
                           class="v-label theme--light"
-                          for="input-489"
+                          for="input-459"
                           style="left: 0px; position: absolute;"
                         >
                           I'm a property in section 1
                         </label>
                         <input
-                          id="input-489"
+                          id="input-459"
                           type="text"
                         />
                       </div>
@@ -1773,13 +1773,13 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
                       >
                         <label
                           class="v-label theme--light"
-                          for="input-500"
+                          for="input-470"
                           style="left: 0px; position: absolute;"
                         >
                           I'm a property in section 2
                         </label>
                         <input
-                          id="input-500"
+                          id="input-470"
                           type="text"
                         />
                       </div>
@@ -1929,13 +1929,13 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
                           >
                             <label
                               class="v-label theme--light"
-                              for="input-536"
+                              for="input-495"
                               style="left: 0px; position: absolute;"
                             >
                               I'm a property in section 1
                             </label>
                             <input
-                              id="input-536"
+                              id="input-495"
                               type="text"
                             />
                           </div>
@@ -1989,13 +1989,13 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
                           >
                             <label
                               class="v-label theme--light"
-                              for="input-544"
+                              for="input-503"
                               style="left: 0px; position: absolute;"
                             >
                               I'm a property in section 2
                             </label>
                             <input
-                              id="input-544"
+                              id="input-503"
                               type="text"
                             />
                           </div>
@@ -2136,13 +2136,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                               >
                                 <label
                                   class="v-label theme--light"
-                                  for="input-650"
+                                  for="input-605"
                                   style="left: 0px; position: absolute;"
                                 >
                                   I'm a required string
                                 </label>
                                 <input
-                                  id="input-650"
+                                  id="input-605"
                                   type="text"
                                 />
                               </div>
@@ -2196,13 +2196,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                               >
                                 <label
                                   class="v-label theme--light"
-                                  for="input-658"
+                                  for="input-613"
                                   style="left: 0px; position: absolute;"
                                 >
                                   I'm another required string
                                 </label>
                                 <input
-                                  id="input-658"
+                                  id="input-613"
                                   type="text"
                                 />
                               </div>
@@ -2289,13 +2289,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                           >
                             <label
                               class="v-label theme--light"
-                              for="input-671"
+                              for="input-626"
                               style="left: 0px; position: absolute;"
                             >
                               I'm a required string
                             </label>
                             <input
-                              id="input-671"
+                              id="input-626"
                               type="text"
                             />
                           </div>
@@ -2363,13 +2363,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                           >
                             <label
                               class="v-label theme--light"
-                              for="input-682"
+                              for="input-637"
                               style="left: 0px; position: absolute;"
                             >
                               I'm another required string
                             </label>
                             <input
-                              id="input-682"
+                              id="input-637"
                               type="text"
                             />
                           </div>
@@ -2419,7 +2419,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-167"
+            aria-owns="list-163"
             class="v-input__slot"
             role="button"
           >
@@ -2428,7 +2428,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-167"
+                for="input-163"
                 style="left: 0px; position: absolute;"
               >
                 I'm a string with values from an enum
@@ -2439,7 +2439,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-167"
+                  id="input-163"
                   readonly="readonly"
                   type="text"
                 />
@@ -2519,7 +2519,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-176"
+            aria-owns="list-172"
             class="v-input__slot"
             role="button"
           >
@@ -2528,7 +2528,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-176"
+                for="input-172"
                 style="left: 0px; position: absolute;"
               >
                 I'm an array of strings with values from an enum
@@ -2539,7 +2539,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-176"
+                  id="input-172"
                   readonly="readonly"
                   type="text"
                 />
@@ -2606,7 +2606,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-183"
+            aria-owns="list-179"
             class="v-input__slot"
             role="button"
           >
@@ -2615,7 +2615,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-183"
+                for="input-179"
                 style="left: 0px; position: absolute;"
               >
                 I'm a string with values/labels from a oneOf
@@ -2626,7 +2626,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-183"
+                  id="input-179"
                   readonly="readonly"
                   type="text"
                 />
@@ -2693,7 +2693,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-190"
+            aria-owns="list-186"
             class="v-input__slot"
             role="button"
           >
@@ -2702,7 +2702,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-190"
+                for="input-186"
                 style="left: 0px; position: absolute;"
               >
                 I'm an array of strings with values/labels from a oneOf
@@ -2713,7 +2713,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-190"
+                  id="input-186"
                   readonly="readonly"
                   type="text"
                 />
@@ -2780,7 +2780,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-197"
+            aria-owns="list-193"
             class="v-input__slot"
             role="combobox"
           >
@@ -2789,7 +2789,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             >
               <label
                 class="v-label v-label--active theme--light"
-                for="input-197"
+                for="input-193"
                 style="left: 0px; position: absolute;"
               >
                 I'm a string with values from a large enum
@@ -2799,7 +2799,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
               >
                 <input
                   autocomplete="off"
-                  id="input-197"
+                  id="input-193"
                   placeholder="Search..."
                   type="text"
                 />
@@ -2891,7 +2891,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-242"
+            aria-owns="list-237"
             class="v-input__slot"
             role="button"
           >
@@ -2900,7 +2900,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-242"
+                for="input-237"
                 style="left: 0px; position: absolute;"
               >
                 I'm a string selected from results of an HTTP request
@@ -2911,7 +2911,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-242"
+                  id="input-237"
                   readonly="readonly"
                   type="text"
                 />
@@ -2978,7 +2978,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-249"
+            aria-owns="list-244"
             class="v-input__slot"
             role="button"
           >
@@ -2987,7 +2987,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-249"
+                for="input-244"
                 style="left: 0px; position: absolute;"
               >
                 I'm an array of strings selected from results of an HTTP request
@@ -2998,7 +2998,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-249"
+                  id="input-244"
                   readonly="readonly"
                   type="text"
                 />
@@ -3065,7 +3065,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-256"
+            aria-owns="list-251"
             class="v-input__slot"
             role="button"
           >
@@ -3074,7 +3074,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-256"
+                for="input-251"
                 style="left: 0px; position: absolute;"
               >
                 I'm an object selected from results of an HTTP request
@@ -3085,7 +3085,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-256"
+                  id="input-251"
                   readonly="readonly"
                   type="text"
                 />
@@ -3152,7 +3152,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-263"
+            aria-owns="list-258"
             class="v-input__slot"
             role="button"
           >
@@ -3161,7 +3161,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-263"
+                for="input-258"
                 style="left: 0px; position: absolute;"
               >
                 I'm an array of objects selected from results of an HTTP request
@@ -3172,7 +3172,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-263"
+                  id="input-258"
                   readonly="readonly"
                   type="text"
                 />
@@ -3239,7 +3239,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-270"
+            aria-owns="list-265"
             class="v-input__slot"
             role="button"
           >
@@ -3248,7 +3248,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-270"
+                for="input-265"
                 style="left: 0px; position: absolute;"
               >
                 I'm an object from a large HTTP request
@@ -3259,7 +3259,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-270"
+                  id="input-265"
                   readonly="readonly"
                   type="text"
                 />
@@ -3326,7 +3326,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-277"
+            aria-owns="list-272"
             class="v-input__slot"
             role="combobox"
           >
@@ -3335,7 +3335,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             >
               <label
                 class="v-label v-label--active theme--light"
-                for="input-277"
+                for="input-272"
                 style="left: 0px; position: absolute;"
               >
                 I'm an object from a HTTP request with query
@@ -3345,7 +3345,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
               >
                 <input
                   autocomplete="off"
-                  id="input-277"
+                  id="input-272"
                   placeholder="Search..."
                   type="text"
                 />
@@ -3421,7 +3421,7 @@ exports[`Examples used as simple test cases Selects of sub-schemas 1`] = `
         <div
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="list-409"
+          aria-owns="list-401"
           class="v-input__slot"
           role="button"
         >
@@ -3430,7 +3430,7 @@ exports[`Examples used as simple test cases Selects of sub-schemas 1`] = `
           >
             <label
               class="v-label theme--light"
-              for="input-409"
+              for="input-401"
               style="left: 0px; position: absolute;"
             >
               Select a sub-schema
@@ -3441,7 +3441,7 @@ exports[`Examples used as simple test cases Selects of sub-schemas 1`] = `
               <input
                 aria-readonly="false"
                 autocomplete="off"
-                id="input-409"
+                id="input-401"
                 readonly="readonly"
                 type="text"
               />
@@ -3508,7 +3508,7 @@ exports[`Examples used as simple test cases Selects with dependencies 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-393"
+            aria-owns="list-386"
             class="v-input__slot"
             role="button"
           >
@@ -3517,7 +3517,7 @@ exports[`Examples used as simple test cases Selects with dependencies 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-393"
+                for="input-386"
                 style="left: 0px; position: absolute;"
               >
                 I'm an object from HTTP request used as source for next select
@@ -3528,7 +3528,7 @@ exports[`Examples used as simple test cases Selects with dependencies 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-393"
+                  id="input-386"
                   readonly="readonly"
                   type="text"
                 />
@@ -3607,7 +3607,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-324"
+            aria-owns="list-318"
             class="v-input__slot"
             role="button"
           >
@@ -3616,7 +3616,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-324"
+                for="input-318"
                 style="left: 0px; position: absolute;"
               >
                 I'm a simple select with icon codes in enum
@@ -3627,7 +3627,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-324"
+                  id="input-318"
                   readonly="readonly"
                   type="text"
                 />
@@ -3694,7 +3694,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-331"
+            aria-owns="list-325"
             class="v-input__slot"
             role="button"
           >
@@ -3703,7 +3703,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-331"
+                for="input-325"
                 style="left: 0px; position: absolute;"
               >
                 I'm a multiple select with icon codes in enum
@@ -3714,7 +3714,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-331"
+                  id="input-325"
                   readonly="readonly"
                   type="text"
                 />
@@ -3781,7 +3781,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-338"
+            aria-owns="list-332"
             class="v-input__slot"
             role="button"
           >
@@ -3790,7 +3790,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-338"
+                for="input-332"
                 style="left: 0px; position: absolute;"
               >
                 I'm a select with icon codes and titles in a oneOf
@@ -3801,7 +3801,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-338"
+                  id="input-332"
                   readonly="readonly"
                   type="text"
                 />
@@ -3868,7 +3868,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-345"
+            aria-owns="list-339"
             class="v-input__slot"
             role="combobox"
           >
@@ -3877,7 +3877,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             >
               <label
                 class="v-label v-label--active theme--light"
-                for="input-345"
+                for="input-339"
                 style="left: 0px; position: absolute;"
               >
                 I'm a select based on HTTP requests with links to icons
@@ -3887,7 +3887,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
               >
                 <input
                   autocomplete="off"
-                  id="input-345"
+                  id="input-339"
                   placeholder="Search..."
                   type="text"
                 />
@@ -3954,7 +3954,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-352"
+            aria-owns="list-346"
             class="v-input__slot"
             role="combobox"
           >
@@ -3963,7 +3963,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             >
               <label
                 class="v-label v-label--active theme--light"
-                for="input-352"
+                for="input-346"
                 style="left: 0px; position: absolute;"
               >
                 I'm a select based on HTTP requests with SVG code in response
@@ -3973,7 +3973,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
               >
                 <input
                   autocomplete="off"
-                  id="input-352"
+                  id="input-346"
                   placeholder="Search..."
                   type="text"
                 />
@@ -4066,13 +4066,13 @@ exports[`Examples used as simple test cases Slots 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-604"
+                for="input-561"
                 style="left: 0px; position: absolute;"
               >
                 I'm a property with Vuetify slots
               </label>
               <input
-                id="input-604"
+                id="input-561"
                 type="text"
               />
             </div>
@@ -4170,13 +4170,13 @@ exports[`Examples used as simple test cases Tuples 1`] = `
                 >
                   <label
                     class="v-label v-label--active theme--light"
-                    for="input-803"
+                    for="input-707"
                     style="left: 0px; position: absolute;"
                   >
                     I'm a number
                   </label>
                   <input
-                    id="input-803"
+                    id="input-707"
                     type="number"
                   />
                 </div>
@@ -4212,13 +4212,13 @@ exports[`Examples used as simple test cases Tuples 1`] = `
                 >
                   <label
                     class="v-label v-label--active theme--light"
-                    for="input-807"
+                    for="input-711"
                     style="left: 0px; position: absolute;"
                   >
                     I'm another number
                   </label>
                   <input
-                    id="input-807"
+                    id="input-711"
                     type="number"
                   />
                 </div>
@@ -4275,7 +4275,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-581"
+            aria-owns="list-539"
             class="v-input__slot"
             role="button"
           >
@@ -4295,7 +4295,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-581"
+                  id="input-539"
                   readonly="readonly"
                   type="text"
                 />

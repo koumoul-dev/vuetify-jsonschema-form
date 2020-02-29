@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import '../../lib/deps/third-party.js'
-import VJsf from '../../lib/index.vue'
+import VJsf from '../../lib/VJsf.js'
+import '../../lib/VJsf.css'
 import { defaultTemplate } from '../examples'
 
 export default {
