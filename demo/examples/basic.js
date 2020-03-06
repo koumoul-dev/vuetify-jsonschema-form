@@ -77,8 +77,20 @@ This description can be a long text with markdown content.
         "type": "image",
       },
       picture3: {
+        "title":"Upload the center image",
         "description": "Image upload required.",
         "type": "image",
+      },
+      fileUploadCSV: {
+        "description":"upload file csv",
+        "type":"file",
+        "fileType":".csv",
+      },
+      fileUploadpdf: {
+        "title":"Upload the pdf export",
+        "description":"upload pdf file",
+        "type":"file",
+        "fileType":".pdf",
       }
     }
   },

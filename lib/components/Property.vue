@@ -323,8 +323,11 @@
        <!-- Simple image field -->
       <div v-else-if="fullSchema.type === 'image'">
         <div class="file-upload-form">
-            Upload an image file:
-            <input type="file" @change="changeImage" accept="image/*">
+            <span v-if="fullSchema.title">{{fullSchema.title}}</span><span v-else>Upload an image file:</span>
+            <input
+              type="file"
+              @change="changeImage"
+              accept="image/*">
             <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
         </div>
         <div v-if="modelWrapper[modelKey] !== 'null' && modelWrapper[modelKey] !== null && modelWrapper[modelKey] !== undefined" class="image-preview">
@@ -332,6 +335,24 @@
             :src="modelWrapper[modelKey]"
             :name="fullKey"
           >
+          </v-img>
+        </div>
+      </div>
+
+      <!-- Simple file upload field -->
+      <div v-else-if="fullSchema.type === 'file'">
+        <div class="file-upload-form">
+            <span v-if="fullSchema.title">{{fullSchema.title}}</span><span v-else>Upload file:</span>
+            <input
+              type="file"
+              @change="changeImage"
+              :accept="fullSchema.fileType">
+            <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
+        </div>
+        <div v-if="modelWrapper[modelKey] !== 'null' && modelWrapper[modelKey] !== null && modelWrapper[modelKey] !== undefined" class="image-preview">
+         <v-img 
+            :src="modelWrapper[modelKey]"
+            :name="fullKey">
           </v-img>
         </div>
       </div>
