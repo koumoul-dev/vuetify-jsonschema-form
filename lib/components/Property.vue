@@ -331,7 +331,7 @@
             <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
         </div>
         <div v-if="modelWrapper[modelKey] !== 'null' && modelWrapper[modelKey] !== null && modelWrapper[modelKey] !== undefined" class="image-preview">
-         <v-img 
+         <v-img
             :src="modelWrapper[modelKey]"
             :name="fullKey"
           >
@@ -345,15 +345,9 @@
             <span v-if="fullSchema.title">{{fullSchema.title}}</span><span v-else>Upload file:</span>
             <input
               type="file"
-              @change="changeImage"
+              @change="changeFile"
               :accept="fullSchema.fileType">
             <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
-        </div>
-        <div v-if="modelWrapper[modelKey] !== 'null' && modelWrapper[modelKey] !== null && modelWrapper[modelKey] !== undefined" class="image-preview">
-         <v-img 
-            :src="modelWrapper[modelKey]"
-            :name="fullKey">
-          </v-img>
         </div>
       </div>
 
@@ -871,17 +865,29 @@ export default {
     }
   },
   methods: {
+    changeFile(event) {
+      this.updateSelectItems()
+      var input = event.target
+      if (input.files && input.files[0]) {
+        var reader = new FileReader()
+        reader.onload = (e) => {
+          this.modelWrapper[this.modelKey] = e.target.result
+          this.$emit('change', { key: this.fullKey.replace(/allOf-([0-9]+)\./g, ''), model: JSON.parse(this.modelWrapper[this.modelKey]) })
+        }
+        reader.readAsText(input.files[0])
+      }
+    },
     changeImage(event) {
       this.updateSelectItems()
-      var input = event.target;
-      var target = this.fullKey
+      var input = event.target
+      // var target = this.fullKey
       if (input.files && input.files[0]) {
-        var reader = new FileReader();
+        var reader = new FileReader()
         reader.onload = (e) => {
-          this.modelWrapper[this.modelKey] = e.target.result;
+          this.modelWrapper[this.modelKey] = e.target.result
           this.$emit('change', { key: this.fullKey.replace(/allOf-([0-9]+)\./g, ''), model: this.modelWrapper[this.modelKey] })
         }
-        reader.readAsDataURL(input.files[0]);
+        reader.readAsDataURL(input.files[0])
       }
     },
     updateSelectItems() {
