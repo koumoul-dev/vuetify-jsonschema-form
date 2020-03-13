@@ -8,6 +8,9 @@ All basic types, nested objects, nested arrays, various display options, simple 
 
 Compatible with vuetify 1 and 2. Check this [alternative demo](https://koumoul-dev.github.io/vuetify-jsonschema-form/latest/vuetify1.html) for support of vuetify 1.
 
+### JSON Schema standard
+[https://json-schema.org/draft/2019-09/json-schema-validation.html](https://json-schema.org/draft/2019-09/json-schema-validation.html)
+
 ## Installation
 
 ```bash
