@@ -341,7 +341,26 @@
 
       <!-- Simple file upload field -->
       <div v-else-if="fullSchema.type === 'file'">
-        <div class="file-upload-form">
+        <div v-if="modelWrapper[modelKey] !== 'null' && modelWrapper[modelKey] !== null && modelWrapper[modelKey] !== undefined" class="json-preview">
+          <input
+            type="file"
+            @change="changeFile"
+            :accept="fullSchema.fileType">
+          <tooltip slot="append-outer" :options="options" :html-description="htmlDescription" />
+          <v-chip
+            class="ma-2"
+            color="green darken-2"
+            text-color="white">
+            <v-avatar left>
+              <v-icon>mdi-checkbox-marked-circle</v-icon>
+            </v-avatar>
+            File available
+          </v-chip>
+          <v-icon @click="downloadFile">mdi-download-outline</v-icon>
+          <v-icon @click="viewFile">mdi-open-in-new</v-icon>
+          <!-- modelWrapper[modelKey] is the data stored -->
+        </div>
+        <div v-else class="file-upload-form">
             <span v-if="fullSchema.title">{{fullSchema.title}}</span><span v-else>Upload file:</span>
             <input
               type="file"
@@ -865,7 +884,20 @@ export default {
     }
   },
   methods: {
+    downloadFile(event){
+      const durl = window.URL.createObjectURL(new Blob([this.modelWrapper[this.modelKey]]));
+      const link = document.createElement('a');
+      link.href = durl;
+      link.setAttribute('download', 'report_'+this.modelKey+'.json'); // or any other extension
+      document.body.appendChild(link);
+      link.click();
+    },
+    viewFile(event) {
+      var tab = window.open('data:text/json,' + encodeURIComponent(this.modelWrapper[this.modelKey]),'_blank')
+      tab.document.close(); // to finish loading the page
+    },
     changeFile(event) {
+      console.log(event.target.value)
       this.updateSelectItems()
       var input = event.target
       if (input.files && input.files[0]) {
