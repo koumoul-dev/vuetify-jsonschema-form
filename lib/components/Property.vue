@@ -897,7 +897,6 @@ export default {
       tab.document.close(); // to finish loading the page
     },
     changeFile(event) {
-      console.log(event.target.value)
       this.updateSelectItems()
       var input = event.target
       if (input.files && input.files[0]) {
