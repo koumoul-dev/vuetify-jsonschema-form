@@ -8,7 +8,7 @@ const schema = {
   type: 'object',
   'x-display': 'tabs',
   'x-props': { grow: true },
-  description: `I'm an object with sections rendered as expansions panels with the \`grow\` prop.`,
+  description: `I'm an object with sections rendered as tabs.`,
   properties: {
     objectSection1: {
       title: `I'm a section`,
