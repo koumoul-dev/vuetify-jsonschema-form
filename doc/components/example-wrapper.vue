@@ -32,15 +32,23 @@
           <code>{{ ajvErrors }}</code>
         </v-alert>
         <client-only>
-          <v-card-text class="pb-12">
-            <v-form ref="form" v-model="valid">
-              <example :params="params" />
-            </v-form>
-            <div style="position:absolute;bottom: 10px;right: 10px;">
-              <v-btn :color="validationColor" small fab :title="validated ? 'Reset validation' : 'Validate form'" @click="toggleValidate">
-                <v-icon>{{ valid ? 'mdi-checkbox-marked-outline' : 'mdi-checkbox-blank-outline' }}</v-icon>
+          <v-card-text class="pb-12" style="min-height: 200px; position: relative;">
+            <template v-if="activated">
+              <v-form ref="form" v-model="valid">
+                <example :params="params" />
+              </v-form>
+              <div style="position:absolute;bottom: 10px;right: 10px;">
+                <v-btn :color="validationColor" small fab :title="validated ? 'Reset validation' : 'Validate form'" @click="toggleValidate">
+                  <v-icon>{{ validationIcon }}</v-icon>
+                </v-btn>
+              </div>
+            </template>
+
+            <v-overlay :absolute="true" :value="!activated" :opacity="0.2">
+              <v-btn icon @click="activated = true">
+                <v-icon>mdi-play</v-icon>
               </v-btn>
-            </div>
+            </v-overlay>
           </v-card-text>
 
           <v-window v-model="showCode" vertical>
@@ -108,13 +116,15 @@ ajv.addFormat('hexcolor', /^#[0-9A-Fa-f]{6}$/)
 export default {
   components: { Example },
   props: {
-    params: { type: Object, required: true, default: null }
+    params: { type: Object, required: true, default: null },
+    startActivated: { type: Boolean, default: false }
   },
   data: () => ({
     showCode: 0,
     valid: null,
     validated: false,
-    dark: false
+    dark: false,
+    activated: false
   }),
   computed: {
     validate() {
@@ -147,6 +157,10 @@ export default {
       if (this.valid) return 'success'
       else if (!this.validated) return 'light'
       else return 'error'
+    },
+    validationIcon() {
+      if (!this.validated || !this.valid) return 'mdi-checkbox-blank-outline'
+      return 'mdi-checkbox-marked-outline'
     },
     codepenParams() {
       const template = this.params.template
@@ -190,6 +204,9 @@ new Vue({
       }
     }
   },
+  created() {
+    this.activated = this.startActivated
+  },
   methods: {
     toggleValidate() {
       if (this.validated) {
@@ -198,6 +215,9 @@ new Vue({
         this.$refs.form.validate()
       }
       this.validated = !this.validated
+    },
+    hover() {
+      this.activated = true
     }
   }
 }

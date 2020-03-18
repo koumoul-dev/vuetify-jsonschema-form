@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <example-wrapper :params="example" />
+    <example-wrapper :params="example" :start-activated="true" />
   </v-container>
 </template>
 
