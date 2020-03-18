@@ -1551,7 +1551,6 @@ exports[`Examples used as simple test cases Read only content 1`] = `
       <div
         class="flex vjsf-property vjsf-property-hideReadonlySection xs12 "
       >
-        <!---->
         <div
           class="flex vjsf-property vjsf-property-hideReadonlySection-stringProp xs12 "
         >
@@ -1569,13 +1568,13 @@ exports[`Examples used as simple test cases Read only content 1`] = `
                 >
                   <label
                     class="v-label theme--light"
-                    for="input-741"
+                    for="input-740"
                     style="left: 0px; position: absolute;"
                   >
                     I'm a string
                   </label>
                   <input
-                    id="input-741"
+                    id="input-740"
                     type="text"
                   />
                 </div>
