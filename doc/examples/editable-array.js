@@ -31,4 +31,8 @@ const schema = {
 
 const model = {}
 
-export default { id, title, description, schema, model }
+const options = {
+  hideReadOnly: true
+}
+
+export default { id, title, description, schema, model, options }

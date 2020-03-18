@@ -16,6 +16,7 @@ import validationSections from './validation-sections'
 import editableArray from './editable-array'
 import prefilledArrays from './prefilled-arrays'
 import tuples from './tuples'
+import readOnly from './read-only'
 
 const examples = [
   basic,
@@ -35,7 +36,8 @@ const examples = [
   validationSections,
   editableArray,
   prefilledArrays,
-  tuples
+  tuples,
+  readOnly
 ]
 
 const defaultTemplate = '<v-jsf v-model="model" :schema="schema" :options="options" />'
