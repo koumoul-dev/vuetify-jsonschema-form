@@ -33,8 +33,16 @@ const schema = {
       title: `I'm a section whose read-only content is hidden`,
       'x-options': { hideReadOnly: true },
       properties: {
-        readOnlyProp: { type: 'string', title: `I'm a string in a disabled section`, readOnly: true },
-        stringProp: { type: 'string', title: `I'm a string` }
+        readOnlyProp: { type: 'string', readOnly: true },
+        stringProp: { type: 'string', title: `I'm a string` },
+        readOnlySection: {
+          type: 'object',
+          title: `I'm a hidden section`,
+          readOnly: true,
+          properties: {
+            stringProp: { type: 'string' }
+          }
+        }
       }
     }
   }
