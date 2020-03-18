@@ -1798,7 +1798,7 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
     <div
       class="xs12"
     >
-      I'm an object with sections rendered as expansions panels with the \`grow\` prop.
+      I'm an object with sections rendered as tabs.
     </div>
     <div
       class="v-tabs v-tabs--grow theme--light"
