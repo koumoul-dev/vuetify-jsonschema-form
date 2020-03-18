@@ -8,10 +8,11 @@ A \`const\` property is required to be used as unique key of a \`oneOf\` element
 
 const schema = {
   type: 'object',
+  title: 'Select a sub-schema',
   oneOf: [{
     title: `I'm a sub-schema`,
     properties: {
-      schemaKey: { type: 'string', const: 'subSchema1', title: 'Select a sub-schema' },
+      schemaKey: { type: 'string', const: 'subSchema1' },
       stringProp1: { type: 'string', title: `I'm a property in sub-schema 1` }
     }
   }, {
