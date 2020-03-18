@@ -1386,10 +1386,10 @@ exports[`Examples used as simple test cases Sections 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0"
+      class="layout row wrap ma-0 pl-2"
     >
       <span
-        class="pa-2 headline"
+        class="pt-2 title"
       >
         I'm a section 
       </span>
@@ -1446,10 +1446,10 @@ exports[`Examples used as simple test cases Sections 1`] = `
       </div>
     </div>
     <div
-      class="layout row wrap ma-0"
+      class="layout row wrap ma-0 pl-2"
     >
       <span
-        class="pa-2 headline"
+        class="pt-2 title"
       >
         I'm another section 
       </span>
@@ -1499,10 +1499,10 @@ exports[`Examples used as simple test cases Sections 1`] = `
           </div>
         </div>
         <div
-          class="layout row wrap ma-0"
+          class="layout row wrap ma-0 pl-2"
         >
           <span
-            class="pa-2 title"
+            class="pt-2 subtitle-1"
           >
             I'm a subsection 
           </span>
@@ -1554,10 +1554,10 @@ exports[`Examples used as simple test cases Sections 1`] = `
           </div>
         </div>
         <div
-          class="layout row wrap ma-0"
+          class="layout row wrap ma-0 pl-2"
         >
           <span
-            class="pa-2 title"
+            class="pt-2 subtitle-1"
           >
             I'm another subsection 
           </span>
@@ -2002,10 +2002,10 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0"
+      class="layout row wrap ma-0 pl-2"
     >
       <span
-        class="pa-2 headline"
+        class="pt-2 title"
       >
         Tabs with required fields 
       </span>
@@ -2199,10 +2199,10 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
       </div>
     </div>
     <div
-      class="layout row wrap ma-0"
+      class="layout row wrap ma-0 pl-2"
     >
       <span
-        class="pa-2 headline"
+        class="pt-2 title"
       >
         Panels with required fields 
       </span>
@@ -4097,10 +4097,10 @@ exports[`Examples used as simple test cases Tuples 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0"
+      class="layout row wrap ma-0 pl-2"
     >
       <span
-        class="pa-2 headline"
+        class="pt-2 title"
       >
         I'm a tuple of 2 numbers 
       </span>
