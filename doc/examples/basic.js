@@ -15,7 +15,13 @@ const schema = {
   }
 }
 
-const model = {}
+const model = {
+  stringProp: 'initial value',
+  numberProp: 10.1,
+  integerProp: 10,
+  booleanProp: true,
+  stringArrayProp: ['item 1', 'item 2']
+}
 
 const test = (wrapper) => {
   const properties = wrapper.findAll('.vjsf-property')
