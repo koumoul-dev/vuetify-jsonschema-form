@@ -6,7 +6,7 @@ const description = `All properties with \`readOnly=true\` in schema will be ren
 
 You can also disable the whole form using \`disableAll=true\` option.
 
-You can hide a single property using the \`x-display=hidden\` annotation or hide by default all read-only properties using the \`hideReadOnly=true\` option.`
+You can hide a single property using the \`x-display=hidden\` annotation or hide by default all read-only properties using the \`hideReadOnly=true\` option. You can also delete all read-only properties with the \`deleteReadOnly=true\` option.`
 
 const schema = {
   type: 'object',
@@ -50,8 +50,16 @@ const schema = {
       title: `I'm a section whose read-only content is deleted`,
       'x-options': { deleteReadOnly: true },
       properties: {
+        stringProp: { type: 'string', title: `I'm a string` },
         deletedReadOnlyProp: { type: 'string', readOnly: true },
-        stringProp: { type: 'string', title: `I'm a string` }
+        deletedReadOnlySection: {
+          type: 'object',
+          title: `I'm a deleted section`,
+          readOnly: true,
+          properties: {
+            stringProp: { type: 'string' }
+          }
+        }
       }
     }
   }
@@ -66,7 +74,10 @@ const model = {
     stringProp: 'disabled value'
   },
   deleteReadonlySection: {
-    readOnlyProp: 'deleted value'
+    deletedReadOnlyProp: 'deleted value',
+    deletedReadOnlySection: {
+      stringProp: 'deleted value'
+    }
   }
 }
 
