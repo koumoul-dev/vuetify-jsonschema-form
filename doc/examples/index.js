@@ -9,6 +9,7 @@ import selectSubschemas from './select-subschemas'
 import sections from './sections'
 import sectionsExpansionPanels from './sections-expansion-panels'
 import sectionsTab from './sections-tabs'
+import classes from './classes'
 import vuetifyProps from './vuetify-props'
 import slots from './slots'
 import validationBasic from './validation-basic'
@@ -30,6 +31,7 @@ const examples = [
   sections,
   sectionsExpansionPanels,
   sectionsTab,
+  classes,
   vuetifyProps,
   slots,
   validationBasic,
