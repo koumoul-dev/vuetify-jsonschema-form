@@ -32,7 +32,7 @@
           <code>{{ ajvErrors }}</code>
         </v-alert>
         <client-only>
-          <v-card-text class="pb-12" style="min-height: 200px; position: relative;">
+          <v-card-text class="pb-12" style="min-height: 120px; position: relative;">
             <template v-if="activated">
               <v-form ref="form" v-model="valid">
                 <example :params="params" />

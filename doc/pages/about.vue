@@ -1,7 +1,7 @@
 <template>
-  <v-container text-center>
-    <h1 class="display-4 mt-8 mb-4 primary--text">
-      vjsf
+  <v-container>
+    <h1 class="headline my-4">
+      About
     </h1>
 
     <p class="subtitle-2 font-italic mb-10">
@@ -9,7 +9,7 @@
     </p>
 
     <p class="mt-2 text-center">
-      Create beautiful and low-effort forms that output valid data.
+      Create low-effort and beautiful forms that output valid data.
     </p>
 
     <p class="mt-2 text-center">

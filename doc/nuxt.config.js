@@ -20,8 +20,8 @@ module.exports = {
     theme: {
       themes: {
         light: {
-          primary: colors.blue.darken1,
-          accent: colors.blue.accent4
+          primary: colors.cyan.base,
+          accent: colors.cyan.accent3
         }
       }
     }
