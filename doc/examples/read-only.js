@@ -44,6 +44,15 @@ const schema = {
           }
         }
       }
+    },
+    deleteReadonlySection: {
+      type: 'object',
+      title: `I'm a section whose read-only content is deleted`,
+      'x-options': { deleteReadOnly: true },
+      properties: {
+        deletedReadOnlyProp: { type: 'string', readOnly: true },
+        stringProp: { type: 'string', title: `I'm a string` }
+      }
     }
   }
 }
@@ -55,6 +64,9 @@ const model = {
   },
   disabledSection: {
     stringProp: 'disabled value'
+  },
+  deleteReadonlySection: {
+    readOnlyProp: 'deleted value'
   }
 }
 
