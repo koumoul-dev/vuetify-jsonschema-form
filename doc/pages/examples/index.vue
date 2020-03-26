@@ -7,10 +7,17 @@
 <script>
 import ExampleWrapper from '~/components/example-wrapper'
 import { examples } from '~/examples'
+import { scrollToHash } from '~/app/router.scrollBehavior.js'
 
 export default {
   components: { ExampleWrapper },
-  data: () => ({ examples })
+  data: () => ({ examples }),
+  mounted() {
+    if (this.$route.hash) {
+      location.hash = this.$route.hash
+      scrollToHash(this.$route.hash, false)
+    }
+  }
 }
 </script>
 
