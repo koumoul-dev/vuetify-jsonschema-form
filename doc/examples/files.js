@@ -8,8 +8,48 @@ const schema = {
   type: 'object',
   properties: {
     pngProp: { type: 'string', title: `I'm a PNG image stored as a base64 string`, contentMediaType: 'image/png', writeOnly: true },
-    imageProp: { type: 'string', title: `I'm an image stored as a data url`, contentMediaType: 'image/png', 'x-options': { filesAsDataUrl: true }, writeOnly: true },
-    imageArrayProp: { type: 'array', title: `I'm an array of images`, items: { type: 'string', contentMediaType: 'image/png' }, 'x-options': { filesAsDataUrl: true }, writeOnly: true }
+    imageProp: { type: 'string', title: `I'm an image stored as a data url`, contentMediaType: 'image/*', 'x-options': { filesAsDataUrl: true }, writeOnly: true },
+    imageArrayProp: { type: 'array', title: `I'm an array of images`, items: { type: 'string', contentMediaType: 'image/*' }, 'x-options': { filesAsDataUrl: true }, writeOnly: true },
+    objectFileProp: {
+      type: 'object',
+      title: `I'm a file as an object with base64 data`,
+      contentMediaType: 'image/*',
+      writeOnly: true,
+      properties: {
+        name: { type: 'string' },
+        size: { type: 'number' },
+        type: { type: 'string' },
+        lastModified: { type: 'string', format: 'date-time' },
+        data: { type: 'string' }
+      }
+    },
+    objectFileBlobProp: {
+      type: 'object',
+      title: `I'm a file as an object with Blob data`,
+      contentMediaType: 'image/*',
+      writeOnly: true,
+      properties: {
+        name: { type: 'string' },
+        size: { type: 'number' },
+        type: { type: 'string' },
+        lastModified: { type: 'string', format: 'date-time' }
+      }
+    },
+    arrayFileBlobProp: {
+      type: 'array',
+      title: `I'm an array of files as objects with Blob data`,
+      items: {
+        type: 'object',
+        contentMediaType: 'image/*',
+        writeOnly: true,
+        properties: {
+          name: { type: 'string' },
+          size: { type: 'number' },
+          type: { type: 'string' },
+          lastModified: { type: 'string', format: 'date-time' }
+        }
+      }
+    }
   }
 }
 
