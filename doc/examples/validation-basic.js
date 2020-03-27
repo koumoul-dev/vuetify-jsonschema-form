@@ -13,10 +13,16 @@ const schema = {
   required: ['requiredStringProp'],
   properties: {
     requiredStringProp: { type: 'string', title: `I'm a required string` },
-    limitedInteger: { type: 'integer', title: `I'm a integer with min/max`, minimum: 0, maximum: 100 }
+    limitedInteger: { type: 'integer', title: `I'm a integer with min/max value`, minimum: 0, maximum: 100 },
+    limitedString: { type: 'string', title: `I'm a string with min/max length`, minLength: 10, maxLength: 100 },
+    limitedArray: { type: 'array', title: `I'm an array with min/max items`, items: { type: 'string' }, minItems: 1, maxItems: 100 }
   }
 }
 
-const model = {}
+const model = {
+  limitedInteger: 101,
+  limitedString: 'abc',
+  limitedArray: ['abc']
+}
 
 export default { id, title, description, schema, model }
