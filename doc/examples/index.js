@@ -19,6 +19,7 @@ import validationBasic from './validation-basic'
 import validationSections from './validation-sections'
 import tuples from './tuples'
 import readOnly from './read-only'
+import localization from './localization'
 
 const examples = [
   basic,
@@ -41,7 +42,8 @@ const examples = [
   validationBasic,
   validationSections,
   tuples,
-  readOnly
+  readOnly,
+  localization
 ]
 
 const defaultTemplate = '<v-jsf v-model="model" :schema="schema" :options="options" />'
