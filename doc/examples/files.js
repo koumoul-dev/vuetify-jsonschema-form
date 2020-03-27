@@ -2,7 +2,9 @@ const id = 'files'
 
 const title = 'Files'
 
-const description = `A string property can be rendered as a file upload form if it has the \`contentMediaType\` attribute or the \`x-display=file\` annotation.`
+const description = `A string property can be rendered as a file upload form if it has the \`contentMediaType\` attribute or the \`x-display=file\` annotation.
+
+An object property can also be rendered as a file upload. In this case the name, type, size and lastModified subproperties will be filled with metadatas from the uploaded file. By default the data subproperty will contain a reference to a File/Blob object, except if you define its type as string.`
 
 const schema = {
   type: 'object',
@@ -44,8 +46,8 @@ const schema = {
         writeOnly: true,
         properties: {
           name: { type: 'string' },
-          size: { type: 'number' },
           type: { type: 'string' },
+          size: { type: 'number' },
           lastModified: { type: 'string', format: 'date-time' }
         }
       }
