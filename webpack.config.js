@@ -2,19 +2,8 @@ const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-module.exports = {
+const base = {
   mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
-  entry: {
-    main: './lib/VJsfNoDeps.js',
-    'third-party': './lib/deps/third-party.js'
-  },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
-    library: 'VJsf',
-    libraryTarget: 'umd',
-    globalObject: 'this'
-  },
   module: {
     rules: [{
       test: /\.js$/,
@@ -42,3 +31,26 @@ module.exports = {
     new MiniCssExtractPlugin()
   ]
 }
+
+module.exports = [{
+  ...base,
+  entry: {
+    main: './lib/VJsfNoDeps.js'
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js',
+    library: 'VJsf',
+    libraryTarget: 'umd',
+    globalObject: 'this'
+  }
+}, {
+  ...base,
+  entry: {
+    'third-party': './lib/deps/third-party.js'
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js'
+  }
+}]
