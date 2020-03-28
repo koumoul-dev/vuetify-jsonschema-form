@@ -10,7 +10,11 @@
     <!-- eslint-disable vue/html-indent -->
     <v-sheet v-hljs dark class="codeblock">
       <code class="html">&lt;script src="https://cdn.jsdelivr.net/npm/@koumoul/vjsf@latest/dist/main.js"&gt;&lt;/script&gt;
-&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@koumoul/vjsf@latest/dist/main.css"&gt;</code>
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@koumoul/vjsf@latest/dist/main.css"&gt;
+&lt;!-- load all third-party dependencies (markdown-it, vue-color, vue-swatches, vuedraggable) --&gt;
+&lt;!-- you can also load them separately based on your needs --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/@koumoul/vjsf@latest/dist/third-party.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@koumoul/vjsf@latest/dist/third-party.css"&gt;</code>
     </v-sheet>
     <v-sheet v-hljs dark class="codeblock">
       <code class="javascript">Vue.component('VJsf', VJsf.default)</code>
@@ -29,6 +33,10 @@
     <v-sheet v-hljs dark class="codeblock">
       <code class="javascript">import VJsf from '@koumoul/vjsf'
 import '@koumoul/vjsf/dist/main.css'
+// load all third-party dependencies (markdown-it, vue-color, vue-swatches, vuedraggable)
+// you can also load them separately based on your needs
+import '@koumoul/vjsf/dist/third-party.js'
+import '@koumoul/vjsf/dist/third-party.css'
 
 Vue.component('VJsf', VJsf)</code>
     </v-sheet>
@@ -37,15 +45,33 @@ Vue.component('VJsf', VJsf)</code>
       Import module from source
     </h3>
     <p>
-      This is useful if you wish to let your built tool analyze the source code of vjsf. Particularily interesting if you use vuetify-loader.
+      This is useful if you wish to let your build tool analyze the source code of vjsf. Particularily interesting if you use vuetify-loader.
     </p>
     <v-sheet v-hljs dark class="codeblock">
-      <code class="javascript">import VJsf from '@koumoul/vjsf'
-import '@koumoul/vjsf/dist/main.css'
+      <code class="javascript">import VJsf from '@koumoul/vjsf/lib/VJsf.js'
+import '@koumoul/vjsf/lib/VJsf.css'
+// load all third-party dependencies (markdown-it, vue-color, vue-swatches, vuedraggable)
+// you can also load them separately based on your needs
+import '@koumoul/vjsf/lib/deps/third-party.js'
+import '@koumoul/vjsf/lib/deps/third-party.css'
 
 Vue.component('VJsf', VJsf)</code>
     </v-sheet>
+    <v-sheet v-hljs dark class="codeblock">
+      <code class="javascript">// you should have something like the following somewhere in webpack.config.js or nuxt.config.js, etc.
+build: {
+  transpile: ['vuetify', /@koumoul/], // necessary for "à la carte" import of vuetify components
+}
+      </code>
+    </v-sheet>
 
+    <h2 class="headline my4">
+      Usage
+    </h2>
+
+    <v-sheet v-hljs dark class="codeblock">
+      <code class="html">&lt;v-jsf v-model="model" :schema="schema" :options="options" /&gt;</code>
+    </v-sheet>
     <!-- eslint-enable vue/html-indent -->
   </v-container>
 </template>
