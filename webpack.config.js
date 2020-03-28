@@ -49,6 +49,9 @@ module.exports = [{
   entry: {
     'third-party': './lib/deps/third-party.js'
   },
+  externals: {
+    vue: 'Vue'
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js'
