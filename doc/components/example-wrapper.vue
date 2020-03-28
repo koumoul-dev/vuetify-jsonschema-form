@@ -199,8 +199,8 @@ new Vue({
     valid: null
   }
 });`,
-        css_external: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900;https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css;https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css;https://cdn.jsdelivr.net/npm/@koumoul/vjsf@1.0.0-beta.18/dist/main.css;https://cdn.jsdelivr.net/npm/@koumoul/vjsf@1.0.0-beta.18/dist/third-party.css',
-        js_external: 'https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js;https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js;https://cdn.jsdelivr.net/npm/@koumoul/vjsf@1.0.0-beta.18/dist/main.js;https://cdn.jsdelivr.net/npm/@koumoul/vjsf@1.0.0-beta.18/dist/third-party.js'
+        css_external: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900;https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css;https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css;https://cdn.jsdelivr.net/npm/@koumoul/vjsf@1.0.0-beta.19/dist/main.css;https://cdn.jsdelivr.net/npm/@koumoul/vjsf@1.0.0-beta.19/dist/third-party.css',
+        js_external: 'https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js;https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js;https://cdn.jsdelivr.net/npm/@koumoul/vjsf@1.0.0-beta.19/dist/main.js;https://cdn.jsdelivr.net/npm/@koumoul/vjsf@1.0.0-beta.19/dist/third-party.js'
       }
     }
   },
