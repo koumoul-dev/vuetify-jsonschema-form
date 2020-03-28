@@ -319,13 +319,13 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-660"
+                  for="input-690"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a required string
                 </label>
                 <input
-                  id="input-660"
+                  id="input-690"
                   type="text"
                 />
               </div>
@@ -348,7 +348,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
         class="flex vjsf-property vjsf-property-limitedInteger xs12  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field"
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
         >
           <div
             class="v-input__control"
@@ -360,16 +360,132 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
                 class="v-text-field__slot"
               >
                 <label
-                  class="v-label theme--light"
-                  for="input-664"
+                  class="v-label v-label--active theme--light"
+                  for="input-694"
                   style="left: 0px; position: absolute;"
                 >
-                  I'm a integer with min/max
+                  I'm a integer with min/max value
                 </label>
                 <input
-                  id="input-664"
+                  id="input-694"
                   type="number"
                 />
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <div
+                  class="v-messages__wrapper"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex vjsf-property vjsf-property-limitedString xs12  pr-2"
+      >
+        <div
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-text-field__slot"
+              >
+                <label
+                  class="v-label v-label--active theme--light"
+                  for="input-698"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a string with min/max length
+                </label>
+                <input
+                  id="input-698"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <div
+                  class="v-messages__wrapper"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex vjsf-property vjsf-property-limitedArray xs12  pr-2"
+      >
+        <div
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-select v-select--chips v-select--is-multi v-autocomplete"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="list-702"
+              class="v-input__slot"
+              role="combobox"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label v-label--active theme--light"
+                  for="input-702"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm an array with min/max items
+                </label>
+                <div
+                  class="v-select__selections"
+                >
+                  <span
+                    class="v-chip v-chip--no-color v-chip--removable theme--light v-size--default"
+                  >
+                    <span
+                      class="v-chip__content"
+                    >
+                      abc
+                      <button
+                        class="v-icon notranslate v-chip__close v-icon--link v-icon--right mdi mdi-close-circle theme--light"
+                        style="font-size: 18px;"
+                        type="button"
+                      />
+                    </span>
+                  </span>
+                  <input
+                    autocomplete="off"
+                    id="input-702"
+                    type="text"
+                  />
+                </div>
+                <input
+                  type="hidden"
+                  value="abc"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
               </div>
             </div>
             <div
@@ -419,13 +535,13 @@ exports[`Examples used as simple test cases Classes and styles 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-598"
+                  for="input-628"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a half width string
                 </label>
                 <input
-                  id="input-598"
+                  id="input-628"
                   type="text"
                 />
               </div>
@@ -461,13 +577,13 @@ exports[`Examples used as simple test cases Classes and styles 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-602"
+                  for="input-632"
                   style="left: 0px; position: absolute;"
                 >
                   I'm another half width string
                 </label>
                 <input
-                  id="input-602"
+                  id="input-632"
                   type="text"
                 />
               </div>
@@ -504,13 +620,13 @@ exports[`Examples used as simple test cases Classes and styles 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-606"
+                  for="input-636"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a string with style
                 </label>
                 <input
-                  id="input-606"
+                  id="input-636"
                   type="text"
                 />
               </div>
@@ -1667,7 +1783,7 @@ exports[`Examples used as simple test cases Files 1`] = `
                   class="v-file-input__text"
                 />
                 <input
-                  accept="image/png"
+                  accept="image/*"
                   id="input-427"
                   type="file"
                 />
@@ -1740,7 +1856,7 @@ exports[`Examples used as simple test cases Files 1`] = `
                   class="v-file-input__text"
                 />
                 <input
-                  accept="image/png"
+                  accept="image/*"
                   id="input-433"
                   multiple="multiple"
                   type="file"
@@ -1759,6 +1875,387 @@ exports[`Examples used as simple test cases Files 1`] = `
                     type="button"
                   />
                 </div>
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <div
+                  class="v-messages__wrapper"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex vjsf-property vjsf-property-objectFileProp xs12  pr-2"
+      >
+        <div
+          class="v-input theme--light v-text-field v-file-input"
+        >
+          <div
+            class="v-input__prepend-outer"
+          >
+            <div
+              class="v-input__icon v-input__icon--prepend"
+            >
+              <button
+                aria-label="prepend icon"
+                class="v-icon notranslate v-icon--link mdi mdi-paperclip theme--light"
+                type="button"
+              />
+            </div>
+          </div>
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-text-field__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="input-439"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a file as an object with base64 data
+                </label>
+                <div
+                  class="v-file-input__text"
+                />
+                <input
+                  accept="image/*"
+                  id="input-439"
+                  type="file"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <div
+                  class="v-messages__wrapper"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex vjsf-property vjsf-property-objectFileBlobProp xs12  pr-2"
+      >
+        <div
+          class="v-input theme--light v-text-field v-file-input"
+        >
+          <div
+            class="v-input__prepend-outer"
+          >
+            <div
+              class="v-input__icon v-input__icon--prepend"
+            >
+              <button
+                aria-label="prepend icon"
+                class="v-icon notranslate v-icon--link mdi mdi-paperclip theme--light"
+                type="button"
+              />
+            </div>
+          </div>
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-text-field__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="input-445"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a file as an object with Blob data
+                </label>
+                <div
+                  class="v-file-input__text"
+                />
+                <input
+                  accept="image/*"
+                  id="input-445"
+                  type="file"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <div
+                  class="v-messages__wrapper"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex vjsf-property vjsf-property-arrayFileBlobProp xs12  pr-2"
+      >
+        <div
+          class="v-input theme--light v-text-field v-file-input"
+        >
+          <div
+            class="v-input__prepend-outer"
+          >
+            <div
+              class="v-input__icon v-input__icon--prepend"
+            >
+              <button
+                aria-label="prepend icon"
+                class="v-icon notranslate v-icon--link mdi mdi-paperclip theme--light"
+                type="button"
+              />
+            </div>
+          </div>
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-text-field__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="input-451"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm an array of files as objects with Blob data
+                </label>
+                <div
+                  class="v-file-input__text"
+                />
+                <input
+                  accept="image/*"
+                  id="input-451"
+                  multiple="multiple"
+                  type="file"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <div
+                  class="v-messages__wrapper"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases Localization 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="flex vjsf-property vjsf-property-root xs12 "
+  >
+    <div
+      class="layout row wrap ma-0 "
+    >
+      <div
+        class="flex vjsf-property vjsf-property-dateProp xs12  pr-2"
+      >
+        <div
+          class="v-menu"
+        >
+          <div
+            class="v-input v-input--is-label-active v-input--is-dirty v-input--is-readonly theme--light v-text-field"
+          >
+            <div
+              class="v-input__prepend-outer"
+            >
+              <div
+                class="v-input__icon v-input__icon--prepend"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-calendar theme--light"
+                />
+              </div>
+            </div>
+            <div
+              class="v-input__control"
+            >
+              <div
+                class="v-input__slot"
+              >
+                <div
+                  class="v-text-field__slot"
+                >
+                  <label
+                    class="v-label v-label--active theme--light"
+                    for="input-897"
+                    style="left: 0px; position: absolute;"
+                  >
+                    Je suis une date
+                  </label>
+                  <input
+                    id="input-897"
+                    readonly="readonly"
+                    type="text"
+                  />
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--clear"
+                  >
+                    <button
+                      aria-label="clear icon"
+                      class="v-icon notranslate v-icon--link mdi mdi-close theme--light"
+                      type="button"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="v-text-field__details"
+              >
+                <div
+                  class="v-messages theme--light"
+                >
+                  <div
+                    class="v-messages__wrapper"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="flex vjsf-property vjsf-property-selectAjaxWithQuery xs12  pr-2"
+      >
+        <div
+          class="v-input theme--light v-text-field v-text-field--placeholder v-select v-autocomplete"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="list-903"
+              class="v-input__slot"
+              role="combobox"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label v-label--active theme--light"
+                  for="input-903"
+                  style="left: 0px; position: absolute;"
+                >
+                  Je suis un champ de recherche
+                </label>
+                <div
+                  class="v-select__selections"
+                >
+                  <input
+                    autocomplete="off"
+                    id="input-903"
+                    placeholder="Recherchez..."
+                    type="text"
+                  />
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--append"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-menu-down theme--light"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="hidden"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
               </div>
             </div>
             <div
@@ -1837,14 +2334,14 @@ exports[`Examples used as simple test cases Read only content 1`] = `
               >
                 <label
                   class="v-label v-label--active v-label--is-disabled theme--light"
-                  for="input-791"
+                  for="input-842"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a read-only string
                 </label>
                 <input
                   disabled="disabled"
-                  id="input-791"
+                  id="input-842"
                   type="text"
                 />
               </div>
@@ -1894,14 +2391,14 @@ exports[`Examples used as simple test cases Read only content 1`] = `
                     >
                       <label
                         class="v-label v-label--active v-label--is-disabled theme--light"
-                        for="input-796"
+                        for="input-847"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a string in a read-only section
                       </label>
                       <input
                         disabled="disabled"
-                        id="input-796"
+                        id="input-847"
                         type="text"
                       />
                     </div>
@@ -1954,14 +2451,14 @@ exports[`Examples used as simple test cases Read only content 1`] = `
                     >
                       <label
                         class="v-label v-label--active v-label--is-disabled theme--light"
-                        for="input-801"
+                        for="input-852"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a string in a disabled section
                       </label>
                       <input
                         disabled="disabled"
-                        id="input-801"
+                        id="input-852"
                         type="text"
                       />
                     </div>
@@ -2015,13 +2512,13 @@ exports[`Examples used as simple test cases Read only content 1`] = `
                     >
                       <label
                         class="v-label theme--light"
-                        for="input-807"
+                        for="input-858"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a string
                       </label>
                       <input
-                        id="input-807"
+                        id="input-858"
                         type="text"
                       />
                     </div>
@@ -2075,13 +2572,13 @@ exports[`Examples used as simple test cases Read only content 1`] = `
                     >
                       <label
                         class="v-label theme--light"
-                        for="input-813"
+                        for="input-864"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a string
                       </label>
                       <input
-                        id="input-813"
+                        id="input-864"
                         type="text"
                       />
                     </div>
@@ -2157,13 +2654,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
                     >
                       <label
                         class="v-label theme--light"
-                        for="input-458"
+                        for="input-488"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a property in section 1
                       </label>
                       <input
-                        id="input-458"
+                        id="input-488"
                         type="text"
                       />
                     </div>
@@ -2216,13 +2713,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
                     >
                       <label
                         class="v-label theme--light"
-                        for="input-463"
+                        for="input-493"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a property in section 2
                       </label>
                       <input
-                        id="input-463"
+                        id="input-493"
                         type="text"
                       />
                     </div>
@@ -2272,13 +2769,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
                           >
                             <label
                               class="v-label theme--light"
-                              for="input-468"
+                              for="input-498"
                               style="left: 0px; position: absolute;"
                             >
                               I'm a property in subsection 2.1
                             </label>
                             <input
-                              id="input-468"
+                              id="input-498"
                               type="text"
                             />
                           </div>
@@ -2331,13 +2828,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
                           >
                             <label
                               class="v-label theme--light"
-                              for="input-473"
+                              for="input-503"
                               style="left: 0px; position: absolute;"
                             >
                               I'm a property in subsection 2.2
                             </label>
                             <input
-                              id="input-473"
+                              id="input-503"
                               type="text"
                             />
                           </div>
@@ -2438,13 +2935,13 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
                           >
                             <label
                               class="v-label theme--light"
-                              for="input-499"
+                              for="input-529"
                               style="left: 0px; position: absolute;"
                             >
                               I'm a property in section 1
                             </label>
                             <input
-                              id="input-499"
+                              id="input-529"
                               type="text"
                             />
                           </div>
@@ -2516,13 +3013,13 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
                           >
                             <label
                               class="v-label theme--light"
-                              for="input-510"
+                              for="input-540"
                               style="left: 0px; position: absolute;"
                             >
                               I'm a property in section 2
                             </label>
                             <input
-                              id="input-510"
+                              id="input-540"
                               type="text"
                             />
                           </div>
@@ -2668,13 +3165,13 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
                               >
                                 <label
                                   class="v-label theme--light"
-                                  for="input-535"
+                                  for="input-565"
                                   style="left: 0px; position: absolute;"
                                 >
                                   I'm a property in section 1
                                 </label>
                                 <input
-                                  id="input-535"
+                                  id="input-565"
                                   type="text"
                                 />
                               </div>
@@ -2732,13 +3229,13 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
                               >
                                 <label
                                   class="v-label theme--light"
-                                  for="input-543"
+                                  for="input-573"
                                   style="left: 0px; position: absolute;"
                                 >
                                   I'm a property in section 2
                                 </label>
                                 <input
-                                  id="input-543"
+                                  id="input-573"
                                   type="text"
                                 />
                               </div>
@@ -2890,13 +3387,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                     >
                                       <label
                                         class="v-label theme--light"
-                                        for="input-690"
+                                        for="input-741"
                                         style="left: 0px; position: absolute;"
                                       >
                                         I'm a required string
                                       </label>
                                       <input
-                                        id="input-690"
+                                        id="input-741"
                                         type="text"
                                       />
                                     </div>
@@ -2954,13 +3451,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                     >
                                       <label
                                         class="v-label theme--light"
-                                        for="input-698"
+                                        for="input-749"
                                         style="left: 0px; position: absolute;"
                                       >
                                         I'm another required string
                                       </label>
                                       <input
-                                        id="input-698"
+                                        id="input-749"
                                         type="text"
                                       />
                                     </div>
@@ -3055,13 +3552,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                 >
                                   <label
                                     class="v-label theme--light"
-                                    for="input-711"
+                                    for="input-762"
                                     style="left: 0px; position: absolute;"
                                   >
                                     I'm a required string
                                   </label>
                                   <input
-                                    id="input-711"
+                                    id="input-762"
                                     type="text"
                                   />
                                 </div>
@@ -3133,13 +3630,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                 >
                                   <label
                                     class="v-label theme--light"
-                                    for="input-722"
+                                    for="input-773"
                                     style="left: 0px; position: absolute;"
                                   >
                                     I'm another required string
                                   </label>
                                   <input
-                                    id="input-722"
+                                    id="input-773"
                                     type="text"
                                   />
                                 </div>
@@ -4866,13 +5363,13 @@ exports[`Examples used as simple test cases Slots 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-646"
+                  for="input-676"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a property with Vuetify slots
                 </label>
                 <input
-                  id="input-646"
+                  id="input-676"
                   type="text"
                 />
               </div>
@@ -4963,13 +5460,13 @@ exports[`Examples used as simple test cases Tuples 1`] = `
                     >
                       <label
                         class="v-label v-label--active theme--light"
-                        for="input-773"
+                        for="input-824"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a number
                       </label>
                       <input
-                        id="input-773"
+                        id="input-824"
                         type="number"
                       />
                     </div>
@@ -5005,13 +5502,13 @@ exports[`Examples used as simple test cases Tuples 1`] = `
                     >
                       <label
                         class="v-label v-label--active theme--light"
-                        for="input-777"
+                        for="input-828"
                         style="left: 0px; position: absolute;"
                       >
                         I'm another number
                       </label>
                       <input
-                        id="input-777"
+                        id="input-828"
                         type="number"
                       />
                     </div>
@@ -5073,7 +5570,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-624"
+              aria-owns="list-654"
               class="v-input__slot"
               role="button"
             >
@@ -5093,7 +5590,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-624"
+                    id="input-654"
                     readonly="readonly"
                     type="text"
                   />
