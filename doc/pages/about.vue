@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <h1 class="headline my-4">
+    <h1 class="display-1 my-4">
       About
     </h1>
 
