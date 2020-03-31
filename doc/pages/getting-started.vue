@@ -1,10 +1,10 @@
 <template>
   <v-container>
-    <h1 class="display-1 my-4">
+    <h1 class="display-1 mb-4">
       Getting started
     </h1>
 
-    <h2 class="headline my4">
+    <h2 class="headline my-4">
       Load from CDN
     </h2>
     <!-- eslint-disable vue/html-indent -->
@@ -20,14 +20,14 @@
       <code class="javascript">Vue.component('VJsf', VJsf.default)</code>
     </v-sheet>
 
-    <h2 class="headline my4">
+    <h2 class="headline my-4">
       Load from NPM
     </h2>
     <v-sheet v-hljs dark class="codeblock">
       <code class="bash">npm install --save @koumoul/vjsf</code>
     </v-sheet>
 
-    <h3 class="title my4">
+    <h3 class="title my-4">
       Import built version of the module
     </h3>
     <v-sheet v-hljs dark class="codeblock">
@@ -41,7 +41,7 @@ import '@koumoul/vjsf/dist/third-party.css'
 Vue.component('VJsf', VJsf)</code>
     </v-sheet>
 
-    <h3 class="title my4">
+    <h3 class="title my-4">
       Import module from source
     </h3>
     <p>
@@ -65,7 +65,7 @@ build: {
       </code>
     </v-sheet>
 
-    <h2 class="headline my4">
+    <h2 class="headline my-4">
       Usage
     </h2>
 

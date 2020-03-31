@@ -2,7 +2,9 @@ const id = 'sections-expansion-panels'
 
 const title = 'Sections as expansion panels'
 
-const description = `Use the \`x-display="expansion-panels"\` annotation to display sections as panels.`
+const description = `Use the \`x-display="expansion-panels"\` annotation to display sections as panels.
+
+You can use the \`x-props\`annotation to configure the rendering of a specific set of expansion panels and the \`expansionPanelsProps\` option to configure default rendering of any set of tabs.`
 
 const schema = {
   type: 'object',

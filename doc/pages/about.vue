@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <h1 class="display-1 my-4">
+    <h1 class="display-1 mb-4">
       About
     </h1>
 
@@ -24,13 +24,13 @@
     </p>
 
     <p>
-      We try to find a nice balance between these qualities:
+      We try to strike a nice balance between these qualities:
     </p>
     <p>
       <ul>
         <li><b>simplicity</b> - feed vjsf a simple and valid JSON schema and you should get a viable form</li>
         <li><b>completeness</b> - the main JSON schemas semantics should be covered as well as the most common use-cases for forms in Web applications</li>
-        <li><b>extensibility</b> - more specific use cases should also be supported through the use of lower level tools like slots, custom validation rules, etc.</li>
+        <li><b>extensibility</b> - more specific use cases should also be supported through the use of lower level tools like slots, classes, etc.</li>
         <li><b>validity</b> - the output of the form should be valid against the provided schema</li>
         <li><b>homogeneity</b> - the look and feel should be consistent accross all form functionalities and inside your application as a whole</li>
       </ul>

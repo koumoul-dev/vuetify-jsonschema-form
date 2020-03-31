@@ -1,6 +1,6 @@
 <template>
   <v-container text-center>
-    <h1 class="display-4 mt-8 mb-4 primary--text">
+    <h1 class="display-4 my-4 primary--text">
       vjsf
     </h1>
 

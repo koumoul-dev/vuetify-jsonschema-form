@@ -6,7 +6,7 @@ const description = `Children objects are rendered as sections if they have a ti
 
 It is also possible to create sections without nesting levels in your schema by using \`allOf\`.
 
-Alternatively you can simply insert titles using \`before\` slots (see the slots example).`
+The rendering of sections is customized by the \`sectionsClass\` option (margins, and indenting) and the \`sectionsTitlesClasses\` (titles sizes ate different section depth).`
 
 const schema = {
   type: 'object',

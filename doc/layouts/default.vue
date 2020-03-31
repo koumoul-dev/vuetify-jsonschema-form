@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-navigation-drawer permanent app dark>
+    <v-navigation-drawer v-model="drawer" :temporary="$vuetify.breakpoint.smAndDown" :permanent="$vuetify.breakpoint.mdAndUp" app dark>
       <v-list-item to="/">
         <v-list-item-icon>
           <v-icon>mdi-home</v-icon>
@@ -27,10 +27,10 @@
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item to="/options">
+        <v-list-item to="/configuration">
           <v-list-item-content>
             <v-list-item-title>
-              Options / annotations
+              Configuration
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
@@ -52,10 +52,13 @@
         <span class="caption">Maintained by&nbsp;<a href="https://koumoul.com">Koumoul</a></span>
       </v-footer>
     </v-navigation-drawer>
-    <v-content>
-      <v-btn fab absolute small href="https://github.com/koumoul-dev/vuetify-jsonschema-form" style="top: 6px; right: 6px;" color="primary">
+    <v-app-bar app :color="$vuetify.breakpoint.smAndDown ? 'white' : 'transparent'" dense flat>
+      <v-app-bar-nav-icon v-if="$vuetify.breakpoint.smAndDown" @click.stop="drawer = !drawer" />
+      <v-btn fab absolute small href="https://github.com/koumoul-dev/vuetify-jsonschema-form" right color="primary">
         <v-icon>mdi-github</v-icon>
       </v-btn>
+    </v-app-bar>
+    <v-content>
       <nuxt />
     </v-content>
   </v-app>
@@ -66,7 +69,7 @@
 import { examples } from '~/examples'
 
 export default {
-  data: () => ({ examples })
+  data: () => ({ examples, drawer: true })
 }
 
 </script>
