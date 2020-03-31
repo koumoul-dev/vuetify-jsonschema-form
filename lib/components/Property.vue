@@ -759,7 +759,7 @@ export default {
       return this.fullSchema['x-itemIcon'] || (this.fullSchema['x-display'] === 'icon' ? this.itemKey : null)
     },
     disabled() {
-      return this.options.disableAll
+      return this.options.disableAll || this.fullSchema['x-disabled']
     },
     foldable() {
       return this.options.autoFoldObjects && this.parentKey && this.fullSchema.title
