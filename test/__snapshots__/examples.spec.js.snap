@@ -67,6 +67,48 @@ exports[`Examples used as simple test cases Basic types 1`] = `
         </div>
       </div>
       <div
+        class="flex vjsf-property vjsf-property-stringTextareaProp xs12  pr-2"
+      >
+        <div
+          class="v-input v-textarea theme--light v-text-field v-text-field--filled v-text-field--enclosed"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-text-field__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="input-13"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a string in a textarea
+                </label>
+                <textarea
+                  id="input-13"
+                  rows="5"
+                />
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <div
+                  class="v-messages__wrapper"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         class="flex vjsf-property vjsf-property-numberProp xs12  pr-2"
       >
         <div
@@ -83,13 +125,13 @@ exports[`Examples used as simple test cases Basic types 1`] = `
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-13"
+                  for="input-17"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a number
                 </label>
                 <input
-                  id="input-13"
+                  id="input-17"
                   type="number"
                 />
               </div>
@@ -125,13 +167,13 @@ exports[`Examples used as simple test cases Basic types 1`] = `
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-17"
+                  for="input-21"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an integer
                 </label>
                 <input
-                  id="input-17"
+                  id="input-21"
                   type="number"
                 />
               </div>
@@ -146,6 +188,74 @@ exports[`Examples used as simple test cases Basic types 1`] = `
                   class="v-messages__wrapper"
                 />
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex vjsf-property vjsf-property-integerSliderProp xs12  pr-2"
+      >
+        <div
+          class="v-input theme--light v-input__slider"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-25"
+                style="left: 0px; position: relative;"
+              >
+                I'm an integer in a slider
+              </label>
+              <div
+                class="v-slider v-slider--horizontal theme--light"
+              >
+                <input
+                  id="input-25"
+                  readonly="readonly"
+                  tabindex="-1"
+                  value="0"
+                />
+                <div
+                  class="v-slider__track-container"
+                >
+                  <div
+                    class="v-slider__track-background primary lighten-3"
+                    style="right: 0px;"
+                  />
+                  <div
+                    class="v-slider__track-fill primary"
+                    style="left: 0px; width: 0%;"
+                  />
+                </div>
+                <div
+                  aria-label="I'm an integer in a slider"
+                  aria-orientation="horizontal"
+                  aria-readonly="false"
+                  aria-valuemax="5"
+                  aria-valuemin="0"
+                  aria-valuenow="0"
+                  class="v-slider__thumb-container primary--text"
+                  role="slider"
+                  style="left: 0%;"
+                  tabindex="0"
+                >
+                  <div
+                    class="v-slider__thumb primary"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
             </div>
           </div>
         </div>
@@ -171,7 +281,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
                 />
                 <input
                   aria-checked="true"
-                  id="input-21"
+                  id="input-29"
                   role="checkbox"
                   type="checkbox"
                   value="true"
@@ -182,7 +292,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
               </div>
               <label
                 class="v-label theme--light"
-                for="input-21"
+                for="input-29"
                 style="left: 0px; position: relative;"
               >
                 I'm a boolean
@@ -210,7 +320,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-26"
+              aria-owns="list-34"
               class="v-input__slot"
               role="combobox"
             >
@@ -219,7 +329,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-26"
+                  for="input-34"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an array of strings
@@ -257,7 +367,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
                   </span>
                   <input
                     autocomplete="off"
-                    id="input-26"
+                    id="input-34"
                     type="text"
                   />
                 </div>
@@ -319,13 +429,13 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-690"
+                  for="input-663"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a required string
                 </label>
                 <input
-                  id="input-690"
+                  id="input-663"
                   type="text"
                 />
               </div>
@@ -361,13 +471,13 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-694"
+                  for="input-667"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a integer with min/max value
                 </label>
                 <input
-                  id="input-694"
+                  id="input-667"
                   type="number"
                 />
               </div>
@@ -403,13 +513,13 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-698"
+                  for="input-671"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a string with min/max length
                 </label>
                 <input
-                  id="input-698"
+                  id="input-671"
                   type="text"
                 />
               </div>
@@ -440,7 +550,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-702"
+              aria-owns="list-675"
               class="v-input__slot"
               role="combobox"
             >
@@ -449,7 +559,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-702"
+                  for="input-675"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an array with min/max items
@@ -473,7 +583,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
                   </span>
                   <input
                     autocomplete="off"
-                    id="input-702"
+                    id="input-675"
                     type="text"
                   />
                 </div>
@@ -535,13 +645,13 @@ exports[`Examples used as simple test cases Classes and styles 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-628"
+                  for="input-601"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a half width string
                 </label>
                 <input
-                  id="input-628"
+                  id="input-601"
                   type="text"
                 />
               </div>
@@ -577,13 +687,13 @@ exports[`Examples used as simple test cases Classes and styles 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-632"
+                  for="input-605"
                   style="left: 0px; position: absolute;"
                 >
                   I'm another half width string
                 </label>
                 <input
-                  id="input-632"
+                  id="input-605"
                   type="text"
                 />
               </div>
@@ -620,13 +730,13 @@ exports[`Examples used as simple test cases Classes and styles 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-636"
+                  for="input-609"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a string with style
                 </label>
                 <input
-                  id="input-636"
+                  id="input-609"
                   type="text"
                 />
               </div>
@@ -662,7 +772,7 @@ exports[`Examples used as simple test cases Colors 1`] = `
       class="layout row wrap ma-0 "
     >
       <div
-        class="flex vjsf-property vjsf-property-swatchColorProp xs12  pr-2"
+        class="flex vjsf-property vjsf-property-colorProp xs12  pr-2"
       >
         <div
           class="v-input theme--light"
@@ -675,623 +785,19 @@ exports[`Examples used as simple test cases Colors 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-104"
+                for="input-118"
                 style="left: 0px; position: relative;"
               >
-                I'm a color picked with Vue Swatches
+                I'm a color
               </label>
               <div
-                class="vue-swatches"
-                style="margin-left: 10px;"
-                tabindex="0"
+                class="v-menu"
               >
-                <div>
-                  <div
-                    class="vue-swatches__trigger vue-swatches--is-empty"
-                    style="width: 36px; height: 36px; background-color: rgb(255, 255, 255); border-radius: 50%;"
-                  >
-                    <div
-                      class="vue-swatches__diagonal--wrapper vue-swatches--has-children-centered"
-                    >
-                      <div
-                        class="vue-swatches__diagonal"
-                      />
-                    </div>
-                  </div>
-                </div>
-                 
                 <div
-                  class="vue-swatches__container"
-                  style="left: 0px; background-color: rgb(255, 255, 255); max-height: 300px; display: none;"
-                >
-                  <div
-                    class="vue-swatches__wrapper"
-                    style="padding-top: 11px; padding-left: 11px; width: 212px;"
-                  >
-                    <div
-                      class="vue-swatches__swatch"
-                      style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(244, 67, 54); cursor: pointer;"
-                    >
-                      <!---->
-                       
-                      <div
-                        class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
-                        style="display: none;"
-                      >
-                        <div
-                          class="vue-swatches__check__circle vue-swatches--has-children-centered"
-                        >
-                          <svg
-                            class="check"
-                            height="12"
-                            role="presentation"
-                            version="1.1"
-                            viewBox="0 0 1792 1792"
-                            width="12"
-                          >
-                            <path
-                              class="vue-swatches__check__path"
-                              d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="vue-swatches__swatch"
-                      style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(233, 30, 99); cursor: pointer;"
-                    >
-                      <!---->
-                       
-                      <div
-                        class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
-                        style="display: none;"
-                      >
-                        <div
-                          class="vue-swatches__check__circle vue-swatches--has-children-centered"
-                        >
-                          <svg
-                            class="check"
-                            height="12"
-                            role="presentation"
-                            version="1.1"
-                            viewBox="0 0 1792 1792"
-                            width="12"
-                          >
-                            <path
-                              class="vue-swatches__check__path"
-                              d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="vue-swatches__swatch"
-                      style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(156, 39, 176); cursor: pointer;"
-                    >
-                      <!---->
-                       
-                      <div
-                        class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
-                        style="display: none;"
-                      >
-                        <div
-                          class="vue-swatches__check__circle vue-swatches--has-children-centered"
-                        >
-                          <svg
-                            class="check"
-                            height="12"
-                            role="presentation"
-                            version="1.1"
-                            viewBox="0 0 1792 1792"
-                            width="12"
-                          >
-                            <path
-                              class="vue-swatches__check__path"
-                              d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="vue-swatches__swatch"
-                      style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(103, 58, 183); cursor: pointer;"
-                    >
-                      <!---->
-                       
-                      <div
-                        class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
-                        style="display: none;"
-                      >
-                        <div
-                          class="vue-swatches__check__circle vue-swatches--has-children-centered"
-                        >
-                          <svg
-                            class="check"
-                            height="12"
-                            role="presentation"
-                            version="1.1"
-                            viewBox="0 0 1792 1792"
-                            width="12"
-                          >
-                            <path
-                              class="vue-swatches__check__path"
-                              d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="vue-swatches__swatch"
-                      style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(63, 81, 181); cursor: pointer;"
-                    >
-                      <!---->
-                       
-                      <div
-                        class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
-                        style="display: none;"
-                      >
-                        <div
-                          class="vue-swatches__check__circle vue-swatches--has-children-centered"
-                        >
-                          <svg
-                            class="check"
-                            height="12"
-                            role="presentation"
-                            version="1.1"
-                            viewBox="0 0 1792 1792"
-                            width="12"
-                          >
-                            <path
-                              class="vue-swatches__check__path"
-                              d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="vue-swatches__swatch"
-                      style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(33, 150, 243); cursor: pointer;"
-                    >
-                      <!---->
-                       
-                      <div
-                        class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
-                        style="display: none;"
-                      >
-                        <div
-                          class="vue-swatches__check__circle vue-swatches--has-children-centered"
-                        >
-                          <svg
-                            class="check"
-                            height="12"
-                            role="presentation"
-                            version="1.1"
-                            viewBox="0 0 1792 1792"
-                            width="12"
-                          >
-                            <path
-                              class="vue-swatches__check__path"
-                              d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="vue-swatches__swatch"
-                      style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(3, 169, 244); cursor: pointer;"
-                    >
-                      <!---->
-                       
-                      <div
-                        class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
-                        style="display: none;"
-                      >
-                        <div
-                          class="vue-swatches__check__circle vue-swatches--has-children-centered"
-                        >
-                          <svg
-                            class="check"
-                            height="12"
-                            role="presentation"
-                            version="1.1"
-                            viewBox="0 0 1792 1792"
-                            width="12"
-                          >
-                            <path
-                              class="vue-swatches__check__path"
-                              d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="vue-swatches__swatch"
-                      style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(0, 188, 212); cursor: pointer;"
-                    >
-                      <!---->
-                       
-                      <div
-                        class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
-                        style="display: none;"
-                      >
-                        <div
-                          class="vue-swatches__check__circle vue-swatches--has-children-centered"
-                        >
-                          <svg
-                            class="check"
-                            height="12"
-                            role="presentation"
-                            version="1.1"
-                            viewBox="0 0 1792 1792"
-                            width="12"
-                          >
-                            <path
-                              class="vue-swatches__check__path"
-                              d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="vue-swatches__swatch"
-                      style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(0, 150, 136); cursor: pointer;"
-                    >
-                      <!---->
-                       
-                      <div
-                        class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
-                        style="display: none;"
-                      >
-                        <div
-                          class="vue-swatches__check__circle vue-swatches--has-children-centered"
-                        >
-                          <svg
-                            class="check"
-                            height="12"
-                            role="presentation"
-                            version="1.1"
-                            viewBox="0 0 1792 1792"
-                            width="12"
-                          >
-                            <path
-                              class="vue-swatches__check__path"
-                              d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="vue-swatches__swatch"
-                      style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(76, 175, 80); cursor: pointer;"
-                    >
-                      <!---->
-                       
-                      <div
-                        class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
-                        style="display: none;"
-                      >
-                        <div
-                          class="vue-swatches__check__circle vue-swatches--has-children-centered"
-                        >
-                          <svg
-                            class="check"
-                            height="12"
-                            role="presentation"
-                            version="1.1"
-                            viewBox="0 0 1792 1792"
-                            width="12"
-                          >
-                            <path
-                              class="vue-swatches__check__path"
-                              d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="vue-swatches__swatch"
-                      style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(139, 195, 74); cursor: pointer;"
-                    >
-                      <!---->
-                       
-                      <div
-                        class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
-                        style="display: none;"
-                      >
-                        <div
-                          class="vue-swatches__check__circle vue-swatches--has-children-centered"
-                        >
-                          <svg
-                            class="check"
-                            height="12"
-                            role="presentation"
-                            version="1.1"
-                            viewBox="0 0 1792 1792"
-                            width="12"
-                          >
-                            <path
-                              class="vue-swatches__check__path"
-                              d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="vue-swatches__swatch"
-                      style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(205, 220, 57); cursor: pointer;"
-                    >
-                      <!---->
-                       
-                      <div
-                        class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
-                        style="display: none;"
-                      >
-                        <div
-                          class="vue-swatches__check__circle vue-swatches--has-children-centered"
-                        >
-                          <svg
-                            class="check"
-                            height="12"
-                            role="presentation"
-                            version="1.1"
-                            viewBox="0 0 1792 1792"
-                            width="12"
-                          >
-                            <path
-                              class="vue-swatches__check__path"
-                              d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="vue-swatches__swatch"
-                      style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(255, 235, 59); cursor: pointer;"
-                    >
-                      <!---->
-                       
-                      <div
-                        class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
-                        style="display: none;"
-                      >
-                        <div
-                          class="vue-swatches__check__circle vue-swatches--has-children-centered"
-                        >
-                          <svg
-                            class="check"
-                            height="12"
-                            role="presentation"
-                            version="1.1"
-                            viewBox="0 0 1792 1792"
-                            width="12"
-                          >
-                            <path
-                              class="vue-swatches__check__path"
-                              d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="vue-swatches__swatch"
-                      style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(255, 193, 7); cursor: pointer;"
-                    >
-                      <!---->
-                       
-                      <div
-                        class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
-                        style="display: none;"
-                      >
-                        <div
-                          class="vue-swatches__check__circle vue-swatches--has-children-centered"
-                        >
-                          <svg
-                            class="check"
-                            height="12"
-                            role="presentation"
-                            version="1.1"
-                            viewBox="0 0 1792 1792"
-                            width="12"
-                          >
-                            <path
-                              class="vue-swatches__check__path"
-                              d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="vue-swatches__swatch"
-                      style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(255, 152, 0); cursor: pointer;"
-                    >
-                      <!---->
-                       
-                      <div
-                        class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
-                        style="display: none;"
-                      >
-                        <div
-                          class="vue-swatches__check__circle vue-swatches--has-children-centered"
-                        >
-                          <svg
-                            class="check"
-                            height="12"
-                            role="presentation"
-                            version="1.1"
-                            viewBox="0 0 1792 1792"
-                            width="12"
-                          >
-                            <path
-                              class="vue-swatches__check__path"
-                              d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="vue-swatches__swatch"
-                      style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(255, 87, 34); cursor: pointer;"
-                    >
-                      <!---->
-                       
-                      <div
-                        class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
-                        style="display: none;"
-                      >
-                        <div
-                          class="vue-swatches__check__circle vue-swatches--has-children-centered"
-                        >
-                          <svg
-                            class="check"
-                            height="12"
-                            role="presentation"
-                            version="1.1"
-                            viewBox="0 0 1792 1792"
-                            width="12"
-                          >
-                            <path
-                              class="vue-swatches__check__path"
-                              d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="vue-swatches__swatch"
-                      style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(121, 85, 72); cursor: pointer;"
-                    >
-                      <!---->
-                       
-                      <div
-                        class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
-                        style="display: none;"
-                      >
-                        <div
-                          class="vue-swatches__check__circle vue-swatches--has-children-centered"
-                        >
-                          <svg
-                            class="check"
-                            height="12"
-                            role="presentation"
-                            version="1.1"
-                            viewBox="0 0 1792 1792"
-                            width="12"
-                          >
-                            <path
-                              class="vue-swatches__check__path"
-                              d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="vue-swatches__swatch"
-                      style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(158, 158, 158); cursor: pointer;"
-                    >
-                      <!---->
-                       
-                      <div
-                        class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
-                        style="display: none;"
-                      >
-                        <div
-                          class="vue-swatches__check__circle vue-swatches--has-children-centered"
-                        >
-                          <svg
-                            class="check"
-                            height="12"
-                            role="presentation"
-                            version="1.1"
-                            viewBox="0 0 1792 1792"
-                            width="12"
-                          >
-                            <path
-                              class="vue-swatches__check__path"
-                              d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="vue-swatches__swatch"
-                      style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(96, 125, 139); cursor: pointer;"
-                    >
-                      <!---->
-                       
-                      <div
-                        class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
-                        style="display: none;"
-                      >
-                        <div
-                          class="vue-swatches__check__circle vue-swatches--has-children-centered"
-                        >
-                          <svg
-                            class="check"
-                            height="12"
-                            role="presentation"
-                            version="1.1"
-                            viewBox="0 0 1792 1792"
-                            width="12"
-                          >
-                            <path
-                              class="vue-swatches__check__path"
-                              d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="vue-swatches__swatch"
-                      style="display: inline-block; width: 36px; height: 36px; margin-bottom: 6px; margin-right: 6px; border-radius: 50%; background-color: rgb(0, 0, 0); cursor: pointer;"
-                    >
-                      <!---->
-                       
-                      <div
-                        class="vue-swatches__check__wrapper vue-swatches--has-children-centered"
-                        style="display: none;"
-                      >
-                        <div
-                          class="vue-swatches__check__circle vue-swatches--has-children-centered"
-                        >
-                          <svg
-                            class="check"
-                            height="12"
-                            role="presentation"
-                            version="1.1"
-                            viewBox="0 0 1792 1792"
-                            width="12"
-                          >
-                            <path
-                              class="vue-swatches__check__path"
-                              d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                   
-                  <!---->
-                </div>
+                  class="color-picker-trigger color-picker-trigger-empty"
+                  style="margin-left: 10px;"
+                />
+                <!---->
               </div>
             </div>
             <div
@@ -1318,7 +824,7 @@ exports[`Examples used as simple test cases Colors 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-colorPickerProp xs12  pr-2"
+        class="flex vjsf-property vjsf-property-colorProp xs12  pr-2"
       >
         <div
           class="v-input theme--light"
@@ -1331,10 +837,10 @@ exports[`Examples used as simple test cases Colors 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-152"
+                for="input-125"
                 style="left: 0px; position: relative;"
               >
-                I'm a color picked with vue-color
+                I'm a color with a swatches based picker
               </label>
               <div
                 class="v-menu"
@@ -1404,13 +910,13 @@ exports[`Examples used as simple test cases Dates 1`] = `
                 >
                   <label
                     class="v-label theme--light"
-                    for="input-60"
+                    for="input-74"
                     style="left: 0px; position: absolute;"
                   >
                     I'm a simple date
                   </label>
                   <input
-                    id="input-60"
+                    id="input-74"
                     readonly="readonly"
                     type="text"
                   />
@@ -1491,13 +997,13 @@ exports[`Examples used as simple test cases Dates 1`] = `
                 >
                   <label
                     class="v-label theme--light"
-                    for="input-69"
+                    for="input-83"
                     style="left: 0px; position: absolute;"
                   >
                     I'm a simple time of day
                   </label>
                   <input
-                    id="input-69"
+                    id="input-83"
                     readonly="readonly"
                     type="text"
                   />
@@ -1565,13 +1071,13 @@ exports[`Examples used as simple test cases Dates 1`] = `
                 >
                   <label
                     class="v-label theme--light"
-                    for="input-76"
+                    for="input-90"
                     style="left: 0px; position: absolute;"
                   >
                     I'm a date with time
                   </label>
                   <input
-                    id="input-76"
+                    id="input-90"
                     readonly="readonly"
                     type="text"
                   />
@@ -1701,7 +1207,7 @@ exports[`Examples used as simple test cases Files 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-421"
+                  for="input-394"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a PNG image stored as a base64 string
@@ -1711,7 +1217,7 @@ exports[`Examples used as simple test cases Files 1`] = `
                 />
                 <input
                   accept="image/png"
-                  id="input-421"
+                  id="input-394"
                   type="file"
                 />
               </div>
@@ -1774,7 +1280,7 @@ exports[`Examples used as simple test cases Files 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-427"
+                  for="input-400"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an image stored as a data url
@@ -1784,7 +1290,7 @@ exports[`Examples used as simple test cases Files 1`] = `
                 />
                 <input
                   accept="image/*"
-                  id="input-427"
+                  id="input-400"
                   type="file"
                 />
               </div>
@@ -1847,7 +1353,7 @@ exports[`Examples used as simple test cases Files 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-433"
+                  for="input-406"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an array of images
@@ -1857,7 +1363,7 @@ exports[`Examples used as simple test cases Files 1`] = `
                 />
                 <input
                   accept="image/*"
-                  id="input-433"
+                  id="input-406"
                   multiple="multiple"
                   type="file"
                 />
@@ -1921,7 +1427,7 @@ exports[`Examples used as simple test cases Files 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-439"
+                  for="input-412"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a file as an object with base64 data
@@ -1931,7 +1437,7 @@ exports[`Examples used as simple test cases Files 1`] = `
                 />
                 <input
                   accept="image/*"
-                  id="input-439"
+                  id="input-412"
                   type="file"
                 />
               </div>
@@ -1994,7 +1500,7 @@ exports[`Examples used as simple test cases Files 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-445"
+                  for="input-418"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a file as an object with Blob data
@@ -2004,7 +1510,7 @@ exports[`Examples used as simple test cases Files 1`] = `
                 />
                 <input
                   accept="image/*"
-                  id="input-445"
+                  id="input-418"
                   type="file"
                 />
               </div>
@@ -2067,7 +1573,7 @@ exports[`Examples used as simple test cases Files 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-451"
+                  for="input-424"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an array of files as objects with Blob data
@@ -2077,7 +1583,7 @@ exports[`Examples used as simple test cases Files 1`] = `
                 />
                 <input
                   accept="image/*"
-                  id="input-451"
+                  id="input-424"
                   multiple="multiple"
                   type="file"
                 />
@@ -2159,13 +1665,13 @@ exports[`Examples used as simple test cases Localization 1`] = `
                 >
                   <label
                     class="v-label v-label--active theme--light"
-                    for="input-897"
+                    for="input-870"
                     style="left: 0px; position: absolute;"
                   >
                     Je suis une date
                   </label>
                   <input
-                    id="input-897"
+                    id="input-870"
                     readonly="readonly"
                     type="text"
                   />
@@ -2212,7 +1718,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-903"
+              aria-owns="list-876"
               class="v-input__slot"
               role="combobox"
             >
@@ -2221,7 +1727,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-903"
+                  for="input-876"
                   style="left: 0px; position: absolute;"
                 >
                   Je suis un champ de recherche
@@ -2231,7 +1737,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    id="input-903"
+                    id="input-876"
                     placeholder="Recherchez..."
                     type="text"
                   />
@@ -2321,7 +1827,7 @@ exports[`Examples used as simple test cases Read only content 1`] = `
         class="flex vjsf-property vjsf-property-readOnlyProp xs12  pr-2"
       >
         <div
-          class="v-input v-input--is-label-active v-input--is-dirty v-input--is-disabled v-input--dense theme--light v-text-field"
+          class="v-input v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field"
         >
           <div
             class="v-input__control"
@@ -2334,14 +1840,14 @@ exports[`Examples used as simple test cases Read only content 1`] = `
               >
                 <label
                   class="v-label v-label--active v-label--is-disabled theme--light"
-                  for="input-842"
+                  for="input-815"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a read-only string
                 </label>
                 <input
                   disabled="disabled"
-                  id="input-842"
+                  id="input-815"
                   type="text"
                 />
               </div>
@@ -2378,7 +1884,7 @@ exports[`Examples used as simple test cases Read only content 1`] = `
               class="flex vjsf-property vjsf-property-readOnlySection-stringProp xs12  pr-2"
             >
               <div
-                class="v-input v-input--is-label-active v-input--is-dirty v-input--is-disabled v-input--dense theme--light v-text-field"
+                class="v-input v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field"
               >
                 <div
                   class="v-input__control"
@@ -2391,14 +1897,14 @@ exports[`Examples used as simple test cases Read only content 1`] = `
                     >
                       <label
                         class="v-label v-label--active v-label--is-disabled theme--light"
-                        for="input-847"
+                        for="input-820"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a string in a read-only section
                       </label>
                       <input
                         disabled="disabled"
-                        id="input-847"
+                        id="input-820"
                         type="text"
                       />
                     </div>
@@ -2438,7 +1944,7 @@ exports[`Examples used as simple test cases Read only content 1`] = `
               class="flex vjsf-property vjsf-property-disabledSection-stringProp xs12  pr-2"
             >
               <div
-                class="v-input v-input--is-label-active v-input--is-dirty v-input--is-disabled v-input--dense theme--light v-text-field"
+                class="v-input v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field"
               >
                 <div
                   class="v-input__control"
@@ -2451,14 +1957,14 @@ exports[`Examples used as simple test cases Read only content 1`] = `
                     >
                       <label
                         class="v-label v-label--active v-label--is-disabled theme--light"
-                        for="input-852"
+                        for="input-825"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a string in a disabled section
                       </label>
                       <input
                         disabled="disabled"
-                        id="input-852"
+                        id="input-825"
                         type="text"
                       />
                     </div>
@@ -2512,13 +2018,13 @@ exports[`Examples used as simple test cases Read only content 1`] = `
                     >
                       <label
                         class="v-label theme--light"
-                        for="input-858"
+                        for="input-831"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a string
                       </label>
                       <input
-                        id="input-858"
+                        id="input-831"
                         type="text"
                       />
                     </div>
@@ -2572,13 +2078,13 @@ exports[`Examples used as simple test cases Read only content 1`] = `
                     >
                       <label
                         class="v-label theme--light"
-                        for="input-864"
+                        for="input-837"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a string
                       </label>
                       <input
-                        id="input-864"
+                        id="input-837"
                         type="text"
                       />
                     </div>
@@ -2654,13 +2160,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
                     >
                       <label
                         class="v-label theme--light"
-                        for="input-488"
+                        for="input-461"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a property in section 1
                       </label>
                       <input
-                        id="input-488"
+                        id="input-461"
                         type="text"
                       />
                     </div>
@@ -2713,13 +2219,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
                     >
                       <label
                         class="v-label theme--light"
-                        for="input-493"
+                        for="input-466"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a property in section 2
                       </label>
                       <input
-                        id="input-493"
+                        id="input-466"
                         type="text"
                       />
                     </div>
@@ -2769,13 +2275,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
                           >
                             <label
                               class="v-label theme--light"
-                              for="input-498"
+                              for="input-471"
                               style="left: 0px; position: absolute;"
                             >
                               I'm a property in subsection 2.1
                             </label>
                             <input
-                              id="input-498"
+                              id="input-471"
                               type="text"
                             />
                           </div>
@@ -2828,13 +2334,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
                           >
                             <label
                               class="v-label theme--light"
-                              for="input-503"
+                              for="input-476"
                               style="left: 0px; position: absolute;"
                             >
                               I'm a property in subsection 2.2
                             </label>
                             <input
-                              id="input-503"
+                              id="input-476"
                               type="text"
                             />
                           </div>
@@ -2935,13 +2441,13 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
                           >
                             <label
                               class="v-label theme--light"
-                              for="input-529"
+                              for="input-502"
                               style="left: 0px; position: absolute;"
                             >
                               I'm a property in section 1
                             </label>
                             <input
-                              id="input-529"
+                              id="input-502"
                               type="text"
                             />
                           </div>
@@ -3013,13 +2519,13 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
                           >
                             <label
                               class="v-label theme--light"
-                              for="input-540"
+                              for="input-513"
                               style="left: 0px; position: absolute;"
                             >
                               I'm a property in section 2
                             </label>
                             <input
-                              id="input-540"
+                              id="input-513"
                               type="text"
                             />
                           </div>
@@ -3165,13 +2671,13 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
                               >
                                 <label
                                   class="v-label theme--light"
-                                  for="input-565"
+                                  for="input-538"
                                   style="left: 0px; position: absolute;"
                                 >
                                   I'm a property in section 1
                                 </label>
                                 <input
-                                  id="input-565"
+                                  id="input-538"
                                   type="text"
                                 />
                               </div>
@@ -3229,13 +2735,13 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
                               >
                                 <label
                                   class="v-label theme--light"
-                                  for="input-573"
+                                  for="input-546"
                                   style="left: 0px; position: absolute;"
                                 >
                                   I'm a property in section 2
                                 </label>
                                 <input
-                                  id="input-573"
+                                  id="input-546"
                                   type="text"
                                 />
                               </div>
@@ -3293,7 +2799,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
             class="layout row wrap ma-0 "
           >
             <div
-              class="v-tabs theme--light"
+              class="v-tabs v-tabs--grow theme--light"
             >
               <div
                 class="v-item-group theme--light v-slide-group v-tabs-bar v-tabs-bar--is-mobile primary--text"
@@ -3387,13 +2893,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                     >
                                       <label
                                         class="v-label theme--light"
-                                        for="input-741"
+                                        for="input-714"
                                         style="left: 0px; position: absolute;"
                                       >
                                         I'm a required string
                                       </label>
                                       <input
-                                        id="input-741"
+                                        id="input-714"
                                         type="text"
                                       />
                                     </div>
@@ -3451,13 +2957,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                     >
                                       <label
                                         class="v-label theme--light"
-                                        for="input-749"
+                                        for="input-722"
                                         style="left: 0px; position: absolute;"
                                       >
                                         I'm another required string
                                       </label>
                                       <input
-                                        id="input-749"
+                                        id="input-722"
                                         type="text"
                                       />
                                     </div>
@@ -3505,11 +3011,11 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
               class="v-item-group theme--light v-expansion-panels"
             >
               <div
-                aria-expanded="false"
-                class="v-expansion-panel"
+                aria-expanded="true"
+                class="v-expansion-panel v-expansion-panel--active v-item--active"
               >
                 <button
-                  class="v-expansion-panel-header"
+                  class="v-expansion-panel-header v-expansion-panel-header--active"
                   type="button"
                 >
                   Section 1
@@ -3524,7 +3030,6 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                 </button>
                 <div
                   class="v-expansion-panel-content"
-                  style="display: none;"
                 >
                   <div
                     class="v-expansion-panel-content__wrap"
@@ -3552,13 +3057,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                 >
                                   <label
                                     class="v-label theme--light"
-                                    for="input-762"
+                                    for="input-735"
                                     style="left: 0px; position: absolute;"
                                   >
                                     I'm a required string
                                   </label>
                                   <input
-                                    id="input-762"
+                                    id="input-735"
                                     type="text"
                                   />
                                 </div>
@@ -3630,13 +3135,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                 >
                                   <label
                                     class="v-label theme--light"
-                                    for="input-773"
+                                    for="input-746"
                                     style="left: 0px; position: absolute;"
                                   >
                                     I'm another required string
                                   </label>
                                   <input
-                                    id="input-773"
+                                    id="input-746"
                                     type="text"
                                   />
                                 </div>
@@ -3692,7 +3197,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-167"
+              aria-owns="list-140"
               class="v-input__slot"
               role="button"
             >
@@ -3701,7 +3206,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-167"
+                  for="input-140"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a string with values from an enum
@@ -3712,7 +3217,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-167"
+                    id="input-140"
                     readonly="readonly"
                     type="text"
                   />
@@ -3792,7 +3297,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-176"
+              aria-owns="list-149"
               class="v-input__slot"
               role="button"
             >
@@ -3801,7 +3306,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-176"
+                  for="input-149"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an array of strings with values from an enum
@@ -3812,7 +3317,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-176"
+                    id="input-149"
                     readonly="readonly"
                     type="text"
                   />
@@ -3879,7 +3384,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-183"
+              aria-owns="list-156"
               class="v-input__slot"
               role="button"
             >
@@ -3888,7 +3393,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-183"
+                  for="input-156"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a string with values/labels from a oneOf
@@ -3899,7 +3404,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-183"
+                    id="input-156"
                     readonly="readonly"
                     type="text"
                   />
@@ -3966,7 +3471,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-190"
+              aria-owns="list-163"
               class="v-input__slot"
               role="button"
             >
@@ -3975,7 +3480,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-190"
+                  for="input-163"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an array of strings with values/labels from a oneOf
@@ -3986,7 +3491,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-190"
+                    id="input-163"
                     readonly="readonly"
                     type="text"
                   />
@@ -4053,7 +3558,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-197"
+              aria-owns="list-170"
               class="v-input__slot"
               role="combobox"
             >
@@ -4062,7 +3567,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-197"
+                  for="input-170"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a string with values from a large enum
@@ -4072,7 +3577,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    id="input-197"
+                    id="input-170"
                     placeholder="Search..."
                     type="text"
                   />
@@ -4168,7 +3673,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-241"
+              aria-owns="list-214"
               class="v-input__slot"
               role="button"
             >
@@ -4177,7 +3682,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-241"
+                  for="input-214"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a string selected from results of an HTTP request
@@ -4188,7 +3693,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-241"
+                    id="input-214"
                     readonly="readonly"
                     type="text"
                   />
@@ -4255,7 +3760,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-248"
+              aria-owns="list-221"
               class="v-input__slot"
               role="button"
             >
@@ -4264,7 +3769,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-248"
+                  for="input-221"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an array of strings selected from results of an HTTP request
@@ -4275,7 +3780,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-248"
+                    id="input-221"
                     readonly="readonly"
                     type="text"
                   />
@@ -4342,7 +3847,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-255"
+              aria-owns="list-228"
               class="v-input__slot"
               role="button"
             >
@@ -4351,7 +3856,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-255"
+                  for="input-228"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an object selected from results of an HTTP request
@@ -4362,7 +3867,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-255"
+                    id="input-228"
                     readonly="readonly"
                     type="text"
                   />
@@ -4429,7 +3934,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-262"
+              aria-owns="list-235"
               class="v-input__slot"
               role="button"
             >
@@ -4438,7 +3943,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-262"
+                  for="input-235"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an array of objects selected from results of an HTTP request
@@ -4449,7 +3954,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-262"
+                    id="input-235"
                     readonly="readonly"
                     type="text"
                   />
@@ -4516,7 +4021,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-269"
+              aria-owns="list-242"
               class="v-input__slot"
               role="button"
             >
@@ -4525,7 +4030,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-269"
+                  for="input-242"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an object from a large HTTP request
@@ -4536,7 +4041,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-269"
+                    id="input-242"
                     readonly="readonly"
                     type="text"
                   />
@@ -4603,7 +4108,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-276"
+              aria-owns="list-249"
               class="v-input__slot"
               role="combobox"
             >
@@ -4612,7 +4117,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-276"
+                  for="input-249"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an object from a HTTP request with query
@@ -4622,7 +4127,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    id="input-276"
+                    id="input-249"
                     placeholder="Search..."
                     type="text"
                   />
@@ -4702,7 +4207,7 @@ exports[`Examples used as simple test cases Selects of sub-schemas 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-405"
+            aria-owns="list-378"
             class="v-input__slot"
             role="button"
           >
@@ -4711,7 +4216,7 @@ exports[`Examples used as simple test cases Selects of sub-schemas 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-405"
+                for="input-378"
                 style="left: 0px; position: absolute;"
               >
                 Select a sub-schema
@@ -4722,7 +4227,7 @@ exports[`Examples used as simple test cases Selects of sub-schemas 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-405"
+                  id="input-378"
                   readonly="readonly"
                   type="text"
                 />
@@ -4797,7 +4302,7 @@ exports[`Examples used as simple test cases Selects with dependencies 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-390"
+              aria-owns="list-363"
               class="v-input__slot"
               role="button"
             >
@@ -4806,7 +4311,7 @@ exports[`Examples used as simple test cases Selects with dependencies 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-390"
+                  for="input-363"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an object from HTTP request used as source for next select
@@ -4817,7 +4322,7 @@ exports[`Examples used as simple test cases Selects with dependencies 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-390"
+                    id="input-363"
                     readonly="readonly"
                     type="text"
                   />
@@ -4900,7 +4405,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-322"
+              aria-owns="list-295"
               class="v-input__slot"
               role="button"
             >
@@ -4909,7 +4414,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-322"
+                  for="input-295"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a simple select with icon codes in enum
@@ -4920,7 +4425,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-322"
+                    id="input-295"
                     readonly="readonly"
                     type="text"
                   />
@@ -4987,7 +4492,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-329"
+              aria-owns="list-302"
               class="v-input__slot"
               role="button"
             >
@@ -4996,7 +4501,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-329"
+                  for="input-302"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a multiple select with icon codes in enum
@@ -5007,7 +4512,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-329"
+                    id="input-302"
                     readonly="readonly"
                     type="text"
                   />
@@ -5074,7 +4579,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-336"
+              aria-owns="list-309"
               class="v-input__slot"
               role="button"
             >
@@ -5083,7 +4588,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-336"
+                  for="input-309"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a select with icon codes and titles in a oneOf
@@ -5094,7 +4599,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-336"
+                    id="input-309"
                     readonly="readonly"
                     type="text"
                   />
@@ -5161,7 +4666,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-343"
+              aria-owns="list-316"
               class="v-input__slot"
               role="combobox"
             >
@@ -5170,7 +4675,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-343"
+                  for="input-316"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a select based on HTTP requests with links to icons
@@ -5180,7 +4685,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    id="input-343"
+                    id="input-316"
                     placeholder="Search..."
                     type="text"
                   />
@@ -5247,7 +4752,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-350"
+              aria-owns="list-323"
               class="v-input__slot"
               role="combobox"
             >
@@ -5256,7 +4761,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-350"
+                  for="input-323"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a select based on HTTP requests with SVG code in response
@@ -5266,7 +4771,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    id="input-350"
+                    id="input-323"
                     placeholder="Search..."
                     type="text"
                   />
@@ -5363,13 +4868,13 @@ exports[`Examples used as simple test cases Slots 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-676"
+                  for="input-649"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a property with Vuetify slots
                 </label>
                 <input
-                  id="input-676"
+                  id="input-649"
                   type="text"
                 />
               </div>
@@ -5460,13 +4965,13 @@ exports[`Examples used as simple test cases Tuples 1`] = `
                     >
                       <label
                         class="v-label v-label--active theme--light"
-                        for="input-824"
+                        for="input-797"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a number
                       </label>
                       <input
-                        id="input-824"
+                        id="input-797"
                         type="number"
                       />
                     </div>
@@ -5502,13 +5007,13 @@ exports[`Examples used as simple test cases Tuples 1`] = `
                     >
                       <label
                         class="v-label v-label--active theme--light"
-                        for="input-828"
+                        for="input-801"
                         style="left: 0px; position: absolute;"
                       >
                         I'm another number
                       </label>
                       <input
-                        id="input-828"
+                        id="input-801"
                         type="number"
                       />
                     </div>
@@ -5570,7 +5075,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-654"
+              aria-owns="list-627"
               class="v-input__slot"
               role="button"
             >
@@ -5590,7 +5095,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-654"
+                    id="input-627"
                     readonly="readonly"
                     type="text"
                   />

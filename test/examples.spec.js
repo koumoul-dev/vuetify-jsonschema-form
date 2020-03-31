@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import Draggable from 'vuedraggable'
-import Swatches from 'vue-swatches'
-import { Sketch } from 'vue-color'
 
 import { createLocalVue, mount } from '@vue/test-utils'
 import VJsf from '../lib/VJsfNoDeps.js'
@@ -12,9 +10,7 @@ import { examples, defaultTemplate } from '../doc/examples'
 Vue.use(Vuetify)
 const localVue = createLocalVue()
 localVue.component('v-jsf', VJsf)
-localVue.component('swatches', Swatches)
 localVue.component('draggable', Draggable)
-localVue.component('color-picker', Sketch)
 
 describe('Examples used as simple test cases', () => {
   examples.forEach(example => {

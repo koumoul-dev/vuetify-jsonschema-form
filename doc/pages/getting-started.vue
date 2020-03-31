@@ -11,7 +11,7 @@
     <v-sheet v-hljs dark class="codeblock">
       <code class="html">&lt;script src="https://cdn.jsdelivr.net/npm/@koumoul/vjsf@latest/dist/main.js"&gt;&lt;/script&gt;
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@koumoul/vjsf@latest/dist/main.css"&gt;
-&lt;!-- load all third-party dependencies (markdown-it, vue-color, vue-swatches, vuedraggable) --&gt;
+&lt;!-- load third-party dependencies (markdown-it, vuedraggable) --&gt;
 &lt;!-- you can also load them separately based on your needs --&gt;
 &lt;script src="https://cdn.jsdelivr.net/npm/@koumoul/vjsf@latest/dist/third-party.js"&gt;&lt;/script&gt;
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@koumoul/vjsf@latest/dist/third-party.css"&gt;</code>
@@ -33,7 +33,7 @@
     <v-sheet v-hljs dark class="codeblock">
       <code class="javascript">import VJsf from '@koumoul/vjsf'
 import '@koumoul/vjsf/dist/main.css'
-// load all third-party dependencies (markdown-it, vue-color, vue-swatches, vuedraggable)
+// load third-party dependencies (markdown-it, vuedraggable)
 // you can also load them separately based on your needs
 import '@koumoul/vjsf/dist/third-party.js'
 import '@koumoul/vjsf/dist/third-party.css'
@@ -50,7 +50,7 @@ Vue.component('VJsf', VJsf)</code>
     <v-sheet v-hljs dark class="codeblock">
       <code class="javascript">import VJsf from '@koumoul/vjsf/lib/VJsf.js'
 import '@koumoul/vjsf/lib/VJsf.css'
-// load all third-party dependencies (markdown-it, vue-color, vue-swatches, vuedraggable)
+// load third-party dependencies (markdown-it, vuedraggable)
 // you can also load them separately based on your needs
 import '@koumoul/vjsf/lib/deps/third-party.js'
 import '@koumoul/vjsf/lib/deps/third-party.css'

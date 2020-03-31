@@ -148,11 +148,11 @@ export default {
         tabsProps: 'props passed to the underlying v-tabs component when relevant',
         expansionPanelsProps: 'props passed to the underlying v-expansion-panels component when relevant',
         dialogProps: 'props passed to the underlying v-dialog component when relevant',
+        colorPickerProps: 'props passed to the underlying v-color-picker component when relevant',
         removeAdditionalProperties: 'force the removal of properties found in the model but not defined in the schema',
         disableAll: 'force disabling all fields ignoring the readOnly attributes',
         hideReadOnly: 'by default read-only properties are rendered as disabled fields, set this to true to hide them entirely',
-        deleteReadOnly: 'set this to true to not only hide read-only properties, but also remove them from the model',
-        colors: 'options for the vue-swatches component'
+        deleteReadOnly: 'set this to true to not only hide read-only properties, but also remove them from the model'
       },
       locale: 'en'
     }

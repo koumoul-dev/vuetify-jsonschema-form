@@ -111,7 +111,7 @@ const md = require('markdown-it')()
 const stringifyObject = require('stringify-object')
 const Ajv = require('ajv')
 const ajv = new Ajv()
-ajv.addFormat('hexcolor', /^#[0-9A-Fa-f]{6}$/)
+ajv.addFormat('hexcolor', /^#[0-9A-Fa-f]{6,8}$/)
 
 export default {
   components: { Example },
