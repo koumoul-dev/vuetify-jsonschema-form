@@ -50,6 +50,7 @@ export default {
         colors,
         autoFoldObjects: false,
         allOfTabs: false,
+        eagerTabs: false,
         requiredMessage: 'This information is required',
         noDataMessage: 'No matching value found',
         searchMessage: 'Search...',

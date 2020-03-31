@@ -444,7 +444,7 @@
                   <v-tab v-for="(currentAllOf, i) in fullSchema.allOf" :key="i" :href="`#tab-${i}`">
                     {{ currentAllOf.title }}
                   </v-tab>
-                  <v-tab-item v-for="(currentAllOf, i) in fullSchema.allOf" :key="i" :value="`tab-${i}`">
+                  <v-tab-item v-for="(currentAllOf, i) in fullSchema.allOf" :key="i" :value="`tab-${i}`" :eager="options.eagerTabs">
                     <property
                       class="mt-2"
                       :schema="Object.assign({}, currentAllOf, {type: 'object', title: null})"
