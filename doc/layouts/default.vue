@@ -34,6 +34,13 @@
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+        <v-list-item to="/0to1">
+          <v-list-item-content>
+            <v-list-item-title>
+              0.x to 1.x
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
 
       <v-divider />
