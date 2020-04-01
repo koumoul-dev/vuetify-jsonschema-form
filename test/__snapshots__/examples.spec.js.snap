@@ -671,7 +671,7 @@ exports[`Examples used as simple test cases Classes and styles 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-stringPropHalf xs12 xs6 pr-2"
+        class="flex vjsf-property vjsf-property-stringPropHalf2 xs12 xs6 pr-2"
       >
         <div
           class="v-input theme--light v-text-field"
@@ -824,7 +824,7 @@ exports[`Examples used as simple test cases Colors 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-colorProp xs12  pr-2"
+        class="flex vjsf-property vjsf-property-colorProp2 xs12  pr-2"
       >
         <div
           class="v-input theme--light"
@@ -2133,7 +2133,7 @@ exports[`Examples used as simple test cases Sections 1`] = `
           I'm a section 
         </span>
         <div
-          class="flex vjsf-property vjsf-property-objectSection xs12  pr-2"
+          class="flex vjsf-property vjsf-property-objectSection1 xs12  pr-2"
         >
           <div
             class="layout row wrap ma-0 "
@@ -2144,7 +2144,7 @@ exports[`Examples used as simple test cases Sections 1`] = `
               I'm a description shown as a paragraph on top of section
             </div>
             <div
-              class="flex vjsf-property vjsf-property-objectSection-stringProp xs12  pr-2"
+              class="flex vjsf-property vjsf-property-objectSection1-stringProp1 xs12  pr-2"
             >
               <div
                 class="v-input theme--light v-text-field"
@@ -2197,13 +2197,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
           I'm another section 
         </span>
         <div
-          class="flex vjsf-property vjsf-property-objectSection xs12  pr-2"
+          class="flex vjsf-property vjsf-property-objectSection2 xs12  pr-2"
         >
           <div
             class="layout row wrap ma-0 "
           >
             <div
-              class="flex vjsf-property vjsf-property-objectSection-stringProp xs12  pr-2"
+              class="flex vjsf-property vjsf-property-objectSection2-stringProp2 xs12  pr-2"
             >
               <div
                 class="v-input theme--light v-text-field"
@@ -2253,13 +2253,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
                 I'm a subsection 
               </span>
               <div
-                class="flex vjsf-property vjsf-property-objectSection-allOf- xs12  pr-2"
+                class="flex vjsf-property vjsf-property-objectSection2-allOf-0 xs12  pr-2"
               >
                 <div
                   class="layout row wrap ma-0 "
                 >
                   <div
-                    class="flex vjsf-property vjsf-property-objectSection-allOf--stringProp xs12  pr-2"
+                    class="flex vjsf-property vjsf-property-objectSection2-allOf-0-stringProp3 xs12  pr-2"
                   >
                     <div
                       class="v-input theme--light v-text-field"
@@ -2312,13 +2312,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
                 I'm another subsection 
               </span>
               <div
-                class="flex vjsf-property vjsf-property-objectSection-allOf- xs12  pr-2"
+                class="flex vjsf-property vjsf-property-objectSection2-allOf-1 xs12  pr-2"
               >
                 <div
                   class="layout row wrap ma-0 "
                 >
                   <div
-                    class="flex vjsf-property vjsf-property-objectSection-allOf--stringProp xs12  pr-2"
+                    class="flex vjsf-property vjsf-property-objectSection2-allOf-1-stringProp4 xs12  pr-2"
                   >
                     <div
                       class="v-input theme--light v-text-field"
@@ -2414,7 +2414,7 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
               class="v-expansion-panel-content__wrap"
             >
               <div
-                class="flex vjsf-property vjsf-property-objectSection xs12  pr-2"
+                class="flex vjsf-property vjsf-property-objectSection1 xs12  pr-2"
               >
                 <div
                   class="layout row wrap ma-0 "
@@ -2425,7 +2425,7 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
                     I'm a description shown as a paragraph on top of section
                   </div>
                   <div
-                    class="flex vjsf-property vjsf-property-objectSection-stringProp xs12  pr-2"
+                    class="flex vjsf-property vjsf-property-objectSection1-stringProp1 xs12  pr-2"
                   >
                     <div
                       class="v-input theme--light v-text-field"
@@ -2497,13 +2497,13 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
               class="v-expansion-panel-content__wrap"
             >
               <div
-                class="flex vjsf-property vjsf-property-objectSection xs12  pr-2"
+                class="flex vjsf-property vjsf-property-objectSection2 xs12  pr-2"
               >
                 <div
                   class="layout row wrap ma-0 "
                 >
                   <div
-                    class="flex vjsf-property vjsf-property-objectSection-stringProp xs12  pr-2"
+                    class="flex vjsf-property vjsf-property-objectSection2-stringProp2 xs12  pr-2"
                   >
                     <div
                       class="v-input theme--light v-text-field"
@@ -2600,7 +2600,7 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
               <a
                 aria-selected="true"
                 class="v-tab v-tab--active"
-                href="#tab-root-objectSection1"
+                href="#tab-root-0"
                 role="tab"
                 tabindex="0"
               >
@@ -2613,7 +2613,7 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
               <a
                 aria-selected="false"
                 class="v-tab"
-                href="#tab-root-objectSection2"
+                href="#tab-root-1"
                 role="tab"
                 tabindex="0"
               >
@@ -2634,7 +2634,7 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
           >
             <div
               class="v-window-item"
-              id="tab-root-objectSection1"
+              id="tab-root-0"
               style="display: none;"
             >
               <div
@@ -2644,7 +2644,7 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
                   class="v-card__text"
                 >
                   <div
-                    class="flex vjsf-property vjsf-property-objectSection xs12  pr-2"
+                    class="flex vjsf-property vjsf-property-allOf-0 xs12  pr-2"
                   >
                     <div
                       class="layout row wrap ma-0 "
@@ -2655,7 +2655,7 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
                         I'm a description shown as a paragraph on top of section
                       </div>
                       <div
-                        class="flex vjsf-property vjsf-property-objectSection-stringProp xs12  pr-2"
+                        class="flex vjsf-property vjsf-property-allOf-0-stringProp1 xs12  pr-2"
                       >
                         <div
                           class="v-input theme--light v-text-field"
@@ -2703,7 +2703,7 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
             </div>
             <div
               class="v-window-item"
-              id="tab-root-objectSection2"
+              id="tab-root-1"
               style="display: none;"
             >
               <div
@@ -2713,13 +2713,13 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
                   class="v-card__text"
                 >
                   <div
-                    class="flex vjsf-property vjsf-property-objectSection xs12  pr-2"
+                    class="flex vjsf-property vjsf-property-allOf-1 xs12  pr-2"
                   >
                     <div
                       class="layout row wrap ma-0 "
                     >
                       <div
-                        class="flex vjsf-property vjsf-property-objectSection-stringProp xs12  pr-2"
+                        class="flex vjsf-property vjsf-property-allOf-1-stringProp2 xs12  pr-2"
                       >
                         <div
                           class="v-input theme--light v-text-field"
@@ -2871,13 +2871,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                         class="v-card__text"
                       >
                         <div
-                          class="flex vjsf-property vjsf-property-tabs-section xs12  pr-2"
+                          class="flex vjsf-property vjsf-property-tabs-section1 xs12  pr-2"
                         >
                           <div
                             class="layout row wrap ma-0 "
                           >
                             <div
-                              class="flex vjsf-property vjsf-property-tabs-section-requiredStringProp xs12  pr-2"
+                              class="flex vjsf-property vjsf-property-tabs-section1-requiredStringProp1 xs12  pr-2"
                             >
                               <div
                                 class="v-input theme--light v-text-field"
@@ -2935,13 +2935,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                         class="v-card__text"
                       >
                         <div
-                          class="flex vjsf-property vjsf-property-tabs-section xs12  pr-2"
+                          class="flex vjsf-property vjsf-property-tabs-section2 xs12  pr-2"
                         >
                           <div
                             class="layout row wrap ma-0 "
                           >
                             <div
-                              class="flex vjsf-property vjsf-property-tabs-section-requiredStringProp xs12  pr-2"
+                              class="flex vjsf-property vjsf-property-tabs-section2-requiredStringProp2 xs12  pr-2"
                             >
                               <div
                                 class="v-input theme--light v-text-field"
@@ -3035,13 +3035,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                     class="v-expansion-panel-content__wrap"
                   >
                     <div
-                      class="flex vjsf-property vjsf-property-panels-section xs12  pr-2"
+                      class="flex vjsf-property vjsf-property-panels-section1 xs12  pr-2"
                     >
                       <div
                         class="layout row wrap ma-0 "
                       >
                         <div
-                          class="flex vjsf-property vjsf-property-panels-section-requiredStringProp xs12  pr-2"
+                          class="flex vjsf-property vjsf-property-panels-section1-requiredStringProp1 xs12  pr-2"
                         >
                           <div
                             class="v-input theme--light v-text-field"
@@ -3113,13 +3113,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                     class="v-expansion-panel-content__wrap"
                   >
                     <div
-                      class="flex vjsf-property vjsf-property-panels-section xs12  pr-2"
+                      class="flex vjsf-property vjsf-property-panels-section2 xs12  pr-2"
                     >
                       <div
                         class="layout row wrap ma-0 "
                       >
                         <div
-                          class="flex vjsf-property vjsf-property-panels-section-requiredStringProp xs12  pr-2"
+                          class="flex vjsf-property vjsf-property-panels-section2-requiredStringProp2 xs12  pr-2"
                         >
                           <div
                             class="v-input theme--light v-text-field"
@@ -4843,7 +4843,7 @@ exports[`Examples used as simple test cases Slots 1`] = `
       class="layout row wrap ma-0 "
     >
       <div
-        class="flex vjsf-property vjsf-property-stringProp xs12  pr-2"
+        class="flex vjsf-property vjsf-property-stringProp1 xs12  pr-2"
       >
         <div
           class="v-input theme--light v-text-field"
@@ -4901,7 +4901,7 @@ exports[`Examples used as simple test cases Slots 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-stringProp xs12  pr-2"
+        class="flex vjsf-property vjsf-property-stringProp2 xs12  pr-2"
       >
         this is a code slot before 2nd property (fullKey=stringProp2).
         <p
@@ -4949,7 +4949,7 @@ exports[`Examples used as simple test cases Tuples 1`] = `
             class="layout row wrap ma-0 "
           >
             <div
-              class="flex vjsf-property vjsf-property-tupleProp- xs12  pr-2"
+              class="flex vjsf-property vjsf-property-tupleProp-0 xs12  pr-2"
             >
               <div
                 class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
@@ -4991,7 +4991,7 @@ exports[`Examples used as simple test cases Tuples 1`] = `
               </div>
             </div>
             <div
-              class="flex vjsf-property vjsf-property-tupleProp- xs12  pr-2"
+              class="flex vjsf-property vjsf-property-tupleProp-1 xs12  pr-2"
             >
               <div
                 class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
