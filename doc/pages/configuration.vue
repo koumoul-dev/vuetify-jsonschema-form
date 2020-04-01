@@ -146,6 +146,7 @@ export default {
       descriptions: {
         rootDisplay: 'equivalent of x-display annotation on the root object of the schema, can be "tabs" or "expansion-panels"',
         fieldProps: 'props passed to the underlying components for simple fields (v-text-field, v-select, etc.)',
+        selectProps: 'props passed to the underlying components for select fields',
         tabsProps: 'props passed to the underlying v-tabs component when relevant',
         expansionPanelsProps: 'props passed to the underlying v-expansion-panels component when relevant',
         dialogProps: 'props passed to the underlying v-dialog component when relevant',

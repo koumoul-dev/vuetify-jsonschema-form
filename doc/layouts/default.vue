@@ -47,7 +47,7 @@
 
       <v-list dense shaped class="mb-6">
         <v-subheader>EXAMPLES</v-subheader>
-        <v-list-item v-for="example in examples" :key="example.id" :to="{name: 'examples', hash: '#' + example.id}">
+        <v-list-item v-for="example in examples.filter(e => !e.id.startsWith('_'))" :key="example.id" :to="{name: 'examples', hash: '#' + example.id}">
           <v-list-item-content>
             <v-list-item-title>{{ example.title }}</v-list-item-title>
           </v-list-item-content>
