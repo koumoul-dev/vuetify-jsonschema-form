@@ -2,21 +2,8 @@ const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-module.exports = {
+const base = {
   mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
-  entry: {
-    main: './lib/index.vue',
-    demo: './demo/index.js',
-    'demo-vuetify1': './demo-vuetify1/index.js',
-    'raw-editor': './raw-editor/index.js'
-  },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
-    library: 'VJsonschemaForm',
-    libraryTarget: 'umd',
-    globalObject: 'this'
-  },
   module: {
     rules: [{
       test: /\.js$/,
@@ -44,3 +31,29 @@ module.exports = {
     new MiniCssExtractPlugin()
   ]
 }
+
+module.exports = [{
+  ...base,
+  entry: {
+    main: './lib/VJsfNoDeps.js'
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js',
+    library: 'VJsf',
+    libraryTarget: 'umd',
+    globalObject: 'this'
+  }
+}, {
+  ...base,
+  entry: {
+    'third-party': './lib/deps/third-party.js'
+  },
+  externals: {
+    vue: 'Vue'
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js'
+  }
+}]
