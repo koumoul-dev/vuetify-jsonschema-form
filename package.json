@@ -8,13 +8,13 @@
     "build": "rm -rf dist && webpack && cp lib/VJsf.css dist/main.css",
     "dev": "NODE_ENV=development webpack-dev-server",
     "prepublish": "npm run lint && npm test && npm run build && npm run doc-build",
-    "postpublish": "gh-pages-multi deploy -v -s doc/dist -t render-functions",
+    "postpublish": "gh-pages-multi deploy -v -s doc/dist -t latest",
     "test": "jest --verbose",
     "test-update": "jest --updateSnapshot",
     "doc-link": "npm link && pushd doc && npm link @koumoul/vjsf && popd",
     "doc-dev": "nuxt doc",
     "doc-start": "nuxt build doc && nuxt start doc",
-    "doc-build": "BASE=/vuetify-jsonschema-form/render-functions/ nuxt generate doc"
+    "doc-build": "BASE=/vuetify-jsonschema-form/latest/ nuxt generate doc"
   },
   "jest": {
     "moduleFileExtensions": [
