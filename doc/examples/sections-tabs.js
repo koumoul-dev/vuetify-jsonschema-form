@@ -2,7 +2,7 @@ const id = 'sections-tabs'
 
 const title = 'Sections as tabs'
 
-const description = `Use the \`x-display="tabs"\` annotation to display sections as tabs.
+const description = `Use the \`x-display="tabs"\` annotation to display sections as tabs. You can also use the \`rootDisplay\` option to display root sections as tabs regardless of the content of the schema.
 
 You can use the \`x-props\`annotation to configure the rendering of a specific set of tabs and the \`tabsProps\` option to configure default rendering of any set of tabs.`
 
