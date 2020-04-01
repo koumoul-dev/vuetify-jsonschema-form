@@ -1,95 +1,20 @@
 # vuetify-jsonschema-form
 
-Generate forms for the [vuetify](https://vuetifyjs.com/en/) UI library (vuejs) based on annotated JSON schemas.
+Create beautiful and low-effort forms that output valid data.
+
+Based on [Vue.js](https://vuejs.org/) / [Vuetify](https://vuetifyjs.com/) / [JSON Schema](https://json-schema.org/).
+
+See [the documentation](https://koumoul-dev.github.io/vuetify-jsonschema-form/latest/).
 
 ![](doc/static/demo-video.gif)
 
-All basic types, nested objects, nested arrays, various display options, simple validation rules, custom content injected using slots, etc. For a view of all the functionalities check the [demo](https://koumoul-dev.github.io/vuetify-jsonschema-form/latest/).
+## Bug reports
 
-Compatible with vuetify 1 and 2. Check this [alternative demo](https://koumoul-dev.github.io/vuetify-jsonschema-form/latest/vuetify1.html) for support of vuetify 1.
+Bug reports are created using github issues. The examples in the documentation include codepen links, as much as possible please save a duplicate codepen with the minimal schema/config to reproduce your problem.
 
-## Installation
+## Pull requests
 
-```bash
-npm i --save @koumoul/vuetify-jsonschema-form
-```
+Just a few rules :
 
-## Usage
-
-```html
-<template>
-  <v-form v-model="formValid">
-    <v-jsonschema-form v-if="schema" :schema="schema" :model="dataObject" :options="options" @error="showError" @change="showChange" @input="showInput" />
-  </v-form>
-</template>
-
-<script>
-import Vue from 'vue'
-import Vuetify from 'vuetify'
-import 'vuetify/dist/vuetify.min.css'
-import Draggable from 'vuedraggable'
-import axios from 'axios'
-import VueAxios from 'vue-axios'
-import Swatches from 'vue-swatches'
-import 'vue-swatches/dist/vue-swatches.min.css'
-import VJsonschemaForm from '@koumoul/vuetify-jsonschema-form'
-import '@koumoul/vuetify-jsonschema-form/dist/main.css'
-import { Sketch } from 'vue-color'
-
-Vue.use(Vuetify)
-Vue.use(VueAxios, axios)
-
-Vue.component('swatches', Swatches)
-Vue.component('draggable', Draggable)
-Vue.component('color-picker', Sketch)
-
-export default {
-  components: {VJsonschemaForm},
-  data() {
-    return {
-      schema: {...},
-      dataObject: {},
-      formValid: false,
-      options: {
-        debug: false,
-        disableAll: false,
-        autoFoldObjects: true
-      }
-    }
-  },
-  methods: {
-    showError(err) {
-      window.alert(err)
-    },
-    showChange(e) {
-      console.log('"change" event', e)
-    },
-    showInput(e) {
-      console.log('"input" event', e)
-    }
-  }
-}
-</script>
-```
-
-The library can also be loaded from source if you use [Vuetify "à la carte"](https://vuetifyjs.com/en/framework/a-la-carte). In this case you will have to instruct your build tool to transpile the source with babel.
-
-```js
-import VJsonschemaForm from '@koumoul/vuetify-jsonschema-form/lib/index.vue'
-```
-
-I you don't use a build tool, and want to load the library through script tags, you can do something like this.
-
-```html
-...
-<script src="https://cdn.jsdelivr.net/npm/@koumoul/vuetify-jsonschema-form@0.26/dist/main.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/@koumoul/vuetify-jsonschema-form@0.26/dist/main.css" rel="stylesheet">
-...
-<script>
-  ...
-  components: {
-    "v-jsonschema-form": VJsonschemaForm.default
-  }
-  ...
-</script>
-```
+  - run `npm run lint` to check linter rules before pushing
+  - run `npm run test` also. You might find that the tests fail simply because of HTML snapshots changes, check them and run `npm run test-update` if they are ok
