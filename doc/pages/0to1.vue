@@ -4,6 +4,9 @@
       0.x to 1.x
     </h1>
     <p>
+      The old demo page for v0 is still available <a href="https://koumoul-dev.github.io/vuetify-jsonschema-form/0.x/">here</a>.
+    </p>
+    <p>
       The 1.x branch is not a complete rewrite, but it is a major refactor. The motivation was to :
     </p>
     <p>
