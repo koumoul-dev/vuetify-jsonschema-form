@@ -30,6 +30,16 @@
           <td>{{ JSON.stringify(defaultOptions[optionKey], null, 2) }}</td>
           <td>{{ descriptions[optionKey] }}</td>
         </tr>
+        <tr>
+          <td>markdown</td>
+          <td>window.markdownit().render if markdownit is available, identity function otherwise</td>
+          <td>a function that takes a markdown text and returns HTML, used for descriptions and slots</td>
+        </tr>
+        <tr>
+          <td>httpLib</td>
+          <td>this.axios or this.$http or this.$axios or window.axios</td>
+          <td>a simple HTTP client used to fetch select options from HTTP requests</td>
+        </tr>
       </tbody>
     </v-simple-table>
 
@@ -59,6 +69,36 @@
         <tr v-for="messageKey in Object.keys(localizedMessages[locale])" :key="messageKey">
           <td>{{ messageKey }}</td>
           <td>{{ localizedMessages[locale][messageKey] }}</td>
+        </tr>
+      </tbody>
+    </v-simple-table>
+
+    <h2 class="headline my-4">
+      Icons
+    </h2>
+    <p>
+      You can define a special "icons" option to overwrite the default icons. Default icons are initialized based on current iconfont configured on your Vuetify instance.
+    </p>
+    <v-row>
+      <v-col cols="2">
+        <v-select v-model="iconSet" :items="Object.keys(iconSets)" label="Icon set" hide-details dense />
+      </v-col>
+    </v-row>
+    <v-simple-table dense dark class="mb-6">
+      <thead>
+        <tr>
+          <th class="text-left">
+            Icon key
+          </th>
+          <th class="text-left">
+            Default
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="iconKey in Object.keys(iconSets[iconSet])" :key="iconKey">
+          <td>{{ iconKey }}</td>
+          <td>{{ iconSets[iconSet][iconKey] }}</td>
         </tr>
       </tbody>
     </v-simple-table>
@@ -135,7 +175,7 @@
 </template>
 
 <script>
-import { defaultOptions, formats, localizedMessages } from '../../lib/utils/options'
+import { defaultOptions, formats, localizedMessages, iconSets } from '../../lib/utils/options'
 
 export default {
   data() {
@@ -157,7 +197,9 @@ export default {
         deleteReadOnly: 'set this to true to not only hide read-only properties, but also remove them from the model',
         context: 'an optional contextual information object, properties from here can be used as variables in URL templates'
       },
-      locale: 'en'
+      locale: 'en',
+      iconSets,
+      iconSet: 'mdi'
     }
   }
 }
