@@ -199,7 +199,7 @@ new Vue({
     valid: null
   }
 });`,
-        css_external: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900;https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css;https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css;https://cdn.jsdelivr.net/npm/@koumoul/vjsf@1/dist/main.css;https://cdn.jsdelivr.net/npm/@koumoul/vjsf@1/dist/third-party.css',
+        css_external: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900;https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css;https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css;https://cdn.jsdelivr.net/npm/@koumoul/vjsf@1/dist/main.css',
         js_external: 'https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js;https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js;https://cdn.jsdelivr.net/npm/axios@0.19.2/dist/axios.min.js;https://cdn.jsdelivr.net/npm/@koumoul/vjsf@1/dist/main.js;https://cdn.jsdelivr.net/npm/@koumoul/vjsf@1/dist/third-party.js'
       }
     }
