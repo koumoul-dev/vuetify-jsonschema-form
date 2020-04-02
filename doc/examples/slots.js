@@ -6,7 +6,7 @@ const description = `Each property has \`before\`, \`after\` and \`default\` slo
 
 You can define any slot of the main underlying Vuetify component for each property (append, prepend, etc.).
 
-All slots are passed either as textual content in a \`x-slots\` annotation in the schema (markdown supported) or as code inside the <vjsf /> element with a prefix matching the key of the property in the schema.`
+All slots are passed either as textual content in a \`x-slots\` annotation in the schema (markdown supported) or as code inside the \`<vjsf />\` element with a prefix matching the key of the property in the schema.`
 
 const schema = {
   type: 'object',
@@ -19,8 +19,8 @@ const schema = {
 const model = {}
 
 const template = `<v-jsf v-model="model" :schema="schema" :options="options">
-  <template slot="stringProp1-prepend">this is a code slot <v-icon>mdi-heart</v-icon></template>
-  <template v-slot:stringProp2-before="slotProps">this is a code slot before 2nd property (fullKey={{slotProps.fullKey}}).</template>
+  <template slot="stringProp1-prepend">this is a Vuetify code slot</template>
+  <template v-slot:stringProp2-before="slotProps">this is a code slot before 2nd property (slot props={{Object.keys(slotProps)}}).</template>
   <template v-slot:stringProp2="{value, on}"><p class="mt-4">this is the default slot of the 2nd property <input type="text" :value="value" v-on="on" style="border:1px solid red;">.</p></template>
 </v-jsf>`
 
