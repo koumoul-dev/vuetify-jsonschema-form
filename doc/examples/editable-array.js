@@ -22,7 +22,8 @@ const schema = {
         properties: {
           titleProp: { type: 'string', title: `I'm a required string used as title` },
           numberProp: { type: 'number', title: `I'm a number` },
-          booleanProp: { type: 'boolean', title: `I'm a boolean` }
+          booleanProp: { type: 'boolean', title: `I'm a boolean` },
+          dateProp: { type: 'string', format: 'date', title: `I'm a date` }
         }
       }
     }
