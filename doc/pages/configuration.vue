@@ -8,7 +8,7 @@
       Options
     </h2>
 
-    <p>Options can be passed to vjsf using the options prop or can be defined more locally on a specific property using the \`x-options\` annotation. Children properties will inherit from the options defined in their parents.</p>
+    <p>Options can be passed to vjsf using the options prop or can be defined more locally on a specific property using the "x-options" annotation. Children properties will inherit from the options defined in their parents.</p>
 
     <v-simple-table dense dark class="mb-6">
       <thead>
@@ -149,6 +149,10 @@
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td>x-options</td>
+          <td>Overwrite some of the options for this property and its children.</td>
+        </tr>
         <tr>
           <td>x-display</td>
           <td>Used to switch the rendering mode of a property. We try to use as little of these as possible and rely on indications from the standard JSON schema syntax itself to render the form, but sometimes some ambiguity has to be resolved this way. For example this is used to force rendering sections as tabs or expansion panels.</td>
