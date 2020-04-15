@@ -173,6 +173,10 @@
           <td>x-slots</td>
           <td>An object of textual contents to be displayed before and after the property or to be passed as slots to the underlying vuetify component.</td>
         </tr>
+        <tr>
+          <td>x-rules</td>
+          <td>Some custom rule functions for validating this property.</td>
+        </tr>
       </tbody>
     </v-simple-table>
   </v-container>
@@ -199,7 +203,8 @@ export default {
         disableAll: 'force disabling all fields ignoring the readOnly attributes',
         hideReadOnly: 'by default read-only properties are rendered as disabled fields, set this to true to hide them entirely',
         deleteReadOnly: 'set this to true to not only hide read-only properties, but also remove them from the model',
-        context: 'an optional contextual information object, properties from here can be used as variables in URL templates'
+        context: 'an optional contextual information object, properties from here can be used as variables in URL templates',
+        rules: 'some custom rule functions that can be referenced by the x-rules annotation on properties'
       },
       locale: 'en',
       iconSets,

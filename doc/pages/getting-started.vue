@@ -69,7 +69,7 @@ build: {
     <v-sheet v-hljs dark class="codeblock">
       <code class="html">&lt;v-form v-model="valid"&gt;
   &lt;v-jsf v-model="model" :schema="schema" :options="options" /&gt;
-&lt;v-form /&gt;</code>
+&lt;/ v-form&gt;</code>
     </v-sheet>
     <!-- eslint-enable vue/html-indent -->
   </v-container>
