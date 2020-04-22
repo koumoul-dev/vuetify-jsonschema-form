@@ -18,7 +18,7 @@
     <p>
       <ul>
         <li>you are tired of coding forms</li>
-        <li>you need declarative forms as a consequence or your software's architecture (generic admin UI, etc.)</li>
+        <li>you need declarative forms as a consequence of your software's architecture (generic admin UI, etc.)</li>
         <li>you already use Vue.js + Vuetify (or if you are prepared to pull a bunch of new dependencies)</li>
       </ul>
     </p>

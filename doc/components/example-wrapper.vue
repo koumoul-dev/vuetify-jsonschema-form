@@ -105,6 +105,7 @@
 
 <script>
 
+import jrefs from '../../lib/utils/json-refs'
 import Example from './example.js'
 import { defaultTemplate } from '../examples'
 import pJson from '../../package.json'
@@ -129,7 +130,7 @@ export default {
   }),
   computed: {
     validate() {
-      return ajv.compile(this.params.schema)
+      return ajv.compile(jrefs.resolve(this.params.schema, { '~$locale~': (this.params.options && this.params.options.locale) || 'en' }))
     },
     ajvErrors() {
       const valid = this.validate(this.params.model)
