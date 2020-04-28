@@ -2,6 +2,7 @@ import basic from './basic'
 import datePicker from './date-picker'
 import colorPicker from './color-picker'
 import select from './select'
+import selectRadio from './select-radio'
 import selectHTTP from './select-http'
 import selectIcon from './select-icon'
 import selectDeps from './select-deps'
@@ -28,6 +29,7 @@ const examples = [
   datePicker,
   colorPicker,
   select,
+  selectRadio,
   selectHTTP,
   selectIcon,
   selectDeps,
