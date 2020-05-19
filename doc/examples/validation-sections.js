@@ -38,24 +38,22 @@ const schema = {
       type: 'object',
       title: 'Panels with required fields',
       'x-display': 'expansion-panels',
-      properties: {
-        section1: {
-          type: 'object',
-          title: `Section 1`,
-          required: ['requiredStringProp1'],
-          properties: {
-            requiredStringProp1: { type: 'string', title: `I'm a required string` }
-          }
-        },
-        section2: {
-          type: 'object',
-          title: `Section 2`,
-          required: ['requiredStringProp2'],
-          properties: {
-            requiredStringProp2: { type: 'string', title: `I'm another required string` }
-          }
+      allOf: [{
+        type: 'object',
+        title: `Section 1`,
+        required: ['requiredStringProp1'],
+        properties: {
+          requiredStringProp1: { type: 'string', title: `I'm a required string` }
         }
-      }
+      },
+      {
+        type: 'object',
+        title: `Section 2`,
+        required: ['requiredStringProp2'],
+        properties: {
+          requiredStringProp2: { type: 'string', title: `I'm another required string` }
+        }
+      }]
     }
   }
 }
