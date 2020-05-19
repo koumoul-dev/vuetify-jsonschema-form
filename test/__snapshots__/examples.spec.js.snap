@@ -28,13 +28,13 @@ exports[`Examples used as simple test cases Basic types 1`] = `
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-7"
+                  for="stringProp"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a string
                 </label>
                 <input
-                  id="input-7"
+                  id="stringProp"
                   type="text"
                 />
               </div>
@@ -83,13 +83,13 @@ exports[`Examples used as simple test cases Basic types 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-13"
+                  for="stringTextareaProp"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a string in a textarea
                 </label>
                 <textarea
-                  id="input-13"
+                  id="stringTextareaProp"
                   rows="5"
                 />
               </div>
@@ -125,13 +125,13 @@ exports[`Examples used as simple test cases Basic types 1`] = `
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-17"
+                  for="numberProp"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a number
                 </label>
                 <input
-                  id="input-17"
+                  id="numberProp"
                   type="number"
                 />
               </div>
@@ -167,13 +167,13 @@ exports[`Examples used as simple test cases Basic types 1`] = `
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-21"
+                  for="integerProp"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an integer
                 </label>
                 <input
-                  id="input-21"
+                  id="integerProp"
                   type="number"
                 />
               </div>
@@ -206,7 +206,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-25"
+                for="integerSliderProp"
                 style="left: 0px; position: relative;"
               >
                 I'm an integer in a slider
@@ -215,7 +215,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
                 class="v-slider v-slider--horizontal theme--light"
               >
                 <input
-                  id="input-25"
+                  id="integerSliderProp"
                   readonly="readonly"
                   tabindex="-1"
                   value="0"
@@ -281,7 +281,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
                 />
                 <input
                   aria-checked="true"
-                  id="input-29"
+                  id="booleanProp"
                   role="checkbox"
                   type="checkbox"
                   value="true"
@@ -292,7 +292,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
               </div>
               <label
                 class="v-label theme--light"
-                for="input-29"
+                for="booleanProp"
                 style="left: 0px; position: relative;"
               >
                 I'm a boolean
@@ -329,7 +329,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-34"
+                  for="stringArrayProp"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an array of strings
@@ -367,7 +367,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
                   </span>
                   <input
                     autocomplete="off"
-                    id="input-34"
+                    id="stringArrayProp"
                     type="text"
                   />
                 </div>
@@ -429,13 +429,13 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-677"
+                  for="requiredStringProp"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a required string
                 </label>
                 <input
-                  id="input-677"
+                  id="requiredStringProp"
                   type="text"
                 />
               </div>
@@ -471,13 +471,13 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-681"
+                  for="patternStringProp"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a string with a pattern
                 </label>
                 <input
-                  id="input-681"
+                  id="patternStringProp"
                   type="text"
                 />
               </div>
@@ -513,13 +513,13 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-685"
+                  for="ruleStringProp"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a string with a custom rule
                 </label>
                 <input
-                  id="input-685"
+                  id="ruleStringProp"
                   type="number"
                 />
               </div>
@@ -555,13 +555,13 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-689"
+                  for="limitedInteger"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a integer with min/max value
                 </label>
                 <input
-                  id="input-689"
+                  id="limitedInteger"
                   type="number"
                 />
               </div>
@@ -597,13 +597,13 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-693"
+                  for="limitedString"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a string with min/max length
                 </label>
                 <input
-                  id="input-693"
+                  id="limitedString"
                   type="text"
                 />
               </div>
@@ -643,7 +643,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-697"
+                  for="limitedArray"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an array with min/max items
@@ -667,7 +667,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
                   </span>
                   <input
                     autocomplete="off"
-                    id="input-697"
+                    id="limitedArray"
                     type="text"
                   />
                 </div>
@@ -729,13 +729,13 @@ exports[`Examples used as simple test cases Classes and styles 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-607"
+                  for="stringPropHalf"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a half width string
                 </label>
                 <input
-                  id="input-607"
+                  id="stringPropHalf"
                   type="text"
                 />
               </div>
@@ -771,13 +771,13 @@ exports[`Examples used as simple test cases Classes and styles 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-611"
+                  for="stringPropHalf2"
                   style="left: 0px; position: absolute;"
                 >
                   I'm another half width string
                 </label>
                 <input
-                  id="input-611"
+                  id="stringPropHalf2"
                   type="text"
                 />
               </div>
@@ -814,13 +814,13 @@ exports[`Examples used as simple test cases Classes and styles 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-615"
+                  for="stringPropStyle"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a string with style
                 </label>
                 <input
-                  id="input-615"
+                  id="stringPropStyle"
                   type="text"
                 />
               </div>
@@ -994,13 +994,13 @@ exports[`Examples used as simple test cases Dates 1`] = `
                 >
                   <label
                     class="v-label theme--light"
-                    for="input-74"
+                    for="dateProp"
                     style="left: 0px; position: absolute;"
                   >
                     I'm a simple date
                   </label>
                   <input
-                    id="input-74"
+                    id="dateProp"
                     readonly="readonly"
                     type="text"
                   />
@@ -1081,13 +1081,13 @@ exports[`Examples used as simple test cases Dates 1`] = `
                 >
                   <label
                     class="v-label theme--light"
-                    for="input-83"
+                    for="timeProp"
                     style="left: 0px; position: absolute;"
                   >
                     I'm a simple time of day
                   </label>
                   <input
-                    id="input-83"
+                    id="timeProp"
                     readonly="readonly"
                     type="text"
                   />
@@ -1155,13 +1155,13 @@ exports[`Examples used as simple test cases Dates 1`] = `
                 >
                   <label
                     class="v-label theme--light"
-                    for="input-90"
+                    for="dateTimeProp"
                     style="left: 0px; position: absolute;"
                   >
                     I'm a date with time
                   </label>
                   <input
-                    id="input-90"
+                    id="dateTimeProp"
                     readonly="readonly"
                     type="text"
                   />
@@ -1291,7 +1291,7 @@ exports[`Examples used as simple test cases Files 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-400"
+                  for="pngProp"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a PNG image stored as a base64 string
@@ -1301,7 +1301,7 @@ exports[`Examples used as simple test cases Files 1`] = `
                 />
                 <input
                   accept="image/png"
-                  id="input-400"
+                  id="pngProp"
                   type="file"
                 />
               </div>
@@ -1364,7 +1364,7 @@ exports[`Examples used as simple test cases Files 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-406"
+                  for="imageProp"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an image stored as a data url
@@ -1374,7 +1374,7 @@ exports[`Examples used as simple test cases Files 1`] = `
                 />
                 <input
                   accept="image/*"
-                  id="input-406"
+                  id="imageProp"
                   type="file"
                 />
               </div>
@@ -1437,7 +1437,7 @@ exports[`Examples used as simple test cases Files 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-412"
+                  for="imageArrayProp"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an array of images
@@ -1447,7 +1447,7 @@ exports[`Examples used as simple test cases Files 1`] = `
                 />
                 <input
                   accept="image/*"
-                  id="input-412"
+                  id="imageArrayProp"
                   multiple="multiple"
                   type="file"
                 />
@@ -1511,7 +1511,7 @@ exports[`Examples used as simple test cases Files 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-418"
+                  for="objectFileProp"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a file as an object with base64 data
@@ -1521,7 +1521,7 @@ exports[`Examples used as simple test cases Files 1`] = `
                 />
                 <input
                   accept="image/*"
-                  id="input-418"
+                  id="objectFileProp"
                   type="file"
                 />
               </div>
@@ -1584,7 +1584,7 @@ exports[`Examples used as simple test cases Files 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-424"
+                  for="objectFileBlobProp"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a file as an object with Blob data
@@ -1594,7 +1594,7 @@ exports[`Examples used as simple test cases Files 1`] = `
                 />
                 <input
                   accept="image/*"
-                  id="input-424"
+                  id="objectFileBlobProp"
                   type="file"
                 />
               </div>
@@ -1657,7 +1657,7 @@ exports[`Examples used as simple test cases Files 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-430"
+                  for="arrayFileBlobProp"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an array of files as objects with Blob data
@@ -1667,7 +1667,7 @@ exports[`Examples used as simple test cases Files 1`] = `
                 />
                 <input
                   accept="image/*"
-                  id="input-430"
+                  id="arrayFileBlobProp"
                   multiple="multiple"
                   type="file"
                 />
@@ -1749,13 +1749,13 @@ exports[`Examples used as simple test cases Localization 1`] = `
                 >
                   <label
                     class="v-label v-label--active theme--light"
-                    for="input-913"
+                    for="dateProp"
                     style="left: 0px; position: absolute;"
                   >
                     Je suis une date
                   </label>
                   <input
-                    id="input-913"
+                    id="dateProp"
                     readonly="readonly"
                     type="text"
                   />
@@ -1811,7 +1811,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-919"
+                  for="selectAjaxWithQuery"
                   style="left: 0px; position: absolute;"
                 >
                   Je suis un champ de recherche
@@ -1821,7 +1821,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    id="input-919"
+                    id="selectAjaxWithQuery"
                     placeholder="Recherchez..."
                     type="text"
                   />
@@ -1924,14 +1924,14 @@ exports[`Examples used as simple test cases Read only content 1`] = `
               >
                 <label
                   class="v-label v-label--active v-label--is-disabled theme--light"
-                  for="input-858"
+                  for="readOnlyProp"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a read-only string
                 </label>
                 <input
                   disabled="disabled"
-                  id="input-858"
+                  id="readOnlyProp"
                   type="text"
                 />
               </div>
@@ -1981,14 +1981,14 @@ exports[`Examples used as simple test cases Read only content 1`] = `
                     >
                       <label
                         class="v-label v-label--active v-label--is-disabled theme--light"
-                        for="input-863"
+                        for="readOnlySection-stringProp"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a string in a read-only section
                       </label>
                       <input
                         disabled="disabled"
-                        id="input-863"
+                        id="readOnlySection-stringProp"
                         type="text"
                       />
                     </div>
@@ -2041,14 +2041,14 @@ exports[`Examples used as simple test cases Read only content 1`] = `
                     >
                       <label
                         class="v-label v-label--active v-label--is-disabled theme--light"
-                        for="input-868"
+                        for="disabledSection-stringProp"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a string in a disabled section
                       </label>
                       <input
                         disabled="disabled"
-                        id="input-868"
+                        id="disabledSection-stringProp"
                         type="text"
                       />
                     </div>
@@ -2102,13 +2102,13 @@ exports[`Examples used as simple test cases Read only content 1`] = `
                     >
                       <label
                         class="v-label theme--light"
-                        for="input-874"
+                        for="hideReadonlySection-stringProp"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a string
                       </label>
                       <input
-                        id="input-874"
+                        id="hideReadonlySection-stringProp"
                         type="text"
                       />
                     </div>
@@ -2162,13 +2162,13 @@ exports[`Examples used as simple test cases Read only content 1`] = `
                     >
                       <label
                         class="v-label theme--light"
-                        for="input-880"
+                        for="deleteReadonlySection-stringProp"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a string
                       </label>
                       <input
-                        id="input-880"
+                        id="deleteReadonlySection-stringProp"
                         type="text"
                       />
                     </div>
@@ -2244,13 +2244,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
                     >
                       <label
                         class="v-label theme--light"
-                        for="input-467"
+                        for="objectSection1-stringProp1"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a property in section 1
                       </label>
                       <input
-                        id="input-467"
+                        id="objectSection1-stringProp1"
                         type="text"
                       />
                     </div>
@@ -2303,13 +2303,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
                     >
                       <label
                         class="v-label theme--light"
-                        for="input-472"
+                        for="objectSection2-stringProp2"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a property in section 2
                       </label>
                       <input
-                        id="input-472"
+                        id="objectSection2-stringProp2"
                         type="text"
                       />
                     </div>
@@ -2359,13 +2359,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
                           >
                             <label
                               class="v-label theme--light"
-                              for="input-477"
+                              for="objectSection2-allOf-0-stringProp3"
                               style="left: 0px; position: absolute;"
                             >
                               I'm a property in subsection 2.1
                             </label>
                             <input
-                              id="input-477"
+                              id="objectSection2-allOf-0-stringProp3"
                               type="text"
                             />
                           </div>
@@ -2418,13 +2418,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
                           >
                             <label
                               class="v-label theme--light"
-                              for="input-482"
+                              for="objectSection2-allOf-1-stringProp4"
                               style="left: 0px; position: absolute;"
                             >
                               I'm a property in subsection 2.2
                             </label>
                             <input
-                              id="input-482"
+                              id="objectSection2-allOf-1-stringProp4"
                               type="text"
                             />
                           </div>
@@ -2525,13 +2525,13 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
                           >
                             <label
                               class="v-label theme--light"
-                              for="input-508"
+                              for="objectSection1-stringProp1"
                               style="left: 0px; position: absolute;"
                             >
                               I'm a property in section 1
                             </label>
                             <input
-                              id="input-508"
+                              id="objectSection1-stringProp1"
                               type="text"
                             />
                           </div>
@@ -2603,13 +2603,13 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
                           >
                             <label
                               class="v-label theme--light"
-                              for="input-519"
+                              for="objectSection2-stringProp2"
                               style="left: 0px; position: absolute;"
                             >
                               I'm a property in section 2
                             </label>
                             <input
-                              id="input-519"
+                              id="objectSection2-stringProp2"
                               type="text"
                             />
                           </div>
@@ -2684,7 +2684,7 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
               <a
                 aria-selected="true"
                 class="v-tab v-tab--active"
-                href="#tab-root-0"
+                href="#tab-root-allOf-0"
                 role="tab"
                 tabindex="0"
               >
@@ -2697,7 +2697,7 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
               <a
                 aria-selected="false"
                 class="v-tab"
-                href="#tab-root-1"
+                href="#tab-root-allOf-1"
                 role="tab"
                 tabindex="0"
               >
@@ -2718,7 +2718,7 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
           >
             <div
               class="v-window-item"
-              id="tab-root-0"
+              id="tab-root-allOf-0"
               style="display: none;"
             >
               <div
@@ -2755,13 +2755,13 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
                               >
                                 <label
                                   class="v-label theme--light"
-                                  for="input-544"
+                                  for="allOf-0-stringProp1"
                                   style="left: 0px; position: absolute;"
                                 >
                                   I'm a property in section 1
                                 </label>
                                 <input
-                                  id="input-544"
+                                  id="allOf-0-stringProp1"
                                   type="text"
                                 />
                               </div>
@@ -2787,7 +2787,7 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
             </div>
             <div
               class="v-window-item"
-              id="tab-root-1"
+              id="tab-root-allOf-1"
               style="display: none;"
             >
               <div
@@ -2819,13 +2819,13 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
                               >
                                 <label
                                   class="v-label theme--light"
-                                  for="input-552"
+                                  for="allOf-1-stringProp2"
                                   style="left: 0px; position: absolute;"
                                 >
                                   I'm a property in section 2
                                 </label>
                                 <input
-                                  id="input-552"
+                                  id="allOf-1-stringProp2"
                                   type="text"
                                 />
                               </div>
@@ -2977,13 +2977,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                     >
                                       <label
                                         class="v-label theme--light"
-                                        for="input-742"
+                                        for="tabs-section1-requiredStringProp1"
                                         style="left: 0px; position: absolute;"
                                       >
                                         I'm a required string
                                       </label>
                                       <input
-                                        id="input-742"
+                                        id="tabs-section1-requiredStringProp1"
                                         type="text"
                                       />
                                     </div>
@@ -3041,13 +3041,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                     >
                                       <label
                                         class="v-label theme--light"
-                                        for="input-750"
+                                        for="tabs-section2-requiredStringProp2"
                                         style="left: 0px; position: absolute;"
                                       >
                                         I'm another required string
                                       </label>
                                       <input
-                                        id="input-750"
+                                        id="tabs-section2-requiredStringProp2"
                                         type="text"
                                       />
                                     </div>
@@ -3119,13 +3119,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                     class="v-expansion-panel-content__wrap"
                   >
                     <div
-                      class="flex vjsf-property vjsf-property-panels-section1 xs12  pr-2"
+                      class="flex vjsf-property vjsf-property-panels-allOf-0 xs12  pr-2"
                     >
                       <div
                         class="layout row wrap ma-0 "
                       >
                         <div
-                          class="flex vjsf-property vjsf-property-panels-section1-requiredStringProp1 xs12  pr-2"
+                          class="flex vjsf-property vjsf-property-panels-allOf-0-requiredStringProp1 xs12  pr-2"
                         >
                           <div
                             class="v-input theme--light v-text-field"
@@ -3141,13 +3141,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                 >
                                   <label
                                     class="v-label theme--light"
-                                    for="input-763"
+                                    for="panels-allOf-0-requiredStringProp1"
                                     style="left: 0px; position: absolute;"
                                   >
                                     I'm a required string
                                   </label>
                                   <input
-                                    id="input-763"
+                                    id="panels-allOf-0-requiredStringProp1"
                                     type="text"
                                   />
                                 </div>
@@ -3197,13 +3197,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                     class="v-expansion-panel-content__wrap"
                   >
                     <div
-                      class="flex vjsf-property vjsf-property-panels-section2 xs12  pr-2"
+                      class="flex vjsf-property vjsf-property-panels-allOf-1 xs12  pr-2"
                     >
                       <div
                         class="layout row wrap ma-0 "
                       >
                         <div
-                          class="flex vjsf-property vjsf-property-panels-section2-requiredStringProp2 xs12  pr-2"
+                          class="flex vjsf-property vjsf-property-panels-allOf-1-requiredStringProp2 xs12  pr-2"
                         >
                           <div
                             class="v-input theme--light v-text-field"
@@ -3219,13 +3219,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                 >
                                   <label
                                     class="v-label theme--light"
-                                    for="input-774"
+                                    for="panels-allOf-1-requiredStringProp2"
                                     style="left: 0px; position: absolute;"
                                   >
                                     I'm another required string
                                   </label>
                                   <input
-                                    id="input-774"
+                                    id="panels-allOf-1-requiredStringProp2"
                                     type="text"
                                   />
                                 </div>
@@ -3290,7 +3290,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-140"
+                  for="stringEnum"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a string with values from an enum
@@ -3301,7 +3301,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-140"
+                    id="stringEnum"
                     readonly="readonly"
                     type="text"
                   />
@@ -3390,7 +3390,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-149"
+                  for="stringsArrayEnum"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an array of strings with values from an enum
@@ -3401,7 +3401,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-149"
+                    id="stringsArrayEnum"
                     readonly="readonly"
                     type="text"
                   />
@@ -3477,7 +3477,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-156"
+                  for="stringOneOf"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a string with values/labels from a oneOf
@@ -3488,7 +3488,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-156"
+                    id="stringOneOf"
                     readonly="readonly"
                     type="text"
                   />
@@ -3564,7 +3564,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-163"
+                  for="stringArrayOneOf"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an array of strings with values/labels from a oneOf
@@ -3575,7 +3575,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-163"
+                    id="stringArrayOneOf"
                     readonly="readonly"
                     type="text"
                   />
@@ -3651,7 +3651,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-170"
+                  for="stringEnumLarge"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a string with values from a large enum
@@ -3661,7 +3661,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    id="input-170"
+                    id="stringEnumLarge"
                     placeholder="Search..."
                     type="text"
                   />
@@ -3766,7 +3766,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-214"
+                  for="selectAjaxString"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a string selected from results of an HTTP request
@@ -3777,7 +3777,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-214"
+                    id="selectAjaxString"
                     readonly="readonly"
                     type="text"
                   />
@@ -3853,7 +3853,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-221"
+                  for="selectAjaxStringArray"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an array of strings selected from results of an HTTP request
@@ -3864,7 +3864,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-221"
+                    id="selectAjaxStringArray"
                     readonly="readonly"
                     type="text"
                   />
@@ -3940,7 +3940,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-228"
+                  for="selectAjaxObject"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an object selected from results of an HTTP request
@@ -3951,7 +3951,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-228"
+                    id="selectAjaxObject"
                     readonly="readonly"
                     type="text"
                   />
@@ -4027,7 +4027,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-235"
+                  for="selectAjaxArrayOfObjects"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an array of objects selected from results of an HTTP request
@@ -4038,7 +4038,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-235"
+                    id="selectAjaxArrayOfObjects"
                     readonly="readonly"
                     type="text"
                   />
@@ -4114,7 +4114,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-242"
+                  for="selectAjaxLarge"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an object from a large HTTP request
@@ -4125,7 +4125,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-242"
+                    id="selectAjaxLarge"
                     readonly="readonly"
                     type="text"
                   />
@@ -4201,7 +4201,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-249"
+                  for="selectAjaxWithQuery"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an object from a HTTP request with query
@@ -4211,7 +4211,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    id="input-249"
+                    id="selectAjaxWithQuery"
                     placeholder="Search..."
                     type="text"
                   />
@@ -4300,7 +4300,7 @@ exports[`Examples used as simple test cases Selects of sub-schemas 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-384"
+                for="root"
                 style="left: 0px; position: absolute;"
               >
                 Select a sub-schema
@@ -4311,7 +4311,7 @@ exports[`Examples used as simple test cases Selects of sub-schemas 1`] = `
                 <input
                   aria-readonly="false"
                   autocomplete="off"
-                  id="input-384"
+                  id="root"
                   readonly="readonly"
                   type="text"
                 />
@@ -4395,7 +4395,7 @@ exports[`Examples used as simple test cases Selects with dependencies 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-366"
+                  for="selectAjaxObject"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an object from HTTP request used as source for next select
@@ -4406,7 +4406,7 @@ exports[`Examples used as simple test cases Selects with dependencies 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-366"
+                    id="selectAjaxObject"
                     readonly="readonly"
                     type="text"
                   />
@@ -4498,7 +4498,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-298"
+                  for="iconEnum"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a simple select with icon codes in enum
@@ -4509,7 +4509,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-298"
+                    id="iconEnum"
                     readonly="readonly"
                     type="text"
                   />
@@ -4585,7 +4585,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-305"
+                  for="iconEnumArray"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a multiple select with icon codes in enum
@@ -4596,7 +4596,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-305"
+                    id="iconEnumArray"
                     readonly="readonly"
                     type="text"
                   />
@@ -4672,7 +4672,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-312"
+                  for="iconOneOf"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a select with icon codes and titles in a oneOf
@@ -4683,7 +4683,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-312"
+                    id="iconOneOf"
                     readonly="readonly"
                     type="text"
                   />
@@ -4759,7 +4759,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-319"
+                  for="iconAjaxImages"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a select based on HTTP requests with links to icons
@@ -4769,7 +4769,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    id="input-319"
+                    id="iconAjaxImages"
                     placeholder="Search..."
                     type="text"
                   />
@@ -4845,7 +4845,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-326"
+                  for="iconAjaxSVG"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a select based on HTTP requests with SVG code in response
@@ -4855,7 +4855,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    id="input-326"
+                    id="iconAjaxSVG"
                     placeholder="Search..."
                     type="text"
                   />
@@ -4947,7 +4947,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-959"
+                  for="selectAjaxObject"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an object from HTTP request used as source for next select
@@ -4967,7 +4967,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-959"
+                    id="selectAjaxObject"
                     readonly="readonly"
                     type="text"
                   />
@@ -5043,7 +5043,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-966"
+                  for="selectFromData"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an object selected from a child array of the previous property
@@ -5063,7 +5063,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-966"
+                    id="selectFromData"
                     readonly="readonly"
                     type="text"
                   />
@@ -5139,7 +5139,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
               >
                 <label
                   class="v-label v-label--active theme--light"
-                  for="input-973"
+                  for="selectAjaxDep"
                   style="left: 0px; position: absolute;"
                 >
                   I'm an object selected from HTTP request based on the first property
@@ -5159,7 +5159,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-973"
+                    id="selectAjaxDep"
                     readonly="readonly"
                     type="text"
                   />
@@ -5252,13 +5252,13 @@ exports[`Examples used as simple test cases Slots 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-655"
+                  for="stringProp1"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a property with Vuetify slots
                 </label>
                 <input
-                  id="input-655"
+                  id="stringProp1"
                   type="text"
                 />
               </div>
@@ -5361,13 +5361,13 @@ exports[`Examples used as simple test cases Slots 1`] = `
                     >
                       <label
                         class="v-label theme--light"
-                        for="input-662"
+                        for="object1-stringProp11"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a nested property with slots
                       </label>
                       <input
-                        id="input-662"
+                        id="object1-stringProp11"
                         type="text"
                       />
                     </div>
@@ -5457,13 +5457,13 @@ exports[`Examples used as simple test cases Tuples 1`] = `
                     >
                       <label
                         class="v-label v-label--active theme--light"
-                        for="input-825"
+                        for="numberTupleProp-0"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a number
                       </label>
                       <input
-                        id="input-825"
+                        id="numberTupleProp-0"
                         type="number"
                       />
                     </div>
@@ -5499,13 +5499,13 @@ exports[`Examples used as simple test cases Tuples 1`] = `
                     >
                       <label
                         class="v-label v-label--active theme--light"
-                        for="input-829"
+                        for="numberTupleProp-1"
                         style="left: 0px; position: absolute;"
                       >
                         I'm another number
                       </label>
                       <input
-                        id="input-829"
+                        id="numberTupleProp-1"
                         type="number"
                       />
                     </div>
@@ -5558,13 +5558,13 @@ exports[`Examples used as simple test cases Tuples 1`] = `
                     >
                       <label
                         class="v-label theme--light"
-                        for="input-834"
+                        for="stringTupleProp-0"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a required string
                       </label>
                       <input
-                        id="input-834"
+                        id="stringTupleProp-0"
                         type="text"
                       />
                     </div>
@@ -5600,13 +5600,13 @@ exports[`Examples used as simple test cases Tuples 1`] = `
                     >
                       <label
                         class="v-label theme--light"
-                        for="input-838"
+                        for="stringTupleProp-1"
                         style="left: 0px; position: absolute;"
                       >
                         I'm a string
                       </label>
                       <input
-                        id="input-838"
+                        id="stringTupleProp-1"
                         type="text"
                       />
                     </div>
@@ -5688,7 +5688,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
                   <input
                     aria-readonly="false"
                     autocomplete="off"
-                    id="input-633"
+                    id="chipsEnumProp"
                     readonly="readonly"
                     type="text"
                   />
@@ -5789,13 +5789,13 @@ exports[`Examples used as simple test cases resolved schema 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-939"
+                  for="stringProp"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a string
                 </label>
                 <input
-                  id="input-939"
+                  id="stringProp"
                   type="text"
                 />
               </div>
@@ -5844,13 +5844,13 @@ exports[`Examples used as simple test cases resolved schema 1`] = `
               >
                 <label
                   class="v-label theme--light"
-                  for="input-945"
+                  for="refProp1"
                   style="left: 0px; position: absolute;"
                 >
                   I'm a prop resolved from a $ref
                 </label>
                 <input
-                  id="input-945"
+                  id="refProp1"
                   type="text"
                 />
               </div>

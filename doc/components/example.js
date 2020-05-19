@@ -10,7 +10,10 @@ export default {
     params: { type: Object, required: true }
   },
   data() {
-    return { options: {}, ...this.params }
+    const params = JSON.parse(JSON.stringify(this.params))
+    params.options = params.options || {}
+    params.options.idPrefix = params.options.idPrefix || `example-${params.id}-`
+    return params
   },
   render(h) {
     this.compiledTemplate = this.compiledTemplate || Vue.compile(this.template || defaultTemplate)
