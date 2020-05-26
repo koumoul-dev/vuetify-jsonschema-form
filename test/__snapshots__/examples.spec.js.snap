@@ -338,7 +338,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
                   class="v-select__selections"
                 >
                   <span
-                    class="v-chip v-chip--no-color v-chip--removable theme--light v-size--default"
+                    class="v-chip v-chip--removable theme--light v-size--default default"
                   >
                     <span
                       class="v-chip__content"
@@ -352,7 +352,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
                     </span>
                   </span>
                   <span
-                    class="v-chip v-chip--no-color v-chip--removable theme--light v-size--default"
+                    class="v-chip v-chip--removable theme--light v-size--default default"
                   >
                     <span
                       class="v-chip__content"
@@ -368,12 +368,71 @@ exports[`Examples used as simple test cases Basic types 1`] = `
                   <input
                     autocomplete="off"
                     id="stringArrayProp"
-                    type="text"
+                    type="string"
                   />
                 </div>
                 <input
                   type="hidden"
                   value="item 1,item 2"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <div
+                  class="v-messages__wrapper"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex vjsf-property vjsf-property-integerArrayProp xs12  pr-2"
+      >
+        <div
+          class="v-input theme--light v-text-field v-select v-select--chips v-select--is-multi v-autocomplete"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="list-43"
+              class="v-input__slot"
+              role="combobox"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="integerArrayProp"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm an array of integers
+                </label>
+                <div
+                  class="v-select__selections"
+                >
+                  <input
+                    autocomplete="off"
+                    id="integerArrayProp"
+                    type="number"
+                  />
+                </div>
+                <input
+                  type="hidden"
                 />
               </div>
               <div
@@ -634,7 +693,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-697"
+              aria-owns="list-708"
               class="v-input__slot"
               role="combobox"
             >
@@ -652,7 +711,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
                   class="v-select__selections"
                 >
                   <span
-                    class="v-chip v-chip--no-color v-chip--removable theme--light v-size--default"
+                    class="v-chip v-chip--removable theme--light v-size--default default"
                   >
                     <span
                       class="v-chip__content"
@@ -668,12 +727,71 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
                   <input
                     autocomplete="off"
                     id="limitedArray"
-                    type="text"
+                    type="string"
                   />
                 </div>
                 <input
                   type="hidden"
                   value="abc"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <div
+                  class="v-messages__wrapper"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex vjsf-property vjsf-property-patternStringArray xs12  pr-2"
+      >
+        <div
+          class="v-input theme--light v-text-field v-select v-select--chips v-select--is-multi v-autocomplete"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="list-715"
+              class="v-input__slot"
+              role="combobox"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="patternStringArray"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm an array whose items have a pattern
+                </label>
+                <div
+                  class="v-select__selections"
+                >
+                  <input
+                    autocomplete="off"
+                    id="patternStringArray"
+                    type="string"
+                  />
+                </div>
+                <input
+                  type="hidden"
                 />
               </div>
               <div
@@ -869,7 +987,7 @@ exports[`Examples used as simple test cases Colors 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-118"
+                for="input-129"
                 style="left: 0px; position: relative;"
               >
                 I'm a color
@@ -921,7 +1039,7 @@ exports[`Examples used as simple test cases Colors 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-125"
+                for="input-136"
                 style="left: 0px; position: relative;"
               >
                 I'm a color with a swatches based picker
@@ -1802,7 +1920,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-919"
+              aria-owns="list-941"
               class="v-input__slot"
               role="combobox"
             >
@@ -3281,7 +3399,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-140"
+              aria-owns="list-151"
               class="v-input__slot"
               role="button"
             >
@@ -3381,7 +3499,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-149"
+              aria-owns="list-160"
               class="v-input__slot"
               role="button"
             >
@@ -3468,7 +3586,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-156"
+              aria-owns="list-167"
               class="v-input__slot"
               role="button"
             >
@@ -3555,7 +3673,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-163"
+              aria-owns="list-174"
               class="v-input__slot"
               role="button"
             >
@@ -3642,7 +3760,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-170"
+              aria-owns="list-181"
               class="v-input__slot"
               role="combobox"
             >
@@ -3757,7 +3875,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-214"
+              aria-owns="list-225"
               class="v-input__slot"
               role="button"
             >
@@ -3844,7 +3962,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-221"
+              aria-owns="list-232"
               class="v-input__slot"
               role="button"
             >
@@ -3931,7 +4049,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-228"
+              aria-owns="list-239"
               class="v-input__slot"
               role="button"
             >
@@ -4018,7 +4136,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-235"
+              aria-owns="list-246"
               class="v-input__slot"
               role="button"
             >
@@ -4105,7 +4223,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-242"
+              aria-owns="list-253"
               class="v-input__slot"
               role="button"
             >
@@ -4192,7 +4310,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-249"
+              aria-owns="list-260"
               class="v-input__slot"
               role="combobox"
             >
@@ -4291,7 +4409,7 @@ exports[`Examples used as simple test cases Selects of sub-schemas 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-384"
+            aria-owns="list-395"
             class="v-input__slot"
             role="button"
           >
@@ -4386,7 +4504,7 @@ exports[`Examples used as simple test cases Selects with dependencies 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-366"
+              aria-owns="list-377"
               class="v-input__slot"
               role="button"
             >
@@ -4489,7 +4607,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-298"
+              aria-owns="list-309"
               class="v-input__slot"
               role="button"
             >
@@ -4576,7 +4694,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-305"
+              aria-owns="list-316"
               class="v-input__slot"
               role="button"
             >
@@ -4663,7 +4781,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-312"
+              aria-owns="list-323"
               class="v-input__slot"
               role="button"
             >
@@ -4750,7 +4868,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-319"
+              aria-owns="list-330"
               class="v-input__slot"
               role="combobox"
             >
@@ -4836,7 +4954,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-326"
+              aria-owns="list-337"
               class="v-input__slot"
               role="combobox"
             >
@@ -4938,7 +5056,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-959"
+              aria-owns="list-981"
               class="v-input__slot"
               role="button"
             >
@@ -5034,7 +5152,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-966"
+              aria-owns="list-988"
               class="v-input__slot"
               role="button"
             >
@@ -5130,7 +5248,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-973"
+              aria-owns="list-995"
               class="v-input__slot"
               role="button"
             >
@@ -5668,7 +5786,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-633"
+              aria-owns="list-644"
               class="v-input__slot"
               role="button"
             >
