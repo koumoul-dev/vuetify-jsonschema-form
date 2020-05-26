@@ -13,7 +13,8 @@ const schema = {
     integerProp: { type: 'integer', title: `I'm an integer` },
     integerSliderProp: { type: 'integer', title: `I'm an integer in a slider`, 'x-display': 'slider', minimum: 0, maximum: 5 },
     booleanProp: { type: 'boolean', title: `I'm a boolean` },
-    stringArrayProp: { type: 'array', title: `I'm an array of strings`, items: { type: 'string' } }
+    stringArrayProp: { type: 'array', title: `I'm an array of strings`, items: { type: 'string' } },
+    integerArrayProp: { type: 'array', title: `I'm an array of integers`, items: { type: 'integer' } }
   }
 }
 

@@ -15,11 +15,12 @@ const schema = {
   required: ['requiredStringProp'],
   properties: {
     requiredStringProp: { type: 'string', title: `I'm a required string` },
-    patternStringProp: { type: 'string', title: `I'm a string with a pattern`, pattern: '[a-zA-Z]', 'x-options': { messages: { pattern: 'Only letters are accepted' } } },
+    patternStringProp: { type: 'string', title: `I'm a string with a pattern`, pattern: '^[a-zA-Z]*$', 'x-options': { messages: { pattern: 'Only letters are accepted' } } },
     ruleStringProp: { type: 'number', title: `I'm a string with a custom rule`, 'x-rules': ['even'] },
     limitedInteger: { type: 'integer', title: `I'm a integer with min/max value`, minimum: 0, maximum: 100 },
     limitedString: { type: 'string', title: `I'm a string with min/max length`, minLength: 10, maxLength: 100 },
-    limitedArray: { type: 'array', title: `I'm an array with min/max items`, items: { type: 'string' }, minItems: 1, maxItems: 100 }
+    limitedArray: { type: 'array', title: `I'm an array with min/max items`, items: { type: 'string' }, minItems: 1, maxItems: 100 },
+    patternStringArray: { type: 'array', title: `I'm an array whose items have a pattern`, items: { type: 'string', pattern: '^[a-zA-Z]*$', 'x-options': { messages: { pattern: 'Only letters are accepted' } } } }
   }
 }
 
