@@ -10,7 +10,7 @@ export default {
     params: { type: Object, required: true }
   },
   data() {
-    const params = JSON.parse(JSON.stringify(this.params))
+    const params = { ...this.params }
     params.options = params.options || {}
     params.options.idPrefix = params.options.idPrefix || `example-${params.id}-`
     return params
