@@ -693,7 +693,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-708"
+              aria-owns="list-686"
               class="v-input__slot"
               role="combobox"
             >
@@ -767,7 +767,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-715"
+              aria-owns="list-693"
               class="v-input__slot"
               role="combobox"
             >
@@ -1920,7 +1920,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-941"
+              aria-owns="list-919"
               class="v-input__slot"
               role="combobox"
             >
@@ -5056,7 +5056,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-981"
+              aria-owns="list-959"
               class="v-input__slot"
               role="button"
             >
@@ -5152,7 +5152,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-988"
+              aria-owns="list-966"
               class="v-input__slot"
               role="button"
             >
@@ -5248,7 +5248,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-995"
+              aria-owns="list-973"
               class="v-input__slot"
               role="button"
             >
@@ -5328,202 +5328,6 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
                   class="v-messages__wrapper"
                 />
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</form>
-`;
-
-exports[`Examples used as simple test cases Slots 1`] = `
-<form
-  class="v-form"
-  novalidate="novalidate"
->
-  <div
-    class="flex vjsf-property vjsf-property-root xs12 "
-  >
-    <div
-      class="layout row wrap ma-0 "
-    >
-      <div
-        class="flex vjsf-property vjsf-property-stringProp1 xs12  pr-2"
-      >
-        <div
-          class="v-input theme--light v-text-field"
-        >
-          <div
-            class="v-input__prepend-outer"
-          >
-            this is a Vuetify code slot
-          </div>
-          <div
-            class="v-input__control"
-          >
-            <div
-              class="v-input__slot"
-            >
-              <div
-                class="v-text-field__slot"
-              >
-                <label
-                  class="v-label theme--light"
-                  for="stringProp1"
-                  style="left: 0px; position: absolute;"
-                >
-                  I'm a property with Vuetify slots
-                </label>
-                <input
-                  id="stringProp1"
-                  type="text"
-                />
-              </div>
-            </div>
-            <div
-              class="v-text-field__details"
-            >
-              <div
-                class="v-messages theme--light"
-              >
-                <div
-                  class="v-messages__wrapper"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            class="v-input__append-outer"
-          >
-            <div>
-              this is a markdown **slot**
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="flex vjsf-property vjsf-property-stringProp2 xs12  pr-2"
-      >
-        this is a code slot before 2nd property (slot props=[
-  "value",
-  "modelKey",
-  "schema",
-  "fullKey",
-  "fullSchema",
-  "label",
-  "disabled",
-  "required",
-  "rules",
-  "options",
-  "htmlDescription",
-  "on"
-]).
-        <p
-          class="mt-4"
-        >
-          this is the default slot of the 2nd property 
-          <input
-            style="border: 1px solid red;"
-            type="text"
-          />
-          .
-        </p>
-        <div>
-          this is a markdown **after slot**
-        </div>
-      </div>
-      <div
-        class="flex vjsf-property vjsf-property-stringProp3 xs12  pr-2"
-      >
-        <p
-          class="mt-4"
-        >
-          I'm a property with a custom display 
-          <input
-            style="border: 1px solid green;"
-            type="text"
-          />
-          .
-        </p>
-      </div>
-      <div
-        class="layout row wrap ma-0 pl-2 pt-2"
-      >
-        <span
-          class="py-2 title"
-        >
-          I am an object containing properties with slots 
-        </span>
-        <div
-          class="flex vjsf-property vjsf-property-object1 xs12  pr-2"
-        >
-          <div
-            class="layout row wrap ma-0 "
-          >
-            <div
-              class="flex vjsf-property vjsf-property-object1-stringProp11 xs12  pr-2"
-            >
-              this is a code slot before nested property
-              <div
-                class="v-input theme--light v-text-field"
-              >
-                <div
-                  class="v-input__control"
-                >
-                  <div
-                    class="v-input__slot"
-                  >
-                    <div
-                      class="v-text-field__slot"
-                    >
-                      <label
-                        class="v-label theme--light"
-                        for="object1-stringProp11"
-                        style="left: 0px; position: absolute;"
-                      >
-                        I'm a nested property with slots
-                      </label>
-                      <input
-                        id="object1-stringProp11"
-                        type="text"
-                      />
-                    </div>
-                  </div>
-                  <div
-                    class="v-text-field__details"
-                  >
-                    <div
-                      class="v-messages theme--light"
-                    >
-                      <div
-                        class="v-messages__wrapper"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="v-input__append-outer"
-                >
-                  <div>
-                    this is a markdown **slot**
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="flex vjsf-property vjsf-property-object1-stringProp12 xs12  pr-2"
-            >
-              <p
-                class="mt-4"
-              >
-                I'm a nested property with a custom display 
-                <input
-                  style="border: 1px solid green;"
-                  type="text"
-                />
-                .
-              </p>
             </div>
           </div>
         </div>
