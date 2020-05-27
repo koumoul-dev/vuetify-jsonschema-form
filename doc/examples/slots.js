@@ -28,12 +28,21 @@ const schema = {
 const model = {}
 
 const template = `<v-jsf v-model="model" :schema="schema" :options="options">
-  <template slot="stringProp1-prepend">this is a Vuetify code slot</template>
-  <template v-slot:stringProp2-before="slotProps">this is a code slot before 2nd property (slot props={{Object.keys(slotProps)}}).</template>
-  <template v-slot:stringProp2="{value, on}"><p class="mt-4">this is the default slot of the 2nd property <input type="text" :value="value" v-on="on" style="border:1px solid red;">.</p></template>
-
-  <template v-slot:object1.stringProp11-before="slotProps">this is a code slot before nested property</template>
-  <template v-slot:custom-string1="{value, label, on}"><p class="mt-4">{{label}} <input type="text" :value="value" v-on="on" style="border:1px solid green;">.</p></template>
+  <template slot="stringProp1-prepend">
+    this is a Vuetify code slot
+  </template>
+  <template slot="stringProp2-before" slot-scope="slotProps">
+    this is a code slot before 2nd property (slot props={{Object.keys(slotProps)}}).
+  </template>
+  <template slot="stringProp2" slot-scope="{value, on}">
+    <p class="mt-4">this is the default slot of the 2nd property <input type="text" :value="value" v-on="on" style="border:1px solid red;">.</p>
+  </template>
+  <template slot="object1.stringProp11-before" slot-scope="slotProps">
+    this is a code slot before nested property
+  </template>
+  <template slot="custom-string1" slot-scope="{value, label, on}"><p class="mt-4">
+    {{label}} <input type="text" :value="value" v-on="on" style="border:1px solid green;">.</p>
+  </template>
 </v-jsf>`
 
 export default { id, title, description, schema, model, template }
