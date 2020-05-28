@@ -199,6 +199,8 @@ export default {
         expansionPanelsProps: 'props passed to the underlying v-expansion-panels component when relevant',
         dialogProps: 'props passed to the underlying v-dialog component when relevant',
         colorPickerProps: 'props passed to the underlying v-color-picker component when relevant',
+        timePickerProps: 'props passed to the underlying v-time-picker component when relevant',
+        datePickerProps: 'props passed to the underlying v-date-picker component when relevant',
         removeAdditionalProperties: 'force the removal of properties found in the model but not defined in the schema',
         disableAll: 'force disabling all fields ignoring the readOnly attributes',
         hideReadOnly: 'by default read-only properties are rendered as disabled fields, set this to true to hide them entirely',
