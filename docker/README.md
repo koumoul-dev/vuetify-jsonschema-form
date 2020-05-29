@@ -21,13 +21,13 @@ This might be helpful if you run into problems with `npm install`. We will use `
 - `./start.sh`
 
 # Access to the examples via browser
-- Open e.g. Chrome and go to url: `http://localhost:3000`. It is important that in `doc/nuxt.config.js` the entry `server.host` is set to `0.0.0.0` and NOT to `localhost`.
+- Open `http://localhost:3000` in your browser. It is important that in `doc/nuxt.config.js` the entry `server.host` is set to `0.0.0.0` and NOT to `localhost`.
 
 # Editing examples or adding new examples
-1. Create a new example:
+- Create a new example:
   - The easiest way is to simple copy an existing example. E.g. copy `doc/examples/basic.js` to `doc/examples/basic2.js`. Inside `basic2.js` change the variables `id` and `title`.
   - Then open `doc/examples/index.js` and add the `import` statement `import basic2 from './basic2'` and add `basic2` to variable `examples`.
-1. Restart the nuxt server:
+- Restart the nuxt server:
   - `cd docker`
   - `./start.sh`
-1. Start editing `basic2.j` to show a new functionality or demonstrate a bug.
+- Start editing `basic2.j` to show a new functionality or demonstrate a bug.
