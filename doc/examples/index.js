@@ -12,6 +12,7 @@ import sections from './sections'
 import sectionsExpansionPanels from './sections-expansion-panels'
 import sectionsTab from './sections-tabs'
 import editableArray from './editable-array'
+import editableArrayWithSubschemes from './editable-array-with-subschemes'
 import prefilledArrays from './prefilled-arrays'
 import classes from './classes'
 import vuetifyProps from './vuetify-props'
@@ -39,6 +40,7 @@ const examples = [
   sectionsExpansionPanels,
   sectionsTab,
   editableArray,
+  editableArrayWithSubschemes,
   prefilledArrays,
   classes,
   vuetifyProps,
