@@ -5,4 +5,5 @@ rm -rf doc/dist
 rm -rf doc/.nuxt
 rm -rf doc/node_modules
 docker build $1 -f docker/Dockerfile --target dev -t localhost/vjsf_dev .
+docker build $1 -f docker/Dockerfile --target lint -t localhost/vjsf_lint .
 cd docker

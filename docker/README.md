@@ -13,8 +13,7 @@ This might be helpful if you run into problems with `npm install`. We will use `
 # Build the server
 - `cd docker`
 - `./build.sh`
-- Troubleshooting:
-  - If you run into the problem of not running tests, simply remove `&& npm test` from item `scripts.prepublish` in `package.json`. Then retry building.
+- The tests sometimes do not work. Then simply remove `&& npm test` from item `scripts.prepublish` in `package.json`. Then retry building.
 
 # Start the server
 - `cd docker`
@@ -31,3 +30,8 @@ This might be helpful if you run into problems with `npm install`. We will use `
   - `cd docker`
   - `./start.sh`
 - Start editing `basic2.js` to show a new functionality or demonstrate a bug. The server will update when you save the example.
+- After you created the example lint it:
+  - The container must be running, if not start the nuxt server with `start.sh`, then
+  - `cd docker`
+  - `./run_command.sh "npm run lint"`
+- Then you can commit the change, push them to your fork, go to the original github repo and make a pull request.
