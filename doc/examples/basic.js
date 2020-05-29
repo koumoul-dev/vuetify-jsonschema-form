@@ -1,6 +1,6 @@
-const id = 'basic'
+const id = 'basic1'
 
-const title = 'Basic types'
+const title = 'Basic types1'
 
 const description = `All basic types are supported : string, number, integer, boolean`
 
