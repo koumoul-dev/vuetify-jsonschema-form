@@ -3,12 +3,12 @@ This might be helpful if you run into problems with `npm install`. We will use `
 
 ## Requirements
 - If you have `docker` and `docker-compose` installed already, you can skip this. Otherwise, to install them you can do this from the offical pages or have a look at the provided scripts `install_docker.sh` and `install_docker_compose.sh` which worked for Ubuntu 18.04:
-- Install docker:
-  - `cd docker`
-  - `./install_docker.sh`
-- Install docker-compose:
-  - `cd docker`
-  - `./install_docker_compose.sh`
+  - Install docker:
+    - `cd docker`
+    - `./install_docker.sh`
+  - Install docker-compose:
+    - `cd docker`
+    - `./install_docker_compose.sh`
 
 # Build the server
 - `cd docker`
