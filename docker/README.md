@@ -30,4 +30,4 @@ This might be helpful if you run into problems with `npm install`. We will use `
 - Restart the nuxt server:
   - `cd docker`
   - `./start.sh`
-- Start editing `basic2.j` to show a new functionality or demonstrate a bug.
+- Start editing `basic2.js` to show a new functionality or demonstrate a bug.
