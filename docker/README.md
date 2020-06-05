@@ -1,8 +1,8 @@
-# Using docker to setup the example server
-This might be helpful if you run into problems with `npm install`. We will use `docker` and create an image which contains `vuetify-jsonschema-form` and its examples in a web server.
+# Using docker to setup the example server on Ubuntu
+This might be helpful if you run into problems with `npm install`. We will use `docker` and create an image which contains `vuetify-jsonschema-form` and its examples in a web server. The seb server will run inside the container and you will be able to code on your host in your familiar coding environment. Changes will be automatically applied by the container.
 
 ## Requirements
-- If you have `docker` and `docker-compose` installed already, you can skip this. Otherwise, to install them you can do this from the offical pages or have a look at the provided scripts `install_docker.sh` and `install_docker_compose.sh` which worked for Ubuntu 18.04:
+- If you have `docker` and `docker-compose` installed already, you can got to the next step. Otherwise, to install them you can do this from the offical pages or have a look at the provided scripts `install_docker.sh` and `install_docker_compose.sh` which work for Ubuntu 18.04:
   - Install docker:
     - `cd docker`
     - `./install_docker.sh`
@@ -18,9 +18,14 @@ This might be helpful if you run into problems with `npm install`. We will use `
 # Start the server
 - `cd docker`
 - `./start.sh`
+- To view and play around with the examples, open `http://localhost:3000` in your browser. It is important that in `doc/nuxt.config.js` the entry `server.host` is set to `0.0.0.0` and NOT to `localhost`.
+- To run a command `<command>` in the container:
+  - `./run_command.sh "<command>"`
 
-# Access to the examples via browser
-- Open `http://localhost:3000` in your browser. It is important that in `doc/nuxt.config.js` the entry `server.host` is set to `0.0.0.0` and NOT to `localhost`.
+# Stop the server
+- Press `CTRL+C` in terminal where server was started or:
+  - `cd docker`
+  - `./stop.sh`
 
 # Editing examples or adding new examples
 - Create a new example:
@@ -29,9 +34,19 @@ This might be helpful if you run into problems with `npm install`. We will use `
 - Restart the nuxt server:
   - `cd docker`
   - `./start.sh`
-- Start editing `basic2.js` to show a new functionality or demonstrate a bug. The server will update when you save the example.
-- After you created the example lint it:
-  - The container must be running, if not start the nuxt server with `start.sh`, then
-  - `cd docker`
-  - `./run_command.sh "npm run lint"`
+- Start editing `basic2.js` on your host to show a new functionality or demonstrate a bug. The server inside the container will update when you save the example on your host, since the folder is mounted in the container.
+- After you created the example:
+  - Run the tests to verify no other problems are introduced:
+    - The container must be running, if not start the nuxt server with `start.sh`, then
+    - `cd docker`
+    - `./test.sh`
+  - Check for lint issues:
+    - The container must be running, if not start the nuxt server with `start.sh`, then
+    - `cd docker`
+    - `./lint.sh"`
 - Then you can commit the change, push them to your fork, go to the original github repo and make a pull request.
+
+# Helpful docker commands
+- To free up disk space:
+  - Remove all stopped containers: `docker container prune`
+  - Remove dangling images: `docker image prune --force`

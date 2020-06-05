@@ -33,11 +33,3 @@ WORKDIR /home/ubuntu/vuetify-jsonschema-form
 # If we instead copy the node_modules to the mounted host folder, this is possible again.
 #CMD ln -s ../frontend_backup/node_modules/ node_modules && npm run doc-dev
 CMD rm -rf ./node_modules && cp -a ../vuetify-jsonschema-form_backup/node_modules/ ./node_modules && npm run doc-build && npm run doc-dev
-
-FROM dev as lint
-
-WORKDIR /home/ubuntu/vuetify-jsonschema-form
-# Using the symbolic link below makes it impossible for VS code to show errors.
-# If we instead copy the node_modules to the mounted host folder, this is possible again.
-#CMD ln -s ../frontend_backup/node_modules/ node_modules && npm run doc-dev
-CMD npm run lint
