@@ -40,6 +40,7 @@ This might be helpful if you run into problems with `npm install`. We will use `
     - The container must be running, if not start the nuxt server with `start.sh`, then
     - `cd docker`
     - `./test.sh`
+    - If you encounter problems with the HTML snapshots, check them and run `./run_command "npm run test-update"`. Then perform `./test.sh` again. All tests and snapshots should pass.
   - Check for lint issues:
     - The container must be running, if not start the nuxt server with `start.sh`, then
     - `cd docker`
