@@ -14,6 +14,7 @@ This might be helpful if you run into problems with `npm install`. We will use `
 - `cd docker`
 - `./build.sh`
 - The tests sometimes do not work. Then simply remove `&& npm test` from item `scripts.prepublish` in `package.json`. Then retry building.
+- If you do not want to use the docker cache, simply call `./build.sh --no-cache`.
 
 # Start the server
 - `cd docker`
