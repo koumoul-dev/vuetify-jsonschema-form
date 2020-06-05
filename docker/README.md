@@ -24,7 +24,7 @@ This might be helpful if you run into problems with `npm install`. We will use `
   - `./run_command.sh "<command>"`
 
 # Stop the server
-- Press `CTRL+C` in terminal where server was started or:
+- Press `CTRL+C` in terminal where server was started or in another terminal:
   - `cd docker`
   - `./stop.sh`
 
