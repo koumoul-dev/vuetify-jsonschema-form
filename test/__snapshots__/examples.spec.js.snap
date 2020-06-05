@@ -45,8 +45,10 @@ exports[`Examples used as simple test cases Basic types 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -100,8 +102,10 @@ exports[`Examples used as simple test cases Basic types 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -142,8 +146,10 @@ exports[`Examples used as simple test cases Basic types 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -184,8 +190,10 @@ exports[`Examples used as simple test cases Basic types 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -253,8 +261,10 @@ exports[`Examples used as simple test cases Basic types 1`] = `
             <div
               class="v-messages theme--light"
             >
-              <div
+              <transition-group-stub
                 class="v-messages__wrapper"
+                name="message-transition"
+                tag="div"
               />
             </div>
           </div>
@@ -301,8 +311,10 @@ exports[`Examples used as simple test cases Basic types 1`] = `
             <div
               class="v-messages theme--light primary--text"
             >
-              <div
+              <transition-group-stub
                 class="v-messages__wrapper"
+                name="message-transition"
+                tag="div"
               />
             </div>
           </div>
@@ -388,8 +400,10 @@ exports[`Examples used as simple test cases Basic types 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -447,8 +461,10 @@ exports[`Examples used as simple test cases Basic types 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -505,8 +521,10 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -547,8 +565,10 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -589,8 +609,10 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -631,8 +653,10 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -673,8 +697,10 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -693,7 +719,11 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
+<<<<<<< HEAD
               aria-owns="list-680"
+=======
+              aria-owns="list-460"
+>>>>>>> Adding docker functionality. View docker/README.md.
               class="v-input__slot"
               role="combobox"
             >
@@ -747,8 +777,10 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -767,7 +799,11 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
+<<<<<<< HEAD
               aria-owns="list-687"
+=======
+              aria-owns="list-467"
+>>>>>>> Adding docker functionality. View docker/README.md.
               class="v-input__slot"
               role="combobox"
             >
@@ -806,8 +842,10 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -864,8 +902,10 @@ exports[`Examples used as simple test cases Classes and styles 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -906,8 +946,10 @@ exports[`Examples used as simple test cases Classes and styles 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -949,8 +991,10 @@ exports[`Examples used as simple test cases Classes and styles 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -987,7 +1031,7 @@ exports[`Examples used as simple test cases Colors 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-129"
+                for="input-83"
                 style="left: 0px; position: relative;"
               >
                 I'm a color
@@ -1005,8 +1049,10 @@ exports[`Examples used as simple test cases Colors 1`] = `
             <div
               class="v-messages theme--light"
             >
-              <div
+              <transition-group-stub
                 class="v-messages__wrapper"
+                name="message-transition"
+                tag="div"
               />
             </div>
           </div>
@@ -1039,7 +1085,7 @@ exports[`Examples used as simple test cases Colors 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-136"
+                for="input-90"
                 style="left: 0px; position: relative;"
               >
                 I'm a color with a swatches based picker
@@ -1057,8 +1103,10 @@ exports[`Examples used as simple test cases Colors 1`] = `
             <div
               class="v-messages theme--light"
             >
-              <div
+              <transition-group-stub
                 class="v-messages__wrapper"
+                name="message-transition"
+                tag="div"
               />
             </div>
           </div>
@@ -1144,8 +1192,10 @@ exports[`Examples used as simple test cases Dates 1`] = `
                 <div
                   class="v-messages theme--light"
                 >
-                  <div
+                  <transition-group-stub
                     class="v-messages__wrapper"
+                    name="message-transition"
+                    tag="div"
                   />
                 </div>
               </div>
@@ -1231,8 +1281,10 @@ exports[`Examples used as simple test cases Dates 1`] = `
                 <div
                   class="v-messages theme--light"
                 >
-                  <div
+                  <transition-group-stub
                     class="v-messages__wrapper"
+                    name="message-transition"
+                    tag="div"
                   />
                 </div>
               </div>
@@ -1305,8 +1357,10 @@ exports[`Examples used as simple test cases Dates 1`] = `
                 <div
                   class="v-messages theme--light"
                 >
-                  <div
+                  <transition-group-stub
                     class="v-messages__wrapper"
+                    name="message-transition"
+                    tag="div"
                   />
                 </div>
               </div>
@@ -1444,8 +1498,10 @@ exports[`Examples used as simple test cases Files 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -1517,8 +1573,10 @@ exports[`Examples used as simple test cases Files 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -1591,8 +1649,10 @@ exports[`Examples used as simple test cases Files 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -1664,8 +1724,10 @@ exports[`Examples used as simple test cases Files 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -1737,8 +1799,10 @@ exports[`Examples used as simple test cases Files 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -1811,8 +1875,10 @@ exports[`Examples used as simple test cases Files 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -1898,8 +1964,10 @@ exports[`Examples used as simple test cases Localization 1`] = `
                 <div
                   class="v-messages theme--light"
                 >
-                  <div
+                  <transition-group-stub
                     class="v-messages__wrapper"
+                    name="message-transition"
+                    tag="div"
                   />
                 </div>
               </div>
@@ -1920,7 +1988,11 @@ exports[`Examples used as simple test cases Localization 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
+<<<<<<< HEAD
               aria-owns="list-913"
+=======
+              aria-owns="list-598"
+>>>>>>> Adding docker functionality. View docker/README.md.
               class="v-input__slot"
               role="combobox"
             >
@@ -1972,8 +2044,10 @@ exports[`Examples used as simple test cases Localization 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -2060,8 +2134,10 @@ exports[`Examples used as simple test cases Read only content 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -2117,8 +2193,10 @@ exports[`Examples used as simple test cases Read only content 1`] = `
                     <div
                       class="v-messages theme--light"
                     >
-                      <div
+                      <transition-group-stub
                         class="v-messages__wrapper"
+                        name="message-transition"
+                        tag="div"
                       />
                     </div>
                   </div>
@@ -2177,8 +2255,10 @@ exports[`Examples used as simple test cases Read only content 1`] = `
                     <div
                       class="v-messages theme--light"
                     >
-                      <div
+                      <transition-group-stub
                         class="v-messages__wrapper"
+                        name="message-transition"
+                        tag="div"
                       />
                     </div>
                   </div>
@@ -2237,8 +2317,10 @@ exports[`Examples used as simple test cases Read only content 1`] = `
                     <div
                       class="v-messages theme--light"
                     >
-                      <div
+                      <transition-group-stub
                         class="v-messages__wrapper"
+                        name="message-transition"
+                        tag="div"
                       />
                     </div>
                   </div>
@@ -2297,8 +2379,10 @@ exports[`Examples used as simple test cases Read only content 1`] = `
                     <div
                       class="v-messages theme--light"
                     >
-                      <div
+                      <transition-group-stub
                         class="v-messages__wrapper"
+                        name="message-transition"
+                        tag="div"
                       />
                     </div>
                   </div>
@@ -2379,8 +2463,10 @@ exports[`Examples used as simple test cases Sections 1`] = `
                     <div
                       class="v-messages theme--light"
                     >
-                      <div
+                      <transition-group-stub
                         class="v-messages__wrapper"
+                        name="message-transition"
+                        tag="div"
                       />
                     </div>
                   </div>
@@ -2438,8 +2524,10 @@ exports[`Examples used as simple test cases Sections 1`] = `
                     <div
                       class="v-messages theme--light"
                     >
-                      <div
+                      <transition-group-stub
                         class="v-messages__wrapper"
+                        name="message-transition"
+                        tag="div"
                       />
                     </div>
                   </div>
@@ -2494,8 +2582,10 @@ exports[`Examples used as simple test cases Sections 1`] = `
                           <div
                             class="v-messages theme--light"
                           >
-                            <div
+                            <transition-group-stub
                               class="v-messages__wrapper"
+                              name="message-transition"
+                              tag="div"
                             />
                           </div>
                         </div>
@@ -2553,8 +2643,10 @@ exports[`Examples used as simple test cases Sections 1`] = `
                           <div
                             class="v-messages theme--light"
                           >
-                            <div
+                            <transition-group-stub
                               class="v-messages__wrapper"
+                              name="message-transition"
+                              tag="div"
                             />
                           </div>
                         </div>
@@ -2600,69 +2692,79 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
             type="button"
           >
             I'm a section
-            <div
-              class="v-expansion-panel-header__icon"
-            >
-              <i
-                aria-hidden="true"
-                class="v-icon notranslate mdi mdi-chevron-down theme--light"
-              />
-            </div>
-          </button>
-          <div
-            class="v-expansion-panel-content"
-          >
-            <div
-              class="v-expansion-panel-content__wrap"
+            <transition-stub
+              name="fade-transition"
             >
               <div
-                class="flex vjsf-property vjsf-property-objectSection1 xs12  pr-2"
+                class="v-expansion-panel-header__icon"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-chevron-down theme--light"
+                />
+              </div>
+            </transition-stub>
+          </button>
+          <transition-stub
+            name="expand-transition"
+          >
+            <div
+              class="v-expansion-panel-content"
+            >
+              <div
+                class="v-expansion-panel-content__wrap"
               >
                 <div
-                  class="layout row wrap ma-0 "
+                  class="flex vjsf-property vjsf-property-objectSection1 xs12  pr-2"
                 >
                   <div
-                    class="flex xs12"
-                  >
-                    I'm a description shown as a paragraph on top of section
-                  </div>
-                  <div
-                    class="flex vjsf-property vjsf-property-objectSection1-stringProp1 xs12  pr-2"
+                    class="layout row wrap ma-0 "
                   >
                     <div
-                      class="v-input theme--light v-text-field"
+                      class="flex xs12"
+                    >
+                      I'm a description shown as a paragraph on top of section
+                    </div>
+                    <div
+                      class="flex vjsf-property vjsf-property-objectSection1-stringProp1 xs12  pr-2"
                     >
                       <div
-                        class="v-input__control"
+                        class="v-input theme--light v-text-field"
                       >
                         <div
-                          class="v-input__slot"
+                          class="v-input__control"
                         >
                           <div
-                            class="v-text-field__slot"
-                          >
-                            <label
-                              class="v-label theme--light"
-                              for="objectSection1-stringProp1"
-                              style="left: 0px; position: absolute;"
-                            >
-                              I'm a property in section 1
-                            </label>
-                            <input
-                              id="objectSection1-stringProp1"
-                              type="text"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          class="v-text-field__details"
-                        >
-                          <div
-                            class="v-messages theme--light"
+                            class="v-input__slot"
                           >
                             <div
-                              class="v-messages__wrapper"
-                            />
+                              class="v-text-field__slot"
+                            >
+                              <label
+                                class="v-label theme--light"
+                                for="objectSection1-stringProp1"
+                                style="left: 0px; position: absolute;"
+                              >
+                                I'm a property in section 1
+                              </label>
+                              <input
+                                id="objectSection1-stringProp1"
+                                type="text"
+                              />
+                            </div>
+                          </div>
+                          <div
+                            class="v-text-field__details"
+                          >
+                            <div
+                              class="v-messages theme--light"
+                            >
+                              <transition-group-stub
+                                class="v-messages__wrapper"
+                                name="message-transition"
+                                tag="div"
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -2671,7 +2773,7 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
                 </div>
               </div>
             </div>
-          </div>
+          </transition-stub>
         </div>
         <div
           aria-expanded="false"
@@ -2682,65 +2784,75 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
             type="button"
           >
             I'm another section
-            <div
-              class="v-expansion-panel-header__icon"
-            >
-              <i
-                aria-hidden="true"
-                class="v-icon notranslate mdi mdi-chevron-down theme--light"
-              />
-            </div>
-          </button>
-          <div
-            class="v-expansion-panel-content"
-            style="display: none;"
-          >
-            <div
-              class="v-expansion-panel-content__wrap"
+            <transition-stub
+              name="fade-transition"
             >
               <div
-                class="flex vjsf-property vjsf-property-objectSection2 xs12  pr-2"
+                class="v-expansion-panel-header__icon"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-chevron-down theme--light"
+                />
+              </div>
+            </transition-stub>
+          </button>
+          <transition-stub
+            name="expand-transition"
+          >
+            <div
+              class="v-expansion-panel-content"
+              style="display: none;"
+            >
+              <div
+                class="v-expansion-panel-content__wrap"
               >
                 <div
-                  class="layout row wrap ma-0 "
+                  class="flex vjsf-property vjsf-property-objectSection2 xs12  pr-2"
                 >
                   <div
-                    class="flex vjsf-property vjsf-property-objectSection2-stringProp2 xs12  pr-2"
+                    class="layout row wrap ma-0 "
                   >
                     <div
-                      class="v-input theme--light v-text-field"
+                      class="flex vjsf-property vjsf-property-objectSection2-stringProp2 xs12  pr-2"
                     >
                       <div
-                        class="v-input__control"
+                        class="v-input theme--light v-text-field"
                       >
                         <div
-                          class="v-input__slot"
+                          class="v-input__control"
                         >
                           <div
-                            class="v-text-field__slot"
-                          >
-                            <label
-                              class="v-label theme--light"
-                              for="objectSection2-stringProp2"
-                              style="left: 0px; position: absolute;"
-                            >
-                              I'm a property in section 2
-                            </label>
-                            <input
-                              id="objectSection2-stringProp2"
-                              type="text"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          class="v-text-field__details"
-                        >
-                          <div
-                            class="v-messages theme--light"
+                            class="v-input__slot"
                           >
                             <div
-                              class="v-messages__wrapper"
-                            />
+                              class="v-text-field__slot"
+                            >
+                              <label
+                                class="v-label theme--light"
+                                for="objectSection2-stringProp2"
+                                style="left: 0px; position: absolute;"
+                              >
+                                I'm a property in section 2
+                              </label>
+                              <input
+                                id="objectSection2-stringProp2"
+                                type="text"
+                              />
+                            </div>
+                          </div>
+                          <div
+                            class="v-text-field__details"
+                          >
+                            <div
+                              class="v-messages theme--light"
+                            >
+                              <transition-group-stub
+                                class="v-messages__wrapper"
+                                name="message-transition"
+                                tag="div"
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -2749,7 +2861,7 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
                 </div>
               </div>
             </div>
-          </div>
+          </transition-stub>
         </div>
       </div>
     </div>
@@ -2783,7 +2895,9 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
           <div
             class="v-slide-group__prev v-slide-group__prev--disabled"
           >
-            <!---->
+            <transition-stub
+              name="fade-transition"
+            />
           </div>
           <div
             class="v-slide-group__wrapper"
@@ -2827,6 +2941,13 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
               </a>
             </div>
           </div>
+          <div
+            class="v-slide-group__next v-slide-group__next--disabled"
+          >
+            <transition-stub
+              name="fade-transition"
+            />
+          </div>
         </div>
         <div
           class="v-window v-item-group theme--light v-tabs-items"
@@ -2834,65 +2955,71 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
           <div
             class="v-window__container"
           >
-            <div
-              class="v-window-item"
-              id="tab-root-allOf-0"
-              style="display: none;"
+            <transition-stub
+              name=""
             >
               <div
-                class="v-card v-card--flat v-sheet v-sheet--tile theme--light"
+                class="v-window-item"
+                id="tab-root-allOf-0"
+                style="display: none;"
               >
                 <div
-                  class="v-card__text"
+                  class="v-card v-card--flat v-sheet v-sheet--tile theme--light"
                 >
                   <div
-                    class="flex vjsf-property vjsf-property-allOf-0 xs12  pr-2"
+                    class="v-card__text"
                   >
                     <div
-                      class="layout row wrap ma-0 "
+                      class="flex vjsf-property vjsf-property-allOf-0 xs12  pr-2"
                     >
                       <div
-                        class="flex xs12"
-                      >
-                        I'm a description shown as a paragraph on top of section
-                      </div>
-                      <div
-                        class="flex vjsf-property vjsf-property-allOf-0-stringProp1 xs12  pr-2"
+                        class="layout row wrap ma-0 "
                       >
                         <div
-                          class="v-input theme--light v-text-field"
+                          class="flex xs12"
+                        >
+                          I'm a description shown as a paragraph on top of section
+                        </div>
+                        <div
+                          class="flex vjsf-property vjsf-property-allOf-0-stringProp1 xs12  pr-2"
                         >
                           <div
-                            class="v-input__control"
+                            class="v-input theme--light v-text-field"
                           >
                             <div
-                              class="v-input__slot"
+                              class="v-input__control"
                             >
                               <div
-                                class="v-text-field__slot"
-                              >
-                                <label
-                                  class="v-label theme--light"
-                                  for="allOf-0-stringProp1"
-                                  style="left: 0px; position: absolute;"
-                                >
-                                  I'm a property in section 1
-                                </label>
-                                <input
-                                  id="allOf-0-stringProp1"
-                                  type="text"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="v-text-field__details"
-                            >
-                              <div
-                                class="v-messages theme--light"
+                                class="v-input__slot"
                               >
                                 <div
-                                  class="v-messages__wrapper"
-                                />
+                                  class="v-text-field__slot"
+                                >
+                                  <label
+                                    class="v-label theme--light"
+                                    for="allOf-0-stringProp1"
+                                    style="left: 0px; position: absolute;"
+                                  >
+                                    I'm a property in section 1
+                                  </label>
+                                  <input
+                                    id="allOf-0-stringProp1"
+                                    type="text"
+                                  />
+                                </div>
+                              </div>
+                              <div
+                                class="v-text-field__details"
+                              >
+                                <div
+                                  class="v-messages theme--light"
+                                >
+                                  <transition-group-stub
+                                    class="v-messages__wrapper"
+                                    name="message-transition"
+                                    tag="div"
+                                  />
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -2902,61 +3029,67 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="v-window-item"
-              id="tab-root-allOf-1"
-              style="display: none;"
+            </transition-stub>
+            <transition-stub
+              name=""
             >
               <div
-                class="v-card v-card--flat v-sheet v-sheet--tile theme--light"
+                class="v-window-item"
+                id="tab-root-allOf-1"
+                style="display: none;"
               >
                 <div
-                  class="v-card__text"
+                  class="v-card v-card--flat v-sheet v-sheet--tile theme--light"
                 >
                   <div
-                    class="flex vjsf-property vjsf-property-allOf-1 xs12  pr-2"
+                    class="v-card__text"
                   >
                     <div
-                      class="layout row wrap ma-0 "
+                      class="flex vjsf-property vjsf-property-allOf-1 xs12  pr-2"
                     >
                       <div
-                        class="flex vjsf-property vjsf-property-allOf-1-stringProp2 xs12  pr-2"
+                        class="layout row wrap ma-0 "
                       >
                         <div
-                          class="v-input theme--light v-text-field"
+                          class="flex vjsf-property vjsf-property-allOf-1-stringProp2 xs12  pr-2"
                         >
                           <div
-                            class="v-input__control"
+                            class="v-input theme--light v-text-field"
                           >
                             <div
-                              class="v-input__slot"
+                              class="v-input__control"
                             >
                               <div
-                                class="v-text-field__slot"
-                              >
-                                <label
-                                  class="v-label theme--light"
-                                  for="allOf-1-stringProp2"
-                                  style="left: 0px; position: absolute;"
-                                >
-                                  I'm a property in section 2
-                                </label>
-                                <input
-                                  id="allOf-1-stringProp2"
-                                  type="text"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="v-text-field__details"
-                            >
-                              <div
-                                class="v-messages theme--light"
+                                class="v-input__slot"
                               >
                                 <div
-                                  class="v-messages__wrapper"
-                                />
+                                  class="v-text-field__slot"
+                                >
+                                  <label
+                                    class="v-label theme--light"
+                                    for="allOf-1-stringProp2"
+                                    style="left: 0px; position: absolute;"
+                                  >
+                                    I'm a property in section 2
+                                  </label>
+                                  <input
+                                    id="allOf-1-stringProp2"
+                                    type="text"
+                                  />
+                                </div>
+                              </div>
+                              <div
+                                class="v-text-field__details"
+                              >
+                                <div
+                                  class="v-messages theme--light"
+                                >
+                                  <transition-group-stub
+                                    class="v-messages__wrapper"
+                                    name="message-transition"
+                                    tag="div"
+                                  />
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -2966,7 +3099,7 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
                   </div>
                 </div>
               </div>
-            </div>
+            </transition-stub>
           </div>
         </div>
       </div>
@@ -3010,7 +3143,9 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                 <div
                   class="v-slide-group__prev v-slide-group__prev--disabled"
                 >
-                  <!---->
+                  <transition-stub
+                    name="fade-transition"
+                  />
                 </div>
                 <div
                   class="v-slide-group__wrapper"
@@ -3054,6 +3189,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                     </a>
                   </div>
                 </div>
+                <div
+                  class="v-slide-group__next v-slide-group__next--disabled"
+                >
+                  <transition-stub
+                    name="fade-transition"
+                  />
+                </div>
               </div>
               <div
                 class="v-window v-item-group theme--light v-tabs-items"
@@ -3061,60 +3203,66 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                 <div
                   class="v-window__container"
                 >
-                  <div
-                    class="v-window-item"
-                    id="tab-tabs-section1"
-                    style="display: none;"
+                  <transition-stub
+                    name=""
                   >
                     <div
-                      class="v-card v-card--flat v-sheet v-sheet--tile theme--light"
+                      class="v-window-item"
+                      id="tab-tabs-section1"
+                      style="display: none;"
                     >
                       <div
-                        class="v-card__text"
+                        class="v-card v-card--flat v-sheet v-sheet--tile theme--light"
                       >
                         <div
-                          class="flex vjsf-property vjsf-property-tabs-section1 xs12  pr-2"
+                          class="v-card__text"
                         >
                           <div
-                            class="layout row wrap ma-0 "
+                            class="flex vjsf-property vjsf-property-tabs-section1 xs12  pr-2"
                           >
                             <div
-                              class="flex vjsf-property vjsf-property-tabs-section1-requiredStringProp1 xs12  pr-2"
+                              class="layout row wrap ma-0 "
                             >
                               <div
-                                class="v-input theme--light v-text-field"
+                                class="flex vjsf-property vjsf-property-tabs-section1-requiredStringProp1 xs12  pr-2"
                               >
                                 <div
-                                  class="v-input__control"
+                                  class="v-input theme--light v-text-field"
                                 >
                                   <div
-                                    class="v-input__slot"
+                                    class="v-input__control"
                                   >
                                     <div
-                                      class="v-text-field__slot"
-                                    >
-                                      <label
-                                        class="v-label theme--light"
-                                        for="tabs-section1-requiredStringProp1"
-                                        style="left: 0px; position: absolute;"
-                                      >
-                                        I'm a required string
-                                      </label>
-                                      <input
-                                        id="tabs-section1-requiredStringProp1"
-                                        type="text"
-                                      />
-                                    </div>
-                                  </div>
-                                  <div
-                                    class="v-text-field__details"
-                                  >
-                                    <div
-                                      class="v-messages theme--light"
+                                      class="v-input__slot"
                                     >
                                       <div
-                                        class="v-messages__wrapper"
-                                      />
+                                        class="v-text-field__slot"
+                                      >
+                                        <label
+                                          class="v-label theme--light"
+                                          for="tabs-section1-requiredStringProp1"
+                                          style="left: 0px; position: absolute;"
+                                        >
+                                          I'm a required string
+                                        </label>
+                                        <input
+                                          id="tabs-section1-requiredStringProp1"
+                                          type="text"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div
+                                      class="v-text-field__details"
+                                    >
+                                      <div
+                                        class="v-messages theme--light"
+                                      >
+                                        <transition-group-stub
+                                          class="v-messages__wrapper"
+                                          name="message-transition"
+                                          tag="div"
+                                        />
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
@@ -3124,61 +3272,67 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    class="v-window-item"
-                    id="tab-tabs-section2"
-                    style="display: none;"
+                  </transition-stub>
+                  <transition-stub
+                    name=""
                   >
                     <div
-                      class="v-card v-card--flat v-sheet v-sheet--tile theme--light"
+                      class="v-window-item"
+                      id="tab-tabs-section2"
+                      style="display: none;"
                     >
                       <div
-                        class="v-card__text"
+                        class="v-card v-card--flat v-sheet v-sheet--tile theme--light"
                       >
                         <div
-                          class="flex vjsf-property vjsf-property-tabs-section2 xs12  pr-2"
+                          class="v-card__text"
                         >
                           <div
-                            class="layout row wrap ma-0 "
+                            class="flex vjsf-property vjsf-property-tabs-section2 xs12  pr-2"
                           >
                             <div
-                              class="flex vjsf-property vjsf-property-tabs-section2-requiredStringProp2 xs12  pr-2"
+                              class="layout row wrap ma-0 "
                             >
                               <div
-                                class="v-input theme--light v-text-field"
+                                class="flex vjsf-property vjsf-property-tabs-section2-requiredStringProp2 xs12  pr-2"
                               >
                                 <div
-                                  class="v-input__control"
+                                  class="v-input theme--light v-text-field"
                                 >
                                   <div
-                                    class="v-input__slot"
+                                    class="v-input__control"
                                   >
                                     <div
-                                      class="v-text-field__slot"
-                                    >
-                                      <label
-                                        class="v-label theme--light"
-                                        for="tabs-section2-requiredStringProp2"
-                                        style="left: 0px; position: absolute;"
-                                      >
-                                        I'm another required string
-                                      </label>
-                                      <input
-                                        id="tabs-section2-requiredStringProp2"
-                                        type="text"
-                                      />
-                                    </div>
-                                  </div>
-                                  <div
-                                    class="v-text-field__details"
-                                  >
-                                    <div
-                                      class="v-messages theme--light"
+                                      class="v-input__slot"
                                     >
                                       <div
-                                        class="v-messages__wrapper"
-                                      />
+                                        class="v-text-field__slot"
+                                      >
+                                        <label
+                                          class="v-label theme--light"
+                                          for="tabs-section2-requiredStringProp2"
+                                          style="left: 0px; position: absolute;"
+                                        >
+                                          I'm another required string
+                                        </label>
+                                        <input
+                                          id="tabs-section2-requiredStringProp2"
+                                          type="text"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div
+                                      class="v-text-field__details"
+                                    >
+                                      <div
+                                        class="v-messages theme--light"
+                                      >
+                                        <transition-group-stub
+                                          class="v-messages__wrapper"
+                                          name="message-transition"
+                                          tag="div"
+                                        />
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
@@ -3188,7 +3342,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </transition-stub>
                 </div>
               </div>
             </div>
@@ -3221,64 +3375,74 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                   type="button"
                 >
                   Section 1
-                  <div
-                    class="v-expansion-panel-header__icon"
-                  >
-                    <i
-                      aria-hidden="true"
-                      class="v-icon notranslate mdi mdi-chevron-down theme--light"
-                    />
-                  </div>
-                </button>
-                <div
-                  class="v-expansion-panel-content"
-                >
-                  <div
-                    class="v-expansion-panel-content__wrap"
+                  <transition-stub
+                    name="fade-transition"
                   >
                     <div
-                      class="flex vjsf-property vjsf-property-panels-allOf-0 xs12  pr-2"
+                      class="v-expansion-panel-header__icon"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="v-icon notranslate mdi mdi-chevron-down theme--light"
+                      />
+                    </div>
+                  </transition-stub>
+                </button>
+                <transition-stub
+                  name="expand-transition"
+                >
+                  <div
+                    class="v-expansion-panel-content"
+                  >
+                    <div
+                      class="v-expansion-panel-content__wrap"
                     >
                       <div
-                        class="layout row wrap ma-0 "
+                        class="flex vjsf-property vjsf-property-panels-allOf-0 xs12  pr-2"
                       >
                         <div
-                          class="flex vjsf-property vjsf-property-panels-allOf-0-requiredStringProp1 xs12  pr-2"
+                          class="layout row wrap ma-0 "
                         >
                           <div
-                            class="v-input theme--light v-text-field"
+                            class="flex vjsf-property vjsf-property-panels-allOf-0-requiredStringProp1 xs12  pr-2"
                           >
                             <div
-                              class="v-input__control"
+                              class="v-input theme--light v-text-field"
                             >
                               <div
-                                class="v-input__slot"
+                                class="v-input__control"
                               >
                                 <div
-                                  class="v-text-field__slot"
-                                >
-                                  <label
-                                    class="v-label theme--light"
-                                    for="panels-allOf-0-requiredStringProp1"
-                                    style="left: 0px; position: absolute;"
-                                  >
-                                    I'm a required string
-                                  </label>
-                                  <input
-                                    id="panels-allOf-0-requiredStringProp1"
-                                    type="text"
-                                  />
-                                </div>
-                              </div>
-                              <div
-                                class="v-text-field__details"
-                              >
-                                <div
-                                  class="v-messages theme--light"
+                                  class="v-input__slot"
                                 >
                                   <div
-                                    class="v-messages__wrapper"
-                                  />
+                                    class="v-text-field__slot"
+                                  >
+                                    <label
+                                      class="v-label theme--light"
+                                      for="panels-allOf-0-requiredStringProp1"
+                                      style="left: 0px; position: absolute;"
+                                    >
+                                      I'm a required string
+                                    </label>
+                                    <input
+                                      id="panels-allOf-0-requiredStringProp1"
+                                      type="text"
+                                    />
+                                  </div>
+                                </div>
+                                <div
+                                  class="v-text-field__details"
+                                >
+                                  <div
+                                    class="v-messages theme--light"
+                                  >
+                                    <transition-group-stub
+                                      class="v-messages__wrapper"
+                                      name="message-transition"
+                                      tag="div"
+                                    />
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -3287,7 +3451,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                       </div>
                     </div>
                   </div>
-                </div>
+                </transition-stub>
               </div>
               <div
                 aria-expanded="false"
@@ -3298,65 +3462,75 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                   type="button"
                 >
                   Section 2
-                  <div
-                    class="v-expansion-panel-header__icon"
-                  >
-                    <i
-                      aria-hidden="true"
-                      class="v-icon notranslate mdi mdi-chevron-down theme--light"
-                    />
-                  </div>
-                </button>
-                <div
-                  class="v-expansion-panel-content"
-                  style="display: none;"
-                >
-                  <div
-                    class="v-expansion-panel-content__wrap"
+                  <transition-stub
+                    name="fade-transition"
                   >
                     <div
-                      class="flex vjsf-property vjsf-property-panels-allOf-1 xs12  pr-2"
+                      class="v-expansion-panel-header__icon"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="v-icon notranslate mdi mdi-chevron-down theme--light"
+                      />
+                    </div>
+                  </transition-stub>
+                </button>
+                <transition-stub
+                  name="expand-transition"
+                >
+                  <div
+                    class="v-expansion-panel-content"
+                    style="display: none;"
+                  >
+                    <div
+                      class="v-expansion-panel-content__wrap"
                     >
                       <div
-                        class="layout row wrap ma-0 "
+                        class="flex vjsf-property vjsf-property-panels-allOf-1 xs12  pr-2"
                       >
                         <div
-                          class="flex vjsf-property vjsf-property-panels-allOf-1-requiredStringProp2 xs12  pr-2"
+                          class="layout row wrap ma-0 "
                         >
                           <div
-                            class="v-input theme--light v-text-field"
+                            class="flex vjsf-property vjsf-property-panels-allOf-1-requiredStringProp2 xs12  pr-2"
                           >
                             <div
-                              class="v-input__control"
+                              class="v-input theme--light v-text-field"
                             >
                               <div
-                                class="v-input__slot"
+                                class="v-input__control"
                               >
                                 <div
-                                  class="v-text-field__slot"
-                                >
-                                  <label
-                                    class="v-label theme--light"
-                                    for="panels-allOf-1-requiredStringProp2"
-                                    style="left: 0px; position: absolute;"
-                                  >
-                                    I'm another required string
-                                  </label>
-                                  <input
-                                    id="panels-allOf-1-requiredStringProp2"
-                                    type="text"
-                                  />
-                                </div>
-                              </div>
-                              <div
-                                class="v-text-field__details"
-                              >
-                                <div
-                                  class="v-messages theme--light"
+                                  class="v-input__slot"
                                 >
                                   <div
-                                    class="v-messages__wrapper"
-                                  />
+                                    class="v-text-field__slot"
+                                  >
+                                    <label
+                                      class="v-label theme--light"
+                                      for="panels-allOf-1-requiredStringProp2"
+                                      style="left: 0px; position: absolute;"
+                                    >
+                                      I'm another required string
+                                    </label>
+                                    <input
+                                      id="panels-allOf-1-requiredStringProp2"
+                                      type="text"
+                                    />
+                                  </div>
+                                </div>
+                                <div
+                                  class="v-text-field__details"
+                                >
+                                  <div
+                                    class="v-messages theme--light"
+                                  >
+                                    <transition-group-stub
+                                      class="v-messages__wrapper"
+                                      name="message-transition"
+                                      tag="div"
+                                    />
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -3365,7 +3539,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                       </div>
                     </div>
                   </div>
-                </div>
+                </transition-stub>
               </div>
             </div>
           </div>
@@ -3399,7 +3573,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-151"
+              aria-owns="list-101"
               class="v-input__slot"
               role="button"
             >
@@ -3466,8 +3640,10 @@ exports[`Examples used as simple test cases Selects 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -3499,7 +3675,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-160"
+              aria-owns="list-110"
               class="v-input__slot"
               role="button"
             >
@@ -3566,8 +3742,10 @@ exports[`Examples used as simple test cases Selects 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -3586,7 +3764,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-167"
+              aria-owns="list-117"
               class="v-input__slot"
               role="button"
             >
@@ -3653,8 +3831,10 @@ exports[`Examples used as simple test cases Selects 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -3673,7 +3853,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-174"
+              aria-owns="list-124"
               class="v-input__slot"
               role="button"
             >
@@ -3740,8 +3920,10 @@ exports[`Examples used as simple test cases Selects 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -3760,7 +3942,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-181"
+              aria-owns="list-131"
               class="v-input__slot"
               role="combobox"
             >
@@ -3826,8 +4008,10 @@ exports[`Examples used as simple test cases Selects 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -3875,7 +4059,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-225"
+              aria-owns="list-146"
               class="v-input__slot"
               role="button"
             >
@@ -3942,8 +4126,10 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -3962,7 +4148,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-232"
+              aria-owns="list-153"
               class="v-input__slot"
               role="button"
             >
@@ -4029,8 +4215,10 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -4049,7 +4237,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-239"
+              aria-owns="list-160"
               class="v-input__slot"
               role="button"
             >
@@ -4116,8 +4304,10 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -4136,7 +4326,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-246"
+              aria-owns="list-167"
               class="v-input__slot"
               role="button"
             >
@@ -4203,8 +4393,10 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -4223,7 +4415,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-253"
+              aria-owns="list-174"
               class="v-input__slot"
               role="button"
             >
@@ -4290,8 +4482,10 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -4310,7 +4504,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-260"
+              aria-owns="list-181"
               class="v-input__slot"
               role="combobox"
             >
@@ -4376,8 +4570,10 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -4409,7 +4605,11 @@ exports[`Examples used as simple test cases Selects of sub-schemas 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
+<<<<<<< HEAD
             aria-owns="list-389"
+=======
+            aria-owns="list-247"
+>>>>>>> Adding docker functionality. View docker/README.md.
             class="v-input__slot"
             role="button"
           >
@@ -4462,8 +4662,10 @@ exports[`Examples used as simple test cases Selects of sub-schemas 1`] = `
             <div
               class="v-messages theme--light"
             >
-              <div
+              <transition-group-stub
                 class="v-messages__wrapper"
+                name="message-transition"
+                tag="div"
               />
             </div>
           </div>
@@ -4504,7 +4706,11 @@ exports[`Examples used as simple test cases Selects with dependencies 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
+<<<<<<< HEAD
               aria-owns="list-374"
+=======
+              aria-owns="list-235"
+>>>>>>> Adding docker functionality. View docker/README.md.
               class="v-input__slot"
               role="button"
             >
@@ -4571,8 +4777,10 @@ exports[`Examples used as simple test cases Selects with dependencies 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -4607,7 +4815,11 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
+<<<<<<< HEAD
               aria-owns="list-306"
+=======
+              aria-owns="list-194"
+>>>>>>> Adding docker functionality. View docker/README.md.
               class="v-input__slot"
               role="button"
             >
@@ -4674,8 +4886,10 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -4694,7 +4908,11 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
+<<<<<<< HEAD
               aria-owns="list-313"
+=======
+              aria-owns="list-201"
+>>>>>>> Adding docker functionality. View docker/README.md.
               class="v-input__slot"
               role="button"
             >
@@ -4761,8 +4979,10 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -4781,7 +5001,11 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
+<<<<<<< HEAD
               aria-owns="list-320"
+=======
+              aria-owns="list-208"
+>>>>>>> Adding docker functionality. View docker/README.md.
               class="v-input__slot"
               role="button"
             >
@@ -4848,8 +5072,10 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -4868,7 +5094,11 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
+<<<<<<< HEAD
               aria-owns="list-327"
+=======
+              aria-owns="list-215"
+>>>>>>> Adding docker functionality. View docker/README.md.
               class="v-input__slot"
               role="combobox"
             >
@@ -4934,8 +5164,10 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -4954,7 +5186,11 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
+<<<<<<< HEAD
               aria-owns="list-334"
+=======
+              aria-owns="list-222"
+>>>>>>> Adding docker functionality. View docker/README.md.
               class="v-input__slot"
               role="combobox"
             >
@@ -5020,8 +5256,10 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -5056,7 +5294,11 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
+<<<<<<< HEAD
               aria-owns="list-953"
+=======
+              aria-owns="list-626"
+>>>>>>> Adding docker functionality. View docker/README.md.
               class="v-input__slot"
               role="button"
             >
@@ -5132,8 +5374,10 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -5152,7 +5396,11 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
+<<<<<<< HEAD
               aria-owns="list-960"
+=======
+              aria-owns="list-633"
+>>>>>>> Adding docker functionality. View docker/README.md.
               class="v-input__slot"
               role="button"
             >
@@ -5228,8 +5476,10 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -5248,7 +5498,11 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
+<<<<<<< HEAD
               aria-owns="list-967"
+=======
+              aria-owns="list-640"
+>>>>>>> Adding docker functionality. View docker/README.md.
               class="v-input__slot"
               role="button"
             >
@@ -5324,8 +5578,10 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -5396,8 +5652,10 @@ exports[`Examples used as simple test cases Tuples 1`] = `
                     <div
                       class="v-messages theme--light"
                     >
-                      <div
+                      <transition-group-stub
                         class="v-messages__wrapper"
+                        name="message-transition"
+                        tag="div"
                       />
                     </div>
                   </div>
@@ -5438,8 +5696,10 @@ exports[`Examples used as simple test cases Tuples 1`] = `
                     <div
                       class="v-messages theme--light"
                     >
-                      <div
+                      <transition-group-stub
                         class="v-messages__wrapper"
+                        name="message-transition"
+                        tag="div"
                       />
                     </div>
                   </div>
@@ -5497,8 +5757,10 @@ exports[`Examples used as simple test cases Tuples 1`] = `
                     <div
                       class="v-messages theme--light"
                     >
-                      <div
+                      <transition-group-stub
                         class="v-messages__wrapper"
+                        name="message-transition"
+                        tag="div"
                       />
                     </div>
                   </div>
@@ -5539,8 +5801,10 @@ exports[`Examples used as simple test cases Tuples 1`] = `
                     <div
                       class="v-messages theme--light"
                     >
-                      <div
+                      <transition-group-stub
                         class="v-messages__wrapper"
+                        name="message-transition"
+                        tag="div"
                       />
                     </div>
                   </div>
@@ -5590,7 +5854,11 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
+<<<<<<< HEAD
               aria-owns="list-638"
+=======
+              aria-owns="list-424"
+>>>>>>> Adding docker functionality. View docker/README.md.
               class="v-input__slot"
               role="button"
             >
@@ -5657,8 +5925,10 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -5728,8 +5998,10 @@ exports[`Examples used as simple test cases resolved schema 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
@@ -5783,8 +6055,10 @@ exports[`Examples used as simple test cases resolved schema 1`] = `
               <div
                 class="v-messages theme--light"
               >
-                <div
+                <transition-group-stub
                   class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
