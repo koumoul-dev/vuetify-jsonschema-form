@@ -693,7 +693,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-686"
+              aria-owns="list-680"
               class="v-input__slot"
               role="combobox"
             >
@@ -767,7 +767,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-693"
+              aria-owns="list-687"
               class="v-input__slot"
               role="combobox"
             >
@@ -1920,7 +1920,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-919"
+              aria-owns="list-913"
               class="v-input__slot"
               role="combobox"
             >
@@ -4409,7 +4409,7 @@ exports[`Examples used as simple test cases Selects of sub-schemas 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-395"
+            aria-owns="list-389"
             class="v-input__slot"
             role="button"
           >
@@ -4504,7 +4504,7 @@ exports[`Examples used as simple test cases Selects with dependencies 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-377"
+              aria-owns="list-374"
               class="v-input__slot"
               role="button"
             >
@@ -4607,7 +4607,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-309"
+              aria-owns="list-306"
               class="v-input__slot"
               role="button"
             >
@@ -4694,7 +4694,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-316"
+              aria-owns="list-313"
               class="v-input__slot"
               role="button"
             >
@@ -4781,7 +4781,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-323"
+              aria-owns="list-320"
               class="v-input__slot"
               role="button"
             >
@@ -4868,7 +4868,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-330"
+              aria-owns="list-327"
               class="v-input__slot"
               role="combobox"
             >
@@ -4954,7 +4954,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-337"
+              aria-owns="list-334"
               class="v-input__slot"
               role="combobox"
             >
@@ -5056,7 +5056,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-959"
+              aria-owns="list-953"
               class="v-input__slot"
               role="button"
             >
@@ -5152,7 +5152,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-966"
+              aria-owns="list-960"
               class="v-input__slot"
               role="button"
             >
@@ -5248,7 +5248,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-973"
+              aria-owns="list-967"
               class="v-input__slot"
               role="button"
             >
@@ -5590,7 +5590,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-644"
+              aria-owns="list-638"
               class="v-input__slot"
               role="button"
             >
