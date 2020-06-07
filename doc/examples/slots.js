@@ -6,13 +6,15 @@ const description = `Each property has \`before\`, \`after\` and \`default\` slo
 
 You can define any slot of the main underlying Vuetify component for each property (append, prepend, etc.).
 
-All slots are passed either as textual content in a \`x-slots\` annotation in the schema (markdown supported) or as code inside the \`<vjsf />\` element with a prefix matching the key of the property in the schema.`
+All slots are passed either as textual content in a \`x-slots\` annotation in the schema (markdown supported) or as code inside the \`<vjsf />\` element with a prefix matching the key of the property in the schema.
+
+The markdown parser can be defined using the \`markdown\` option. If you use the default third party dependencies it will be [markdown-it](https://github.com/markdown-it/markdown-it) and it will be initialized with the \`markdownit\` option. For example you can use \`{markdownit: {html: true}}\` to accept HTML tags inside the markdown content.`
 
 const schema = {
   type: 'object',
   properties: {
     stringProp1: { type: 'string', title: `I'm a property with Vuetify slots`, 'x-slots': { 'append-outer': 'this is a markdown **slot**' }, enum: ['value 1', 'value 2'] },
-    stringProp2: { type: 'string', title: `I'm a property with a before/after/default slots`, 'x-slots': { after: 'this is a markdown **after slot**' } },
+    stringProp2: { type: 'string', title: `I'm a property with a before/after/default slots`, 'x-slots': { after: 'this is a markdown **after slot** with some html <img width="20" src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-light.png">' } },
     stringProp3: { type: 'string', title: `I'm a property with a custom display`, 'x-display': 'custom-string1' },
     object1: {
       type: 'object',
@@ -45,4 +47,6 @@ const template = `<v-jsf v-model="model" :schema="schema" :options="options">
   </template>
 </v-jsf>`
 
-export default { id, title, description, schema, model, template }
+const options = { markdownit: { html: true } }
+
+export default { id, title, description, schema, model, template, options }

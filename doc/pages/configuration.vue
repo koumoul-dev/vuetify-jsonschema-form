@@ -207,7 +207,8 @@ export default {
         deleteReadOnly: 'set this to true to not only hide read-only properties, but also remove them from the model',
         context: 'an optional contextual information object, properties from here can be used as variables in URL templates',
         rules: 'some custom rule functions that can be referenced by the x-rules annotation on properties',
-        idPrefix: 'a prefix applied to generated ids if you want to prevent potential conflicts'
+        idPrefix: 'a prefix applied to generated ids if you want to prevent potential conflicts',
+        markdownit: 'options given to markdownit if you leave the markdown option to its default value'
       },
       locale: 'en',
       iconSets,
