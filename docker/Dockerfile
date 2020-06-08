@@ -15,12 +15,12 @@ RUN mkdir -p /home/ubuntu/vuetify-jsonschema-form
 WORKDIR /home/ubuntu/vuetify-jsonschema-form
 COPY --chown=ubuntu:ubuntu ./ ./
 
-RUN npm install
-#RUN npm update
-#RUN npm run lint
-##RUN npm test
-#RUN npm run build
-#RUN npm run doc-build
+#RUN npm install
+RUN npm run lint
+#RUN npm test
+RUN npm update # needed, otherwise installation fails
+RUN npm run build
+RUN npm run doc-build # to build examples
 
 FROM base as dev
 
