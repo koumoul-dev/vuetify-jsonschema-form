@@ -43,6 +43,9 @@ describe('Examples used as simple test cases', () => {
           model: example.model || {},
           schema: example.schema,
           options: example.options || {}
+        },
+        provide: {
+          theme: {}
         }
       })
       expect(wrapper.isVueInstance()).toBeTruthy()

@@ -693,7 +693,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-680"
+              aria-owns="list-728"
               class="v-input__slot"
               role="combobox"
             >
@@ -767,7 +767,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-687"
+              aria-owns="list-735"
               class="v-input__slot"
               role="combobox"
             >
@@ -1920,7 +1920,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-913"
+              aria-owns="list-961"
               class="v-input__slot"
               role="combobox"
             >
@@ -3367,6 +3367,187 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases Selection controls 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="flex vjsf-property vjsf-property-root xs12 "
+  >
+    <div
+      class="layout row wrap ma-0 "
+    >
+      <div
+        class="flex vjsf-property vjsf-property-stringEnum xs12  pr-2"
+      >
+        <div
+          class="v-input theme--light v-input--selection-controls v-input--radio-group v-input--radio-group--column"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+              style="height: auto;"
+            >
+              <div
+                aria-labelledby="stringEnum"
+                class="v-input--radio-group__input"
+                id="stringEnum"
+                role="radiogroup"
+              >
+                <legend
+                  class="v-label theme--light"
+                  id="stringEnum"
+                  style="left: 0px; position: relative;"
+                >
+                  I'm a string with values from an enum and x-display=radio
+                </legend>
+              </div>
+            </div>
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
+            </div>
+          </div>
+          <div
+            class="v-input__append-outer"
+          >
+            <span
+              class="v-tooltip v-tooltip--left"
+            >
+              <!---->
+              <button
+                class="v-icon notranslate v-icon--link mdi mdi-information theme--light"
+                type="button"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex vjsf-property vjsf-property-stringsArrayEnum xs12  pr-2"
+      >
+        <div
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--radio-group v-input--radio-group--column"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-input--radio-group__input"
+              >
+                <legend
+                  class="v-label theme--light "
+                >
+                  I'm an array of strings with values from an enum and x-display=checkbox
+                </legend>
+                <div
+                  class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--checkbox primary--text pb-1"
+                >
+                  <div
+                    class="v-input__control"
+                  >
+                    <div
+                      class="v-input__slot"
+                    >
+                      <div
+                        class="v-input--selection-controls__input"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="v-icon notranslate mdi mdi-checkbox-marked theme--light primary--text"
+                        />
+                        <input
+                          aria-checked="true"
+                          id="input-412"
+                          role="checkbox"
+                          type="checkbox"
+                          value="value 1"
+                        />
+                        <div
+                          class="v-input--selection-controls__ripple primary--text"
+                        />
+                      </div>
+                      <label
+                        class="v-label theme--light"
+                        for="input-412"
+                        style="left: 0px; position: relative;"
+                      >
+                        value 1
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
+            </div>
+          </div>
+          <div
+            class="v-input__append-outer"
+          >
+            <span
+              class="v-tooltip v-tooltip--left"
+            >
+              <!---->
+              <button
+                class="v-icon notranslate v-icon--link mdi mdi-information theme--light"
+                type="button"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex vjsf-property vjsf-property-stringArrayOneOf xs12  pr-2"
+      >
+        <div
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--radio-group v-input--radio-group--column"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-input--radio-group__input"
+              >
+                <legend
+                  class="v-label theme--light "
+                >
+                  I'm an array of strings with values/labels from a oneOf and x-display=switch
+                </legend>
+              </div>
+            </div>
+            <div
+              class="v-messages theme--light"
+            >
+              <div
+                class="v-messages__wrapper"
+              />
             </div>
           </div>
         </div>
@@ -5056,7 +5237,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-953"
+              aria-owns="list-1001"
               class="v-input__slot"
               role="button"
             >
@@ -5152,7 +5333,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-960"
+              aria-owns="list-1008"
               class="v-input__slot"
               role="button"
             >
@@ -5248,7 +5429,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-967"
+              aria-owns="list-1015"
               class="v-input__slot"
               role="button"
             >
@@ -5590,7 +5771,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-638"
+              aria-owns="list-686"
               class="v-input__slot"
               role="button"
             >
@@ -5605,7 +5786,9 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
                   >
                     <span
                       class="mt-1"
-                    />
+                    >
+                      value 1
+                    </span>
                   </div>
                   <input
                     aria-readonly="false"
