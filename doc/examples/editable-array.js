@@ -23,7 +23,9 @@ const schema = {
           titleProp: { type: 'string', title: `I'm a required string used as title` },
           numberProp: { type: 'number', title: `I'm a number` },
           booleanProp: { type: 'boolean', title: `I'm a boolean` },
-          dateProp: { type: 'string', format: 'date', title: `I'm a date` }
+          dateProp: { type: 'string', format: 'date', title: `I'm a date` },
+          colorProp: { type: 'string', format: 'hexcolor', title: `I'm a color` },
+          selectProp: { type: 'string', enum: ['Value 1', 'Value 2'], title: `I'm a select` }
         }
       }
     }
