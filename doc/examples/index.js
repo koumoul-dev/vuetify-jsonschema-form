@@ -7,6 +7,7 @@ import selectHTTP from './select-http'
 import selectIcon from './select-icon'
 import selectDeps from './select-deps'
 import selectSubschemas from './select-subschemas'
+import selectionControls from './selection-controls'
 import files from './files'
 import sections from './sections'
 import sectionsExpansionPanels from './sections-expansion-panels'
@@ -34,6 +35,7 @@ const examples = [
   selectIcon,
   selectDeps,
   selectSubschemas,
+  selectionControls,
   files,
   sections,
   sectionsExpansionPanels,
