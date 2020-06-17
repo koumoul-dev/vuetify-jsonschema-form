@@ -1,4 +1,4 @@
-const id = 'select-radio'
+const id = 'selection-controls'
 
 const title = 'Selection controls'
 
