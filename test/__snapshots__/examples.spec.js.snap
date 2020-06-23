@@ -693,7 +693,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-728"
+              aria-owns="list-730"
               class="v-input__slot"
               role="combobox"
             >
@@ -767,7 +767,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-735"
+              aria-owns="list-737"
               class="v-input__slot"
               role="combobox"
             >
@@ -1348,6 +1348,7 @@ exports[`Examples used as simple test cases Editable array 1`] = `
           >
             <button
               class="v-btn v-btn--contained v-btn--fab v-btn--round theme--light v-size--small primary"
+              id="objectArrayProp-add-button"
               type="button"
             >
               <span
@@ -1920,7 +1921,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-961"
+              aria-owns="list-965"
               class="v-input__slot"
               role="combobox"
             >
@@ -2827,6 +2828,11 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
               </a>
             </div>
           </div>
+          <div
+            class="v-slide-group__next v-slide-group__next--disabled"
+          >
+            <!---->
+          </div>
         </div>
         <div
           class="v-window v-item-group theme--light v-tabs-items"
@@ -3053,6 +3059,11 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                       </span>
                     </a>
                   </div>
+                </div>
+                <div
+                  class="v-slide-group__next v-slide-group__next--disabled"
+                >
+                  <!---->
                 </div>
               </div>
               <div
@@ -5237,7 +5248,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-1001"
+              aria-owns="list-1005"
               class="v-input__slot"
               role="button"
             >
@@ -5333,7 +5344,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-1008"
+              aria-owns="list-1012"
               class="v-input__slot"
               role="button"
             >
@@ -5429,7 +5440,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-1015"
+              aria-owns="list-1019"
               class="v-input__slot"
               role="button"
             >
@@ -5771,7 +5782,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-686"
+              aria-owns="list-688"
               class="v-input__slot"
               role="button"
             >
