@@ -1348,6 +1348,7 @@ exports[`Examples used as simple test cases Editable array 1`] = `
           >
             <button
               class="v-btn v-btn--contained v-btn--fab v-btn--round theme--light v-size--small primary"
+              id="objectArrayProp-add-button"
               type="button"
             >
               <span

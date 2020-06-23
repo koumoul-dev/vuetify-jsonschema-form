@@ -2,7 +2,7 @@ const id = 'selection-controls'
 
 const title = 'Selection controls'
 
-const description = `It is possible to replace selects by radio checkbox and switch groups using the \`x-display\` annotation with values \`radio\`, \`checkbox\` and \`switch\`.`
+const description = `It is possible to replace selects by radio, checkbox and switch groups using the \`x-display\` annotation with values \`radio\`, \`checkbox\` and \`switch\`.`
 
 const schema = {
   type: 'object',
