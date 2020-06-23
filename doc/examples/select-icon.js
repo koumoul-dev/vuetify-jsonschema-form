@@ -30,7 +30,11 @@ const schema = {
       title: `I'm a select with icon codes and titles in a oneOf`,
       type: 'string',
       'x-display': 'icon',
-      oneOf: [{ const: 'mdi-alarm', title: 'Alarm', icon: 'mdi-alarm' }, { const: 'mdi-alarm-plus', title: 'Alarm plus', icon: 'mdi-alarm-plus' }]
+      'x-itemIcon': 'icon',
+      oneOf: [
+        { const: 'alarm', title: 'Alarm', icon: 'mdi-alarm' },
+        { const: 'alarm-plus', title: 'Alarm plus', icon: 'mdi-alarm-plus' }
+      ]
     },
     iconAjaxImages: {
       title: `I'm a select based on HTTP requests with links to icons`,
