@@ -693,7 +693,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-730"
+              aria-owns="list-741"
               class="v-input__slot"
               role="combobox"
             >
@@ -767,7 +767,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-737"
+              aria-owns="list-748"
               class="v-input__slot"
               role="combobox"
             >
@@ -1369,6 +1369,54 @@ exports[`Examples used as simple test cases Editable array 1`] = `
 </form>
 `;
 
+exports[`Examples used as simple test cases Editable array with subschemes 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="flex vjsf-property vjsf-property-root xs12 "
+  >
+    <div
+      class="layout row wrap ma-0 "
+    >
+      <div
+        class="flex vjsf-property vjsf-property-objectArrayDiffProps xs12  pr-2"
+      >
+        <div
+          class="layout mt-2 mb-1 pr-1"
+        >
+          <div
+            class="v-subheader theme--light"
+          >
+            Add an object of type Object1 or Object2
+          </div>
+          <div
+            class="v-dialog__container"
+            role="dialog"
+          >
+            <button
+              class="v-btn v-btn--contained v-btn--fab v-btn--round theme--light v-size--small primary"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-plus theme--light"
+                />
+              </span>
+            </button>
+            <!---->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`Examples used as simple test cases Files 1`] = `
 <form
   class="v-form"
@@ -1921,7 +1969,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-965"
+              aria-owns="list-976"
               class="v-input__slot"
               role="combobox"
             >
@@ -5248,7 +5296,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-1005"
+              aria-owns="list-1016"
               class="v-input__slot"
               role="button"
             >
@@ -5344,7 +5392,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-1012"
+              aria-owns="list-1023"
               class="v-input__slot"
               role="button"
             >
@@ -5440,7 +5488,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-1019"
+              aria-owns="list-1030"
               class="v-input__slot"
               role="button"
             >
@@ -5782,7 +5830,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-688"
+              aria-owns="list-699"
               class="v-input__slot"
               role="button"
             >
