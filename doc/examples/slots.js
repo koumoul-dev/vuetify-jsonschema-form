@@ -49,4 +49,4 @@ const template = `<v-jsf v-model="model" :schema="schema" :options="options">
 
 const options = { markdownit: { html: true } }
 
-export default { id, title, description, schema, model, template, options }
+export default { id, title, description, schema, model, template, options, skip: true }

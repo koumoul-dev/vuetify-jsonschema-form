@@ -54,4 +54,8 @@ const model = {}
 
 const options = { context: { owner: { type: 'organization', id: '5a5dc47163ebd4a6f438589b' } } }
 
-export default { id, title, description, schema, model, options }
+const httpMocks = {
+  'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&size=4&select=href,title&owner=organization:5a5dc47163ebd4a6f438589b': { results: [] }
+}
+
+export default { id, title, description, schema, model, options, httpMocks }

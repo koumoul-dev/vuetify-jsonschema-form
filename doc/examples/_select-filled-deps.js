@@ -131,4 +131,10 @@ const test = (wrapper) => {
   expect(wrapper.vm.valid).toBe(true)
 }
 
-export default { id, title, description, schema, model, options, test }
+const httpMocks = {
+  'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title,schema&owner=organization:5a5dc47163ebd4a6f438589b': { results: [] },
+  'https://koumoul.com/s/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417': { schema: [] },
+  'https://koumoul.com/s/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417/schema': []
+}
+
+export default { id, title, description, schema, model, options, test, httpMocks }

@@ -54,4 +54,8 @@ const options = {
   }
 }
 
-export default { id, title, description, schema, model, options }
+const httpMocks = {
+  'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title&q=&owner=user:notARealUser': { results: [] }
+}
+
+export default { id, title, description, schema, model, options, httpMocks }

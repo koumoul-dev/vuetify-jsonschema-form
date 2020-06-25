@@ -75,4 +75,8 @@ const schema = {
 
 const model = {}
 
-export default { id, title, description, schema, model }
+const httpMocks = {
+  'https://koumoul.com/s/data-fair/api/v1/datasets/icons-mdi-latest/lines?q=': { results: [] }
+}
+
+export default { id, title, description, schema, model, httpMocks }

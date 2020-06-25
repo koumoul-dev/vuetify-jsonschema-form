@@ -30,6 +30,20 @@ exports.getExampleWrapper = (example) => {
     return
   }
 
+  const options = {
+    ...example.options,
+    httpLib: {
+      get: (url) => {
+        const result = example.httpMocks[url]
+        if (!result) {
+          console.warn(`in example ${example.id}, missing mock for url ${url}`)
+          return new Promise(resolve => resolve({ data: {} }))
+        }
+        return new Promise(resolve => resolve({ data: result }))
+      }
+    }
+  }
+
   return mount(ExampleForm, {
     localVue,
     vuetify,
@@ -39,7 +53,7 @@ exports.getExampleWrapper = (example) => {
     propsData: {
       model: example.model || {},
       schema: example.schema,
-      options: example.options || {}
+      options
     },
     provide: {
       theme: {}
