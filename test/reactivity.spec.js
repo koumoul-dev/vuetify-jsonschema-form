@@ -32,7 +32,12 @@ describe('Special cases of reactivity', () => {
     rootSelect.setValue('sub1')
     // see https://alexjover.com/blog/test-computed-properties-and-watchers-in-vue-js-components-with-jest/
     expect(rootProperty.vm.value.sub).toEqual('sub1')
+    expect(model.sub).toEqual('sub1')
     await rootProperty.vm.$nextTick()
+    console.log(model.sub)
+    model.sub = 'sub2'
+    await rootProperty.vm.$nextTick()
+    expect(rootProperty.vm.value.sub).toEqual('sub2')
     // setTimeout(resolve, 1000)
     // rootSelect.trigger('input')
 
