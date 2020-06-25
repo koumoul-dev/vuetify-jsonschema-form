@@ -30,6 +30,7 @@ describe('Special cases of reactivity', () => {
     // change sub schema
     const rootSelect = wrapper.find('#root')
     rootSelect.setValue('sub1')
+    // see https://alexjover.com/blog/test-computed-properties-and-watchers-in-vue-js-components-with-jest/
     expect(rootProperty.vm.value.sub).toEqual('sub1')
     await rootProperty.vm.$nextTick()
     // setTimeout(resolve, 1000)
