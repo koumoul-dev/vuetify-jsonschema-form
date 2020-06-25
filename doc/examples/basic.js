@@ -13,6 +13,7 @@ const schema = {
     integerProp: { type: 'integer', title: `I'm an integer` },
     integerSliderProp: { type: 'integer', title: `I'm an integer in a slider`, 'x-display': 'slider', minimum: 0, maximum: 5 },
     booleanProp: { type: 'boolean', title: `I'm a boolean` },
+    booleanSwitchProp: { type: 'boolean', title: `I'm a boolean with switch display`, 'x-display': 'switch' },
     stringArrayProp: { type: 'array', title: `I'm an array of strings`, items: { type: 'string' } },
     integerArrayProp: { type: 'array', title: `I'm an array of integers`, items: { type: 'integer' } }
   }
@@ -28,7 +29,7 @@ const model = {
 
 const test = (wrapper) => {
   const properties = wrapper.findAll('.vjsf-property')
-  expect(properties).toHaveLength(9)
+  expect(properties).toHaveLength(10)
   expect(wrapper.findAll('.v-tooltip')).toHaveLength(1)
   expect(properties.at(1).find('.v-text-field')).toBeTruthy()
   expect(wrapper.vm.valid).toBe(true)
