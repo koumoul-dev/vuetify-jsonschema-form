@@ -235,7 +235,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
                 <div
                   aria-label="I'm an integer in a slider"
                   aria-orientation="horizontal"
-                  aria-readonly="false"
+                  aria-readonly="undefined"
                   aria-valuemax="5"
                   aria-valuemin="0"
                   aria-valuenow="0"
@@ -693,7 +693,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-728"
+              aria-owns="list-730"
               class="v-input__slot"
               role="combobox"
             >
@@ -767,7 +767,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-735"
+              aria-owns="list-737"
               class="v-input__slot"
               role="combobox"
             >
@@ -1920,7 +1920,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-961"
+              aria-owns="list-965"
               class="v-input__slot"
               role="combobox"
             >
@@ -2827,6 +2827,11 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
               </a>
             </div>
           </div>
+          <div
+            class="v-slide-group__next v-slide-group__next--disabled"
+          >
+            <!---->
+          </div>
         </div>
         <div
           class="v-window v-item-group theme--light v-tabs-items"
@@ -2840,7 +2845,7 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
               style="display: none;"
             >
               <div
-                class="v-card v-card--flat v-sheet v-sheet--tile theme--light"
+                class="v-card v-card--flat v-sheet theme--light rounded-0"
               >
                 <div
                   class="v-card__text"
@@ -2909,7 +2914,7 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
               style="display: none;"
             >
               <div
-                class="v-card v-card--flat v-sheet v-sheet--tile theme--light"
+                class="v-card v-card--flat v-sheet theme--light rounded-0"
               >
                 <div
                   class="v-card__text"
@@ -3054,6 +3059,11 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                     </a>
                   </div>
                 </div>
+                <div
+                  class="v-slide-group__next v-slide-group__next--disabled"
+                >
+                  <!---->
+                </div>
               </div>
               <div
                 class="v-window v-item-group theme--light v-tabs-items"
@@ -3067,7 +3077,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                     style="display: none;"
                   >
                     <div
-                      class="v-card v-card--flat v-sheet v-sheet--tile theme--light"
+                      class="v-card v-card--flat v-sheet theme--light rounded-0"
                     >
                       <div
                         class="v-card__text"
@@ -3131,7 +3141,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                     style="display: none;"
                   >
                     <div
-                      class="v-card v-card--flat v-sheet v-sheet--tile theme--light"
+                      class="v-card v-card--flat v-sheet theme--light rounded-0"
                     >
                       <div
                         class="v-card__text"
@@ -3598,7 +3608,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
                   class="v-select__selections"
                 >
                   <input
-                    aria-readonly="false"
+                    aria-readonly="undefined"
                     autocomplete="off"
                     id="stringEnum"
                     readonly="readonly"
@@ -3698,7 +3708,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
                   class="v-select__selections"
                 >
                   <input
-                    aria-readonly="false"
+                    aria-readonly="undefined"
                     autocomplete="off"
                     id="stringsArrayEnum"
                     readonly="readonly"
@@ -3785,7 +3795,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
                   class="v-select__selections"
                 >
                   <input
-                    aria-readonly="false"
+                    aria-readonly="undefined"
                     autocomplete="off"
                     id="stringOneOf"
                     readonly="readonly"
@@ -3872,7 +3882,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
                   class="v-select__selections"
                 >
                   <input
-                    aria-readonly="false"
+                    aria-readonly="undefined"
                     autocomplete="off"
                     id="stringArrayOneOf"
                     readonly="readonly"
@@ -4074,7 +4084,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                   class="v-select__selections"
                 >
                   <input
-                    aria-readonly="false"
+                    aria-readonly="undefined"
                     autocomplete="off"
                     id="selectAjaxString"
                     readonly="readonly"
@@ -4161,7 +4171,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                   class="v-select__selections"
                 >
                   <input
-                    aria-readonly="false"
+                    aria-readonly="undefined"
                     autocomplete="off"
                     id="selectAjaxStringArray"
                     readonly="readonly"
@@ -4248,7 +4258,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                   class="v-select__selections"
                 >
                   <input
-                    aria-readonly="false"
+                    aria-readonly="undefined"
                     autocomplete="off"
                     id="selectAjaxObject"
                     readonly="readonly"
@@ -4335,7 +4345,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                   class="v-select__selections"
                 >
                   <input
-                    aria-readonly="false"
+                    aria-readonly="undefined"
                     autocomplete="off"
                     id="selectAjaxArrayOfObjects"
                     readonly="readonly"
@@ -4422,7 +4432,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                   class="v-select__selections"
                 >
                   <input
-                    aria-readonly="false"
+                    aria-readonly="undefined"
                     autocomplete="off"
                     id="selectAjaxLarge"
                     readonly="readonly"
@@ -4608,7 +4618,7 @@ exports[`Examples used as simple test cases Selects of sub-schemas 1`] = `
                 class="v-select__selections"
               >
                 <input
-                  aria-readonly="false"
+                  aria-readonly="undefined"
                   autocomplete="off"
                   id="root"
                   readonly="readonly"
@@ -4703,7 +4713,7 @@ exports[`Examples used as simple test cases Selects with dependencies 1`] = `
                   class="v-select__selections"
                 >
                   <input
-                    aria-readonly="false"
+                    aria-readonly="undefined"
                     autocomplete="off"
                     id="selectAjaxObject"
                     readonly="readonly"
@@ -4806,7 +4816,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
                   class="v-select__selections"
                 >
                   <input
-                    aria-readonly="false"
+                    aria-readonly="undefined"
                     autocomplete="off"
                     id="iconEnum"
                     readonly="readonly"
@@ -4893,7 +4903,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
                   class="v-select__selections"
                 >
                   <input
-                    aria-readonly="false"
+                    aria-readonly="undefined"
                     autocomplete="off"
                     id="iconEnumArray"
                     readonly="readonly"
@@ -4980,7 +4990,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
                   class="v-select__selections"
                 >
                   <input
-                    aria-readonly="false"
+                    aria-readonly="undefined"
                     autocomplete="off"
                     id="iconOneOf"
                     readonly="readonly"
@@ -5237,7 +5247,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-1001"
+              aria-owns="list-1005"
               class="v-input__slot"
               role="button"
             >
@@ -5264,7 +5274,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
                     </span>
                   </div>
                   <input
-                    aria-readonly="false"
+                    aria-readonly="undefined"
                     autocomplete="off"
                     id="selectAjaxObject"
                     readonly="readonly"
@@ -5333,7 +5343,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-1008"
+              aria-owns="list-1012"
               class="v-input__slot"
               role="button"
             >
@@ -5360,7 +5370,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
                     </span>
                   </div>
                   <input
-                    aria-readonly="false"
+                    aria-readonly="undefined"
                     autocomplete="off"
                     id="selectFromData"
                     readonly="readonly"
@@ -5429,7 +5439,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-1015"
+              aria-owns="list-1019"
               class="v-input__slot"
               role="button"
             >
@@ -5456,7 +5466,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
                     </span>
                   </div>
                   <input
-                    aria-readonly="false"
+                    aria-readonly="undefined"
                     autocomplete="off"
                     id="selectAjaxDep"
                     readonly="readonly"
@@ -5771,7 +5781,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-686"
+              aria-owns="list-688"
               class="v-input__slot"
               role="button"
             >
@@ -5791,7 +5801,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
                     </span>
                   </div>
                   <input
-                    aria-readonly="false"
+                    aria-readonly="undefined"
                     autocomplete="off"
                     id="chipsEnumProp"
                     readonly="readonly"
