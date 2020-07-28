@@ -205,6 +205,7 @@ export default {
         disableAll: 'force disabling all fields ignoring the readOnly attributes',
         hideReadOnly: 'by default read-only properties are rendered as disabled fields, set this to true to hide them entirely',
         deleteReadOnly: 'set this to true to not only hide read-only properties, but also remove them from the model',
+        hideTooltips: 'by default descriptions are rendered as help tooltip on properties, set this to true to disable this functionality',
         context: 'an optional contextual information object, properties from here can be used as variables in URL templates',
         rules: 'some custom rule functions that can be referenced by the x-rules annotation on properties',
         idPrefix: 'a prefix applied to generated ids if you want to prevent potential conflicts',
