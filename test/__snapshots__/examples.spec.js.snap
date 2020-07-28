@@ -61,9 +61,19 @@ exports[`Examples used as simple test cases Basic types 1`] = `
             >
               <!---->
               <button
-                class="v-icon notranslate v-icon--link mdi mdi-information theme--light"
+                class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+                style="pointer-events: auto;"
                 type="button"
-              />
+              >
+                <span
+                  class="v-btn__content"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-information theme--light"
+                  />
+                </span>
+              </button>
             </span>
           </div>
         </div>
@@ -390,7 +400,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-38"
+              aria-owns="list-39"
               class="v-input__slot"
               role="combobox"
             >
@@ -480,7 +490,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-47"
+              aria-owns="list-48"
               class="v-input__slot"
               role="combobox"
             >
@@ -777,7 +787,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-480"
+              aria-owns="list-488"
               class="v-input__slot"
               role="combobox"
             >
@@ -853,7 +863,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-487"
+              aria-owns="list-495"
               class="v-input__slot"
               role="combobox"
             >
@@ -1081,7 +1091,7 @@ exports[`Examples used as simple test cases Colors 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-85"
+                for="input-87"
                 style="left: 0px; position: relative;"
               >
                 I'm a color
@@ -1114,9 +1124,19 @@ exports[`Examples used as simple test cases Colors 1`] = `
             >
               <!---->
               <button
-                class="v-icon notranslate v-icon--link mdi mdi-information theme--light"
+                class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+                style="pointer-events: auto;"
                 type="button"
-              />
+              >
+                <span
+                  class="v-btn__content"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-information theme--light"
+                  />
+                </span>
+              </button>
             </span>
           </div>
         </div>
@@ -1135,7 +1155,7 @@ exports[`Examples used as simple test cases Colors 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-92"
+                for="input-95"
                 style="left: 0px; position: relative;"
               >
                 I'm a color with a swatches based picker
@@ -1258,9 +1278,19 @@ exports[`Examples used as simple test cases Dates 1`] = `
               >
                 <!---->
                 <button
-                  class="v-icon notranslate v-icon--link mdi mdi-information theme--light"
+                  class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+                  style="pointer-events: auto;"
                   type="button"
-                />
+                >
+                  <span
+                    class="v-btn__content"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-information theme--light"
+                    />
+                  </span>
+                </button>
               </span>
             </div>
           </div>
@@ -2039,7 +2069,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-614"
+              aria-owns="list-625"
               class="v-input__slot"
               role="combobox"
             >
@@ -2247,6 +2277,29 @@ exports[`Examples used as simple test cases Read only content 1`] = `
                       />
                     </div>
                   </div>
+                </div>
+                <div
+                  class="v-input__append-outer"
+                >
+                  <span
+                    class="v-tooltip v-tooltip--left"
+                  >
+                    <!---->
+                    <button
+                      class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+                      style="pointer-events: auto;"
+                      type="button"
+                    >
+                      <span
+                        class="v-btn__content"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="v-icon notranslate mdi mdi-information theme--light"
+                        />
+                      </span>
+                    </button>
+                  </span>
                 </div>
               </div>
             </div>
@@ -3654,9 +3707,19 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
             >
               <!---->
               <button
-                class="v-icon notranslate v-icon--link mdi mdi-information theme--light"
+                class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+                style="pointer-events: auto;"
                 type="button"
-              />
+              >
+                <span
+                  class="v-btn__content"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-information theme--light"
+                  />
+                </span>
+              </button>
             </span>
           </div>
         </div>
@@ -3699,7 +3762,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                         />
                         <input
                           aria-checked="true"
-                          id="input-262"
+                          id="input-268"
                           role="checkbox"
                           type="checkbox"
                           value="value 1"
@@ -3710,7 +3773,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                       </div>
                       <label
                         class="v-label theme--light"
-                        for="input-262"
+                        for="input-268"
                         style="left: 0px; position: relative;"
                       >
                         value 1
@@ -3738,9 +3801,19 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
             >
               <!---->
               <button
-                class="v-icon notranslate v-icon--link mdi mdi-information theme--light"
+                class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+                style="pointer-events: auto;"
                 type="button"
-              />
+              >
+                <span
+                  class="v-btn__content"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-information theme--light"
+                  />
+                </span>
+              </button>
             </span>
           </div>
         </div>
@@ -3807,7 +3880,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-102"
+              aria-owns="list-105"
               class="v-input__slot"
               role="button"
             >
@@ -3890,9 +3963,19 @@ exports[`Examples used as simple test cases Selects 1`] = `
             >
               <!---->
               <button
-                class="v-icon notranslate v-icon--link mdi mdi-information theme--light"
+                class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+                style="pointer-events: auto;"
                 type="button"
-              />
+              >
+                <span
+                  class="v-btn__content"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-information theme--light"
+                  />
+                </span>
+              </button>
             </span>
           </div>
         </div>
@@ -3909,7 +3992,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-111"
+              aria-owns="list-115"
               class="v-input__slot"
               role="button"
             >
@@ -3998,7 +4081,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-118"
+              aria-owns="list-122"
               class="v-input__slot"
               role="button"
             >
@@ -4087,7 +4170,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-125"
+              aria-owns="list-129"
               class="v-input__slot"
               role="button"
             >
@@ -4176,7 +4259,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-132"
+              aria-owns="list-136"
               class="v-input__slot"
               role="combobox"
             >
@@ -4258,9 +4341,19 @@ exports[`Examples used as simple test cases Selects 1`] = `
             >
               <!---->
               <button
-                class="v-icon notranslate v-icon--link mdi mdi-information theme--light"
+                class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+                style="pointer-events: auto;"
                 type="button"
-              />
+              >
+                <span
+                  class="v-btn__content"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-information theme--light"
+                  />
+                </span>
+              </button>
             </span>
           </div>
         </div>
@@ -4293,7 +4386,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-146"
+              aria-owns="list-151"
               class="v-input__slot"
               role="button"
             >
@@ -4382,7 +4475,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-153"
+              aria-owns="list-158"
               class="v-input__slot"
               role="button"
             >
@@ -4471,7 +4564,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-160"
+              aria-owns="list-165"
               class="v-input__slot"
               role="button"
             >
@@ -4560,7 +4653,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-167"
+              aria-owns="list-172"
               class="v-input__slot"
               role="button"
             >
@@ -4649,7 +4742,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-174"
+              aria-owns="list-179"
               class="v-input__slot"
               role="button"
             >
@@ -4738,7 +4831,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-181"
+              aria-owns="list-186"
               class="v-input__slot"
               role="combobox"
             >
@@ -4839,7 +4932,7 @@ exports[`Examples used as simple test cases Selects of sub-schemas 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-244"
+            aria-owns="list-249"
             class="v-input__slot"
             role="button"
           >
@@ -4929,7 +5022,7 @@ exports[`Examples used as simple test cases Selects with dependencies 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-233"
+              aria-owns="list-238"
               class="v-input__slot"
               role="button"
             >
@@ -5034,7 +5127,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-193"
+              aria-owns="list-198"
               class="v-input__slot"
               role="button"
             >
@@ -5123,7 +5216,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-200"
+              aria-owns="list-205"
               class="v-input__slot"
               role="button"
             >
@@ -5212,7 +5305,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-207"
+              aria-owns="list-212"
               class="v-input__slot"
               role="button"
             >
@@ -5301,7 +5394,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-214"
+              aria-owns="list-219"
               class="v-input__slot"
               role="combobox"
             >
@@ -5389,7 +5482,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-221"
+              aria-owns="list-226"
               class="v-input__slot"
               role="combobox"
             >
@@ -5493,7 +5586,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-640"
+              aria-owns="list-652"
               class="v-input__slot"
               role="button"
             >
@@ -5591,7 +5684,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-647"
+              aria-owns="list-659"
               class="v-input__slot"
               role="button"
             >
@@ -5687,7 +5780,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-654"
+              aria-owns="list-666"
               class="v-input__slot"
               role="button"
             >
@@ -6037,7 +6130,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-445"
+              aria-owns="list-452"
               class="v-input__slot"
               role="button"
             >
@@ -6122,9 +6215,19 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
             >
               <!---->
               <button
-                class="v-icon notranslate v-icon--link mdi mdi-information theme--light"
+                class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+                style="pointer-events: auto;"
                 type="button"
-              />
+              >
+                <span
+                  class="v-btn__content"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-information theme--light"
+                  />
+                </span>
+              </button>
             </span>
           </div>
         </div>
@@ -6195,9 +6298,19 @@ exports[`Examples used as simple test cases resolved schema 1`] = `
             >
               <!---->
               <button
-                class="v-icon notranslate v-icon--link mdi mdi-information theme--light"
+                class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+                style="pointer-events: auto;"
                 type="button"
-              />
+              >
+                <span
+                  class="v-btn__content"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-information theme--light"
+                  />
+                </span>
+              </button>
             </span>
           </div>
         </div>
