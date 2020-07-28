@@ -787,7 +787,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-488"
+              aria-owns="list-506"
               class="v-input__slot"
               role="combobox"
             >
@@ -863,7 +863,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-495"
+              aria-owns="list-513"
               class="v-input__slot"
               role="combobox"
             >
@@ -1447,6 +1447,171 @@ exports[`Examples used as simple test cases Dates 1`] = `
             </div>
           </div>
           <!---->
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases Default values 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="flex vjsf-property vjsf-property-root xs12 "
+  >
+    <div
+      class="layout row wrap ma-0 "
+    >
+      <div
+        class="flex vjsf-property vjsf-property-stringProp xs12  pr-2"
+      >
+        <div
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-text-field__slot"
+              >
+                <label
+                  class="v-label v-label--active theme--light"
+                  for="stringProp"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a string
+                </label>
+                <input
+                  id="stringProp"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="layout row wrap ma-0 pl-2 pt-2"
+      >
+        <span
+          class="py-2 title"
+        >
+          I'm a section with a default value 
+        </span>
+        <div
+          class="flex vjsf-property vjsf-property-objectSection xs12  pr-2"
+        >
+          <div
+            class="layout row wrap ma-0 "
+          >
+            <div
+              class="flex vjsf-property vjsf-property-objectSection-child1 xs12  pr-2"
+            >
+              <div
+                class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
+              >
+                <div
+                  class="v-input__control"
+                >
+                  <div
+                    class="v-input__slot"
+                  >
+                    <div
+                      class="v-text-field__slot"
+                    >
+                      <label
+                        class="v-label v-label--active theme--light"
+                        for="objectSection-child1"
+                        style="left: 0px; position: absolute;"
+                      >
+                        child1
+                      </label>
+                      <input
+                        id="objectSection-child1"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="v-text-field__details"
+                  >
+                    <div
+                      class="v-messages theme--light"
+                    >
+                      <transition-group-stub
+                        class="v-messages__wrapper"
+                        name="message-transition"
+                        tag="div"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex vjsf-property vjsf-property-objectSection-child2 xs12  pr-2"
+            >
+              <div
+                class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
+              >
+                <div
+                  class="v-input__control"
+                >
+                  <div
+                    class="v-input__slot"
+                  >
+                    <div
+                      class="v-text-field__slot"
+                    >
+                      <label
+                        class="v-label v-label--active theme--light"
+                        for="objectSection-child2"
+                        style="left: 0px; position: absolute;"
+                      >
+                        child2
+                      </label>
+                      <input
+                        id="objectSection-child2"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="v-text-field__details"
+                  >
+                    <div
+                      class="v-messages theme--light"
+                    >
+                      <transition-group-stub
+                        class="v-messages__wrapper"
+                        name="message-transition"
+                        tag="div"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -2069,7 +2234,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-625"
+              aria-owns="list-643"
               class="v-input__slot"
               role="combobox"
             >
@@ -5586,7 +5751,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-652"
+              aria-owns="list-670"
               class="v-input__slot"
               role="button"
             >
@@ -5684,7 +5849,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-659"
+              aria-owns="list-677"
               class="v-input__slot"
               role="button"
             >
@@ -5780,7 +5945,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-666"
+              aria-owns="list-684"
               class="v-input__slot"
               role="button"
             >
@@ -6130,7 +6295,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-452"
+              aria-owns="list-470"
               class="v-input__slot"
               role="button"
             >
