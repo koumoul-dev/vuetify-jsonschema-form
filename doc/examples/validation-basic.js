@@ -27,7 +27,7 @@ const schema = {
 const model = {
   limitedInteger: 101,
   limitedString: 'abc',
-  limitedArray: ['abc']
+  limitedArray: []
 }
 
 const options = {
