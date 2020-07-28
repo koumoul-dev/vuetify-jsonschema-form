@@ -19,7 +19,7 @@ const schema = {
       title: `I'm a section with readOnly=true in schema`,
       readOnly: true,
       properties: {
-        stringProp: { type: 'string', title: `I'm a string in a read-only section` }
+        stringProp: { type: 'string', title: `I'm a string in a read-only section`, description: 'This description is used as a help message.' }
       }
     },
     disabledSection: {
