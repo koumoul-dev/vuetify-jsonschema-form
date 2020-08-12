@@ -6,7 +6,9 @@ const description = `Arrays of objects are presented as an editable list of card
 
 Each item is validated separately and does not impact global form validity. Saving an item is blocked if it is not valid.
 
-The list is sortable by dragging the card elements.`
+The list is sortable by dragging the card elements.
+
+The most relevant options to customize the rendering of the arrays are \`arrayItemColProps\`, \`arrayItemCardProps\` and \`disableSorting\`.`
 
 const schema = {
   type: 'object',

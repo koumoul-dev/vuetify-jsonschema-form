@@ -201,6 +201,8 @@ export default {
         colorPickerProps: 'props passed to the underlying v-color-picker component when relevant',
         timePickerProps: 'props passed to the underlying v-time-picker component when relevant',
         datePickerProps: 'props passed to the underlying v-date-picker component when relevant',
+        arrayItemColProps: 'props passed to the underlying v-col component of each item of an editable array',
+        arrayItemCardProps: 'props passed to the underlying v-card component of each item of an editable array',
         removeAdditionalProperties: 'force the removal of properties found in the model but not defined in the schema',
         disableAll: 'force disabling all fields ignoring the readOnly attributes',
         hideReadOnly: 'by default read-only properties are rendered as disabled fields, set this to true to hide them entirely',
