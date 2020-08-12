@@ -44,6 +44,7 @@
   },
   "homepage": "https://github.com/koumoul-dev/vuetify-jsonschema-form#readme",
   "dependencies": {
+    "@mdi/js": "^5.5.55",
     "debounce": "^1.2.0",
     "markdown-it": "^8.4.2",
     "match-all": "^1.2.5",

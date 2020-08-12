@@ -17,6 +17,13 @@ module.exports = {
   ],
   buildModules: ['@nuxtjs/vuetify'],
   vuetify: {
+    // uncomment to test mdiSvg support
+    /* defaultAssets: {
+      icons: false
+    },
+    icons: {
+      iconfont: 'mdiSvg'
+    }, */
     theme: {
       themes: {
         light: {
