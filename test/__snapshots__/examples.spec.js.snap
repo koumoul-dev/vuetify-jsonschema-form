@@ -9,7 +9,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
         class="flex vjsf-property vjsf-property-stringProp xs12  pr-2"
@@ -328,6 +328,29 @@ exports[`Examples used as simple test cases Basic types 1`] = `
               />
             </div>
           </div>
+          <div
+            class="v-input__append-outer"
+          >
+            <span
+              class="v-tooltip v-tooltip--left"
+            >
+              <!---->
+              <button
+                class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+                style="pointer-events: auto;"
+                type="button"
+              >
+                <span
+                  class="v-btn__content"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-information theme--light"
+                  />
+                </span>
+              </button>
+            </span>
+          </div>
         </div>
       </div>
       <div
@@ -386,6 +409,29 @@ exports[`Examples used as simple test cases Basic types 1`] = `
               />
             </div>
           </div>
+          <div
+            class="v-input__append-outer"
+          >
+            <span
+              class="v-tooltip v-tooltip--left"
+            >
+              <!---->
+              <button
+                class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+                style="pointer-events: auto;"
+                type="button"
+              >
+                <span
+                  class="v-btn__content"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-information theme--light"
+                  />
+                </span>
+              </button>
+            </span>
+          </div>
         </div>
       </div>
       <div
@@ -400,7 +446,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-39"
+              aria-owns="list-45"
               class="v-input__slot"
               role="combobox"
             >
@@ -490,7 +536,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-48"
+              aria-owns="list-54"
               class="v-input__slot"
               role="combobox"
             >
@@ -553,7 +599,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
         class="flex vjsf-property vjsf-property-requiredStringProp xs12  pr-2"
@@ -787,7 +833,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-506"
+              aria-owns="list-512"
               class="v-input__slot"
               role="combobox"
             >
@@ -848,7 +894,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-511"
+              aria-owns="list-517"
               class="v-input__slot"
               role="combobox"
             >
@@ -897,6 +943,49 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
           </div>
         </div>
       </div>
+      <div
+        class="flex vjsf-property vjsf-property-limitedObjectsArray xs12  pr-2"
+      >
+        <div
+          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-522"
+                style="left: 0px; position: relative;"
+              >
+                I'm an array of objects with min/max items
+              </label>
+              <div
+                class="v-dialog__container"
+                role="dialog"
+              >
+                <button
+                  class="v-btn v-btn--contained v-btn--fab v-btn--round theme--light v-size--small primary vjsf-array-add-button ml-3"
+                  id="limitedObjectsArray--add-button"
+                  type="button"
+                >
+                  <span
+                    class="v-btn__content"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-plus theme--light"
+                    />
+                  </span>
+                </button>
+                <!---->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </form>
@@ -911,7 +1000,7 @@ exports[`Examples used as simple test cases Classes and styles 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
         class="flex vjsf-property vjsf-property-stringPropHalf xs12 xs6 pr-2"
@@ -1060,7 +1149,7 @@ exports[`Examples used as simple test cases Colors 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
         class="flex vjsf-property vjsf-property-colorProp xs12  pr-2"
@@ -1076,7 +1165,7 @@ exports[`Examples used as simple test cases Colors 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-87"
+                for="input-93"
                 style="left: 0px; position: relative;"
               >
                 I'm a color
@@ -1140,7 +1229,7 @@ exports[`Examples used as simple test cases Colors 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-95"
+                for="input-101"
                 style="left: 0px; position: relative;"
               >
                 I'm a color with a swatches based picker
@@ -1181,7 +1270,7 @@ exports[`Examples used as simple test cases Dates 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
         class="flex vjsf-property vjsf-property-dateProp xs12  pr-2"
@@ -1448,7 +1537,7 @@ exports[`Examples used as simple test cases Default values 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
         class="flex vjsf-property vjsf-property-stringProp xs12  pr-2"
@@ -1495,7 +1584,7 @@ exports[`Examples used as simple test cases Default values 1`] = `
         </div>
       </div>
       <div
-        class="layout row wrap ma-0 pl-2 pt-2"
+        class="row ma-0 pl-2 pt-2"
       >
         <span
           class="py-2 title"
@@ -1506,7 +1595,7 @@ exports[`Examples used as simple test cases Default values 1`] = `
           class="flex vjsf-property vjsf-property-objectSection xs12  pr-2"
         >
           <div
-            class="layout row wrap ma-0 "
+            class="row ma-0 "
           >
             <div
               class="flex vjsf-property vjsf-property-objectSection-child1 xs12  pr-2"
@@ -1613,38 +1702,48 @@ exports[`Examples used as simple test cases Editable array 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
         class="flex vjsf-property vjsf-property-objectArrayProp xs12  pr-2"
       >
         <div
-          class="layout mt-2 mb-1 pr-1"
+          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
         >
           <div
-            class="v-subheader theme--light"
+            class="v-input__control"
           >
-            I'm an array of objects
-          </div>
-          <div
-            class="v-dialog__container"
-            role="dialog"
-          >
-            <button
-              class="v-btn v-btn--contained v-btn--fab v-btn--round theme--light v-size--small primary vjsf-array-add-button"
-              id="objectArrayProp--add-button"
-              type="button"
+            <div
+              class="v-input__slot"
             >
-              <span
-                class="v-btn__content"
+              <label
+                class="v-label theme--light"
+                for="input-424"
+                style="left: 0px; position: relative;"
               >
-                <i
-                  aria-hidden="true"
-                  class="v-icon notranslate mdi mdi-plus theme--light"
-                />
-              </span>
-            </button>
-            <!---->
+                I'm an array of objects
+              </label>
+              <div
+                class="v-dialog__container"
+                role="dialog"
+              >
+                <button
+                  class="v-btn v-btn--contained v-btn--fab v-btn--round theme--light v-size--small primary vjsf-array-add-button ml-3"
+                  id="objectArrayProp--add-button"
+                  type="button"
+                >
+                  <span
+                    class="v-btn__content"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-plus theme--light"
+                    />
+                  </span>
+                </button>
+                <!---->
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1662,7 +1761,7 @@ exports[`Examples used as simple test cases Files 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
         class="flex vjsf-property vjsf-property-pngProp xs12  pr-2"
@@ -2130,7 +2229,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
         class="flex vjsf-property vjsf-property-dateProp xs12  pr-2"
@@ -2219,7 +2318,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-641"
+              aria-owns="list-654"
               class="v-input__slot"
               role="combobox"
             >
@@ -2295,18 +2394,28 @@ exports[`Examples used as simple test cases Prefilled arrays 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
         class="flex vjsf-property vjsf-property-filledArray xs12  pr-2"
       >
         <div
-          class="layout mt-2 mb-1 pr-1"
+          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
         >
           <div
-            class="v-subheader theme--light"
+            class="v-input__control"
           >
-            I'm an array filled by HTTP request
+            <div
+              class="v-input__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-434"
+                style="left: 0px; position: relative;"
+              >
+                I'm an array filled by HTTP request
+              </label>
+            </div>
           </div>
         </div>
       </div>
@@ -2324,7 +2433,7 @@ exports[`Examples used as simple test cases Read only content 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
         class="flex vjsf-property vjsf-property-readOnlyProp xs12  pr-2"
@@ -2372,7 +2481,7 @@ exports[`Examples used as simple test cases Read only content 1`] = `
         </div>
       </div>
       <div
-        class="layout row wrap ma-0 pl-2 pt-2"
+        class="row ma-0 pl-2 pt-2"
       >
         <span
           class="py-2 title"
@@ -2383,7 +2492,7 @@ exports[`Examples used as simple test cases Read only content 1`] = `
           class="flex vjsf-property vjsf-property-readOnlySection xs12  pr-2"
         >
           <div
-            class="layout row wrap ma-0 "
+            class="row ma-0 "
           >
             <div
               class="flex vjsf-property vjsf-property-readOnlySection-stringProp xs12  pr-2"
@@ -2457,7 +2566,7 @@ exports[`Examples used as simple test cases Read only content 1`] = `
         </div>
       </div>
       <div
-        class="layout row wrap ma-0 pl-2 pt-2"
+        class="row ma-0 pl-2 pt-2"
       >
         <span
           class="py-2 title"
@@ -2468,7 +2577,7 @@ exports[`Examples used as simple test cases Read only content 1`] = `
           class="flex vjsf-property vjsf-property-disabledSection xs12  pr-2"
         >
           <div
-            class="layout row wrap ma-0 "
+            class="row ma-0 "
           >
             <div
               class="flex vjsf-property vjsf-property-disabledSection-stringProp xs12  pr-2"
@@ -2519,7 +2628,7 @@ exports[`Examples used as simple test cases Read only content 1`] = `
         </div>
       </div>
       <div
-        class="layout row wrap ma-0 pl-2 pt-2"
+        class="row ma-0 pl-2 pt-2"
       >
         <span
           class="py-2 title"
@@ -2530,7 +2639,7 @@ exports[`Examples used as simple test cases Read only content 1`] = `
           class="flex vjsf-property vjsf-property-hideReadonlySection xs12  pr-2"
         >
           <div
-            class="layout row wrap ma-0 "
+            class="row ma-0 "
           >
             <!---->
             <div
@@ -2582,7 +2691,7 @@ exports[`Examples used as simple test cases Read only content 1`] = `
         </div>
       </div>
       <div
-        class="layout row wrap ma-0 pl-2 pt-2"
+        class="row ma-0 pl-2 pt-2"
       >
         <span
           class="py-2 title"
@@ -2593,7 +2702,7 @@ exports[`Examples used as simple test cases Read only content 1`] = `
           class="flex vjsf-property vjsf-property-deleteReadonlySection xs12  pr-2"
         >
           <div
-            class="layout row wrap ma-0 "
+            class="row ma-0 "
           >
             <div
               class="flex vjsf-property vjsf-property-deleteReadonlySection-stringProp xs12  pr-2"
@@ -2658,10 +2767,10 @@ exports[`Examples used as simple test cases Sections 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
-        class="layout row wrap ma-0 pl-2 pt-2"
+        class="row ma-0 pl-2 pt-2"
       >
         <span
           class="py-2 title"
@@ -2672,7 +2781,7 @@ exports[`Examples used as simple test cases Sections 1`] = `
           class="flex vjsf-property vjsf-property-objectSection1 xs12  pr-2"
         >
           <div
-            class="layout row wrap ma-0 "
+            class="row ma-0 "
           >
             <div
               class="flex xs12"
@@ -2727,7 +2836,7 @@ exports[`Examples used as simple test cases Sections 1`] = `
         </div>
       </div>
       <div
-        class="layout row wrap ma-0 pl-2 pt-2"
+        class="row ma-0 pl-2 pt-2"
       >
         <span
           class="py-2 title"
@@ -2738,7 +2847,7 @@ exports[`Examples used as simple test cases Sections 1`] = `
           class="flex vjsf-property vjsf-property-objectSection2 xs12  pr-2"
         >
           <div
-            class="layout row wrap ma-0 "
+            class="row ma-0 "
           >
             <div
               class="flex vjsf-property vjsf-property-objectSection2-stringProp2 xs12  pr-2"
@@ -2785,7 +2894,7 @@ exports[`Examples used as simple test cases Sections 1`] = `
               </div>
             </div>
             <div
-              class="layout row wrap ma-0 pl-2 pt-2"
+              class="row ma-0 pl-2 pt-2"
             >
               <span
                 class="py-2 subtitle-1"
@@ -2796,7 +2905,7 @@ exports[`Examples used as simple test cases Sections 1`] = `
                 class="flex vjsf-property vjsf-property-objectSection2-allOf-0 xs12  pr-2"
               >
                 <div
-                  class="layout row wrap ma-0 "
+                  class="row ma-0 "
                 >
                   <div
                     class="flex vjsf-property vjsf-property-objectSection2-allOf-0-stringProp3 xs12  pr-2"
@@ -2846,7 +2955,7 @@ exports[`Examples used as simple test cases Sections 1`] = `
               </div>
             </div>
             <div
-              class="layout row wrap ma-0 pl-2 pt-2"
+              class="row ma-0 pl-2 pt-2"
             >
               <span
                 class="py-2 subtitle-1"
@@ -2857,7 +2966,7 @@ exports[`Examples used as simple test cases Sections 1`] = `
                 class="flex vjsf-property vjsf-property-objectSection2-allOf-1 xs12  pr-2"
               >
                 <div
-                  class="layout row wrap ma-0 "
+                  class="row ma-0 "
                 >
                   <div
                     class="flex vjsf-property vjsf-property-objectSection2-allOf-1-stringProp4 xs12  pr-2"
@@ -2923,7 +3032,7 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
         class="flex xs12"
@@ -2968,7 +3077,7 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
                   class="flex vjsf-property vjsf-property-objectSection1 xs12  pr-2"
                 >
                   <div
-                    class="layout row wrap ma-0 "
+                    class="row ma-0 "
                   >
                     <div
                       class="flex xs12"
@@ -3061,7 +3170,7 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
                   class="flex vjsf-property vjsf-property-objectSection2 xs12  pr-2"
                 >
                   <div
-                    class="layout row wrap ma-0 "
+                    class="row ma-0 "
                   >
                     <div
                       class="flex vjsf-property vjsf-property-objectSection2-stringProp2 xs12  pr-2"
@@ -3128,7 +3237,7 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
         class="flex xs12"
@@ -3223,7 +3332,7 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
                       class="flex vjsf-property vjsf-property-allOf-0 xs12  pr-2"
                     >
                       <div
-                        class="layout row wrap ma-0 "
+                        class="row ma-0 "
                       >
                         <div
                           class="flex xs12"
@@ -3298,7 +3407,7 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
                       class="flex vjsf-property vjsf-property-allOf-1 xs12  pr-2"
                     >
                       <div
-                        class="layout row wrap ma-0 "
+                        class="row ma-0 "
                       >
                         <div
                           class="flex vjsf-property vjsf-property-allOf-1-stringProp2 xs12  pr-2"
@@ -3367,10 +3476,10 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
-        class="layout row wrap ma-0 pl-2 pt-2"
+        class="row ma-0 pl-2 pt-2"
       >
         <span
           class="py-2 title"
@@ -3381,7 +3490,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
           class="flex vjsf-property vjsf-property-tabs xs12  pr-2"
         >
           <div
-            class="layout row wrap ma-0 "
+            class="row ma-0 "
           >
             <div
               class="v-tabs v-tabs--grow theme--light"
@@ -3471,7 +3580,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                             class="flex vjsf-property vjsf-property-tabs-section1 xs12  pr-2"
                           >
                             <div
-                              class="layout row wrap ma-0 "
+                              class="row ma-0 "
                             >
                               <div
                                 class="flex vjsf-property vjsf-property-tabs-section1-requiredStringProp1 xs12  pr-2"
@@ -3541,7 +3650,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                             class="flex vjsf-property vjsf-property-tabs-section2 xs12  pr-2"
                           >
                             <div
-                              class="layout row wrap ma-0 "
+                              class="row ma-0 "
                             >
                               <div
                                 class="flex vjsf-property vjsf-property-tabs-section2-requiredStringProp2 xs12  pr-2"
@@ -3600,7 +3709,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
         </div>
       </div>
       <div
-        class="layout row wrap ma-0 pl-2 pt-2"
+        class="row ma-0 pl-2 pt-2"
       >
         <span
           class="py-2 title"
@@ -3611,7 +3720,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
           class="flex vjsf-property vjsf-property-panels xs12  pr-2"
         >
           <div
-            class="layout row wrap ma-0 "
+            class="row ma-0 "
           >
             <div
               class="v-item-group theme--light v-expansion-panels"
@@ -3651,7 +3760,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                         class="flex vjsf-property vjsf-property-panels-allOf-0 xs12  pr-2"
                       >
                         <div
-                          class="layout row wrap ma-0 "
+                          class="row ma-0 "
                         >
                           <div
                             class="flex vjsf-property vjsf-property-panels-allOf-0-requiredStringProp1 xs12  pr-2"
@@ -3739,7 +3848,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                         class="flex vjsf-property vjsf-property-panels-allOf-1 xs12  pr-2"
                       >
                         <div
-                          class="layout row wrap ma-0 "
+                          class="row ma-0 "
                         >
                           <div
                             class="flex vjsf-property vjsf-property-panels-allOf-1-requiredStringProp2 xs12  pr-2"
@@ -3809,7 +3918,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
         class="flex vjsf-property vjsf-property-stringEnum xs12  pr-2"
@@ -3912,7 +4021,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                         />
                         <input
                           aria-checked="true"
-                          id="input-268"
+                          id="input-274"
                           role="checkbox"
                           type="checkbox"
                           value="value 1"
@@ -3923,7 +4032,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                       </div>
                       <label
                         class="v-label theme--light"
-                        for="input-268"
+                        for="input-274"
                         style="left: 0px; position: relative;"
                       >
                         value 1
@@ -4016,7 +4125,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
         class="flex vjsf-property vjsf-property-stringEnum xs12  pr-2"
@@ -4030,7 +4139,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-105"
+              aria-owns="list-111"
               class="v-input__slot"
               role="button"
             >
@@ -4142,7 +4251,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-115"
+              aria-owns="list-121"
               class="v-input__slot"
               role="button"
             >
@@ -4231,7 +4340,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-122"
+              aria-owns="list-128"
               class="v-input__slot"
               role="button"
             >
@@ -4320,7 +4429,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-129"
+              aria-owns="list-135"
               class="v-input__slot"
               role="button"
             >
@@ -4409,7 +4518,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-136"
+              aria-owns="list-142"
               class="v-input__slot"
               role="combobox"
             >
@@ -4522,7 +4631,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
         class="flex vjsf-property vjsf-property-selectAjaxString xs12  pr-2"
@@ -4536,7 +4645,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-151"
+              aria-owns="list-157"
               class="v-input__slot"
               role="button"
             >
@@ -4625,7 +4734,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-158"
+              aria-owns="list-164"
               class="v-input__slot"
               role="button"
             >
@@ -4714,7 +4823,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-165"
+              aria-owns="list-171"
               class="v-input__slot"
               role="button"
             >
@@ -4803,7 +4912,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-172"
+              aria-owns="list-178"
               class="v-input__slot"
               role="button"
             >
@@ -4892,7 +5001,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-179"
+              aria-owns="list-185"
               class="v-input__slot"
               role="button"
             >
@@ -4981,7 +5090,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-186"
+              aria-owns="list-192"
               class="v-input__slot"
               role="combobox"
             >
@@ -5071,7 +5180,7 @@ exports[`Examples used as simple test cases Selects of sub-schemas 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
         class="v-input theme--light v-text-field v-select"
@@ -5082,7 +5191,7 @@ exports[`Examples used as simple test cases Selects of sub-schemas 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-249"
+            aria-owns="list-255"
             class="v-input__slot"
             role="button"
           >
@@ -5158,7 +5267,7 @@ exports[`Examples used as simple test cases Selects with dependencies 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
         class="flex vjsf-property vjsf-property-selectAjaxObject xs12  pr-2"
@@ -5172,7 +5281,7 @@ exports[`Examples used as simple test cases Selects with dependencies 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-238"
+              aria-owns="list-244"
               class="v-input__slot"
               role="button"
             >
@@ -5263,7 +5372,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
         class="flex vjsf-property vjsf-property-iconEnum xs12  pr-2"
@@ -5277,7 +5386,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-198"
+              aria-owns="list-204"
               class="v-input__slot"
               role="button"
             >
@@ -5366,7 +5475,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-205"
+              aria-owns="list-211"
               class="v-input__slot"
               role="button"
             >
@@ -5455,7 +5564,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-212"
+              aria-owns="list-218"
               class="v-input__slot"
               role="button"
             >
@@ -5544,7 +5653,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-219"
+              aria-owns="list-225"
               class="v-input__slot"
               role="combobox"
             >
@@ -5632,7 +5741,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-226"
+              aria-owns="list-232"
               class="v-input__slot"
               role="combobox"
             >
@@ -5722,7 +5831,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
         class="flex vjsf-property vjsf-property-selectAjaxObject xs12  pr-2"
@@ -5736,7 +5845,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-668"
+              aria-owns="list-681"
               class="v-input__slot"
               role="button"
             >
@@ -5834,7 +5943,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-675"
+              aria-owns="list-688"
               class="v-input__slot"
               role="button"
             >
@@ -5930,7 +6039,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-682"
+              aria-owns="list-695"
               class="v-input__slot"
               role="button"
             >
@@ -6028,10 +6137,10 @@ exports[`Examples used as simple test cases Tuples 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
-        class="layout row wrap ma-0 pl-2 pt-2"
+        class="row ma-0 pl-2 pt-2"
       >
         <span
           class="py-2 title"
@@ -6042,7 +6151,7 @@ exports[`Examples used as simple test cases Tuples 1`] = `
           class="flex vjsf-property vjsf-property-numberTupleProp xs12  pr-2"
         >
           <div
-            class="layout row wrap ma-0 "
+            class="row ma-0 "
           >
             <div
               class="flex vjsf-property vjsf-property-numberTupleProp-0 xs12  pr-2"
@@ -6136,7 +6245,7 @@ exports[`Examples used as simple test cases Tuples 1`] = `
         </div>
       </div>
       <div
-        class="layout row wrap ma-0 pl-2 pt-2"
+        class="row ma-0 pl-2 pt-2"
       >
         <span
           class="py-2 title"
@@ -6147,7 +6256,7 @@ exports[`Examples used as simple test cases Tuples 1`] = `
           class="flex vjsf-property vjsf-property-stringTupleProp xs12  pr-2"
         >
           <div
-            class="layout row wrap ma-0 "
+            class="row ma-0 "
           >
             <div
               class="flex vjsf-property vjsf-property-stringTupleProp-0 xs12  pr-2"
@@ -6254,7 +6363,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
         class="flex vjsf-property vjsf-property-chipsEnumProp xs12  pr-2"
@@ -6280,7 +6389,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-470"
+              aria-owns="list-476"
               class="v-input__slot"
               role="button"
             >
@@ -6396,7 +6505,7 @@ exports[`Examples used as simple test cases resolved schema 1`] = `
     class="flex vjsf-property vjsf-property-root xs12 "
   >
     <div
-      class="layout row wrap ma-0 "
+      class="row ma-0 "
     >
       <div
         class="flex vjsf-property vjsf-property-stringProp xs12  pr-2"
