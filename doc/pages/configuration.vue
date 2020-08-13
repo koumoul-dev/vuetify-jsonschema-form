@@ -170,6 +170,10 @@
           <td>An object of props to pass directly to the underlying Vuetify component.</td>
         </tr>
         <tr>
+          <td>x-cols</td>
+          <td>The width of the v-col component wrapping the property (default is 12).</td>
+        </tr>
+        <tr>
           <td>x-slots</td>
           <td>An object of textual contents to be displayed before and after the property or to be passed as slots to the underlying vuetify component.</td>
         </tr>
