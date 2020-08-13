@@ -6,13 +6,13 @@ exports[`Examples used as simple test cases Basic types 1`] = `
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
     >
       <div
-        class="flex vjsf-property vjsf-property-stringProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-stringProp pa-0  pr-2"
       >
         <div
           class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
@@ -79,7 +79,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-stringTextareaProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-stringTextareaProp pa-0  pr-2"
       >
         <div
           class="v-input v-textarea theme--light v-text-field v-text-field--filled v-text-field--enclosed"
@@ -123,7 +123,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-numberProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-numberProp pa-0  pr-2"
       >
         <div
           class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
@@ -167,7 +167,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-integerProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-integerProp pa-0  pr-2"
       >
         <div
           class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
@@ -211,7 +211,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-integerSliderProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-integerSliderProp pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-input__slider"
@@ -281,7 +281,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-booleanProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-booleanProp pa-0  pr-2"
       >
         <div
           class="v-input v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--checkbox primary--text"
@@ -354,7 +354,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-booleanSwitchProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-booleanSwitchProp pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-input--selection-controls v-input--switch"
@@ -435,7 +435,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-stringArrayProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-stringArrayProp pa-0  pr-2"
       >
         <div
           class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-select v-select--chips v-select--is-multi v-autocomplete"
@@ -525,7 +525,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-integerArrayProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-integerArrayProp pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-select v-select--chips v-select--is-multi v-autocomplete"
@@ -596,13 +596,13 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
     >
       <div
-        class="flex vjsf-property vjsf-property-requiredStringProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-requiredStringProp pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field"
@@ -646,7 +646,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-patternStringProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-patternStringProp pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field"
@@ -690,7 +690,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-ruleStringProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-ruleStringProp pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field"
@@ -734,7 +734,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-limitedInteger xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-limitedInteger pa-0  pr-2"
       >
         <div
           class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
@@ -778,7 +778,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-limitedString xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-limitedString pa-0  pr-2"
       >
         <div
           class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
@@ -822,7 +822,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-limitedArray xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-limitedArray pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-select v-select--chips v-select--is-multi v-autocomplete"
@@ -883,7 +883,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-patternStringArray xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-patternStringArray pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-select v-select--chips v-select--is-multi v-autocomplete"
@@ -944,7 +944,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-limitedObjectsArray xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-limitedObjectsArray pa-0  pr-2"
       >
         <div
           class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
@@ -997,13 +997,13 @@ exports[`Examples used as simple test cases Classes and styles 1`] = `
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
     >
       <div
-        class="flex vjsf-property vjsf-property-stringPropHalf xs12 xs6 pr-2"
+        class="col col-12 vjsf-property vjsf-property-stringPropHalf pa-0 xs6 pr-2"
       >
         <div
           class="v-input theme--light v-text-field"
@@ -1047,7 +1047,7 @@ exports[`Examples used as simple test cases Classes and styles 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-stringPropHalf2 xs12 xs6 pr-2"
+        class="col col-12 vjsf-property vjsf-property-stringPropHalf2 pa-0 xs6 pr-2"
       >
         <div
           class="v-input theme--light v-text-field"
@@ -1091,7 +1091,7 @@ exports[`Examples used as simple test cases Classes and styles 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-stringPropStyle xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-stringPropStyle pa-0  pr-2"
         style="background-color: pink; padding-left: 20px;"
       >
         <div
@@ -1146,13 +1146,13 @@ exports[`Examples used as simple test cases Colors 1`] = `
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
     >
       <div
-        class="flex vjsf-property vjsf-property-colorProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-colorProp pa-0  pr-2"
       >
         <div
           class="v-input theme--light"
@@ -1216,7 +1216,7 @@ exports[`Examples used as simple test cases Colors 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-colorProp2 xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-colorProp2 pa-0  pr-2"
       >
         <div
           class="v-input theme--light"
@@ -1267,13 +1267,13 @@ exports[`Examples used as simple test cases Dates 1`] = `
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
     >
       <div
-        class="flex vjsf-property vjsf-property-dateProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-dateProp pa-0  pr-2"
       >
         <div
           class="v-menu"
@@ -1372,7 +1372,7 @@ exports[`Examples used as simple test cases Dates 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-timeProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-timeProp pa-0  pr-2"
       >
         <div
           class="v-menu"
@@ -1448,7 +1448,7 @@ exports[`Examples used as simple test cases Dates 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-dateTimeProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-dateTimeProp pa-0  pr-2"
       >
         <div
           class="v-menu"
@@ -1534,13 +1534,13 @@ exports[`Examples used as simple test cases Default values 1`] = `
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
     >
       <div
-        class="flex vjsf-property vjsf-property-stringProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-stringProp pa-0  pr-2"
       >
         <div
           class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
@@ -1592,13 +1592,13 @@ exports[`Examples used as simple test cases Default values 1`] = `
           I'm a section with a default value 
         </span>
         <div
-          class="flex vjsf-property vjsf-property-objectSection xs12  pr-2"
+          class="col col-12 vjsf-property vjsf-property-objectSection pa-0  pr-2"
         >
           <div
             class="row ma-0 "
           >
             <div
-              class="flex vjsf-property vjsf-property-objectSection-child1 xs12  pr-2"
+              class="col col-12 vjsf-property vjsf-property-objectSection-child1 pa-0  pr-2"
             >
               <div
                 class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
@@ -1642,7 +1642,7 @@ exports[`Examples used as simple test cases Default values 1`] = `
               </div>
             </div>
             <div
-              class="flex vjsf-property vjsf-property-objectSection-child2 xs12  pr-2"
+              class="col col-12 vjsf-property vjsf-property-objectSection-child2 pa-0  pr-2"
             >
               <div
                 class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
@@ -1699,13 +1699,13 @@ exports[`Examples used as simple test cases Editable array 1`] = `
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
     >
       <div
-        class="flex vjsf-property vjsf-property-objectArrayProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-objectArrayProp pa-0  pr-2"
       >
         <div
           class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
@@ -1758,13 +1758,13 @@ exports[`Examples used as simple test cases Files 1`] = `
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
     >
       <div
-        class="flex vjsf-property vjsf-property-pngProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-pngProp pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-file-input"
@@ -1839,7 +1839,7 @@ exports[`Examples used as simple test cases Files 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-imageProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-imageProp pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-file-input"
@@ -1914,7 +1914,7 @@ exports[`Examples used as simple test cases Files 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-imageArrayProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-imageArrayProp pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-file-input"
@@ -1990,7 +1990,7 @@ exports[`Examples used as simple test cases Files 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-objectFileProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-objectFileProp pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-file-input"
@@ -2065,7 +2065,7 @@ exports[`Examples used as simple test cases Files 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-objectFileBlobProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-objectFileBlobProp pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-file-input"
@@ -2140,7 +2140,7 @@ exports[`Examples used as simple test cases Files 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-arrayFileBlobProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-arrayFileBlobProp pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-file-input"
@@ -2226,13 +2226,13 @@ exports[`Examples used as simple test cases Localization 1`] = `
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
     >
       <div
-        class="flex vjsf-property vjsf-property-dateProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-dateProp pa-0  pr-2"
       >
         <div
           class="v-menu"
@@ -2307,7 +2307,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-selectAjaxWithQuery xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-selectAjaxWithQuery pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-text-field--placeholder v-select v-autocomplete"
@@ -2391,13 +2391,13 @@ exports[`Examples used as simple test cases Prefilled arrays 1`] = `
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
     >
       <div
-        class="flex vjsf-property vjsf-property-filledArray xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-filledArray pa-0  pr-2"
       >
         <div
           class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
@@ -2430,13 +2430,13 @@ exports[`Examples used as simple test cases Read only content 1`] = `
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
     >
       <div
-        class="flex vjsf-property vjsf-property-readOnlyProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-readOnlyProp pa-0  pr-2"
       >
         <div
           class="v-input v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field"
@@ -2489,13 +2489,13 @@ exports[`Examples used as simple test cases Read only content 1`] = `
           I'm a section with readOnly=true in schema 
         </span>
         <div
-          class="flex vjsf-property vjsf-property-readOnlySection xs12  pr-2"
+          class="col col-12 vjsf-property vjsf-property-readOnlySection pa-0  pr-2"
         >
           <div
             class="row ma-0 "
           >
             <div
-              class="flex vjsf-property vjsf-property-readOnlySection-stringProp xs12  pr-2"
+              class="col col-12 vjsf-property vjsf-property-readOnlySection-stringProp pa-0  pr-2"
             >
               <div
                 class="v-input v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field"
@@ -2574,13 +2574,13 @@ exports[`Examples used as simple test cases Read only content 1`] = `
           I'm a section with disableAll=true in options 
         </span>
         <div
-          class="flex vjsf-property vjsf-property-disabledSection xs12  pr-2"
+          class="col col-12 vjsf-property vjsf-property-disabledSection pa-0  pr-2"
         >
           <div
             class="row ma-0 "
           >
             <div
-              class="flex vjsf-property vjsf-property-disabledSection-stringProp xs12  pr-2"
+              class="col col-12 vjsf-property vjsf-property-disabledSection-stringProp pa-0  pr-2"
             >
               <div
                 class="v-input v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field"
@@ -2636,14 +2636,14 @@ exports[`Examples used as simple test cases Read only content 1`] = `
           I'm a section whose read-only content is hidden 
         </span>
         <div
-          class="flex vjsf-property vjsf-property-hideReadonlySection xs12  pr-2"
+          class="col col-12 vjsf-property vjsf-property-hideReadonlySection pa-0  pr-2"
         >
           <div
             class="row ma-0 "
           >
             <!---->
             <div
-              class="flex vjsf-property vjsf-property-hideReadonlySection-stringProp xs12  pr-2"
+              class="col col-12 vjsf-property vjsf-property-hideReadonlySection-stringProp pa-0  pr-2"
             >
               <div
                 class="v-input theme--light v-text-field"
@@ -2699,13 +2699,13 @@ exports[`Examples used as simple test cases Read only content 1`] = `
           I'm a section whose read-only content is deleted 
         </span>
         <div
-          class="flex vjsf-property vjsf-property-deleteReadonlySection xs12  pr-2"
+          class="col col-12 vjsf-property vjsf-property-deleteReadonlySection pa-0  pr-2"
         >
           <div
             class="row ma-0 "
           >
             <div
-              class="flex vjsf-property vjsf-property-deleteReadonlySection-stringProp xs12  pr-2"
+              class="col col-12 vjsf-property vjsf-property-deleteReadonlySection-stringProp pa-0  pr-2"
             >
               <div
                 class="v-input theme--light v-text-field"
@@ -2764,7 +2764,7 @@ exports[`Examples used as simple test cases Sections 1`] = `
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
@@ -2778,18 +2778,18 @@ exports[`Examples used as simple test cases Sections 1`] = `
           I'm a section 
         </span>
         <div
-          class="flex vjsf-property vjsf-property-objectSection1 xs12  pr-2"
+          class="col col-12 vjsf-property vjsf-property-objectSection1 pa-0  pr-2"
         >
           <div
             class="row ma-0 "
           >
             <div
-              class="flex xs12"
+              class="col col-12 pa-0"
             >
               I'm a description shown as a paragraph on top of section
             </div>
             <div
-              class="flex vjsf-property vjsf-property-objectSection1-stringProp1 xs12  pr-2"
+              class="col col-12 vjsf-property vjsf-property-objectSection1-stringProp1 pa-0  pr-2"
             >
               <div
                 class="v-input theme--light v-text-field"
@@ -2844,13 +2844,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
           I'm another section 
         </span>
         <div
-          class="flex vjsf-property vjsf-property-objectSection2 xs12  pr-2"
+          class="col col-12 vjsf-property vjsf-property-objectSection2 pa-0  pr-2"
         >
           <div
             class="row ma-0 "
           >
             <div
-              class="flex vjsf-property vjsf-property-objectSection2-stringProp2 xs12  pr-2"
+              class="col col-12 vjsf-property vjsf-property-objectSection2-stringProp2 pa-0  pr-2"
             >
               <div
                 class="v-input theme--light v-text-field"
@@ -2902,13 +2902,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
                 I'm a subsection 
               </span>
               <div
-                class="flex vjsf-property vjsf-property-objectSection2-allOf-0 xs12  pr-2"
+                class="col col-12 vjsf-property vjsf-property-objectSection2-allOf-0 pa-0  pr-2"
               >
                 <div
                   class="row ma-0 "
                 >
                   <div
-                    class="flex vjsf-property vjsf-property-objectSection2-allOf-0-stringProp3 xs12  pr-2"
+                    class="col col-12 vjsf-property vjsf-property-objectSection2-allOf-0-stringProp3 pa-0  pr-2"
                   >
                     <div
                       class="v-input theme--light v-text-field"
@@ -2963,13 +2963,13 @@ exports[`Examples used as simple test cases Sections 1`] = `
                 I'm another subsection 
               </span>
               <div
-                class="flex vjsf-property vjsf-property-objectSection2-allOf-1 xs12  pr-2"
+                class="col col-12 vjsf-property vjsf-property-objectSection2-allOf-1 pa-0  pr-2"
               >
                 <div
                   class="row ma-0 "
                 >
                   <div
-                    class="flex vjsf-property vjsf-property-objectSection2-allOf-1-stringProp4 xs12  pr-2"
+                    class="col col-12 vjsf-property vjsf-property-objectSection2-allOf-1-stringProp4 pa-0  pr-2"
                   >
                     <div
                       class="v-input theme--light v-text-field"
@@ -3029,13 +3029,13 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
     >
       <div
-        class="flex xs12"
+        class="col col-12 pa-0"
       >
         I'm an object with sections rendered as expansions panels with the \`tile\` and \`mandatory\` options.
       </div>
@@ -3074,18 +3074,18 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
                 class="v-expansion-panel-content__wrap"
               >
                 <div
-                  class="flex vjsf-property vjsf-property-objectSection1 xs12  pr-2"
+                  class="col col-12 vjsf-property vjsf-property-objectSection1 pa-0  pr-2"
                 >
                   <div
                     class="row ma-0 "
                   >
                     <div
-                      class="flex xs12"
+                      class="col col-12 pa-0"
                     >
                       I'm a description shown as a paragraph on top of section
                     </div>
                     <div
-                      class="flex vjsf-property vjsf-property-objectSection1-stringProp1 xs12  pr-2"
+                      class="col col-12 vjsf-property vjsf-property-objectSection1-stringProp1 pa-0  pr-2"
                     >
                       <div
                         class="v-input theme--light v-text-field"
@@ -3167,13 +3167,13 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
                 class="v-expansion-panel-content__wrap"
               >
                 <div
-                  class="flex vjsf-property vjsf-property-objectSection2 xs12  pr-2"
+                  class="col col-12 vjsf-property vjsf-property-objectSection2 pa-0  pr-2"
                 >
                   <div
                     class="row ma-0 "
                   >
                     <div
-                      class="flex vjsf-property vjsf-property-objectSection2-stringProp2 xs12  pr-2"
+                      class="col col-12 vjsf-property vjsf-property-objectSection2-stringProp2 pa-0  pr-2"
                     >
                       <div
                         class="v-input theme--light v-text-field"
@@ -3234,13 +3234,13 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
     >
       <div
-        class="flex xs12"
+        class="col col-12 pa-0"
       >
         I'm an object with sections rendered as tabs.
       </div>
@@ -3329,18 +3329,18 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
                     class="v-card__text"
                   >
                     <div
-                      class="flex vjsf-property vjsf-property-allOf-0 xs12  pr-2"
+                      class="col col-12 vjsf-property vjsf-property-allOf-0 pa-0  pr-2"
                     >
                       <div
                         class="row ma-0 "
                       >
                         <div
-                          class="flex xs12"
+                          class="col col-12 pa-0"
                         >
                           I'm a description shown as a paragraph on top of section
                         </div>
                         <div
-                          class="flex vjsf-property vjsf-property-allOf-0-stringProp1 xs12  pr-2"
+                          class="col col-12 vjsf-property vjsf-property-allOf-0-stringProp1 pa-0  pr-2"
                         >
                           <div
                             class="v-input theme--light v-text-field"
@@ -3404,13 +3404,13 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
                     class="v-card__text"
                   >
                     <div
-                      class="flex vjsf-property vjsf-property-allOf-1 xs12  pr-2"
+                      class="col col-12 vjsf-property vjsf-property-allOf-1 pa-0  pr-2"
                     >
                       <div
                         class="row ma-0 "
                       >
                         <div
-                          class="flex vjsf-property vjsf-property-allOf-1-stringProp2 xs12  pr-2"
+                          class="col col-12 vjsf-property vjsf-property-allOf-1-stringProp2 pa-0  pr-2"
                         >
                           <div
                             class="v-input theme--light v-text-field"
@@ -3473,7 +3473,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
@@ -3487,7 +3487,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
           Tabs with required fields 
         </span>
         <div
-          class="flex vjsf-property vjsf-property-tabs xs12  pr-2"
+          class="col col-12 vjsf-property vjsf-property-tabs pa-0  pr-2"
         >
           <div
             class="row ma-0 "
@@ -3577,13 +3577,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                           class="v-card__text"
                         >
                           <div
-                            class="flex vjsf-property vjsf-property-tabs-section1 xs12  pr-2"
+                            class="col col-12 vjsf-property vjsf-property-tabs-section1 pa-0  pr-2"
                           >
                             <div
                               class="row ma-0 "
                             >
                               <div
-                                class="flex vjsf-property vjsf-property-tabs-section1-requiredStringProp1 xs12  pr-2"
+                                class="col col-12 vjsf-property vjsf-property-tabs-section1-requiredStringProp1 pa-0  pr-2"
                               >
                                 <div
                                   class="v-input theme--light v-text-field"
@@ -3647,13 +3647,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                           class="v-card__text"
                         >
                           <div
-                            class="flex vjsf-property vjsf-property-tabs-section2 xs12  pr-2"
+                            class="col col-12 vjsf-property vjsf-property-tabs-section2 pa-0  pr-2"
                           >
                             <div
                               class="row ma-0 "
                             >
                               <div
-                                class="flex vjsf-property vjsf-property-tabs-section2-requiredStringProp2 xs12  pr-2"
+                                class="col col-12 vjsf-property vjsf-property-tabs-section2-requiredStringProp2 pa-0  pr-2"
                               >
                                 <div
                                   class="v-input theme--light v-text-field"
@@ -3717,7 +3717,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
           Panels with required fields 
         </span>
         <div
-          class="flex vjsf-property vjsf-property-panels xs12  pr-2"
+          class="col col-12 vjsf-property vjsf-property-panels pa-0  pr-2"
         >
           <div
             class="row ma-0 "
@@ -3757,13 +3757,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                       class="v-expansion-panel-content__wrap"
                     >
                       <div
-                        class="flex vjsf-property vjsf-property-panels-allOf-0 xs12  pr-2"
+                        class="col col-12 vjsf-property vjsf-property-panels-allOf-0 pa-0  pr-2"
                       >
                         <div
                           class="row ma-0 "
                         >
                           <div
-                            class="flex vjsf-property vjsf-property-panels-allOf-0-requiredStringProp1 xs12  pr-2"
+                            class="col col-12 vjsf-property vjsf-property-panels-allOf-0-requiredStringProp1 pa-0  pr-2"
                           >
                             <div
                               class="v-input theme--light v-text-field"
@@ -3845,13 +3845,13 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                       class="v-expansion-panel-content__wrap"
                     >
                       <div
-                        class="flex vjsf-property vjsf-property-panels-allOf-1 xs12  pr-2"
+                        class="col col-12 vjsf-property vjsf-property-panels-allOf-1 pa-0  pr-2"
                       >
                         <div
                           class="row ma-0 "
                         >
                           <div
-                            class="flex vjsf-property vjsf-property-panels-allOf-1-requiredStringProp2 xs12  pr-2"
+                            class="col col-12 vjsf-property vjsf-property-panels-allOf-1-requiredStringProp2 pa-0  pr-2"
                           >
                             <div
                               class="v-input theme--light v-text-field"
@@ -3915,13 +3915,13 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
     >
       <div
-        class="flex vjsf-property vjsf-property-stringEnum xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-stringEnum pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-input--selection-controls v-input--radio-group v-input--radio-group--column"
@@ -3984,7 +3984,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-stringsArrayEnum xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-stringsArrayEnum pa-0  pr-2"
       >
         <div
           class="v-input v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--radio-group v-input--radio-group--column"
@@ -4078,7 +4078,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-stringArrayOneOf xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-stringArrayOneOf pa-0  pr-2"
       >
         <div
           class="v-input v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--radio-group v-input--radio-group--column"
@@ -4122,13 +4122,13 @@ exports[`Examples used as simple test cases Selects 1`] = `
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
     >
       <div
-        class="flex vjsf-property vjsf-property-stringEnum xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-stringEnum pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-select"
@@ -4240,7 +4240,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-stringsArrayEnum xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-stringsArrayEnum pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-select v-select--is-multi"
@@ -4329,7 +4329,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-stringOneOf xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-stringOneOf pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-select"
@@ -4418,7 +4418,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-stringArrayOneOf xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-stringArrayOneOf pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-select v-select--is-multi"
@@ -4507,7 +4507,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-stringEnumLarge xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-stringEnumLarge pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-text-field--placeholder v-select v-autocomplete"
@@ -4628,13 +4628,13 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
     >
       <div
-        class="flex vjsf-property vjsf-property-selectAjaxString xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-selectAjaxString pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-select"
@@ -4723,7 +4723,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-selectAjaxStringArray xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-selectAjaxStringArray pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-select v-select--is-multi"
@@ -4812,7 +4812,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-selectAjaxObject xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-selectAjaxObject pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-select"
@@ -4901,7 +4901,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-selectAjaxArrayOfObjects xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-selectAjaxArrayOfObjects pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-select v-select--is-multi"
@@ -4990,7 +4990,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-selectAjaxLarge xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-selectAjaxLarge pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-select"
@@ -5079,7 +5079,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-selectAjaxWithQuery xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-selectAjaxWithQuery pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-text-field--placeholder v-select v-autocomplete"
@@ -5177,7 +5177,7 @@ exports[`Examples used as simple test cases Selects of sub-schemas 1`] = `
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
@@ -5264,13 +5264,13 @@ exports[`Examples used as simple test cases Selects with dependencies 1`] = `
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
     >
       <div
-        class="flex vjsf-property vjsf-property-selectAjaxObject xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-selectAjaxObject pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-select"
@@ -5369,13 +5369,13 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
     >
       <div
-        class="flex vjsf-property vjsf-property-iconEnum xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-iconEnum pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-select"
@@ -5464,7 +5464,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-iconEnumArray xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-iconEnumArray pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-select v-select--is-multi"
@@ -5553,7 +5553,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-iconOneOf xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-iconOneOf pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-select"
@@ -5642,7 +5642,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-iconAjaxImages xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-iconAjaxImages pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-text-field--placeholder v-select v-autocomplete"
@@ -5730,7 +5730,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-iconAjaxSVG xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-iconAjaxSVG pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field v-text-field--placeholder v-select v-autocomplete"
@@ -5828,13 +5828,13 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
     >
       <div
-        class="flex vjsf-property vjsf-property-selectAjaxObject xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-selectAjaxObject pa-0  pr-2"
       >
         <div
           class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-select"
@@ -5932,7 +5932,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-selectFromData xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-selectFromData pa-0  pr-2"
       >
         <div
           class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-select"
@@ -6028,7 +6028,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-selectAjaxDep xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-selectAjaxDep pa-0  pr-2"
       >
         <div
           class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-select"
@@ -6134,7 +6134,7 @@ exports[`Examples used as simple test cases Tuples 1`] = `
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
@@ -6148,13 +6148,13 @@ exports[`Examples used as simple test cases Tuples 1`] = `
           I'm a tuple of 2 numbers 
         </span>
         <div
-          class="flex vjsf-property vjsf-property-numberTupleProp xs12  pr-2"
+          class="col col-12 vjsf-property vjsf-property-numberTupleProp pa-0  pr-2"
         >
           <div
             class="row ma-0 "
           >
             <div
-              class="flex vjsf-property vjsf-property-numberTupleProp-0 xs12  pr-2"
+              class="col col-12 vjsf-property vjsf-property-numberTupleProp-0 pa-0  pr-2"
             >
               <div
                 class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
@@ -6198,7 +6198,7 @@ exports[`Examples used as simple test cases Tuples 1`] = `
               </div>
             </div>
             <div
-              class="flex vjsf-property vjsf-property-numberTupleProp-1 xs12  pr-2"
+              class="col col-12 vjsf-property vjsf-property-numberTupleProp-1 pa-0  pr-2"
             >
               <div
                 class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
@@ -6253,13 +6253,13 @@ exports[`Examples used as simple test cases Tuples 1`] = `
           I'm a tuple of 2 strings, first one is required 
         </span>
         <div
-          class="flex vjsf-property vjsf-property-stringTupleProp xs12  pr-2"
+          class="col col-12 vjsf-property vjsf-property-stringTupleProp pa-0  pr-2"
         >
           <div
             class="row ma-0 "
           >
             <div
-              class="flex vjsf-property vjsf-property-stringTupleProp-0 xs12  pr-2"
+              class="col col-12 vjsf-property vjsf-property-stringTupleProp-0 pa-0  pr-2"
             >
               <div
                 class="v-input theme--light v-text-field"
@@ -6303,7 +6303,7 @@ exports[`Examples used as simple test cases Tuples 1`] = `
               </div>
             </div>
             <div
-              class="flex vjsf-property vjsf-property-stringTupleProp-1 xs12  pr-2"
+              class="col col-12 vjsf-property vjsf-property-stringTupleProp-1 pa-0  pr-2"
             >
               <div
                 class="v-input theme--light v-text-field"
@@ -6360,13 +6360,13 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
     >
       <div
-        class="flex vjsf-property vjsf-property-chipsEnumProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-chipsEnumProp pa-0  pr-2"
       >
         <div
           class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--single-line v-text-field--solo v-text-field--solo-inverted v-text-field--enclosed v-select v-select--chips v-select--is-multi"
@@ -6502,13 +6502,13 @@ exports[`Examples used as simple test cases resolved schema 1`] = `
   novalidate="novalidate"
 >
   <div
-    class="flex vjsf-property vjsf-property-root xs12 "
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
   >
     <div
       class="row ma-0 "
     >
       <div
-        class="flex vjsf-property vjsf-property-stringProp xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-stringProp pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field"
@@ -6575,7 +6575,7 @@ exports[`Examples used as simple test cases resolved schema 1`] = `
         </div>
       </div>
       <div
-        class="flex vjsf-property vjsf-property-refProp1 xs12  pr-2"
+        class="col col-12 vjsf-property vjsf-property-refProp1 pa-0  pr-2"
       >
         <div
           class="v-input theme--light v-text-field"
