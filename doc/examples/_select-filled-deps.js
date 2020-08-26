@@ -43,68 +43,70 @@ const schema = {
   }
 }
 
+const datasetSchema = [
+  {
+    key: 'Pays',
+    type: 'string',
+    'x-originalName': 'Pays',
+    'x-cardinality': 148,
+    'x-refersTo': null
+  },
+  {
+    key: 'Candidats',
+    type: 'string',
+    'x-originalName': 'Candidats',
+    'x-cardinality': 11,
+    enum: [
+      'Benoît HAMON',
+      'Emmanuel MACRON',
+      'François ASSELINEAU',
+      'François FILLON',
+      'Jacques CHEMINADE',
+      'Jean LASSALLE',
+      'Jean-Luc MÉLENCHON',
+      'Marine LE PEN',
+      'Nathalie ARTHAUD',
+      'Nicolas DUPONT-AIGNAN',
+      'Philippe POUTOU'
+    ],
+    'x-refersTo': null
+  },
+  {
+    key: 'Nombre_de_voix',
+    type: 'integer',
+    'x-originalName': 'Nombre de voix',
+    'x-cardinality': 422,
+    'x-refersTo': null
+  },
+  {
+    'x-calculated': true,
+    key: '_id',
+    type: 'string',
+    format: 'uri-reference',
+    title: 'Identifiant',
+    description: 'Identifiant unique parmi toutes les lignes du jeu de données'
+  },
+  {
+    'x-calculated': true,
+    key: '_i',
+    type: 'integer',
+    title: 'Numéro de ligne',
+    description: "Indice de la ligne dans le fichier d'origine"
+  },
+  {
+    'x-calculated': true,
+    key: '_rand',
+    type: 'integer',
+    title: 'Nombre aléatoire',
+    description: "Un nombre aléatoire associé à la ligne qui permet d'obtenir un tri aléatoire par exemple"
+  }
+]
+
 const model = {
   selectAjaxObject: {
     href: 'https://koumoul.com/s/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417',
     title: "Présidentielles 2017 - Votes des français à l'étranger - 1er tour",
-    schema: [
-      {
-        key: 'Pays',
-        type: 'string',
-        'x-originalName': 'Pays',
-        'x-cardinality': 148,
-        'x-refersTo': null
-      },
-      {
-        key: 'Candidats',
-        type: 'string',
-        'x-originalName': 'Candidats',
-        'x-cardinality': 11,
-        enum: [
-          'Benoît HAMON',
-          'Emmanuel MACRON',
-          'François ASSELINEAU',
-          'François FILLON',
-          'Jacques CHEMINADE',
-          'Jean LASSALLE',
-          'Jean-Luc MÉLENCHON',
-          'Marine LE PEN',
-          'Nathalie ARTHAUD',
-          'Nicolas DUPONT-AIGNAN',
-          'Philippe POUTOU'
-        ],
-        'x-refersTo': null
-      },
-      {
-        key: 'Nombre_de_voix',
-        type: 'integer',
-        'x-originalName': 'Nombre de voix',
-        'x-cardinality': 422,
-        'x-refersTo': null
-      },
-      {
-        'x-calculated': true,
-        key: '_id',
-        type: 'string',
-        format: 'uri-reference',
-        title: 'Identifiant',
-        description: 'Identifiant unique parmi toutes les lignes du jeu de données'
-      },
-      {
-        'x-calculated': true,
-        key: '_i',
-        type: 'integer',
-        title: 'Numéro de ligne',
-        description: "Indice de la ligne dans le fichier d'origine"
-      },
-      {
-        'x-calculated': true,
-        key: '_rand',
-        type: 'integer',
-        title: 'Nombre aléatoire',
-        description: "Un nombre aléatoire associé à la ligne qui permet d'obtenir un tri aléatoire par exemple"
-      }
-    ]
+    schema: datasetSchema
   },
   selectAjaxDep: {
     key: 'Pays',
@@ -132,9 +134,16 @@ const test = (wrapper) => {
 }
 
 const httpMocks = {
-  'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title,schema&owner=organization:5a5dc47163ebd4a6f438589b': { results: [] },
-  'https://koumoul.com/s/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417': { schema: [] },
-  'https://koumoul.com/s/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417/schema': []
+  'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title,schema&owner=organization:5a5dc47163ebd4a6f438589b': {
+    count: 1,
+    results: [{
+      title: "Présidentielles 2017 - Votes des français à l'étranger - 1er tour",
+      schema: datasetSchema,
+      href: 'https://koumoul.com/s/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417'
+    }]
+  },
+  'https://koumoul.com/s/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417': { schema: datasetSchema },
+  'https://koumoul.com/s/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417/schema': datasetSchema
 }
 
 export default { id, title, description, schema, model, options, test, httpMocks }

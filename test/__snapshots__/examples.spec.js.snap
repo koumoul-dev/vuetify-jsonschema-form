@@ -15,7 +15,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
         class="col col-12 vjsf-property vjsf-property-stringProp pa-0  pr-2"
       >
         <div
-          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
         >
           <div
             class="v-input__control"
@@ -56,24 +56,24 @@ exports[`Examples used as simple test cases Basic types 1`] = `
           <div
             class="v-input__append-outer"
           >
+            <button
+              class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+              style="pointer-events: auto;"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-information theme--light"
+                />
+              </span>
+            </button>
             <span
               class="v-tooltip v-tooltip--left"
             >
               <!---->
-              <button
-                class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
-                style="pointer-events: auto;"
-                type="button"
-              >
-                <span
-                  class="v-btn__content"
-                >
-                  <i
-                    aria-hidden="true"
-                    class="v-icon notranslate mdi mdi-information theme--light"
-                  />
-                </span>
-              </button>
             </span>
           </div>
         </div>
@@ -82,7 +82,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
         class="col col-12 vjsf-property vjsf-property-stringTextareaProp pa-0  pr-2"
       >
         <div
-          class="v-input v-textarea theme--light v-text-field v-text-field--filled v-text-field--enclosed"
+          class="v-input v-textarea theme--light v-text-field v-text-field--filled v-text-field--is-booted v-text-field--enclosed"
         >
           <div
             class="v-input__control"
@@ -126,7 +126,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
         class="col col-12 vjsf-property vjsf-property-numberProp pa-0  pr-2"
       >
         <div
-          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
         >
           <div
             class="v-input__control"
@@ -170,7 +170,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
         class="col col-12 vjsf-property vjsf-property-integerProp pa-0  pr-2"
       >
         <div
-          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
         >
           <div
             class="v-input__control"
@@ -331,24 +331,24 @@ exports[`Examples used as simple test cases Basic types 1`] = `
           <div
             class="v-input__append-outer"
           >
+            <button
+              class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+              style="pointer-events: auto;"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-information theme--light"
+                />
+              </span>
+            </button>
             <span
               class="v-tooltip v-tooltip--left"
             >
               <!---->
-              <button
-                class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
-                style="pointer-events: auto;"
-                type="button"
-              >
-                <span
-                  class="v-btn__content"
-                >
-                  <i
-                    aria-hidden="true"
-                    class="v-icon notranslate mdi mdi-information theme--light"
-                  />
-                </span>
-              </button>
             </span>
           </div>
         </div>
@@ -412,24 +412,24 @@ exports[`Examples used as simple test cases Basic types 1`] = `
           <div
             class="v-input__append-outer"
           >
+            <button
+              class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+              style="pointer-events: auto;"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-information theme--light"
+                />
+              </span>
+            </button>
             <span
               class="v-tooltip v-tooltip--left"
             >
               <!---->
-              <button
-                class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
-                style="pointer-events: auto;"
-                type="button"
-              >
-                <span
-                  class="v-btn__content"
-                >
-                  <i
-                    aria-hidden="true"
-                    class="v-icon notranslate mdi mdi-information theme--light"
-                  />
-                </span>
-              </button>
             </span>
           </div>
         </div>
@@ -438,7 +438,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
         class="col col-12 vjsf-property vjsf-property-stringArrayProp pa-0  pr-2"
       >
         <div
-          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-select v-select--chips v-select--is-multi v-autocomplete"
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select v-select--chips v-select--is-multi v-autocomplete"
         >
           <div
             class="v-input__control"
@@ -528,7 +528,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
         class="col col-12 vjsf-property vjsf-property-integerArrayProp pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-select v-select--chips v-select--is-multi v-autocomplete"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-select v-select--chips v-select--is-multi v-autocomplete"
         >
           <div
             class="v-input__control"
@@ -605,7 +605,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
         class="col col-12 vjsf-property vjsf-property-requiredStringProp pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field"
+          class="v-input theme--light v-text-field v-text-field--is-booted"
         >
           <div
             class="v-input__control"
@@ -649,7 +649,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
         class="col col-12 vjsf-property vjsf-property-patternStringProp pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field"
+          class="v-input theme--light v-text-field v-text-field--is-booted"
         >
           <div
             class="v-input__control"
@@ -693,7 +693,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
         class="col col-12 vjsf-property vjsf-property-ruleStringProp pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field"
+          class="v-input theme--light v-text-field v-text-field--is-booted"
         >
           <div
             class="v-input__control"
@@ -737,7 +737,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
         class="col col-12 vjsf-property vjsf-property-limitedInteger pa-0  pr-2"
       >
         <div
-          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
         >
           <div
             class="v-input__control"
@@ -781,7 +781,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
         class="col col-12 vjsf-property vjsf-property-limitedString pa-0  pr-2"
       >
         <div
-          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
         >
           <div
             class="v-input__control"
@@ -825,7 +825,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
         class="col col-12 vjsf-property vjsf-property-limitedArray pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-select v-select--chips v-select--is-multi v-autocomplete"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-select v-select--chips v-select--is-multi v-autocomplete"
         >
           <div
             class="v-input__control"
@@ -886,7 +886,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
         class="col col-12 vjsf-property vjsf-property-patternStringArray pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-select v-select--chips v-select--is-multi v-autocomplete"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-select v-select--chips v-select--is-multi v-autocomplete"
         >
           <div
             class="v-input__control"
@@ -947,7 +947,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
         class="col col-12 vjsf-property vjsf-property-limitedObjectsArray pa-0  pr-2"
       >
         <div
-          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
         >
           <div
             class="v-input__control"
@@ -966,22 +966,31 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
                 class="v-dialog__container"
                 role="dialog"
               >
-                <button
-                  class="v-btn v-btn--contained v-btn--fab v-btn--round theme--light v-size--small primary vjsf-array-add-button ml-3"
-                  id="limitedObjectsArray--add-button"
-                  type="button"
-                >
-                  <span
-                    class="v-btn__content"
-                  >
-                    <i
-                      aria-hidden="true"
-                      class="v-icon notranslate mdi mdi-plus theme--light"
-                    />
-                  </span>
-                </button>
                 <!---->
               </div>
+              <button
+                class="v-btn v-btn--contained v-btn--fab v-btn--round theme--light v-size--small primary vjsf-array-add-button ml-3"
+                id="limitedObjectsArray--add-button"
+                type="button"
+              >
+                <span
+                  class="v-btn__content"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-plus theme--light"
+                  />
+                </span>
+              </button>
+            </div>
+            <div
+              class="v-messages theme--light"
+            >
+              <transition-group-stub
+                class="v-messages__wrapper"
+                name="message-transition"
+                tag="div"
+              />
             </div>
           </div>
         </div>
@@ -1006,7 +1015,7 @@ exports[`Examples used as simple test cases Classes and styles 1`] = `
         class="col col-12 vjsf-property vjsf-property-stringPropHalf pa-0 xs6 pr-2"
       >
         <div
-          class="v-input theme--light v-text-field"
+          class="v-input theme--light v-text-field v-text-field--is-booted"
         >
           <div
             class="v-input__control"
@@ -1050,7 +1059,7 @@ exports[`Examples used as simple test cases Classes and styles 1`] = `
         class="col col-12 vjsf-property vjsf-property-stringPropHalf2 pa-0 xs6 pr-2"
       >
         <div
-          class="v-input theme--light v-text-field"
+          class="v-input theme--light v-text-field v-text-field--is-booted"
         >
           <div
             class="v-input__control"
@@ -1095,7 +1104,7 @@ exports[`Examples used as simple test cases Classes and styles 1`] = `
         style="background-color: pink; padding-left: 20px;"
       >
         <div
-          class="v-input theme--light v-text-field"
+          class="v-input theme--light v-text-field v-text-field--is-booted"
         >
           <div
             class="v-input__control"
@@ -1173,12 +1182,12 @@ exports[`Examples used as simple test cases Colors 1`] = `
               <div
                 class="v-menu"
               >
-                <div
-                  class="color-picker-trigger color-picker-trigger-empty"
-                  style="margin-left: 10px;"
-                />
                 <!---->
               </div>
+              <div
+                class="color-picker-trigger color-picker-trigger-empty"
+                style="margin-left: 10px;"
+              />
             </div>
             <div
               class="v-messages theme--light"
@@ -1193,24 +1202,24 @@ exports[`Examples used as simple test cases Colors 1`] = `
           <div
             class="v-input__append-outer"
           >
+            <button
+              class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+              style="pointer-events: auto;"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-information theme--light"
+                />
+              </span>
+            </button>
             <span
               class="v-tooltip v-tooltip--left"
             >
               <!---->
-              <button
-                class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
-                style="pointer-events: auto;"
-                type="button"
-              >
-                <span
-                  class="v-btn__content"
-                >
-                  <i
-                    aria-hidden="true"
-                    class="v-icon notranslate mdi mdi-information theme--light"
-                  />
-                </span>
-              </button>
             </span>
           </div>
         </div>
@@ -1237,12 +1246,12 @@ exports[`Examples used as simple test cases Colors 1`] = `
               <div
                 class="v-menu"
               >
-                <div
-                  class="color-picker-trigger color-picker-trigger-empty"
-                  style="margin-left: 10px;"
-                />
                 <!---->
               </div>
+              <div
+                class="color-picker-trigger color-picker-trigger-empty"
+                style="margin-left: 10px;"
+              />
             </div>
             <div
               class="v-messages theme--light"
@@ -1276,98 +1285,98 @@ exports[`Examples used as simple test cases Dates 1`] = `
         class="col col-12 vjsf-property vjsf-property-dateProp pa-0  pr-2"
       >
         <div
-          class="v-menu"
+          class="v-input v-input--is-readonly theme--light v-text-field v-text-field--is-booted"
         >
           <div
-            class="v-input v-input--is-readonly theme--light v-text-field"
+            class="v-input__prepend-outer"
           >
             <div
-              class="v-input__prepend-outer"
+              class="v-input__icon v-input__icon--prepend"
+            >
+              <i
+                aria-hidden="true"
+                class="v-icon notranslate mdi mdi-calendar theme--light"
+              />
+            </div>
+          </div>
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
             >
               <div
-                class="v-input__icon v-input__icon--prepend"
+                class="v-text-field__slot"
               >
-                <i
-                  aria-hidden="true"
-                  class="v-icon notranslate mdi mdi-calendar theme--light"
+                <label
+                  class="v-label theme--light"
+                  for="dateProp"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a simple date
+                </label>
+                <input
+                  id="dateProp"
+                  readonly="readonly"
+                  type="text"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
-            <div
-              class="v-input__control"
-            >
-              <div
-                class="v-input__slot"
-              >
-                <div
-                  class="v-text-field__slot"
-                >
-                  <label
-                    class="v-label theme--light"
-                    for="dateProp"
-                    style="left: 0px; position: absolute;"
-                  >
-                    I'm a simple date
-                  </label>
-                  <input
-                    id="dateProp"
-                    readonly="readonly"
-                    type="text"
-                  />
-                </div>
-                <div
-                  class="v-input__append-inner"
-                >
-                  <div
-                    class="v-input__icon v-input__icon--clear"
-                  >
-                    <button
-                      aria-label="clear icon"
-                      class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
-                      disabled="disabled"
-                      type="button"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="v-text-field__details"
-              >
-                <div
-                  class="v-messages theme--light"
-                >
-                  <transition-group-stub
-                    class="v-messages__wrapper"
-                    name="message-transition"
-                    tag="div"
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              class="v-input__append-outer"
+          </div>
+          <div
+            class="v-input__append-outer"
+          >
+            <button
+              class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+              style="pointer-events: auto;"
+              type="button"
             >
               <span
-                class="v-tooltip v-tooltip--left"
+                class="v-btn__content"
               >
-                <!---->
-                <button
-                  class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
-                  style="pointer-events: auto;"
-                  type="button"
-                >
-                  <span
-                    class="v-btn__content"
-                  >
-                    <i
-                      aria-hidden="true"
-                      class="v-icon notranslate mdi mdi-information theme--light"
-                    />
-                  </span>
-                </button>
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-information theme--light"
+                />
               </span>
-            </div>
+            </button>
+            <span
+              class="v-tooltip v-tooltip--left"
+            >
+              <!---->
+            </span>
           </div>
+        </div>
+        <div
+          class="v-menu"
+        >
           <!---->
         </div>
       </div>
@@ -1375,75 +1384,75 @@ exports[`Examples used as simple test cases Dates 1`] = `
         class="col col-12 vjsf-property vjsf-property-timeProp pa-0  pr-2"
       >
         <div
-          class="v-menu"
+          class="v-input v-input--is-readonly theme--light v-text-field v-text-field--is-booted"
         >
           <div
-            class="v-input v-input--is-readonly theme--light v-text-field"
+            class="v-input__prepend-outer"
           >
             <div
-              class="v-input__prepend-outer"
+              class="v-input__icon v-input__icon--prepend"
+            >
+              <i
+                aria-hidden="true"
+                class="v-icon notranslate mdi mdi-clock theme--light"
+              />
+            </div>
+          </div>
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
             >
               <div
-                class="v-input__icon v-input__icon--prepend"
+                class="v-text-field__slot"
               >
-                <i
-                  aria-hidden="true"
-                  class="v-icon notranslate mdi mdi-clock theme--light"
+                <label
+                  class="v-label theme--light"
+                  for="timeProp"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a simple time of day
+                </label>
+                <input
+                  id="timeProp"
+                  readonly="readonly"
+                  type="text"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
-            <div
-              class="v-input__control"
-            >
-              <div
-                class="v-input__slot"
-              >
-                <div
-                  class="v-text-field__slot"
-                >
-                  <label
-                    class="v-label theme--light"
-                    for="timeProp"
-                    style="left: 0px; position: absolute;"
-                  >
-                    I'm a simple time of day
-                  </label>
-                  <input
-                    id="timeProp"
-                    readonly="readonly"
-                    type="text"
-                  />
-                </div>
-                <div
-                  class="v-input__append-inner"
-                >
-                  <div
-                    class="v-input__icon v-input__icon--clear"
-                  >
-                    <button
-                      aria-label="clear icon"
-                      class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
-                      disabled="disabled"
-                      type="button"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="v-text-field__details"
-              >
-                <div
-                  class="v-messages theme--light"
-                >
-                  <transition-group-stub
-                    class="v-messages__wrapper"
-                    name="message-transition"
-                    tag="div"
-                  />
-                </div>
-              </div>
-            </div>
           </div>
+        </div>
+        <div
+          class="v-menu"
+        >
           <!---->
         </div>
       </div>
@@ -1451,75 +1460,75 @@ exports[`Examples used as simple test cases Dates 1`] = `
         class="col col-12 vjsf-property vjsf-property-dateTimeProp pa-0  pr-2"
       >
         <div
-          class="v-menu"
+          class="v-input v-input--is-readonly theme--light v-text-field v-text-field--is-booted"
         >
           <div
-            class="v-input v-input--is-readonly theme--light v-text-field"
+            class="v-input__prepend-outer"
           >
             <div
-              class="v-input__prepend-outer"
+              class="v-input__icon v-input__icon--prepend"
+            >
+              <i
+                aria-hidden="true"
+                class="v-icon notranslate mdi mdi-calendar theme--light"
+              />
+            </div>
+          </div>
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
             >
               <div
-                class="v-input__icon v-input__icon--prepend"
+                class="v-text-field__slot"
               >
-                <i
-                  aria-hidden="true"
-                  class="v-icon notranslate mdi mdi-calendar theme--light"
+                <label
+                  class="v-label theme--light"
+                  for="dateTimeProp"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a date with time
+                </label>
+                <input
+                  id="dateTimeProp"
+                  readonly="readonly"
+                  type="text"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                    disabled="disabled"
+                    type="button"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
-            <div
-              class="v-input__control"
-            >
-              <div
-                class="v-input__slot"
-              >
-                <div
-                  class="v-text-field__slot"
-                >
-                  <label
-                    class="v-label theme--light"
-                    for="dateTimeProp"
-                    style="left: 0px; position: absolute;"
-                  >
-                    I'm a date with time
-                  </label>
-                  <input
-                    id="dateTimeProp"
-                    readonly="readonly"
-                    type="text"
-                  />
-                </div>
-                <div
-                  class="v-input__append-inner"
-                >
-                  <div
-                    class="v-input__icon v-input__icon--clear"
-                  >
-                    <button
-                      aria-label="clear icon"
-                      class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
-                      disabled="disabled"
-                      type="button"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="v-text-field__details"
-              >
-                <div
-                  class="v-messages theme--light"
-                >
-                  <transition-group-stub
-                    class="v-messages__wrapper"
-                    name="message-transition"
-                    tag="div"
-                  />
-                </div>
-              </div>
-            </div>
           </div>
+        </div>
+        <div
+          class="v-menu"
+        >
           <!---->
         </div>
       </div>
@@ -1543,7 +1552,7 @@ exports[`Examples used as simple test cases Default values 1`] = `
         class="col col-12 vjsf-property vjsf-property-stringProp pa-0  pr-2"
       >
         <div
-          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
         >
           <div
             class="v-input__control"
@@ -1601,7 +1610,7 @@ exports[`Examples used as simple test cases Default values 1`] = `
               class="col col-12 vjsf-property vjsf-property-objectSection-child1 pa-0  pr-2"
             >
               <div
-                class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
+                class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
               >
                 <div
                   class="v-input__control"
@@ -1645,7 +1654,7 @@ exports[`Examples used as simple test cases Default values 1`] = `
               class="col col-12 vjsf-property vjsf-property-objectSection-child2 pa-0  pr-2"
             >
               <div
-                class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
+                class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
               >
                 <div
                   class="v-input__control"
@@ -1727,22 +1736,22 @@ exports[`Examples used as simple test cases Editable array 1`] = `
                 class="v-dialog__container"
                 role="dialog"
               >
-                <button
-                  class="v-btn v-btn--contained v-btn--fab v-btn--round theme--light v-size--small primary vjsf-array-add-button ml-3"
-                  id="objectArrayProp--add-button"
-                  type="button"
-                >
-                  <span
-                    class="v-btn__content"
-                  >
-                    <i
-                      aria-hidden="true"
-                      class="v-icon notranslate mdi mdi-plus theme--light"
-                    />
-                  </span>
-                </button>
                 <!---->
               </div>
+              <button
+                class="v-btn v-btn--contained v-btn--fab v-btn--round theme--light v-size--small primary vjsf-array-add-button ml-3"
+                id="objectArrayProp--add-button"
+                type="button"
+              >
+                <span
+                  class="v-btn__content"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-plus theme--light"
+                  />
+                </span>
+              </button>
             </div>
           </div>
         </div>
@@ -1767,7 +1776,7 @@ exports[`Examples used as simple test cases Files 1`] = `
         class="col col-12 vjsf-property vjsf-property-pngProp pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-file-input"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-file-input"
         >
           <div
             class="v-input__prepend-outer"
@@ -1842,7 +1851,7 @@ exports[`Examples used as simple test cases Files 1`] = `
         class="col col-12 vjsf-property vjsf-property-imageProp pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-file-input"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-file-input"
         >
           <div
             class="v-input__prepend-outer"
@@ -1917,7 +1926,7 @@ exports[`Examples used as simple test cases Files 1`] = `
         class="col col-12 vjsf-property vjsf-property-imageArrayProp pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-file-input"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-file-input"
         >
           <div
             class="v-input__prepend-outer"
@@ -1993,7 +2002,7 @@ exports[`Examples used as simple test cases Files 1`] = `
         class="col col-12 vjsf-property vjsf-property-objectFileProp pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-file-input"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-file-input"
         >
           <div
             class="v-input__prepend-outer"
@@ -2068,7 +2077,7 @@ exports[`Examples used as simple test cases Files 1`] = `
         class="col col-12 vjsf-property vjsf-property-objectFileBlobProp pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-file-input"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-file-input"
         >
           <div
             class="v-input__prepend-outer"
@@ -2143,7 +2152,7 @@ exports[`Examples used as simple test cases Files 1`] = `
         class="col col-12 vjsf-property vjsf-property-arrayFileBlobProp pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-file-input"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-file-input"
         >
           <div
             class="v-input__prepend-outer"
@@ -2235,74 +2244,74 @@ exports[`Examples used as simple test cases Localization 1`] = `
         class="col col-12 vjsf-property vjsf-property-dateProp pa-0  pr-2"
       >
         <div
-          class="v-menu"
+          class="v-input v-input--is-label-active v-input--is-dirty v-input--is-readonly theme--light v-text-field v-text-field--is-booted"
         >
           <div
-            class="v-input v-input--is-label-active v-input--is-dirty v-input--is-readonly theme--light v-text-field"
+            class="v-input__prepend-outer"
           >
             <div
-              class="v-input__prepend-outer"
+              class="v-input__icon v-input__icon--prepend"
+            >
+              <i
+                aria-hidden="true"
+                class="v-icon notranslate mdi mdi-calendar theme--light"
+              />
+            </div>
+          </div>
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
             >
               <div
-                class="v-input__icon v-input__icon--prepend"
+                class="v-text-field__slot"
               >
-                <i
-                  aria-hidden="true"
-                  class="v-icon notranslate mdi mdi-calendar theme--light"
+                <label
+                  class="v-label v-label--active theme--light"
+                  for="dateProp"
+                  style="left: 0px; position: absolute;"
+                >
+                  Je suis une date
+                </label>
+                <input
+                  id="dateProp"
+                  readonly="readonly"
+                  type="text"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--clear"
+                >
+                  <button
+                    aria-label="clear icon"
+                    class="v-icon notranslate v-icon--link mdi mdi-close theme--light"
+                    type="button"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
                 />
               </div>
             </div>
-            <div
-              class="v-input__control"
-            >
-              <div
-                class="v-input__slot"
-              >
-                <div
-                  class="v-text-field__slot"
-                >
-                  <label
-                    class="v-label v-label--active theme--light"
-                    for="dateProp"
-                    style="left: 0px; position: absolute;"
-                  >
-                    Je suis une date
-                  </label>
-                  <input
-                    id="dateProp"
-                    readonly="readonly"
-                    type="text"
-                  />
-                </div>
-                <div
-                  class="v-input__append-inner"
-                >
-                  <div
-                    class="v-input__icon v-input__icon--clear"
-                  >
-                    <button
-                      aria-label="clear icon"
-                      class="v-icon notranslate v-icon--link mdi mdi-close theme--light"
-                      type="button"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="v-text-field__details"
-              >
-                <div
-                  class="v-messages theme--light"
-                >
-                  <transition-group-stub
-                    class="v-messages__wrapper"
-                    name="message-transition"
-                    tag="div"
-                  />
-                </div>
-              </div>
-            </div>
           </div>
+        </div>
+        <div
+          class="v-menu"
+        >
           <!---->
         </div>
       </div>
@@ -2310,7 +2319,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
         class="col col-12 vjsf-property vjsf-property-selectAjaxWithQuery pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-text-field--placeholder v-select v-autocomplete"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--placeholder v-select v-autocomplete"
         >
           <div
             class="v-input__control"
@@ -2439,7 +2448,7 @@ exports[`Examples used as simple test cases Read only content 1`] = `
         class="col col-12 vjsf-property vjsf-property-readOnlyProp pa-0  pr-2"
       >
         <div
-          class="v-input v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field"
+          class="v-input v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted"
         >
           <div
             class="v-input__control"
@@ -2498,7 +2507,7 @@ exports[`Examples used as simple test cases Read only content 1`] = `
               class="col col-12 vjsf-property vjsf-property-readOnlySection-stringProp pa-0  pr-2"
             >
               <div
-                class="v-input v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field"
+                class="v-input v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted"
               >
                 <div
                   class="v-input__control"
@@ -2540,24 +2549,24 @@ exports[`Examples used as simple test cases Read only content 1`] = `
                 <div
                   class="v-input__append-outer"
                 >
+                  <button
+                    class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+                    style="pointer-events: auto;"
+                    type="button"
+                  >
+                    <span
+                      class="v-btn__content"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="v-icon notranslate mdi mdi-information theme--light"
+                      />
+                    </span>
+                  </button>
                   <span
                     class="v-tooltip v-tooltip--left"
                   >
                     <!---->
-                    <button
-                      class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
-                      style="pointer-events: auto;"
-                      type="button"
-                    >
-                      <span
-                        class="v-btn__content"
-                      >
-                        <i
-                          aria-hidden="true"
-                          class="v-icon notranslate mdi mdi-information theme--light"
-                        />
-                      </span>
-                    </button>
                   </span>
                 </div>
               </div>
@@ -2583,7 +2592,7 @@ exports[`Examples used as simple test cases Read only content 1`] = `
               class="col col-12 vjsf-property vjsf-property-disabledSection-stringProp pa-0  pr-2"
             >
               <div
-                class="v-input v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field"
+                class="v-input v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted"
               >
                 <div
                   class="v-input__control"
@@ -2646,7 +2655,7 @@ exports[`Examples used as simple test cases Read only content 1`] = `
               class="col col-12 vjsf-property vjsf-property-hideReadonlySection-stringProp pa-0  pr-2"
             >
               <div
-                class="v-input theme--light v-text-field"
+                class="v-input theme--light v-text-field v-text-field--is-booted"
               >
                 <div
                   class="v-input__control"
@@ -2708,7 +2717,7 @@ exports[`Examples used as simple test cases Read only content 1`] = `
               class="col col-12 vjsf-property vjsf-property-deleteReadonlySection-stringProp pa-0  pr-2"
             >
               <div
-                class="v-input theme--light v-text-field"
+                class="v-input theme--light v-text-field v-text-field--is-booted"
               >
                 <div
                   class="v-input__control"
@@ -2773,7 +2782,7 @@ exports[`Examples used as simple test cases Readonly select with icons 1`] = `
         class="col col-12 vjsf-property vjsf-property-iconOneOf pa-0  pr-2"
       >
         <div
-          class="v-input v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-select"
+          class="v-input v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted v-select"
         >
           <div
             class="v-input__control"
@@ -2781,7 +2790,7 @@ exports[`Examples used as simple test cases Readonly select with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-707"
+              aria-owns="list-726"
               class="v-input__slot"
               role="button"
             >
@@ -2801,10 +2810,19 @@ exports[`Examples used as simple test cases Readonly select with icons 1`] = `
                   <div
                     class="v-select__selection v-select__selection--comma v-select__selection--disabled"
                   >
+                    <div
+                      class="v-avatar rounded-0 mr-2"
+                      style="height: 20px; min-width: 20px; width: 20px;"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="v-icon notranslate mdi mdi-alarm theme--light"
+                      />
+                    </div>
                     <span
                       class="mt-1"
                     >
-                      alarm
+                      Alarm
                     </span>
                   </div>
                   <input
@@ -2908,7 +2926,7 @@ exports[`Examples used as simple test cases Sections 1`] = `
               class="col col-12 vjsf-property vjsf-property-objectSection1-stringProp1 pa-0  pr-2"
             >
               <div
-                class="v-input theme--light v-text-field"
+                class="v-input theme--light v-text-field v-text-field--is-booted"
               >
                 <div
                   class="v-input__control"
@@ -2969,7 +2987,7 @@ exports[`Examples used as simple test cases Sections 1`] = `
               class="col col-12 vjsf-property vjsf-property-objectSection2-stringProp2 pa-0  pr-2"
             >
               <div
-                class="v-input theme--light v-text-field"
+                class="v-input theme--light v-text-field v-text-field--is-booted"
               >
                 <div
                   class="v-input__control"
@@ -3027,7 +3045,7 @@ exports[`Examples used as simple test cases Sections 1`] = `
                     class="col col-12 vjsf-property vjsf-property-objectSection2-allOf-0-stringProp3 pa-0  pr-2"
                   >
                     <div
-                      class="v-input theme--light v-text-field"
+                      class="v-input theme--light v-text-field v-text-field--is-booted"
                     >
                       <div
                         class="v-input__control"
@@ -3088,7 +3106,7 @@ exports[`Examples used as simple test cases Sections 1`] = `
                     class="col col-12 vjsf-property vjsf-property-objectSection2-allOf-1-stringProp4 pa-0  pr-2"
                   >
                     <div
-                      class="v-input theme--light v-text-field"
+                      class="v-input theme--light v-text-field v-text-field--is-booted"
                     >
                       <div
                         class="v-input__control"
@@ -3204,7 +3222,7 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
                       class="col col-12 vjsf-property vjsf-property-objectSection1-stringProp1 pa-0  pr-2"
                     >
                       <div
-                        class="v-input theme--light v-text-field"
+                        class="v-input theme--light v-text-field v-text-field--is-booted"
                       >
                         <div
                           class="v-input__control"
@@ -3292,7 +3310,7 @@ exports[`Examples used as simple test cases Sections as expansion panels 1`] = `
                       class="col col-12 vjsf-property vjsf-property-objectSection2-stringProp2 pa-0  pr-2"
                     >
                       <div
-                        class="v-input theme--light v-text-field"
+                        class="v-input theme--light v-text-field v-text-field--is-booted"
                       >
                         <div
                           class="v-input__control"
@@ -3365,6 +3383,7 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
       >
         <div
           class="v-item-group theme--light v-slide-group v-tabs-bar v-tabs-bar--is-mobile primary--text"
+          data-booted="true"
           role="tablist"
         >
           <div
@@ -3382,7 +3401,7 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
             >
               <div
                 class="v-tabs-slider-wrapper"
-                style="transition: none;"
+                style="height: 2px; left: 0px; width: 0px;"
               >
                 <div
                   class="v-tabs-slider"
@@ -3431,12 +3450,12 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
             class="v-window__container"
           >
             <transition-stub
-              name=""
+              name="v-window-x-transition"
             >
               <div
-                class="v-window-item"
+                class="v-window-item v-window-item--active"
                 id="tab-root-allOf-0"
-                style="display: none;"
+                style=""
               >
                 <div
                   class="v-card v-card--flat v-sheet theme--light rounded-0"
@@ -3459,7 +3478,7 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
                           class="col col-12 vjsf-property vjsf-property-allOf-0-stringProp1 pa-0  pr-2"
                         >
                           <div
-                            class="v-input theme--light v-text-field"
+                            class="v-input theme--light v-text-field v-text-field--is-booted"
                           >
                             <div
                               class="v-input__control"
@@ -3506,7 +3525,7 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
               </div>
             </transition-stub>
             <transition-stub
-              name=""
+              name="v-window-x-transition"
             >
               <div
                 class="v-window-item"
@@ -3529,7 +3548,7 @@ exports[`Examples used as simple test cases Sections as tabs 1`] = `
                           class="col col-12 vjsf-property vjsf-property-allOf-1-stringProp2 pa-0  pr-2"
                         >
                           <div
-                            class="v-input theme--light v-text-field"
+                            class="v-input theme--light v-text-field v-text-field--is-booted"
                           >
                             <div
                               class="v-input__control"
@@ -3613,6 +3632,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
             >
               <div
                 class="v-item-group theme--light v-slide-group v-tabs-bar v-tabs-bar--is-mobile primary--text"
+                data-booted="true"
                 role="tablist"
               >
                 <div
@@ -3630,7 +3650,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                   >
                     <div
                       class="v-tabs-slider-wrapper"
-                      style="transition: none;"
+                      style="height: 2px; left: 0px; width: 0px;"
                     >
                       <div
                         class="v-tabs-slider"
@@ -3679,12 +3699,12 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                   class="v-window__container"
                 >
                   <transition-stub
-                    name=""
+                    name="v-window-x-transition"
                   >
                     <div
-                      class="v-window-item"
+                      class="v-window-item v-window-item--active"
                       id="tab-tabs-section1"
-                      style="display: none;"
+                      style=""
                     >
                       <div
                         class="v-card v-card--flat v-sheet theme--light rounded-0"
@@ -3702,7 +3722,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                 class="col col-12 vjsf-property vjsf-property-tabs-section1-requiredStringProp1 pa-0  pr-2"
                               >
                                 <div
-                                  class="v-input theme--light v-text-field"
+                                  class="v-input theme--light v-text-field v-text-field--is-booted"
                                 >
                                   <div
                                     class="v-input__control"
@@ -3749,7 +3769,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                     </div>
                   </transition-stub>
                   <transition-stub
-                    name=""
+                    name="v-window-x-transition"
                   >
                     <div
                       class="v-window-item"
@@ -3772,7 +3792,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                 class="col col-12 vjsf-property vjsf-property-tabs-section2-requiredStringProp2 pa-0  pr-2"
                               >
                                 <div
-                                  class="v-input theme--light v-text-field"
+                                  class="v-input theme--light v-text-field v-text-field--is-booted"
                                 >
                                   <div
                                     class="v-input__control"
@@ -3882,7 +3902,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                             class="col col-12 vjsf-property vjsf-property-panels-allOf-0-requiredStringProp1 pa-0  pr-2"
                           >
                             <div
-                              class="v-input theme--light v-text-field"
+                              class="v-input theme--light v-text-field v-text-field--is-booted"
                             >
                               <div
                                 class="v-input__control"
@@ -3970,7 +3990,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                             class="col col-12 vjsf-property vjsf-property-panels-allOf-1-requiredStringProp2 pa-0  pr-2"
                           >
                             <div
-                              class="v-input theme--light v-text-field"
+                              class="v-input theme--light v-text-field v-text-field--is-booted"
                             >
                               <div
                                 class="v-input__control"
@@ -4062,6 +4082,66 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                 >
                   I'm a string with values from an enum and x-display=radio
                 </legend>
+                <div
+                  class="v-radio theme--light"
+                >
+                  <div
+                    class="v-input--selection-controls__input"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-radiobox-blank theme--light"
+                    />
+                    <input
+                      aria-checked="false"
+                      id="input-285"
+                      name="stringEnum"
+                      role="radio"
+                      type="radio"
+                      value="value 1"
+                    />
+                    <div
+                      class="v-input--selection-controls__ripple"
+                    />
+                  </div>
+                  <label
+                    class="v-label theme--light"
+                    for="input-285"
+                    style="left: 0px; position: relative;"
+                  >
+                    value 1
+                  </label>
+                </div>
+                <div
+                  class="v-radio theme--light"
+                >
+                  <div
+                    class="v-input--selection-controls__input"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-radiobox-blank theme--light"
+                    />
+                    <input
+                      aria-checked="false"
+                      id="input-287"
+                      name="stringEnum"
+                      role="radio"
+                      type="radio"
+                      value="value 2"
+                    />
+                    <div
+                      class="v-input--selection-controls__ripple"
+                    />
+                  </div>
+                  <label
+                    class="v-label theme--light"
+                    for="input-287"
+                    style="left: 0px; position: relative;"
+                  >
+                    value 2
+                  </label>
+                </div>
               </div>
             </div>
             <div
@@ -4077,24 +4157,24 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
           <div
             class="v-input__append-outer"
           >
+            <button
+              class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+              style="pointer-events: auto;"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-information theme--light"
+                />
+              </span>
+            </button>
             <span
               class="v-tooltip v-tooltip--left"
             >
               <!---->
-              <button
-                class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
-                style="pointer-events: auto;"
-                type="button"
-              >
-                <span
-                  class="v-btn__content"
-                >
-                  <i
-                    aria-hidden="true"
-                    class="v-icon notranslate mdi mdi-information theme--light"
-                  />
-                </span>
-              </button>
             </span>
           </div>
         </div>
@@ -4156,6 +4236,43 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="v-input v-input--hide-details theme--light v-input--selection-controls v-input--checkbox pb-1"
+                >
+                  <div
+                    class="v-input__control"
+                  >
+                    <div
+                      class="v-input__slot"
+                    >
+                      <div
+                        class="v-input--selection-controls__input"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="v-icon notranslate mdi mdi-checkbox-blank-outline theme--light"
+                        />
+                        <input
+                          aria-checked="false"
+                          id="input-289"
+                          role="checkbox"
+                          type="checkbox"
+                          value="value 2"
+                        />
+                        <div
+                          class="v-input--selection-controls__ripple"
+                        />
+                      </div>
+                      <label
+                        class="v-label theme--light"
+                        for="input-289"
+                        style="left: 0px; position: relative;"
+                      >
+                        value 2
+                      </label>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div
@@ -4171,24 +4288,24 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
           <div
             class="v-input__append-outer"
           >
+            <button
+              class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+              style="pointer-events: auto;"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-information theme--light"
+                />
+              </span>
+            </button>
             <span
               class="v-tooltip v-tooltip--left"
             >
               <!---->
-              <button
-                class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
-                style="pointer-events: auto;"
-                type="button"
-              >
-                <span
-                  class="v-btn__content"
-                >
-                  <i
-                    aria-hidden="true"
-                    class="v-icon notranslate mdi mdi-information theme--light"
-                  />
-                </span>
-              </button>
             </span>
           </div>
         </div>
@@ -4213,6 +4330,96 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                 >
                   I'm an array of strings with values/labels from a oneOf and x-display=switch
                 </legend>
+                <div
+                  class="v-input v-input--hide-details theme--light v-input--selection-controls v-input--switch pb-1"
+                >
+                  <div
+                    class="v-input__control"
+                  >
+                    <div
+                      class="v-input__slot"
+                    >
+                      <div
+                        class="v-input--selection-controls__input"
+                      >
+                        <input
+                          aria-checked="false"
+                          aria-disabled="undefined"
+                          id="input-291"
+                          role="switch"
+                          type="checkbox"
+                          value="value1"
+                        />
+                        <div
+                          class="v-input--selection-controls__ripple"
+                        />
+                        <div
+                          class="v-input--switch__track theme--light"
+                        />
+                        <div
+                          class="v-input--switch__thumb theme--light"
+                        >
+                          <transition-stub
+                            mode="out-in"
+                            name="fab-transition"
+                          />
+                        </div>
+                      </div>
+                      <label
+                        class="v-label theme--light"
+                        for="input-291"
+                        style="left: 0px; position: relative;"
+                      >
+                        Value 1
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="v-input v-input--hide-details theme--light v-input--selection-controls v-input--switch pb-1"
+                >
+                  <div
+                    class="v-input__control"
+                  >
+                    <div
+                      class="v-input__slot"
+                    >
+                      <div
+                        class="v-input--selection-controls__input"
+                      >
+                        <input
+                          aria-checked="false"
+                          aria-disabled="undefined"
+                          id="input-293"
+                          role="switch"
+                          type="checkbox"
+                          value="value2"
+                        />
+                        <div
+                          class="v-input--selection-controls__ripple"
+                        />
+                        <div
+                          class="v-input--switch__track theme--light"
+                        />
+                        <div
+                          class="v-input--switch__thumb theme--light"
+                        >
+                          <transition-stub
+                            mode="out-in"
+                            name="fab-transition"
+                          />
+                        </div>
+                      </div>
+                      <label
+                        class="v-label theme--light"
+                        for="input-293"
+                        style="left: 0px; position: relative;"
+                      >
+                        Value 2
+                      </label>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div
@@ -4247,7 +4454,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
         class="col col-12 vjsf-property vjsf-property-stringEnum pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-select"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-select"
         >
           <div
             class="v-input__control"
@@ -4333,24 +4540,24 @@ exports[`Examples used as simple test cases Selects 1`] = `
           <div
             class="v-input__append-outer"
           >
+            <button
+              class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+              style="pointer-events: auto;"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-information theme--light"
+                />
+              </span>
+            </button>
             <span
               class="v-tooltip v-tooltip--left"
             >
               <!---->
-              <button
-                class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
-                style="pointer-events: auto;"
-                type="button"
-              >
-                <span
-                  class="v-btn__content"
-                >
-                  <i
-                    aria-hidden="true"
-                    class="v-icon notranslate mdi mdi-information theme--light"
-                  />
-                </span>
-              </button>
             </span>
           </div>
         </div>
@@ -4359,7 +4566,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
         class="col col-12 vjsf-property vjsf-property-stringsArrayEnum pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-select v-select--is-multi"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-select v-select--is-multi"
         >
           <div
             class="v-input__control"
@@ -4448,7 +4655,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
         class="col col-12 vjsf-property vjsf-property-stringOneOf pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-select"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-select"
         >
           <div
             class="v-input__control"
@@ -4537,7 +4744,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
         class="col col-12 vjsf-property vjsf-property-stringArrayOneOf pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-select v-select--is-multi"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-select v-select--is-multi"
         >
           <div
             class="v-input__control"
@@ -4626,7 +4833,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
         class="col col-12 vjsf-property vjsf-property-stringEnumLarge pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-text-field--placeholder v-select v-autocomplete"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--placeholder v-select v-autocomplete"
         >
           <div
             class="v-input__control"
@@ -4711,24 +4918,24 @@ exports[`Examples used as simple test cases Selects 1`] = `
           <div
             class="v-input__append-outer"
           >
+            <button
+              class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+              style="pointer-events: auto;"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-information theme--light"
+                />
+              </span>
+            </button>
             <span
               class="v-tooltip v-tooltip--left"
             >
               <!---->
-              <button
-                class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
-                style="pointer-events: auto;"
-                type="button"
-              >
-                <span
-                  class="v-btn__content"
-                >
-                  <i
-                    aria-hidden="true"
-                    class="v-icon notranslate mdi mdi-information theme--light"
-                  />
-                </span>
-              </button>
             </span>
           </div>
         </div>
@@ -4753,7 +4960,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
         class="col col-12 vjsf-property vjsf-property-selectAjaxString pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-select"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-select"
         >
           <div
             class="v-input__control"
@@ -4842,7 +5049,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
         class="col col-12 vjsf-property vjsf-property-selectAjaxStringArray pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-select v-select--is-multi"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-select v-select--is-multi"
         >
           <div
             class="v-input__control"
@@ -4931,7 +5138,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
         class="col col-12 vjsf-property vjsf-property-selectAjaxObject pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-select"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-select"
         >
           <div
             class="v-input__control"
@@ -5020,7 +5227,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
         class="col col-12 vjsf-property vjsf-property-selectAjaxArrayOfObjects pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-select v-select--is-multi"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-select v-select--is-multi"
         >
           <div
             class="v-input__control"
@@ -5109,7 +5316,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
         class="col col-12 vjsf-property vjsf-property-selectAjaxLarge pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-select"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-select"
         >
           <div
             class="v-input__control"
@@ -5198,7 +5405,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
         class="col col-12 vjsf-property vjsf-property-selectAjaxWithQuery pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-text-field--placeholder v-select v-autocomplete"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--placeholder v-select v-autocomplete"
         >
           <div
             class="v-input__control"
@@ -5299,7 +5506,7 @@ exports[`Examples used as simple test cases Selects of sub-schemas 1`] = `
       class="row ma-0 "
     >
       <div
-        class="v-input theme--light v-text-field v-select"
+        class="v-input theme--light v-text-field v-text-field--is-booted v-select"
       >
         <div
           class="v-input__control"
@@ -5374,6 +5581,218 @@ exports[`Examples used as simple test cases Selects of sub-schemas 1`] = `
 </form>
 `;
 
+exports[`Examples used as simple test cases Selects prefilled with http results 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
+  >
+    <div
+      class="row ma-0 "
+    >
+      <div
+        class="col col-12 vjsf-property vjsf-property-selectAjaxString pa-0  pr-2"
+      >
+        <div
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="list-707"
+              class="v-input__slot"
+              role="button"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label v-label--active theme--light"
+                  for="selectAjaxString"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a string selected from results of an HTTP request
+                </label>
+                <div
+                  class="v-select__selections"
+                >
+                  <div
+                    class="v-select__selection v-select__selection--comma"
+                  >
+                    <span
+                      class="mt-1"
+                    >
+                      https://koumoul.com/s/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417
+                    </span>
+                  </div>
+                  <input
+                    aria-readonly="undefined"
+                    autocomplete="off"
+                    id="selectAjaxString"
+                    readonly="readonly"
+                    type="text"
+                  />
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--clear"
+                  >
+                    <button
+                      aria-label="clear icon"
+                      class="v-icon notranslate v-icon--link mdi mdi-close theme--light"
+                      type="button"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--append"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-menu-down theme--light"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="hidden"
+                  value="https://koumoul.com/s/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-selectAjaxObject pa-0  pr-2"
+      >
+        <div
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="list-714"
+              class="v-input__slot"
+              role="button"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label v-label--active theme--light"
+                  for="selectAjaxObject"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm an object selected from results of an HTTP request
+                </label>
+                <div
+                  class="v-select__selections"
+                >
+                  <div
+                    class="v-select__selection v-select__selection--comma"
+                  >
+                    <span
+                      class="mt-1"
+                    >
+                      Présidentielles 2017 - Votes des français à l'étranger - 1er tour
+                    </span>
+                  </div>
+                  <input
+                    aria-readonly="undefined"
+                    autocomplete="off"
+                    id="selectAjaxObject"
+                    readonly="readonly"
+                    type="text"
+                  />
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--clear"
+                  >
+                    <button
+                      aria-label="clear icon"
+                      class="v-icon notranslate v-icon--link mdi mdi-close theme--light"
+                      type="button"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--append"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-menu-down theme--light"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="hidden"
+                  value="[object Object]"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`Examples used as simple test cases Selects with dependencies 1`] = `
 <form
   class="v-form"
@@ -5389,7 +5808,7 @@ exports[`Examples used as simple test cases Selects with dependencies 1`] = `
         class="col col-12 vjsf-property vjsf-property-selectAjaxObject pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-select"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-select"
         >
           <div
             class="v-input__control"
@@ -5494,7 +5913,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
         class="col col-12 vjsf-property vjsf-property-iconEnum pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-select"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-select"
         >
           <div
             class="v-input__control"
@@ -5583,7 +6002,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
         class="col col-12 vjsf-property vjsf-property-iconEnumArray pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-select v-select--is-multi"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-select v-select--is-multi"
         >
           <div
             class="v-input__control"
@@ -5672,7 +6091,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
         class="col col-12 vjsf-property vjsf-property-iconOneOf pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-select"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-select"
         >
           <div
             class="v-input__control"
@@ -5761,7 +6180,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
         class="col col-12 vjsf-property vjsf-property-iconAjaxImages pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-text-field--placeholder v-select v-autocomplete"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--placeholder v-select v-autocomplete"
         >
           <div
             class="v-input__control"
@@ -5849,7 +6268,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
         class="col col-12 vjsf-property vjsf-property-iconAjaxSVG pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field v-text-field--placeholder v-select v-autocomplete"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--placeholder v-select v-autocomplete"
         >
           <div
             class="v-input__control"
@@ -5953,7 +6372,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
         class="col col-12 vjsf-property vjsf-property-selectAjaxObject pa-0  pr-2"
       >
         <div
-          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-select"
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select"
         >
           <div
             class="v-input__control"
@@ -6051,7 +6470,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
         class="col col-12 vjsf-property vjsf-property-selectFromData pa-0  pr-2"
       >
         <div
-          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-select"
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select"
         >
           <div
             class="v-input__control"
@@ -6081,7 +6500,9 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
                   >
                     <span
                       class="mt-1"
-                    />
+                    >
+                      Pays
+                    </span>
                   </div>
                   <input
                     aria-readonly="undefined"
@@ -6147,7 +6568,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
         class="col col-12 vjsf-property vjsf-property-selectAjaxDep pa-0  pr-2"
       >
         <div
-          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-select"
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select"
         >
           <div
             class="v-input__control"
@@ -6177,7 +6598,9 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
                   >
                     <span
                       class="mt-1"
-                    />
+                    >
+                      Pays
+                    </span>
                   </div>
                   <input
                     aria-readonly="undefined"
@@ -6273,7 +6696,7 @@ exports[`Examples used as simple test cases Tuples 1`] = `
               class="col col-12 vjsf-property vjsf-property-numberTupleProp-0 pa-0  pr-2"
             >
               <div
-                class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
+                class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
               >
                 <div
                   class="v-input__control"
@@ -6317,7 +6740,7 @@ exports[`Examples used as simple test cases Tuples 1`] = `
               class="col col-12 vjsf-property vjsf-property-numberTupleProp-1 pa-0  pr-2"
             >
               <div
-                class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field"
+                class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
               >
                 <div
                   class="v-input__control"
@@ -6378,7 +6801,7 @@ exports[`Examples used as simple test cases Tuples 1`] = `
               class="col col-12 vjsf-property vjsf-property-stringTupleProp-0 pa-0  pr-2"
             >
               <div
-                class="v-input theme--light v-text-field"
+                class="v-input theme--light v-text-field v-text-field--is-booted"
               >
                 <div
                   class="v-input__control"
@@ -6422,7 +6845,7 @@ exports[`Examples used as simple test cases Tuples 1`] = `
               class="col col-12 vjsf-property vjsf-property-stringTupleProp-1 pa-0  pr-2"
             >
               <div
-                class="v-input theme--light v-text-field"
+                class="v-input theme--light v-text-field v-text-field--is-booted"
               >
                 <div
                   class="v-input__control"
@@ -6485,7 +6908,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
         class="col col-12 vjsf-property vjsf-property-chipsEnumProp pa-0  pr-2"
       >
         <div
-          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--single-line v-text-field--solo v-text-field--solo-inverted v-text-field--enclosed v-select v-select--chips v-select--is-multi"
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--single-line v-text-field--solo v-text-field--solo-inverted v-text-field--is-booted v-text-field--enclosed v-select v-select--chips v-select--is-multi"
         >
           <div
             class="v-input__prepend-outer"
@@ -6585,24 +7008,24 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
           <div
             class="v-input__append-outer"
           >
+            <button
+              class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+              style="pointer-events: auto;"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-information theme--light"
+                />
+              </span>
+            </button>
             <span
               class="v-tooltip v-tooltip--left"
             >
               <!---->
-              <button
-                class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
-                style="pointer-events: auto;"
-                type="button"
-              >
-                <span
-                  class="v-btn__content"
-                >
-                  <i
-                    aria-hidden="true"
-                    class="v-icon notranslate mdi mdi-information theme--light"
-                  />
-                </span>
-              </button>
             </span>
           </div>
         </div>
@@ -6627,7 +7050,7 @@ exports[`Examples used as simple test cases resolved schema 1`] = `
         class="col col-12 vjsf-property vjsf-property-stringProp pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field"
+          class="v-input theme--light v-text-field v-text-field--is-booted"
         >
           <div
             class="v-input__control"
@@ -6668,24 +7091,24 @@ exports[`Examples used as simple test cases resolved schema 1`] = `
           <div
             class="v-input__append-outer"
           >
+            <button
+              class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+              style="pointer-events: auto;"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-information theme--light"
+                />
+              </span>
+            </button>
             <span
               class="v-tooltip v-tooltip--left"
             >
               <!---->
-              <button
-                class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
-                style="pointer-events: auto;"
-                type="button"
-              >
-                <span
-                  class="v-btn__content"
-                >
-                  <i
-                    aria-hidden="true"
-                    class="v-icon notranslate mdi mdi-information theme--light"
-                  />
-                </span>
-              </button>
             </span>
           </div>
         </div>
@@ -6694,7 +7117,7 @@ exports[`Examples used as simple test cases resolved schema 1`] = `
         class="col col-12 vjsf-property vjsf-property-refProp1 pa-0  pr-2"
       >
         <div
-          class="v-input theme--light v-text-field"
+          class="v-input theme--light v-text-field v-text-field--is-booted"
         >
           <div
             class="v-input__control"

@@ -25,6 +25,7 @@ import readOnly from './read-only'
 import localization from './localization'
 import resolvedSchema from './_resolved-schema'
 import selectFilledDeps from './_select-filled-deps'
+import selectFilledHttp from './_select-filled-http'
 import readOnlySelectIcon from './_readonly-select-icon'
 
 const examples = [
@@ -55,6 +56,7 @@ const examples = [
   localization,
   resolvedSchema,
   selectFilledDeps,
+  selectFilledHttp,
   readOnlySelectIcon
 ]
 
