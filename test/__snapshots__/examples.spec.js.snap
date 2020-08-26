@@ -2758,6 +2758,122 @@ exports[`Examples used as simple test cases Read only content 1`] = `
 </form>
 `;
 
+exports[`Examples used as simple test cases Readonly select with icons 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
+  >
+    <div
+      class="row ma-0 "
+    >
+      <div
+        class="col col-12 vjsf-property vjsf-property-iconOneOf pa-0  pr-2"
+      >
+        <div
+          class="v-input v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-select"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="list-707"
+              class="v-input__slot"
+              role="button"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label v-label--active v-label--is-disabled theme--light"
+                  for="iconOneOf"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a select with icon codes and titles in a oneOf
+                </label>
+                <div
+                  class="v-select__selections"
+                >
+                  <div
+                    class="v-select__selection v-select__selection--comma v-select__selection--disabled"
+                  >
+                    <span
+                      class="mt-1"
+                    >
+                      alarm
+                    </span>
+                  </div>
+                  <input
+                    aria-readonly="undefined"
+                    autocomplete="off"
+                    disabled="disabled"
+                    id="iconOneOf"
+                    readonly="readonly"
+                    type="text"
+                  />
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--clear"
+                  >
+                    <button
+                      aria-label="clear icon"
+                      class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                      disabled="disabled"
+                      type="button"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--append"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate v-icon--disabled mdi mdi-menu-down theme--light"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="hidden"
+                  value="alarm"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`Examples used as simple test cases Sections 1`] = `
 <form
   class="v-form"

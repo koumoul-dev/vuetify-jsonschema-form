@@ -25,6 +25,7 @@ import readOnly from './read-only'
 import localization from './localization'
 import resolvedSchema from './_resolved-schema'
 import selectFilledDeps from './_select-filled-deps'
+import readOnlySelectIcon from './_readonly-select-icon'
 
 const examples = [
   basic,
@@ -53,7 +54,8 @@ const examples = [
   readOnly,
   localization,
   resolvedSchema,
-  selectFilledDeps
+  selectFilledDeps,
+  readOnlySelectIcon
 ]
 
 const defaultTemplate = '<v-jsf v-model="model" :schema="schema" :options="options" />'
