@@ -21,9 +21,6 @@ npm run doc-dev
 
 Bug reports are created using github issues. The examples in the documentation include codepen links, as much as possible please save a duplicate codepen with the minimal schema/config to reproduce your problem.
 
-## Pull requests
+## Contribute
 
-Just a few rules :
-
-  - run `npm run lint` to check linter rules before pushing
-  - run `npm test` also. You might find that the tests fail simply because of HTML snapshots changes, check them and run `npm run test-update` if they are ok
+See [](./CONTRIBUTE.md).
