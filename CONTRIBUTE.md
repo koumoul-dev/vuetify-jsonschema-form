@@ -8,7 +8,7 @@ Run all prepublishing checks at once:
 
 ## Coding style
 
-It is enforced by [eslint](https://eslint.org/) and configured in [](./.eslintrc.js), you should probably use a plugin to integrate it in your editor.
+It is enforced by [eslint](https://eslint.org/) and configured in [.eslintrc.js](./.eslintrc.js), you should probably use a plugin to integrate it in your editor.
 
 Check all rules:
 
@@ -36,4 +36,4 @@ For now to increase efficiency test cases and documented examples are the same t
 
 When running tests each example is opened and a HTML snapshot is extracted and compared to a previous one. When the tests fail because of a snapshot diff, you should check that it is a valid change, then run `npm run test-update`.
 
-To be more explicit than simple snapshots you can also write additionnal test assertions in the examples themselves, see [](./doc/examples/_resolved-schema.js) for example.
+To be more explicit than simple snapshots you can also write additionnal test assertions in the examples themselves, see [_resolved-schema.js](./doc/examples/_resolved-schema.js) for example.

@@ -23,4 +23,4 @@ Bug reports are created using github issues. The examples in the documentation i
 
 ## Contribute
 
-See [](./CONTRIBUTE.md).
+See [CONTRIBUTE.md](./CONTRIBUTE.md).
