@@ -89,6 +89,16 @@ npm install -g @koumoul/vjsf
 </code></pre>
     </v-sheet>
 
+    <p>Edit vue.config.js to look like this:</p>
+
+    <v-sheet v-hljs dark class="codeblock">
+      <pre><code class="javascript">module.exports = {
+  "transpileDependencies": [
+    "vuetify", "@koumoul/vjsf"
+  ]
+}</code></pre>
+    </v-sheet>
+
     <p>Then replace the content of src/App.vue with this code:</p>
 
     <v-sheet v-hljs dark class="codeblock">
