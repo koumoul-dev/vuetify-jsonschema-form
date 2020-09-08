@@ -2,7 +2,7 @@ const id = 'colors'
 
 const title = 'Colors'
 
-const description = `The format \`hexcolor\` is used to display a color picker. Please not that it is not a standard format (I'm pretty sure it was once a proposal) and you might need to declare it with your JSON schema validator.
+const description = `The format \`hexcolor\` is used to display a color picker, you can also use the \`x-display=color-picker\` annotation. If using the format syntax, please note that hexcolor is not a standard format (I'm pretty sure it was once a proposal) and you might need to declare it with your JSON schema validator.
 
 Example ajv format: \`ajv.addFormat('hexcolor', /^#[0-9A-Fa-f]{6,8}$/)\`
 

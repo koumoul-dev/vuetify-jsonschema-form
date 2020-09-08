@@ -71,6 +71,69 @@ build: {
   &lt;v-jsf v-model="model" :schema="schema" :options="options" /&gt;
 &lt;/ v-form&gt;</code></pre>
     </v-sheet>
+
+    <h2 class="headline my-4">
+      Vue CLI setup
+    </h2>
+
+    <p>
+      This is an example of getting started with vjsf in a new Vue CLI project. First run these commands:
+    </p>
+
+    <v-sheet v-hljs dark class="codeblock">
+      <pre><code class="bash">npm install -g @vue/cli
+vue create my-app
+cd my-app
+vue add vuetify
+npm install -g @koumoul/vjsf
+</code></pre>
+    </v-sheet>
+
+    <p>Then replace the content of src/App.vue with this code:</p>
+
+    <v-sheet v-hljs dark class="codeblock">
+      <pre><code class="html">&lt;template&gt;
+  &lt;v-app&gt;
+    &lt;v-main&gt;
+      &lt;v-form v-model="valid"&gt;
+        &lt;v-jsf v-model="model" :schema="schema"/&gt;
+      &lt;/v-form&gt;
+      &lt;p&gt;valid={{ valid }}&lt;/p&gt;
+      &lt;pre&gt;{{ model }}&lt;/pre&gt;
+    &lt;/v-main&gt;
+  &lt;/v-app&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import VJsf from '@koumoul/vjsf/lib/VJsf.js'
+import '@koumoul/vjsf/lib/VJsf.css'
+// load third-party dependencies (markdown-it, vuedraggable)
+// you can also load them separately based on your needs
+import '@koumoul/vjsf/lib/deps/third-party.js'
+
+export default {
+  name: 'App',
+  components: { VJsf },
+  data: () =&gt; ({
+    valid: false,
+    model: {},
+    schema: {
+      type: 'object',
+      properties: {
+        stringProp: { type: 'string' },
+        colorProp: { type: 'string', 'x-display': 'color-picker' },
+      }
+    }
+  }),
+};
+&lt;/script&gt;
+  </code></pre>
+      </v-sheet>
+
+    <p>
+      Finally check that everything is working with <code>npm run serve</code>.
+    </p>
+
     <!-- eslint-enable vue/html-indent -->
   </v-container>
 </template>
