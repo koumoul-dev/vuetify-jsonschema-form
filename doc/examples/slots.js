@@ -8,7 +8,9 @@ You can define any slot of the main underlying Vuetify component for each proper
 
 All slots are passed either as textual content in a \`x-slots\` annotation in the schema (markdown supported) or as code inside the \`<vjsf />\` element with a prefix matching the key of the property in the schema.
 
-The markdown parser can be defined using the \`markdown\` option. If you use the default third party dependencies it will be [markdown-it](https://github.com/markdown-it/markdown-it) and it will be initialized with the \`markdownit\` option. For example you can use \`{markdownit: {html: true}}\` to accept HTML tags inside the markdown content.`
+The markdown parser can be defined using the \`markdown\` option. If you use the default third party dependencies it will be [markdown-it](https://github.com/markdown-it/markdown-it) and it will be initialized with the \`markdownit\` option. For example you can use \`{markdownit: {html: true}}\` to accept HTML tags inside the markdown content.
+
+You can write code slots used for multiple properties by naming the slot with a \`custom-\` prefix and passing this name to the \`x-display\` annotation (see custom-string1 in this example).`
 
 const schema = {
   type: 'object',
