@@ -8,7 +8,7 @@ const description = `Enums and oneOfs with const values are represented as selec
 
 Arrays are represented as multi-value select fields.
 
-If the number of item is too large the select is replaced by a auto-complete`
+If the number of items is too large the select is replaced by a auto-complete.`
 
 const schema = {
   type: 'object',
