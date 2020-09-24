@@ -8,15 +8,17 @@ You can also use the \`x-rules\` annotation to set custom rules, either directly
 
 If you wrap the \`vjsf\` element in a \`v-form\` the validation mechanisms will work.
 
-Click on the button at bottom-right of the example to trigger validation.`
+Click on the button at bottom-right of the example to trigger validation.
+
+Initial display of validation errors is conditioned by the \`initialValidation\` option. By default the errors of properties with already filled values are displayed while pristine properties wait for user interactions or explicit call of \`validate()\`.`
 
 const schema = {
   type: 'object',
   required: ['requiredStringProp'],
   properties: {
     requiredStringProp: { type: 'string', title: `I'm a required string` },
-    patternStringProp: { type: 'string', title: `I'm a string with a pattern`, pattern: '^[a-zA-Z]*$', 'x-options': { messages: { pattern: 'Only letters are accepted' } } },
-    ruleStringProp: { type: 'number', title: `I'm a string with a custom rule`, 'x-rules': ['even'] },
+    patternStringProp: { type: 'string', title: `I'm a string with a pattern (letters only)`, pattern: '^[a-zA-Z]*$', 'x-options': { messages: { pattern: 'Only letters are accepted' } } },
+    ruleStringProp: { type: 'number', title: `I'm a number with a custom rule (even numbers only)`, 'x-rules': ['even'] },
     limitedInteger: { type: 'integer', title: `I'm a integer with min/max value`, minimum: 0, maximum: 100 },
     limitedString: { type: 'string', title: `I'm a string with min/max length`, minLength: 10, maxLength: 100 },
     limitedArray: { type: 'array', title: `I'm an array with min/max items`, items: { type: 'string' }, minItems: 1, maxItems: 100 },
@@ -27,8 +29,7 @@ const schema = {
 
 const model = {
   limitedInteger: 101,
-  limitedString: 'abc',
-  limitedArray: []
+  limitedString: 'abc'
 }
 
 const options = {

@@ -21,7 +21,7 @@ const schema = {
           title: `Section 1`,
           required: ['requiredStringProp1'],
           properties: {
-            requiredStringProp1: { type: 'string', title: `I'm a required string` }
+            requiredStringProp1: { type: 'string', title: `I'm a required string with min/max length`, minLength: 10, maxLength: 100 }
           }
         },
         section2: {
@@ -51,13 +51,22 @@ const schema = {
         title: `Section 2`,
         required: ['requiredStringProp2'],
         properties: {
-          requiredStringProp2: { type: 'string', title: `I'm another required string` }
+          requiredStringProp2: { type: 'string', title: `I'm a required string with min/max length`, minLength: 10, maxLength: 100 }
         }
       }]
     }
   }
 }
 
-const model = {}
+const model = {
+  tabs: {
+    section1: {
+      requiredStringProp1: 'abc'
+    }
+  },
+  panels: {
+    requiredStringProp2: 'abc'
+  }
+}
 
 export default { id, title, description, schema, model }
