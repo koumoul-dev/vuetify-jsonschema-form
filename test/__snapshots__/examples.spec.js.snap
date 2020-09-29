@@ -665,7 +665,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
                   for="patternStringProp"
                   style="left: 0px; position: absolute;"
                 >
-                  I'm a string with a pattern
+                  I'm a string with a pattern (letters only)
                 </label>
                 <input
                   id="patternStringProp"
@@ -709,7 +709,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
                   for="ruleStringProp"
                   style="left: 0px; position: absolute;"
                 >
-                  I'm a string with a custom rule
+                  I'm a number with a custom rule (even numbers only)
                 </label>
                 <input
                   id="ruleStringProp"
@@ -737,7 +737,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
         class="col col-12 vjsf-property vjsf-property-limitedInteger pa-0  pr-2"
       >
         <div
-          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
+          class="v-input v-input--has-state v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted error--text"
         >
           <div
             class="v-input__control"
@@ -749,7 +749,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
                 class="v-text-field__slot"
               >
                 <label
-                  class="v-label v-label--active theme--light"
+                  class="v-label v-label--active theme--light error--text"
                   for="limitedInteger"
                   style="left: 0px; position: absolute;"
                 >
@@ -765,13 +765,20 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
               class="v-text-field__details"
             >
               <div
-                class="v-messages theme--light"
+                class="v-messages theme--light error--text"
+                role="alert"
               >
                 <transition-group-stub
                   class="v-messages__wrapper"
                   name="message-transition"
                   tag="div"
-                />
+                >
+                  <div
+                    class="v-messages__message"
+                  >
+                    Value must be less than 100
+                  </div>
+                </transition-group-stub>
               </div>
             </div>
           </div>
@@ -781,7 +788,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
         class="col col-12 vjsf-property vjsf-property-limitedString pa-0  pr-2"
       >
         <div
-          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
+          class="v-input v-input--has-state v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted error--text"
         >
           <div
             class="v-input__control"
@@ -793,7 +800,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
                 class="v-text-field__slot"
               >
                 <label
-                  class="v-label v-label--active theme--light"
+                  class="v-label v-label--active theme--light error--text"
                   for="limitedString"
                   style="left: 0px; position: absolute;"
                 >
@@ -809,13 +816,20 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
               class="v-text-field__details"
             >
               <div
-                class="v-messages theme--light"
+                class="v-messages theme--light error--text"
+                role="alert"
               >
                 <transition-group-stub
                   class="v-messages__wrapper"
                   name="message-transition"
                   tag="div"
-                />
+                >
+                  <div
+                    class="v-messages__message"
+                  >
+                    10 characters minimum
+                  </div>
+                </transition-group-stub>
               </div>
             </div>
           </div>
@@ -3653,7 +3667,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                       style="height: 2px; left: 0px; width: 0px;"
                     >
                       <div
-                        class="v-tabs-slider"
+                        class="v-tabs-slider error"
                       />
                     </div>
                     <a
@@ -3664,7 +3678,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                       tabindex="0"
                     >
                       <span
-                        class=""
+                        class="error--text"
                       >
                         Section 1
                       </span>
@@ -3722,7 +3736,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                 class="col col-12 vjsf-property vjsf-property-tabs-section1-requiredStringProp1 pa-0  pr-2"
                               >
                                 <div
-                                  class="v-input theme--light v-text-field v-text-field--is-booted"
+                                  class="v-input v-input--has-state v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted error--text"
                                 >
                                   <div
                                     class="v-input__control"
@@ -3734,11 +3748,11 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                         class="v-text-field__slot"
                                       >
                                         <label
-                                          class="v-label theme--light"
+                                          class="v-label v-label--active theme--light error--text"
                                           for="tabs-section1-requiredStringProp1"
                                           style="left: 0px; position: absolute;"
                                         >
-                                          I'm a required string
+                                          I'm a required string with min/max length
                                         </label>
                                         <input
                                           id="tabs-section1-requiredStringProp1"
@@ -3750,13 +3764,20 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                       class="v-text-field__details"
                                     >
                                       <div
-                                        class="v-messages theme--light"
+                                        class="v-messages theme--light error--text"
+                                        role="alert"
                                       >
                                         <transition-group-stub
                                           class="v-messages__wrapper"
                                           name="message-transition"
                                           tag="div"
-                                        />
+                                        >
+                                          <div
+                                            class="v-messages__message"
+                                          >
+                                            10 characters minimum
+                                          </div>
+                                        </transition-group-stub>
                                       </div>
                                     </div>
                                   </div>
@@ -3953,7 +3974,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                 class="v-expansion-panel"
               >
                 <button
-                  class="v-expansion-panel-header"
+                  class="v-expansion-panel-header error--text"
                   type="button"
                 >
                   Section 2
@@ -3990,7 +4011,7 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                             class="col col-12 vjsf-property vjsf-property-panels-allOf-1-requiredStringProp2 pa-0  pr-2"
                           >
                             <div
-                              class="v-input theme--light v-text-field v-text-field--is-booted"
+                              class="v-input v-input--has-state v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted error--text"
                             >
                               <div
                                 class="v-input__control"
@@ -4002,11 +4023,11 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                     class="v-text-field__slot"
                                   >
                                     <label
-                                      class="v-label theme--light"
+                                      class="v-label v-label--active theme--light error--text"
                                       for="panels-allOf-1-requiredStringProp2"
                                       style="left: 0px; position: absolute;"
                                     >
-                                      I'm another required string
+                                      I'm a required string with min/max length
                                     </label>
                                     <input
                                       id="panels-allOf-1-requiredStringProp2"
@@ -4018,13 +4039,20 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                   class="v-text-field__details"
                                 >
                                   <div
-                                    class="v-messages theme--light"
+                                    class="v-messages theme--light error--text"
+                                    role="alert"
                                   >
                                     <transition-group-stub
                                       class="v-messages__wrapper"
                                       name="message-transition"
                                       tag="div"
-                                    />
+                                    >
+                                      <div
+                                        class="v-messages__message"
+                                      >
+                                        10 characters minimum
+                                      </div>
+                                    </transition-group-stub>
                                   </div>
                                 </div>
                               </div>
