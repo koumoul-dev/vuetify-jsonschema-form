@@ -23,6 +23,7 @@ import validationSections from './validation-sections'
 import tuples from './tuples'
 import readOnly from './read-only'
 import localization from './localization'
+import nullable from './nullable'
 import resolvedSchema from './_resolved-schema'
 import selectFilledDeps from './_select-filled-deps'
 import selectFilledHttp from './_select-filled-http'
@@ -54,6 +55,7 @@ const examples = [
   tuples,
   readOnly,
   localization,
+  nullable,
   resolvedSchema,
   selectFilledDeps,
   selectFilledHttp,
