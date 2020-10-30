@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1 class="display-1 mb-4">
-      Configuration
+      {{ title }}
     </h1>
 
     <h2 class="headline my-4">
@@ -192,6 +192,7 @@ import { defaultOptions, formats, localizedMessages, iconSets } from '../../lib/
 export default {
   data() {
     return {
+      title: 'Configuration',
       defaultOptions,
       formats,
       localizedMessages,
@@ -233,6 +234,11 @@ export default {
       locale: 'en',
       iconSets,
       iconSet: 'mdi'
+    }
+  },
+  head() {
+    return {
+      title: 'vjsf - ' + this.title
     }
   }
 }

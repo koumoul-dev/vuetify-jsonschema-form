@@ -37,11 +37,11 @@ module.exports = {
     base: process.env.BASE || '/'
   },
   head: {
-    title: 'vuetify-jsonschema-form - documentation',
+    title: 'vjsf - Documentation',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: `vuetify-jsonschema-form - documentation` },
+      { hid: 'description', name: 'description', content: `vjsf - Documentation` },
       { hid: 'robots', name: 'robots', content: 'noindex' }
     ]
   }

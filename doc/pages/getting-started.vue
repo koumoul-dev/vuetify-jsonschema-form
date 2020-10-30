@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1 class="display-1 mb-4">
-      Getting started
+      {{ title }}
     </h1>
 
     <h2 class="headline my-4">
@@ -147,7 +147,16 @@ export default {
 </template>
 
 <script>
-export default {}
+export default {
+  data: () => ({
+    title: 'Getting started'
+  }),
+  head() {
+    return {
+      title: 'vjsf - ' + this.title
+    }
+  }
+}
 </script>
 
 <style lang="css" scoped>

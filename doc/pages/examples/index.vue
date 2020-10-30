@@ -17,6 +17,11 @@ export default {
       location.hash = this.$route.hash
       scrollToHash(this.$route.hash, false)
     }
+  },
+  head() {
+    return {
+      title: 'vjsf - Examples'
+    }
   }
 }
 </script>

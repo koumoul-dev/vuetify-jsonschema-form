@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1 class="display-1 mb-4">
-      0.x to 1.x
+      {{ title }}
     </h1>
     <p>
       The old demo page for v0 is still available <a href="https://koumoul-dev.github.io/vuetify-jsonschema-form/0.x/">here</a>.
@@ -45,7 +45,16 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data: () => ({
+    title: '0.x to 1.x'
+  }),
+  head() {
+    return {
+      title: 'vjsf - ' + this.title
+    }
+  }
+}
 </script>
 
 <style lang="css" scoped>
