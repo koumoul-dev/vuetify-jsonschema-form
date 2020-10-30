@@ -847,7 +847,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-512"
+              aria-owns="list-516"
               class="v-input__slot"
               role="combobox"
             >
@@ -908,7 +908,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-517"
+              aria-owns="list-521"
               class="v-input__slot"
               role="combobox"
             >
@@ -971,7 +971,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-522"
+                for="input-526"
                 style="left: 0px; position: relative;"
               >
                 I'm an array of objects with min/max items
@@ -1005,155 +1005,6 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
                 name="message-transition"
                 tag="div"
               />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</form>
-`;
-
-exports[`Examples used as simple test cases Classes and styles 1`] = `
-<form
-  class="v-form"
-  novalidate="novalidate"
->
-  <div
-    class="col col-12 vjsf-property vjsf-property-root pa-0 "
-  >
-    <div
-      class="row ma-0 "
-    >
-      <div
-        class="col col-12 vjsf-property vjsf-property-stringPropHalf pa-0 xs6 pr-2"
-      >
-        <div
-          class="v-input theme--light v-text-field v-text-field--is-booted"
-        >
-          <div
-            class="v-input__control"
-          >
-            <div
-              class="v-input__slot"
-            >
-              <div
-                class="v-text-field__slot"
-              >
-                <label
-                  class="v-label theme--light"
-                  for="stringPropHalf"
-                  style="left: 0px; position: absolute;"
-                >
-                  I'm a half width string
-                </label>
-                <input
-                  id="stringPropHalf"
-                  type="text"
-                />
-              </div>
-            </div>
-            <div
-              class="v-text-field__details"
-            >
-              <div
-                class="v-messages theme--light"
-              >
-                <transition-group-stub
-                  class="v-messages__wrapper"
-                  name="message-transition"
-                  tag="div"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="col col-12 vjsf-property vjsf-property-stringPropHalf2 pa-0 xs6 pr-2"
-      >
-        <div
-          class="v-input theme--light v-text-field v-text-field--is-booted"
-        >
-          <div
-            class="v-input__control"
-          >
-            <div
-              class="v-input__slot"
-            >
-              <div
-                class="v-text-field__slot"
-              >
-                <label
-                  class="v-label theme--light"
-                  for="stringPropHalf2"
-                  style="left: 0px; position: absolute;"
-                >
-                  I'm another half width string
-                </label>
-                <input
-                  id="stringPropHalf2"
-                  type="text"
-                />
-              </div>
-            </div>
-            <div
-              class="v-text-field__details"
-            >
-              <div
-                class="v-messages theme--light"
-              >
-                <transition-group-stub
-                  class="v-messages__wrapper"
-                  name="message-transition"
-                  tag="div"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="col col-12 vjsf-property vjsf-property-stringPropStyle pa-0  pr-2"
-        style="background-color: pink; padding-left: 20px;"
-      >
-        <div
-          class="v-input theme--light v-text-field v-text-field--is-booted"
-        >
-          <div
-            class="v-input__control"
-          >
-            <div
-              class="v-input__slot"
-            >
-              <div
-                class="v-text-field__slot"
-              >
-                <label
-                  class="v-label theme--light"
-                  for="stringPropStyle"
-                  style="left: 0px; position: absolute;"
-                >
-                  I'm a string with style
-                </label>
-                <input
-                  id="stringPropStyle"
-                  type="text"
-                />
-              </div>
-            </div>
-            <div
-              class="v-text-field__details"
-            >
-              <div
-                class="v-messages theme--light"
-              >
-                <transition-group-stub
-                  class="v-messages__wrapper"
-                  name="message-transition"
-                  tag="div"
-                />
-              </div>
             </div>
           </div>
         </div>
@@ -2243,6 +2094,199 @@ exports[`Examples used as simple test cases Files 1`] = `
 </form>
 `;
 
+exports[`Examples used as simple test cases Layout, classes and styles 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
+  >
+    <div
+      class="row ma-0 "
+    >
+      <div
+        class="col col-6 vjsf-property vjsf-property-stringPropHalf pa-0  pr-2"
+      >
+        <div
+          class="v-input theme--light v-text-field v-text-field--is-booted"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-text-field__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="stringPropHalf"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a half width string using x-cols
+                </label>
+                <input
+                  id="stringPropHalf"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-6 vjsf-property vjsf-property-stringPropHalf2 pa-0  pr-2"
+      >
+        <div
+          class="v-input theme--light v-text-field v-text-field--is-booted"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-text-field__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="stringPropHalf2"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm another half width string using fieldColProps option
+                </label>
+                <input
+                  id="stringPropHalf2"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-stringPropClass pa-0 pl-10 pr-2"
+      >
+        <div
+          class="v-input theme--light v-text-field v-text-field--is-booted"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-text-field__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="stringPropClass"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a string with class pl-10
+                </label>
+                <input
+                  id="stringPropClass"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-stringPropStyle pa-0  pr-2"
+        style="background-color: pink; padding-left: 20px;"
+      >
+        <div
+          class="v-input theme--light v-text-field v-text-field--is-booted"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-text-field__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="stringPropStyle"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a string with style
+                </label>
+                <input
+                  id="stringPropStyle"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`Examples used as simple test cases Localization 1`] = `
 <form
   class="v-form"
@@ -2341,7 +2385,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-654"
+              aria-owns="list-658"
               class="v-input__slot"
               role="combobox"
             >
@@ -2551,7 +2595,7 @@ exports[`Examples used as simple test cases Nullable properties 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-676"
+              aria-owns="list-680"
               class="v-input__slot"
               role="button"
             >
@@ -3029,7 +3073,7 @@ exports[`Examples used as simple test cases Readonly select with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-749"
+              aria-owns="list-753"
               class="v-input__slot"
               role="button"
             >
@@ -5857,7 +5901,7 @@ exports[`Examples used as simple test cases Selects prefilled with http results 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-730"
+              aria-owns="list-734"
               class="v-input__slot"
               role="button"
             >
@@ -5955,7 +5999,7 @@ exports[`Examples used as simple test cases Selects prefilled with http results 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-737"
+              aria-owns="list-741"
               class="v-input__slot"
               role="button"
             >
@@ -6633,7 +6677,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-704"
+              aria-owns="list-708"
               class="v-input__slot"
               role="button"
             >
@@ -6731,7 +6775,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-711"
+              aria-owns="list-715"
               class="v-input__slot"
               role="button"
             >
@@ -6829,7 +6873,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-718"
+              aria-owns="list-722"
               class="v-input__slot"
               role="button"
             >
@@ -7181,7 +7225,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-476"
+              aria-owns="list-480"
               class="v-input__slot"
               role="button"
             >

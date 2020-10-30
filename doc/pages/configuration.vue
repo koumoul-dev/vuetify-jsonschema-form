@@ -171,7 +171,7 @@
         </tr>
         <tr>
           <td>x-cols</td>
-          <td>The width of the v-col component wrapping the property (default is 12).</td>
+          <td>The width of the v-col component wrapping the property (default is 12). You can use the fieldColProps option for further layout customization.</td>
         </tr>
         <tr>
           <td>x-slots</td>
@@ -198,6 +198,7 @@ export default {
       descriptions: {
         rootDisplay: 'equivalent of x-display annotation on the root object of the schema, can be "tabs" or "expansion-panels"',
         fieldProps: 'props passed to the underlying components for simple fields (v-text-field, v-select, etc.)',
+        fieldColProps: 'props passed to the v-col component that wraps any field. Use "cols", "xs", "md", etc. to customize your form layout.',
         textFieldProps: 'props passed to the underlying v-text-field components',
         textareaProps: 'props passed to the underlying v-textarea components',
         numberProps: 'props passed to the underlying v-text-field components with type="number"',
