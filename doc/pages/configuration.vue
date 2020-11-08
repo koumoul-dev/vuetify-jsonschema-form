@@ -214,6 +214,7 @@ export default {
         tabsProps: 'props passed to the underlying v-tabs component when relevant',
         expansionPanelsProps: 'props passed to the underlying v-expansion-panels component when relevant',
         dialogProps: 'props passed to the underlying v-dialog component when relevant',
+        dialogCardProps: 'props passed to the v-card component inside a v-dialog component when relevant',
         colorPickerProps: 'props passed to the underlying v-color-picker component when relevant',
         timePickerProps: 'props passed to the underlying v-time-picker component when relevant',
         datePickerProps: 'props passed to the underlying v-date-picker component when relevant',
