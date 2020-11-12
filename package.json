@@ -56,6 +56,7 @@
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "@koumoul/data-fair-search-widget": "^0.3.0",
     "@koumoul/gh-pages-multi": "^0.6.0",
     "@mdi/font": "^3.8.95",
     "@nuxtjs/axios": "^5.9.0",

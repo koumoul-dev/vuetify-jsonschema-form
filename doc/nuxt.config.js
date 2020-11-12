@@ -3,7 +3,7 @@ import colors from 'vuetify/lib/util/colors'
 module.exports = {
   mode: 'spa',
   build: {
-    transpile: [/\.\.\//],
+    transpile: [/\.\.\//, /@koumoul/],
     extend(config, ctx) {
       // Include the compiler version of Vue so that we can compile examples templates
       config.resolve.alias['vue$'] = 'vue/dist/vue.esm.js'
@@ -43,6 +43,14 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: `vjsf - Documentation` },
       { hid: 'robots', name: 'robots', content: 'noindex' }
-    ]
+    ],
+    link: [{
+      rel: 'stylesheet',
+      href: 'https://cdn.jsdelivr.net/npm/@koumoul/data-fair-search-widget@0/dist/search-widget.css'
+    }],
+    script: [{
+      src: 'https://cdn.jsdelivr.net/npm/@koumoul/data-fair-search-widget@0.1.7/dist/search-widget.js',
+      async: true
+    }]
   }
 }
