@@ -78,7 +78,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^5.2.3",
     "fuse.js": "^3.4.6",
-    "highlight.js": "^9.17.1",
+    "highlight.js": "^10.1.2",
     "hjson": "^3.1.2",
     "jest": "^26.1.0",
     "jest-serializer-vue": "^2.0.2",
