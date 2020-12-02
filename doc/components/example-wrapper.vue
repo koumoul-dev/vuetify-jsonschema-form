@@ -11,7 +11,7 @@
       <p v-if="prettyDescription" v-html="prettyDescription" />
     </v-col>
     <v-col xs="12" sm="12" md="6" class="mt-2">
-      <v-card :dark="dark">
+      <v-card :dark="dark" outlined>
         <v-toolbar dark dense flat>
           <v-spacer />
           <v-btn icon title="dark mode / light mode" @click="dark = !dark">
