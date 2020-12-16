@@ -230,7 +230,9 @@ export default {
         rules: 'some custom rule functions that can be referenced by the x-rules annotation on properties',
         initialValidation: 'configure display of properties validation errors at initial rendering of the form ("all" to show validation errors of all properties, "defined" to show validation errors of the properties with pre-existing content, "none" to wait for user interactions of explicit call of the validate method)',
         idPrefix: 'a prefix applied to generated ids if you want to prevent potential conflicts',
-        markdownit: 'options given to markdownit if you leave the markdown option to its default value'
+        markdownit: 'options given to markdownit if you leave the markdown option to its default value',
+        editMode: 'change the way editable arrays are rendered. Use "dialog" to edit items in separate dialogs, use "inline" to edit items in place.',
+        autofocus: 'attempt to give focus to the first simple field rendered.'
       },
       locale: 'en',
       iconSets,
