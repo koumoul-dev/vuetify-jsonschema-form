@@ -29,7 +29,7 @@
         </v-toolbar>
         <v-alert v-if="ajvErrors && valid" color="error" dark tile>
           <p>Warning ! V-jsf considered this form valid while a JSON schema validator dit not. This is not normal and you might consider filing a bug report.</p>
-          <code>{{ ajvErrors }}</code>
+          <pre>{{ JSON.stringify(ajvErrors, null, 2) }}</pre>
         </v-alert>
         <client-only>
           <v-card-text class="pb-12" style="min-height: 120px; position: relative;">
