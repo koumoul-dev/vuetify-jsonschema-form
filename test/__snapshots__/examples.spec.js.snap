@@ -1,5 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Examples used as simple test cases Additional validation cases 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
+  >
+    <div
+      class="row ma-0 "
+    >
+      <div
+        class="col col-12 vjsf-property vjsf-property-color1 pa-0 "
+      >
+        <div
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-794"
+                style="left: 0px; position: relative;"
+              >
+                I'm a required color with initial value
+              </label>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+              <div
+                class="color-picker-trigger"
+                style="background-color: rgb(0, 188, 212); margin-left: 10px;"
+              />
+            </div>
+            <div
+              class="v-messages theme--light"
+            >
+              <transition-group-stub
+                class="v-messages__wrapper"
+                name="message-transition"
+                tag="div"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`Examples used as simple test cases Basic types 1`] = `
 <form
   class="v-form"
@@ -1617,6 +1674,290 @@ exports[`Examples used as simple test cases Editable array 1`] = `
                   />
                 </span>
               </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases Editable array inline 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
+  >
+    <div
+      class="row ma-0 "
+    >
+      <div
+        class="col col-12 vjsf-property vjsf-property-objectArrayProp pa-0 "
+      >
+        <div
+          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-434"
+                style="left: 0px; position: relative;"
+              >
+                I'm an array of objects
+              </label>
+              <button
+                class="v-btn v-btn--contained v-btn--fab v-btn--round theme--light v-size--small primary vjsf-array-add-button ml-3"
+                id="objectArrayProp--add-button"
+                type="button"
+              >
+                <span
+                  class="v-btn__content"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-plus theme--light"
+                  />
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="row pt-0 px-2 "
+        >
+          <div
+            class="row"
+            style="cursor: move;"
+          >
+            <div
+              class="col col-12 pa-2"
+            >
+              <div
+                class="v-card v-sheet theme--light"
+              >
+                <div
+                  class="v-card__title title"
+                >
+                  I'm an object
+                  <div
+                    class="spacer"
+                  />
+                  <div
+                    class="v-card__actions pa-0"
+                  >
+                    <div
+                      class="spacer"
+                    />
+                    <button
+                      class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default primary--text vjsf-array-add-button"
+                      id="objectArrayProp-0--edit-button"
+                      type="button"
+                    >
+                      <span
+                        class="v-btn__content"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="v-icon notranslate mdi mdi-pencil theme--light"
+                        />
+                      </span>
+                    </button>
+                    <button
+                      class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default warning--text vjsf-array-delete-button"
+                      id="objectArrayProp-0--delete-button"
+                      type="button"
+                    >
+                      <span
+                        class="v-btn__content"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="v-icon notranslate mdi mdi-delete theme--light"
+                        />
+                      </span>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="v-card__text"
+                >
+                  <div
+                    class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0 pa-0 "
+                  >
+                    <div
+                      class="row ma-0 "
+                    >
+                      <div
+                        class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0-titleProp pa-0 "
+                        style="display: none;"
+                      >
+                        <div
+                          class="v-input v-input--is-label-active v-input--is-dirty v-input--is-disabled v-input--dense theme--light v-text-field v-text-field--is-booted"
+                        >
+                          <div
+                            class="v-input__control"
+                          >
+                            <div
+                              class="v-input__slot"
+                            >
+                              <div
+                                class="v-text-field__slot"
+                              >
+                                <label
+                                  class="v-label v-label--active v-label--is-disabled theme--light"
+                                  for="objectArrayProp-item-0-titleProp"
+                                  style="left: 0px; position: absolute;"
+                                >
+                                  I'm a required string used as title
+                                </label>
+                                <input
+                                  disabled="disabled"
+                                  id="objectArrayProp-item-0-titleProp"
+                                  type="text"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="v-text-field__details"
+                            >
+                              <div
+                                class="v-messages theme--light"
+                              >
+                                <transition-group-stub
+                                  class="v-messages__wrapper"
+                                  name="message-transition"
+                                  tag="div"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0-nestedObjectArrayProp pa-0 "
+                      >
+                        <div
+                          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+                        >
+                          <div
+                            class="v-input__control"
+                          >
+                            <div
+                              class="v-input__slot"
+                            >
+                              <label
+                                class="v-label theme--light"
+                                for="input-449"
+                                style="left: 0px; position: relative;"
+                              >
+                                I'm a nested array of objects
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="row pt-0 px-2 "
+                        >
+                          <div
+                            class="row"
+                            style="cursor: move;"
+                          >
+                            <div
+                              class="col col-12 pa-2"
+                            >
+                              <div
+                                class="v-card v-sheet v-sheet--outlined theme--light"
+                              >
+                                <div
+                                  class="v-card__title subtitle-1"
+                                >
+                                  I'm a nested object
+                                  <div
+                                    class="spacer"
+                                  />
+                                  <div
+                                    class="v-card__actions pa-0"
+                                  >
+                                    <div
+                                      class="spacer"
+                                    />
+                                  </div>
+                                </div>
+                                <div
+                                  class="v-card__text"
+                                >
+                                  <div
+                                    class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0-nestedObjectArrayProp-item-0 pa-0 "
+                                  >
+                                    <div
+                                      class="row ma-0 "
+                                    >
+                                      <div
+                                        class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0-nestedObjectArrayProp-item-0-titleProp pa-0 "
+                                        style="display: none;"
+                                      >
+                                        <div
+                                          class="v-input v-input--is-label-active v-input--is-dirty v-input--is-disabled v-input--dense theme--light v-text-field v-text-field--is-booted"
+                                        >
+                                          <div
+                                            class="v-input__control"
+                                          >
+                                            <div
+                                              class="v-input__slot"
+                                            >
+                                              <div
+                                                class="v-text-field__slot"
+                                              >
+                                                <label
+                                                  class="v-label v-label--active v-label--is-disabled theme--light"
+                                                  for="objectArrayProp-item-0-nestedObjectArrayProp-item-0-titleProp"
+                                                  style="left: 0px; position: absolute;"
+                                                >
+                                                  I'm a required string used as title
+                                                </label>
+                                                <input
+                                                  disabled="disabled"
+                                                  id="objectArrayProp-item-0-nestedObjectArrayProp-item-0-titleProp"
+                                                  type="text"
+                                                />
+                                              </div>
+                                            </div>
+                                            <div
+                                              class="v-text-field__details"
+                                            >
+                                              <div
+                                                class="v-messages theme--light"
+                                              >
+                                                <transition-group-stub
+                                                  class="v-messages__wrapper"
+                                                  name="message-transition"
+                                                  tag="div"
+                                                />
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

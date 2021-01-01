@@ -87,6 +87,7 @@
     "nuxt": "^2.13.1",
     "random-words": "^1.1.0",
     "stringify-object": "^3.3.0",
+    "tiptap-vuetify": "^2.24.0",
     "vue-axios": "^2.1.5",
     "vue-jest": "^3.0.5",
     "vue-template-compiler": "^2.6.11",

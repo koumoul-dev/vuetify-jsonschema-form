@@ -19,6 +19,7 @@ import defaultValues from './default-values'
 import classes from './classes'
 import vuetifyProps from './vuetify-props'
 import slots from './slots'
+import slotsWrappers from './slots-wrappers'
 import validationBasic from './validation-basic'
 import validationSections from './validation-sections'
 import tuples from './tuples'
@@ -53,6 +54,7 @@ const examples = [
   classes,
   vuetifyProps,
   slots,
+  slotsWrappers,
   validationBasic,
   validationSections,
   tuples,
