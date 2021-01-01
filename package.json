@@ -87,6 +87,7 @@
     "mini-css-extract-plugin": "^0.8.0",
     "nuxt": "^2.13.1",
     "random-words": "^1.1.0",
+    "sanitize-html": "^2.3.0",
     "stringify-object": "^3.3.0",
     "tiptap-vuetify": "^2.24.0",
     "vue-axios": "^2.1.5",

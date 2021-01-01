@@ -3,10 +3,11 @@ import '../../lib/deps/third-party.js'
 import VJsf from '../../lib/VJsf.js'
 import '../../lib/VJsf.css'
 import VJsfTiptap from './wrappers/v-jsf-tiptap.vue'
+import VJsfToastUiEditor from './wrappers/v-jsf-toast-ui-editor.vue'
 import { defaultTemplate } from '../examples'
 
 export default {
-  components: { VJsf, VJsfTiptap },
+  components: { VJsf, VJsfTiptap, VJsfToastUiEditor },
   props: {
     params: { type: Object, required: true }
   },
