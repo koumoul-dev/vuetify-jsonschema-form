@@ -13,7 +13,8 @@
     "test-update": "jest --updateSnapshot",
     "doc-dev": "nuxt doc",
     "doc-start": "nuxt build doc && nuxt start doc",
-    "doc-build": "BASE=/vuetify-jsonschema-form/latest/ nuxt generate doc"
+    "doc-build": "BASE=/vuetify-jsonschema-form/latest/ nuxt generate doc",
+    "doc-master": "BASE=/vuetify-jsonschema-form/master/ nuxt generate doc && gh-pages-multi deploy -v -s doc/dist -t master"
   },
   "jest": {
     "moduleFileExtensions": [
