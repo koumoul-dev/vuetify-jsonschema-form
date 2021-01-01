@@ -15,11 +15,10 @@ const schema = {
       'x-itemTitle': 'titleProp',
       items: {
         type: 'object',
-        // required: ['titleProp', 'stringProp'],
-        required: ['titleProp'],
+        required: ['titleProp', 'stringProp'],
         properties: {
           titleProp: { type: 'string', title: `I'm a required string used as title` },
-          // stringProp: { type: 'string', title: `I'm another required string` },
+          stringProp: { type: 'string', title: `I'm another required string` },
           nestedObjectArrayProp: {
             type: 'array',
             title: `I'm a nested array of objects`,
@@ -27,9 +26,10 @@ const schema = {
             'x-itemTitle': 'titleProp',
             items: {
               type: 'object',
-              required: ['titleProp'],
+              required: ['titleProp', 'stringProp'],
               properties: {
-                titleProp: { type: 'string', title: `I'm a required string used as title` }
+                titleProp: { type: 'string', title: `I'm a required string used as title` },
+                stringProp: { type: 'string', title: `I'm another required string` }
               }
             }
           }
@@ -41,9 +41,9 @@ const schema = {
 
 const model = {
   objectArrayProp: [{
-    titleProp: `I'm an object`,
+    titleProp: `Object title`,
     nestedObjectArrayProp: [{
-      titleProp: `I'm a nested object`
+      titleProp: `Nested object title`
     }]
   }]
 }
