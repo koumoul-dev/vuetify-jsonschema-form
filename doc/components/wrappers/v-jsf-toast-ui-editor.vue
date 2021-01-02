@@ -1,6 +1,6 @@
 <template>
   <!-- using vuetify's generic component v-input is handy for homogeneous labels, validation, etc. -->
-  <v-input :value="value" :name="fullKey" :label="label" :disabled="disabled" :rules="rules" :required="required" class="vjsf-tiptap">
+  <v-input :value="value" :name="fullKey" :label="label" :disabled="disabled" :rules="rules" :required="required" class="vjsf-toast-ui-editor">
     <div v-if="htmlDescription" class="caption" v-html="htmlDescription" />
     <editor v-if="!disabled"
             ref="toastuiEditor"
@@ -54,7 +54,7 @@ export default {
 </script>
 
 <style lang="css">
-.vjsf-tiptap .v-input__slot {
+.vjsf-toast-ui-editor .v-input__slot {
   display: block;
 }
 </style>-->
