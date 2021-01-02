@@ -55,7 +55,71 @@ const model = {}
 const options = { context: { owner: { type: 'organization', id: '5a5dc47163ebd4a6f438589b' } } }
 
 const httpMocks = {
-  'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&size=4&select=href,title&owner=organization:5a5dc47163ebd4a6f438589b': { results: [] }
+  'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&size=4&select=href,title&owner=organization:5a5dc47163ebd4a6f438589b': { count: 2,
+    results: [{
+      id: 'tour_1_resultats_par_pays_240417',
+      title: "Présidentielles 2017 - Votes des français à l'étranger - 1er tour",
+      owner: {
+        type: 'organization',
+        id: '5a5dc47163ebd4a6f438589b',
+        name: 'Koumoul',
+        role: null
+      },
+      userPermissions: [
+        'readDescription',
+        'readLines',
+        'getGeoAgg',
+        'getValuesAgg',
+        'getValues',
+        'getMetricAgg',
+        'getWordsAgg',
+        'downloadOriginalData',
+        'downloadFullData',
+        'readApiDoc',
+        'realtime-transactions',
+        'readLine',
+        'readLineRevisions',
+        'list'
+      ],
+      public: true,
+      visibility: 'public',
+      description: '',
+      previews: [],
+      href: 'https://koumoul.com/s/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417',
+      page: 'https://koumoul.com/s/data-fair/dataset/tour_1_resultats_par_pays_240417'
+    },
+    {
+      id: 'jep-2018-france',
+      title: 'Journées européennes du patrimoine en France Métropolitaine',
+      owner: {
+        type: 'organization',
+        id: '5a5dc47163ebd4a6f438589b',
+        name: 'Koumoul',
+        role: null
+      },
+      userPermissions: [
+        'readDescription',
+        'readLines',
+        'getGeoAgg',
+        'getValuesAgg',
+        'getValues',
+        'getMetricAgg',
+        'getWordsAgg',
+        'downloadOriginalData',
+        'downloadFullData',
+        'readApiDoc',
+        'realtime-transactions',
+        'readLine',
+        'readLineRevisions',
+        'list'
+      ],
+      public: true,
+      visibility: 'public',
+      description: '',
+      previews: [],
+      href: 'https://koumoul.com/s/data-fair/api/v1/datasets/jep-2018-france',
+      page: 'https://koumoul.com/s/data-fair/dataset/jep-2018-france'
+    }] }
 }
 
 export default { id, title, description, schema, model, options, httpMocks }

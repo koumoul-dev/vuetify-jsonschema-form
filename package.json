@@ -93,7 +93,7 @@
     "vue-axios": "^2.1.5",
     "vue-jest": "^3.0.5",
     "vue-template-compiler": "^2.6.11",
-    "vuetify": "^2.3.8",
+    "vuetify": "^2.4.0",
     "webpack": "^4.39.0",
     "webpack-cli": "^3.3.6",
     "yaml": "^1.7.1"
