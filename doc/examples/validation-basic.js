@@ -4,7 +4,7 @@ const title = 'Basic validation'
 
 const description = `Some JSON schema syntax elements are translated as validation rules: required, length, pattern, etc.
 
-You can also use the \`x-rules\` annotation to set custom rules, either directly as a function or indirectly as a string referencing a function in the \`rules\` option.
+You can also use the \`x-rules\` annotation to set custom rules indirectly as strings referencing functions in the \`rules\` option.
 
 If you wrap the \`vjsf\` element in a \`v-form\` the validation mechanisms will work.
 
