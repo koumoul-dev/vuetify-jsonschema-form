@@ -43,13 +43,7 @@ const schema = {
       items: {
         type: 'object',
         contentMediaType: 'image/*',
-        writeOnly: true,
-        properties: {
-          name: { type: 'string' },
-          type: { type: 'string' },
-          size: { type: 'number' },
-          lastModified: { type: 'string', format: 'date-time' }
-        }
+        writeOnly: true
       }
     }
   }
