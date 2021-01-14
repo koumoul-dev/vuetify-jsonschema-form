@@ -8,6 +8,7 @@ import selectIcon from './select-icon'
 import selectDeps from './select-deps'
 import selectSubschemas from './select-subschemas'
 import selectionControls from './selection-controls'
+import conditionals from './conditionals'
 import files from './files'
 import sections from './sections'
 import sectionsExpansionPanels from './sections-expansion-panels'
@@ -43,6 +44,7 @@ const examples = [
   selectDeps,
   selectSubschemas,
   selectionControls,
+  conditionals,
   files,
   sections,
   sectionsExpansionPanels,

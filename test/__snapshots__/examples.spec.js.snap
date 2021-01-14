@@ -25,7 +25,7 @@ exports[`Examples used as simple test cases Additional validation cases 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-878"
+                for="input-888"
                 style="left: 0px; position: relative;"
               >
                 I'm a required color with initial value
@@ -114,7 +114,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
             class="v-input__append-outer"
           >
             <button
-              class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+              class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
             >
@@ -390,7 +390,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
             class="v-input__append-outer"
           >
             <button
-              class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+              class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
             >
@@ -471,7 +471,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
             class="v-input__append-outer"
           >
             <button
-              class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+              class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
             >
@@ -907,7 +907,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-629"
+              aria-owns="list-639"
               class="v-input__slot"
               role="combobox"
             >
@@ -968,7 +968,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-634"
+              aria-owns="list-644"
               class="v-input__slot"
               role="combobox"
             >
@@ -1031,7 +1031,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-639"
+                for="input-649"
                 style="left: 0px; position: relative;"
               >
                 I'm an array of objects with min/max items
@@ -1043,7 +1043,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
                 <!---->
               </div>
               <button
-                class="v-btn v-btn--contained v-btn--is-elevated v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--small primary vjsf-array-add-button ml-3"
+                class="v-btn v-btn--is-elevated v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--small primary vjsf-array-add-button ml-3"
                 id="limitedObjectsArray--add-button"
                 type="button"
               >
@@ -1119,7 +1119,7 @@ exports[`Examples used as simple test cases Colors 1`] = `
             class="v-input__append-outer"
           >
             <button
-              class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+              class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
             >
@@ -1168,6 +1168,80 @@ exports[`Examples used as simple test cases Colors 1`] = `
                 class="color-picker-trigger color-picker-trigger-empty"
                 style="margin-left: 10px;"
               />
+            </div>
+            <div
+              class="v-messages theme--light"
+            >
+              <transition-group-stub
+                class="v-messages__wrapper"
+                name="message-transition"
+                tag="div"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases Conditional content (beta) 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="col col-12 vjsf-property vjsf-property-root pa-0 "
+  >
+    <div
+      class="row ma-0 "
+    >
+      <div
+        class="col col-12 vjsf-property vjsf-property-booleanConditionProp pa-0 "
+      >
+        <div
+          class="v-input theme--light v-input--selection-controls v-input--switch"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-input--selection-controls__input"
+              >
+                <input
+                  aria-checked="false"
+                  aria-disabled="undefined"
+                  id="booleanConditionProp"
+                  role="switch"
+                  type="checkbox"
+                  value=""
+                />
+                <div
+                  class="v-input--selection-controls__ripple"
+                />
+                <div
+                  class="v-input--switch__track theme--light"
+                />
+                <div
+                  class="v-input--switch__thumb theme--light"
+                >
+                  <transition-stub
+                    mode="out-in"
+                    name="fab-transition"
+                  />
+                </div>
+              </div>
+              <label
+                class="v-label theme--light"
+                for="booleanConditionProp"
+                style="left: 0px; position: relative;"
+              >
+                I'm a boolean used to toggle the content below
+              </label>
             </div>
             <div
               class="v-messages theme--light"
@@ -1270,7 +1344,7 @@ exports[`Examples used as simple test cases Dates 1`] = `
             class="v-input__append-outer"
           >
             <button
-              class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+              class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
             >
@@ -1643,7 +1717,7 @@ exports[`Examples used as simple test cases Editable array 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-424"
+                for="input-434"
                 style="left: 0px; position: relative;"
               >
                 I'm an array of objects
@@ -1655,7 +1729,7 @@ exports[`Examples used as simple test cases Editable array 1`] = `
                 <!---->
               </div>
               <button
-                class="v-btn v-btn--contained v-btn--is-elevated v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--small primary vjsf-array-add-button ml-3"
+                class="v-btn v-btn--is-elevated v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--small primary vjsf-array-add-button ml-3"
                 id="objectArrayProp--add-button"
                 type="button"
               >
@@ -1702,13 +1776,13 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-434"
+                for="input-444"
                 style="left: 0px; position: relative;"
               >
                 I'm an array of objects
               </label>
               <button
-                class="v-btn v-btn--contained v-btn--is-elevated v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--small primary vjsf-array-add-button ml-3"
+                class="v-btn v-btn--is-elevated v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--small primary vjsf-array-add-button ml-3"
                 id="objectArrayProp--add-button"
                 type="button"
               >
@@ -1758,7 +1832,7 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
                           class="spacer"
                         />
                         <button
-                          class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default primary--text vjsf-array-add-button"
+                          class="v-btn v-btn--icon v-btn--round theme--light v-size--default primary--text vjsf-array-add-button"
                           id="objectArrayProp-0--edit-button"
                           type="button"
                         >
@@ -1772,7 +1846,7 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
                           </span>
                         </button>
                         <button
-                          class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default warning--text vjsf-array-delete-button"
+                          class="v-btn v-btn--icon v-btn--round theme--light v-size--default warning--text vjsf-array-delete-button"
                           id="objectArrayProp-0--delete-button"
                           type="button"
                         >
@@ -1901,7 +1975,7 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
                                 >
                                   <label
                                     class="v-label theme--light"
-                                    for="input-480"
+                                    for="input-490"
                                     style="left: 0px; position: relative;"
                                   >
                                     I'm a nested array of objects
@@ -2828,7 +2902,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-769"
+              aria-owns="list-779"
               class="v-input__slot"
               role="combobox"
             >
@@ -3037,7 +3111,7 @@ exports[`Examples used as simple test cases Nullable properties 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-791"
+              aria-owns="list-801"
               class="v-input__slot"
               role="button"
             >
@@ -3144,7 +3218,7 @@ exports[`Examples used as simple test cases Prefilled arrays 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-508"
+                for="input-518"
                 style="left: 0px; position: relative;"
               >
                 I'm an array filled by HTTP request
@@ -3275,7 +3349,7 @@ exports[`Examples used as simple test cases Read only content 1`] = `
                   class="v-input__append-outer"
                 >
                   <button
-                    class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+                    class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
                     style="pointer-events: auto;"
                     type="button"
                   >
@@ -3515,7 +3589,7 @@ exports[`Examples used as simple test cases Readonly select with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-864"
+              aria-owns="list-874"
               class="v-input__slot"
               role="button"
             >
@@ -4897,7 +4971,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
             class="v-input__append-outer"
           >
             <button
-              class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+              class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
             >
@@ -5028,7 +5102,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
             class="v-input__append-outer"
           >
             <button
-              class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+              class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
             >
@@ -5280,7 +5354,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             class="v-input__append-outer"
           >
             <button
-              class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+              class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
             >
@@ -5657,7 +5731,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             class="v-input__append-outer"
           >
             <button
-              class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+              class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
             >
@@ -6341,7 +6415,7 @@ exports[`Examples used as simple test cases Selects prefilled with http results 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-845"
+              aria-owns="list-855"
               class="v-input__slot"
               role="button"
             >
@@ -6439,7 +6513,7 @@ exports[`Examples used as simple test cases Selects prefilled with http results 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-852"
+              aria-owns="list-862"
               class="v-input__slot"
               role="button"
             >
@@ -7115,7 +7189,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-819"
+              aria-owns="list-829"
               class="v-input__slot"
               role="button"
             >
@@ -7213,7 +7287,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-826"
+              aria-owns="list-836"
               class="v-input__slot"
               role="button"
             >
@@ -7311,7 +7385,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-833"
+              aria-owns="list-843"
               class="v-input__slot"
               role="button"
             >
@@ -7663,7 +7737,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-593"
+              aria-owns="list-603"
               class="v-input__slot"
               role="button"
             >
@@ -7744,7 +7818,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
             class="v-input__append-outer"
           >
             <button
-              class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+              class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
             >
@@ -7827,7 +7901,7 @@ exports[`Examples used as simple test cases resolved schema 1`] = `
             class="v-input__append-outer"
           >
             <button
-              class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default"
+              class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
             >
