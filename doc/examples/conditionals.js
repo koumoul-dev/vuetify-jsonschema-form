@@ -8,38 +8,69 @@ This functionality requires a JSON schema validator. If [Ajv](https://github.com
 
 const schema = {
   type: 'object',
-  properties: {
-    booleanConditionProp: {
-      type: 'boolean',
-      'x-display': 'switch',
-      title: `I'm a boolean used to toggle the content below`
-    }
-  },
-  if: {
-    required: ['booleanConditionProp'],
-    properties: {
-      booleanConditionProp: { const: true }
-    }
-  },
-  then: {
-    properties: {
-      stringProp1: {
-        type: 'string',
-        title: `I'm a string available if the boolean switch is true`
+  allOf: [
+    {
+      properties: {
+        booleanConditionProp: {
+          type: 'boolean',
+          'x-display': 'switch',
+          title: `I'm a boolean used to toggle the content below`
+        }
+      },
+      if: {
+        required: ['booleanConditionProp'],
+        properties: {
+          booleanConditionProp: { const: true }
+        }
+      },
+      then: {
+        properties: {
+          stringProp1: {
+            type: 'string',
+            title: `I'm a string available if the boolean switch is true`
+          }
+        }
+      },
+      else: {
+        properties: {
+          stringProp2: {
+            type: 'string',
+            title: `I'm another string available if the boolean switch is false`
+          }
+        }
+      }
+    },
+    {
+      properties: {
+        numberCondition: {
+          type: 'integer',
+          minimum: 0,
+          maximum: 120,
+          title: `I'm a number whose value is used to toggle content below`
+        }
+      },
+      if: {
+        required: ['numberCondition'],
+        properties: {
+          numberCondition: { minimum: 0, maximum: 18 }
+        }
+      },
+      then: {
+        properties: {
+          stringProp3: {
+            type: 'string',
+            title: `I'm a string available if the number condition is less than 18`
+          }
+        }
       }
     }
-  },
-  else: {
-    properties: {
-      stringProp2: {
-        type: 'string',
-        title: `I'm another string available if the boolean switch is false`
-      }
-    }
-  }
+  ]
 }
 
-const model = {}
+const model = {
+  booleanConditionProp: true,
+  numberCondition: 10
+}
 
 const options = {}
 
