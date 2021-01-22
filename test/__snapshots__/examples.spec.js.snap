@@ -25,7 +25,7 @@ exports[`Examples used as simple test cases Additional validation cases 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-888"
+                for="input-894"
                 style="left: 0px; position: relative;"
               >
                 I'm a required color with initial value
@@ -907,7 +907,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-639"
+              aria-owns="list-645"
               class="v-input__slot"
               role="combobox"
             >
@@ -968,7 +968,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-644"
+              aria-owns="list-650"
               class="v-input__slot"
               role="combobox"
             >
@@ -1031,7 +1031,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-649"
+                for="input-655"
                 style="left: 0px; position: relative;"
               >
                 I'm an array of objects with min/max items
@@ -1198,59 +1198,119 @@ exports[`Examples used as simple test cases Conditional content (beta) 1`] = `
       class="row ma-0 "
     >
       <div
-        class="col col-12 vjsf-property vjsf-property-booleanConditionProp pa-0 "
+        class="col col-12 vjsf-property vjsf-property-allOf-0 pa-0 "
       >
         <div
-          class="v-input theme--light v-input--selection-controls v-input--switch"
+          class="row ma-0 "
         >
           <div
-            class="v-input__control"
+            class="col col-12 vjsf-property vjsf-property-allOf-0-booleanConditionProp pa-0 "
           >
             <div
-              class="v-input__slot"
+              class="v-input v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--switch primary--text"
             >
               <div
-                class="v-input--selection-controls__input"
+                class="v-input__control"
               >
-                <input
-                  aria-checked="false"
-                  aria-disabled="undefined"
-                  id="booleanConditionProp"
-                  role="switch"
-                  type="checkbox"
-                  value=""
-                />
                 <div
-                  class="v-input--selection-controls__ripple"
-                />
-                <div
-                  class="v-input--switch__track theme--light"
-                />
-                <div
-                  class="v-input--switch__thumb theme--light"
+                  class="v-input__slot"
                 >
-                  <transition-stub
-                    mode="out-in"
-                    name="fab-transition"
+                  <div
+                    class="v-input--selection-controls__input"
+                  >
+                    <input
+                      aria-checked="true"
+                      aria-disabled="undefined"
+                      id="allOf-0-booleanConditionProp"
+                      role="switch"
+                      type="checkbox"
+                      value="true"
+                    />
+                    <div
+                      class="v-input--selection-controls__ripple primary--text"
+                    />
+                    <div
+                      class="v-input--switch__track theme--light primary--text"
+                    />
+                    <div
+                      class="v-input--switch__thumb theme--light primary--text"
+                    >
+                      <transition-stub
+                        mode="out-in"
+                        name="fab-transition"
+                      />
+                    </div>
+                  </div>
+                  <label
+                    class="v-label theme--light"
+                    for="allOf-0-booleanConditionProp"
+                    style="left: 0px; position: relative;"
+                  >
+                    I'm a boolean used to toggle the content below
+                  </label>
+                </div>
+                <div
+                  class="v-messages theme--light primary--text"
+                >
+                  <transition-group-stub
+                    class="v-messages__wrapper"
+                    name="message-transition"
+                    tag="div"
                   />
                 </div>
               </div>
-              <label
-                class="v-label theme--light"
-                for="booleanConditionProp"
-                style="left: 0px; position: relative;"
-              >
-                I'm a boolean used to toggle the content below
-              </label>
             </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-allOf-1 pa-0 "
+      >
+        <div
+          class="row ma-0 "
+        >
+          <div
+            class="col col-12 vjsf-property vjsf-property-allOf-1-numberCondition pa-0 "
+          >
             <div
-              class="v-messages theme--light"
+              class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
             >
-              <transition-group-stub
-                class="v-messages__wrapper"
-                name="message-transition"
-                tag="div"
-              />
+              <div
+                class="v-input__control"
+              >
+                <div
+                  class="v-input__slot"
+                >
+                  <div
+                    class="v-text-field__slot"
+                  >
+                    <label
+                      class="v-label v-label--active theme--light"
+                      for="allOf-1-numberCondition"
+                      style="left: 0px; position: absolute;"
+                    >
+                      I'm a number whose value is used to toggle content below
+                    </label>
+                    <input
+                      id="allOf-1-numberCondition"
+                      type="number"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="v-text-field__details"
+                >
+                  <div
+                    class="v-messages theme--light"
+                  >
+                    <transition-group-stub
+                      class="v-messages__wrapper"
+                      name="message-transition"
+                      tag="div"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1717,7 +1777,7 @@ exports[`Examples used as simple test cases Editable array 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-434"
+                for="input-440"
                 style="left: 0px; position: relative;"
               >
                 I'm an array of objects
@@ -1776,7 +1836,7 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-444"
+                for="input-450"
                 style="left: 0px; position: relative;"
               >
                 I'm an array of objects
@@ -1975,7 +2035,7 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
                                 >
                                   <label
                                     class="v-label theme--light"
-                                    for="input-490"
+                                    for="input-496"
                                     style="left: 0px; position: relative;"
                                   >
                                     I'm a nested array of objects
@@ -2902,7 +2962,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-779"
+              aria-owns="list-785"
               class="v-input__slot"
               role="combobox"
             >
@@ -3111,7 +3171,7 @@ exports[`Examples used as simple test cases Nullable properties 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-801"
+              aria-owns="list-807"
               class="v-input__slot"
               role="button"
             >
@@ -3218,7 +3278,7 @@ exports[`Examples used as simple test cases Prefilled arrays 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-518"
+                for="input-524"
                 style="left: 0px; position: relative;"
               >
                 I'm an array filled by HTTP request
@@ -3589,7 +3649,7 @@ exports[`Examples used as simple test cases Readonly select with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-874"
+              aria-owns="list-880"
               class="v-input__slot"
               role="button"
             >
@@ -6415,7 +6475,7 @@ exports[`Examples used as simple test cases Selects prefilled with http results 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-855"
+              aria-owns="list-861"
               class="v-input__slot"
               role="button"
             >
@@ -6513,7 +6573,7 @@ exports[`Examples used as simple test cases Selects prefilled with http results 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-862"
+              aria-owns="list-868"
               class="v-input__slot"
               role="button"
             >
@@ -7189,7 +7249,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-829"
+              aria-owns="list-835"
               class="v-input__slot"
               role="button"
             >
@@ -7287,7 +7347,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-836"
+              aria-owns="list-842"
               class="v-input__slot"
               role="button"
             >
@@ -7385,7 +7445,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-843"
+              aria-owns="list-849"
               class="v-input__slot"
               role="button"
             >
@@ -7737,7 +7797,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-603"
+              aria-owns="list-609"
               class="v-input__slot"
               role="button"
             >
