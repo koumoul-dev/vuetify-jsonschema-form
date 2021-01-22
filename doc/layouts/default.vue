@@ -68,6 +68,11 @@
       <v-app-bar-nav-icon v-if="$vuetify.breakpoint.smAndDown" @click.stop="drawer = !drawer" />
       <search-widget df-url="https://staging-koumoul.com/s/data-fair" dataset-id="vjsf-1" :menu-props="{'nudge-left': $vuetify.breakpoint.smAndDown ? 20 : 0}" :replace-url="{'https://koumoul-dev.github.io/vuetify-jsonschema-form/latest': ''}" :to-links="true" />
       <v-spacer />
+      <v-btn href="https://github.com/sponsors/koumoul-dev" outlined rounded class="ml-2 pl-3" color="primary" style="text-transform: none;">
+        <v-icon color="pink">
+          mdi-heart-outline
+        </v-icon>&nbsp;&nbsp;Sponsor
+      </v-btn>
       <v-btn fab small href="https://github.com/koumoul-dev/vuetify-jsonschema-form" color="primary" class="ml-2">
         <v-icon>mdi-github</v-icon>
       </v-btn>
