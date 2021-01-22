@@ -4,12 +4,11 @@
       vjsf
     </h1>
 
-    <p class="subtitle-2 font-italic">
+    <p class="subtitle-2 font-italic mb-10">
       vuetify-jsonschema-form
     </p>
-    <iframe src="https://github.com/sponsors/koumoul-dev/button" title="Sponsor koumoul-dev" height="35" width="116" style="border: 0;" />
 
-    <p class="mt-6 text-center">
+    <p class="mt-2 text-center">
       Create beautiful and low-effort forms that output valid data.
     </p>
 
