@@ -4,10 +4,11 @@ import VJsf from '../../lib/VJsf.js'
 import '../../lib/VJsf.css'
 import VJsfTiptap from './wrappers/v-jsf-tiptap.vue'
 import VJsfToastUiEditor from './wrappers/v-jsf-toast-ui-editor.vue'
+import VJsfCropImg from './wrappers/v-jsf-crop-img.vue'
 import { defaultTemplate } from '../examples'
 
 export default {
-  components: { VJsf, VJsfTiptap, VJsfToastUiEditor },
+  components: { VJsf, VJsfTiptap, VJsfToastUiEditor, VJsfCropImg },
   props: {
     params: { type: Object, required: true }
   },

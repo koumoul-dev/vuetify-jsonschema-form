@@ -18,8 +18,24 @@ const schema = {
         type: 'object',
         required: ['htmlProp', 'markdownProp'],
         properties: {
-          htmlProp: { type: 'string', title: `I'm a HTML string`, description: 'This custom component uses [tiptap](https://tiptap.dev/) through [tiptap-vuetify](https://github.com/iliyaZelenko/tiptap-vuetify).', 'x-display': 'custom-tiptap' },
-          markdownProp: { type: 'string', title: `I'm a markdown string`, description: 'This custom component uses [Toast UI editor](https://github.com/nhn/tui.editor).', 'x-display': 'custom-toast-ui-editor' }
+          htmlProp: {
+            type: 'string',
+            title: `I'm a HTML string`,
+            description: 'This custom component uses [tiptap](https://tiptap.dev/) through [tiptap-vuetify](https://github.com/iliyaZelenko/tiptap-vuetify).',
+            'x-display': 'custom-tiptap'
+          },
+          markdownProp: {
+            type: 'string',
+            title: `I'm a markdown string`,
+            description: 'This custom component uses [Toast UI editor](https://github.com/nhn/tui.editor).',
+            'x-display': 'custom-toast-ui-editor'
+          },
+          avatarProp: {
+            type: 'string',
+            title: `I'm a base64 png image string`,
+            description: 'This custom component uses [cropperjs](https://github.com/fengyuanchen/cropperjs)/[vue-cropperjs](https://www.npmjs.com/package/vue-cropperjs).',
+            'x-display': 'custom-avatar'
+          }
         }
       }
     }
@@ -39,6 +55,9 @@ const template = `<v-jsf v-model="model" :schema="schema" :options="options">
   </template>
   <template slot="custom-toast-ui-editor" slot-scope="context">
     <v-jsf-toast-ui-editor v-bind="context" />
+  </template>
+  <template slot="custom-avatar" slot-scope="context">
+    <v-jsf-crop-img v-bind="context" />
   </template>
 </v-jsf>`
 

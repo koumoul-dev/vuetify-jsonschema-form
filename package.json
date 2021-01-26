@@ -91,6 +91,7 @@
     "stringify-object": "^3.3.0",
     "tiptap-vuetify": "^2.24.0",
     "vue-axios": "^2.1.5",
+    "vue-cropperjs": "^4.2.0",
     "vue-jest": "^3.0.5",
     "vue-template-compiler": "^2.6.11",
     "vuetify": "^2.4.0",
