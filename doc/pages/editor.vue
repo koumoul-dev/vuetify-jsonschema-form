@@ -1,47 +1,95 @@
 <template>
-  <v-container fluid>
-    <h1 class="display-1 mb-4">
+  <v-container fluid class="px-0 py-0 vjsf-editor" style="height: 100%">
+    <!--<h1 class="display-1 mb-4">
       {{ title }}
-    </h1>
-    <v-row>
-      <v-col cols="4">
-        <v-card dark>
-          <v-card-title class="py-1 primary--text">
+    </h1>-->
+    <v-row style="height: 100%" class="ma-0">
+      <v-col cols="4" class="pa-0">
+        <v-card dark tile flat style="height: 100%">
+          <!--<v-card-title class="py-1 primary--text" style="position: absolute; width: 100%;">
             Schema
             <v-spacer />
             <div style="width:80px;">
               <v-select v-model="format" :items="['json', 'yaml']" hide-details dense class="mt-0 pb-2" />
             </div>
-          </v-card-title>
-          <v-card-text class="pa-0">
-            <div v-show="format === 'json'" id="json-editor" style="height: 400px" />
-            <div v-show="format === 'yaml'" id="yaml-editor" style="height: 400px" />
+          </v-card-title>-->
+          <!--<v-card-text class="px-0 pb-0" style="height: 100%; padding-top: 40px;">-->
+          <v-card-text class="px-0 pb-0" style="height: 100%;">
+            <div v-show="format === 'json'" id="json-editor" style="height: 100%" />
+            <div v-show="format === 'yaml'" id="yaml-editor" style="height: 100%" />
           </v-card-text>
         </v-card>
       </v-col>
       <v-col cols="8">
-        {{ schema }}
+        <v-form ref="form" v-model="valid">
+          <v-jsf v-model="model" :schema="schema">
+            <template slot="custom-tiptap" slot-scope="context">
+              <v-jsf-tiptap v-bind="context" />
+            </template>
+            <template slot="custom-toast-ui-editor" slot-scope="context">
+              <v-jsf-toast-ui-editor v-bind="context" />
+            </template>
+            <template slot="custom-avatar" slot-scope="context">
+              <v-jsf-crop-img v-bind="context" />
+            </template>
+          </v-jsf>
+        </v-form>
+        <v-row class="mt-2">
+          <v-spacer />
+          <v-btn :color="valid ? 'primary' : 'warning'" @click="$refs.form.validate()">
+            validate
+          </v-btn>
+          <v-spacer />
+        </v-row>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
+import '../../lib/deps/third-party.js'
+import VJsf from '../../lib/VJsf.js'
+import '../../lib/VJsf.css'
+import VJsfTiptap from '~/components/wrappers/v-jsf-tiptap.vue'
+import VJsfToastUiEditor from '~/components/wrappers/v-jsf-toast-ui-editor.vue'
+import VJsfCropImg from '~/components/wrappers/v-jsf-crop-img.vue'
 import YAML from 'yaml'
 
 const ace = require('brace')
 require('brace/mode/json')
 require('brace/mode/yaml')
 // const theme = 'ace/theme/monokai'
+// const theme = 'ace/theme/vibrant_ink'
 const theme = 'ace/theme/vibrant_ink'
 // require('br' + theme)
 require('brace/theme/vibrant_ink')
 
+// cf https://github.com/ajaxorg/ace/wiki/Configuring-Ace
+const aceOptions = {
+  // showGutter: false,
+  showLineNumbers: false,
+  fontSize: 14,
+  tabSize: 2
+}
+
 export default {
+  layout: 'void',
+  components: { VJsf, VJsfTiptap, VJsfToastUiEditor, VJsfCropImg },
   data: () => ({
     title: 'editor',
-    format: 'json',
-    schema: { test: 'test' }
+    format: 'yaml',
+    valid: true,
+    schema: {
+      'x-options': { editMode: 'inline' },
+      type: 'object',
+      properties: {
+        title: {
+          title: 'Title',
+          type: 'string'
+        }
+      }
+    },
+    model: {}
   }),
   head() {
     return {
@@ -56,13 +104,15 @@ export default {
   async mounted() {
     await this.$nextTick()
     this.editors = {}
-    const jsonEditor = this.editors.json = ace.edit('json-editor', { autoScrollEditorIntoView: true })
+    const jsonEditor = this.editors.json = ace.edit('json-editor')
+    jsonEditor.setOptions(aceOptions)
     jsonEditor.getSession().setMode('ace/mode/json')
     jsonEditor.setTheme(theme)
     jsonEditor.setValue(JSON.stringify(this.schema))
-    this.openEditor(jsonEditor)
+    // this.openEditor(jsonEditor)
 
-    const yamlEditor = this.editors.yaml = ace.edit('yaml-editor', { autoScrollEditorIntoView: true })
+    const yamlEditor = this.editors.yaml = ace.edit('yaml-editor')
+    yamlEditor.setOptions(aceOptions)
     yamlEditor.getSession().setMode('ace/mode/yaml')
     yamlEditor.setTheme(theme)
     yamlEditor.setValue(YAML.stringify(this.schema))
@@ -70,17 +120,19 @@ export default {
     jsonEditor.session.on('change', () => {
       if (this.format !== 'json') return
       try {
-        this.schema = JSON.parse(jsonEditor.getValue())
+        this.schema = JSON.parse(jsonEditor.getValue()) || {}
       } catch (err) {
         return
       }
       const schemaYaml = YAML.stringify(this.schema)
-      if (schemaYaml !== yamlEditor.getValue()) yamlEditor.setValue(schemaYaml)
+      if (schemaYaml !== yamlEditor.getValue()) {
+        yamlEditor.setValue(schemaYaml)
+      }
     })
     yamlEditor.session.on('change', () => {
       if (this.format !== 'yaml') return
       try {
-        this.schema = YAML.parse(yamlEditor.getValue())
+        this.schema = YAML.parse(yamlEditor.getValue()) || {}
       } catch (err) {
         return
       }
@@ -99,5 +151,12 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
+.vjsf-editor .ace-vibrant-ink .ace_keyword, .vjsf-editor .ace-vibrant-ink .ace_meta {
+    color: #00BCD4;
+}
+
+/*.vjsf-editor .ace_line {
+  line-height: 24px;
+}*/
 </style>

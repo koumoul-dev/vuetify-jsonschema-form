@@ -1,0 +1,48 @@
+type: object
+required:
+  - account
+properties:
+  account:
+    type: string
+    title: Account
+    x-props:
+      solo: true
+      rounded: true
+  avatar:
+    type: string
+    title: Avatar
+    x-display: custom-avatar
+  bio:
+    type: string
+    title: Short bio
+    x-display: custom-tiptap
+x-display: tabs
+allOf:
+  - title: Personal information
+    required:
+      - firstname
+      - lastname
+    properties:
+      firstname:
+        type: string
+        title: First name
+        x-cols: 6
+      lastname:
+        type: string
+        title: Last name
+        x-cols: 6
+      birthday:
+        type: string
+        title: Birthday
+        format: date
+  - title: Preferences
+    properties:
+      dark:
+        type: boolean
+        title: Dark mode
+        x-display: switch
+        default: true
+      primaryColor:
+        type: string
+        title: Primary color
+        format: hexcolor

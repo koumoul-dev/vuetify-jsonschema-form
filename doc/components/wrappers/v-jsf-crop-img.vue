@@ -39,8 +39,6 @@
       ref="cropper"
       v-bind="cropperOptions"
       :src="imgSrc"
-      :min-container-width="468"
-      :min-container-height="400"
       alt="Avatar"
     />
   </v-input>
