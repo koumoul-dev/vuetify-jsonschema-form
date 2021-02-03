@@ -1,5 +1,5 @@
 {
-  "name": "@koumoul/vjsf",
+  "name": "@baking-bad/vjsf",
   "version": "1.20.0",
   "description": "Generate forms for the vuetify UI library (vuejs) based on annotated JSON schemas.",
   "main": "dist/main.js",
@@ -36,14 +36,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/koumoul-dev/vuetify-jsonschema-form.git"
+    "url": "git+https://github.com/baking-bad/vuetify-jsonschema-form.git"
   },
-  "author": "Alban Mouton <alban.mouton@gmail.com>",
+  "author": "Alban Mouton <alban.mouton@gmail.com>, Baking Bad <https://baking-bad.org/>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/koumoul-dev/vuetify-jsonschema-form/issues"
+    "url": "https://github.com/baking-bad/vuetify-jsonschema-form/issues"
   },
-  "homepage": "https://github.com/koumoul-dev/vuetify-jsonschema-form#readme",
+  "homepage": "https://github.com/baking-bad/vuetify-jsonschema-form#readme",
   "dependencies": {
     "@mdi/js": "^5.5.55",
     "ajv": "^6.12.0",
