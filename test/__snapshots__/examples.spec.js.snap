@@ -836,7 +836,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
                   <div
                     class="v-messages__message"
                   >
-                    Value must be less than 100
+                    The value must be lower than or equal to 100
                   </div>
                 </transition-group-stub>
               </div>
