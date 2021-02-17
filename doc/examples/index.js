@@ -32,6 +32,7 @@ import selectFilledDeps from './_select-filled-deps'
 import selectFilledHttp from './_select-filled-http'
 import readOnlySelectIcon from './_readonly-select-icon'
 import ValidationExtraCases from './_validation-extra-cases'
+import XIf from './_x-if'
 
 const examples = [
   basic,
@@ -67,7 +68,8 @@ const examples = [
   selectFilledDeps,
   selectFilledHttp,
   readOnlySelectIcon,
-  ValidationExtraCases
+  ValidationExtraCases,
+  XIf
 ]
 
 const defaultTemplate = '<v-jsf v-model="model" :schema="schema" :options="options" />'
