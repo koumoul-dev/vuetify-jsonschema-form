@@ -25,7 +25,7 @@ exports[`Examples used as simple test cases Additional validation cases 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-894"
+                for="input-890"
                 style="left: 0px; position: relative;"
               >
                 I'm a required color with initial value
@@ -907,7 +907,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-645"
+              aria-owns="list-641"
               class="v-input__slot"
               role="combobox"
             >
@@ -968,7 +968,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-650"
+              aria-owns="list-646"
               class="v-input__slot"
               role="combobox"
             >
@@ -1031,7 +1031,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-655"
+                for="input-651"
                 style="left: 0px; position: relative;"
               >
                 I'm an array of objects with min/max items
@@ -1385,7 +1385,7 @@ exports[`Examples used as simple test cases Conditional content based on context
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-908"
+            aria-owns="list-904"
             class="v-input__slot"
             role="button"
           >
@@ -2167,7 +2167,7 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
                                 >
                                   <label
                                     class="v-label theme--light"
-                                    for="input-496"
+                                    for="input-499"
                                     style="left: 0px; position: relative;"
                                   >
                                     I'm a nested array of objects
@@ -2186,128 +2186,160 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
                                   class="v-card v-sheet v-sheet--outlined theme--light"
                                 >
                                   <div
-                                    class="v-alert v-sheet v-sheet--outlined theme--light v-alert--outlined error--text pa-0 ma-0"
-                                    role="alert"
+                                    class="v-card__title subtitle-1"
                                   >
+                                    Nested object title
                                     <div
-                                      class="v-alert__wrapper"
+                                      class="spacer"
+                                    />
+                                    <div
+                                      class="v-card__actions pa-0"
                                     >
                                       <div
-                                        class="v-alert__content"
+                                        class="spacer"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div
+                                    class="v-card__text"
+                                  >
+                                    <div
+                                      class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0-nestedObjectArrayProp-item-0 pa-0 "
+                                    >
+                                      <div
+                                        class="row ma-0 "
                                       >
                                         <div
-                                          class="v-card__title subtitle-1"
-                                        >
-                                          Nested object title
-                                          <div
-                                            class="spacer"
-                                          />
-                                          <div
-                                            class="v-card__actions pa-0"
-                                          >
-                                            <div
-                                              class="spacer"
-                                            />
-                                          </div>
-                                        </div>
-                                        <div
-                                          class="v-card__text"
+                                          class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0-nestedObjectArrayProp-item-0-titleProp pa-0 "
+                                          style="display: none;"
                                         >
                                           <div
-                                            class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0-nestedObjectArrayProp-item-0 pa-0 "
+                                            class="v-input v-input--is-label-active v-input--is-dirty v-input--is-disabled v-input--dense theme--light v-text-field v-text-field--is-booted"
                                           >
                                             <div
-                                              class="row ma-0 "
+                                              class="v-input__control"
                                             >
                                               <div
-                                                class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0-nestedObjectArrayProp-item-0-titleProp pa-0 "
-                                                style="display: none;"
+                                                class="v-input__slot"
                                               >
                                                 <div
-                                                  class="v-input v-input--is-label-active v-input--is-dirty v-input--is-disabled v-input--dense theme--light v-text-field v-text-field--is-booted"
+                                                  class="v-text-field__slot"
                                                 >
-                                                  <div
-                                                    class="v-input__control"
+                                                  <label
+                                                    class="v-label v-label--active v-label--is-disabled theme--light"
+                                                    for="objectArrayProp-item-0-nestedObjectArrayProp-item-0-titleProp"
+                                                    style="left: 0px; position: absolute;"
                                                   >
-                                                    <div
-                                                      class="v-input__slot"
-                                                    >
-                                                      <div
-                                                        class="v-text-field__slot"
-                                                      >
-                                                        <label
-                                                          class="v-label v-label--active v-label--is-disabled theme--light"
-                                                          for="objectArrayProp-item-0-nestedObjectArrayProp-item-0-titleProp"
-                                                          style="left: 0px; position: absolute;"
-                                                        >
-                                                          I'm a required string used as title
-                                                        </label>
-                                                        <input
-                                                          disabled="disabled"
-                                                          id="objectArrayProp-item-0-nestedObjectArrayProp-item-0-titleProp"
-                                                          type="text"
-                                                        />
-                                                      </div>
-                                                    </div>
-                                                    <div
-                                                      class="v-text-field__details"
-                                                    >
-                                                      <div
-                                                        class="v-messages theme--light"
-                                                      >
-                                                        <transition-group-stub
-                                                          class="v-messages__wrapper"
-                                                          name="message-transition"
-                                                          tag="div"
-                                                        />
-                                                      </div>
-                                                    </div>
-                                                  </div>
+                                                    I'm a required string used as title
+                                                  </label>
+                                                  <input
+                                                    disabled="disabled"
+                                                    id="objectArrayProp-item-0-nestedObjectArrayProp-item-0-titleProp"
+                                                    type="text"
+                                                  />
                                                 </div>
                                               </div>
                                               <div
-                                                class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0-nestedObjectArrayProp-item-0-stringProp pa-0 "
+                                                class="v-text-field__details"
                                               >
                                                 <div
-                                                  class="v-input v-input--is-disabled v-input--dense theme--light v-text-field v-text-field--is-booted"
+                                                  class="v-messages theme--light"
                                                 >
+                                                  <transition-group-stub
+                                                    class="v-messages__wrapper"
+                                                    name="message-transition"
+                                                    tag="div"
+                                                  />
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div
+                                          class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0-nestedObjectArrayProp-item-0-selectProp pa-0 "
+                                        >
+                                          <div
+                                            class="v-input v-input--is-disabled v-input--dense theme--light v-text-field v-text-field--is-booted v-select"
+                                          >
+                                            <div
+                                              class="v-input__control"
+                                            >
+                                              <div
+                                                aria-expanded="false"
+                                                aria-haspopup="listbox"
+                                                aria-owns="list-508"
+                                                class="v-input__slot"
+                                                role="button"
+                                              >
+                                                <div
+                                                  class="v-select__slot"
+                                                >
+                                                  <label
+                                                    class="v-label v-label--is-disabled theme--light"
+                                                    for="objectArrayProp-item-0-nestedObjectArrayProp-item-0-selectProp"
+                                                    style="left: 0px; position: absolute;"
+                                                  >
+                                                    I'm a select
+                                                  </label>
                                                   <div
-                                                    class="v-input__control"
+                                                    class="v-select__selections"
+                                                  >
+                                                    <input
+                                                      aria-readonly="undefined"
+                                                      autocomplete="off"
+                                                      disabled="disabled"
+                                                      id="objectArrayProp-item-0-nestedObjectArrayProp-item-0-selectProp"
+                                                      readonly="readonly"
+                                                      type="text"
+                                                    />
+                                                  </div>
+                                                  <div
+                                                    class="v-input__append-inner"
                                                   >
                                                     <div
-                                                      class="v-input__slot"
+                                                      class="v-input__icon v-input__icon--clear"
                                                     >
-                                                      <div
-                                                        class="v-text-field__slot"
-                                                      >
-                                                        <label
-                                                          class="v-label v-label--is-disabled theme--light"
-                                                          for="objectArrayProp-item-0-nestedObjectArrayProp-item-0-stringProp"
-                                                          style="left: 0px; position: absolute;"
-                                                        >
-                                                          I'm another required string
-                                                        </label>
-                                                        <input
-                                                          disabled="disabled"
-                                                          id="objectArrayProp-item-0-nestedObjectArrayProp-item-0-stringProp"
-                                                          type="text"
-                                                        />
-                                                      </div>
-                                                    </div>
-                                                    <div
-                                                      class="v-text-field__details"
-                                                    >
-                                                      <div
-                                                        class="v-messages theme--light"
-                                                      >
-                                                        <transition-group-stub
-                                                          class="v-messages__wrapper"
-                                                          name="message-transition"
-                                                          tag="div"
-                                                        />
-                                                      </div>
+                                                      <button
+                                                        aria-label="clear icon"
+                                                        class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                                                        disabled="disabled"
+                                                        type="button"
+                                                      />
                                                     </div>
                                                   </div>
+                                                  <div
+                                                    class="v-input__append-inner"
+                                                  >
+                                                    <div
+                                                      class="v-input__icon v-input__icon--append"
+                                                    >
+                                                      <i
+                                                        aria-hidden="true"
+                                                        class="v-icon notranslate v-icon--disabled mdi mdi-menu-down theme--light"
+                                                      />
+                                                    </div>
+                                                  </div>
+                                                  <input
+                                                    type="hidden"
+                                                  />
+                                                </div>
+                                                <div
+                                                  class="v-menu"
+                                                >
+                                                  <!---->
+                                                </div>
+                                              </div>
+                                              <div
+                                                class="v-text-field__details"
+                                              >
+                                                <div
+                                                  class="v-messages theme--light"
+                                                >
+                                                  <transition-group-stub
+                                                    class="v-messages__wrapper"
+                                                    name="message-transition"
+                                                    tag="div"
+                                                  />
                                                 </div>
                                               </div>
                                             </div>
@@ -3094,7 +3126,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-785"
+              aria-owns="list-781"
               class="v-input__slot"
               role="combobox"
             >
@@ -3303,7 +3335,7 @@ exports[`Examples used as simple test cases Nullable properties 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-807"
+              aria-owns="list-803"
               class="v-input__slot"
               role="button"
             >
@@ -3410,7 +3442,7 @@ exports[`Examples used as simple test cases Prefilled arrays 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-524"
+                for="input-520"
                 style="left: 0px; position: relative;"
               >
                 I'm an array filled by HTTP request
@@ -3781,7 +3813,7 @@ exports[`Examples used as simple test cases Readonly select with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-880"
+              aria-owns="list-876"
               class="v-input__slot"
               role="button"
             >
@@ -6607,7 +6639,7 @@ exports[`Examples used as simple test cases Selects prefilled with http results 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-861"
+              aria-owns="list-857"
               class="v-input__slot"
               role="button"
             >
@@ -6705,7 +6737,7 @@ exports[`Examples used as simple test cases Selects prefilled with http results 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-868"
+              aria-owns="list-864"
               class="v-input__slot"
               role="button"
             >
@@ -7381,7 +7413,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-835"
+              aria-owns="list-831"
               class="v-input__slot"
               role="button"
             >
@@ -7479,7 +7511,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-842"
+              aria-owns="list-838"
               class="v-input__slot"
               role="button"
             >
@@ -7577,7 +7609,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-849"
+              aria-owns="list-845"
               class="v-input__slot"
               role="button"
             >
@@ -7929,7 +7961,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-609"
+              aria-owns="list-605"
               class="v-input__slot"
               role="button"
             >

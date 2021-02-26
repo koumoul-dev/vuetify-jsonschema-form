@@ -26,10 +26,10 @@ const schema = {
             'x-itemTitle': 'titleProp',
             items: {
               type: 'object',
-              required: ['titleProp', 'stringProp'],
+              required: ['titleProp'],
               properties: {
                 titleProp: { type: 'string', title: `I'm a required string used as title` },
-                stringProp: { type: 'string', title: `I'm another required string` }
+                selectProp: { type: 'string', title: `I'm a select`, enum: ['value 1', 'value 2', 'value 3'] }
               }
             }
           }
