@@ -13,6 +13,7 @@ import files from './files'
 import sections from './sections'
 import sectionsExpansionPanels from './sections-expansion-panels'
 import sectionsTab from './sections-tabs'
+import sectionsStepper from './sections-stepper'
 import editableArray from './editable-array'
 import editableArrayInline from './editable-array-inline'
 import prefilledArrays from './prefilled-arrays'
@@ -50,6 +51,7 @@ const examples = [
   sections,
   sectionsExpansionPanels,
   sectionsTab,
+  sectionsStepper,
   editableArray,
   editableArrayInline,
   prefilledArrays,
