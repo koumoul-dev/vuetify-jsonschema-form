@@ -2057,13 +2057,13 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
                       class="v-card__text"
                     >
                       <div
-                        class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0 pa-0read-only"
+                        class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0 pa-0 read-only"
                       >
                         <div
                           class="row ma-0 "
                         >
                           <div
-                            class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0-titleProp pa-0read-only"
+                            class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0-titleProp pa-0 read-only"
                             style="display: none;"
                           >
                             <div
@@ -2096,7 +2096,7 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
                             </div>
                           </div>
                           <div
-                            class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0-stringProp pa-0read-only"
+                            class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0-stringProp pa-0 read-only"
                           >
                             <div
                               class="v-input v-input--hide-details v-input--is-disabled theme--light v-text-field v-text-field--is-booted"
@@ -2128,7 +2128,7 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
                             </div>
                           </div>
                           <div
-                            class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0-nestedObjectArrayProp pa-0read-only"
+                            class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0-nestedObjectArrayProp pa-0 read-only"
                           >
                             <div
                               class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
@@ -2178,13 +2178,13 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
                                     class="v-card__text"
                                   >
                                     <div
-                                      class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0-nestedObjectArrayProp-item-0 pa-0read-only"
+                                      class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0-nestedObjectArrayProp-item-0 pa-0 read-only"
                                     >
                                       <div
                                         class="row ma-0 "
                                       >
                                         <div
-                                          class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0-nestedObjectArrayProp-item-0-titleProp pa-0read-only"
+                                          class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0-nestedObjectArrayProp-item-0-titleProp pa-0 read-only"
                                           style="display: none;"
                                         >
                                           <div
@@ -2217,7 +2217,7 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
                                           </div>
                                         </div>
                                         <div
-                                          class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0-nestedObjectArrayProp-item-0-selectProp pa-0read-only"
+                                          class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0-nestedObjectArrayProp-item-0-selectProp pa-0 read-only"
                                         >
                                           <div
                                             class="v-input v-input--hide-details v-input--is-disabled theme--light v-text-field v-text-field--is-booted v-select"
@@ -3584,7 +3584,7 @@ exports[`Examples used as simple test cases Read only content 1`] = `
       class="row ma-0 "
     >
       <div
-        class="col col-12 vjsf-property vjsf-property-readOnlyProp pa-0read-only"
+        class="col col-12 vjsf-property vjsf-property-readOnlyProp pa-0 read-only"
       >
         <div
           class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted"
@@ -3624,13 +3624,13 @@ exports[`Examples used as simple test cases Read only content 1`] = `
           I'm a section with readOnly=true in schema 
         </span>
         <div
-          class="col col-12 vjsf-property vjsf-property-readOnlySection pa-0read-only"
+          class="col col-12 vjsf-property vjsf-property-readOnlySection pa-0 read-only"
         >
           <div
             class="row ma-0 "
           >
             <div
-              class="col col-12 vjsf-property vjsf-property-readOnlySection-stringProp pa-0read-only"
+              class="col col-12 vjsf-property vjsf-property-readOnlySection-stringProp pa-0 read-only"
             >
               <div
                 class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted"
@@ -3892,7 +3892,7 @@ exports[`Examples used as simple test cases Readonly select with icons 1`] = `
       class="row ma-0 "
     >
       <div
-        class="col col-12 vjsf-property vjsf-property-iconOneOf pa-0read-only"
+        class="col col-12 vjsf-property vjsf-property-iconOneOf pa-0 read-only"
       >
         <div
           class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted v-select"
