@@ -50,6 +50,7 @@
     "debounce": "^1.2.0",
     "markdown-it": "^8.4.2",
     "match-all": "^1.2.5",
+    "nano-memoize": "^1.2.1",
     "property-expr": "^1.5.1",
     "vuedraggable": "^2.24.3"
   },
