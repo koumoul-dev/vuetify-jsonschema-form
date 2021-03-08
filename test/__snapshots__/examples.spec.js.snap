@@ -1992,13 +1992,13 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
         </div>
         <div
           class="row pt-2"
-          style="cursor: move;"
         >
           <div
             class="col col-12 pa-2"
           >
             <div
               class="v-card v-sheet theme--light"
+              style="cursor: move;"
             >
               <div
                 class="v-alert v-sheet v-sheet--outlined theme--light v-alert--outlined error--text pa-0 ma-0"
@@ -2177,13 +2177,13 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
                             </div>
                             <div
                               class="row pt-2"
-                              style="cursor: move;"
                             >
                               <div
                                 class="col col-12 pa-2"
                               >
                                 <div
                                   class="v-card v-sheet v-sheet--outlined theme--light"
+                                  style="cursor: move;"
                                 >
                                   <div
                                     class="v-card__title subtitle-1"
