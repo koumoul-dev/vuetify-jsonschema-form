@@ -57,7 +57,7 @@ Vue.component('VJsf', VJsf)</code></pre>
     <v-sheet v-hljs dark class="codeblock">
       <pre><code class="javascript">// you should have something like the following somewhere in webpack.config.js or nuxt.config.js, etc.
 build: {
-  transpile: ['vuetify', /@koumoul/], // necessary for "à la carte" import of vuetify components
+  transpile: ['vuetify/lib', /@koumoul/], // necessary for "à la carte" import of vuetify components
 }
 </code></pre>
     </v-sheet>
