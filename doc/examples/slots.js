@@ -11,8 +11,6 @@ All slots are passed either as textual content in a \`x-slots\` annotation in th
 The markdown parser can be defined using the \`markdown\` option. If you use the default third party dependencies it will be [markdown-it](https://github.com/markdown-it/markdown-it) and it will be initialized with the \`markdownit\` option. For example you can use \`{markdownit: {html: true}}\` to accept HTML tags inside the markdown content.
 
 You can write code slots used for multiple properties by naming the slot with a \`custom-\` prefix and passing this name to the \`x-display\` annotation (see custom-string1 in this example).
-
-For simple properties like \`boolean\`, \`number\` and \`string\` (and selectable lists) you can overwrite the tag used to render the property altogether by using the \`x-tag\`. This lets you use the tags that you defined in the application.
 `
 
 const schema = {
@@ -28,8 +26,7 @@ const schema = {
         stringProp11: { type: 'string', title: `I'm a nested property with slots`, 'x-slots': { 'append-outer': 'this is a markdown **slot**' } },
         stringProp12: { type: 'string', title: `I'm a nested property with a custom display`, 'x-display': 'custom-string1' }
       }
-    },
-    stringProp4: { type: 'boolean', title: `I'm a property with a custom tag`, 'x-tag': 'v-switch' }
+    }
   }
 }
 

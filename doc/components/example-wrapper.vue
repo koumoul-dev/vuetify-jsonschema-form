@@ -11,7 +11,7 @@
       <p v-if="prettyDescription" v-html="prettyDescription" />
     </v-col>
     <v-col xs="12" sm="12" md="6" class="mt-2">
-      <v-card :dark="dark">
+      <v-card :dark="dark" outlined>
         <v-toolbar dark dense flat>
           <v-spacer />
           <v-btn icon title="dark mode / light mode" @click="dark = !dark">
@@ -29,7 +29,7 @@
         </v-toolbar>
         <v-alert v-if="ajvErrors && valid" color="error" dark tile>
           <p>Warning ! V-jsf considered this form valid while a JSON schema validator dit not. This is not normal and you might consider filing a bug report.</p>
-          <code>{{ ajvErrors }}</code>
+          <pre>{{ JSON.stringify(ajvErrors, null, 2) }}</pre>
         </v-alert>
         <client-only>
           <v-card-text class="pb-12" style="min-height: 120px; position: relative;">
@@ -200,7 +200,7 @@ new Vue({
     schema,
     valid: null
   }
-});`,
+})`,
         css_external: `https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900;https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css;https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css;https://cdn.jsdelivr.net/npm/@koumoul/vjsf@${pJson.version}/dist/main.css`,
         js_external: `https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js;https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js;https://cdn.jsdelivr.net/npm/axios@0.19.2/dist/axios.min.js;https://cdn.jsdelivr.net/npm/@koumoul/vjsf@${pJson.version}/dist/main.js;https://cdn.jsdelivr.net/npm/@koumoul/vjsf@${pJson.version}/dist/third-party.js`
       }

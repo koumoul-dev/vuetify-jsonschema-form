@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1 class="display-1 mb-4">
-      Configuration
+      {{ title }}
     </h1>
 
     <h2 class="headline my-4">
@@ -171,7 +171,7 @@
         </tr>
         <tr>
           <td>x-cols</td>
-          <td>The width of the v-col component wrapping the property (default is 12).</td>
+          <td>The width of the v-col component wrapping the property (default is 12). You can use the fieldColProps option for further layout customization.</td>
         </tr>
         <tr>
           <td>x-slots</td>
@@ -192,16 +192,29 @@ import { defaultOptions, formats, localizedMessages, iconSets } from '../../lib/
 export default {
   data() {
     return {
+      title: 'Configuration',
       defaultOptions,
       formats,
       localizedMessages,
       descriptions: {
         rootDisplay: 'equivalent of x-display annotation on the root object of the schema, can be "tabs" or "expansion-panels"',
         fieldProps: 'props passed to the underlying components for simple fields (v-text-field, v-select, etc.)',
+        fieldColProps: 'props passed to the v-col component that wraps any field. Use "cols", "xs", "md", etc. to customize your form layout.',
+        textFieldProps: 'props passed to the underlying v-text-field components',
+        textareaProps: 'props passed to the underlying v-textarea components',
+        numberProps: 'props passed to the underlying v-text-field components with type="number"',
+        sliderProps: 'props passed to the underlying v-slider components',
+        checkboxProps: 'props passed to the underlying v-checkbox components',
+        switchProps: 'props passed to the underlying v-switch components',
+        comboboxProps: 'props passed to the underlying v-combobox components',
         selectProps: 'props passed to the underlying components for select fields',
+        fileInputProps: 'props passed to the underlying v-file-input components',
+        radioGroupProps: 'props passed to the underlying v-radio-group components',
+        radioItemProps: 'props passed to the underlying v-radio-item components',
         tabsProps: 'props passed to the underlying v-tabs component when relevant',
         expansionPanelsProps: 'props passed to the underlying v-expansion-panels component when relevant',
         dialogProps: 'props passed to the underlying v-dialog component when relevant',
+        dialogCardProps: 'props passed to the v-card component inside a v-dialog component when relevant',
         colorPickerProps: 'props passed to the underlying v-color-picker component when relevant',
         timePickerProps: 'props passed to the underlying v-time-picker component when relevant',
         datePickerProps: 'props passed to the underlying v-date-picker component when relevant',
@@ -215,12 +228,20 @@ export default {
         disableSorting: 'by default editable array are sortable, set this to tru to disable this functionality',
         context: 'an optional contextual information object, properties from here can be used as variables in URL templates',
         rules: 'some custom rule functions that can be referenced by the x-rules annotation on properties',
+        initialValidation: 'configure display of properties validation errors at initial rendering of the form ("all" to show validation errors of all properties, "defined" to show validation errors of the properties with pre-existing content, "none" to wait for user interactions of explicit call of the validate method)',
         idPrefix: 'a prefix applied to generated ids if you want to prevent potential conflicts',
-        markdownit: 'options given to markdownit if you leave the markdown option to its default value'
+        markdownit: 'options given to markdownit if you leave the markdown option to its default value',
+        editMode: 'change the way editable arrays are rendered. Use "dialog" to edit items in separate dialogs, use "inline" to edit items in place.',
+        autofocus: 'attempt to give focus to the first simple field rendered.'
       },
       locale: 'en',
       iconSets,
       iconSet: 'mdi'
+    }
+  },
+  head() {
+    return {
+      title: 'vjsf - ' + this.title
     }
   }
 }

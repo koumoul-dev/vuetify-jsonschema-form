@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1 class="display-1 mb-4">
-      Getting started
+      {{ title }}
     </h1>
 
     <h2 class="headline my-4">
@@ -57,7 +57,7 @@ Vue.component('VJsf', VJsf)</code></pre>
     <v-sheet v-hljs dark class="codeblock">
       <pre><code class="javascript">// you should have something like the following somewhere in webpack.config.js or nuxt.config.js, etc.
 build: {
-  transpile: ['vuetify', /@koumoul/], // necessary for "à la carte" import of vuetify components
+  transpile: ['vuetify/lib', /@koumoul/], // necessary for "à la carte" import of vuetify components
 }
 </code></pre>
     </v-sheet>
@@ -147,7 +147,16 @@ export default {
 </template>
 
 <script>
-export default {}
+export default {
+  data: () => ({
+    title: 'Getting started'
+  }),
+  head() {
+    return {
+      title: 'vjsf - ' + this.title
+    }
+  }
+}
 </script>
 
 <style lang="css" scoped>

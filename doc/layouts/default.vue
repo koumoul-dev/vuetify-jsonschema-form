@@ -1,18 +1,22 @@
 <template>
   <v-app>
     <v-navigation-drawer v-model="drawer" :temporary="$vuetify.breakpoint.smAndDown" :permanent="$vuetify.breakpoint.mdAndUp" app dark>
-      <v-list-item to="/">
-        <v-list-item-icon>
-          <v-icon>mdi-home</v-icon>
-        </v-list-item-icon>
-        <v-list-item-content>
-          <v-list-item-title class="title">
-            vjsf
-          </v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
+      <v-list class="pt-0 pb-2">
+        <v-list-item to="/">
+          <v-list-item-icon>
+            <v-icon color="primary">
+              mdi-home
+            </v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title class="title primary--text">
+              vjsf
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
 
-      <v-list dense>
+      <v-list dense class="pt-2">
         <v-list-item to="/about">
           <v-list-item-content>
             <v-list-item-title>
@@ -59,9 +63,23 @@
         <span class="caption">Maintained by&nbsp;<a href="https://koumoul.com">Koumoul</a></span>
       </v-footer>
     </v-navigation-drawer>
-    <v-app-bar app :color="$vuetify.breakpoint.smAndDown ? 'white' : 'transparent'" dense flat>
+    <!--<v-app-bar app :color="$vuetify.breakpoint.smAndDown ? 'white' : 'transparent'" dense flat>-->
+    <v-app-bar app flat>
       <v-app-bar-nav-icon v-if="$vuetify.breakpoint.smAndDown" @click.stop="drawer = !drawer" />
-      <v-btn fab absolute small href="https://github.com/koumoul-dev/vuetify-jsonschema-form" right color="primary">
+      <search-widget
+        df-url="https://koumoul.com/s/data-fair"
+        dataset-id="vjsf-1"
+        :menu-props="{'nudge-left': $vuetify.breakpoint.smAndDown ? 20 : 0}"
+        :replace-url="{'https://koumoul-dev.github.io/vuetify-jsonschema-form/latest': ''}"
+        :to-links="true"
+      />
+      <v-spacer />
+      <v-btn href="https://github.com/sponsors/koumoul-dev" outlined rounded class="ml-2 pl-3" color="primary" style="text-transform: none;">
+        <v-icon color="pink">
+          mdi-heart-outline
+        </v-icon>&nbsp;&nbsp;Sponsor
+      </v-btn>
+      <v-btn fab small href="https://github.com/koumoul-dev/vuetify-jsonschema-form" color="primary" class="ml-2">
         <v-icon>mdi-github</v-icon>
       </v-btn>
     </v-app-bar>
@@ -72,11 +90,12 @@
 </template>
 
 <script>
-
+import SearchWidget from '@koumoul/data-fair-search-widget/src/components/search-widget.vue'
 import { examples } from '~/examples'
 
 export default {
-  data: () => ({ examples, drawer: true })
+  components: { SearchWidget },
+  data: () => ({ examples, drawer: false })
 }
 
 </script>

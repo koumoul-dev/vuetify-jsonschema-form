@@ -4,7 +4,7 @@
       vjsf
     </h1>
 
-    <p class="subtitle-2 font-italic mb-10">
+    <p class="subtitle-2 font-italic">
       vuetify-jsonschema-form
     </p>
 
@@ -15,6 +15,8 @@
     <p class="mt-2 text-center">
       Based on <a href="https://vuejs.org/">Vue.js</a> / <a href="https://vuetifyjs.com/">Vuetify</a> / <a href="https://json-schema.org/">JSON Schema</a>.
     </p>
+
+    <iframe width="560" height="463" sandbox="allow-same-origin allow-scripts allow-popups" src="https://videos.koumoul.com/videos/embed/dd75bf3b-8830-4296-be8b-ec2286b76da3?title=0&warningTitle=0&peertubeLink=0&autoplay=1" frameborder="0" allowfullscreen />
   </v-container>
 </template>
 

@@ -1,4 +1,6 @@
-# vuetify-jsonschema-form
+# vjsf
+
+*vuetify-jsonschema-form*
 
 Create beautiful and low-effort forms that output valid data.
 
@@ -6,7 +8,7 @@ Based on [Vue.js](https://vuejs.org/) / [Vuetify](https://vuetifyjs.com/) / [JSO
 
 See [the documentation](https://koumoul-dev.github.io/vuetify-jsonschema-form/latest/).
 
-![](doc/static/demo-video.gif)
+![](doc/static/vjsf.gif)
 
 ## Development server
 
