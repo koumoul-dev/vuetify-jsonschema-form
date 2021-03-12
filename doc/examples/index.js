@@ -18,6 +18,7 @@ import editableArray from './editable-array'
 import editableArrayInline from './editable-array-inline'
 import prefilledArrays from './prefilled-arrays'
 import defaultValues from './default-values'
+import exampleValues from './example-values'
 import classes from './classes'
 import vuetifyProps from './vuetify-props'
 import slots from './slots'
@@ -57,6 +58,7 @@ const examples = [
   editableArrayInline,
   prefilledArrays,
   defaultValues,
+  exampleValues,
   classes,
   vuetifyProps,
   slots,
