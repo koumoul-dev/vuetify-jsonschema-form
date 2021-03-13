@@ -14,7 +14,7 @@ localVue.component('draggable', Draggable)
 exports.getExampleWrapper = (example) => {
   // preventing https://github.com/vuetifyjs/vuetify/issues/1210
   document.body.setAttribute('data-app', true)
-  
+
   const vuetify = new Vuetify({ mocks: { $vuetify: { theme: { themes: {} } } } })
 
   // localVue.use(Vuetify)

@@ -2,12 +2,15 @@ import basic from './basic'
 import datePicker from './date-picker'
 import colorPicker from './color-picker'
 import select from './select'
+import selectAutocomplete from './autocomplete'
+import selectCombobox from './combobox'
 // import selectRadio from './select-radio'
 import selectHTTP from './select-http'
 import selectIcon from './select-icon'
 import selectDeps from './select-deps'
 import selectSubschemas from './select-subschemas'
 import selectionControls from './selection-controls'
+import chipGroups from './chip-group'
 import conditionals from './conditionals'
 import files from './files'
 import sections from './sections'
@@ -41,12 +44,15 @@ const examples = [
   datePicker,
   colorPicker,
   select,
+  selectAutocomplete,
+  selectCombobox,
   // selectRadio,
   selectHTTP,
   selectIcon,
   selectDeps,
   selectSubschemas,
   selectionControls,
+  chipGroups,
   conditionals,
   files,
   sections,

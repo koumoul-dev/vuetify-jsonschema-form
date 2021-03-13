@@ -25,7 +25,7 @@ exports[`Examples used as simple test cases Additional validation cases 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-892"
+                for="input-1048"
                 style="left: 0px; position: relative;"
               >
                 I'm a required color with initial value
@@ -49,6 +49,503 @@ exports[`Examples used as simple test cases Additional validation cases 1`] = `
                 tag="div"
               />
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases Autocompletes 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="col col-12 vjsf-property vjsf-property-root pa-0"
+  >
+    <div
+      class="row ma-0 "
+    >
+      <div
+        class="col col-12 vjsf-property vjsf-property-stringEnum pa-0"
+      >
+        <div
+          class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--placeholder v-select v-select--chips v-select--chips--small v-autocomplete"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="list-157"
+              class="v-input__slot"
+              role="combobox"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="stringEnum"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a string with values from an enum
+                </label>
+                <div
+                  class="v-select__selections"
+                >
+                  <input
+                    autocomplete="off"
+                    id="stringEnum"
+                    type="text"
+                  />
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--clear"
+                  >
+                    <button
+                      aria-label="clear icon"
+                      class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                      disabled="disabled"
+                      type="button"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--append"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-menu-down theme--light"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="hidden"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="v-input__append-outer"
+          >
+            <button
+              class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
+              style="pointer-events: auto;"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-information theme--light"
+                />
+              </span>
+            </button>
+            <span
+              class="v-tooltip v-tooltip--left"
+            >
+              <!---->
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-stringsArrayEnum pa-0"
+      >
+        <div
+          class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--placeholder v-select v-select--chips v-select--chips--small v-select--is-multi v-autocomplete"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="list-167"
+              class="v-input__slot"
+              role="combobox"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="stringsArrayEnum"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm an array of strings with values from an enum
+                </label>
+                <div
+                  class="v-select__selections"
+                >
+                  <input
+                    autocomplete="off"
+                    id="stringsArrayEnum"
+                    type="text"
+                  />
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--clear"
+                  >
+                    <button
+                      aria-label="clear icon"
+                      class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                      disabled="disabled"
+                      type="button"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--append"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-menu-down theme--light"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="hidden"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-stringOneOf pa-0"
+      >
+        <div
+          class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--placeholder v-select v-select--chips v-select--chips--small v-autocomplete"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="list-174"
+              class="v-input__slot"
+              role="combobox"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="stringOneOf"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a string with values/labels from a oneOf
+                </label>
+                <div
+                  class="v-select__selections"
+                >
+                  <input
+                    autocomplete="off"
+                    id="stringOneOf"
+                    type="text"
+                  />
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--clear"
+                  >
+                    <button
+                      aria-label="clear icon"
+                      class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                      disabled="disabled"
+                      type="button"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--append"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-menu-down theme--light"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="hidden"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-stringArrayOneOf pa-0"
+      >
+        <div
+          class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--placeholder v-select v-select--chips v-select--chips--small v-select--is-multi v-autocomplete"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="list-181"
+              class="v-input__slot"
+              role="combobox"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="stringArrayOneOf"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm an array of strings with values/labels from a oneOf
+                </label>
+                <div
+                  class="v-select__selections"
+                >
+                  <input
+                    autocomplete="off"
+                    id="stringArrayOneOf"
+                    type="text"
+                  />
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--clear"
+                  >
+                    <button
+                      aria-label="clear icon"
+                      class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                      disabled="disabled"
+                      type="button"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--append"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-menu-down theme--light"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="hidden"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-stringEnumLarge pa-0"
+      >
+        <div
+          class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--placeholder v-select v-select--chips v-select--chips--small v-autocomplete"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="list-188"
+              class="v-input__slot"
+              role="combobox"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="stringEnumLarge"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a string with values from a large enum
+                </label>
+                <div
+                  class="v-select__selections"
+                >
+                  <input
+                    autocomplete="off"
+                    id="stringEnumLarge"
+                    type="text"
+                  />
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--clear"
+                  >
+                    <button
+                      aria-label="clear icon"
+                      class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                      disabled="disabled"
+                      type="button"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--append"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-menu-down theme--light"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="hidden"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="v-input__append-outer"
+          >
+            <button
+              class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
+              style="pointer-events: auto;"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-information theme--light"
+                />
+              </span>
+            </button>
+            <span
+              class="v-tooltip v-tooltip--left"
+            >
+              <!---->
+            </span>
           </div>
         </div>
       </div>
@@ -907,7 +1404,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-649"
+              aria-owns="list-805"
               class="v-input__slot"
               role="combobox"
             >
@@ -968,7 +1465,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-654"
+              aria-owns="list-810"
               class="v-input__slot"
               role="combobox"
             >
@@ -1031,7 +1528,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-659"
+                for="input-815"
                 style="left: 0px; position: relative;"
               >
                 I'm an array of objects with min/max items
@@ -1057,6 +1554,601 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
                 </span>
               </button>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases Chip groups 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="col col-12 vjsf-property vjsf-property-root pa-0"
+  >
+    <div
+      class="row ma-0 "
+    >
+      <div
+        class="col col-12 vjsf-property vjsf-property-stringEnum pa-0"
+      >
+        <div
+          class="v-item-group theme--light v-slide-group v-chip-group"
+        >
+          <div
+            class="v-slide-group__prev v-slide-group__prev--disabled"
+          >
+            <transition-stub
+              name="fade-transition"
+            />
+          </div>
+          <div
+            class="v-slide-group__wrapper"
+          >
+            <div
+              class="v-slide-group__content"
+            >
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  value 1
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  value 2
+                </span>
+              </span>
+            </div>
+          </div>
+          <div
+            class="v-slide-group__next v-slide-group__next--disabled"
+          >
+            <transition-stub
+              name="fade-transition"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-stringsArrayEnum pa-0"
+      >
+        <div
+          class="v-item-group theme--light v-slide-group v-chip-group"
+        >
+          <div
+            class="v-slide-group__prev v-slide-group__prev--disabled"
+          >
+            <transition-stub
+              name="fade-transition"
+            />
+          </div>
+          <div
+            class="v-slide-group__wrapper"
+          >
+            <div
+              class="v-slide-group__content"
+            >
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  value 1
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  value 2
+                </span>
+              </span>
+            </div>
+          </div>
+          <div
+            class="v-slide-group__next v-slide-group__next--disabled"
+          >
+            <transition-stub
+              name="fade-transition"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-stringOneOf pa-0"
+      >
+        <div
+          class="v-item-group theme--light v-slide-group v-chip-group"
+        >
+          <div
+            class="v-slide-group__prev v-slide-group__prev--disabled"
+          >
+            <transition-stub
+              name="fade-transition"
+            />
+          </div>
+          <div
+            class="v-slide-group__wrapper"
+          >
+            <div
+              class="v-slide-group__content"
+            >
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  Value 1
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  Value 2
+                </span>
+              </span>
+            </div>
+          </div>
+          <div
+            class="v-slide-group__next v-slide-group__next--disabled"
+          >
+            <transition-stub
+              name="fade-transition"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-stringArrayOneOf pa-0"
+      >
+        <div
+          class="v-item-group theme--light v-slide-group v-chip-group"
+        >
+          <div
+            class="v-slide-group__prev v-slide-group__prev--disabled"
+          >
+            <transition-stub
+              name="fade-transition"
+            />
+          </div>
+          <div
+            class="v-slide-group__wrapper"
+          >
+            <div
+              class="v-slide-group__content"
+            >
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  Value 1
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  Value 2
+                </span>
+              </span>
+            </div>
+          </div>
+          <div
+            class="v-slide-group__next v-slide-group__next--disabled"
+          >
+            <transition-stub
+              name="fade-transition"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-stringEnumLarge pa-0"
+      >
+        <div
+          class="v-item-group theme--light v-slide-group v-chip-group"
+        >
+          <div
+            class="v-slide-group__prev v-slide-group__prev--disabled"
+          >
+            <transition-stub
+              name="fade-transition"
+            />
+          </div>
+          <div
+            class="v-slide-group__wrapper"
+          >
+            <div
+              class="v-slide-group__content"
+            >
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  zipper growth
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  together aside
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  apart particular
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  symbol mostly
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  putting member
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  beneath stick
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  belong mental
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  search get
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  unusual end
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  strip due
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  through decide
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  part country
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  indeed continued
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  consist typical
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  sort human
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  fish across
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  thee breeze
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  seeing land
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  effect unknown
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  unusual party
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  blank serve
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  hunter equipment
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  lie statement
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  also area
+                </span>
+              </span>
+              <span
+                class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default"
+                tabindex="0"
+              >
+                <span
+                  class="v-chip__content"
+                >
+                  <transition-stub
+                    name="expand-x-transition"
+                  />
+                  piano bridge
+                </span>
+              </span>
+            </div>
+          </div>
+          <div
+            class="v-slide-group__next v-slide-group__next--disabled"
+          >
+            <transition-stub
+              name="fade-transition"
+            />
           </div>
         </div>
       </div>
@@ -1177,6 +2269,196 @@ exports[`Examples used as simple test cases Colors 1`] = `
                 name="message-transition"
                 tag="div"
               />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases ComboBoxes 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="col col-12 vjsf-property vjsf-property-root pa-0"
+  >
+    <div
+      class="row ma-0 "
+    >
+      <div
+        class="col col-12 vjsf-property vjsf-property-stringOneOf pa-0"
+      >
+        <div
+          class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--placeholder v-select v-select--chips v-select--chips--small v-autocomplete"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="list-203"
+              class="v-input__slot"
+              role="combobox"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="stringOneOf"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a string with values/labels from a oneOf
+                </label>
+                <div
+                  class="v-select__selections"
+                >
+                  <input
+                    autocomplete="off"
+                    id="stringOneOf"
+                    type="text"
+                  />
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--clear"
+                  >
+                    <button
+                      aria-label="clear icon"
+                      class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                      disabled="disabled"
+                      type="button"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--append"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-menu-down theme--light"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="hidden"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-stringArrayOneOf pa-0"
+      >
+        <div
+          class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--placeholder v-select v-select--chips v-select--chips--small v-select--is-multi v-autocomplete"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="list-210"
+              class="v-input__slot"
+              role="combobox"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="stringArrayOneOf"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm an array of strings with values/labels from a oneOf
+                </label>
+                <div
+                  class="v-select__selections"
+                >
+                  <input
+                    autocomplete="off"
+                    id="stringArrayOneOf"
+                    type="text"
+                  />
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--clear"
+                  >
+                    <button
+                      aria-label="clear icon"
+                      class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
+                      disabled="disabled"
+                      type="button"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--append"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-menu-down theme--light"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="hidden"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -1473,7 +2755,7 @@ exports[`Examples used as simple test cases Conditional content based on context
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-906"
+            aria-owns="list-1062"
             class="v-input__slot"
             role="button"
           >
@@ -1997,7 +3279,7 @@ exports[`Examples used as simple test cases Editable array 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-474"
+                for="input-630"
                 style="left: 0px; position: relative;"
               >
                 I'm an array of objects
@@ -2056,7 +3338,7 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-484"
+                for="input-640"
                 style="left: 0px; position: relative;"
               >
                 I'm an array of objects
@@ -2229,7 +3511,7 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
                                 >
                                   <label
                                     class="v-label theme--light"
-                                    for="input-521"
+                                    for="input-677"
                                     style="left: 0px; position: relative;"
                                   >
                                     I'm a nested array of objects
@@ -2316,7 +3598,7 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
                                               <div
                                                 aria-expanded="false"
                                                 aria-haspopup="listbox"
-                                                aria-owns="list-528"
+                                                aria-owns="list-684"
                                                 class="v-input__slot"
                                                 role="button"
                                               >
@@ -2979,7 +4261,7 @@ exports[`Examples used as simple test cases Ignore values with wrong type 1`] = 
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-924"
+            aria-owns="list-1080"
             class="v-input__slot"
             role="button"
           >
@@ -3330,7 +4612,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-785"
+              aria-owns="list-941"
               class="v-input__slot"
               role="combobox"
             >
@@ -3535,7 +4817,7 @@ exports[`Examples used as simple test cases Nullable properties 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-807"
+              aria-owns="list-963"
               class="v-input__slot"
               role="button"
             >
@@ -3642,7 +4924,7 @@ exports[`Examples used as simple test cases Prefilled arrays 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-538"
+                for="input-694"
                 style="left: 0px; position: relative;"
               >
                 I'm an array filled by HTTP request
@@ -3987,7 +5269,7 @@ exports[`Examples used as simple test cases Readonly select with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-880"
+              aria-owns="list-1036"
               class="v-input__slot"
               role="button"
             >
@@ -5524,7 +6806,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                     />
                     <input
                       aria-checked="false"
-                      id="input-285"
+                      id="input-350"
                       name="stringEnum"
                       role="radio"
                       type="radio"
@@ -5536,7 +6818,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                   </div>
                   <label
                     class="v-label theme--light"
-                    for="input-285"
+                    for="input-350"
                     style="left: 0px; position: relative;"
                   >
                     value 1
@@ -5554,7 +6836,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                     />
                     <input
                       aria-checked="false"
-                      id="input-287"
+                      id="input-352"
                       name="stringEnum"
                       role="radio"
                       type="radio"
@@ -5566,7 +6848,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                   </div>
                   <label
                     class="v-label theme--light"
-                    for="input-287"
+                    for="input-352"
                     style="left: 0px; position: relative;"
                   >
                     value 2
@@ -5647,7 +6929,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                         />
                         <input
                           aria-checked="true"
-                          id="input-274"
+                          id="input-339"
                           role="checkbox"
                           type="checkbox"
                           value="value 1"
@@ -5658,7 +6940,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                       </div>
                       <label
                         class="v-label theme--light"
-                        for="input-274"
+                        for="input-339"
                         style="left: 0px; position: relative;"
                       >
                         value 1
@@ -5684,7 +6966,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                         />
                         <input
                           aria-checked="false"
-                          id="input-289"
+                          id="input-354"
                           role="checkbox"
                           type="checkbox"
                           value="value 2"
@@ -5695,7 +6977,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                       </div>
                       <label
                         class="v-label theme--light"
-                        for="input-289"
+                        for="input-354"
                         style="left: 0px; position: relative;"
                       >
                         value 2
@@ -5775,7 +7057,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                         <input
                           aria-checked="false"
                           aria-disabled="undefined"
-                          id="input-291"
+                          id="input-356"
                           role="switch"
                           type="checkbox"
                           value="value1"
@@ -5797,7 +7079,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                       </div>
                       <label
                         class="v-label theme--light"
-                        for="input-291"
+                        for="input-356"
                         style="left: 0px; position: relative;"
                       >
                         Value 1
@@ -5820,7 +7102,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                         <input
                           aria-checked="false"
                           aria-disabled="undefined"
-                          id="input-293"
+                          id="input-358"
                           role="switch"
                           type="checkbox"
                           value="value2"
@@ -5842,7 +7124,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                       </div>
                       <label
                         class="v-label theme--light"
-                        for="input-293"
+                        for="input-358"
                         style="left: 0px; position: relative;"
                       >
                         Value 2
@@ -6393,7 +7675,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-157"
+              aria-owns="list-222"
               class="v-input__slot"
               role="button"
             >
@@ -6482,7 +7764,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-164"
+              aria-owns="list-229"
               class="v-input__slot"
               role="button"
             >
@@ -6571,7 +7853,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-171"
+              aria-owns="list-236"
               class="v-input__slot"
               role="button"
             >
@@ -6660,7 +7942,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-178"
+              aria-owns="list-243"
               class="v-input__slot"
               role="button"
             >
@@ -6749,7 +8031,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-185"
+              aria-owns="list-250"
               class="v-input__slot"
               role="button"
             >
@@ -6838,7 +8120,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-192"
+              aria-owns="list-257"
               class="v-input__slot"
               role="combobox"
             >
@@ -6934,7 +8216,7 @@ exports[`Examples used as simple test cases Selects of sub-schemas 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-255"
+            aria-owns="list-320"
             class="v-input__slot"
             role="button"
           >
@@ -7024,7 +8306,7 @@ exports[`Examples used as simple test cases Selects prefilled with http results 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-861"
+              aria-owns="list-1017"
               class="v-input__slot"
               role="button"
             >
@@ -7122,7 +8404,7 @@ exports[`Examples used as simple test cases Selects prefilled with http results 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-868"
+              aria-owns="list-1024"
               class="v-input__slot"
               role="button"
             >
@@ -7236,7 +8518,7 @@ exports[`Examples used as simple test cases Selects with dependencies 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-244"
+              aria-owns="list-309"
               class="v-input__slot"
               role="button"
             >
@@ -7341,7 +8623,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-204"
+              aria-owns="list-269"
               class="v-input__slot"
               role="button"
             >
@@ -7430,7 +8712,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-211"
+              aria-owns="list-276"
               class="v-input__slot"
               role="button"
             >
@@ -7519,7 +8801,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-218"
+              aria-owns="list-283"
               class="v-input__slot"
               role="button"
             >
@@ -7608,7 +8890,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-225"
+              aria-owns="list-290"
               class="v-input__slot"
               role="combobox"
             >
@@ -7691,7 +8973,7 @@ exports[`Examples used as simple test cases Selects with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-232"
+              aria-owns="list-297"
               class="v-input__slot"
               role="combobox"
             >
@@ -7790,7 +9072,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-835"
+              aria-owns="list-991"
               class="v-input__slot"
               role="button"
             >
@@ -7888,7 +9170,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-842"
+              aria-owns="list-998"
               class="v-input__slot"
               role="button"
             >
@@ -7986,7 +9268,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-849"
+              aria-owns="list-1005"
               class="v-input__slot"
               role="button"
             >
@@ -8338,7 +9620,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-613"
+              aria-owns="list-769"
               class="v-input__slot"
               role="button"
             >
