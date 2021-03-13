@@ -72,6 +72,10 @@ const model = {
   numberCondition: 10
 }
 
-const options = {}
+const options = {
+  validator(schema) {
+    return (model) => null
+  }
+}
 
 export default { id, title, description, schema, model, options }
