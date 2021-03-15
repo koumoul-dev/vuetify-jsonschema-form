@@ -25,7 +25,7 @@ exports[`Examples used as simple test cases Additional validation cases 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-886"
+                for="input-915"
                 style="left: 0px; position: relative;"
               >
                 I'm a required color with initial value
@@ -709,16 +709,20 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
         class="col col-12 vjsf-property vjsf-property-patternStringProp pa-0"
       >
         <div
-          class="v-input theme--light v-text-field v-text-field--is-booted"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-select v-autocomplete"
         >
           <div
             class="v-input__control"
           >
             <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="list-654"
               class="v-input__slot"
+              role="combobox"
             >
               <div
-                class="v-text-field__slot"
+                class="v-select__slot"
               >
                 <label
                   class="v-label theme--light"
@@ -728,9 +732,30 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
                   I'm a string with a pattern (letters only)
                 </label>
                 <input
+                  autocomplete="off"
                   id="patternStringProp"
                   type="text"
                 />
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--append"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-menu-down theme--light"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="hidden"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
               </div>
             </div>
             <div
@@ -907,7 +932,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-643"
+              aria-owns="list-672"
               class="v-input__slot"
               role="combobox"
             >
@@ -968,7 +993,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-648"
+              aria-owns="list-677"
               class="v-input__slot"
               role="combobox"
             >
@@ -1031,7 +1056,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-653"
+                for="input-682"
                 style="left: 0px; position: relative;"
               >
                 I'm an array of objects with min/max items
@@ -1385,7 +1410,7 @@ exports[`Examples used as simple test cases Conditional content based on context
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-900"
+            aria-owns="list-929"
             class="v-input__slot"
             role="button"
           >
@@ -2047,7 +2072,7 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
                           >
                             <i
                               aria-hidden="true"
-                              class="v-icon notranslate mdi mdi-delete theme--light"
+                              class="v-icon notranslate mdi mdi-close-circle theme--light"
                             />
                           </span>
                         </button>
@@ -2305,6 +2330,284 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases Example values 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="col col-12 vjsf-property vjsf-property-root pa-0"
+  >
+    <div
+      class="row ma-0 "
+    >
+      <div
+        class="col col-12 vjsf-property vjsf-property-stringProp pa-0"
+      >
+        <div
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select v-autocomplete"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="list-586"
+              class="v-input__slot"
+              role="combobox"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label v-label--active theme--light"
+                  for="stringProp"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a string with some examples
+                </label>
+                <input
+                  autocomplete="off"
+                  id="stringProp"
+                  type="text"
+                />
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--append"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-menu-down theme--light"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="hidden"
+                  value="I'm a default value"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-numberProp pa-0"
+      >
+        <div
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select v-autocomplete"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="list-592"
+              class="v-input__slot"
+              role="combobox"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label v-label--active theme--light"
+                  for="numberProp"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a number with some examples
+                </label>
+                <input
+                  autocomplete="off"
+                  id="numberProp"
+                  type="number"
+                />
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--append"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-menu-down theme--light"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="hidden"
+                  value="1"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-stringArrayProp pa-0"
+      >
+        <div
+          class="v-input theme--light v-text-field v-text-field--is-booted v-select v-select--chips v-select--is-multi v-autocomplete"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="list-598"
+              class="v-input__slot"
+              role="combobox"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="stringArrayProp"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm an array of strings with some examples
+                </label>
+                <div
+                  class="v-select__selections"
+                >
+                  <input
+                    autocomplete="off"
+                    id="stringArrayProp"
+                    type="string"
+                  />
+                </div>
+                <input
+                  type="hidden"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-numberArrayProp pa-0"
+      >
+        <div
+          class="v-input theme--light v-text-field v-text-field--is-booted v-select v-select--chips v-select--is-multi v-autocomplete"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="list-603"
+              class="v-input__slot"
+              role="combobox"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="numberArrayProp"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm an array of numbers with some examples
+                </label>
+                <div
+                  class="v-select__selections"
+                >
+                  <input
+                    autocomplete="off"
+                    id="numberArrayProp"
+                    type="number"
+                  />
+                </div>
+                <input
+                  type="hidden"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
               </div>
             </div>
           </div>
@@ -2891,7 +3194,7 @@ exports[`Examples used as simple test cases Ignore values with wrong type 1`] = 
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-918"
+            aria-owns="list-947"
             class="v-input__slot"
             role="button"
           >
@@ -3242,7 +3545,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-779"
+              aria-owns="list-808"
               class="v-input__slot"
               role="combobox"
             >
@@ -3451,7 +3754,7 @@ exports[`Examples used as simple test cases Nullable properties 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-801"
+              aria-owns="list-830"
               class="v-input__slot"
               role="button"
             >
@@ -3903,7 +4206,7 @@ exports[`Examples used as simple test cases Readonly select with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-874"
+              aria-owns="list-903"
               class="v-input__slot"
               role="button"
             >
@@ -6948,7 +7251,7 @@ exports[`Examples used as simple test cases Selects prefilled with http results 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-855"
+              aria-owns="list-884"
               class="v-input__slot"
               role="button"
             >
@@ -7046,7 +7349,7 @@ exports[`Examples used as simple test cases Selects prefilled with http results 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-862"
+              aria-owns="list-891"
               class="v-input__slot"
               role="button"
             >
@@ -7722,7 +8025,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-829"
+              aria-owns="list-858"
               class="v-input__slot"
               role="button"
             >
@@ -7820,7 +8123,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-836"
+              aria-owns="list-865"
               class="v-input__slot"
               role="button"
             >
@@ -7918,7 +8221,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-843"
+              aria-owns="list-872"
               class="v-input__slot"
               role="button"
             >
@@ -8270,7 +8573,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-607"
+              aria-owns="list-634"
               class="v-input__slot"
               role="button"
             >
