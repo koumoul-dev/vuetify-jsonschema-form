@@ -114,6 +114,8 @@ exports[`Examples used as simple test cases Basic types 1`] = `
             class="v-input__append-outer"
           >
             <button
+              aria-expanded="false"
+              aria-haspopup="true"
               class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
@@ -390,6 +392,8 @@ exports[`Examples used as simple test cases Basic types 1`] = `
             class="v-input__append-outer"
           >
             <button
+              aria-expanded="false"
+              aria-haspopup="true"
               class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
@@ -471,6 +475,8 @@ exports[`Examples used as simple test cases Basic types 1`] = `
             class="v-input__append-outer"
           >
             <button
+              aria-expanded="false"
+              aria-haspopup="true"
               class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
@@ -1144,6 +1150,8 @@ exports[`Examples used as simple test cases Colors 1`] = `
             class="v-input__append-outer"
           >
             <button
+              aria-expanded="false"
+              aria-haspopup="true"
               class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
@@ -1561,6 +1569,8 @@ exports[`Examples used as simple test cases Dates 1`] = `
             class="v-input__append-outer"
           >
             <button
+              aria-expanded="false"
+              aria-haspopup="true"
               class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
@@ -3966,6 +3976,8 @@ exports[`Examples used as simple test cases Read only content 1`] = `
                   class="v-input__append-outer"
                 >
                   <button
+                    aria-expanded="false"
+                    aria-haspopup="true"
                     class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
                     style="pointer-events: auto;"
                     type="button"
@@ -5807,6 +5819,8 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
             class="v-input__append-outer"
           >
             <button
+              aria-expanded="false"
+              aria-haspopup="true"
               class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
@@ -5938,6 +5952,8 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
             class="v-input__append-outer"
           >
             <button
+              aria-expanded="false"
+              aria-haspopup="true"
               class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
@@ -6190,6 +6206,8 @@ exports[`Examples used as simple test cases Selects 1`] = `
             class="v-input__append-outer"
           >
             <button
+              aria-expanded="false"
+              aria-haspopup="true"
               class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
@@ -6567,6 +6585,8 @@ exports[`Examples used as simple test cases Selects 1`] = `
             class="v-input__append-outer"
           >
             <button
+              aria-expanded="false"
+              aria-haspopup="true"
               class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
@@ -8654,6 +8674,8 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
             class="v-input__append-outer"
           >
             <button
+              aria-expanded="false"
+              aria-haspopup="true"
               class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
@@ -8737,6 +8759,8 @@ exports[`Examples used as simple test cases resolved schema 1`] = `
             class="v-input__append-outer"
           >
             <button
+              aria-expanded="false"
+              aria-haspopup="true"
               class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
