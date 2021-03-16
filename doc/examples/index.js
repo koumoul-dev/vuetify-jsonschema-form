@@ -36,6 +36,7 @@ import readOnlySelectIcon from './_readonly-select-icon'
 import ValidationExtraCases from './_validation-extra-cases'
 import XIf from './_x-if'
 import WrongTypes from './_wrong-types'
+import LargeForm from './_large-form'
 
 const examples = [
   basic,
@@ -75,7 +76,8 @@ const examples = [
   readOnlySelectIcon,
   ValidationExtraCases,
   XIf,
-  WrongTypes
+  WrongTypes,
+  LargeForm
 ]
 
 const defaultTemplate = '<v-jsf v-model="model" :schema="schema" :options="options" />'
