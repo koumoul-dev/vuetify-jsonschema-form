@@ -18,6 +18,11 @@ export default {
     params.options.idPrefix = params.options.idPrefix || `example-${params.id}-`
     return params
   },
+  watch: {
+    model() {
+      this.params.model = this.model
+    }
+  },
   render(h) {
     this.compiledTemplate = this.compiledTemplate || Vue.compile(this.template || defaultTemplate)
     return this.compiledTemplate.render.call(this, h)
