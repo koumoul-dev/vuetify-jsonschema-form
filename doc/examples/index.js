@@ -37,6 +37,7 @@ import ValidationExtraCases from './_validation-extra-cases'
 import XIf from './_x-if'
 import WrongTypes from './_wrong-types'
 import LargeForm from './_large-form'
+import SimpleArrayValidation from './_simple-array-validation'
 
 const examples = [
   basic,
@@ -77,7 +78,8 @@ const examples = [
   ValidationExtraCases,
   XIf,
   WrongTypes,
-  LargeForm
+  LargeForm,
+  SimpleArrayValidation
 ]
 
 const defaultTemplate = '<v-jsf v-model="model" :schema="schema" :options="options" />'
