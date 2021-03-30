@@ -6,6 +6,8 @@ import VJsf from '../lib/VJsfNoDeps.js'
 import ExampleForm from './example-form.vue'
 import { defaultTemplate } from '../doc/examples'
 
+const Ajv = require('ajv')
+
 Vue.use(Vuetify)
 const localVue = createLocalVue()
 localVue.component('v-jsf', VJsf)
@@ -32,6 +34,7 @@ exports.getExampleWrapper = (example) => {
 
   const options = {
     ...example.options,
+    ajv: Ajv(),
     httpLib: {
       get: (url) => {
         const result = example.httpMocks[url]
