@@ -1,6 +1,6 @@
 <template>
   <v-form ref="form" v-model="valid">
-    <slot :model="model" :options="options" :schema="schema" />
+    <slot :model="model" :options="options" :schema="schema" :log-event="logEvent" />
   </v-form>
 </template>
 
@@ -14,7 +14,10 @@ export default {
   },
   data: () => ({
     valid: false
-  })
+  }),
+  methods: {
+    logEvent() {}
+  }
 }
 </script>
 

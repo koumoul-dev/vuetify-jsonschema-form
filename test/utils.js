@@ -25,6 +25,7 @@ exports.getExampleWrapper = (example) => {
     .replace('"model"', '"props.model"')
     .replace('"schema"', '"props.schema"')
     .replace('"options"', '"props.options"')
+    .replace('logEvent', 'props.logEvent')
 
   if (template.includes('slot-scope')) {
     // TODO: investigate
