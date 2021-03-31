@@ -1,6 +1,6 @@
 const id = 'sections-stepper'
 
-const title = 'Sections as stepper (beta)'
+const title = 'Sections as stepper'
 
 const description = `Use the \`x-display="stepper"\` annotation to display sections as a stepper. You can also use the \`rootDisplay\` option to display root sections as a stepper regardless of the content of the schema.
 

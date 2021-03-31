@@ -17,6 +17,7 @@ import sectionsStepper from './sections-stepper'
 import editableArray from './editable-array'
 import editableArrayInline from './editable-array-inline'
 import prefilledArrays from './prefilled-arrays'
+import markdownEditor from './markdown-editor'
 import defaultValues from './default-values'
 import exampleValues from './example-values'
 import classes from './classes'
@@ -59,6 +60,7 @@ const examples = [
   editableArray,
   editableArrayInline,
   prefilledArrays,
+  markdownEditor,
   defaultValues,
   exampleValues,
   classes,

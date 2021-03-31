@@ -69,4 +69,4 @@ export default {
 .vjsf-tiptap .v-input__slot {
   display: block;
 }
-</style>-->
+</style>

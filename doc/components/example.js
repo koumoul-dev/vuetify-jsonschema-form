@@ -2,10 +2,14 @@ import Vue from 'vue'
 import '../../lib/deps/third-party.js'
 import VJsf from '../../lib/VJsf.js'
 import '../../lib/VJsf.css'
+import EasyMDE from 'easymde/dist/easymde.min.js'
+import 'easymde/dist/easymde.min.css'
 import VJsfTiptap from './wrappers/v-jsf-tiptap.vue'
 import VJsfToastUiEditor from './wrappers/v-jsf-toast-ui-editor.vue'
 import VJsfCropImg from './wrappers/v-jsf-crop-img.vue'
 import { defaultTemplate } from '../examples'
+
+global.EasyMDE = EasyMDE
 
 export default {
   components: { VJsf, VJsfTiptap, VJsfToastUiEditor, VJsfCropImg },

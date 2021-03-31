@@ -37,3 +37,20 @@
   border-image: none;
   border-color: transparent;
 }
+
+.vjsf-property .vjsf-markdown-input .v-input__slot {
+  display: block;
+}
+
+.vjsf-property .vjsf-markdown-input .EasyMDEContainer .editor-toolbar {
+  border: none;
+  padding: 2px;
+}
+
+.vjsf-property .vjsf-markdown-input .EasyMDEContainer .CodeMirror {
+  border: none;
+}
+
+.vjsf-property .vjsf-markdown-input p:last-child {
+  margin-bottom: 0;
+}
