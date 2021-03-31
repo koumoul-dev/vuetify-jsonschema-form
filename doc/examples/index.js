@@ -82,6 +82,6 @@ const examples = [
   SimpleArrayValidation
 ]
 
-const defaultTemplate = '<v-jsf v-model="model" :schema="schema" :options="options" />'
+const defaultTemplate = '<v-jsf v-model="model" :schema="schema" :options="options" @input="logEvent(\'input\', $event)" @change="logEvent(\'change\', $event)" />'
 
 export { examples, defaultTemplate }

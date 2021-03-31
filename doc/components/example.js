@@ -26,5 +26,10 @@ export default {
   render(h) {
     this.compiledTemplate = this.compiledTemplate || Vue.compile(this.template || defaultTemplate)
     return this.compiledTemplate.render.call(this, h)
+  },
+  methods: {
+    logEvent(key, $event) {
+      console.log(`vjsf event "${key}"`, $event)
+    }
   }
 }
