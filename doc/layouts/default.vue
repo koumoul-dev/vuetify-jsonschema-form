@@ -1,22 +1,20 @@
 <template>
   <v-app>
     <v-navigation-drawer v-model="drawer" :temporary="$vuetify.breakpoint.smAndDown" :permanent="$vuetify.breakpoint.mdAndUp" app dark>
-      <v-list class="pt-0 pb-2">
+      <v-list class="py-0">
         <v-list-item to="/">
-          <v-list-item-icon>
-            <v-icon color="primary">
-              mdi-home
-            </v-icon>
-          </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title class="title primary--text">
               vjsf
             </v-list-item-title>
+            <v-list-item-subtitle class="primary--text">
+              {{ version }}
+            </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
       </v-list>
 
-      <v-list dense class="pt-2">
+      <v-list dense class="pt-0">
         <v-list-item to="/about">
           <v-list-item-content>
             <v-list-item-title>
@@ -92,10 +90,11 @@
 <script>
 import SearchWidget from '@koumoul/data-fair-search-widget/src/components/search-widget.vue'
 import { examples } from '~/examples'
+import { version } from '~/../package.json'
 
 export default {
   components: { SearchWidget },
-  data: () => ({ examples, drawer: false })
+  data: () => ({ examples, version, drawer: false })
 }
 
 </script>
