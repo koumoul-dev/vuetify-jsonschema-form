@@ -2032,7 +2032,7 @@ exports[`Examples used as simple test cases Editable array 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-492"
+                for="input-515"
                 style="left: 0px; position: relative;"
               >
                 I'm an array of objects
@@ -2091,7 +2091,7 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-502"
+                for="input-525"
                 style="left: 0px; position: relative;"
               >
                 I'm an array of objects
@@ -2264,7 +2264,7 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
                                 >
                                   <label
                                     class="v-label theme--light"
-                                    for="input-539"
+                                    for="input-562"
                                     style="left: 0px; position: relative;"
                                   >
                                     I'm a nested array of objects
@@ -2351,7 +2351,7 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
                                               <div
                                                 aria-expanded="false"
                                                 aria-haspopup="listbox"
-                                                aria-owns="list-546"
+                                                aria-owns="list-569"
                                                 class="v-input__slot"
                                                 role="button"
                                               >
@@ -8461,7 +8461,7 @@ exports[`Examples used as simple test cases Markdown editor (beta) 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-563"
+                for="input-384"
                 style="left: 0px; position: relative;"
               >
                 I'm an array of objects
@@ -8592,7 +8592,7 @@ exports[`Examples used as simple test cases Markdown editor (beta) 1`] = `
                           >
                             <label
                               class="v-label v-label--is-disabled theme--light"
-                              for="input-576"
+                              for="input-397"
                               style="left: 0px; position: relative;"
                             >
                               I'm a markdown string
@@ -8881,7 +8881,7 @@ exports[`Examples used as simple test cases Prefilled arrays 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-556"
+                for="input-579"
                 style="left: 0px; position: relative;"
               >
                 I'm an array filled by HTTP request
