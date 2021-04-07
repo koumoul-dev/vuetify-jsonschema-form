@@ -10,9 +10,14 @@ import { examples } from '~/examples'
 
 export default {
   components: { ExampleWrapper },
-  data() {
-    return {
-      example: examples.find(e => e.id === this.$route.params.id)
+  computed: {
+    example() {
+      for (const examplesGroup of examples) {
+        for (const example of examplesGroup.examples) {
+          if (example.id === this.$route.params.id) return example
+        }
+      }
+      return null
     }
   }
 }

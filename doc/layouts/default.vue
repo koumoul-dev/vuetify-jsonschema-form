@@ -47,13 +47,25 @@
 
       <v-divider />
 
-      <v-list dense shaped class="mb-6">
+      <v-list dense shaped class="mb-6 pr-0">
         <v-subheader>EXAMPLES</v-subheader>
-        <v-list-item v-for="example in examples.filter(e => !e.id.startsWith('_'))" :key="example.id" :to="{name: 'examples', hash: '#' + example.id}">
-          <v-list-item-content>
-            <v-list-item-title>{{ example.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+        <v-expansion-panels id="examples-panels" accordion flat>
+          <v-expansion-panel
+            v-for="(examplesGroup, i) in examples.filter(eg => eg.title !== 'Development' || nodeEnv === 'development')"
+            :key="i"
+          >
+            <v-expansion-panel-header class="px-3" :color="examplesGroup.color || ''">
+              {{ examplesGroup.title }}
+            </v-expansion-panel-header>
+            <v-expansion-panel-content>
+              <v-list-item v-for="example in examplesGroup.examples" :key="example.id" :to="{name: 'examples', hash: '#' + example.id}">
+                <v-list-item-content>
+                  <v-list-item-title>{{ example.title }}</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
       </v-list>
 
       <v-footer absolute>
@@ -94,10 +106,22 @@ import { version } from '~/../package.json'
 
 export default {
   components: { SearchWidget },
-  data: () => ({ examples, version, drawer: false })
+  data: () => ({
+    examples,
+    version,
+    drawer: false,
+    nodeEnv: process.env.NODE_ENV
+  })
 }
 
 </script>
 
 <style>
+#examples-panels .v-expansion-panel {
+  background-color: transparent
+}
+#examples-panels .v-expansion-panel-content__wrap {
+  padding-left: 8px;
+  padding-right: 8px;
+}
 </style>

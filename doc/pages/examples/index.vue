@@ -1,6 +1,8 @@
 <template>
   <v-container class="examples-container">
-    <example-wrapper v-for="example in examples.filter(e => !e.id.startsWith('_'))" :key="example.key" :params="example" />
+    <template v-for="(examplesGroup, i) in examples">
+      <example-wrapper v-for="example in examplesGroup.examples" :key="i + example.key" :params="example" />
+    </template>
   </v-container>
 </template>
 

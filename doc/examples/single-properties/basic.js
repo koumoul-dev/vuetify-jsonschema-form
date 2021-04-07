@@ -2,7 +2,7 @@ const id = 'basic'
 
 const title = 'Basic types'
 
-const description = `All basic types are supported : string, number, integer, boolean`
+const description = `All basic types are supported : string, number, integer, boolean.`
 
 const schema = {
   type: 'object',
