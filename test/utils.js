@@ -22,7 +22,7 @@ exports.getExampleWrapper = (example) => {
   // Vue.options.components.VForm.$options.components = Vue.options.components
   // const wrapper = mount(localVue.options.components.VForm, {
   const template = (example.template || defaultTemplate)
-    .replace('"model"', '"props.model"')
+    .replace('"model"', '"props.modelWrapper.model"')
     .replace('"schema"', '"props.schema"')
     .replace('"options"', '"props.options"')
     .replace('logEvent', 'props.logEvent')
@@ -55,7 +55,7 @@ exports.getExampleWrapper = (example) => {
       default: template
     },
     propsData: {
-      model: example.model || {},
+      modelWrapper: { model: example.model || {} },
       schema: example.schema,
       options
     },

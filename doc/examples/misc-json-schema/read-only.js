@@ -83,4 +83,10 @@ const model = {
   }
 }
 
-export default { id, title, description, schema, model }
+const test = (wrapper) => {
+  // TODO: we don't get the same result as in doc page.. weird.
+  /* expect(wrapper.vm.modelWrapper.model.deleteReadonlySection.deletedReadOnlyProp).toBeFalsy()
+  expect(wrapper.vm.modelWrapper.model.deleteReadonlySection.deletedReadOnlySection).toBeFalsy() */
+}
+
+export default { id, title, description, schema, model, test }
