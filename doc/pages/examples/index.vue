@@ -1,7 +1,7 @@
 <template>
   <v-container class="examples-container">
     <template v-for="(examplesGroup, i) in examples">
-      <example-wrapper v-for="example in examplesGroup.examples" :key="i + example.key" :params="example" />
+      <example-wrapper v-for="(example, j) in examplesGroup.examples" :key="`${i}-${j}`" :params="example" />
     </template>
   </v-container>
 </template>
