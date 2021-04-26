@@ -12526,7 +12526,7 @@ exports[`Examples used as simple test cases Selects prefilled with http results 
         class="col col-12 vjsf-property vjsf-property-selectAjaxString pa-0"
       >
         <div
-          class="v-input theme--light v-text-field v-text-field--is-booted v-select"
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select"
         >
           <div
             class="v-input__control"
@@ -12542,7 +12542,7 @@ exports[`Examples used as simple test cases Selects prefilled with http results 
                 class="v-select__slot"
               >
                 <label
-                  class="v-label theme--light"
+                  class="v-label v-label--active theme--light"
                   for="selectAjaxString"
                   style="left: 0px; position: absolute;"
                 >
@@ -12551,6 +12551,15 @@ exports[`Examples used as simple test cases Selects prefilled with http results 
                 <div
                   class="v-select__selections"
                 >
+                  <div
+                    class="v-select__selection v-select__selection--comma"
+                  >
+                    <span
+                      class="mt-1"
+                    >
+                      https://koumoul.com/s/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417
+                    </span>
+                  </div>
                   <input
                     aria-readonly="undefined"
                     autocomplete="off"
@@ -12567,8 +12576,7 @@ exports[`Examples used as simple test cases Selects prefilled with http results 
                   >
                     <button
                       aria-label="clear icon"
-                      class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
-                      disabled="disabled"
+                      class="v-icon notranslate v-icon--link mdi mdi-close theme--light"
                       type="button"
                     />
                   </div>
@@ -12616,7 +12624,7 @@ exports[`Examples used as simple test cases Selects prefilled with http results 
         class="col col-12 vjsf-property vjsf-property-selectAjaxObject pa-0"
       >
         <div
-          class="v-input theme--light v-text-field v-text-field--is-booted v-select"
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select"
         >
           <div
             class="v-input__control"
@@ -12632,7 +12640,7 @@ exports[`Examples used as simple test cases Selects prefilled with http results 
                 class="v-select__slot"
               >
                 <label
-                  class="v-label theme--light"
+                  class="v-label v-label--active theme--light"
                   for="selectAjaxObject"
                   style="left: 0px; position: absolute;"
                 >
@@ -12641,6 +12649,15 @@ exports[`Examples used as simple test cases Selects prefilled with http results 
                 <div
                   class="v-select__selections"
                 >
+                  <div
+                    class="v-select__selection v-select__selection--comma"
+                  >
+                    <span
+                      class="mt-1"
+                    >
+                      Présidentielles 2017 - Votes des français à l'étranger - 1er tour
+                    </span>
+                  </div>
                   <input
                     aria-readonly="undefined"
                     autocomplete="off"
@@ -12657,8 +12674,7 @@ exports[`Examples used as simple test cases Selects prefilled with http results 
                   >
                     <button
                       aria-label="clear icon"
-                      class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
-                      disabled="disabled"
+                      class="v-icon notranslate v-icon--link mdi mdi-close theme--light"
                       type="button"
                     />
                   </div>
@@ -13284,7 +13300,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
         class="col col-12 vjsf-property vjsf-property-selectAjaxObject pa-0"
       >
         <div
-          class="v-input theme--light v-text-field v-text-field--is-booted v-select"
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select"
         >
           <div
             class="v-input__control"
@@ -13300,7 +13316,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
                 class="v-select__slot"
               >
                 <label
-                  class="v-label theme--light"
+                  class="v-label v-label--active theme--light"
                   for="selectAjaxObject"
                   style="left: 0px; position: absolute;"
                 >
@@ -13309,6 +13325,15 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
                 <div
                   class="v-select__selections"
                 >
+                  <div
+                    class="v-select__selection v-select__selection--comma"
+                  >
+                    <span
+                      class="mt-1"
+                    >
+                      Présidentielles 2017 - Votes des français à l'étranger - 1er tour
+                    </span>
+                  </div>
                   <input
                     aria-readonly="undefined"
                     autocomplete="off"
@@ -13325,8 +13350,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
                   >
                     <button
                       aria-label="clear icon"
-                      class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
-                      disabled="disabled"
+                      class="v-icon notranslate v-icon--link mdi mdi-close theme--light"
                       type="button"
                     />
                   </div>
@@ -13472,7 +13496,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
         class="col col-12 vjsf-property vjsf-property-selectAjaxDep pa-0"
       >
         <div
-          class="v-input theme--light v-text-field v-text-field--is-booted v-select"
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select"
         >
           <div
             class="v-input__control"
@@ -13488,7 +13512,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
                 class="v-select__slot"
               >
                 <label
-                  class="v-label theme--light"
+                  class="v-label v-label--active theme--light"
                   for="selectAjaxDep"
                   style="left: 0px; position: absolute;"
                 >
@@ -13497,6 +13521,15 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
                 <div
                   class="v-select__selections"
                 >
+                  <div
+                    class="v-select__selection v-select__selection--comma"
+                  >
+                    <span
+                      class="mt-1"
+                    >
+                      Pays
+                    </span>
+                  </div>
                   <input
                     aria-readonly="undefined"
                     autocomplete="off"
@@ -13513,8 +13546,7 @@ exports[`Examples used as simple test cases Selects with prefilled dependencies 
                   >
                     <button
                       aria-label="clear icon"
-                      class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"
-                      disabled="disabled"
+                      class="v-icon notranslate v-icon--link mdi mdi-close theme--light"
                       type="button"
                     />
                   </div>
