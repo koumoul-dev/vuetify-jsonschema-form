@@ -3656,7 +3656,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                       </div>
                     </div>
                     <div
-                      class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select"
+                      class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted v-select"
                     >
                       <div
                         class="v-input__control"
@@ -3672,7 +3672,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                             class="v-select__slot"
                           >
                             <label
-                              class="v-label v-label--active theme--light"
+                              class="v-label v-label--active v-label--is-disabled theme--light"
                               for="objectArrayProp-item-0"
                               style="left: 0px; position: absolute;"
                             >
@@ -3682,13 +3682,14 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               class="v-select__selections"
                             >
                               <div
-                                class="v-select__selection v-select__selection--comma"
+                                class="v-select__selection v-select__selection--comma v-select__selection--disabled"
                               >
                                 Object1
                               </div>
                               <input
                                 aria-readonly="undefined"
                                 autocomplete="off"
+                                disabled="disabled"
                                 id="objectArrayProp-item-0"
                                 readonly="readonly"
                                 type="text"
@@ -3702,7 +3703,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               >
                                 <i
                                   aria-hidden="true"
-                                  class="v-icon notranslate mdi mdi-menu-down theme--light"
+                                  class="v-icon notranslate v-icon--disabled mdi mdi-menu-down theme--light"
                                 />
                               </div>
                             </div>
@@ -4216,7 +4217,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                       </div>
                     </div>
                     <div
-                      class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select"
+                      class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted v-select"
                     >
                       <div
                         class="v-input__control"
@@ -4232,7 +4233,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                             class="v-select__slot"
                           >
                             <label
-                              class="v-label v-label--active theme--light"
+                              class="v-label v-label--active v-label--is-disabled theme--light"
                               for="objectArrayProp-item-1"
                               style="left: 0px; position: absolute;"
                             >
@@ -4242,13 +4243,14 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               class="v-select__selections"
                             >
                               <div
-                                class="v-select__selection v-select__selection--comma"
+                                class="v-select__selection v-select__selection--comma v-select__selection--disabled"
                               >
                                 Object2
                               </div>
                               <input
                                 aria-readonly="undefined"
                                 autocomplete="off"
+                                disabled="disabled"
                                 id="objectArrayProp-item-1"
                                 readonly="readonly"
                                 type="text"
@@ -4262,7 +4264,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               >
                                 <i
                                   aria-hidden="true"
-                                  class="v-icon notranslate mdi mdi-menu-down theme--light"
+                                  class="v-icon notranslate v-icon--disabled mdi mdi-menu-down theme--light"
                                 />
                               </div>
                             </div>
@@ -4588,7 +4590,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                       </div>
                     </div>
                     <div
-                      class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select"
+                      class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted v-select"
                     >
                       <div
                         class="v-input__control"
@@ -4604,7 +4606,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                             class="v-select__slot"
                           >
                             <label
-                              class="v-label v-label--active theme--light"
+                              class="v-label v-label--active v-label--is-disabled theme--light"
                               for="objectArrayProp-item-2"
                               style="left: 0px; position: absolute;"
                             >
@@ -4614,13 +4616,14 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               class="v-select__selections"
                             >
                               <div
-                                class="v-select__selection v-select__selection--comma"
+                                class="v-select__selection v-select__selection--comma v-select__selection--disabled"
                               >
                                 Object1
                               </div>
                               <input
                                 aria-readonly="undefined"
                                 autocomplete="off"
+                                disabled="disabled"
                                 id="objectArrayProp-item-2"
                                 readonly="readonly"
                                 type="text"
@@ -4634,7 +4637,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               >
                                 <i
                                   aria-hidden="true"
-                                  class="v-icon notranslate mdi mdi-menu-down theme--light"
+                                  class="v-icon notranslate v-icon--disabled mdi mdi-menu-down theme--light"
                                 />
                               </div>
                             </div>
@@ -5148,7 +5151,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                       </div>
                     </div>
                     <div
-                      class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select"
+                      class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted v-select"
                     >
                       <div
                         class="v-input__control"
@@ -5164,7 +5167,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                             class="v-select__slot"
                           >
                             <label
-                              class="v-label v-label--active theme--light"
+                              class="v-label v-label--active v-label--is-disabled theme--light"
                               for="objectArrayProp-item-3"
                               style="left: 0px; position: absolute;"
                             >
@@ -5174,13 +5177,14 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               class="v-select__selections"
                             >
                               <div
-                                class="v-select__selection v-select__selection--comma"
+                                class="v-select__selection v-select__selection--comma v-select__selection--disabled"
                               >
                                 Object2
                               </div>
                               <input
                                 aria-readonly="undefined"
                                 autocomplete="off"
+                                disabled="disabled"
                                 id="objectArrayProp-item-3"
                                 readonly="readonly"
                                 type="text"
@@ -5194,7 +5198,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               >
                                 <i
                                   aria-hidden="true"
-                                  class="v-icon notranslate mdi mdi-menu-down theme--light"
+                                  class="v-icon notranslate v-icon--disabled mdi mdi-menu-down theme--light"
                                 />
                               </div>
                             </div>
@@ -5520,7 +5524,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                       </div>
                     </div>
                     <div
-                      class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select"
+                      class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted v-select"
                     >
                       <div
                         class="v-input__control"
@@ -5536,7 +5540,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                             class="v-select__slot"
                           >
                             <label
-                              class="v-label v-label--active theme--light"
+                              class="v-label v-label--active v-label--is-disabled theme--light"
                               for="objectArrayProp-item-4"
                               style="left: 0px; position: absolute;"
                             >
@@ -5546,13 +5550,14 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               class="v-select__selections"
                             >
                               <div
-                                class="v-select__selection v-select__selection--comma"
+                                class="v-select__selection v-select__selection--comma v-select__selection--disabled"
                               >
                                 Object1
                               </div>
                               <input
                                 aria-readonly="undefined"
                                 autocomplete="off"
+                                disabled="disabled"
                                 id="objectArrayProp-item-4"
                                 readonly="readonly"
                                 type="text"
@@ -5566,7 +5571,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               >
                                 <i
                                   aria-hidden="true"
-                                  class="v-icon notranslate mdi mdi-menu-down theme--light"
+                                  class="v-icon notranslate v-icon--disabled mdi mdi-menu-down theme--light"
                                 />
                               </div>
                             </div>
@@ -6080,7 +6085,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                       </div>
                     </div>
                     <div
-                      class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select"
+                      class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted v-select"
                     >
                       <div
                         class="v-input__control"
@@ -6096,7 +6101,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                             class="v-select__slot"
                           >
                             <label
-                              class="v-label v-label--active theme--light"
+                              class="v-label v-label--active v-label--is-disabled theme--light"
                               for="objectArrayProp-item-5"
                               style="left: 0px; position: absolute;"
                             >
@@ -6106,13 +6111,14 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               class="v-select__selections"
                             >
                               <div
-                                class="v-select__selection v-select__selection--comma"
+                                class="v-select__selection v-select__selection--comma v-select__selection--disabled"
                               >
                                 Object2
                               </div>
                               <input
                                 aria-readonly="undefined"
                                 autocomplete="off"
+                                disabled="disabled"
                                 id="objectArrayProp-item-5"
                                 readonly="readonly"
                                 type="text"
@@ -6126,7 +6132,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               >
                                 <i
                                   aria-hidden="true"
-                                  class="v-icon notranslate mdi mdi-menu-down theme--light"
+                                  class="v-icon notranslate v-icon--disabled mdi mdi-menu-down theme--light"
                                 />
                               </div>
                             </div>
@@ -6452,7 +6458,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                       </div>
                     </div>
                     <div
-                      class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select"
+                      class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted v-select"
                     >
                       <div
                         class="v-input__control"
@@ -6468,7 +6474,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                             class="v-select__slot"
                           >
                             <label
-                              class="v-label v-label--active theme--light"
+                              class="v-label v-label--active v-label--is-disabled theme--light"
                               for="objectArrayProp-item-6"
                               style="left: 0px; position: absolute;"
                             >
@@ -6478,13 +6484,14 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               class="v-select__selections"
                             >
                               <div
-                                class="v-select__selection v-select__selection--comma"
+                                class="v-select__selection v-select__selection--comma v-select__selection--disabled"
                               >
                                 Object1
                               </div>
                               <input
                                 aria-readonly="undefined"
                                 autocomplete="off"
+                                disabled="disabled"
                                 id="objectArrayProp-item-6"
                                 readonly="readonly"
                                 type="text"
@@ -6498,7 +6505,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               >
                                 <i
                                   aria-hidden="true"
-                                  class="v-icon notranslate mdi mdi-menu-down theme--light"
+                                  class="v-icon notranslate v-icon--disabled mdi mdi-menu-down theme--light"
                                 />
                               </div>
                             </div>
@@ -7012,7 +7019,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                       </div>
                     </div>
                     <div
-                      class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select"
+                      class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted v-select"
                     >
                       <div
                         class="v-input__control"
@@ -7028,7 +7035,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                             class="v-select__slot"
                           >
                             <label
-                              class="v-label v-label--active theme--light"
+                              class="v-label v-label--active v-label--is-disabled theme--light"
                               for="objectArrayProp-item-7"
                               style="left: 0px; position: absolute;"
                             >
@@ -7038,13 +7045,14 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               class="v-select__selections"
                             >
                               <div
-                                class="v-select__selection v-select__selection--comma"
+                                class="v-select__selection v-select__selection--comma v-select__selection--disabled"
                               >
                                 Object2
                               </div>
                               <input
                                 aria-readonly="undefined"
                                 autocomplete="off"
+                                disabled="disabled"
                                 id="objectArrayProp-item-7"
                                 readonly="readonly"
                                 type="text"
@@ -7058,7 +7066,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               >
                                 <i
                                   aria-hidden="true"
-                                  class="v-icon notranslate mdi mdi-menu-down theme--light"
+                                  class="v-icon notranslate v-icon--disabled mdi mdi-menu-down theme--light"
                                 />
                               </div>
                             </div>
@@ -7384,7 +7392,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                       </div>
                     </div>
                     <div
-                      class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select"
+                      class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted v-select"
                     >
                       <div
                         class="v-input__control"
@@ -7400,7 +7408,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                             class="v-select__slot"
                           >
                             <label
-                              class="v-label v-label--active theme--light"
+                              class="v-label v-label--active v-label--is-disabled theme--light"
                               for="objectArrayProp-item-8"
                               style="left: 0px; position: absolute;"
                             >
@@ -7410,13 +7418,14 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               class="v-select__selections"
                             >
                               <div
-                                class="v-select__selection v-select__selection--comma"
+                                class="v-select__selection v-select__selection--comma v-select__selection--disabled"
                               >
                                 Object1
                               </div>
                               <input
                                 aria-readonly="undefined"
                                 autocomplete="off"
+                                disabled="disabled"
                                 id="objectArrayProp-item-8"
                                 readonly="readonly"
                                 type="text"
@@ -7430,7 +7439,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               >
                                 <i
                                   aria-hidden="true"
-                                  class="v-icon notranslate mdi mdi-menu-down theme--light"
+                                  class="v-icon notranslate v-icon--disabled mdi mdi-menu-down theme--light"
                                 />
                               </div>
                             </div>
@@ -7944,7 +7953,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                       </div>
                     </div>
                     <div
-                      class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select"
+                      class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted v-select"
                     >
                       <div
                         class="v-input__control"
@@ -7960,7 +7969,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                             class="v-select__slot"
                           >
                             <label
-                              class="v-label v-label--active theme--light"
+                              class="v-label v-label--active v-label--is-disabled theme--light"
                               for="objectArrayProp-item-9"
                               style="left: 0px; position: absolute;"
                             >
@@ -7970,13 +7979,14 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               class="v-select__selections"
                             >
                               <div
-                                class="v-select__selection v-select__selection--comma"
+                                class="v-select__selection v-select__selection--comma v-select__selection--disabled"
                               >
                                 Object2
                               </div>
                               <input
                                 aria-readonly="undefined"
                                 autocomplete="off"
+                                disabled="disabled"
                                 id="objectArrayProp-item-9"
                                 readonly="readonly"
                                 type="text"
@@ -7990,7 +8000,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               >
                                 <i
                                   aria-hidden="true"
-                                  class="v-icon notranslate mdi mdi-menu-down theme--light"
+                                  class="v-icon notranslate v-icon--disabled mdi mdi-menu-down theme--light"
                                 />
                               </div>
                             </div>
