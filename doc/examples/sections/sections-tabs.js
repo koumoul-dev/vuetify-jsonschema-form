@@ -22,9 +22,18 @@ const schema = {
   {
     title: `I'm another section`,
     type: 'object',
-    properties: {
-      stringProp2: { type: 'string', title: `I'm a property in section 2` }
-    }
+    oneOf: [{
+      properties: {
+        key: { type: 'string', const: 'type1', title: 'type 1' },
+        stringProp2: { type: 'string', title: `I'm a property in section 2 / type 1` }
+      }
+    }, {
+      properties: {
+        key: { type: 'string', const: 'type2', title: 'type 2' },
+        stringProp3: { type: 'string', title: `I'm a property in section 2 / type 2` }
+      }
+    }]
+
   }]
 }
 
