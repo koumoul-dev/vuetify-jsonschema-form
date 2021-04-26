@@ -54,7 +54,7 @@
           <v-window v-model="showCode" vertical>
             <v-window-item />
             <v-window-item>
-              <v-card dark tile flat class="pa-0" max-height="350" style="overflow-y: auto">
+              <v-card dark tile flat class="pa-0" max-height="350" style="overflow: auto">
                 <v-tabs>
                   <v-tabs-slider />
 
@@ -230,5 +230,10 @@ new Vue({
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
+
+.example-wrapper pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
 </style>
