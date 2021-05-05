@@ -38,6 +38,50 @@ const schema = {
           }
         }
       }
+    },
+    MeasurementFile: {
+      title: ' ',
+      description: 'Upload measurement .JSON file.',
+      type: 'string',
+      writeOnly: true,
+      contentMediaType: 'application/json',
+      'x-display': 'custom-table',
+      displayTable: {
+        validation: {
+          apple: {
+            path: '.fruits.apple',
+            rules: {
+              maximum: 100,
+              minimum: 10,
+              precision: 0
+            }
+          },
+          orange: {
+            path: '.fruits.orange',
+            rules: {
+              maximum: 100,
+              minimum: 11,
+              precision: 0
+            }
+          },
+          pea: {
+            path: '.vegetables.round.pea',
+            rules: {
+              maximum: 1e2,
+              minimum: 10,
+              precision: 0
+            }
+          },
+          carrot: {
+            path: '.vegetables.long.carrot',
+            rules: {
+              maximum: 5,
+              minimum: 0,
+              precision: 0
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -46,7 +90,21 @@ const model = {
   arrayProp: [{
     htmlProp: '<b>initial content</b>',
     markdownProp: '**initial content**'
-  }]
+  }],
+  MeasurementFile: `{
+    "fruits": {
+      "apple": 20,
+      "orange": 10
+    },
+    "vegetables": {
+      "round": {
+        "pea": 300
+      },
+      "long": {
+        "carrot": 2
+      }
+    }
+  }`
 }
 
 const template = `<v-jsf v-model="model" :schema="schema" :options="options">
@@ -58,6 +116,9 @@ const template = `<v-jsf v-model="model" :schema="schema" :options="options">
   </template>
   <template slot="custom-avatar" slot-scope="context">
     <v-jsf-crop-img v-bind="context" />
+  </template>
+  <template slot="custom-table" slot-scope="context">
+      <v-jsf-table v-bind="context" />
   </template>
 </v-jsf>`
 
