@@ -7,12 +7,13 @@ import 'easymde/dist/easymde.min.css'
 import VJsfTiptap from './wrappers/v-jsf-tiptap.vue'
 import VJsfToastUiEditor from './wrappers/v-jsf-toast-ui-editor.vue'
 import VJsfCropImg from './wrappers/v-jsf-crop-img.vue'
+import VJsfTable from './wrappers/v-jsf-table.vue'
 import { defaultTemplate } from '../examples'
 
 global.EasyMDE = EasyMDE
 
 export default {
-  components: { VJsf, VJsfTiptap, VJsfToastUiEditor, VJsfCropImg },
+  components: { VJsf, VJsfTiptap, VJsfToastUiEditor, VJsfCropImg, VJsfTable },
   props: {
     params: { type: Object, required: true }
   },
