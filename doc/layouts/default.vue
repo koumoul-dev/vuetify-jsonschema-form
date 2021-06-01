@@ -43,6 +43,13 @@
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+        <v-list-item to="/1to2">
+          <v-list-item-content>
+            <v-list-item-title>
+              1.x to 2.x
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
 
       <v-divider />
