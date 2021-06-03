@@ -3024,404 +3024,6 @@ exports[`Examples used as simple test cases Files 1`] = `
       class="row ma-0 "
     >
       <div
-        class="col col-12 vjsf-property vjsf-property-stringEnum pa-0"
-      >
-        <div
-          class="v-input theme--light v-input--selection-controls v-input--radio-group v-input--radio-group--column"
-        >
-          <div
-            class="v-input__control"
-          >
-            <div
-              class="v-input__slot"
-              style="height: auto;"
-            >
-              <div
-                aria-labelledby="stringEnum"
-                class="v-input--radio-group__input"
-                id="stringEnum"
-                role="radiogroup"
-              >
-                <legend
-                  class="v-label theme--light"
-                  id="stringEnum"
-                  style="left: 0px; position: relative;"
-                >
-                  I'm a string with an enum and x-display=radio
-                </legend>
-                <div
-                  class="v-radio theme--light"
-                >
-                  <div
-                    class="v-input--selection-controls__input"
-                  >
-                    <i
-                      aria-hidden="true"
-                      class="v-icon notranslate mdi mdi-radiobox-blank theme--light"
-                    />
-                    <input
-                      aria-checked="false"
-                      id="input-324"
-                      name="stringEnum"
-                      role="radio"
-                      type="radio"
-                      value="value 1"
-                    />
-                    <div
-                      class="v-input--selection-controls__ripple"
-                    />
-                  </div>
-                  <label
-                    class="v-label theme--light"
-                    for="input-324"
-                    style="left: 0px; position: relative;"
-                  >
-                    value 1
-                  </label>
-                </div>
-                <div
-                  class="v-radio theme--light"
-                >
-                  <div
-                    class="v-input--selection-controls__input"
-                  >
-                    <i
-                      aria-hidden="true"
-                      class="v-icon notranslate mdi mdi-radiobox-blank theme--light"
-                    />
-                    <input
-                      aria-checked="false"
-                      id="input-326"
-                      name="stringEnum"
-                      role="radio"
-                      type="radio"
-                      value="value 2"
-                    />
-                    <div
-                      class="v-input--selection-controls__ripple"
-                    />
-                  </div>
-                  <label
-                    class="v-label theme--light"
-                    for="input-326"
-                    style="left: 0px; position: relative;"
-                  >
-                    value 2
-                  </label>
-                </div>
-              </div>
-            </div>
-            <div
-              class="v-messages theme--light"
-            >
-              <transition-group-stub
-                class="v-messages__wrapper"
-                name="message-transition"
-                tag="div"
-              />
-            </div>
-          </div>
-          <div
-            class="v-input__append-outer"
-          >
-            <button
-              aria-expanded="false"
-              aria-haspopup="true"
-              class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
-              style="pointer-events: auto;"
-              type="button"
-            >
-              <span
-                class="v-btn__content"
-              >
-                <i
-                  aria-hidden="true"
-                  class="v-icon notranslate mdi mdi-information theme--light"
-                />
-              </span>
-            </button>
-            <span
-              class="v-tooltip v-tooltip--left"
-            >
-              <!---->
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        class="col col-12 vjsf-property vjsf-property-stringsArrayEnum pa-0"
-      >
-        <div
-          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--radio-group v-input--radio-group--column"
-        >
-          <div
-            class="v-input__control"
-          >
-            <div
-              class="v-input__slot"
-            >
-              <div
-                class="v-input--radio-group__input"
-              >
-                <legend
-                  class="v-label theme--light "
-                >
-                  I'm an array with an enum and x-display=checkbox
-                </legend>
-                <div
-                  class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--checkbox primary--text pb-1"
-                >
-                  <div
-                    class="v-input__control"
-                  >
-                    <div
-                      class="v-input__slot"
-                    >
-                      <div
-                        class="v-input--selection-controls__input"
-                      >
-                        <i
-                          aria-hidden="true"
-                          class="v-icon notranslate mdi mdi-checkbox-marked theme--light primary--text"
-                        />
-                        <input
-                          aria-checked="true"
-                          id="input-334"
-                          role="checkbox"
-                          type="checkbox"
-                          value="value 1"
-                        />
-                        <div
-                          class="v-input--selection-controls__ripple primary--text"
-                        />
-                      </div>
-                      <label
-                        class="v-label theme--light"
-                        for="input-334"
-                        style="left: 0px; position: relative;"
-                      >
-                        value 1
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="v-input v-input--hide-details theme--light v-input--selection-controls v-input--checkbox pb-1"
-                >
-                  <div
-                    class="v-input__control"
-                  >
-                    <div
-                      class="v-input__slot"
-                    >
-                      <div
-                        class="v-input--selection-controls__input"
-                      >
-                        <i
-                          aria-hidden="true"
-                          class="v-icon notranslate mdi mdi-checkbox-blank-outline theme--light"
-                        />
-                        <input
-                          aria-checked="false"
-                          id="input-336"
-                          role="checkbox"
-                          type="checkbox"
-                          value="value 2"
-                        />
-                        <div
-                          class="v-input--selection-controls__ripple"
-                        />
-                      </div>
-                      <label
-                        class="v-label theme--light"
-                        for="input-336"
-                        style="left: 0px; position: relative;"
-                      >
-                        value 2
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="v-messages theme--light"
-            >
-              <transition-group-stub
-                class="v-messages__wrapper"
-                name="message-transition"
-                tag="div"
-              />
-            </div>
-          </div>
-          <div
-            class="v-input__append-outer"
-          >
-            <button
-              aria-expanded="false"
-              aria-haspopup="true"
-              class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
-              style="pointer-events: auto;"
-              type="button"
-            >
-              <span
-                class="v-btn__content"
-              >
-                <i
-                  aria-hidden="true"
-                  class="v-icon notranslate mdi mdi-information theme--light"
-                />
-              </span>
-            </button>
-            <span
-              class="v-tooltip v-tooltip--left"
-            >
-              <!---->
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        class="col col-12 vjsf-property vjsf-property-stringArrayOneOf pa-0"
-      >
-        <div
-          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--radio-group v-input--radio-group--column"
-        >
-          <div
-            class="v-input__control"
-          >
-            <div
-              class="v-input__slot"
-            >
-              <div
-                class="v-input--radio-group__input"
-              >
-                <legend
-                  class="v-label theme--light "
-                >
-                  I'm an array with a oneOf and x-display=switch
-                </legend>
-                <div
-                  class="v-input v-input--hide-details theme--light v-input--selection-controls v-input--switch pb-1"
-                >
-                  <div
-                    class="v-input__control"
-                  >
-                    <div
-                      class="v-input__slot"
-                    >
-                      <div
-                        class="v-input--selection-controls__input"
-                      >
-                        <input
-                          aria-checked="false"
-                          aria-disabled="undefined"
-                          id="input-344"
-                          role="switch"
-                          type="checkbox"
-                          value="value1"
-                        />
-                        <div
-                          class="v-input--selection-controls__ripple"
-                        />
-                        <div
-                          class="v-input--switch__track theme--light"
-                        />
-                        <div
-                          class="v-input--switch__thumb theme--light"
-                        >
-                          <transition-stub
-                            mode="out-in"
-                            name="fab-transition"
-                          />
-                        </div>
-                      </div>
-                      <label
-                        class="v-label theme--light"
-                        for="input-344"
-                        style="left: 0px; position: relative;"
-                      >
-                        Value 1
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="v-input v-input--hide-details theme--light v-input--selection-controls v-input--switch pb-1"
-                >
-                  <div
-                    class="v-input__control"
-                  >
-                    <div
-                      class="v-input__slot"
-                    >
-                      <div
-                        class="v-input--selection-controls__input"
-                      >
-                        <input
-                          aria-checked="false"
-                          aria-disabled="undefined"
-                          id="input-346"
-                          role="switch"
-                          type="checkbox"
-                          value="value2"
-                        />
-                        <div
-                          class="v-input--selection-controls__ripple"
-                        />
-                        <div
-                          class="v-input--switch__track theme--light"
-                        />
-                        <div
-                          class="v-input--switch__thumb theme--light"
-                        >
-                          <transition-stub
-                            mode="out-in"
-                            name="fab-transition"
-                          />
-                        </div>
-                      </div>
-                      <label
-                        class="v-label theme--light"
-                        for="input-346"
-                        style="left: 0px; position: relative;"
-                      >
-                        Value 2
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="v-messages theme--light"
-            >
-              <transition-group-stub
-                class="v-messages__wrapper"
-                name="message-transition"
-                tag="div"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</form>
-`;
-
-exports[`Examples used as simple test cases Files 2`] = `
-<form
-  class="v-form"
-  novalidate="novalidate"
->
-  <div
-    class="col col-12 vjsf-property vjsf-property-root pa-0"
-  >
-    <div
-      class="row ma-0 "
-    >
-      <div
         class="col col-12 vjsf-property vjsf-property-pngProp pa-0"
       >
         <div
@@ -11712,7 +11314,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                     />
                     <input
                       aria-checked="false"
-                      id="input-259"
+                      id="input-324"
                       name="stringEnum"
                       role="radio"
                       type="radio"
@@ -11724,7 +11326,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                   </div>
                   <label
                     class="v-label theme--light"
-                    for="input-259"
+                    for="input-324"
                     style="left: 0px; position: relative;"
                   >
                     value 1
@@ -11742,7 +11344,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                     />
                     <input
                       aria-checked="false"
-                      id="input-261"
+                      id="input-326"
                       name="stringEnum"
                       role="radio"
                       type="radio"
@@ -11754,7 +11356,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                   </div>
                   <label
                     class="v-label theme--light"
-                    for="input-261"
+                    for="input-326"
                     style="left: 0px; position: relative;"
                   >
                     value 2
@@ -11837,7 +11439,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                         />
                         <input
                           aria-checked="true"
-                          id="input-269"
+                          id="input-334"
                           role="checkbox"
                           type="checkbox"
                           value="value 1"
@@ -11848,7 +11450,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                       </div>
                       <label
                         class="v-label theme--light"
-                        for="input-269"
+                        for="input-334"
                         style="left: 0px; position: relative;"
                       >
                         value 1
@@ -11874,7 +11476,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                         />
                         <input
                           aria-checked="false"
-                          id="input-271"
+                          id="input-336"
                           role="checkbox"
                           type="checkbox"
                           value="value 2"
@@ -11885,7 +11487,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                       </div>
                       <label
                         class="v-label theme--light"
-                        for="input-271"
+                        for="input-336"
                         style="left: 0px; position: relative;"
                       >
                         value 2
@@ -11967,7 +11569,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                         <input
                           aria-checked="false"
                           aria-disabled="undefined"
-                          id="input-279"
+                          id="input-344"
                           role="switch"
                           type="checkbox"
                           value="value1"
@@ -11989,7 +11591,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                       </div>
                       <label
                         class="v-label theme--light"
-                        for="input-279"
+                        for="input-344"
                         style="left: 0px; position: relative;"
                       >
                         Value 1
@@ -12012,7 +11614,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                         <input
                           aria-checked="false"
                           aria-disabled="undefined"
-                          id="input-281"
+                          id="input-346"
                           role="switch"
                           type="checkbox"
                           value="value2"
@@ -12034,7 +11636,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
                       </div>
                       <label
                         class="v-label theme--light"
-                        for="input-281"
+                        for="input-346"
                         style="left: 0px; position: relative;"
                       >
                         Value 2
