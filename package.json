@@ -7,7 +7,7 @@
     "lint": "eslint --ext js,vue .",
     "lint-fix": "eslint --fix --ext js,vue .",
     "build": "rm -rf dist && webpack && cp lib/VJsf.css dist/main.css",
-    "prepublish": "npm run lint && npm test && npm run build && npm run doc-build",
+    "prepare": "npm run lint && npm test && npm run build && npm run doc-build",
     "postpublish": "gh-pages-multi deploy -v -s doc/dist -t latest",
     "test": "jest",
     "test-update": "jest --updateSnapshot",
