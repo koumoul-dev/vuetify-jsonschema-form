@@ -17,4 +17,14 @@ const schema = {
 
 const model = {}
 
-export default { id, title, description, schema, model }
+const test = (wrapper, modelWrapper, events) => {
+  const properties = wrapper.findAll('.vjsf-property')
+  expect(properties).toHaveLength(4)
+  expect(events).toHaveLength(3)
+  expect(events[0].key).toBe('input')
+  // TODO: fix reactivity of model in test
+  // we should be able to assert aht modelWrapper.model is worth {stringProp: null, dateProp: null, selectProp: null}
+  expect(modelWrapper.model.selectProp).toBeNull()
+}
+
+export default { id, title, description, schema, model, test }

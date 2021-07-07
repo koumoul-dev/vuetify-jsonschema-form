@@ -48,19 +48,26 @@ exports.getExampleWrapper = (example) => {
     }
   }
 
-  return mount(ExampleForm, {
+  const modelWrapper = { model: example.model || {} }
+
+  const events = []
+
+  const wrapper = mount(ExampleForm, {
     localVue,
     vuetify,
     scopedSlots: {
       default: template
     },
     propsData: {
-      modelWrapper: { model: example.model || {} },
+      modelWrapper,
       schema: example.schema,
-      options
+      options,
+      logEvent: (key, event) => events.push({ key, event })
     },
     provide: {
       theme: {}
     }
   })
+
+  return { wrapper, modelWrapper, events }
 }

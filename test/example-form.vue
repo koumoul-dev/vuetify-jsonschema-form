@@ -10,14 +10,12 @@ export default {
   props: {
     modelWrapper: { type: Object, required: true },
     schema: { type: Object, required: true },
-    options: { type: Object, required: true }
+    options: { type: Object, required: true },
+    logEvent: { type: Function, required: true }
   },
   data: () => ({
     valid: false
-  }),
-  methods: {
-    logEvent() {}
-  }
+  })
 }
 </script>
 
