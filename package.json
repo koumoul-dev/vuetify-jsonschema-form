@@ -99,7 +99,7 @@
     "vue-cropperjs": "^4.2.0",
     "vue-jest": "^3.0.5",
     "vue-template-compiler": "^2.6.11",
-    "vuetify": "^2.4.0",
+    "vuetify": "^2.5.2",
     "webpack": "^4.39.0",
     "webpack-cli": "^3.3.6",
     "yaml": "^1.7.1"

@@ -8,7 +8,9 @@ const description = `Enums, oneOfs with const values and the \`x-fromData\` anno
 
 Arrays are represented as multi-value select fields.
 
-If the number of items is too large the select is replaced by a auto-complete.`
+If the number of items is too large the select is replaced by a auto-complete.
+
+The \`selectAll\` options can be used to add a "select all" action prepended to the list of items. It is only applied on multi-value select fields (not autocomplete).`
 
 const schema = {
   type: 'object',
@@ -60,7 +62,8 @@ const options = {
   context: {
     items: ['value 1', 'value 2'],
     objectItems: [{ val: 'value1', label: 'Value 1' }, { val: 'value2', label: 'Value 2' }]
-  }
+  },
+  selectAll: true
 }
 
 const model = {}
