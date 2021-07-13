@@ -1,3 +1,4 @@
+import 'regenerator-runtime/runtime'
 import { examples } from '../doc/examples'
 const utils = require('./utils')
 
@@ -10,7 +11,7 @@ describe('Examples used as simple test cases', () => {
         // wait a little bit for optional asynchronous calls
         return new Promise(resolve => setTimeout(resolve, 200)).then(() => {
           expect(wrapper.element).toMatchSnapshot()
-          if (example.test) example.test(wrapper, modelWrapper, events)
+          if (example.test) return example.test(wrapper, modelWrapper, events)
         })
       })
     }

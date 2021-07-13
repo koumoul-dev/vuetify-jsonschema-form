@@ -23,7 +23,7 @@ const test = (wrapper, modelWrapper, events) => {
   expect(events).toHaveLength(3)
   expect(events[0].key).toBe('input')
   // TODO: fix reactivity of model in test
-  // we should be able to assert aht modelWrapper.model is worth {stringProp: null, dateProp: null, selectProp: null}
+  // we should be able to assert that modelWrapper.model is worth {stringProp: null, dateProp: null, selectProp: null}
   expect(modelWrapper.model.selectProp).toBeNull()
 }
 

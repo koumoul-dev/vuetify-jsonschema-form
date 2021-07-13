@@ -8792,6 +8792,118 @@ exports[`Examples used as simple test cases Markdown editor (beta) 1`] = `
 </form>
 `;
 
+exports[`Examples used as simple test cases Nested allOfs  and oneOfs 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="col col-12 vjsf-property vjsf-property-root pa-0"
+  >
+    <div
+      class="row ma-0 "
+    >
+      <div
+        class="v-input theme--light v-text-field v-text-field--is-booted v-select"
+      >
+        <div
+          class="v-input__control"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="list-1400"
+            class="v-input__slot"
+            role="button"
+          >
+            <div
+              class="v-select__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="root"
+                style="left: 0px; position: absolute;"
+              >
+                A section with oneOf
+              </label>
+              <div
+                class="v-select__selections"
+              >
+                <input
+                  aria-readonly="undefined"
+                  autocomplete="off"
+                  id="root"
+                  readonly="readonly"
+                  type="text"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--append"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-menu-down theme--light"
+                  />
+                </div>
+              </div>
+              <input
+                type="hidden"
+              />
+            </div>
+            <div
+              class="v-menu"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
+            >
+              <transition-group-stub
+                class="v-messages__wrapper"
+                name="message-transition"
+                tag="div"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="v-input__append-outer"
+        >
+          <button
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
+            style="pointer-events: auto;"
+            type="button"
+          >
+            <span
+              class="v-btn__content"
+            >
+              <i
+                aria-hidden="true"
+                class="v-icon notranslate mdi mdi-information theme--light"
+              />
+            </span>
+          </button>
+          <span
+            class="v-tooltip v-tooltip--left"
+          >
+            <!---->
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`Examples used as simple test cases Nullable properties 1`] = `
 <form
   class="v-form"

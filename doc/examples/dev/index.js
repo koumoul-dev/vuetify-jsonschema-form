@@ -7,6 +7,7 @@ import XIf from './_x-if'
 import WrongTypes from './_wrong-types'
 import LargeForm from './_large-form'
 import SimpleArrayValidation from './_simple-array-validation'
+import NestedAllofOneof from './_nested_allof_oneof'
 
 const examplesGroup = {
   title: 'Development',
@@ -20,7 +21,8 @@ const examplesGroup = {
     XIf,
     WrongTypes,
     LargeForm,
-    SimpleArrayValidation
+    SimpleArrayValidation,
+    NestedAllofOneof
   ]
 }
 
