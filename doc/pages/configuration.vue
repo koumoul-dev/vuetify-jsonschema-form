@@ -232,7 +232,8 @@ export default {
         idPrefix: 'a prefix applied to generated ids if you want to prevent potential conflicts',
         markdownit: 'options given to markdownit if you leave the markdown option to its default value',
         editMode: 'change the way editable arrays are rendered. Use "dialog" to edit items in separate dialogs, use "inline" to edit items in place.',
-        autofocus: 'attempt to give focus to the first simple field rendered.'
+        autofocus: 'attempt to give focus to the first simple field rendered.',
+        disablePrefilledArrays: 'ignores any prefilled arrays declared in the schema. May yield performance gains.'
       },
       locale: 'en',
       iconSets,
