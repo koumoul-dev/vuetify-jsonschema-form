@@ -2,7 +2,7 @@ const id = '_large-form'
 
 const title = 'Large form'
 
-const description = `Check that everything works smotthly on a quite large form.`
+const description = `Check that everything works smoothly on a quite large form.`
 
 const schema = {
   type: 'object',

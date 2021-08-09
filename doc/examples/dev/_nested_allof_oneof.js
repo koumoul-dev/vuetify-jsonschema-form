@@ -1,6 +1,6 @@
 const id = '_nested_allof_oneof'
 
-const title = 'Nested allOfs  and oneOfs'
+const title = 'Nested allOfs and oneOfs'
 
 const description = `Bug prone situation.`
 
