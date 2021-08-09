@@ -233,7 +233,7 @@ export default {
         markdownit: 'options given to markdownit if you leave the markdown option to its default value',
         editMode: 'change the way editable arrays are rendered. Use "dialog" to edit items in separate dialogs, use "inline" to edit items in place.',
         autofocus: 'attempt to give focus to the first simple field rendered.',
-        disablePrefilledArrays: 'ignores any prefilled arrays declared in the schema. May yield performance gains.'
+        autoFixArrayItems: 'modify the items of arrays existing in the model (set default values, set const values, remove additional properties), you can try disabling this if you run into performance issues'
       },
       locale: 'en',
       iconSets,
