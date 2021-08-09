@@ -1,5 +1,6 @@
 import resolvedSchema from './_resolved-schema'
 import selectFilledDeps from './_select-filled-deps'
+import prefilledSelect from './_prefilled-select'
 import selectFilledHttp from './_select-filled-http'
 import readOnlySelectIcon from './_readonly-select-icon'
 import ValidationExtraCases from './_validation-extra-cases'
@@ -16,6 +17,7 @@ const examplesGroup = {
     resolvedSchema,
     selectFilledDeps,
     selectFilledHttp,
+    prefilledSelect,
     readOnlySelectIcon,
     ValidationExtraCases,
     XIf,
