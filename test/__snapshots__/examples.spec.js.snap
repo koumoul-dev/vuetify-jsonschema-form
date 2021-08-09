@@ -25,7 +25,7 @@ exports[`Examples used as simple test cases Additional validation cases 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-1004"
+                for="input-1016"
                 style="left: 0px; position: relative;"
               >
                 I'm a required color with initial value
@@ -2035,7 +2035,7 @@ exports[`Examples used as simple test cases Conditional content based on context
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-1015"
+            aria-owns="list-1027"
             class="v-input__slot"
             role="button"
           >
@@ -3453,7 +3453,7 @@ exports[`Examples used as simple test cases Ignore values with wrong type 1`] = 
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-1030"
+            aria-owns="list-1042"
             class="v-input__slot"
             role="button"
           >
@@ -3538,7 +3538,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
             >
               <label
                 class="v-label theme--light"
-                for="input-1047"
+                for="input-1059"
                 style="left: 0px; position: relative;"
               >
                 I'm an array of objects
@@ -3741,7 +3741,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                           <div
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-owns="list-1185"
+                            aria-owns="list-1197"
                             class="v-input__slot"
                             role="button"
                           >
@@ -3825,7 +3825,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                         <div
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="list-1115"
+                          aria-owns="list-1127"
                           class="v-input__slot"
                           role="button"
                         >
@@ -3966,7 +3966,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               >
                                 <label
                                   class="v-label theme--light"
-                                  for="input-1300"
+                                  for="input-1312"
                                   style="left: 0px; position: relative;"
                                 >
                                   A child array
@@ -4302,7 +4302,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                           <div
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-owns="list-1193"
+                            aria-owns="list-1205"
                             class="v-input__slot"
                             role="button"
                           >
@@ -4386,7 +4386,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                         <div
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="list-1122"
+                          aria-owns="list-1134"
                           class="v-input__slot"
                           role="button"
                         >
@@ -4463,7 +4463,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               >
                                 <label
                                   class="v-label v-label--is-disabled theme--light"
-                                  for="input-1306"
+                                  for="input-1318"
                                   style="left: 0px; position: relative;"
                                 >
                                   I'm a color
@@ -4675,7 +4675,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                           <div
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-owns="list-1201"
+                            aria-owns="list-1213"
                             class="v-input__slot"
                             role="button"
                           >
@@ -4759,7 +4759,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                         <div
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="list-1129"
+                          aria-owns="list-1141"
                           class="v-input__slot"
                           role="button"
                         >
@@ -4900,7 +4900,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               >
                                 <label
                                   class="v-label theme--light"
-                                  for="input-1314"
+                                  for="input-1326"
                                   style="left: 0px; position: relative;"
                                 >
                                   A child array
@@ -5236,7 +5236,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                           <div
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-owns="list-1209"
+                            aria-owns="list-1221"
                             class="v-input__slot"
                             role="button"
                           >
@@ -5320,7 +5320,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                         <div
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="list-1136"
+                          aria-owns="list-1148"
                           class="v-input__slot"
                           role="button"
                         >
@@ -5397,7 +5397,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               >
                                 <label
                                   class="v-label v-label--is-disabled theme--light"
-                                  for="input-1320"
+                                  for="input-1332"
                                   style="left: 0px; position: relative;"
                                 >
                                   I'm a color
@@ -5609,7 +5609,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                           <div
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-owns="list-1217"
+                            aria-owns="list-1229"
                             class="v-input__slot"
                             role="button"
                           >
@@ -5693,7 +5693,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                         <div
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="list-1143"
+                          aria-owns="list-1155"
                           class="v-input__slot"
                           role="button"
                         >
@@ -5834,7 +5834,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               >
                                 <label
                                   class="v-label theme--light"
-                                  for="input-1328"
+                                  for="input-1340"
                                   style="left: 0px; position: relative;"
                                 >
                                   A child array
@@ -6170,7 +6170,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                           <div
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-owns="list-1225"
+                            aria-owns="list-1237"
                             class="v-input__slot"
                             role="button"
                           >
@@ -6254,7 +6254,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                         <div
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="list-1150"
+                          aria-owns="list-1162"
                           class="v-input__slot"
                           role="button"
                         >
@@ -6331,7 +6331,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               >
                                 <label
                                   class="v-label v-label--is-disabled theme--light"
-                                  for="input-1334"
+                                  for="input-1346"
                                   style="left: 0px; position: relative;"
                                 >
                                   I'm a color
@@ -6543,7 +6543,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                           <div
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-owns="list-1233"
+                            aria-owns="list-1245"
                             class="v-input__slot"
                             role="button"
                           >
@@ -6627,7 +6627,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                         <div
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="list-1157"
+                          aria-owns="list-1169"
                           class="v-input__slot"
                           role="button"
                         >
@@ -6768,7 +6768,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               >
                                 <label
                                   class="v-label theme--light"
-                                  for="input-1342"
+                                  for="input-1354"
                                   style="left: 0px; position: relative;"
                                 >
                                   A child array
@@ -7104,7 +7104,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                           <div
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-owns="list-1241"
+                            aria-owns="list-1253"
                             class="v-input__slot"
                             role="button"
                           >
@@ -7188,7 +7188,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                         <div
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="list-1164"
+                          aria-owns="list-1176"
                           class="v-input__slot"
                           role="button"
                         >
@@ -7265,7 +7265,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               >
                                 <label
                                   class="v-label v-label--is-disabled theme--light"
-                                  for="input-1348"
+                                  for="input-1360"
                                   style="left: 0px; position: relative;"
                                 >
                                   I'm a color
@@ -7477,7 +7477,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                           <div
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-owns="list-1249"
+                            aria-owns="list-1261"
                             class="v-input__slot"
                             role="button"
                           >
@@ -7561,7 +7561,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                         <div
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="list-1171"
+                          aria-owns="list-1183"
                           class="v-input__slot"
                           role="button"
                         >
@@ -7702,7 +7702,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               >
                                 <label
                                   class="v-label theme--light"
-                                  for="input-1356"
+                                  for="input-1368"
                                   style="left: 0px; position: relative;"
                                 >
                                   A child array
@@ -8038,7 +8038,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                           <div
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-owns="list-1257"
+                            aria-owns="list-1269"
                             class="v-input__slot"
                             role="button"
                           >
@@ -8122,7 +8122,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                         <div
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="list-1178"
+                          aria-owns="list-1190"
                           class="v-input__slot"
                           role="button"
                         >
@@ -8199,7 +8199,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                               >
                                 <label
                                   class="v-label v-label--is-disabled theme--light"
-                                  for="input-1362"
+                                  for="input-1374"
                                   style="left: 0px; position: relative;"
                                 >
                                   I'm a color
@@ -8792,7 +8792,7 @@ exports[`Examples used as simple test cases Markdown editor (beta) 1`] = `
 </form>
 `;
 
-exports[`Examples used as simple test cases Nested allOfs  and oneOfs 1`] = `
+exports[`Examples used as simple test cases Nested allOfs and oneOfs 1`] = `
 <form
   class="v-form"
   novalidate="novalidate"
@@ -8812,7 +8812,7 @@ exports[`Examples used as simple test cases Nested allOfs  and oneOfs 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="list-1400"
+            aria-owns="list-1412"
             class="v-input__slot"
             role="button"
           >
@@ -9082,6 +9082,120 @@ exports[`Examples used as simple test cases Nullable properties 1`] = `
                 </div>
                 <input
                   type="hidden"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases Prefilled Selects 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="col col-12 vjsf-property vjsf-property-root pa-0"
+  >
+    <div
+      class="row ma-0 "
+    >
+      <div
+        class="col col-12 vjsf-property vjsf-property-arrayOneOf pa-0"
+      >
+        <div
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select v-select--is-multi"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="list-988"
+              class="v-input__slot"
+              role="button"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label v-label--active theme--light"
+                  for="arrayOneOf"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm an array with values/labels from a oneOf
+                </label>
+                <div
+                  class="v-select__selections"
+                >
+                  <div
+                    class="v-select__selection v-select__selection--comma"
+                  >
+                    <span
+                      class="mt-1"
+                    >
+                      Value 1
+                    </span>
+                  </div>
+                  <input
+                    aria-readonly="undefined"
+                    autocomplete="off"
+                    id="arrayOneOf"
+                    readonly="readonly"
+                    type="text"
+                  />
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--clear"
+                  >
+                    <button
+                      aria-label="clear icon"
+                      class="v-icon notranslate v-icon--link mdi mdi-close theme--light"
+                      type="button"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--append"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-menu-down theme--light"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="hidden"
+                  value="value1"
                 />
               </div>
               <div
@@ -9879,7 +9993,7 @@ exports[`Examples used as simple test cases Readonly select with icons 1`] = `
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="list-988"
+              aria-owns="list-1004"
               class="v-input__slot"
               role="button"
             >
@@ -14306,7 +14420,7 @@ exports[`Examples used as simple test cases Simple array with a required prop 1`
             >
               <label
                 class="v-label theme--light"
-                for="input-1392"
+                for="input-1404"
                 style="left: 0px; position: relative;"
               >
                 I'm an array of objects
