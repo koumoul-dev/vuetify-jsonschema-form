@@ -15,27 +15,14 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16.x
-          registry-url: 'https://registry.npmjs.org'
-
-      - name: Set Yarn Cache Directory
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Restore Yarn Cache
-        uses: actions/cache@v2
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
 
       - name: Install dependencies
-        run: yarn install --ignore-scripts
+        run: npm install
 
       - name: Build application
-        run: yarn build
+        run: npm build
 
       - name: Publish package
-        run: yarn publish --access public
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_SECRET }}
