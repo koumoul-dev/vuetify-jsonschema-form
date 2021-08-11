@@ -9225,6 +9225,45 @@ exports[`Examples used as simple test cases Prefilled Selects 1`] = `
 </form>
 `;
 
+exports[`Examples used as simple test cases Prefilled array with wrong type in key property 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="col col-12 vjsf-property vjsf-property-root pa-0"
+  >
+    <div
+      class="row ma-0 "
+    >
+      <div
+        class="col col-12 vjsf-property vjsf-property-colors pa-0"
+      >
+        <div
+          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="input-1450"
+                style="left: 0px; position: relative;"
+              >
+                Couleurs et ordre
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`Examples used as simple test cases Prefilled arrays 1`] = `
 <form
   class="v-form"

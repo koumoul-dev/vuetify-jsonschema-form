@@ -9,6 +9,7 @@ import WrongTypes from './_wrong-types'
 import LargeForm from './_large-form'
 import SimpleArrayValidation from './_simple-array-validation'
 import NestedAllofOneof from './_nested_allof_oneof'
+import PrefilledArrayWrongType from './_prefilled_array_wrong_type'
 
 const examplesGroup = {
   title: 'Development',
@@ -24,7 +25,8 @@ const examplesGroup = {
     WrongTypes,
     LargeForm,
     SimpleArrayValidation,
-    NestedAllofOneof
+    NestedAllofOneof,
+    PrefilledArrayWrongType
   ]
 }
 
