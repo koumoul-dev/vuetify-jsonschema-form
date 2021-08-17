@@ -54,3 +54,10 @@
 .vjsf-property .vjsf-markdown-input p:last-child {
   margin-bottom: 0;
 }
+
+.vjsf-property .vjsf-invisible-alert {
+  border-top-color: transparent !important;
+  border-right-color: transparent !important;
+  border-bottom-color: transparent !important;
+  border-left-color: transparent !important;
+}
