@@ -10,6 +10,7 @@ import LargeForm from './_large-form'
 import SimpleArrayValidation from './_simple-array-validation'
 import NestedAllofOneof from './_nested_allof_oneof'
 import PrefilledArrayWrongType from './_prefilled_array_wrong_type'
+import WrongEnumValue from './_wrong-enum-value'
 
 const examplesGroup = {
   title: 'Development',
@@ -26,7 +27,8 @@ const examplesGroup = {
     LargeForm,
     SimpleArrayValidation,
     NestedAllofOneof,
-    PrefilledArrayWrongType
+    PrefilledArrayWrongType,
+    WrongEnumValue
   ]
 }
 
