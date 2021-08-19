@@ -96,7 +96,10 @@
           mdi-heart-outline
         </v-icon>&nbsp;&nbsp;Sponsor
       </v-btn>
-      <v-btn fab small href="https://github.com/koumoul-dev/vuetify-jsonschema-form" color="primary" class="ml-2">
+      <v-btn fab small href="https://gitter.im/koumoul-dev/vjsf" color="primary" class="ml-2" title="chat on gitter">
+        <v-icon>mdi-chat</v-icon>
+      </v-btn>
+      <v-btn fab small href="https://github.com/koumoul-dev/vuetify-jsonschema-form" color="primary" class="ml-2" title="repository on github">
         <v-icon>mdi-github</v-icon>
       </v-btn>
     </v-app-bar>
