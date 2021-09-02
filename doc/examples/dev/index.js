@@ -11,6 +11,7 @@ import SimpleArrayValidation from './_simple-array-validation'
 import NestedAllofOneof from './_nested_allof_oneof'
 import PrefilledArrayWrongType from './_prefilled_array_wrong_type'
 import WrongEnumValue from './_wrong-enum-value'
+import EnumConst from './_enum_const'
 
 const examplesGroup = {
   title: 'Development',
@@ -28,7 +29,8 @@ const examplesGroup = {
     SimpleArrayValidation,
     NestedAllofOneof,
     PrefilledArrayWrongType,
-    WrongEnumValue
+    WrongEnumValue,
+    EnumConst
   ]
 }
 

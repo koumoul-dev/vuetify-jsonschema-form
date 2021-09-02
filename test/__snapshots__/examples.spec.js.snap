@@ -3507,6 +3507,23 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
 </form>
 `;
 
+exports[`Examples used as simple test cases Enum with a single item as const 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="col col-12 vjsf-property vjsf-property-root pa-0"
+  >
+    <div
+      class="row ma-0 "
+    >
+      <!---->
+    </div>
+  </div>
+</form>
+`;
+
 exports[`Examples used as simple test cases Files 1`] = `
 <form
   class="v-form"
