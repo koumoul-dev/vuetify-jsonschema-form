@@ -25,7 +25,7 @@ exports.getExampleWrapper = (example) => {
     .replace('"model"', '"props.modelWrapper.model"')
     .replace('"schema"', '"props.schema"')
     .replace('"options"', '"props.options"')
-    .replace('logEvent', 'props.logEvent')
+    .replace(/logEvent/g, 'props.logEvent')
 
   if (template.includes('slot-scope')) {
     // TODO: investigate
@@ -33,9 +33,15 @@ exports.getExampleWrapper = (example) => {
     return
   }
 
+  const Ajv = require('ajv')
+  const ajvFormats = require('ajv-formats')
+  const ajvLocalize = require('ajv-i18n')
+
   const options = {
     ...example.options,
-    ajv: new Ajv({ strict: 'log' }),
+    Ajv,
+    ajvFormats,
+    ajvLocalize,
     httpLib: {
       get: (url) => {
         const result = example.httpMocks[url]
