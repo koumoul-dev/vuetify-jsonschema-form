@@ -47,7 +47,9 @@
   "homepage": "https://github.com/koumoul-dev/vuetify-jsonschema-form#readme",
   "dependencies": {
     "@mdi/js": "^5.5.55",
-    "ajv": "^6.12.0",
+    "ajv": "^8.6.2",
+    "ajv-formats": "^2.1.1",
+    "ajv-i18n": "^4.1.0",
     "debounce": "^1.2.0",
     "fast-copy": "^2.1.1",
     "fast-equals": "^2.0.0",

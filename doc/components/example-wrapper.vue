@@ -27,9 +27,9 @@
             </v-btn>
           </form>
         </v-toolbar>
-        <v-alert v-if="ajvErrors && valid" color="error" dark tile>
+        <v-alert v-if="ajvError && valid" color="error" dark tile>
           <p>Warning ! V-jsf considered this form valid while a JSON schema validator dit not. This is not normal and you might consider filing a bug report.</p>
-          <pre>{{ JSON.stringify(ajvErrors, null, 2) }}</pre>
+          <pre>{{ ajvError }}</pre>
         </v-alert>
         <client-only>
           <v-card-text class="pb-12" style="min-height: 120px; position: relative;">
@@ -112,8 +112,11 @@ import pJson from '../../package.json'
 const md = require('markdown-it')()
 const stringifyObject = require('stringify-object')
 const Ajv = require('ajv')
-const ajv = new Ajv()
+const ajvFormats = require('ajv-formats')
+const ajvLocalize = require('ajv-i18n')
+const ajv = new Ajv({ strict: false, allErrors: true, messages: false })
 ajv.addFormat('hexcolor', /^#[0-9A-Fa-f]{6,8}$/)
+ajvFormats(ajv)
 
 export default {
   components: { Example },
@@ -132,9 +135,13 @@ export default {
     validate() {
       return ajv.compile(jrefs.resolve(this.params.schema, { '~$locale~': (this.params.options && this.params.options.locale) || 'en' }))
     },
-    ajvErrors() {
+    ajvError() {
       const valid = this.validate(this.params.model)
-      return !valid && this.validate.errors
+      if (!valid) {
+        ajvLocalize.en(this.validate.errors)
+        return ajv.errorsText(this.validate.errors, { separator: '\n' })
+      }
+      return null
     },
     prettySchema() {
       if (!this.$hljs || !this.params.schema) return null

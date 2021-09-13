@@ -35,7 +35,7 @@ exports.getExampleWrapper = (example) => {
 
   const options = {
     ...example.options,
-    ajv: Ajv(),
+    ajv: new Ajv({ strict: 'log' }),
     httpLib: {
       get: (url) => {
         const result = example.httpMocks[url]
