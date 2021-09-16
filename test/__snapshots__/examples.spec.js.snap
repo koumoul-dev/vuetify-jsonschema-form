@@ -2311,6 +2311,360 @@ exports[`Examples used as simple test cases Comboboxes 1`] = `
 </form>
 `;
 
+exports[`Examples used as simple test cases Conditional content (expression) 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="col col-12 vjsf-property vjsf-property-root pa-0"
+  >
+    <div
+      class="row ma-0 "
+    >
+      <div
+        class="col col-12 vjsf-property vjsf-property-activeProp pa-0"
+      >
+        <div
+          class="v-input theme--light v-text-field v-text-field--is-booted"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-text-field__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="activeProp"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a property rendered if the context contains a truthy value
+                </label>
+                <input
+                  id="activeProp"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!---->
+      <div
+        class="v-input theme--light v-text-field v-text-field--is-booted v-select"
+      >
+        <div
+          class="v-input__control"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns=list-x
+            class="v-input__slot"
+            role="button"
+          >
+            <div
+              class="v-select__slot"
+            >
+              <label
+                class="v-label theme--light"
+                for="root"
+                style="left: 0px; position: absolute;"
+              >
+                I'm a choice limited by expressions in a oneOf
+              </label>
+              <div
+                class="v-select__selections"
+              >
+                <input
+                  aria-readonly="undefined"
+                  autocomplete="off"
+                  id="root"
+                  readonly="readonly"
+                  type="text"
+                />
+              </div>
+              <div
+                class="v-input__append-inner"
+              >
+                <div
+                  class="v-input__icon v-input__icon--append"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-menu-down theme--light"
+                  />
+                </div>
+              </div>
+              <input
+                type="hidden"
+              />
+            </div>
+            <div
+              class="v-menu"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="v-text-field__details"
+          >
+            <div
+              class="v-messages theme--light"
+            >
+              <transition-group-stub
+                class="v-messages__wrapper"
+                name="message-transition"
+                tag="div"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases Conditional content (if/then/else) 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="col col-12 vjsf-property vjsf-property-root pa-0"
+  >
+    <div
+      class="row ma-0 "
+    >
+      <div
+        class="col col-12 vjsf-property vjsf-property-allOf-0 pa-0"
+      >
+        <div
+          class="row ma-0 "
+        >
+          <div
+            class="col col-12 vjsf-property vjsf-property-allOf-0-booleanConditionProp pa-0"
+          >
+            <div
+              class="v-input v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--switch primary--text"
+            >
+              <div
+                class="v-input__control"
+              >
+                <div
+                  class="v-input__slot"
+                >
+                  <div
+                    class="v-input--selection-controls__input"
+                  >
+                    <input
+                      aria-checked="true"
+                      aria-disabled="undefined"
+                      id="allOf-0-booleanConditionProp"
+                      role="switch"
+                      type="checkbox"
+                      value="true"
+                    />
+                    <div
+                      class="v-input--selection-controls__ripple primary--text"
+                    />
+                    <div
+                      class="v-input--switch__track theme--light primary--text"
+                    />
+                    <div
+                      class="v-input--switch__thumb theme--light primary--text"
+                    >
+                      <transition-stub
+                        mode="out-in"
+                        name="fab-transition"
+                      />
+                    </div>
+                  </div>
+                  <label
+                    class="v-label theme--light"
+                    for="allOf-0-booleanConditionProp"
+                    style="left: 0px; position: relative;"
+                  >
+                    I'm a boolean used to toggle the content below
+                  </label>
+                </div>
+                <div
+                  class="v-messages theme--light primary--text"
+                >
+                  <transition-group-stub
+                    class="v-messages__wrapper"
+                    name="message-transition"
+                    tag="div"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col col-12 vjsf-property vjsf-property-allOf-0-stringProp1 pa-0"
+          >
+            <div
+              class="v-input theme--light v-text-field v-text-field--is-booted"
+            >
+              <div
+                class="v-input__control"
+              >
+                <div
+                  class="v-input__slot"
+                >
+                  <div
+                    class="v-text-field__slot"
+                  >
+                    <label
+                      class="v-label theme--light"
+                      for="allOf-0-stringProp1"
+                      style="left: 0px; position: absolute;"
+                    >
+                      I'm a string available if the boolean switch is true
+                    </label>
+                    <input
+                      id="allOf-0-stringProp1"
+                      type="text"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="v-text-field__details"
+                >
+                  <div
+                    class="v-messages theme--light"
+                  >
+                    <transition-group-stub
+                      class="v-messages__wrapper"
+                      name="message-transition"
+                      tag="div"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-allOf-1 pa-0"
+      >
+        <div
+          class="row ma-0 "
+        >
+          <div
+            class="col col-12 vjsf-property vjsf-property-allOf-1-numberCondition pa-0"
+          >
+            <div
+              class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
+            >
+              <div
+                class="v-input__control"
+              >
+                <div
+                  class="v-input__slot"
+                >
+                  <div
+                    class="v-text-field__slot"
+                  >
+                    <label
+                      class="v-label v-label--active theme--light"
+                      for="allOf-1-numberCondition"
+                      style="left: 0px; position: absolute;"
+                    >
+                      I'm a number whose value is used to toggle content below
+                    </label>
+                    <input
+                      id="allOf-1-numberCondition"
+                      type="number"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="v-text-field__details"
+                >
+                  <div
+                    class="v-messages theme--light"
+                  >
+                    <transition-group-stub
+                      class="v-messages__wrapper"
+                      name="message-transition"
+                      tag="div"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col col-12 vjsf-property vjsf-property-allOf-1-stringProp3 pa-0"
+          >
+            <div
+              class="v-input theme--light v-text-field v-text-field--is-booted"
+            >
+              <div
+                class="v-input__control"
+              >
+                <div
+                  class="v-input__slot"
+                >
+                  <div
+                    class="v-text-field__slot"
+                  >
+                    <label
+                      class="v-label theme--light"
+                      for="allOf-1-stringProp3"
+                      style="left: 0px; position: absolute;"
+                    >
+                      I'm a string available if the number condition is less than 18
+                    </label>
+                    <input
+                      id="allOf-1-stringProp3"
+                      type="text"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="v-text-field__details"
+                >
+                  <div
+                    class="v-messages theme--light"
+                  >
+                    <transition-group-stub
+                      class="v-messages__wrapper"
+                      name="message-transition"
+                      tag="div"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`Examples used as simple test cases Conditional content 1`] = `
 <form
   class="v-form"
@@ -3525,6 +3879,202 @@ exports[`Examples used as simple test cases Enum with a single item as const 1`]
 `;
 
 exports[`Examples used as simple test cases External validation tool 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="col col-12 vjsf-property vjsf-property-root pa-0"
+  >
+    <div
+      class="row ma-0 "
+    >
+      <div
+        class="col col-12 vjsf-property vjsf-property-stringPropWithFormats pa-0"
+      >
+        <div
+          class="v-input theme--light v-text-field v-text-field--is-booted"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-text-field__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="stringPropWithFormats"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a string with combined validation rules
+                </label>
+                <input
+                  id="stringPropWithFormats"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="v-tabs v-tabs--grow theme--light"
+      >
+        <div
+          class="v-item-group theme--light v-slide-group v-tabs-bar v-tabs-bar--is-mobile primary--text"
+          data-booted="true"
+          role="tablist"
+        >
+          <div
+            class="v-slide-group__prev v-slide-group__prev--disabled"
+          >
+            <transition-stub
+              name="fade-transition"
+            />
+          </div>
+          <div
+            class="v-slide-group__wrapper"
+          >
+            <div
+              class="v-slide-group__content v-tabs-bar__content"
+            >
+              <div
+                class="v-tabs-slider-wrapper"
+                style="height: 2px; left: 0px; width: 0px;"
+              >
+                <div
+                  class="v-tabs-slider"
+                />
+              </div>
+              <a
+                aria-selected="true"
+                class="v-tab v-tab--active"
+                href="#tab-root-invalidSection"
+                role="tab"
+                tabindex="0"
+              >
+                <span
+                  class=""
+                >
+                  Invalid section
+                </span>
+              </a>
+            </div>
+          </div>
+          <div
+            class="v-slide-group__next v-slide-group__next--disabled"
+          >
+            <transition-stub
+              name="fade-transition"
+            />
+          </div>
+        </div>
+        <div
+          class="v-window v-item-group theme--light v-tabs-items"
+        >
+          <div
+            class="v-window__container"
+          >
+            <transition-stub
+              name="v-window-x-transition"
+            >
+              <div
+                class="v-window-item v-window-item--active"
+                id="tab-root-invalidSection"
+                style=""
+              >
+                <div
+                  class="v-card v-card--flat v-sheet theme--light rounded-0"
+                >
+                  <div
+                    class="v-card__text"
+                  >
+                    <div
+                      class="col col-12 vjsf-property vjsf-property-invalidSection pa-0"
+                    >
+                      <div
+                        class="row ma-0 "
+                      >
+                        <div
+                          class="col col-12 pa-0"
+                        >
+                          This section has a required property that is not actually defined in the schema, it can never be valid.
+                        </div>
+                        <div
+                          class="col col-12 vjsf-property vjsf-property-invalidSection-stringProp2 pa-0"
+                        >
+                          <div
+                            class="v-input theme--light v-text-field v-text-field--is-booted"
+                          >
+                            <div
+                              class="v-input__control"
+                            >
+                              <div
+                                class="v-input__slot"
+                              >
+                                <div
+                                  class="v-text-field__slot"
+                                >
+                                  <label
+                                    class="v-label theme--light"
+                                    for="invalidSection-stringProp2"
+                                    style="left: 0px; position: absolute;"
+                                  >
+                                    I'm a required string prop
+                                  </label>
+                                  <input
+                                    id="invalidSection-stringProp2"
+                                    type="text"
+                                  />
+                                </div>
+                              </div>
+                              <div
+                                class="v-text-field__details"
+                              >
+                                <div
+                                  class="v-messages theme--light"
+                                >
+                                  <transition-group-stub
+                                    class="v-messages__wrapper"
+                                    name="message-transition"
+                                    tag="div"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </transition-stub>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases External validator 1`] = `
 <form
   class="v-form"
   novalidate="novalidate"

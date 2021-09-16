@@ -1,6 +1,6 @@
 const id = 'conditionals'
 
-const title = 'Conditional content'
+const title = 'Conditional content (if/then/else)'
 
 const description = `It is possible to toggle some properties by using the [conditional subschemas](https://json-schema.org/understanding-json-schema/reference/conditionals.html) if/then/else syntax. The simpler use-case is toggling some properties based on a boolean switch.
 

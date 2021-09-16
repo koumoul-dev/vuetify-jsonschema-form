@@ -4,12 +4,18 @@
       {{ title }}
     </h1>
 
-    <h2 class="headline my-4">
+    <h2 id="options" class="headline my-4">
+      <v-btn color="primary" icon text :to="{name: 'configuration', hash: '#options'}" class="mr-1">
+        <v-icon>
+          mdi-link
+        </v-icon>
+      </v-btn>
       Options
     </h2>
-
-    <p>Options can be passed to vjsf using the options prop or can be defined more locally on a specific property using the "x-options" annotation. Children properties will inherit from the options defined in their parents.</p>
-
+    <p>
+      Options can be passed to vjsf using the options prop or can be defined more locally on a specific property using the "x-options" annotation.
+      Children properties will inherit from the options defined in their parents.
+    </p>
     <v-simple-table dense dark class="mb-6">
       <thead>
         <tr>
@@ -28,7 +34,7 @@
         <tr v-for="optionKey in Object.keys(defaultOptions)" :key="optionKey">
           <td>{{ optionKey }}</td>
           <td>{{ JSON.stringify(defaultOptions[optionKey], null, 2) }}</td>
-          <td>{{ descriptions[optionKey] }}</td>
+          <td v-html="descriptions[optionKey]" />
         </tr>
         <tr>
           <td>markdown</td>
@@ -43,7 +49,12 @@
       </tbody>
     </v-simple-table>
 
-    <h2 class="headline my-4">
+    <h2 id="messages" class="headline my-4">
+      <v-btn color="primary" icon text :to="{name: 'configuration', hash: '#messages'}" class="mr-1">
+        <v-icon>
+          mdi-link
+        </v-icon>
+      </v-btn>
       Messages
     </h2>
     <p>
@@ -73,7 +84,12 @@
       </tbody>
     </v-simple-table>
 
-    <h2 class="headline my-4">
+    <h2 id="icons" class="headline my-4">
+      <v-btn color="primary" icon text :to="{name: 'configuration', hash: '#icons'}" class="mr-1">
+        <v-icon>
+          mdi-link
+        </v-icon>
+      </v-btn>
       Icons
     </h2>
     <p>
@@ -103,7 +119,12 @@
       </tbody>
     </v-simple-table>
 
-    <h2 class="headline my-4">
+    <h2 id="formatting" class="headline my-4">
+      <v-btn color="primary" icon text :to="{name: 'configuration', hash: '#formatting'}" class="mr-1">
+        <v-icon>
+          mdi-link
+        </v-icon>
+      </v-btn>
       Formatting functions
     </h2>
     <p>
@@ -128,13 +149,21 @@
       </tbody>
     </v-simple-table>
 
-    <h2 class="headline my-4">
+    <h2 id="annotations" class="headline my-4">
+      <v-btn color="primary" icon text :to="{name: 'configuration', hash: '#annotations'}" class="mr-1">
+        <v-icon>
+          mdi-link
+        </v-icon>
+      </v-btn>
       Annotations
     </h2>
     <p>
       Annotation is the name we give to special attributes defined on properties in your schema.
       These attributes are prefixed by "x-" to signify that they are not part of the standard JSON schema syntax.
       They should be ignored by validators and other tools.
+    </p>
+    <p>
+      Disclaimer: the following list contains only very brief explanations. The real documentation is in the examples.
     </p>
     <p />
     <v-simple-table dense dark class="mb-6">
@@ -159,7 +188,7 @@
         </tr>
         <tr>
           <td>x-fromUrl / x-fromData</td>
-          <td>Used to populate selects from the results of HTTP requests or some other part of the model.</td>
+          <td>Used to populate selects from the results of HTTP requests or some other part of the model. See the <a href="configuration#expressions">Expressions section</a> for possibilities of x-fromData.</td>
         </tr>
         <tr>
           <td>x-itemKey / x-itemTitle / x-itemIcon</td>
@@ -181,13 +210,106 @@
           <td>x-rules</td>
           <td>Some custom rule functions for validating this property.</td>
         </tr>
+        <tr>
+          <td>x-rules</td>
+          <td>Some custom rule functions for validating this property.</td>
+        </tr>
       </tbody>
     </v-simple-table>
+
+    <h2 id="expressions" class="headline my-4">
+      <v-btn color="primary" icon text :to="{name: 'configuration', hash: '#expressions'}" class="mr-1">
+        <v-icon>
+          mdi-link
+        </v-icon>
+      </v-btn>
+      Expressions
+    </h2>
+    <p>
+      Some functionalities require expressions given in the JSON schema and evaluated using contextual data.
+      For example the x-if and fromData annotations use these expressions.
+      The method used to evaluate the expressions can be changed with the evalMethod option, possible values are:
+    </p>
+    <v-simple-table dense dark class="mb-6">
+      <thead>
+        <tr>
+          <th class="text-left" style="min-width:250px">
+            Value of evalMethod
+          </th>
+          <th class="text-left">
+            Explanation
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>propertyExpr (default)</td>
+          <td>Based on the <a href="https://www.npmjs.com/package/property-expr">property-expr module</a>. Expressions are simple deep getters into the contextual data.</td>
+        </tr>
+        <tr>
+          <td>newFunction</td>
+          <td>
+            Based on <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Function">dynamically created JS functions</a>. Expressions are complete JS expressions.
+            <br>
+            <b>WARNING ! </b> This method implies that you trust the source of the JSON schema as much as you trust your own source code.
+          </td>
+        </tr>
+      </tbody>
+    </v-simple-table>
+    <p><b>Call for help:</b> if someone knows of a better solution for this problem, for example a library with rich expression evaluation but without the security liability of using new Function, please submit a ticket or a pull request !</p>
+    <p>The expressions are given some contextual data as input, here are its members:</p>
+    <v-simple-table dense dark class="mb-6">
+      <thead>
+        <tr>
+          <th class="text-left" style="min-width:250px">
+            Data
+          </th>
+          <th class="text-left">
+            Explanation
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>root</td>
+          <td>The main complete model being handled by vjsf.</td>
+        </tr>
+        <tr>
+          <td>model</td>
+          <td>The model being handled by vjsf at this level in the schema definition.</td>
+        </tr>
+        <tr>
+          <td>context</td>
+          <td>The options.context object.</td>
+        </tr>
+      </tbody>
+    </v-simple-table>
+
+    <h2 id="validator" class="headline my-4">
+      <v-btn color="primary" icon text :to="{name: 'configuration', hash: '#validator'}" class="mr-1">
+        <v-icon>
+          mdi-link
+        </v-icon>
+      </v-btn>
+      JSON schema validator
+    </h2>
+    <p>
+      Some functionalities require that you provide a JSON schema validator.
+      This is the case for the if/then/else syntax and for the useValidator option.
+      You can provide the validator using different methods:
+    </p>
+    <ul>
+      <li>If you load third-party.js <a href="https://github.com/ajv-validator/ajv">Ajv</a> will be used along with ajv-formats and ajv-i18n.</li>
+      <li>You can provide Ajv, ajvAddFormats and ajvLocalize as global variables or as options and an ajv instance will be created.</li>
+      <li>You can provide an ajv instance in the ajv option.</li>
+      <li>You can provide a validator function as an option. This function must accept a schema and return a function that will take a model and return either null (no error) or an error message as a string.</li>
+    </ul>
   </v-container>
 </template>
 
 <script>
 import { defaultOptions, formats, localizedMessages, iconSets } from '../../lib/utils/options'
+import { scrollToHash } from '~/app/router.scrollBehavior.js'
 
 export default {
   data() {
@@ -197,6 +319,7 @@ export default {
       formats,
       localizedMessages,
       descriptions: {
+        locale: 'See the <a href="configuration#messages">Messages section</a>',
         rootDisplay: 'equivalent of x-display annotation on the root object of the schema, can be "tabs" or "expansion-panels"',
         fieldProps: 'props passed to the underlying components for simple fields (v-text-field, v-select, etc.)',
         fieldColProps: 'props passed to the v-col component that wraps any field. Use "cols", "xs", "md", etc. to customize your form layout.',
@@ -233,7 +356,9 @@ export default {
         markdownit: 'options given to markdownit if you leave the markdown option to its default value',
         editMode: 'change the way editable arrays are rendered. Use "dialog" to edit items in separate dialogs, use "inline" to edit items in place.',
         autofocus: 'attempt to give focus to the first simple field rendered.',
-        autoFixArrayItems: 'modify the items of arrays existing in the model (set default values, set const values, remove additional properties), you can try disabling this if you run into performance issues'
+        autoFixArrayItems: 'modify the items of arrays existing in the model (set default values, set const values, remove additional properties), you can try disabling this if you run into performance issues',
+        useValidator: 'See the <a href="configuration#validator">JSON schema validator section</a>. Activate using the validator to display validation errors as a complement to the validation rules managed by vjsf directly.',
+        evalMethod: 'See the <a href="configuration#expressions">Expressions section</a>. For security reasons this option can only be changed in the main options object given to vjsf, not in x-options annotations inside the schema.'
       },
       locale: 'en',
       iconSets,
@@ -243,6 +368,12 @@ export default {
   head() {
     return {
       title: 'vjsf - ' + this.title
+    }
+  },
+  mounted() {
+    if (this.$route.hash) {
+      location.hash = this.$route.hash
+      scrollToHash(this.$route.hash, false)
     }
   }
 }

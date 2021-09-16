@@ -29,7 +29,7 @@ const schema = {
 const model = {}
 
 const options = {
-  useNewFunction: true,
+  evalMethod: 'newFunction',
   context: {
     categoryValues: {
       cat1: ['c1-v1', 'c1-v2'],
