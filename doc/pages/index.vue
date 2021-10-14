@@ -17,6 +17,13 @@
     </p>
 
     <iframe width="560" height="463" sandbox="allow-same-origin allow-scripts allow-popups" src="https://videos.koumoul.com/videos/embed/dd75bf3b-8830-4296-be8b-ec2286b76da3?title=0&warningTitle=0&peertubeLink=0&autoplay=1" frameborder="0" allowfullscreen />
+
+    <h2 class="title mt-6 mb-4 primary--text">
+      Sponsors
+    </h2>
+    <a href="https://www.crossref.org/" target="_blank">
+      <img src="/crossref-logo-200.svg" title="Crossref" style="max-width: 120px">
+    </a>
   </v-container>
 </template>
 
