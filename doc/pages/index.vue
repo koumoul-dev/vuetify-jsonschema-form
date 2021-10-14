@@ -22,7 +22,7 @@
       Sponsors
     </h2>
     <a href="https://www.crossref.org/" target="_blank">
-      <img src="/crossref-logo-200.svg" title="Crossref" style="max-width: 120px">
+      <img src="~/assets/crossref-logo-200.svg" title="Crossref" style="max-width: 120px">
     </a>
   </v-container>
 </template>
