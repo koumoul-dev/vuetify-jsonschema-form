@@ -11,6 +11,7 @@ import NestedAllofOneof from './_nested_allof_oneof'
 import PrefilledArrayWrongType from './_prefilled_array_wrong_type'
 import WrongEnumValue from './_wrong-enum-value'
 import EnumConst from './_enum_const'
+import Separator from './_separator'
 
 const examplesGroup = {
   title: 'Development',
@@ -28,7 +29,8 @@ const examplesGroup = {
     NestedAllofOneof,
     PrefilledArrayWrongType,
     WrongEnumValue,
-    EnumConst
+    EnumConst,
+    Separator
   ]
 }
 
