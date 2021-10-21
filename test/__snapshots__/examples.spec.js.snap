@@ -9854,6 +9854,114 @@ exports[`Examples used as simple test cases Markdown editor (beta) 1`] = `
 </form>
 `;
 
+exports[`Examples used as simple test cases Multiple values in a single string 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="col col-12 vjsf-property vjsf-property-root pa-0"
+  >
+    <div
+      class="row ma-0 "
+    >
+      <div
+        class="col col-12 vjsf-property vjsf-property-sepString pa-0"
+      >
+        <div
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select v-select--chips v-select--is-multi v-autocomplete"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns=list-x
+              class="v-input__slot"
+              role="combobox"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label v-label--active theme--light"
+                  for="sepString"
+                  style="left: 0px; position: absolute;"
+                >
+                  sepString
+                </label>
+                <div
+                  class="v-select__selections"
+                >
+                  <span
+                    class="v-chip v-chip--no-color v-chip--removable theme--light v-size--default"
+                  >
+                    <span
+                      class="v-chip__content"
+                    >
+                      test1
+                      <button
+                        aria-label="Close"
+                        class="v-icon notranslate v-chip__close v-icon--link v-icon--right mdi mdi-close-circle theme--light"
+                        style="font-size: 18px;"
+                        type="button"
+                      />
+                    </span>
+                  </span>
+                  <span
+                    class="v-chip v-chip--no-color v-chip--removable theme--light v-size--default"
+                  >
+                    <span
+                      class="v-chip__content"
+                    >
+                      test2
+                      <button
+                        aria-label="Close"
+                        class="v-icon notranslate v-chip__close v-icon--link v-icon--right mdi mdi-close-circle theme--light"
+                        style="font-size: 18px;"
+                        type="button"
+                      />
+                    </span>
+                  </span>
+                  <input
+                    autocomplete="off"
+                    id="sepString"
+                    type="string"
+                  />
+                </div>
+                <input
+                  type="hidden"
+                  value="test1,test2"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`Examples used as simple test cases Nested allOfs and oneOfs 1`] = `
 <form
   class="v-form"
