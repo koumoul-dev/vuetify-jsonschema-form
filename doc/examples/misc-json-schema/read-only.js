@@ -6,14 +6,16 @@ const description = `All properties with \`readOnly=true\` in schema will be ren
 
 You can also disable the whole form using \`disableAll=true\` option.
 
-You can hide a single property using the \`x-display=hidden\` annotation or hide by default all read-only properties using the \`hideReadOnly=true\` option.
+You can hide a single property using the \`visible=false\` keyword or hide by default all read-only properties using the \`hideReadOnly=true\` option.
 
 You can also delete all read-only properties with the \`deleteReadOnly=true\` option.`
 
 const schema = {
+  $schema: 'https://koumoul-dev.github.io/vuetify-jsonschema-form/vocab-draft/meta-schema',
   type: 'object',
   properties: {
     readOnlyProp: { type: 'string', title: `I'm a read-only string`, readOnly: true },
+    hiddenProp: { type: 'string', title: `I'm a hidden string`, visible: false },
     readOnlySection: {
       type: 'object',
       title: `I'm a section with readOnly=true in schema`,
@@ -25,7 +27,7 @@ const schema = {
     disabledSection: {
       type: 'object',
       title: `I'm a section with disableAll=true in options`,
-      'x-options': { disableAll: true },
+      formOptions: { disableAll: true },
       properties: {
         stringProp: { type: 'string', title: `I'm a string in a disabled section` }
       }
@@ -33,7 +35,7 @@ const schema = {
     hideReadonlySection: {
       type: 'object',
       title: `I'm a section whose read-only content is hidden`,
-      'x-options': { hideReadOnly: true },
+      formOptions: { hideReadOnly: true },
       properties: {
         readOnlyProp: { type: 'string', readOnly: true },
         stringProp: { type: 'string', title: `I'm a string` },
@@ -50,7 +52,7 @@ const schema = {
     deleteReadonlySection: {
       type: 'object',
       title: `I'm a section whose read-only content is deleted`,
-      'x-options': { deleteReadOnly: true },
+      formOptions: { deleteReadOnly: true },
       properties: {
         stringProp: { type: 'string', title: `I'm a string` },
         deletedReadOnlyProp: { type: 'string', readOnly: true },

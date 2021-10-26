@@ -54,7 +54,7 @@ const schema = {
       if: {
         required: ['numberCondition'],
         properties: {
-          numberCondition: { minimum: 0, maximum: 18 }
+          numberCondition: { type: 'integer', minimum: 0, maximum: 18 }
         }
       },
       then: {

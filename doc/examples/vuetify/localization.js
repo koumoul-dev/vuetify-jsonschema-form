@@ -15,12 +15,12 @@ const schema = {
   properties: {
     dateProp: {
       type: 'string',
-      title: { $ref: '#/i18n/~$locale~/datePropTitle' },
+      title: { $ref: '#/definitions/i18n/~$locale~/datePropTitle' },
       format: 'date'
     },
     selectAjaxWithQuery: {
       type: 'object',
-      title: { $ref: '#/i18n/~$locale~/selectAjaxWithQueryTitle' },
+      title: { $ref: '#/definitions/i18n/~$locale~/selectAjaxWithQueryTitle' },
       'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title&q={q}&owner=user:notARealUser',
       'x-itemsProp': 'results',
       'x-itemTitle': 'title',
@@ -31,14 +31,16 @@ const schema = {
       }
     }
   },
-  i18n: {
-    en: {
-      datePropTitle: 'I`m a date',
-      selectAjaxWithQueryTitle: 'I`m a search field'
-    },
-    fr: {
-      datePropTitle: 'Je suis une date',
-      selectAjaxWithQueryTitle: 'Je suis un champ de recherche'
+  definitions: {
+    i18n: {
+      en: {
+        datePropTitle: 'I`m a date',
+        selectAjaxWithQueryTitle: 'I`m a search field'
+      },
+      fr: {
+        datePropTitle: 'Je suis une date',
+        selectAjaxWithQueryTitle: 'Je suis un champ de recherche'
+      }
     }
   }
 }

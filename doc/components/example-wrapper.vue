@@ -111,11 +111,13 @@ import { defaultTemplate } from '../examples'
 import pJson from '../../package.json'
 const md = require('markdown-it')()
 const stringifyObject = require('stringify-object')
-const Ajv = require('ajv')
+const Ajv = require('ajv/dist/2020')
 const ajvFormats = require('ajv-formats')
 const ajvLocalize = require('ajv-i18n')
-const ajv = new Ajv({ strict: false, allErrors: true, messages: false })
-ajv.addFormat('hexcolor', /^#[0-9A-Fa-f]{6,8}$/)
+const metaSchema = require('../../lib/meta-schema').default
+const ajv = new Ajv({ allErrors: true, messages: false, strict: true })
+ajv.addMetaSchema(metaSchema)
+require('../../lib/ajv-plugin')(ajv, metaSchema)
 ajvFormats(ajv)
 
 export default {

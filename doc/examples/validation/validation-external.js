@@ -20,15 +20,6 @@ const schema = {
         { format: 'email', type: 'string' },
         { format: 'uri', type: 'string' }
       ]
-    },
-    invalidSection: {
-      type: 'object',
-      title: 'Invalid section',
-      description: 'This section has a required property that is not actually defined in the schema, it can never be valid.',
-      required: ['stringProp1', 'stringProp2'],
-      properties: {
-        stringProp2: { type: 'string', title: 'I\'m a required string prop' }
-      }
     }
   }
 }

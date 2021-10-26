@@ -14,18 +14,11 @@ const schema = {
     numberTupleProp: {
       type: 'array',
       title: `I'm a tuple of 2 numbers`,
-      items: [
+      minItems: 2,
+      maxItems: 2,
+      prefixItems: [
         { type: 'number', title: `I'm a number`, default: 0 },
         { type: 'number', title: `I'm another number`, default: 0 }
-      ]
-    },
-    stringTupleProp: {
-      type: 'array',
-      title: `I'm a tuple of 2 strings, first one is required`,
-      minItems: 1,
-      items: [
-        { type: 'string', title: `I'm a required string` },
-        { type: 'string', title: `I'm a string` }
       ]
     }
   }
