@@ -22,7 +22,7 @@ Run a local development server:
 
 This simply opens the documentation site in a local web server that will watch your edits to the source code both of the library and of the documentation and its examples.
 
-Please note that you can open a single example in a lighter page by replacing the # by a slash in the URL (for example http://localhost:3000/examples#basic => http://localhost:3000/examples/basic).
+Please note that you can open a single example in a lighter page by replacing the # by a slash in the URL (for example http://localhost:3133/examples#basic => http://localhost:3133/examples/basic).
 
 An additionnal "Development" group of examples is visible, please add in this group examples that do not need to be presented to the users but has some value for maintainers.
 

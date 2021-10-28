@@ -11,8 +11,8 @@
     "postpublish": "gh-pages-multi deploy -v -s doc/dist -t latest",
     "test": "jest",
     "test-update": "jest --updateSnapshot",
-    "dev": "nuxt doc",
-    "doc-dev": "nuxt doc",
+    "dev": "nuxt doc --port 3133",
+    "doc-dev": "nuxt doc --port 3133",
     "doc-start": "nuxt build doc && nuxt start doc",
     "doc-build": "BASE=/vuetify-jsonschema-form/latest/ nuxt generate doc",
     "doc-master": "BASE=/vuetify-jsonschema-form/master/ nuxt generate doc && gh-pages-multi deploy -v -s doc/dist -t master"
