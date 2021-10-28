@@ -1,6 +1,6 @@
 {
   "name": "@koumoul/vjsf",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "description": "Generate forms for the vuetify UI library (vuejs) based on annotated JSON schemas.",
   "main": "dist/main.js",
   "scripts": {
