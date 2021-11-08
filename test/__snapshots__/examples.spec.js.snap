@@ -16229,6 +16229,57 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
 </form>
 `;
 
+exports[`Examples used as simple test cases infinite loop 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="col col-12 vjsf-property vjsf-property-root pa-0"
+  >
+    <div
+      class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+    >
+      <div
+        class="v-input__control"
+      >
+        <div
+          class="v-input__slot"
+        >
+          <label
+            class="v-label theme--light"
+            for=input-x
+            style="left: 0px; position: relative;"
+          >
+            Liste d'appels extérieurs
+          </label>
+          <div
+            class="v-dialog__container"
+            role="dialog"
+          >
+            <!---->
+          </div>
+          <button
+            class="v-btn v-btn--is-elevated v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--small primary vjsf-array-add-button ml-3"
+            id="root--add-button"
+            type="button"
+          >
+            <span
+              class="v-btn__content"
+            >
+              <i
+                aria-hidden="true"
+                class="v-icon notranslate mdi mdi-plus theme--light"
+              />
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`Examples used as simple test cases resolved schema 1`] = `
 <form
   class="v-form"

@@ -12,6 +12,7 @@ import PrefilledArrayWrongType from './_prefilled_array_wrong_type'
 import WrongEnumValue from './_wrong-enum-value'
 import EnumConst from './_enum_const'
 import Separator from './_separator'
+import InfiniteLoop from './_infinite_loop'
 
 const examplesGroup = {
   title: 'Development',
@@ -30,7 +31,8 @@ const examplesGroup = {
     PrefilledArrayWrongType,
     WrongEnumValue,
     EnumConst,
-    Separator
+    Separator,
+    InfiniteLoop
   ]
 }
 
