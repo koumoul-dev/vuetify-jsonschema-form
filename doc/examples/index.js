@@ -4,7 +4,7 @@ import sections from './sections'
 import arrays from './arrays'
 import validation from './validation'
 import miscJsonSchema from './misc-json-schema'
-import vuetify from './vuetify'
+import advanced from './advanced'
 import dev from './dev'
 
 const examples = [
@@ -14,7 +14,7 @@ const examples = [
   dynamicContent,
   validation,
   miscJsonSchema,
-  vuetify,
+  advanced,
   dev
 ]
 
