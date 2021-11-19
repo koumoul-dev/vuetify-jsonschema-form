@@ -65,7 +65,7 @@ const schema = {
         title: { type: 'string' }
       }
     },
-    selectAjaxWithQuery: {
+    selectAjaxObjectWithQuery: {
       type: 'object',
       title: `I'm an object from a HTTP request with query`,
       'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title&q={q}&owner={context.owner.type}:{context.owner.id}',
@@ -76,11 +76,22 @@ const schema = {
         href: { type: 'string' },
         title: { type: 'string' }
       }
+    },
+    selectAjaxStringWithQuery: {
+      type: 'string',
+      title: `I'm a string from a HTTP request with query`,
+      description: 'VJSF will attempt to fetch title for the stored value using the URL template, if missing the key property will displayed as it is',
+      'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title&q={q}&owner={context.owner.type}:{context.owner.id}',
+      'x-itemsProp': 'results',
+      'x-itemTitle': 'title',
+      'x-itemKey': 'id'
     }
   }
 }
 
-const model = {}
+const model = {
+  selectAjaxStringWithQuery: 'fete-de-la-science-2019'
+}
 
 const options = { context: { owner: { type: 'organization', id: '5a5dc47163ebd4a6f438589b' } } }
 
