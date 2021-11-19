@@ -3072,6 +3072,66 @@ exports[`Examples used as simple test cases Default values 1`] = `
 </form>
 `;
 
+exports[`Examples used as simple test cases Directives 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="col col-12 vjsf-property vjsf-property-root pa-0"
+  >
+    <div
+      class="row ma-0 "
+    >
+      <div
+        class="col col-12 vjsf-property vjsf-property-stringWithMask pa-0"
+      >
+        <div
+          class="v-input theme--light v-text-field v-text-field--is-booted"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-text-field__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="stringWithMask"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a string with a mask ####-##
+                </label>
+                <input
+                  id="stringWithMask"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`Examples used as simple test cases Editable array 1`] = `
 <form
   class="v-form"
@@ -13450,6 +13510,404 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
 </form>
 `;
 
+exports[`Examples used as simple test cases Selection controls 2`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="col col-12 vjsf-property vjsf-property-root pa-0"
+  >
+    <div
+      class="row ma-0 "
+    >
+      <div
+        class="col col-12 vjsf-property vjsf-property-stringEnum pa-0"
+      >
+        <div
+          class="v-input theme--light v-input--selection-controls v-input--radio-group v-input--radio-group--column"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+              style="height: auto;"
+            >
+              <div
+                aria-labelledby="stringEnum"
+                class="v-input--radio-group__input"
+                id="stringEnum"
+                role="radiogroup"
+              >
+                <legend
+                  class="v-label theme--light"
+                  id="stringEnum"
+                  style="left: 0px; position: relative;"
+                >
+                  I'm a string with an enum and x-display=radio
+                </legend>
+                <div
+                  class="v-radio theme--light"
+                >
+                  <div
+                    class="v-input--selection-controls__input"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-radiobox-blank theme--light"
+                    />
+                    <input
+                      aria-checked="false"
+                      id=input-x
+                      name="stringEnum"
+                      role="radio"
+                      type="radio"
+                      value="value 1"
+                    />
+                    <div
+                      class="v-input--selection-controls__ripple"
+                    />
+                  </div>
+                  <label
+                    class="v-label theme--light"
+                    for=input-x
+                    style="left: 0px; position: relative;"
+                  >
+                    value 1
+                  </label>
+                </div>
+                <div
+                  class="v-radio theme--light"
+                >
+                  <div
+                    class="v-input--selection-controls__input"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-radiobox-blank theme--light"
+                    />
+                    <input
+                      aria-checked="false"
+                      id=input-x
+                      name="stringEnum"
+                      role="radio"
+                      type="radio"
+                      value="value 2"
+                    />
+                    <div
+                      class="v-input--selection-controls__ripple"
+                    />
+                  </div>
+                  <label
+                    class="v-label theme--light"
+                    for=input-x
+                    style="left: 0px; position: relative;"
+                  >
+                    value 2
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div
+              class="v-messages theme--light"
+            >
+              <transition-group-stub
+                class="v-messages__wrapper"
+                name="message-transition"
+                tag="div"
+              />
+            </div>
+          </div>
+          <div
+            class="v-input__append-outer"
+          >
+            <button
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
+              style="pointer-events: auto;"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-information theme--light"
+                />
+              </span>
+            </button>
+            <span
+              class="v-tooltip v-tooltip--left"
+            >
+              <!---->
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-stringsArrayEnum pa-0"
+      >
+        <div
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--radio-group v-input--radio-group--column"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-input--radio-group__input"
+              >
+                <legend
+                  class="v-label theme--light "
+                >
+                  I'm an array with an enum and x-display=checkbox
+                </legend>
+                <div
+                  class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--checkbox primary--text pb-1"
+                >
+                  <div
+                    class="v-input__control"
+                  >
+                    <div
+                      class="v-input__slot"
+                    >
+                      <div
+                        class="v-input--selection-controls__input"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="v-icon notranslate mdi mdi-checkbox-marked theme--light primary--text"
+                        />
+                        <input
+                          aria-checked="true"
+                          id=input-x
+                          role="checkbox"
+                          type="checkbox"
+                          value="value 1"
+                        />
+                        <div
+                          class="v-input--selection-controls__ripple primary--text"
+                        />
+                      </div>
+                      <label
+                        class="v-label theme--light"
+                        for=input-x
+                        style="left: 0px; position: relative;"
+                      >
+                        value 1
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="v-input v-input--hide-details theme--light v-input--selection-controls v-input--checkbox pb-1"
+                >
+                  <div
+                    class="v-input__control"
+                  >
+                    <div
+                      class="v-input__slot"
+                    >
+                      <div
+                        class="v-input--selection-controls__input"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="v-icon notranslate mdi mdi-checkbox-blank-outline theme--light"
+                        />
+                        <input
+                          aria-checked="false"
+                          id=input-x
+                          role="checkbox"
+                          type="checkbox"
+                          value="value 2"
+                        />
+                        <div
+                          class="v-input--selection-controls__ripple"
+                        />
+                      </div>
+                      <label
+                        class="v-label theme--light"
+                        for=input-x
+                        style="left: 0px; position: relative;"
+                      >
+                        value 2
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="v-messages theme--light"
+            >
+              <transition-group-stub
+                class="v-messages__wrapper"
+                name="message-transition"
+                tag="div"
+              />
+            </div>
+          </div>
+          <div
+            class="v-input__append-outer"
+          >
+            <button
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
+              style="pointer-events: auto;"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-information theme--light"
+                />
+              </span>
+            </button>
+            <span
+              class="v-tooltip v-tooltip--left"
+            >
+              <!---->
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-stringArrayOneOf pa-0"
+      >
+        <div
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--radio-group v-input--radio-group--column"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-input--radio-group__input"
+              >
+                <legend
+                  class="v-label theme--light "
+                >
+                  I'm an array with a oneOf and x-display=switch
+                </legend>
+                <div
+                  class="v-input v-input--hide-details theme--light v-input--selection-controls v-input--switch pb-1"
+                >
+                  <div
+                    class="v-input__control"
+                  >
+                    <div
+                      class="v-input__slot"
+                    >
+                      <div
+                        class="v-input--selection-controls__input"
+                      >
+                        <input
+                          aria-checked="false"
+                          aria-disabled="undefined"
+                          id=input-x
+                          role="switch"
+                          type="checkbox"
+                          value="value1"
+                        />
+                        <div
+                          class="v-input--selection-controls__ripple"
+                        />
+                        <div
+                          class="v-input--switch__track theme--light"
+                        />
+                        <div
+                          class="v-input--switch__thumb theme--light"
+                        >
+                          <transition-stub
+                            mode="out-in"
+                            name="fab-transition"
+                          />
+                        </div>
+                      </div>
+                      <label
+                        class="v-label theme--light"
+                        for=input-x
+                        style="left: 0px; position: relative;"
+                      >
+                        Value 1
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="v-input v-input--hide-details theme--light v-input--selection-controls v-input--switch pb-1"
+                >
+                  <div
+                    class="v-input__control"
+                  >
+                    <div
+                      class="v-input__slot"
+                    >
+                      <div
+                        class="v-input--selection-controls__input"
+                      >
+                        <input
+                          aria-checked="false"
+                          aria-disabled="undefined"
+                          id=input-x
+                          role="switch"
+                          type="checkbox"
+                          value="value2"
+                        />
+                        <div
+                          class="v-input--selection-controls__ripple"
+                        />
+                        <div
+                          class="v-input--switch__track theme--light"
+                        />
+                        <div
+                          class="v-input--switch__thumb theme--light"
+                        >
+                          <transition-stub
+                            mode="out-in"
+                            name="fab-transition"
+                          />
+                        </div>
+                      </div>
+                      <label
+                        class="v-label theme--light"
+                        for=input-x
+                        style="left: 0px; position: relative;"
+                      >
+                        Value 2
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="v-messages theme--light"
+            >
+              <transition-group-stub
+                class="v-messages__wrapper"
+                name="message-transition"
+                tag="div"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`Examples used as simple test cases Selects 1`] = `
 <form
   class="v-form"
@@ -15085,6 +15543,418 @@ exports[`Examples used as simple test cases Selects with dependencies 1`] = `
 `;
 
 exports[`Examples used as simple test cases Selects with icons 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="col col-12 vjsf-property vjsf-property-root pa-0"
+  >
+    <div
+      class="row ma-0 "
+    >
+      <div
+        class="col col-12 vjsf-property vjsf-property-iconEnum pa-0"
+      >
+        <div
+          class="v-input theme--light v-text-field v-text-field--is-booted v-select"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns=list-x
+              class="v-input__slot"
+              role="button"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="iconEnum"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a simple select with icon codes in enum
+                </label>
+                <div
+                  class="v-select__selections"
+                >
+                  <input
+                    aria-readonly="undefined"
+                    autocomplete="off"
+                    id="iconEnum"
+                    readonly="readonly"
+                    type="text"
+                  />
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div />
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--append"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-menu-down theme--light"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="hidden"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-iconEnumArray pa-0"
+      >
+        <div
+          class="v-input theme--light v-text-field v-text-field--is-booted v-select v-select--is-multi"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns=list-x
+              class="v-input__slot"
+              role="button"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="iconEnumArray"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a multiple select with icon codes in enum
+                </label>
+                <div
+                  class="v-select__selections"
+                >
+                  <input
+                    aria-readonly="undefined"
+                    autocomplete="off"
+                    id="iconEnumArray"
+                    readonly="readonly"
+                    type="text"
+                  />
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div />
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--append"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-menu-down theme--light"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="hidden"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-iconOneOf pa-0"
+      >
+        <div
+          class="v-input theme--light v-text-field v-text-field--is-booted v-select"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns=list-x
+              class="v-input__slot"
+              role="button"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="iconOneOf"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a select with icon codes and titles in a oneOf
+                </label>
+                <div
+                  class="v-select__selections"
+                >
+                  <input
+                    aria-readonly="undefined"
+                    autocomplete="off"
+                    id="iconOneOf"
+                    readonly="readonly"
+                    type="text"
+                  />
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div />
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--append"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-menu-down theme--light"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="hidden"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-iconAjaxImages pa-0"
+      >
+        <div
+          class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--placeholder v-select v-autocomplete"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns=list-x
+              class="v-input__slot"
+              role="combobox"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="iconAjaxImages"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a select based on HTTP requests with links to icons
+                </label>
+                <div
+                  class="v-select__selections"
+                >
+                  <input
+                    autocomplete="off"
+                    id="iconAjaxImages"
+                    type="text"
+                  />
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div />
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--append"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-menu-down theme--light"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="hidden"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-iconAjaxSVG pa-0"
+      >
+        <div
+          class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--placeholder v-select v-autocomplete"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns=list-x
+              class="v-input__slot"
+              role="combobox"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="iconAjaxSVG"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a select based on HTTP requests with SVG code in response
+                </label>
+                <div
+                  class="v-select__selections"
+                >
+                  <input
+                    autocomplete="off"
+                    id="iconAjaxSVG"
+                    type="text"
+                  />
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div />
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--append"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-menu-down theme--light"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="hidden"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Examples used as simple test cases Selects with icons 2`] = `
 <form
   class="v-form"
   novalidate="novalidate"
