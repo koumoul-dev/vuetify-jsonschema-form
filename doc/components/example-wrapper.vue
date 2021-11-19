@@ -38,7 +38,7 @@
                 <example :params="params" />
               </v-form>
               <div style="position:absolute;bottom: 10px;right: 10px;">
-                <v-btn :color="validationColor" small fab :title="validated ? 'Reset validation' : 'Validate form'" @click="toggleValidate">
+                <v-btn :color="validationColor" small fab :title="(validated ? 'Reset validation' : 'Validate form') + (valid ? ' (ok)' : ' (ko)')" @click="toggleValidate">
                   <v-icon>{{ validationIcon }}</v-icon>
                 </v-btn>
               </div>
@@ -168,7 +168,7 @@ export default {
       else return 'error'
     },
     validationIcon() {
-      if (!this.validated || !this.valid) return 'mdi-checkbox-blank-outline'
+      if (!this.validated) return 'mdi-checkbox-blank-outline'
       return 'mdi-checkbox-marked-outline'
     },
     codepenParams() {
