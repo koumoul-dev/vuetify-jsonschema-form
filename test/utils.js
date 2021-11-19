@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 import Draggable from 'vuedraggable'
 import { createLocalVue, mount } from '@vue/test-utils'
+import VueMask from 'v-mask'
 import VJsf from '../lib/VJsfNoDeps.js'
 import ExampleForm from './example-form.vue'
 import { defaultTemplate } from '../doc/examples'
@@ -10,6 +11,7 @@ Vue.use(Vuetify)
 const localVue = createLocalVue()
 localVue.component('v-jsf', VJsf)
 localVue.component('draggable', Draggable)
+Vue.use(VueMask)
 
 exports.getExampleWrapper = (example) => {
   const vuetify = new Vuetify({ mocks: { $vuetify: { theme: { themes: {} } } } })

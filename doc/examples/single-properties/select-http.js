@@ -99,7 +99,39 @@ const httpMocks = {
   'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title&owner=organization:5a5dc47163ebd4a6f438589b': { results: [] },
   'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title&q=&owner=organization:5a5dc47163ebd4a6f438589b': { results: [] },
   'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title,schema&owner=organization:5a5dc47163ebd4a6f438589b': { results: [] },
-  'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title&size=100&owner=organization:5a5dc47163ebd4a6f438589b': { results: [] }
+  'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title&size=100&owner=organization:5a5dc47163ebd4a6f438589b': { results: [] },
+  'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title&q=fete-de-la-science-2019&owner=organization:5a5dc47163ebd4a6f438589b': { results: [{
+    title: 'Fête de la science 2019',
+    owner: {
+      type: 'organization',
+      id: '5a5dc47163ebd4a6f438589b',
+      name: 'Koumoul',
+      role: null
+    },
+    id: 'fete-de-la-science-2019',
+    userPermissions: [
+      'readDescription',
+      'readLines',
+      'getGeoAgg',
+      'getValuesAgg',
+      'getValues',
+      'getMetricAgg',
+      'getWordsAgg',
+      'downloadOriginalData',
+      'downloadFullData',
+      'readApiDoc',
+      'realtime-transactions',
+      'readLine',
+      'readLineRevisions',
+      'list'
+    ],
+    public: true,
+    visibility: 'public',
+    description: '',
+    previews: [],
+    href: 'https://koumoul.com/data-fair/api/v1/datasets/fete-de-la-science-2019',
+    page: 'https://koumoul.com/data-fair/dataset/fete-de-la-science-2019'
+  }] }
 }
 
 export default { id, title, description, schema, model, options, httpMocks }
