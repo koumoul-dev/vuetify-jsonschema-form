@@ -14,6 +14,7 @@ module.exports = {
   ],
   plugins: [
     { src: '~/plugins/highlight.js', ssr: false },
+    { src: '~/plugins/mask.js', ssr: false },
     { src: '~/plugins/tiptap-vuetify.js', ssr: false }
   ],
   buildModules: ['@nuxtjs/vuetify'],
