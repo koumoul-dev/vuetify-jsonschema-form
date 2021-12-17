@@ -133,7 +133,7 @@ export default {
   }),
   computed: {
     validate() {
-      return ajv.compile(jrefs.resolve(this.params.schema, { '~$locale~': (this.params.options && this.params.options.locale) || 'en' }))
+      return ajv.compile(this.resolvedSchema)
     },
     ajvError() {
       const valid = this.validate(this.params.model)
@@ -142,6 +142,15 @@ export default {
         return ajv.errorsText(this.validate.errors, { separator: '\n' })
       }
       return null
+    },
+    resolvedSchema() {
+      const options = this.params.options || {}
+      const locale = options.locale || options.defaultLocale || 'en'
+      const defaultLocale = options.defaultLocale || 'en'
+      return jrefs.resolve(
+        JSON.parse(JSON.stringify(this.params.schema)),
+        { '~$locale~': locale === defaultLocale ? locale : [locale, defaultLocale] }
+      )
     },
     prettySchema() {
       if (!this.$hljs || !this.params.schema) return null

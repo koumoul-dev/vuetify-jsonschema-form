@@ -9587,7 +9587,7 @@ exports[`Examples used as simple test cases Localization 1`] = `
                   for="dateProp"
                   style="left: 0px; position: absolute;"
                 >
-                  Je suis une date
+                  I\`m a date without FR title
                 </label>
                 <input
                   id="dateProp"

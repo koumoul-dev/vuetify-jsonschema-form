@@ -21,6 +21,7 @@ export default {
     const params = { ...this.params }
     params.options = params.options || {}
     params.options.idPrefix = params.options.idPrefix || `example-${params.id}-`
+    params.schema = JSON.parse(JSON.stringify(params.schema))
     return params
   },
   watch: {
