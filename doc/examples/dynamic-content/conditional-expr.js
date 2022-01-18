@@ -4,7 +4,12 @@ const title = 'Conditional content (expression)'
 
 const description = `The JSON schema if/then/else syntax can be cumbersome and dependencies too limited. This is why vjsf accepts the \`x-if\` annotation that can contain en evaluated expression. See the [Expressions documentation](configuration#expressions).
 
-**WARNING:** this syntax is entirely ignored by a JSON schema validator, therefore you can create a situation where the form is valid but the model is actually invalid (for example if you use \`x-if\` on a property that is also required).`
+To use rich expression with the expr-eval module, please se [rich-expression section](#rich-expression)
+
+**WARNING:** this syntax is entirely ignored by a JSON schema validator, therefore you can create a situation where the form is valid but the model is actually invalid (for example if you use \`x-if\` on a property that is also required).
+
+
+`
 
 const schema = {
   type: 'object',

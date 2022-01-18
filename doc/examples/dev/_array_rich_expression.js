@@ -21,6 +21,7 @@ const model = {
 }
 
 const options = {
+    evalMethod: "evalExpr",
     editMode: 'inline'
 }
 
