@@ -8,32 +8,31 @@ const description = `
 `
 
 const schema = {
-    type: 'object',
-    properties: {
-        titleProp: { type: 'string', title: `I'm a required string used as title` },
-        stringProp: { type: 'string', title: `I'm another required string` },
-        conditionnalProp: {
-            type: "string", title: "I'm here if string props === to Hello", "x-if": "modelRoot.stringProp  == 'Hello' ",
-        }
-
+  type: 'object',
+  properties: {
+    titleProp: { type: 'string', title: `I'm a required string used as title` },
+    stringProp: { type: 'string', title: `I'm another required string` },
+    conditionnalProp: {
+      type: 'string', title: `I'm here if string props === to Hello`, 'x-if': 'modelRoot.stringProp  == \'Hello\' '
     }
+
+  }
 }
 
 const model = {
-    titleProp: `Object title`,
-    stringProp: "World"
+  titleProp: `Object title`,
+  stringProp: 'World'
 }
 
 const options = {
-    evalMethod: "evalExpr",
-    editMode: 'inline'
+  evalMethod: 'evalExpr',
+  editMode: 'inline'
 }
 
 const test = (wrapper) => {
-    const properties = wrapper.findAll('.vjsf-property');
-    expect(properties).toHaveLength(3);
-    expect(wrapper.vm.valid).toBe(true)
+  const properties = wrapper.findAll('.vjsf-property')
+  expect(properties).toHaveLength(3)
+  expect(wrapper.vm.valid).toBe(true)
 }
-
 
 export default { id, title, description, schema, model, options, test }

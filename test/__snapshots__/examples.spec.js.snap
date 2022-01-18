@@ -11704,7 +11704,7 @@ exports[`Examples used as simple test cases Rich expression Array 1`] = `
 </form>
 `;
 
-exports[`Examples used as simple test cases Rich expression Array 2`] = `
+exports[`Examples used as simple test cases Rich expression Array False 1`] = `
 <form
   class="v-form"
   novalidate="novalidate"

@@ -13,7 +13,7 @@ const examplesGroup = {
     slots,
     slotsWrappers,
     directives,
-    localization,
+    localization
   ]
 }
 

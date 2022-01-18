@@ -17,7 +17,6 @@ import ArrayRichExpression from './_array_rich_expression'
 import ArrayRichExpressionNotIn from './_array_rich_expression_not_in'
 import RichExpressionFalse from './_rich_expression_false'
 
-
 const examplesGroup = {
   title: 'Development',
   color: 'primary',
@@ -39,7 +38,7 @@ const examplesGroup = {
     InfiniteLoop,
     ArrayRichExpression,
     ArrayRichExpressionNotIn,
-    RichExpressionFalse,
+    RichExpressionFalse
   ]
 }
 

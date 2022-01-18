@@ -8,7 +8,6 @@ To use rich expression with the expr-eval module, please se [rich-expression sec
 
 **WARNING:** this syntax is entirely ignored by a JSON schema validator, therefore you can create a situation where the form is valid but the model is actually invalid (for example if you use \`x-if\` on a property that is also required).
 
-
 `
 
 const schema = {
