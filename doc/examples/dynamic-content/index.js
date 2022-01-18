@@ -3,7 +3,7 @@ import conditionals from './conditionals'
 import conditionalExpr from './conditional-expr'
 import selectDeps from './select-deps'
 import selectContextDeps from './select-context-deps'
-
+import richExpression from './rich-expression'
 const examplesGroup = {
   title: 'Dynamic content',
   examples: [
@@ -11,7 +11,8 @@ const examplesGroup = {
     conditionals,
     conditionalExpr,
     selectDeps,
-    selectContextDeps
+    selectContextDeps,
+    richExpression
   ]
 }
 
