@@ -21,7 +21,7 @@ const schema = {
 
 const model = {
   titleProp: `Object title`,
-  stringProp: 'World'
+  stringProp: 'Hello'
 }
 
 const options = {
@@ -31,7 +31,7 @@ const options = {
 
 const test = (wrapper) => {
   const properties = wrapper.findAll('.vjsf-property')
-  expect(properties).toHaveLength(3)
+  expect(properties).toHaveLength(4)
   expect(wrapper.vm.valid).toBe(true)
 }
 

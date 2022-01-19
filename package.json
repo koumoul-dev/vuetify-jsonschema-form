@@ -52,7 +52,6 @@
     "ajv-formats": "^2.1.1",
     "ajv-i18n": "^4.1.0",
     "debounce": "^1.2.0",
-    "expr-eval": "^2.0.2",
     "fast-copy": "^2.1.1",
     "fast-equals": "^2.0.0",
     "markdown-it": "^8.4.2",
@@ -60,6 +59,9 @@
     "object-hash": "^2.1.1",
     "property-expr": "^2.0.4",
     "vuedraggable": "^2.24.3"
+  },
+  "optionalDependencies": {
+    "expr-eval": "^2.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
