@@ -2,10 +2,9 @@ const id = 'rich-expression'
 
 const title = 'Rich expression'
 
-const description = `
-    x-if take also rich logical expression using [expr-eval](https://www.npmjs.com/package/expr-eval).
-    **Note**: to access value in your model you shoud use modelRoot key. 
-`
+const description = `x-if take also rich logical expression using [expr-eval](https://www.npmjs.com/package/expr-eval).
+
+**Note**: to access value in your model you shoud use modelRoot key.`
 
 const schema = {
   type: 'object',

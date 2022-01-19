@@ -247,6 +247,10 @@
           <td>Based on the <a href="https://www.npmjs.com/package/property-expr">property-expr module</a>. Expressions are simple deep getters into the contextual data.</td>
         </tr>
         <tr>
+          <td>evalExpr</td>
+          <td>Based on the <a href="https://www.npmjs.com/package/expr-eval">eval-expr module</a>.Only logical expressions are allowed.</td>
+        </tr>
+        <tr>
           <td>newFunction</td>
           <td>
             Based on <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Function">dynamically created JS functions</a>. Expressions are complete JS expressions.
