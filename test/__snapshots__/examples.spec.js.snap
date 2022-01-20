@@ -11964,6 +11964,7 @@ exports[`Examples used as simple test cases Sections as stepper 1`] = `
               >
                 <div
                   class="v-stepper__step v-stepper__step--active"
+                  tabindex="-1"
                 >
                   <span
                     class="v-stepper__step__step primary"
@@ -11983,6 +11984,7 @@ exports[`Examples used as simple test cases Sections as stepper 1`] = `
                 />
                 <div
                   class="v-stepper__step v-stepper__step--inactive"
+                  tabindex="-1"
                 >
                   <span
                     class="v-stepper__step__step"
@@ -12189,6 +12191,7 @@ exports[`Examples used as simple test cases Sections as stepper 1`] = `
             >
               <div
                 class="v-stepper__step v-stepper__step--active"
+                tabindex="-1"
               >
                 <span
                   class="v-stepper__step__step primary"
@@ -12295,6 +12298,7 @@ exports[`Examples used as simple test cases Sections as stepper 1`] = `
               </transition-stub>
               <div
                 class="v-stepper__step v-stepper__step--inactive"
+                tabindex="-1"
               >
                 <span
                   class="v-stepper__step__step"
@@ -14909,7 +14913,7 @@ exports[`Examples used as simple test cases Selects prefilled with http results 
                     <span
                       class="mt-1"
                     >
-                      https://koumoul.com/s/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417
+                      jep-2018-france
                     </span>
                   </div>
                   <input
@@ -14947,7 +14951,103 @@ exports[`Examples used as simple test cases Selects prefilled with http results 
                 </div>
                 <input
                   type="hidden"
-                  value="https://koumoul.com/s/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417"
+                  value="jep-2018-france"
+                />
+              </div>
+              <div
+                class="v-menu"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-selectAjaxStringUnknown pa-0"
+      >
+        <div
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-text-field--placeholder v-select v-autocomplete"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns=list-x
+              class="v-input__slot"
+              role="combobox"
+            >
+              <div
+                class="v-select__slot"
+              >
+                <label
+                  class="v-label v-label--active theme--light"
+                  for="selectAjaxStringUnknown"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a string selected from results of an HTTP request with prefilled unknown value
+                </label>
+                <div
+                  class="v-select__selections"
+                >
+                  <div
+                    class="v-select__selection v-select__selection--comma"
+                  >
+                    <span
+                      class="mt-1"
+                    >
+                      unknown value
+                    </span>
+                  </div>
+                  <input
+                    autocomplete="off"
+                    id="selectAjaxStringUnknown"
+                    type="text"
+                  />
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--clear"
+                  >
+                    <button
+                      aria-label="clear icon"
+                      class="v-icon notranslate v-icon--link mdi mdi-close theme--light"
+                      type="button"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="v-input__append-inner"
+                >
+                  <div
+                    class="v-input__icon v-input__icon--append"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-menu-down theme--light"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="hidden"
+                  value="unknown value"
                 />
               </div>
               <div
