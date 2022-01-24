@@ -54,7 +54,7 @@
     "debug": "^4.3.3",
     "fast-copy": "^2.1.1",
     "fast-equals": "^2.0.0",
-    "markdown-it": "^8.4.2",
+    "markdown-it": "^12.3.2",
     "match-all": "^1.2.5",
     "object-hash": "^2.1.1",
     "property-expr": "^2.0.4",
