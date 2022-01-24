@@ -51,6 +51,7 @@
     "ajv-formats": "^2.1.1",
     "ajv-i18n": "^4.1.0",
     "debounce": "^1.2.0",
+    "debug": "^4.3.3",
     "fast-copy": "^2.1.1",
     "fast-equals": "^2.0.0",
     "markdown-it": "^8.4.2",
