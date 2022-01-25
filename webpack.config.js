@@ -1,5 +1,5 @@
 const path = require('path')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const base = {
@@ -8,22 +8,16 @@ const base = {
     rules: [{
       test: /\.js$/,
       exclude: /(node_modules)/,
-      loader: 'babel-loader',
-      options: {
-        presets: ['@babel/preset-env']
-      }
+      use: 'babel-loader'
     }, {
       test: /\.vue$/,
-      loader: 'vue-loader'
+      use: 'vue-loader'
     }, {
       test: /\.css$/,
-      loader: [MiniCssExtractPlugin.loader, 'css-loader']
-    }, {
-      test: /\.less$/,
-      loader: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader']
+      use: [MiniCssExtractPlugin.loader, 'css-loader']
     }, {
       test: /\.(svg|eot|woff|ttf|woff2)$/,
-      loader: ['file-loader']
+      use: 'file-loader'
     }]
   },
   plugins: [

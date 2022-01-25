@@ -230,6 +230,9 @@
       For example the x-if and fromData annotations use these expressions.
       The method used to evaluate the expressions can be changed with the evalMethod option, possible values are:
     </p>
+    <p>
+      You can debug expressions by setting <code>localStorage.debug = 'vjsf:expr'</code>.
+    </p>
     <v-simple-table dense dark class="mb-6">
       <thead>
         <tr>
