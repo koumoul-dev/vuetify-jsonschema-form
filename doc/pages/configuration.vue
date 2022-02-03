@@ -322,7 +322,8 @@ export default {
       formats,
       localizedMessages,
       descriptions: {
-        locale: 'See the <a href="configuration#messages">Messages section</a>',
+        locale: 'The default value is read in "$vuetify.lang.current". See the <a href="configuration#messages">Messages section</a>',
+        defaultLocale: 'The default value is read in "$vuetify.lang.defaultLocale".',
         rootDisplay: 'equivalent of x-display annotation on the root object of the schema, can be "tabs" or "expansion-panels"',
         fieldProps: 'props passed to the underlying components for simple fields (v-text-field, v-select, etc.)',
         fieldColProps: 'props passed to the v-col component that wraps any field. Use "cols", "xs", "md", etc. to customize your form layout.',
