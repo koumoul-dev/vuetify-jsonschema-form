@@ -25,7 +25,7 @@
         placeholder="load a new image"
         @change="change"
       >
-        <template v-slot:append-outer>
+        <template #append-outer>
           <v-btn v-if="imgSrc" fab x-small color="accent" @click="validate">
             <v-icon>
               mdi-check
@@ -39,7 +39,6 @@
       ref="cropper"
       v-bind="cropperOptions"
       :src="imgSrc"
-      alt="Avatar"
     />
   </v-input>
 </template>
