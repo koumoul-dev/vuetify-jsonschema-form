@@ -13,7 +13,6 @@ import WrongEnumValue from './_wrong-enum-value'
 import EnumConst from './_enum_const'
 import Separator from './_separator'
 import InfiniteLoop from './_infinite_loop'
-import Stepper from './_stepper'
 
 const examplesGroup = {
   title: 'Development',
@@ -33,8 +32,7 @@ const examplesGroup = {
     WrongEnumValue,
     EnumConst,
     Separator,
-    InfiniteLoop,
-    Stepper
+    InfiniteLoop
   ]
 }
 
