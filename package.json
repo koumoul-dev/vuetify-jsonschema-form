@@ -10,6 +10,7 @@
     "prepare": "npm run lint && npm test && npm run build && npm run doc-build",
     "postpublish": "gh-pages-multi deploy -v -s doc/dist -t latest",
     "test": "jest",
+    "test-watch": "jest --watch",
     "test-update": "jest --updateSnapshot",
     "dev": "nuxt doc --port 3133",
     "doc-dev": "nuxt doc --port 3133",
@@ -59,6 +60,9 @@
     "object-hash": "^2.2.0",
     "property-expr": "^2.0.5",
     "vuedraggable": "^2.24.3"
+  },
+  "optionalDependencies": {
+    "expr-eval": "^2.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.16.12",
