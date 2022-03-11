@@ -14813,7 +14813,6 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                 </div>
                 <input
                   type="hidden"
-                  value="[object Object]"
                 />
               </div>
               <div
@@ -14974,7 +14973,6 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                 </div>
                 <input
                   type="hidden"
-                  value="[object Object]"
                 />
               </div>
               <div
@@ -15053,7 +15051,6 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
                 </div>
                 <input
                   type="hidden"
-                  value="[object Object]"
                 />
               </div>
               <div
@@ -15787,7 +15784,6 @@ exports[`Examples used as simple test cases Selects with dependencies 1`] = `
                 </div>
                 <input
                   type="hidden"
-                  value="[object Object]"
                 />
               </div>
               <div
