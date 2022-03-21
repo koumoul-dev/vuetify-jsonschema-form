@@ -85,7 +85,7 @@ build: {
 vue create my-app
 cd my-app
 vue add vuetify
-npm install -g @koumoul/vjsf
+npm install --save @koumoul/vjsf
 </code></pre>
     </v-sheet>
 
