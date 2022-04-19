@@ -2,5 +2,6 @@
 /lib/utils/json-refs.js
 /dist
 /doc
+/test-apps
 /coverage
 /stats.json

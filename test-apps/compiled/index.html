@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>VJSF - test apps - compiled</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <link href="/dist/main.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app">
+      <v-app>
+        <v-main>
+          <v-container>
+            <h1>VJSF - Test app - Compiled</h1>
+
+            <v-form v-model="valid">
+              <v-jsf :schema="schema" :options="options" v-model="model"></v-jsf>
+            </v-form>
+            model: {{model}}
+          </v-container>
+          
+        </v-main>
+      </v-app>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script src="/dist/main.js"></script>
+    <script>
+      Vue.component('VJsf', VJsf.default)
+      new Vue({
+        el: '#app',
+        vuetify: new Vuetify(),
+        data() {
+          return {
+            valid: null,
+            schema: {
+              type: 'object',
+              properties: {
+                stringProp: { type: 'string', title: `I'm a string`, description: 'This description is used as a help message.' },
+                stringTextareaProp: { type: 'string', title: `I'm a string in a textarea`, 'x-display': 'textarea' },
+                numberProp: { type: 'number', title: `I'm a number` },
+                integerProp: { type: 'integer', title: `I'm an integer` },
+                integerSliderProp: { type: 'integer', title: `I'm an integer in a slider`, 'x-display': 'slider', minimum: 0, maximum: 5 },
+                booleanProp: { type: 'boolean', title: `I'm a boolean`, description: 'This description is used as a help message.' },
+                booleanSwitchProp: { type: 'boolean', title: `I'm a boolean with switch display`, 'x-display': 'switch', description: 'This description is used as a help message.' },
+                stringArrayProp: { type: 'array', title: `I'm an array of strings`, items: { type: 'string' } },
+                integerArrayProp: { type: 'array', title: `I'm an array of integers`, items: { type: 'integer' } }
+              }
+            },
+            options: {},
+            model: {}
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
