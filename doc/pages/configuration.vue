@@ -251,7 +251,7 @@
         </tr>
         <tr>
           <td>evalExpr</td>
-          <td>Based on the <a href="https://www.npmjs.com/package/expr-eval">eval-expr module</a>.Only logical expressions are allowed.</td>
+          <td>Based on the <a href="https://www.npmjs.com/package/expr-eval">eval-expr module</a>. Only logical expressions are allowed.</td>
         </tr>
         <tr>
           <td>newFunction</td>
