@@ -289,6 +289,14 @@
           <td>context</td>
           <td>The options.context object.</td>
         </tr>
+        <tr>
+          <td>parent.value</td>
+          <td>The parent object in the model.</td>
+        </tr>
+        <tr>
+          <td>parent.parent.value</td>
+          <td>The grand-parent object in the model. Etc.</td>
+        </tr>
       </tbody>
     </v-simple-table>
 
