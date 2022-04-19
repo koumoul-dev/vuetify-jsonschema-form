@@ -73,8 +73,8 @@ const aceOptions = {
 }
 
 export default {
-  layout: 'void',
   components: { VJsf, VJsfTiptap, VJsfToastUiEditor, VJsfCropImg },
+  layout: 'void',
   data: () => ({
     title: 'editor',
     format: 'yaml',

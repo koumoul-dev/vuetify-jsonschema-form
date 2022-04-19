@@ -1,6 +1,7 @@
 /node_modules
 /dist
-.nuxt
 /coverage
 /doc/dist
+/doc/node_modules
+/doc/.nuxt
 .idea/

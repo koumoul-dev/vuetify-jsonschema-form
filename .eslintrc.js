@@ -1,5 +1,8 @@
 module.exports = {
   root: true,
+  env: {
+    browser: true
+  },
   parserOptions: {
     parser: 'babel-eslint',
     sourceType: 'module'
@@ -7,8 +10,6 @@ module.exports = {
   extends: [
     // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
     'standard',
-    // https://github.com/vuejs/eslint-plugin-vue,
-    'plugin:vue/recommended',
     'plugin:jest/recommended',
     'plugin:jest/style'
   ],
@@ -22,12 +23,6 @@ module.exports = {
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     // This rule is required because atom vue-format package remove the space
-    'space-before-function-paren': 0,
-    // Turn off vuejs rules, not because ther are not good, but mostly because
-    // they are very present in initial code base.. Maybe we should clean that up someday..
-    'vue/max-attributes-per-line': 'off',
-    'vue/require-prop-types': 'off',
-    'no-new': 'off',
-    'vue/no-v-html': 'off'
+    'space-before-function-paren': 0
   }
 }

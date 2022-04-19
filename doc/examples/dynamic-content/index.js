@@ -13,8 +13,8 @@ const examplesGroup = {
     conditionalExpr,
     selectDeps,
     selectContextDeps,
+    selectRelativeDeps,
     richExpression
-    selectContextDeps
   ]
 }
 

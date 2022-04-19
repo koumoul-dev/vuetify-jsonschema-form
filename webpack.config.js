@@ -1,8 +1,7 @@
 const path = require('path')
 const { VueLoaderPlugin } = require('vue-loader')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const base = {
+module.exports = [{
   mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
   module: {
     rules: [{
@@ -12,22 +11,11 @@ const base = {
     }, {
       test: /\.vue$/,
       use: 'vue-loader'
-    }, {
-      test: /\.css$/,
-      use: [MiniCssExtractPlugin.loader, 'css-loader']
-    }, {
-      test: /\.(svg|eot|woff|ttf|woff2)$/,
-      use: 'file-loader'
     }]
   },
   plugins: [
-    new VueLoaderPlugin(),
-    new MiniCssExtractPlugin()
-  ]
-}
-
-module.exports = [{
-  ...base,
+    new VueLoaderPlugin()
+  ],
   entry: {
     main: './lib/VJsfNoDeps.js'
   },
@@ -37,17 +25,9 @@ module.exports = [{
     library: 'VJsf',
     libraryTarget: 'umd',
     globalObject: 'this'
-  }
-}, {
-  ...base,
-  entry: {
-    'third-party': './lib/deps/third-party.js'
   },
   externals: {
     vue: 'Vue'
   },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js'
-  }
+  target: ['web', 'es5']
 }]

@@ -14,15 +14,15 @@ import { scrollToHash } from '~/app/router.scrollBehavior.js'
 export default {
   components: { ExampleWrapper },
   data: () => ({ examples }),
+  head() {
+    return {
+      title: 'vjsf - Examples'
+    }
+  },
   mounted() {
     if (this.$route.hash) {
       location.hash = this.$route.hash
       scrollToHash(this.$route.hash, false)
-    }
-  },
-  head() {
-    return {
-      title: 'vjsf - Examples'
     }
   }
 }
