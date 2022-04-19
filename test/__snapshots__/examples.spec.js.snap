@@ -2370,6 +2370,94 @@ exports[`Examples used as simple test cases Conditional content (expression) 1`]
       </div>
       <!---->
       <div
+        class="col col-12 vjsf-property vjsf-property-conditionProp pa-0"
+      >
+        <div
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-text-field__slot"
+              >
+                <label
+                  class="v-label v-label--active theme--light"
+                  for="conditionProp"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm a string whose content is used to evaluate an expression
+                </label>
+                <input
+                  id="conditionProp"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-conditionalProp pa-0"
+      >
+        <div
+          class="v-input theme--light v-text-field v-text-field--is-booted"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-text-field__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="conditionalProp"
+                  style="left: 0px; position: absolute;"
+                >
+                  I'm here if previous prop is equal to "hello"
+                </label>
+                <input
+                  id="conditionalProp"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         class="v-input theme--light v-text-field v-text-field--is-booted v-select"
       >
         <div
@@ -11459,154 +11547,6 @@ exports[`Examples used as simple test cases Readonly select with icons 1`] = `
 </form>
 `;
 
-exports[`Examples used as simple test cases Rich expression 1`] = `
-<form
-  class="v-form"
-  novalidate="novalidate"
->
-  <div
-    class="col col-12 vjsf-property vjsf-property-root pa-0"
-  >
-    <div
-      class="row ma-0 "
-    >
-      <div
-        class="col col-12 vjsf-property vjsf-property-titleProp pa-0"
-      >
-        <div
-          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
-        >
-          <div
-            class="v-input__control"
-          >
-            <div
-              class="v-input__slot"
-            >
-              <div
-                class="v-text-field__slot"
-              >
-                <label
-                  class="v-label v-label--active theme--light"
-                  for="titleProp"
-                  style="left: 0px; position: absolute;"
-                >
-                  I'm a required string used as title
-                </label>
-                <input
-                  id="titleProp"
-                  type="text"
-                />
-              </div>
-            </div>
-            <div
-              class="v-text-field__details"
-            >
-              <div
-                class="v-messages theme--light"
-              >
-                <transition-group-stub
-                  class="v-messages__wrapper"
-                  name="message-transition"
-                  tag="div"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="col col-12 vjsf-property vjsf-property-stringProp pa-0"
-      >
-        <div
-          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
-        >
-          <div
-            class="v-input__control"
-          >
-            <div
-              class="v-input__slot"
-            >
-              <div
-                class="v-text-field__slot"
-              >
-                <label
-                  class="v-label v-label--active theme--light"
-                  for="stringProp"
-                  style="left: 0px; position: absolute;"
-                >
-                  I'm another required string
-                </label>
-                <input
-                  id="stringProp"
-                  type="text"
-                />
-              </div>
-            </div>
-            <div
-              class="v-text-field__details"
-            >
-              <div
-                class="v-messages theme--light"
-              >
-                <transition-group-stub
-                  class="v-messages__wrapper"
-                  name="message-transition"
-                  tag="div"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="col col-12 vjsf-property vjsf-property-conditionnalProp pa-0"
-      >
-        <div
-          class="v-input theme--light v-text-field v-text-field--is-booted"
-        >
-          <div
-            class="v-input__control"
-          >
-            <div
-              class="v-input__slot"
-            >
-              <div
-                class="v-text-field__slot"
-              >
-                <label
-                  class="v-label theme--light"
-                  for="conditionnalProp"
-                  style="left: 0px; position: absolute;"
-                >
-                  I'm here if string props === to Hello
-                </label>
-                <input
-                  id="conditionnalProp"
-                  type="text"
-                />
-              </div>
-            </div>
-            <div
-              class="v-text-field__details"
-            >
-              <div
-                class="v-messages theme--light"
-              >
-                <transition-group-stub
-                  class="v-messages__wrapper"
-                  name="message-transition"
-                  tag="div"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</form>
-`;
-
 exports[`Examples used as simple test cases Rich expression Array 1`] = `
 <form
   class="v-form"
@@ -11622,7 +11562,7 @@ exports[`Examples used as simple test cases Rich expression Array 1`] = `
         class="col col-12 vjsf-property vjsf-property-arrayProp pa-0"
       >
         <div
-          class="v-input theme--light v-text-field v-text-field--is-booted v-select"
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select v-select--is-multi"
         >
           <div
             class="v-input__control"
@@ -11638,15 +11578,24 @@ exports[`Examples used as simple test cases Rich expression Array 1`] = `
                 class="v-select__slot"
               >
                 <label
-                  class="v-label theme--light"
+                  class="v-label v-label--active theme--light"
                   for="arrayProp"
                   style="left: 0px; position: absolute;"
                 >
-                  I'm another required string
+                  arrayProp
                 </label>
                 <div
                   class="v-select__selections"
                 >
+                  <div
+                    class="v-select__selection v-select__selection--comma"
+                  >
+                    <span
+                      class="mt-1"
+                    >
+                      Hello
+                    </span>
+                  </div>
                   <input
                     aria-readonly="undefined"
                     autocomplete="off"
@@ -11658,7 +11607,15 @@ exports[`Examples used as simple test cases Rich expression Array 1`] = `
                 <div
                   class="v-input__append-inner"
                 >
-                  <div />
+                  <div
+                    class="v-input__icon v-input__icon--clear"
+                  >
+                    <button
+                      aria-label="clear icon"
+                      class="v-icon notranslate v-icon--link mdi mdi-close theme--light"
+                      type="button"
+                    />
+                  </div>
                 </div>
                 <div
                   class="v-input__append-inner"
@@ -11674,6 +11631,7 @@ exports[`Examples used as simple test cases Rich expression Array 1`] = `
                 </div>
                 <input
                   type="hidden"
+                  value="Hello"
                 />
               </div>
               <div
@@ -11784,103 +11742,6 @@ exports[`Examples used as simple test cases Rich expression Array False 1`] = `
                   id="stringProp"
                   type="text"
                 />
-              </div>
-            </div>
-            <div
-              class="v-text-field__details"
-            >
-              <div
-                class="v-messages theme--light"
-              >
-                <transition-group-stub
-                  class="v-messages__wrapper"
-                  name="message-transition"
-                  tag="div"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!---->
-    </div>
-  </div>
-</form>
-`;
-
-exports[`Examples used as simple test cases Rich expression Array with value not in array  1`] = `
-<form
-  class="v-form"
-  novalidate="novalidate"
->
-  <div
-    class="col col-12 vjsf-property vjsf-property-root pa-0"
-  >
-    <div
-      class="row ma-0 "
-    >
-      <div
-        class="col col-12 vjsf-property vjsf-property-arrayProp pa-0"
-      >
-        <div
-          class="v-input theme--light v-text-field v-text-field--is-booted v-select"
-        >
-          <div
-            class="v-input__control"
-          >
-            <div
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns=list-x
-              class="v-input__slot"
-              role="button"
-            >
-              <div
-                class="v-select__slot"
-              >
-                <label
-                  class="v-label theme--light"
-                  for="arrayProp"
-                  style="left: 0px; position: absolute;"
-                >
-                  I'm another required string
-                </label>
-                <div
-                  class="v-select__selections"
-                >
-                  <input
-                    aria-readonly="undefined"
-                    autocomplete="off"
-                    id="arrayProp"
-                    readonly="readonly"
-                    type="text"
-                  />
-                </div>
-                <div
-                  class="v-input__append-inner"
-                >
-                  <div />
-                </div>
-                <div
-                  class="v-input__append-inner"
-                >
-                  <div
-                    class="v-input__icon v-input__icon--append"
-                  >
-                    <i
-                      aria-hidden="true"
-                      class="v-icon notranslate mdi mdi-menu-down theme--light"
-                    />
-                  </div>
-                </div>
-                <input
-                  type="hidden"
-                />
-              </div>
-              <div
-                class="v-menu"
-              >
-                <!---->
               </div>
             </div>
             <div

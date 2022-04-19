@@ -19,6 +19,7 @@ Check all rules:
 Run a local development server:
 
     cd doc
+    npm install
     npm run dev
 
 This simply opens the documentation site in a local web server that will watch your edits to the source code both of the library and of the documentation and its examples.
