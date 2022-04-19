@@ -1,7 +1,7 @@
 const path = require('path')
 const { VueLoaderPlugin } = require('vue-loader')
 
-module.exports = [{
+const base = {
   mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
   module: {
     rules: [{
@@ -16,6 +16,14 @@ module.exports = [{
   plugins: [
     new VueLoaderPlugin()
   ],
+  externals: {
+    vue: 'Vue'
+  },
+  target: ['web', 'es5']
+}
+
+module.exports = [{
+  ...base,
   entry: {
     main: './lib/VJsfNoDeps.js'
   },
@@ -25,9 +33,14 @@ module.exports = [{
     library: 'VJsf',
     libraryTarget: 'umd',
     globalObject: 'this'
+  }
+}, {
+  ...base,
+  entry: {
+    'third-party': './lib/deps/third-party.js'
   },
-  externals: {
-    vue: 'Vue'
-  },
-  target: ['web', 'es5']
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js'
+  }
 }]

@@ -14,10 +14,17 @@
           <v-container>
             <h1>VJSF - Test app - Compiled</h1>
 
-            <v-form v-model="valid">
-              <v-jsf :schema="schema" :options="options" v-model="model"></v-jsf>
+            <h2>Very basic form</h2>
+            <v-form v-model="form1.valid">
+              <v-jsf :schema="form1.schema" :options="form1.options" v-model="form1.model"></v-jsf>
             </v-form>
-            model: {{model}}
+            valid={{form1.valid}}, model={{form1.model}}
+
+            <h2>Form with draggable array elements</h2>
+            <v-form v-model="form2.valid">
+              <v-jsf :schema="form2.schema" :options="form2.options" v-model="form2.model"></v-jsf>
+            </v-form>
+            valid={{form2.valid}}, model={{form2.model}}
           </v-container>
           
         </v-main>
@@ -27,6 +34,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
     <script src="/dist/main.js"></script>
+    <script src="/dist/third-party.js"></script>
     <script>
       Vue.component('VJsf', VJsf.default)
       new Vue({
@@ -34,23 +42,41 @@
         vuetify: new Vuetify(),
         data() {
           return {
-            valid: null,
-            schema: {
-              type: 'object',
-              properties: {
-                stringProp: { type: 'string', title: `I'm a string`, description: 'This description is used as a help message.' },
-                stringTextareaProp: { type: 'string', title: `I'm a string in a textarea`, 'x-display': 'textarea' },
-                numberProp: { type: 'number', title: `I'm a number` },
-                integerProp: { type: 'integer', title: `I'm an integer` },
-                integerSliderProp: { type: 'integer', title: `I'm an integer in a slider`, 'x-display': 'slider', minimum: 0, maximum: 5 },
-                booleanProp: { type: 'boolean', title: `I'm a boolean`, description: 'This description is used as a help message.' },
-                booleanSwitchProp: { type: 'boolean', title: `I'm a boolean with switch display`, 'x-display': 'switch', description: 'This description is used as a help message.' },
-                stringArrayProp: { type: 'array', title: `I'm an array of strings`, items: { type: 'string' } },
-                integerArrayProp: { type: 'array', title: `I'm an array of integers`, items: { type: 'integer' } }
-              }
+            form1: {
+              valid: null,
+              schema: {
+                type: 'object',
+                properties: {
+                  stringProp: { type: 'string', title: `I'm a string`, description: 'This description is used as a help message.' }
+                }
+              },
+              options: {},
+              model: {}
             },
-            options: {},
-            model: {}
+            form2: {
+              valid: null,
+              schema: {
+                type: 'object',
+                properties: {
+                  arrayProp: {
+                    type: 'array',
+                    items: {
+                      type: 'object',
+                      properties: {
+                        stringProp: { type: 'string', title: `I'm a string` }
+                      }
+                    }
+                  }
+                }
+              },
+              options: {},
+              model: {
+                arrayProp: [
+                  {stringProp: 'value 1'},
+                  {stringProp: 'value 2'}
+                ]
+              }
+            }
           }
         }
       })
