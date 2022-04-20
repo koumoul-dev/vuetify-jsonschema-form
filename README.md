@@ -15,8 +15,9 @@ See [the documentation](https://koumoul-dev.github.io/vuetify-jsonschema-form/la
 The documentation serves as development server too.
 
 ```
+cd doc
 npm install
-npm run doc-dev
+npm run dev
 ```
 
 ## Bug reports

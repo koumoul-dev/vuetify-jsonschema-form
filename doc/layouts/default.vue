@@ -1,6 +1,12 @@
 <template>
   <v-app>
-    <v-navigation-drawer v-model="drawer" :temporary="$vuetify.breakpoint.smAndDown" :permanent="$vuetify.breakpoint.mdAndUp" app dark>
+    <v-navigation-drawer
+      v-model="drawer"
+      :temporary="$vuetify.breakpoint.smAndDown"
+      :permanent="$vuetify.breakpoint.mdAndUp"
+      app
+      dark
+    >
       <v-list class="py-0">
         <v-list-item to="/">
           <v-list-item-content>
@@ -14,7 +20,10 @@
         </v-list-item>
       </v-list>
 
-      <v-list dense class="pt-0">
+      <v-list
+        dense
+        class="pt-0"
+      >
         <v-list-item to="/about">
           <v-list-item-content>
             <v-list-item-title>
@@ -54,18 +63,33 @@
 
       <v-divider />
 
-      <v-list dense shaped class="mb-6 pr-0">
+      <v-list
+        dense
+        shaped
+        class="mb-6 pr-0"
+      >
         <v-subheader>EXAMPLES</v-subheader>
-        <v-expansion-panels id="examples-panels" accordion flat>
+        <v-expansion-panels
+          id="examples-panels"
+          accordion
+          flat
+        >
           <v-expansion-panel
             v-for="(examplesGroup, i) in examples.filter(eg => eg.title !== 'Development' || nodeEnv === 'development')"
             :key="i"
           >
-            <v-expansion-panel-header class="px-3" :color="examplesGroup.color || ''">
+            <v-expansion-panel-header
+              class="px-3"
+              :color="examplesGroup.color || ''"
+            >
               {{ examplesGroup.title }}
             </v-expansion-panel-header>
             <v-expansion-panel-content>
-              <v-list-item v-for="example in examplesGroup.examples" :key="example.id" :to="{name: 'examples', hash: '#' + example.id}">
+              <v-list-item
+                v-for="example in examplesGroup.examples"
+                :key="example.id"
+                :to="{name: 'examples', hash: '#' + example.id}"
+              >
                 <v-list-item-content>
                   <v-list-item-title>{{ example.title }}</v-list-item-title>
                 </v-list-item-content>
@@ -81,8 +105,14 @@
       </v-footer>
     </v-navigation-drawer>
     <!--<v-app-bar app :color="$vuetify.breakpoint.smAndDown ? 'white' : 'transparent'" dense flat>-->
-    <v-app-bar app flat>
-      <v-app-bar-nav-icon v-if="$vuetify.breakpoint.smAndDown" @click.stop="drawer = !drawer" />
+    <v-app-bar
+      app
+      flat
+    >
+      <v-app-bar-nav-icon
+        v-if="$vuetify.breakpoint.smAndDown"
+        @click.stop="drawer = !drawer"
+      />
       <search-widget
         df-url="https://koumoul.com/s/data-fair"
         dataset-id="vjsf-1"
@@ -91,15 +121,36 @@
         :to-links="true"
       />
       <v-spacer />
-      <v-btn href="https://github.com/sponsors/koumoul-dev" outlined rounded class="ml-2 pl-3" color="primary" style="text-transform: none;">
+      <v-btn
+        href="https://github.com/sponsors/koumoul-dev"
+        outlined
+        rounded
+        class="ml-2 pl-3"
+        color="primary"
+        style="text-transform: none;"
+      >
         <v-icon color="pink">
           mdi-heart-outline
         </v-icon>&nbsp;&nbsp;Sponsor
       </v-btn>
-      <v-btn fab small href="https://gitter.im/koumoul-dev/vjsf" color="primary" class="ml-2" title="chat on gitter">
+      <v-btn
+        fab
+        small
+        href="https://gitter.im/koumoul-dev/vjsf"
+        color="primary"
+        class="ml-2"
+        title="chat on gitter"
+      >
         <v-icon>mdi-chat</v-icon>
       </v-btn>
-      <v-btn fab small href="https://github.com/koumoul-dev/vuetify-jsonschema-form" color="primary" class="ml-2" title="repository on github">
+      <v-btn
+        fab
+        small
+        href="https://github.com/koumoul-dev/vuetify-jsonschema-form"
+        color="primary"
+        class="ml-2"
+        title="repository on github"
+      >
         <v-icon>mdi-github</v-icon>
       </v-btn>
     </v-app-bar>

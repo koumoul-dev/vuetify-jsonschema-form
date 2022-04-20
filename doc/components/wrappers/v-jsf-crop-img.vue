@@ -9,11 +9,18 @@
     :required="required"
     class="vjsf-crop-img"
   >
-    <v-icon v-if="!disabled && !required && !!value" style="position: absolute; right: 0;" @click="on.input(null)">
+    <v-icon
+      v-if="!disabled && !required && !!value"
+      style="position: absolute; right: 0;"
+      @click="on.input(null)"
+    >
       mdi-close
     </v-icon>
     <v-row class="mt-0 mx-0">
-      <v-avatar v-if="value" class="mt-1">
+      <v-avatar
+        v-if="value"
+        class="mt-1"
+      >
         <img :src="value">
       </v-avatar>
       <v-file-input
@@ -26,7 +33,13 @@
         @change="change"
       >
         <template #append-outer>
-          <v-btn v-if="imgSrc" fab x-small color="accent" @click="validate">
+          <v-btn
+            v-if="imgSrc"
+            fab
+            x-small
+            color="accent"
+            @click="validate"
+          >
             <v-icon>
               mdi-check
             </v-icon>
@@ -72,7 +85,7 @@ export default {
   }),
   computed: {},
   methods: {
-    change() {
+    change () {
       if (!this.file) {
         this.imgSrc = null
         return
@@ -85,7 +98,7 @@ export default {
       }
       reader.readAsDataURL(this.file)
     },
-    async validate() {
+    async validate () {
       const croppedImg = this.$refs.cropper
         .getCroppedCanvas({ width: this.size, height: this.size })
         .toDataURL('image/png')

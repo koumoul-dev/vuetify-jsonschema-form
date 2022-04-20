@@ -49,7 +49,7 @@ export default {
   data: () => ({
     title: '0.x to 1.x'
   }),
-  head() {
+  head () {
     return {
       title: 'vjsf - ' + this.title
     }

@@ -1,6 +1,7 @@
 import Vue from 'vue'
+import Draggable from 'vuedraggable'
 import '../../lib/deps/third-party.js'
-import VJsf from '../../lib/VJsf.js'
+import VJsf from '../../lib/VJsfNoDeps.js'
 import '../../lib/VJsf.css'
 import EasyMDE from 'easymde/dist/easymde.min.js'
 import 'easymde/dist/easymde.min.css'
@@ -10,6 +11,8 @@ import VJsfCropImg from './wrappers/v-jsf-crop-img.vue'
 import VJsfTable from './wrappers/v-jsf-table.vue'
 import { defaultTemplate } from '../examples'
 
+Vue.component('Draggable', Draggable)
+
 global.EasyMDE = EasyMDE
 
 export default {
@@ -17,7 +20,7 @@ export default {
   props: {
     params: { type: Object, required: true }
   },
-  data() {
+  data () {
     const params = { ...this.params }
     params.options = params.options || {}
     params.options.idPrefix = params.options.idPrefix || `example-${params.id}-`
@@ -25,16 +28,16 @@ export default {
     return params
   },
   watch: {
-    model() {
+    model () {
       this.params.model = this.model
     }
   },
-  render(h) {
+  render (h) {
     this.compiledTemplate = this.compiledTemplate || Vue.compile(this.template || defaultTemplate)
     return this.compiledTemplate.render.call(this, h)
   },
   methods: {
-    logEvent(key, $event) {
+    logEvent (key, $event) {
       console.log(`vjsf event "${key}"`, $event)
     }
   }

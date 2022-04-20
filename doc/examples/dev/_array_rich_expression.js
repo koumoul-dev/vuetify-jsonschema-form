@@ -3,15 +3,20 @@ const id = 'rich-expression-array'
 const title = 'Rich expression Array'
 
 const description = `
-    Check if in operator work to display input.
+    Check if in operator works to display input.
 `
 
 const schema = {
   type: 'object',
   properties: {
-    arrayProp: { type: 'string', title: `I'm another required string`, enum: ['Hello', 'World'] },
+    arrayProp: {
+      type: 'array',
+      items: {
+        type: 'string', enum: ['Hello', 'World']
+      }
+    },
     conditionnalProp: {
-      type: 'string', title: `I'm here if  Hello is in arrayProp`, 'x-if': '\'Hello\' in modelRoot.arrayProp'
+      type: 'string', title: `I'm here if  Hello is in arrayProp`, 'x-if': '\'Hello\' in root.arrayProp'
     }
   }
 }
