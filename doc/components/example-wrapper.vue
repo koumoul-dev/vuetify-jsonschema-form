@@ -1,4 +1,5 @@
 <template>
+  <!-- example-wrapper class is for helping the web-scraper -->
   <v-row class="example-wrapper">
     <v-col
       xs="12"
