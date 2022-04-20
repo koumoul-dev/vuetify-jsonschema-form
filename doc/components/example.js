@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Draggable from 'vuedraggable'
 import '../../lib/deps/third-party.js'
-import VJsf from '../../lib/VJsfNoDeps.js'
+import VJsf from '../../lib/VJsf.js'
 import '../../lib/VJsf.css'
 import EasyMDE from 'easymde/dist/easymde.min.js'
 import 'easymde/dist/easymde.min.css'
