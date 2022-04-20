@@ -55,7 +55,7 @@ git push && git push --tags
 To publish a beta version, use prerelease versioning with a npm tag:
 
 ```
-npm version preminor --preid=beta
+npm version preminor --preid=beta # use prerelease instead of preminor to increment
 npm publish --tag=beta
 git push && git push --tags
 ```
