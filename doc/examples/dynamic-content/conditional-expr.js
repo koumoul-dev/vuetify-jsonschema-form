@@ -22,7 +22,7 @@ const schema = {
       type: 'string',
       title: `I'm here if previous prop is equal to "hello"`,
       'x-if': 'parent.value.conditionProp  == \'hello\'',
-      'x-options': {evalMethod: 'evalExpr'}
+      'x-options': { evalMethod: 'evalExpr' }
     }
   },
   oneOf: [{
@@ -43,7 +43,7 @@ const schema = {
     properties: {
       type: { type: 'string', const: 'inactiveChoice' }
     }
-  }],
+  }]
 }
 
 const model = {

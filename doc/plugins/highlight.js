@@ -19,10 +19,10 @@ const highlight = (el) => {
 
 Vue.directive('hljs', {
   deep: true,
-  bind(el) {
+  bind (el) {
     highlight(el)
   },
-  componentUpdated(el, binding) {
+  componentUpdated (el, binding) {
     highlight(el)
   }
 })

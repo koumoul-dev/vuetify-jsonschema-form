@@ -4,8 +4,17 @@
       {{ title }}
     </h1>
 
-    <h2 id="options" class="headline my-4">
-      <v-btn color="primary" icon text :to="{name: 'configuration', hash: '#options'}" class="mr-1">
+    <h2
+      id="options"
+      class="headline my-4"
+    >
+      <v-btn
+        color="primary"
+        icon
+        text
+        :to="{name: 'configuration', hash: '#options'}"
+        class="mr-1"
+      >
         <v-icon>
           mdi-link
         </v-icon>
@@ -16,7 +25,11 @@
       Options can be passed to vjsf using the options prop or can be defined more locally on a specific property using the "x-options" annotation.
       Children properties will inherit from the options defined in their parents.
     </p>
-    <v-simple-table dense dark class="mb-6">
+    <v-simple-table
+      dense
+      dark
+      class="mb-6"
+    >
       <thead>
         <tr>
           <th class="text-left">
@@ -31,7 +44,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="optionKey in Object.keys(defaultOptions)" :key="optionKey">
+        <tr
+          v-for="optionKey in Object.keys(defaultOptions)"
+          :key="optionKey"
+        >
           <td>{{ optionKey }}</td>
           <td>{{ JSON.stringify(defaultOptions[optionKey], null, 2) }}</td>
           <td v-html="descriptions[optionKey]" />
@@ -49,8 +65,17 @@
       </tbody>
     </v-simple-table>
 
-    <h2 id="messages" class="headline my-4">
-      <v-btn color="primary" icon text :to="{name: 'configuration', hash: '#messages'}" class="mr-1">
+    <h2
+      id="messages"
+      class="headline my-4"
+    >
+      <v-btn
+        color="primary"
+        icon
+        text
+        :to="{name: 'configuration', hash: '#messages'}"
+        class="mr-1"
+      >
         <v-icon>
           mdi-link
         </v-icon>
@@ -62,10 +87,20 @@
     </p>
     <v-row>
       <v-col cols="2">
-        <v-select v-model="locale" :items="Object.keys(localizedMessages)" label="Locale" hide-details dense />
+        <v-select
+          v-model="locale"
+          :items="Object.keys(localizedMessages)"
+          label="Locale"
+          hide-details
+          dense
+        />
       </v-col>
     </v-row>
-    <v-simple-table dense dark class="mb-6">
+    <v-simple-table
+      dense
+      dark
+      class="mb-6"
+    >
       <thead>
         <tr>
           <th class="text-left">
@@ -77,15 +112,27 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="messageKey in Object.keys(localizedMessages[locale])" :key="messageKey">
+        <tr
+          v-for="messageKey in Object.keys(localizedMessages[locale])"
+          :key="messageKey"
+        >
           <td>{{ messageKey }}</td>
           <td>{{ localizedMessages[locale][messageKey] }}</td>
         </tr>
       </tbody>
     </v-simple-table>
 
-    <h2 id="icons" class="headline my-4">
-      <v-btn color="primary" icon text :to="{name: 'configuration', hash: '#icons'}" class="mr-1">
+    <h2
+      id="icons"
+      class="headline my-4"
+    >
+      <v-btn
+        color="primary"
+        icon
+        text
+        :to="{name: 'configuration', hash: '#icons'}"
+        class="mr-1"
+      >
         <v-icon>
           mdi-link
         </v-icon>
@@ -97,10 +144,20 @@
     </p>
     <v-row>
       <v-col cols="2">
-        <v-select v-model="iconSet" :items="Object.keys(iconSets)" label="Icon set" hide-details dense />
+        <v-select
+          v-model="iconSet"
+          :items="Object.keys(iconSets)"
+          label="Icon set"
+          hide-details
+          dense
+        />
       </v-col>
     </v-row>
-    <v-simple-table dense dark class="mb-6">
+    <v-simple-table
+      dense
+      dark
+      class="mb-6"
+    >
       <thead>
         <tr>
           <th class="text-left">
@@ -112,15 +169,27 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="iconKey in Object.keys(iconSets[iconSet])" :key="iconKey">
+        <tr
+          v-for="iconKey in Object.keys(iconSets[iconSet])"
+          :key="iconKey"
+        >
           <td>{{ iconKey }}</td>
           <td>{{ iconSets[iconSet][iconKey] }}</td>
         </tr>
       </tbody>
     </v-simple-table>
 
-    <h2 id="formatting" class="headline my-4">
-      <v-btn color="primary" icon text :to="{name: 'configuration', hash: '#formatting'}" class="mr-1">
+    <h2
+      id="formatting"
+      class="headline my-4"
+    >
+      <v-btn
+        color="primary"
+        icon
+        text
+        :to="{name: 'configuration', hash: '#formatting'}"
+        class="mr-1"
+      >
         <v-icon>
           mdi-link
         </v-icon>
@@ -130,7 +199,11 @@
     <p>
       You can define a special "formats" option to overwrite the default formatting functions that are used to display some field values.
     </p>
-    <v-simple-table dense dark class="mb-6">
+    <v-simple-table
+      dense
+      dark
+      class="mb-6"
+    >
       <thead>
         <tr>
           <th class="text-left">
@@ -142,15 +215,27 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="formatKey in Object.keys(formats)" :key="formatKey">
+        <tr
+          v-for="formatKey in Object.keys(formats)"
+          :key="formatKey"
+        >
           <td>{{ formatKey }}</td>
           <td>{{ formats[formatKey] }}</td>
         </tr>
       </tbody>
     </v-simple-table>
 
-    <h2 id="annotations" class="headline my-4">
-      <v-btn color="primary" icon text :to="{name: 'configuration', hash: '#annotations'}" class="mr-1">
+    <h2
+      id="annotations"
+      class="headline my-4"
+    >
+      <v-btn
+        color="primary"
+        icon
+        text
+        :to="{name: 'configuration', hash: '#annotations'}"
+        class="mr-1"
+      >
         <v-icon>
           mdi-link
         </v-icon>
@@ -166,10 +251,17 @@
       Disclaimer: the following list contains only very brief explanations. The real documentation is in the examples.
     </p>
     <p />
-    <v-simple-table dense dark class="mb-6">
+    <v-simple-table
+      dense
+      dark
+      class="mb-6"
+    >
       <thead>
         <tr>
-          <th class="text-left" style="min-width:250px">
+          <th
+            class="text-left"
+            style="min-width:250px"
+          >
             Annotation key
           </th>
           <th class="text-left">
@@ -217,8 +309,17 @@
       </tbody>
     </v-simple-table>
 
-    <h2 id="expressions" class="headline my-4">
-      <v-btn color="primary" icon text :to="{name: 'configuration', hash: '#expressions'}" class="mr-1">
+    <h2
+      id="expressions"
+      class="headline my-4"
+    >
+      <v-btn
+        color="primary"
+        icon
+        text
+        :to="{name: 'configuration', hash: '#expressions'}"
+        class="mr-1"
+      >
         <v-icon>
           mdi-link
         </v-icon>
@@ -233,10 +334,17 @@
     <p>
       You can debug expressions by setting <code>localStorage.debug = 'vjsf:expr'</code>.
     </p>
-    <v-simple-table dense dark class="mb-6">
+    <v-simple-table
+      dense
+      dark
+      class="mb-6"
+    >
       <thead>
         <tr>
-          <th class="text-left" style="min-width:250px">
+          <th
+            class="text-left"
+            style="min-width:250px"
+          >
             Value of evalMethod
           </th>
           <th class="text-left">
@@ -265,10 +373,17 @@
     </v-simple-table>
     <p><b>Call for help:</b> if someone knows of a better solution for this problem, for example a library with rich expression evaluation but without the security liability of using new Function, please submit a ticket or a pull request !</p>
     <p>The expressions are given some contextual data as input, here are its members:</p>
-    <v-simple-table dense dark class="mb-6">
+    <v-simple-table
+      dense
+      dark
+      class="mb-6"
+    >
       <thead>
         <tr>
-          <th class="text-left" style="min-width:250px">
+          <th
+            class="text-left"
+            style="min-width:250px"
+          >
             Data
           </th>
           <th class="text-left">
@@ -300,8 +415,17 @@
       </tbody>
     </v-simple-table>
 
-    <h2 id="validator" class="headline my-4">
-      <v-btn color="primary" icon text :to="{name: 'configuration', hash: '#validator'}" class="mr-1">
+    <h2
+      id="validator"
+      class="headline my-4"
+    >
+      <v-btn
+        color="primary"
+        icon
+        text
+        :to="{name: 'configuration', hash: '#validator'}"
+        class="mr-1"
+      >
         <v-icon>
           mdi-link
         </v-icon>
@@ -327,7 +451,7 @@ import { defaultOptions, formats, localizedMessages, iconSets } from '../../lib/
 import { scrollToHash } from '~/app/router.scrollBehavior.js'
 
 export default {
-  data() {
+  data () {
     return {
       title: 'Configuration',
       defaultOptions,
@@ -381,12 +505,12 @@ export default {
       iconSet: 'mdi'
     }
   },
-  head() {
+  head () {
     return {
       title: 'vjsf - ' + this.title
     }
   },
-  mounted() {
+  mounted () {
     if (this.$route.hash) {
       location.hash = this.$route.hash
       scrollToHash(this.$route.hash, false)
