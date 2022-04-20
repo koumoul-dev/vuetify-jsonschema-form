@@ -41,3 +41,21 @@ To increase efficiency test cases and documented examples are the same thing in 
 When running tests each example is rendered and a HTML snapshot is extracted and compared to a previous one. When the tests fail because of a snapshot diff, you should check that it is a valid change, then run `npm run test-update`.
 
 You can also write additionnal test assertions in the examples themselves, see [_resolved-schema.js](./doc/examples/_resolved-schema.js) for example.
+
+## Publishing
+
+Release and publish usin npm:
+
+```
+npm version minor
+npm publish
+git push && git push --tags
+```
+
+To publish a beta version, use prerelease versioning with a npm tag:
+
+```
+npm version preminor --preid=beta
+npm publish --tag=beta
+git push && git push --tags
+```
