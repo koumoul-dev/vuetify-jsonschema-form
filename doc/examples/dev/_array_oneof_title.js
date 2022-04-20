@@ -9,6 +9,7 @@ const schema = {
   properties: {
     arrayProp: {
       type: 'array',
+      'x-itemTitle': 'type',
       items: {
         type: 'object',
         properties: {
@@ -27,12 +28,44 @@ const schema = {
           }
         }
       }
+    },
+    arrayProp2: {
+      type: 'array',
+      'x-itemTitle': 'type',
+      items: {
+        type: 'object',
+        'x-itemKey': 'type',
+        oneOf: [{
+          type: 'object',
+          title: 'One',
+          properties: {
+            type: {
+              const: 1
+            },
+            stringProp: {
+              type: 'string'
+            }
+          }
+        }, {
+          type: 'object',
+          title: 'Two',
+          properties: {
+            type: {
+              const: 2
+            },
+            stringProp2: {
+              type: 'string'
+            }
+          }
+        }]
+      }
     }
   }
 }
 
 const model = {
-  arrayProp: [{ type: 1 }]
+  arrayProp: [{ type: 1, stringProp: 'hello' }],
+  arrayProp2: [{ type: 1, stringProp: 'hello' }]
 }
 
 const options = {

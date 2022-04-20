@@ -14,6 +14,7 @@ import EnumConst from './_enum_const'
 import Separator from './_separator'
 import InfiniteLoop from './_infinite_loop'
 import ArrayRichExpression from './_array_rich_expression'
+import ArrayOneOfTitle from './_array_oneof_title'
 
 const examplesGroup = {
   title: 'Development',
@@ -34,7 +35,8 @@ const examplesGroup = {
     EnumConst,
     Separator,
     InfiniteLoop,
-    ArrayRichExpression
+    ArrayRichExpression,
+    ArrayOneOfTitle
   ]
 }
 
