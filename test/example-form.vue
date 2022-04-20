@@ -1,6 +1,14 @@
 <template>
-  <v-form ref="form" v-model="valid">
-    <slot :model-wrapper="modelWrapper" :options="options" :schema="schema" :log-event="logEvent" />
+  <v-form
+    ref="form"
+    v-model="valid"
+  >
+    <slot
+      :model-wrapper="modelWrapper"
+      :options="options"
+      :schema="schema"
+      :log-event="logEvent"
+    />
   </v-form>
 </template>
 

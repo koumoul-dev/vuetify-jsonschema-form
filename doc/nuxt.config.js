@@ -1,23 +1,28 @@
 import colors from 'vuetify/lib/util/colors'
+const path = require('path')
 
 module.exports = {
-  mode: 'spa',
+  ssr: false,
   build: {
-    transpile: [/\.\.\//, /@koumoul/, 'tiptap-vuetify'],
+    transpile: [/@koumoul/, 'tiptap-vuetify', /lib/],
     extend (config, ctx) {
       // Include the compiler version of Vue so that we can compile examples templates
       config.resolve.alias['vue$'] = 'vue/dist/vue.esm.js'
+      // force resolving in doc/node_modules event when importing from ../lib
+      config.resolve.modules = [path.join(__dirname, 'node_modules'), 'node_modules']
     }
   },
   modules: [
     '@nuxtjs/axios'
+  ],
+  buildModules: [
+    '@nuxtjs/vuetify'
   ],
   plugins: [
     { src: '~/plugins/highlight.js', ssr: false },
     { src: '~/plugins/mask.js', ssr: false },
     { src: '~/plugins/tiptap-vuetify.js', ssr: false }
   ],
-  buildModules: ['@nuxtjs/vuetify'],
   vuetify: {
     // uncomment to test mdiSvg support
     /* defaultAssets: {

@@ -10,16 +10,6 @@ See [the documentation](https://koumoul-dev.github.io/vuetify-jsonschema-form/la
 
 ![](doc/static/vjsf.gif)
 
-## Development server
-
-The documentation serves as development server too.
-
-```
-cd doc
-npm install
-npm run dev
-```
-
 ## Bug reports
 
 Bug reports are created using github issues. The examples in the documentation include codepen links, as much as possible please save a duplicate codepen with the minimal schema/config to reproduce your problem.
