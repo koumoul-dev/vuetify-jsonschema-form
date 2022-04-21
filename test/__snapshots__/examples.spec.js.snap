@@ -12141,6 +12141,51 @@ exports[`Examples used as simple test cases Readonly rendering options 1`] = `
                           </div>
                         </div>
                       </div>
+                      <div
+                        class="col col-12 vjsf-property vjsf-property-item-0-stringPropHiddenProps pa-0 read-only"
+                      >
+                        <div
+                          class="v-input v-input--is-disabled theme--light v-text-field v-text-field--is-booted"
+                        >
+                          <div
+                            class="v-input__control"
+                          >
+                            <div
+                              class="v-input__slot"
+                            >
+                              <div
+                                class="v-text-field__slot"
+                              >
+                                <label
+                                  class="v-label v-label--is-disabled theme--light"
+                                  for="item-0-stringPropHiddenProps"
+                                  style="left: 0px; position: absolute;"
+                                >
+                                  Readonly label
+                                </label>
+                                <input
+                                  disabled="disabled"
+                                  id="item-0-stringPropHiddenProps"
+                                  type="text"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="v-text-field__details"
+                            >
+                              <div
+                                class="v-messages theme--light"
+                              >
+                                <transition-group-stub
+                                  class="v-messages__wrapper"
+                                  name="message-transition"
+                                  tag="div"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -12302,6 +12347,51 @@ exports[`Examples used as simple test cases Readonly rendering options 1`] = `
                                   disabled="disabled"
                                   id="item-1-stringPropHiddenTooltip"
                                   type="text"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="col col-12 vjsf-property vjsf-property-item-1-stringPropHiddenProps pa-0 read-only"
+                      >
+                        <div
+                          class="v-input v-input--is-disabled theme--light v-text-field v-text-field--is-booted"
+                        >
+                          <div
+                            class="v-input__control"
+                          >
+                            <div
+                              class="v-input__slot"
+                            >
+                              <div
+                                class="v-text-field__slot"
+                              >
+                                <label
+                                  class="v-label v-label--is-disabled theme--light"
+                                  for="item-1-stringPropHiddenProps"
+                                  style="left: 0px; position: absolute;"
+                                >
+                                  Readonly label
+                                </label>
+                                <input
+                                  disabled="disabled"
+                                  id="item-1-stringPropHiddenProps"
+                                  type="text"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="v-text-field__details"
+                            >
+                              <div
+                                class="v-messages theme--light"
+                              >
+                                <transition-group-stub
+                                  class="v-messages__wrapper"
+                                  name="message-transition"
+                                  tag="div"
                                 />
                               </div>
                             </div>
