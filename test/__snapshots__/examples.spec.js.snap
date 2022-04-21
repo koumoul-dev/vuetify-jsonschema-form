@@ -11907,6 +11907,420 @@ exports[`Examples used as simple test cases Read only content 1`] = `
 </form>
 `;
 
+exports[`Examples used as simple test cases Readonly rendering options 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="col col-12 vjsf-property vjsf-property-root pa-0"
+  >
+    <div
+      class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1 vjsf-array-header"
+    >
+      <div
+        class="v-input__control"
+      >
+        <div
+          class="v-input__slot"
+        >
+          <label
+            class="v-label theme--light"
+            for=input-x
+            style="left: 0px; position: relative;"
+          >
+            root
+          </label>
+          <button
+            class="v-btn v-btn--is-elevated v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--small primary vjsf-array-add-button ml-3"
+            id="root--add-button"
+            type="button"
+          >
+            <span
+              class="v-btn__content"
+            >
+              <i
+                aria-hidden="true"
+                class="v-icon notranslate mdi mdi-plus theme--light"
+              />
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="row pt-2 vjsf-array"
+    >
+      <div
+        class="col col-12 pa-2 vjsf-array-item"
+      >
+        <div
+          class="v-card v-sheet theme--light"
+          style="cursor: move;"
+        >
+          <div
+            class="v-alert v-sheet v-sheet--outlined theme--light v-alert--outlined default--text pa-0 ma-0 vjsf-invisible-alert"
+            role="alert"
+          >
+            <div
+              class="v-alert__wrapper"
+            >
+              <div
+                class="v-alert__content"
+              >
+                <div
+                  class="v-card__title py-2 pr-2 title"
+                >
+                  <div
+                    class="spacer"
+                  />
+                  <div
+                    class="v-card__actions pa-0"
+                  >
+                    <div
+                      class="spacer"
+                    />
+                    <button
+                      class="v-btn v-btn--icon v-btn--round theme--light v-size--default primary--text vjsf-array-add-button"
+                      id="root-0--edit-button"
+                      type="button"
+                    >
+                      <span
+                        class="v-btn__content"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="v-icon notranslate mdi mdi-pencil theme--light"
+                        />
+                      </span>
+                    </button>
+                    <button
+                      class="v-btn v-btn--icon v-btn--round theme--light v-size--default warning--text vjsf-array-delete-button"
+                      id="root-0--delete-button"
+                      type="button"
+                    >
+                      <span
+                        class="v-btn__content"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="v-icon notranslate mdi mdi-close-circle theme--light"
+                        />
+                      </span>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="v-card__text"
+                >
+                  <div
+                    class="col col-12 vjsf-property vjsf-property-item-0 pa-0 read-only"
+                  >
+                    <div
+                      class="row ma-0 "
+                    >
+                      <div
+                        class="col col-12 vjsf-property vjsf-property-item-0-stringPropBasic pa-0 read-only"
+                      >
+                        <div
+                          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted"
+                        >
+                          <div
+                            class="v-input__control"
+                          >
+                            <div
+                              class="v-input__slot"
+                            >
+                              <div
+                                class="v-text-field__slot"
+                              >
+                                <label
+                                  class="v-label v-label--active v-label--is-disabled theme--light"
+                                  for="item-0-stringPropBasic"
+                                  style="left: 0px; position: absolute;"
+                                >
+                                  stringPropBasic
+                                </label>
+                                <input
+                                  disabled="disabled"
+                                  id="item-0-stringPropBasic"
+                                  type="text"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!---->
+                      <div
+                        class="col col-12 vjsf-property vjsf-property-item-0-stringPropHiddenLabel pa-0 read-only"
+                      >
+                        <div
+                          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted"
+                        >
+                          <div
+                            class="v-input__control"
+                          >
+                            <div
+                              class="v-input__slot"
+                            >
+                              <div
+                                class="v-text-field__slot"
+                              >
+                                <input
+                                  disabled="disabled"
+                                  id="item-0-stringPropHiddenLabel"
+                                  type="text"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="col col-12 vjsf-property vjsf-property-item-0-stringPropHiddenEmpty pa-0 read-only"
+                      >
+                        <div
+                          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted"
+                        >
+                          <div
+                            class="v-input__control"
+                          >
+                            <div
+                              class="v-input__slot"
+                            >
+                              <div
+                                class="v-text-field__slot"
+                              >
+                                <label
+                                  class="v-label v-label--active v-label--is-disabled theme--light"
+                                  for="item-0-stringPropHiddenEmpty"
+                                  style="left: 0px; position: absolute;"
+                                >
+                                  stringPropHiddenEmpty
+                                </label>
+                                <input
+                                  disabled="disabled"
+                                  id="item-0-stringPropHiddenEmpty"
+                                  type="text"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="col col-12 vjsf-property vjsf-property-item-0-stringPropHiddenTooltip pa-0 read-only"
+                      >
+                        <div
+                          class="v-input v-input--hide-details v-input--is-disabled theme--light v-text-field v-text-field--is-booted"
+                        >
+                          <div
+                            class="v-input__control"
+                          >
+                            <div
+                              class="v-input__slot"
+                            >
+                              <div
+                                class="v-text-field__slot"
+                              >
+                                <label
+                                  class="v-label v-label--is-disabled theme--light"
+                                  for="item-0-stringPropHiddenTooltip"
+                                  style="left: 0px; position: absolute;"
+                                >
+                                  stringPropHiddenTooltip
+                                </label>
+                                <input
+                                  disabled="disabled"
+                                  id="item-0-stringPropHiddenTooltip"
+                                  type="text"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 pa-2 vjsf-array-item"
+      >
+        <div
+          class="v-card v-sheet theme--light"
+          style="cursor: move;"
+        >
+          <div
+            class="v-alert v-sheet v-sheet--outlined theme--light v-alert--outlined default--text pa-0 ma-0 vjsf-invisible-alert"
+            role="alert"
+          >
+            <div
+              class="v-alert__wrapper"
+            >
+              <div
+                class="v-alert__content"
+              >
+                <div
+                  class="v-card__title py-2 pr-2 title"
+                >
+                  <div
+                    class="spacer"
+                  />
+                  <div
+                    class="v-card__actions pa-0"
+                  >
+                    <div
+                      class="spacer"
+                    />
+                    <button
+                      class="v-btn v-btn--icon v-btn--round theme--light v-size--default primary--text vjsf-array-add-button"
+                      id="root-1--edit-button"
+                      type="button"
+                    >
+                      <span
+                        class="v-btn__content"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="v-icon notranslate mdi mdi-pencil theme--light"
+                        />
+                      </span>
+                    </button>
+                    <button
+                      class="v-btn v-btn--icon v-btn--round theme--light v-size--default warning--text vjsf-array-delete-button"
+                      id="root-1--delete-button"
+                      type="button"
+                    >
+                      <span
+                        class="v-btn__content"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="v-icon notranslate mdi mdi-close-circle theme--light"
+                        />
+                      </span>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="v-card__text"
+                >
+                  <div
+                    class="col col-12 vjsf-property vjsf-property-item-1 pa-0 read-only"
+                  >
+                    <div
+                      class="row ma-0 "
+                    >
+                      <div
+                        class="col col-12 vjsf-property vjsf-property-item-1-stringPropBasic pa-0 read-only"
+                      >
+                        <div
+                          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted"
+                        >
+                          <div
+                            class="v-input__control"
+                          >
+                            <div
+                              class="v-input__slot"
+                            >
+                              <div
+                                class="v-text-field__slot"
+                              >
+                                <label
+                                  class="v-label v-label--active v-label--is-disabled theme--light"
+                                  for="item-1-stringPropBasic"
+                                  style="left: 0px; position: absolute;"
+                                >
+                                  stringPropBasic
+                                </label>
+                                <input
+                                  disabled="disabled"
+                                  id="item-1-stringPropBasic"
+                                  type="text"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!---->
+                      <div
+                        class="col col-12 vjsf-property vjsf-property-item-1-stringPropHiddenLabel pa-0 read-only"
+                      >
+                        <div
+                          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted"
+                        >
+                          <div
+                            class="v-input__control"
+                          >
+                            <div
+                              class="v-input__slot"
+                            >
+                              <div
+                                class="v-text-field__slot"
+                              >
+                                <input
+                                  disabled="disabled"
+                                  id="item-1-stringPropHiddenLabel"
+                                  type="text"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!---->
+                      <div
+                        class="col col-12 vjsf-property vjsf-property-item-1-stringPropHiddenTooltip pa-0 read-only"
+                      >
+                        <div
+                          class="v-input v-input--hide-details v-input--is-disabled theme--light v-text-field v-text-field--is-booted"
+                        >
+                          <div
+                            class="v-input__control"
+                          >
+                            <div
+                              class="v-input__slot"
+                            >
+                              <div
+                                class="v-text-field__slot"
+                              >
+                                <label
+                                  class="v-label v-label--is-disabled theme--light"
+                                  for="item-1-stringPropHiddenTooltip"
+                                  style="left: 0px; position: absolute;"
+                                >
+                                  stringPropHiddenTooltip
+                                </label>
+                                <input
+                                  disabled="disabled"
+                                  id="item-1-stringPropHiddenTooltip"
+                                  type="text"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`Examples used as simple test cases Readonly select with icons 1`] = `
 <form
   class="v-form"
