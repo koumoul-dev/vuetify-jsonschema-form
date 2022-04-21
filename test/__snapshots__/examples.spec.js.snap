@@ -72,7 +72,7 @@ exports[`Examples used as simple test cases Array inside a anyof with a value ou
         class="col col-12 vjsf-property vjsf-property-array1 pa-0"
       >
         <div
-          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1 vjsf-array-header"
         >
           <div
             class="v-input__control"
@@ -111,7 +111,7 @@ exports[`Examples used as simple test cases Array inside a anyof with a value ou
           </div>
         </div>
         <div
-          class="row pt-2"
+          class="row pt-2 vjsf-array"
         >
           <div
             class="col col-12 pa-2 vjsf-array-item"
@@ -635,7 +635,7 @@ exports[`Examples used as simple test cases Array item titles from oneOf 1`] = `
         class="col col-12 vjsf-property vjsf-property-arrayProp pa-0"
       >
         <div
-          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1 vjsf-array-header"
         >
           <div
             class="v-input__control"
@@ -668,7 +668,7 @@ exports[`Examples used as simple test cases Array item titles from oneOf 1`] = `
           </div>
         </div>
         <div
-          class="row pt-2"
+          class="row pt-2 vjsf-array"
         >
           <div
             class="col col-12 pa-2 vjsf-array-item"
@@ -873,7 +873,7 @@ exports[`Examples used as simple test cases Array item titles from oneOf 1`] = `
         class="col col-12 vjsf-property vjsf-property-arrayProp2 pa-0"
       >
         <div
-          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1 vjsf-array-header"
         >
           <div
             class="v-input__control"
@@ -906,7 +906,7 @@ exports[`Examples used as simple test cases Array item titles from oneOf 1`] = `
           </div>
         </div>
         <div
-          class="row pt-2"
+          class="row pt-2 vjsf-array"
         >
           <div
             class="col col-12 pa-2 vjsf-array-item"
@@ -2096,7 +2096,7 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
         class="col col-12 vjsf-property vjsf-property-limitedObjectsArray pa-0"
       >
         <div
-          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1 vjsf-array-header"
         >
           <div
             class="v-input__control"
@@ -3709,7 +3709,7 @@ exports[`Examples used as simple test cases Editable array 1`] = `
         class="col col-12 vjsf-property vjsf-property-objectArrayProp pa-0"
       >
         <div
-          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1 vjsf-array-header"
         >
           <div
             class="v-input__control"
@@ -3768,7 +3768,7 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
         class="col col-12 vjsf-property vjsf-property-objectArrayProp pa-0"
       >
         <div
-          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1 vjsf-array-header"
         >
           <div
             class="v-input__control"
@@ -3801,7 +3801,7 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
           </div>
         </div>
         <div
-          class="row pt-2"
+          class="row pt-2 vjsf-array"
         >
           <div
             class="col col-12 pa-2 vjsf-array-item"
@@ -3941,7 +3941,7 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
                             class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0-nestedObjectArrayProp pa-0 read-only"
                           >
                             <div
-                              class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+                              class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1 vjsf-array-header"
                             >
                               <div
                                 class="v-input__control"
@@ -3960,7 +3960,7 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
                               </div>
                             </div>
                             <div
-                              class="row pt-2"
+                              class="row pt-2 vjsf-array"
                             >
                               <div
                                 class="col col-12 pa-2 vjsf-array-item"
@@ -4939,7 +4939,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
         class="col col-12 vjsf-property vjsf-property-objectArrayProp pa-0"
       >
         <div
-          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1 vjsf-array-header"
         >
           <div
             class="v-input__control"
@@ -4972,7 +4972,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
           </div>
         </div>
         <div
-          class="row pt-2"
+          class="row pt-2 vjsf-array"
         >
           <div
             class="col col-12 pa-2 vjsf-array-item"
@@ -5377,7 +5377,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                 class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-0-currentOneOf-childArrayProp pa-0 read-only"
                               >
                                 <div
-                                  class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+                                  class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1 vjsf-array-header"
                                 >
                                   <div
                                     class="v-input__control"
@@ -5396,7 +5396,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                   </div>
                                 </div>
                                 <div
-                                  class="row pt-2"
+                                  class="row pt-2 vjsf-array"
                                 >
                                   <div
                                     class="col col-12 pa-2 vjsf-array-item"
@@ -6363,7 +6363,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                 class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-2-currentOneOf-childArrayProp pa-0 read-only"
                               >
                                 <div
-                                  class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+                                  class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1 vjsf-array-header"
                                 >
                                   <div
                                     class="v-input__control"
@@ -6382,7 +6382,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                   </div>
                                 </div>
                                 <div
-                                  class="row pt-2"
+                                  class="row pt-2 vjsf-array"
                                 >
                                   <div
                                     class="col col-12 pa-2 vjsf-array-item"
@@ -7349,7 +7349,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                 class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-4-currentOneOf-childArrayProp pa-0 read-only"
                               >
                                 <div
-                                  class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+                                  class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1 vjsf-array-header"
                                 >
                                   <div
                                     class="v-input__control"
@@ -7368,7 +7368,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                   </div>
                                 </div>
                                 <div
-                                  class="row pt-2"
+                                  class="row pt-2 vjsf-array"
                                 >
                                   <div
                                     class="col col-12 pa-2 vjsf-array-item"
@@ -8335,7 +8335,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                 class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-6-currentOneOf-childArrayProp pa-0 read-only"
                               >
                                 <div
-                                  class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+                                  class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1 vjsf-array-header"
                                 >
                                   <div
                                     class="v-input__control"
@@ -8354,7 +8354,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                   </div>
                                 </div>
                                 <div
-                                  class="row pt-2"
+                                  class="row pt-2 vjsf-array"
                                 >
                                   <div
                                     class="col col-12 pa-2 vjsf-array-item"
@@ -9321,7 +9321,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                 class="col col-12 vjsf-property vjsf-property-objectArrayProp-item-8-currentOneOf-childArrayProp pa-0 read-only"
                               >
                                 <div
-                                  class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+                                  class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1 vjsf-array-header"
                                 >
                                   <div
                                     class="v-input__control"
@@ -9340,7 +9340,7 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                   </div>
                                 </div>
                                 <div
-                                  class="row pt-2"
+                                  class="row pt-2 vjsf-array"
                                 >
                                   <div
                                     class="col col-12 pa-2 vjsf-array-item"
@@ -10283,7 +10283,7 @@ exports[`Examples used as simple test cases Markdown editor (beta) 1`] = `
         class="col col-12 vjsf-property vjsf-property-objectArrayProp pa-0"
       >
         <div
-          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1 vjsf-array-header"
         >
           <div
             class="v-input__control"
@@ -10316,7 +10316,7 @@ exports[`Examples used as simple test cases Markdown editor (beta) 1`] = `
           </div>
         </div>
         <div
-          class="row pt-2"
+          class="row pt-2 vjsf-array"
         >
           <div
             class="col col-12 pa-2 vjsf-array-item"
@@ -11112,7 +11112,7 @@ exports[`Examples used as simple test cases Prefilled array with wrong type in k
         class="col col-12 vjsf-property vjsf-property-colors pa-0"
       >
         <div
-          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1 vjsf-array-header"
         >
           <div
             class="v-input__control"
@@ -11151,7 +11151,7 @@ exports[`Examples used as simple test cases Prefilled arrays 1`] = `
         class="col col-12 vjsf-property vjsf-property-filledArray pa-0"
       >
         <div
-          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1 vjsf-array-header"
         >
           <div
             class="v-input__control"
@@ -11170,7 +11170,7 @@ exports[`Examples used as simple test cases Prefilled arrays 1`] = `
           </div>
         </div>
         <div
-          class="row pt-2"
+          class="row pt-2 vjsf-array"
         >
           <div
             class="col col-12 pa-2 vjsf-array-item"
@@ -16816,7 +16816,7 @@ exports[`Examples used as simple test cases Selects with relative dependencies 1
     class="col col-12 vjsf-property vjsf-property-root pa-0"
   >
     <div
-      class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+      class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1 vjsf-array-header"
     >
       <div
         class="v-input__control"
@@ -16873,7 +16873,7 @@ exports[`Examples used as simple test cases Simple array with a required prop 1`
         class="col col-12 vjsf-property vjsf-property-arrayProp pa-0"
       >
         <div
-          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1 vjsf-array-header"
         >
           <div
             class="v-input__control"
@@ -17296,7 +17296,7 @@ exports[`Examples used as simple test cases infinite loop 1`] = `
         class="col col-12 vjsf-property vjsf-property-webhooks pa-0"
       >
         <div
-          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1"
+          class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light mt-2 pr-1 vjsf-array-header"
         >
           <div
             class="v-input__control"
