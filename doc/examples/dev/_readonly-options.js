@@ -13,7 +13,8 @@ const schema = {
       stringPropHidden: { type: 'string', 'x-options': { hideReadOnly: true } },
       stringPropHiddenLabel: { type: 'string', 'x-options': { hideReadOnlyLabels: true } },
       stringPropHiddenEmpty: { type: 'string', 'x-options': { hideReadOnlyEmpty: true } },
-      stringPropHiddenTooltip: { type: 'string', 'x-options': { hideReadOnlyTooltips: true }, description: 'A tooltip' }
+      stringPropHiddenTooltip: { type: 'string', 'x-options': { hideReadOnlyTooltips: true }, description: 'A tooltip' },
+      stringPropHiddenProps: { type: 'string', 'x-options': { readOnlyFieldProps: { label: 'Readonly label' } } }
     }
   }
 }
