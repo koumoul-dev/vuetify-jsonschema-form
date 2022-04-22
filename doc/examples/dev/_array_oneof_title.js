@@ -1,4 +1,4 @@
-const id = 'array-oneof-title'
+const id = '_array-oneof-title'
 
 const title = 'Array item titles from oneOf'
 

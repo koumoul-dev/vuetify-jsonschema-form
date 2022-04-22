@@ -1,4 +1,4 @@
-const id = 'rich-expression-array'
+const id = '_rich-expression-array'
 
 const title = 'Rich expression Array'
 
