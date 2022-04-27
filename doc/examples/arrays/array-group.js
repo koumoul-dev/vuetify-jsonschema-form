@@ -49,6 +49,8 @@ const model = {
   arrayProp2: [{ stringProp: 'hello array 2' }]
 }
 
-const options = {}
+const options = {
+  editMode: 'inline'
+}
 
 export default { id, title, description, schema, model, options }
