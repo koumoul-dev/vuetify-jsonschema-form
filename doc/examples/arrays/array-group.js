@@ -1,10 +1,8 @@
-const id = 'dnd-across-arrays'
+const id = 'array-group'
 
-const title = 'Drag and drop across arrays'
+const title = 'Share items across arrays'
 
-const description = `It is possible to define any parameters for [Sortable](https://github.com/SortableJS/Sortable) using the \`sortableOptions\` option.
-
-In particular you can enable drag and drop across multiple arrays by using \`group\`.`
+const description = `You can use the annotation \`x-arrayGroup\` to signify that some arrays share some common scope. In this case it should be possible to drag and drop or copy and paste items across these arrays.`
 
 const schema = {
   type: 'object',
@@ -15,7 +13,7 @@ const schema = {
       'x-cols': 6,
       'x-class': 'px-1',
       'x-itemTitle': 'stringProp',
-      'x-options': { sortableOptions: { group: 'drag-group1' } },
+      'x-arrayGroup': 'array-group1',
       items: {
         type: 'object',
         properties: {
@@ -32,7 +30,7 @@ const schema = {
       'x-cols': 6,
       'x-class': 'px-1',
       'x-itemTitle': 'stringProp',
-      'x-options': { sortableOptions: { group: 'drag-group1' } },
+      'x-arrayGroup': 'array-group1',
       items: {
         type: 'object',
         properties: {
