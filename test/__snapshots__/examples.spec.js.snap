@@ -17483,12 +17483,6 @@ exports[`Examples used as simple test cases Share items across arrays 1`] = `
               >
                 Array 1
               </label>
-              <div
-                class="v-dialog__container"
-                role="dialog"
-              >
-                <!---->
-              </div>
               <button
                 class="v-btn v-btn--is-elevated v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--small primary vjsf-array-add-button ml-3"
                 id="arrayProp1--add-button"
@@ -17539,12 +17533,6 @@ exports[`Examples used as simple test cases Share items across arrays 1`] = `
                         <div
                           class="spacer"
                         />
-                        <div
-                          class="v-dialog__container"
-                          role="dialog"
-                        >
-                          <!---->
-                        </div>
                         <button
                           class="v-btn v-btn--icon v-btn--round theme--light v-size--default primary--text vjsf-array-add-button"
                           id="arrayProp1-0--edit-button"
@@ -17660,12 +17648,6 @@ exports[`Examples used as simple test cases Share items across arrays 1`] = `
                         <div
                           class="spacer"
                         />
-                        <div
-                          class="v-dialog__container"
-                          role="dialog"
-                        >
-                          <!---->
-                        </div>
                         <button
                           class="v-btn v-btn--icon v-btn--round theme--light v-size--default primary--text vjsf-array-add-button"
                           id="arrayProp1-1--edit-button"
@@ -17772,12 +17754,6 @@ exports[`Examples used as simple test cases Share items across arrays 1`] = `
               >
                 Array 2
               </label>
-              <div
-                class="v-dialog__container"
-                role="dialog"
-              >
-                <!---->
-              </div>
               <button
                 class="v-btn v-btn--is-elevated v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--small primary vjsf-array-add-button ml-3"
                 id="arrayProp2--add-button"
@@ -17828,12 +17804,6 @@ exports[`Examples used as simple test cases Share items across arrays 1`] = `
                         <div
                           class="spacer"
                         />
-                        <div
-                          class="v-dialog__container"
-                          role="dialog"
-                        >
-                          <!---->
-                        </div>
                         <button
                           class="v-btn v-btn--icon v-btn--round theme--light v-size--default primary--text vjsf-array-add-button"
                           id="arrayProp2-0--edit-button"
