@@ -16,6 +16,7 @@ import InfiniteLoop from './_infinite_loop'
 import ArrayRichExpression from './_array_rich_expression'
 import ArrayOneOfTitle from './_array_oneof_title'
 import ReadonlyOptions from './_readonly-options'
+import StringDefault from './_string_default'
 
 const examplesGroup = {
   title: 'Development',
@@ -38,7 +39,8 @@ const examplesGroup = {
     InfiniteLoop,
     ArrayRichExpression,
     ArrayOneOfTitle,
-    ReadonlyOptions
+    ReadonlyOptions,
+    StringDefault
   ]
 }
 
