@@ -8,7 +8,7 @@ module.exports = {
     extend (config, ctx) {
       // Include the compiler version of Vue so that we can compile examples templates
       config.resolve.alias['vue$'] = 'vue/dist/vue.esm.js'
-      // force resolving in doc/node_modules event when importing from ../lib
+      // force resolving in doc/node_modules even when importing from ../lib
       config.resolve.modules = [path.join(__dirname, 'node_modules'), 'node_modules']
     }
   },
