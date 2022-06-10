@@ -35,7 +35,8 @@ const schema = {
       'x-itemKey': 'href',
       properties: {
         href: { type: 'string' },
-        title: { type: 'string' }
+        title: { type: 'string' },
+        constProp: { type: 'string', const: 'a const value' }
       }
     },
     selectAjaxArrayOfObjects: {
