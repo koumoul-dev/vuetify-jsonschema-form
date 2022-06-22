@@ -506,7 +506,8 @@ export default {
         autofocus: 'attempt to give focus to the first simple field rendered.',
         autoFixArrayItems: 'modify the items of arrays existing in the model (set default values, set const values, remove additional properties), you can try disabling this if you run into performance issues',
         useValidator: 'See the <a href="configuration#validator">JSON schema validator section</a>. Activate using the validator to display validation errors as a complement to the validation rules managed by vjsf directly.',
-        evalMethod: 'See the <a href="configuration#expressions">Expressions section</a>. For security reasons this option can only be changed in the main options object given to vjsf, not in x-options annotations inside the schema.'
+        evalMethod: 'See the <a href="configuration#expressions">Expressions section</a>. For security reasons this option can only be changed in the main options object given to vjsf, not in x-options annotations inside the schema.',
+        easyMDEOptions: 'See <a href="https://github.com/Ionaru/easy-markdown-editor">EasyMDE documentation</a>'
       },
       locale: 'en',
       iconSets,
