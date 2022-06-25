@@ -1,6 +1,6 @@
 # vjsf
 
-*vuetify-jsonschema-form*
+*vuetify-jsonschema-form* - *@koumoul/vjsf on npm*
 
 Create beautiful and low-effort forms that output valid data.
 
