@@ -47,6 +47,7 @@
   "homepage": "https://github.com/koumoul-dev/vuetify-jsonschema-form#readme",
   "dependencies": {
     "debounce": "^1.2.1",
+    "debounce-promise": "^3.1.2",
     "debug": "^4.3.3",
     "fast-copy": "^2.1.1",
     "fast-equals": "^2.0.4",
