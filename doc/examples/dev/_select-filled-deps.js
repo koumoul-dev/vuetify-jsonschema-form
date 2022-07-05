@@ -10,7 +10,7 @@ const schema = {
     selectAjaxObject: {
       type: 'object',
       title: `I'm an object from HTTP request used as source for next select`,
-      'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title,schema&owner={context.owner.type}:{context.owner.id}',
+      'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&select=title,schema&owner={context.owner.type}:{context.owner.id}',
       'x-itemsProp': 'results',
       'x-itemTitle': 'title',
       'x-itemKey': 'href',
@@ -104,7 +104,7 @@ const datasetSchema = [
 
 const model = {
   selectAjaxObject: {
-    href: 'https://koumoul.com/s/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417',
+    href: 'https://koumoul.com/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417',
     title: "Présidentielles 2017 - Votes des français à l'étranger - 1er tour",
     schema: datasetSchema
   },
@@ -134,16 +134,16 @@ const test = (wrapper) => {
 }
 
 const httpMocks = {
-  'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title,schema&owner=organization:5a5dc47163ebd4a6f438589b': {
+  'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&select=title,schema&owner=organization:5a5dc47163ebd4a6f438589b': {
     count: 1,
     results: [{
       title: "Présidentielles 2017 - Votes des français à l'étranger - 1er tour",
       schema: datasetSchema,
-      href: 'https://koumoul.com/s/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417'
+      href: 'https://koumoul.com/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417'
     }]
   },
-  'https://koumoul.com/s/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417': { schema: datasetSchema },
-  'https://koumoul.com/s/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417/schema': datasetSchema
+  'https://koumoul.com/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417': { schema: datasetSchema },
+  'https://koumoul.com/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417/schema': datasetSchema
 }
 
 export default { id, title, description, schema, model, options, test, httpMocks }

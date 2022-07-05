@@ -39,7 +39,7 @@ const schema = {
     iconAjaxImages: {
       title: `I'm a select based on HTTP requests with links to icons`,
       type: 'object',
-      'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets/icons-mdi-latest/lines?q={q}',
+      'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets/icons-mdi-latest/lines?q={q}',
       'x-itemKey': 'name',
       'x-itemTitle': 'name',
       'x-itemIcon': '_attachment_url',
@@ -56,7 +56,7 @@ const schema = {
     iconAjaxSVG: {
       title: `I'm a select based on HTTP requests with SVG code in response`,
       type: 'object',
-      'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets/icons-mdi-latest/lines?q={q}',
+      'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets/icons-mdi-latest/lines?q={q}',
       'x-itemKey': 'name',
       'x-itemTitle': 'name',
       'x-itemIcon': 'svg',
@@ -76,7 +76,7 @@ const schema = {
 const model = {}
 
 const httpMocks = {
-  'https://koumoul.com/s/data-fair/api/v1/datasets/icons-mdi-latest/lines?q=': { results: [] }
+  'https://koumoul.com/data-fair/api/v1/datasets/icons-mdi-latest/lines?q=': { results: [] }
 }
 
 const options = { selectAll: true }

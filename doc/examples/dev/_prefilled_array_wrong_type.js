@@ -10,7 +10,7 @@ const schema = {
     colors: {
       title: 'Couleurs et ordre',
       type: 'array',
-      'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets/sitadel-logements/values_agg?field=RES_PRINCIP_OU_SECOND',
+      'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets/sitadel-logements/values_agg?field=RES_PRINCIP_OU_SECOND',
       'x-display': 'list',
       'x-itemTitle': 'value',
       'x-itemKey': 'value',
@@ -39,7 +39,7 @@ const model = {}
 const options = {}
 
 const httpMocks = {
-  'https://koumoul.com/s/data-fair/api/v1/datasets/sitadel-logements/values_agg?field=RES_PRINCIP_OU_SECOND': {
+  'https://koumoul.com/data-fair/api/v1/datasets/sitadel-logements/values_agg?field=RES_PRINCIP_OU_SECOND': {
     total: 659857,
     took: 103,
     timed_out: false,

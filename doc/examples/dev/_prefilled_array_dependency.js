@@ -21,7 +21,7 @@ const schema = {
         filledArray: {
           type: 'array',
           title: `I'm an array filled by HTTP request`,
-          'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&size=2&select=href,title&owner={context.owner.type}:{context.owner.id}&topics={selectTopic}',
+          'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&size=2&select=href,title&owner={context.owner.type}:{context.owner.id}&topics={selectTopic}',
           'x-itemsProp': 'results',
           'x-itemTitle': 'title',
           'x-itemKey': 'href',
@@ -34,7 +34,7 @@ const schema = {
               icon: {
                 type: 'object',
                 title: 'Icone',
-                'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets/icons-mdi-latest/lines?q={q}',
+                'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets/icons-mdi-latest/lines?q={q}',
                 'x-itemKey': 'name',
                 'x-itemTitle': 'name',
                 'x-itemIcon': 'svg',
