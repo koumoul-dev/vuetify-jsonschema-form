@@ -1986,6 +1986,11 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
                   </div>
                 </transition-group-stub>
               </div>
+              <div
+                class="v-counter theme--light"
+              >
+                3 / 100
+              </div>
             </div>
           </div>
         </div>
@@ -14547,6 +14552,11 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                           </div>
                                         </transition-group-stub>
                                       </div>
+                                      <div
+                                        class="v-counter theme--light"
+                                      >
+                                        3 / 100
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
@@ -14822,6 +14832,11 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                         10 characters minimum
                                       </div>
                                     </transition-group-stub>
+                                  </div>
+                                  <div
+                                    class="v-counter theme--light"
+                                  >
+                                    3 / 100
                                   </div>
                                 </div>
                               </div>
