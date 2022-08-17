@@ -20,7 +20,7 @@
       width="560"
       height="463"
       sandbox="allow-same-origin allow-scripts allow-popups"
-      src="https://videos.koumoul.com/videos/embed/dd75bf3b-8830-4296-be8b-ec2286b76da3?title=0&warningTitle=0&peertubeLink=0&autoplay=1"
+      src="https://videos.koumoul.com/videos/embed/29d12ba2-f694-4659-8027-e9386692d8b5?title=0&warningTitle=0&peertubeLink=0&autoplay=1"
       frameborder="0"
       allowfullscreen
     />
