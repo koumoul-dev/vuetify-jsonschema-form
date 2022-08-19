@@ -2732,7 +2732,7 @@ exports[`Examples used as simple test cases Comboboxes 1`] = `
         class="col col-12 vjsf-property vjsf-property-ajaxString pa-0"
       >
         <div
-          class="v-input theme--light v-text-field v-text-field--is-booted v-select"
+          class="v-input theme--light v-text-field v-text-field--is-booted v-select v-autocomplete"
         >
           <div
             class="v-input__control"
@@ -2742,7 +2742,7 @@ exports[`Examples used as simple test cases Comboboxes 1`] = `
               aria-haspopup="listbox"
               aria-owns=list-x
               class="v-input__slot"
-              role="button"
+              role="combobox"
             >
               <div
                 class="v-select__slot"
@@ -2758,10 +2758,8 @@ exports[`Examples used as simple test cases Comboboxes 1`] = `
                   class="v-select__selections"
                 >
                   <input
-                    aria-readonly="undefined"
                     autocomplete="off"
                     id="ajaxString"
-                    readonly="readonly"
                     type="text"
                   />
                 </div>
