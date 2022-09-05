@@ -27,10 +27,16 @@
           truncate-length="50"
           @change="change"
         />
-        <v-icon v-if="tableSrc" @click="downloadFile">
+        <v-icon
+          v-if="tableSrc"
+          @click="downloadFile"
+        >
           mdi-download-outline
         </v-icon>
-        <v-icon v-if="tableSrc" @click="viewFile">
+        <v-icon
+          v-if="tableSrc"
+          @click="viewFile"
+        >
           mdi-open-in-new
         </v-icon>
       </v-row>
@@ -56,7 +62,10 @@
         Error parsing: {{ displayTableError }}
       </div>
     </v-container>
-    <v-row v-if="tableSrc" justify="center">
+    <v-row
+      v-if="tableSrc"
+      justify="center"
+    >
       <v-data-table
         dense
         :headers="headers"
@@ -66,9 +75,13 @@
       >
         <template
           v-if="fullSchema.validation === null || fullSchema.validation === undefined"
-          v-slot:[`item.value`]="{ item }"
+          #[`item.value`]="{ item }"
         >
-          <v-chip :color="getColor(item)" class="ma-2" outlined>
+          <v-chip
+            :color="getColor(item)"
+            class="ma-2"
+            outlined
+          >
             <span style="font-weight: bold">{{ item.value }}</span>
           </v-chip>
         </template> -->
@@ -90,7 +103,7 @@
  *
  * @returns Tha value defined path in obj or undefined
  */
-function getObjectValue(obj, path, separator = '.') {
+function getObjectValue (obj, path, separator = '.') {
   if (path.startsWith(separator)) {
     // cut off leading separator if exists
     path = path.substring(1)
@@ -146,7 +159,7 @@ export default {
     displayTableError: []
   }),
   watch: {
-    file() {
+    file () {
       if (this.fullSchema.displayTable === null ||
       this.fullSchema.displayTable === undefined ||
       !Object.prototype.hasOwnProperty.call(this.fullSchema.displayTable, 'validation')) {
@@ -158,12 +171,12 @@ export default {
       this.createTableData()
     }
   },
-  created() {
+  created () {
     this.tableSrc = JSON.parse(this.value)
     this.createTableData()
   },
   methods: {
-    createTableData() {
+    createTableData () {
       // Array of of a single row
       const tArr = []
       this.displayTableError = []
@@ -191,7 +204,7 @@ export default {
       }
       this.tableContents = tArr
     },
-    change() {
+    change () {
       if (!this.file) {
         this.tableSrc = null
         return
@@ -209,7 +222,7 @@ export default {
       reader.readAsText(this.file)
       this.displayTableError = null
     },
-    downloadFile(event) {
+    downloadFile (event) {
       const durl = window.URL.createObjectURL(new Blob([JSON.stringify(this.tableSrc)]))
       const link = document.createElement('a')
       link.href = durl
@@ -217,21 +230,21 @@ export default {
       document.body.appendChild(link)
       link.click()
     },
-    getColor(tableRecord) {
+    getColor (tableRecord) {
       if (tableRecord.value > tableRecord.max || tableRecord.value < tableRecord.min) {
         return 'red'
       } else {
         return '#81c784'
       }
     },
-    shorten(inText, maxLength = 50) {
+    shorten (inText, maxLength = 50) {
       if (inText.length > maxLength) {
         return inText.substring(0, maxLength) + '...'
       } else {
         return inText
       }
     },
-    viewFile(event) {
+    viewFile (event) {
       var tab = window.open('data:text/json,' + encodeURIComponent(JSON.stringify(this.tableSrc)), '_blank')
       // finish loading the page
       tab.document.close()

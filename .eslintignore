@@ -1,6 +1,9 @@
 /node_modules/
 /lib/utils/json-refs.js
 /dist
+/test-apps
+/coverage
+/stats.json
 /doc/.nuxt
 /doc/dist
-/coverage
+/doc/node_modules

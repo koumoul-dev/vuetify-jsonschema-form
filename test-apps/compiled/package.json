@@ -1,0 +1,7 @@
+{
+  "description": "VJSF - Test app - Compiled",
+  "scripts": {
+    "start": "http-server -o"
+  },
+  "dependencies": {}
+}

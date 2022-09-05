@@ -27,7 +27,13 @@ const schema = {
         stringProp12: { type: 'string', title: `I'm a nested property with a custom display`, 'x-display': 'custom-string1' }
       }
     }
-  }
+  },
+  allOf: [{
+    title: 'I am an allOf section containing properties with slots',
+    properties: {
+      stringProp21: { type: 'string', title: `I'm a property in a allOf with a before/after/default slots`, 'x-slots': { after: 'this is a markdown **after slot** with some html <img width="20" src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-light.png">' } }
+    }
+  }]
 }
 
 const model = {}
@@ -44,6 +50,12 @@ const template = `<v-jsf v-model="model" :schema="schema" :options="options">
   </template>
   <template slot="object1.stringProp11-before" slot-scope="slotProps">
     this is a code slot before nested property
+  </template>
+  <template slot="allOf-0.stringProp21-before" slot-scope="slotProps">
+    this is a code slot before allOf property
+  </template>
+  <template slot="allOf-0.stringProp21" slot-scope="{value, on}">
+    <p class="mt-4">this is the default slot of the 2nd property <input type="text" :value="value" v-on="on" style="border:1px solid red;">.</p>
   </template>
   <template slot="custom-string1" slot-scope="{value, label, on}"><p class="mt-4">
     {{label}} <input type="text" :value="value" v-on="on" style="border:1px solid green;">.</p>

@@ -1,11 +1,26 @@
 <template>
-  <v-container fluid class="px-0 py-0 vjsf-editor" style="height: 100%">
+  <v-container
+    fluid
+    class="px-0 py-0 vjsf-editor"
+    style="height: 100%"
+  >
     <!--<h1 class="display-1 mb-4">
       {{ title }}
     </h1>-->
-    <v-row style="height: 100%" class="ma-0">
-      <v-col cols="4" class="pa-0">
-        <v-card dark tile flat style="height: 100%">
+    <v-row
+      style="height: 100%"
+      class="ma-0"
+    >
+      <v-col
+        cols="4"
+        class="pa-0"
+      >
+        <v-card
+          dark
+          tile
+          flat
+          style="height: 100%"
+        >
           <!--<v-card-title class="py-1 primary--text" style="position: absolute; width: 100%;">
             Schema
             <v-spacer />
@@ -14,29 +29,58 @@
             </div>
           </v-card-title>-->
           <!--<v-card-text class="px-0 pb-0" style="height: 100%; padding-top: 40px;">-->
-          <v-card-text class="px-0 pb-0" style="height: 100%;">
-            <div v-show="format === 'json'" id="json-editor" style="height: 100%" />
-            <div v-show="format === 'yaml'" id="yaml-editor" style="height: 100%" />
+          <v-card-text
+            class="px-0 pb-0"
+            style="height: 100%;"
+          >
+            <div
+              v-show="format === 'json'"
+              id="json-editor"
+              style="height: 100%"
+            />
+            <div
+              v-show="format === 'yaml'"
+              id="yaml-editor"
+              style="height: 100%"
+            />
           </v-card-text>
         </v-card>
       </v-col>
       <v-col cols="8">
-        <v-form ref="form" v-model="valid">
-          <v-jsf v-model="model" :schema="schema">
-            <template slot="custom-tiptap" slot-scope="context">
+        <v-form
+          ref="form"
+          v-model="valid"
+        >
+          <v-jsf
+            v-model="model"
+            :schema="schema"
+          >
+            <template
+              slot="custom-tiptap"
+              slot-scope="context"
+            >
               <v-jsf-tiptap v-bind="context" />
             </template>
-            <template slot="custom-toast-ui-editor" slot-scope="context">
+            <template
+              slot="custom-toast-ui-editor"
+              slot-scope="context"
+            >
               <v-jsf-toast-ui-editor v-bind="context" />
             </template>
-            <template slot="custom-avatar" slot-scope="context">
+            <template
+              slot="custom-avatar"
+              slot-scope="context"
+            >
               <v-jsf-crop-img v-bind="context" />
             </template>
           </v-jsf>
         </v-form>
         <v-row class="mt-2">
           <v-spacer />
-          <v-btn :color="valid ? 'primary' : 'warning'" @click="$refs.form.validate()">
+          <v-btn
+            :color="valid ? 'primary' : 'warning'"
+            @click="$refs.form.validate()"
+          >
             validate
           </v-btn>
           <v-spacer />
@@ -73,8 +117,8 @@ const aceOptions = {
 }
 
 export default {
-  layout: 'void',
   components: { VJsf, VJsfTiptap, VJsfToastUiEditor, VJsfCropImg },
+  layout: 'void',
   data: () => ({
     title: 'editor',
     format: 'yaml',
@@ -91,17 +135,17 @@ export default {
     },
     model: {}
   }),
-  head() {
+  head () {
     return {
       title: 'vjsf - ' + this.title
     }
   },
   watch: {
-    format() {
+    format () {
       this.openEditor(this.editors[this.format])
     }
   },
-  async mounted() {
+  async mounted () {
     await this.$nextTick()
     this.editors = {}
     const jsonEditor = this.editors.json = ace.edit('json-editor')
@@ -143,7 +187,7 @@ export default {
     })
   },
   methods: {
-    openEditor(editor) {
+    openEditor (editor) {
       editor.focus()
       editor.gotoLine(0)
     }

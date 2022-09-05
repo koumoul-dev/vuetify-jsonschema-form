@@ -12,7 +12,7 @@ const schema = {
     filledArray: {
       type: 'array',
       title: `I'm an array filled by HTTP request`,
-      'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&size=4&select=href,title&owner={context.owner.type}:{context.owner.id}',
+      'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&size=4&select=href,title&owner={context.owner.type}:{context.owner.id}',
       'x-itemsProp': 'results',
       'x-itemTitle': 'title',
       'x-itemKey': 'href',
@@ -26,7 +26,7 @@ const schema = {
           icon: {
             type: 'object',
             title: 'Icone',
-            'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets/icons-mdi-latest/lines?q={q}',
+            'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets/icons-mdi-latest/lines?q={q}',
             'x-itemKey': 'name',
             'x-itemTitle': 'name',
             'x-itemIcon': 'svg',
@@ -53,7 +53,7 @@ const schema = {
 const model = {
   filledArray: [
     {
-      href: 'https://koumoul.com/s/data-fair/api/v1/datasets/etablissements-finess-france',
+      href: 'https://koumoul.com/data-fair/api/v1/datasets/etablissements-finess-france',
       title: 'Liste des établissements du domaine sanitaire et social',
       icon: {
         name: 'map-marker',
@@ -61,7 +61,7 @@ const model = {
       }
     },
     {
-      href: 'https://koumoul.com/s/data-fair/api/v1/datasets/jep-2018-france',
+      href: 'https://koumoul.com/data-fair/api/v1/datasets/jep-2018-france',
       title: 'Journées européennes du patrimoine en France Métropolitaine',
       icon: {
         name: 'map-marker',
@@ -75,7 +75,7 @@ const model = {
 const options = { context: { owner: { type: 'organization', id: '5a5dc47163ebd4a6f438589b' } } }
 
 const httpMocks = {
-  'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&size=4&select=href,title&owner=organization:5a5dc47163ebd4a6f438589b': { count: 2,
+  'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&size=4&select=href,title&owner=organization:5a5dc47163ebd4a6f438589b': { count: 2,
     results: [{
       id: 'tour_1_resultats_par_pays_240417',
       title: "Présidentielles 2017 - Votes des français à l'étranger - 1er tour",
@@ -105,8 +105,8 @@ const httpMocks = {
       visibility: 'public',
       description: '',
       previews: [],
-      href: 'https://koumoul.com/s/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417',
-      page: 'https://koumoul.com/s/data-fair/dataset/tour_1_resultats_par_pays_240417'
+      href: 'https://koumoul.com/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417',
+      page: 'https://koumoul.com/data-fair/dataset/tour_1_resultats_par_pays_240417'
     },
     {
       id: 'jep-2018-france',
@@ -137,11 +137,11 @@ const httpMocks = {
       visibility: 'public',
       description: '',
       previews: [],
-      href: 'https://koumoul.com/s/data-fair/api/v1/datasets/jep-2018-france',
-      page: 'https://koumoul.com/s/data-fair/dataset/jep-2018-france'
+      href: 'https://koumoul.com/data-fair/api/v1/datasets/jep-2018-france',
+      page: 'https://koumoul.com/data-fair/dataset/jep-2018-france'
     }]
   },
-  'https://koumoul.com/s/data-fair/api/v1/datasets/icons-mdi-latest/lines?q=': {
+  'https://koumoul.com/data-fair/api/v1/datasets/icons-mdi-latest/lines?q=': {
     total: 4495,
     results: [{
       path: 'ab-testing/ab-testing.svg',
@@ -154,7 +154,7 @@ const httpMocks = {
       name: 'ab-testing',
       _i: 1569936485740,
       packVersion: '4.4.95',
-      _attachment_url: 'https://koumoul.com/s/data-fair/api/v1/datasets/icons-mdi-4.4.95/attachments/ab-testing/ab-testing.svg',
+      _attachment_url: 'https://koumoul.com/data-fair/api/v1/datasets/icons-mdi-4.4.95/attachments/ab-testing/ab-testing.svg',
       version: '4.0.96',
       pack: 'mdi',
       tags: 'Developer / Languages',
