@@ -8,7 +8,7 @@ const description = `Enums, oneOfs with const values and the \`x-fromData\` anno
 
 Arrays are represented as multi-value select fields.
 
-If the number of items is too large the select is replaced by a auto-complete.
+If the number of items is too large the select is replaced by a auto-complete except if you force the use of a select using the \`x-display=select\` annotation.
 
 The \`selectAll\` options can be used to add a "select all" action prepended to the list of items. It is only applied on multi-value select fields (not autocomplete).`
 
@@ -40,8 +40,13 @@ const schema = {
       type: 'string',
       title: `I'm a string with values from a large enum`,
       enum: randomWords({ exactly: 25, wordsPerString: 2 }),
-      description: 'This description is used as a help message.',
-      'x-display': 'autocomplete'
+      description: 'This description is used as a help message.'
+    },
+    stringArrayEnumLargeSelect: {
+      type: 'array',
+      title: `I'm an array with values from large enum rendered as a select`,
+      items: { type: 'string', enum: randomWords({ exactly: 25, wordsPerString: 2 }) },
+      'x-display': 'select'
     },
     stringContext: {
       type: 'string',

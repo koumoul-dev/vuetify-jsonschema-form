@@ -1,6 +1,5 @@
 const path = require('path')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 
 const base = {
   mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
@@ -8,28 +7,19 @@ const base = {
     rules: [{
       test: /\.js$/,
       exclude: /(node_modules)/,
-      loader: 'babel-loader',
-      options: {
-        presets: ['@babel/preset-env']
-      }
+      use: 'babel-loader'
     }, {
       test: /\.vue$/,
-      loader: 'vue-loader'
-    }, {
-      test: /\.css$/,
-      loader: [MiniCssExtractPlugin.loader, 'css-loader']
-    }, {
-      test: /\.less$/,
-      loader: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader']
-    }, {
-      test: /\.(svg|eot|woff|ttf|woff2)$/,
-      loader: ['file-loader']
+      use: 'vue-loader'
     }]
   },
   plugins: [
-    new VueLoaderPlugin(),
-    new MiniCssExtractPlugin()
-  ]
+    new VueLoaderPlugin()
+  ],
+  externals: {
+    vue: 'Vue'
+  },
+  target: ['web', 'es5']
 }
 
 module.exports = [{
@@ -48,9 +38,6 @@ module.exports = [{
   ...base,
   entry: {
     'third-party': './lib/deps/third-party.js'
-  },
-  externals: {
-    vue: 'Vue'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

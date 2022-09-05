@@ -1,9 +1,29 @@
 <template>
   <!-- using vuetify's generic component v-input is handy for homogeneous labels, validation, etc. -->
-  <v-input :value="sanitizedHtml" :name="fullKey" :label="label" :disabled="disabled" :rules="rules" :required="required" class="vjsf-tiptap">
-    <div v-if="htmlDescription" class="caption" v-html="htmlDescription" />
-    <tiptap-vuetify v-if="!disabled" :value="sanitizedHtml" :extensions="extensions" v-on="{...on, input}" />
-    <v-card v-else outlined>
+  <v-input
+    :value="sanitizedHtml"
+    :name="fullKey"
+    :label="label"
+    :disabled="disabled"
+    :rules="rules"
+    :required="required"
+    class="vjsf-tiptap"
+  >
+    <div
+      v-if="htmlDescription"
+      class="caption"
+      v-html="htmlDescription"
+    />
+    <tiptap-vuetify
+      v-if="!disabled"
+      :value="sanitizedHtml"
+      :extensions="extensions"
+      v-on="{...on, input}"
+    />
+    <v-card
+      v-else
+      outlined
+    >
       <v-card-text v-html="sanitizedHtml" />
     </v-card>
   </v-input>
@@ -51,12 +71,12 @@ export default {
     ]
   }),
   computed: {
-    sanitizedHtml() {
+    sanitizedHtml () {
       return this.value && sanitizeHtml(this.value)
     }
   },
   methods: {
-    input(value) {
+    input (value) {
       if (value === '<p></p>') value = ''
       // sanitizing should also be done when receiving this data in the backend
       this.on.input(sanitizeHtml(value))

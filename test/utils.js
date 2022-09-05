@@ -9,8 +9,8 @@ import { defaultTemplate } from '../doc/examples'
 
 Vue.use(Vuetify)
 const localVue = createLocalVue()
-localVue.component('v-jsf', VJsf)
-localVue.component('draggable', Draggable)
+localVue.component('VJsf', VJsf)
+localVue.component('Draggable', Draggable)
 Vue.use(VueMask)
 
 exports.getExampleWrapper = (example) => {

@@ -1,6 +1,9 @@
 <template>
   <v-container>
-    <example-wrapper :params="example" :start-activated="true" />
+    <example-wrapper
+      :params="example"
+      :start-activated="true"
+    />
   </v-container>
 </template>
 
@@ -11,7 +14,7 @@ import { examples } from '~/examples'
 export default {
   components: { ExampleWrapper },
   computed: {
-    example() {
+    example () {
       for (const examplesGroup of examples) {
         for (const example of examplesGroup.examples) {
           if (example.id === this.$route.params.id) return example

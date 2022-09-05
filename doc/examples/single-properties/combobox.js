@@ -48,7 +48,7 @@ const schema = {
     ajaxString: {
       type: 'string',
       title: `I'm a string selected from results of an HTTP request`,
-      'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title&owner={context.owner.type}:{context.owner.id}',
+      'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&select=title&owner={context.owner.type}:{context.owner.id}',
       'x-itemsProp': 'results',
       'x-itemTitle': 'title',
       'x-itemKey': 'title',
@@ -62,7 +62,7 @@ const model = {}
 const options = { context: { owner: { type: 'organization', id: '5a5dc47163ebd4a6f438589b' } } }
 
 const httpMocks = {
-  'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title&owner=organization:5a5dc47163ebd4a6f438589b': { results: [] }
+  'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&select=title&owner=organization:5a5dc47163ebd4a6f438589b': { results: [] }
 }
 
 export default { id, title, description, schema, model, options, httpMocks }

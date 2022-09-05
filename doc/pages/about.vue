@@ -52,7 +52,7 @@ export default {
   data: () => ({
     title: 'About'
   }),
-  head() {
+  head () {
     return {
       title: 'vjsf - ' + this.title
     }

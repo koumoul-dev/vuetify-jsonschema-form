@@ -24,7 +24,7 @@ const schema = {
     selectAjaxWithQuery: {
       type: 'object',
       title: { $ref: '#/i18n/~$locale~/selectAjaxWithQueryTitle' },
-      'x-fromUrl': 'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title&q={q}&owner=user:notARealUser',
+      'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&select=title&q={q}&owner=user:notARealUser',
       'x-itemsProp': 'results',
       'x-itemTitle': 'title',
       'x-itemKey': 'href',
@@ -57,7 +57,7 @@ const options = {
 }
 
 const httpMocks = {
-  'https://koumoul.com/s/data-fair/api/v1/datasets?status=finalized&select=title&q=&owner=user:notARealUser': { results: [] }
+  'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&select=title&q=&owner=user:notARealUser': { results: [] }
 }
 
 export default { id, title, description, schema, model, options, httpMocks }
