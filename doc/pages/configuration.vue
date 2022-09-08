@@ -415,6 +415,10 @@
             <td>The parent object in the model.</td>
           </tr>
           <tr>
+            <td>parent.schema</td>
+            <td>The parent property schema.</td>
+          </tr>
+          <tr>
             <td>parent.parent.value</td>
             <td>The grand-parent object in the model. Etc.</td>
           </tr>
