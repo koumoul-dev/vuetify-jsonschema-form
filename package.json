@@ -7,8 +7,7 @@
     "lint": "eslint --ext js .",
     "lint-fix": "eslint --fix --ext js .",
     "build": "rm -rf dist && webpack && cp lib/VJsf.css dist/main.css",
-    "prepare": "npm run lint && npm test && npm run build && npm run doc-build",
-    "postpublish": "gh-pages-multi deploy -v -s doc/dist -t latest",
+    "prepare": "npm run lint && npm test && npm run build",
     "test": "jest",
     "test-watch": "jest --watch",
     "test-update": "jest --updateSnapshot",
@@ -93,6 +92,7 @@
     "vue-axios": "^2.1.5",
     "vue-jest": "^3.0.7",
     "vue-loader": "^15.9.8",
+    "vue-server-renderer": "2.6.14",
     "webpack": "^5.72.0",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.2"
