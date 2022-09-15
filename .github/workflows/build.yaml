@@ -1,0 +1,35 @@
+name: build and test
+
+on: [push]
+
+jobs:
+  compliance:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Advance Security Compliance Action
+        uses: GeekMasher/advanced-security-compliance@v1.6
+        with:
+          policy: GeekMasher/security-queries
+          policy-path: policies/default.yml
+
+          token: ${{ secrets.ACCESS_TOKEN }}
+
+          argvs: '--disable-dependabot --disable-secret-scanning --disable-code-scanning'
+
+  build:
+    needs: compliance
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'npm'
+      - run: npm install
+      - run: npm run build
+      - run: npm test
+
