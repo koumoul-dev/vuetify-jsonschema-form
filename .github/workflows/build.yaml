@@ -10,15 +10,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Advance Security Compliance Action
-        uses: GeekMasher/advanced-security-compliance@v1.6
-        with:
-          policy: GeekMasher/security-queries
-          policy-path: policies/default.yml
-
-          token: ${{ secrets.ACCESS_TOKEN }}
-
-          argvs: '--disable-dependabot --disable-secret-scanning --disable-code-scanning'
+#      - name: Advance Security Compliance Action
+#        uses: GeekMasher/advanced-security-compliance@v1.6
+#        with:
+#          policy: GeekMasher/security-queries
+#          policy-path: policies/default.yml
+#
+#          token: ${{ secrets.ACCESS_TOKEN }}
+#
+#          argvs: '--disable-dependabot --disable-secret-scanning --disable-code-scanning'
 
   build:
     needs: compliance
