@@ -3551,103 +3551,103 @@ exports[`Examples used as simple test cases Default values 1`] = `
         </div>
       </div>
       <div
-        class="row ma-0 pl-2 pt-2"
+        class="col col-12 vjsf-property vjsf-property-objectSection pa-0"
       >
-        <span
-          class="py-2 title"
-        >
-          I'm a section with a default value 
-        </span>
         <div
-          class="col col-12 vjsf-property vjsf-property-objectSection pa-0"
+          class="row ma-0 "
         >
           <div
-            class="row ma-0 "
+            class="col col-12 pa-0"
+          >
+            <span
+              class="py-2 title"
+            >
+              I'm a section with a default value 
+            </span>
+          </div>
+          <div
+            class="col col-12 vjsf-property vjsf-property-objectSection-child1 pa-0"
           >
             <div
-              class="col col-12 vjsf-property vjsf-property-objectSection-child1 pa-0"
+              class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
             >
               <div
-                class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
+                class="v-input__control"
               >
                 <div
-                  class="v-input__control"
+                  class="v-input__slot"
                 >
                   <div
-                    class="v-input__slot"
+                    class="v-text-field__slot"
                   >
-                    <div
-                      class="v-text-field__slot"
+                    <label
+                      class="v-label v-label--active theme--light"
+                      for="objectSection-child1"
+                      style="left: 0px; position: absolute;"
                     >
-                      <label
-                        class="v-label v-label--active theme--light"
-                        for="objectSection-child1"
-                        style="left: 0px; position: absolute;"
-                      >
-                        child1
-                      </label>
-                      <input
-                        id="objectSection-child1"
-                        type="text"
-                      />
-                    </div>
+                      child1
+                    </label>
+                    <input
+                      id="objectSection-child1"
+                      type="text"
+                    />
                   </div>
+                </div>
+                <div
+                  class="v-text-field__details"
+                >
                   <div
-                    class="v-text-field__details"
+                    class="v-messages theme--light"
                   >
-                    <div
-                      class="v-messages theme--light"
-                    >
-                      <transition-group-stub
-                        class="v-messages__wrapper"
-                        name="message-transition"
-                        tag="div"
-                      />
-                    </div>
+                    <transition-group-stub
+                      class="v-messages__wrapper"
+                      name="message-transition"
+                      tag="div"
+                    />
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+          <div
+            class="col col-12 vjsf-property vjsf-property-objectSection-child2 pa-0"
+          >
             <div
-              class="col col-12 vjsf-property vjsf-property-objectSection-child2 pa-0"
+              class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
             >
               <div
-                class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
+                class="v-input__control"
               >
                 <div
-                  class="v-input__control"
+                  class="v-input__slot"
                 >
                   <div
-                    class="v-input__slot"
+                    class="v-text-field__slot"
                   >
-                    <div
-                      class="v-text-field__slot"
+                    <label
+                      class="v-label v-label--active theme--light"
+                      for="objectSection-child2"
+                      style="left: 0px; position: absolute;"
                     >
-                      <label
-                        class="v-label v-label--active theme--light"
-                        for="objectSection-child2"
-                        style="left: 0px; position: absolute;"
-                      >
-                        child2
-                      </label>
-                      <input
-                        id="objectSection-child2"
-                        type="text"
-                      />
-                    </div>
+                      child2
+                    </label>
+                    <input
+                      id="objectSection-child2"
+                      type="text"
+                    />
                   </div>
+                </div>
+                <div
+                  class="v-text-field__details"
+                >
                   <div
-                    class="v-text-field__details"
+                    class="v-messages theme--light"
                   >
-                    <div
-                      class="v-messages theme--light"
-                    >
-                      <transition-group-stub
-                        class="v-messages__wrapper"
-                        name="message-transition"
-                        tag="div"
-                      />
-                    </div>
+                    <transition-group-stub
+                      class="v-messages__wrapper"
+                      name="message-transition"
+                      tag="div"
+                    />
                   </div>
                 </div>
               </div>
@@ -11818,73 +11818,135 @@ exports[`Examples used as simple test cases Read only content 1`] = `
         </div>
       </div>
       <div
-        class="row ma-0 pl-2 pt-2"
+        class="col col-12 vjsf-property vjsf-property-readOnlySection pa-0 read-only"
       >
-        <span
-          class="py-2 title"
-        >
-          I'm a section with readOnly=true in schema 
-        </span>
         <div
-          class="col col-12 vjsf-property vjsf-property-readOnlySection pa-0 read-only"
+          class="row ma-0 "
         >
           <div
-            class="row ma-0 "
+            class="col col-12 pa-0"
+          >
+            <span
+              class="py-2 title"
+            >
+              I'm a section with readOnly=true in schema 
+            </span>
+          </div>
+          <div
+            class="col col-12 vjsf-property vjsf-property-readOnlySection-stringProp pa-0 read-only"
           >
             <div
-              class="col col-12 vjsf-property vjsf-property-readOnlySection-stringProp pa-0 read-only"
+              class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted"
             >
               <div
-                class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted"
+                class="v-input__control"
               >
                 <div
-                  class="v-input__control"
+                  class="v-input__slot"
                 >
                   <div
-                    class="v-input__slot"
+                    class="v-text-field__slot"
                   >
-                    <div
-                      class="v-text-field__slot"
+                    <label
+                      class="v-label v-label--active v-label--is-disabled theme--light"
+                      for="readOnlySection-stringProp"
+                      style="left: 0px; position: absolute;"
                     >
-                      <label
-                        class="v-label v-label--active v-label--is-disabled theme--light"
-                        for="readOnlySection-stringProp"
-                        style="left: 0px; position: absolute;"
-                      >
-                        I'm a string in a read-only section
-                      </label>
-                      <input
-                        disabled="disabled"
-                        id="readOnlySection-stringProp"
-                        type="text"
-                      />
-                    </div>
+                      I'm a string in a read-only section
+                    </label>
+                    <input
+                      disabled="disabled"
+                      id="readOnlySection-stringProp"
+                      type="text"
+                    />
                   </div>
                 </div>
-                <div
-                  class="v-input__append-outer"
+              </div>
+              <div
+                class="v-input__append-outer"
+              >
+                <button
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
+                  style="pointer-events: auto;"
+                  type="button"
                 >
-                  <button
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                    class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
-                    style="pointer-events: auto;"
-                    type="button"
-                  >
-                    <span
-                      class="v-btn__content"
-                    >
-                      <i
-                        aria-hidden="true"
-                        class="v-icon notranslate mdi mdi-information theme--light"
-                      />
-                    </span>
-                  </button>
                   <span
-                    class="v-tooltip v-tooltip--left"
+                    class="v-btn__content"
                   >
-                    <!---->
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-information theme--light"
+                    />
                   </span>
+                </button>
+                <span
+                  class="v-tooltip v-tooltip--left"
+                >
+                  <!---->
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-disabledSection pa-0"
+      >
+        <div
+          class="row ma-0 "
+        >
+          <div
+            class="col col-12 pa-0"
+          >
+            <span
+              class="py-2 title"
+            >
+              I'm a section with disableAll=true in options 
+            </span>
+          </div>
+          <div
+            class="col col-12 vjsf-property vjsf-property-disabledSection-stringProp pa-0"
+          >
+            <div
+              class="v-input v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted"
+            >
+              <div
+                class="v-input__control"
+              >
+                <div
+                  class="v-input__slot"
+                >
+                  <div
+                    class="v-text-field__slot"
+                  >
+                    <label
+                      class="v-label v-label--active v-label--is-disabled theme--light"
+                      for="disabledSection-stringProp"
+                      style="left: 0px; position: absolute;"
+                    >
+                      I'm a string in a disabled section
+                    </label>
+                    <input
+                      disabled="disabled"
+                      id="disabledSection-stringProp"
+                      type="text"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="v-text-field__details"
+                >
+                  <div
+                    class="v-messages theme--light"
+                  >
+                    <transition-group-stub
+                      class="v-messages__wrapper"
+                      name="message-transition"
+                      tag="div"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -11892,191 +11954,129 @@ exports[`Examples used as simple test cases Read only content 1`] = `
         </div>
       </div>
       <div
-        class="row ma-0 pl-2 pt-2"
+        class="col col-12 vjsf-property vjsf-property-hideReadonlySection pa-0"
       >
-        <span
-          class="py-2 title"
-        >
-          I'm a section with disableAll=true in options 
-        </span>
         <div
-          class="col col-12 vjsf-property vjsf-property-disabledSection pa-0"
+          class="row ma-0 "
         >
           <div
-            class="row ma-0 "
+            class="col col-12 pa-0"
+          >
+            <span
+              class="py-2 title"
+            >
+              I'm a section whose read-only content is hidden 
+            </span>
+          </div>
+          <!---->
+          <div
+            class="col col-12 vjsf-property vjsf-property-hideReadonlySection-stringProp pa-0"
           >
             <div
-              class="col col-12 vjsf-property vjsf-property-disabledSection-stringProp pa-0"
+              class="v-input theme--light v-text-field v-text-field--is-booted"
             >
               <div
-                class="v-input v-input--is-label-active v-input--is-dirty v-input--is-disabled theme--light v-text-field v-text-field--is-booted"
+                class="v-input__control"
               >
                 <div
-                  class="v-input__control"
+                  class="v-input__slot"
                 >
                   <div
-                    class="v-input__slot"
+                    class="v-text-field__slot"
                   >
-                    <div
-                      class="v-text-field__slot"
+                    <label
+                      class="v-label theme--light"
+                      for="hideReadonlySection-stringProp"
+                      style="left: 0px; position: absolute;"
                     >
-                      <label
-                        class="v-label v-label--active v-label--is-disabled theme--light"
-                        for="disabledSection-stringProp"
-                        style="left: 0px; position: absolute;"
-                      >
-                        I'm a string in a disabled section
-                      </label>
-                      <input
-                        disabled="disabled"
-                        id="disabledSection-stringProp"
-                        type="text"
-                      />
-                    </div>
+                      I'm a string
+                    </label>
+                    <input
+                      id="hideReadonlySection-stringProp"
+                      type="text"
+                    />
                   </div>
+                </div>
+                <div
+                  class="v-text-field__details"
+                >
                   <div
-                    class="v-text-field__details"
+                    class="v-messages theme--light"
                   >
-                    <div
-                      class="v-messages theme--light"
-                    >
-                      <transition-group-stub
-                        class="v-messages__wrapper"
-                        name="message-transition"
-                        tag="div"
-                      />
-                    </div>
+                    <transition-group-stub
+                      class="v-messages__wrapper"
+                      name="message-transition"
+                      tag="div"
+                    />
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <!---->
         </div>
       </div>
       <div
-        class="row ma-0 pl-2 pt-2"
+        class="col col-12 vjsf-property vjsf-property-deleteReadonlySection pa-0"
       >
-        <span
-          class="py-2 title"
-        >
-          I'm a section whose read-only content is hidden 
-        </span>
         <div
-          class="col col-12 vjsf-property vjsf-property-hideReadonlySection pa-0"
+          class="row ma-0 "
         >
           <div
-            class="row ma-0 "
+            class="col col-12 pa-0"
           >
-            <!---->
+            <span
+              class="py-2 title"
+            >
+              I'm a section whose read-only content is deleted 
+            </span>
+          </div>
+          <div
+            class="col col-12 vjsf-property vjsf-property-deleteReadonlySection-stringProp pa-0"
+          >
             <div
-              class="col col-12 vjsf-property vjsf-property-hideReadonlySection-stringProp pa-0"
+              class="v-input theme--light v-text-field v-text-field--is-booted"
             >
               <div
-                class="v-input theme--light v-text-field v-text-field--is-booted"
+                class="v-input__control"
               >
                 <div
-                  class="v-input__control"
+                  class="v-input__slot"
                 >
                   <div
-                    class="v-input__slot"
+                    class="v-text-field__slot"
                   >
-                    <div
-                      class="v-text-field__slot"
+                    <label
+                      class="v-label theme--light"
+                      for="deleteReadonlySection-stringProp"
+                      style="left: 0px; position: absolute;"
                     >
-                      <label
-                        class="v-label theme--light"
-                        for="hideReadonlySection-stringProp"
-                        style="left: 0px; position: absolute;"
-                      >
-                        I'm a string
-                      </label>
-                      <input
-                        id="hideReadonlySection-stringProp"
-                        type="text"
-                      />
-                    </div>
+                      I'm a string
+                    </label>
+                    <input
+                      id="deleteReadonlySection-stringProp"
+                      type="text"
+                    />
                   </div>
+                </div>
+                <div
+                  class="v-text-field__details"
+                >
                   <div
-                    class="v-text-field__details"
+                    class="v-messages theme--light"
                   >
-                    <div
-                      class="v-messages theme--light"
-                    >
-                      <transition-group-stub
-                        class="v-messages__wrapper"
-                        name="message-transition"
-                        tag="div"
-                      />
-                    </div>
+                    <transition-group-stub
+                      class="v-messages__wrapper"
+                      name="message-transition"
+                      tag="div"
+                    />
                   </div>
                 </div>
               </div>
             </div>
-            <!---->
           </div>
-        </div>
-      </div>
-      <div
-        class="row ma-0 pl-2 pt-2"
-      >
-        <span
-          class="py-2 title"
-        >
-          I'm a section whose read-only content is deleted 
-        </span>
-        <div
-          class="col col-12 vjsf-property vjsf-property-deleteReadonlySection pa-0"
-        >
-          <div
-            class="row ma-0 "
-          >
-            <div
-              class="col col-12 vjsf-property vjsf-property-deleteReadonlySection-stringProp pa-0"
-            >
-              <div
-                class="v-input theme--light v-text-field v-text-field--is-booted"
-              >
-                <div
-                  class="v-input__control"
-                >
-                  <div
-                    class="v-input__slot"
-                  >
-                    <div
-                      class="v-text-field__slot"
-                    >
-                      <label
-                        class="v-label theme--light"
-                        for="deleteReadonlySection-stringProp"
-                        style="left: 0px; position: absolute;"
-                      >
-                        I'm a string
-                      </label>
-                      <input
-                        id="deleteReadonlySection-stringProp"
-                        type="text"
-                      />
-                    </div>
-                  </div>
-                  <div
-                    class="v-text-field__details"
-                  >
-                    <div
-                      class="v-messages theme--light"
-                    >
-                      <transition-group-stub
-                        class="v-messages__wrapper"
-                        name="message-transition"
-                        tag="div"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!---->
-            <!---->
-          </div>
+          <!---->
+          <!---->
         </div>
       </div>
     </div>
@@ -13198,64 +13198,64 @@ exports[`Examples used as simple test cases Sections 1`] = `
       class="row ma-0 "
     >
       <div
-        class="row ma-0 pl-2 pt-2"
+        class="col col-12 vjsf-property vjsf-property-objectSection1 pa-0"
       >
-        <span
-          class="py-2 title"
-        >
-          I'm a section 
-        </span>
         <div
-          class="col col-12 vjsf-property vjsf-property-objectSection1 pa-0"
+          class="row ma-0 "
         >
           <div
-            class="row ma-0 "
+            class="col col-12 pa-0"
+          >
+            <span
+              class="py-2 title"
+            >
+              I'm a section 
+            </span>
+          </div>
+          <div
+            class="col col-12 pa-0"
+          >
+            I'm a description shown as a paragraph on top of section
+          </div>
+          <div
+            class="col col-12 vjsf-property vjsf-property-objectSection1-stringProp1 pa-0"
           >
             <div
-              class="col col-12 pa-0"
-            >
-              I'm a description shown as a paragraph on top of section
-            </div>
-            <div
-              class="col col-12 vjsf-property vjsf-property-objectSection1-stringProp1 pa-0"
+              class="v-input theme--light v-text-field v-text-field--is-booted"
             >
               <div
-                class="v-input theme--light v-text-field v-text-field--is-booted"
+                class="v-input__control"
               >
                 <div
-                  class="v-input__control"
+                  class="v-input__slot"
                 >
                   <div
-                    class="v-input__slot"
+                    class="v-text-field__slot"
                   >
-                    <div
-                      class="v-text-field__slot"
+                    <label
+                      class="v-label theme--light"
+                      for="objectSection1-stringProp1"
+                      style="left: 0px; position: absolute;"
                     >
-                      <label
-                        class="v-label theme--light"
-                        for="objectSection1-stringProp1"
-                        style="left: 0px; position: absolute;"
-                      >
-                        I'm a property in section 1
-                      </label>
-                      <input
-                        id="objectSection1-stringProp1"
-                        type="text"
-                      />
-                    </div>
+                      I'm a property in section 1
+                    </label>
+                    <input
+                      id="objectSection1-stringProp1"
+                      type="text"
+                    />
                   </div>
+                </div>
+                <div
+                  class="v-text-field__details"
+                >
                   <div
-                    class="v-text-field__details"
+                    class="v-messages theme--light"
                   >
-                    <div
-                      class="v-messages theme--light"
-                    >
-                      <transition-group-stub
-                        class="v-messages__wrapper"
-                        name="message-transition"
-                        tag="div"
-                      />
-                    </div>
+                    <transition-group-stub
+                      class="v-messages__wrapper"
+                      name="message-transition"
+                      tag="div"
+                    />
                   </div>
                 </div>
               </div>
@@ -13264,179 +13264,179 @@ exports[`Examples used as simple test cases Sections 1`] = `
         </div>
       </div>
       <div
-        class="row ma-0 pl-2 pt-2"
+        class="col col-12 vjsf-property vjsf-property-objectSection2 pa-0"
       >
-        <span
-          class="py-2 title"
-        >
-          I'm another section 
-        </span>
         <div
-          class="col col-12 vjsf-property vjsf-property-objectSection2 pa-0"
+          class="row ma-0 "
         >
           <div
-            class="row ma-0 "
+            class="col col-12 pa-0"
+          >
+            <span
+              class="py-2 title"
+            >
+              I'm another section 
+            </span>
+          </div>
+          <div
+            class="col col-12 vjsf-property vjsf-property-objectSection2-stringProp2 pa-0"
           >
             <div
-              class="col col-12 vjsf-property vjsf-property-objectSection2-stringProp2 pa-0"
+              class="v-input theme--light v-text-field v-text-field--is-booted"
             >
               <div
-                class="v-input theme--light v-text-field v-text-field--is-booted"
+                class="v-input__control"
               >
                 <div
-                  class="v-input__control"
+                  class="v-input__slot"
                 >
                   <div
-                    class="v-input__slot"
+                    class="v-text-field__slot"
                   >
-                    <div
-                      class="v-text-field__slot"
+                    <label
+                      class="v-label theme--light"
+                      for="objectSection2-stringProp2"
+                      style="left: 0px; position: absolute;"
                     >
-                      <label
-                        class="v-label theme--light"
-                        for="objectSection2-stringProp2"
-                        style="left: 0px; position: absolute;"
-                      >
-                        I'm a property in section 2
-                      </label>
-                      <input
-                        id="objectSection2-stringProp2"
-                        type="text"
-                      />
-                    </div>
+                      I'm a property in section 2
+                    </label>
+                    <input
+                      id="objectSection2-stringProp2"
+                      type="text"
+                    />
                   </div>
+                </div>
+                <div
+                  class="v-text-field__details"
+                >
                   <div
-                    class="v-text-field__details"
+                    class="v-messages theme--light"
                   >
-                    <div
-                      class="v-messages theme--light"
-                    >
-                      <transition-group-stub
-                        class="v-messages__wrapper"
-                        name="message-transition"
-                        tag="div"
-                      />
-                    </div>
+                    <transition-group-stub
+                      class="v-messages__wrapper"
+                      name="message-transition"
+                      tag="div"
+                    />
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+          <div
+            class="col col-6 vjsf-property vjsf-property-objectSection2-allOf-0 pa-0"
+          >
             <div
-              class="row ma-0 pl-2 pt-2"
+              class="row ma-0 "
             >
-              <span
-                class="py-2 subtitle-1"
-              >
-                I'm a subsection 
-              </span>
               <div
-                class="col col-12 vjsf-property vjsf-property-objectSection2-allOf-0 pa-0"
+                class="col col-12 pa-0"
+              >
+                <span
+                  class="py-2 subtitle-1"
+                >
+                  I'm a subsection 
+                </span>
+              </div>
+              <div
+                class="col col-12 vjsf-property vjsf-property-objectSection2-allOf-0-stringProp3 pa-0"
               >
                 <div
-                  class="row ma-0 "
+                  class="v-input theme--light v-text-field v-text-field--is-booted"
                 >
                   <div
-                    class="col col-12 vjsf-property vjsf-property-objectSection2-allOf-0-stringProp3 pa-0"
+                    class="v-input__control"
                   >
                     <div
-                      class="v-input theme--light v-text-field v-text-field--is-booted"
+                      class="v-input__slot"
                     >
                       <div
-                        class="v-input__control"
+                        class="v-text-field__slot"
                       >
-                        <div
-                          class="v-input__slot"
+                        <label
+                          class="v-label theme--light"
+                          for="objectSection2-allOf-0-stringProp3"
+                          style="left: 0px; position: absolute;"
                         >
-                          <div
-                            class="v-text-field__slot"
-                          >
-                            <label
-                              class="v-label theme--light"
-                              for="objectSection2-allOf-0-stringProp3"
-                              style="left: 0px; position: absolute;"
-                            >
-                              I'm a property in subsection 2.1
-                            </label>
-                            <input
-                              id="objectSection2-allOf-0-stringProp3"
-                              type="text"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          class="v-text-field__details"
-                        >
-                          <div
-                            class="v-messages theme--light"
-                          >
-                            <transition-group-stub
-                              class="v-messages__wrapper"
-                              name="message-transition"
-                              tag="div"
-                            />
-                          </div>
-                        </div>
+                          I'm a property in subsection 2.1
+                        </label>
+                        <input
+                          id="objectSection2-allOf-0-stringProp3"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="v-text-field__details"
+                    >
+                      <div
+                        class="v-messages theme--light"
+                      >
+                        <transition-group-stub
+                          class="v-messages__wrapper"
+                          name="message-transition"
+                          tag="div"
+                        />
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+          <div
+            class="col col-6 vjsf-property vjsf-property-objectSection2-allOf-1 pa-0"
+          >
             <div
-              class="row ma-0 pl-2 pt-2"
+              class="row ma-0 "
             >
-              <span
-                class="py-2 subtitle-1"
-              >
-                I'm another subsection 
-              </span>
               <div
-                class="col col-12 vjsf-property vjsf-property-objectSection2-allOf-1 pa-0"
+                class="col col-12 pa-0"
+              >
+                <span
+                  class="py-2 subtitle-1"
+                >
+                  I'm another subsection 
+                </span>
+              </div>
+              <div
+                class="col col-12 vjsf-property vjsf-property-objectSection2-allOf-1-stringProp4 pa-0"
               >
                 <div
-                  class="row ma-0 "
+                  class="v-input theme--light v-text-field v-text-field--is-booted"
                 >
                   <div
-                    class="col col-12 vjsf-property vjsf-property-objectSection2-allOf-1-stringProp4 pa-0"
+                    class="v-input__control"
                   >
                     <div
-                      class="v-input theme--light v-text-field v-text-field--is-booted"
+                      class="v-input__slot"
                     >
                       <div
-                        class="v-input__control"
+                        class="v-text-field__slot"
                       >
-                        <div
-                          class="v-input__slot"
+                        <label
+                          class="v-label theme--light"
+                          for="objectSection2-allOf-1-stringProp4"
+                          style="left: 0px; position: absolute;"
                         >
-                          <div
-                            class="v-text-field__slot"
-                          >
-                            <label
-                              class="v-label theme--light"
-                              for="objectSection2-allOf-1-stringProp4"
-                              style="left: 0px; position: absolute;"
-                            >
-                              I'm a property in subsection 2.2
-                            </label>
-                            <input
-                              id="objectSection2-allOf-1-stringProp4"
-                              type="text"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          class="v-text-field__details"
-                        >
-                          <div
-                            class="v-messages theme--light"
-                          >
-                            <transition-group-stub
-                              class="v-messages__wrapper"
-                              name="message-transition"
-                              tag="div"
-                            />
-                          </div>
-                        </div>
+                          I'm a property in subsection 2.2
+                        </label>
+                        <input
+                          id="objectSection2-allOf-1-stringProp4"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="v-text-field__details"
+                    >
+                      <div
+                        class="v-messages theme--light"
+                      >
+                        <transition-group-stub
+                          class="v-messages__wrapper"
+                          name="message-transition"
+                          tag="div"
+                        />
                       </div>
                     </div>
                   </div>
@@ -13669,252 +13669,26 @@ exports[`Examples used as simple test cases Sections as stepper 1`] = `
       class="row ma-0 "
     >
       <div
-        class="row ma-0 pl-2 pt-2"
+        class="col col-12 vjsf-property vjsf-property-stepperProp pa-0"
       >
-        <span
-          class="py-2 title"
-        >
-          I'm an object with sections rendered in a stepper. 
-        </span>
         <div
-          class="col col-12 vjsf-property vjsf-property-stepperProp pa-0"
+          class="row ma-0 "
         >
           <div
-            class="row ma-0 "
+            class="col col-12 pa-0"
           >
-            <div
-              class="v-stepper v-sheet theme--light"
-              style="width: 100%;"
+            <span
+              class="py-2 title"
             >
-              <div
-                class="v-stepper__header"
-              >
-                <div
-                  class="v-stepper__step v-stepper__step--active"
-                  tabindex="-1"
-                >
-                  <span
-                    class="v-stepper__step__step primary"
-                  >
-                    1
-                  </span>
-                  <div
-                    class="v-stepper__label"
-                  >
-                    I'm a section
-                  </div>
-                </div>
-                <hr
-                  aria-orientation="horizontal"
-                  class="v-divider theme--light"
-                  role="separator"
-                />
-                <div
-                  class="v-stepper__step v-stepper__step--inactive"
-                  tabindex="-1"
-                >
-                  <span
-                    class="v-stepper__step__step"
-                  >
-                    2
-                  </span>
-                  <div
-                    class="v-stepper__label"
-                  >
-                    I'm another section
-                  </div>
-                </div>
-              </div>
-              <div
-                class="v-stepper__items"
-              >
-                <transition-stub
-                  name="tab-transition"
-                >
-                  <div
-                    class="v-stepper__content"
-                    style=""
-                  >
-                    <div
-                      class="v-stepper__wrapper"
-                    >
-                      <div
-                        class="v-card v-card--flat v-sheet theme--light rounded-0"
-                      >
-                        <div
-                          class="v-card__text pa-0"
-                        >
-                          <div
-                            class="col col-12 vjsf-property vjsf-property-stepperProp-allOf-0 pa-0"
-                          >
-                            <div
-                              class="row ma-0 "
-                            >
-                              <div
-                                class="col col-12 pa-0"
-                              >
-                                I'm a description shown as a paragraph on top of section
-                              </div>
-                              <div
-                                class="col col-12 vjsf-property vjsf-property-stepperProp-allOf-0-stringProp1 pa-0"
-                              >
-                                <div
-                                  class="v-input theme--light v-text-field v-text-field--is-booted"
-                                >
-                                  <div
-                                    class="v-input__control"
-                                  >
-                                    <div
-                                      class="v-input__slot"
-                                    >
-                                      <div
-                                        class="v-text-field__slot"
-                                      >
-                                        <label
-                                          class="v-label theme--light"
-                                          for="stepperProp-allOf-0-stringProp1"
-                                          style="left: 0px; position: absolute;"
-                                        >
-                                          I'm a required property in section 1
-                                        </label>
-                                        <input
-                                          id="stepperProp-allOf-0-stringProp1"
-                                          type="text"
-                                        />
-                                      </div>
-                                    </div>
-                                    <div
-                                      class="v-text-field__details"
-                                    >
-                                      <div
-                                        class="v-messages theme--light"
-                                      >
-                                        <transition-group-stub
-                                          class="v-messages__wrapper"
-                                          name="message-transition"
-                                          tag="div"
-                                        />
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          class="v-card__actions px-0"
-                        >
-                          <button
-                            class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default primary"
-                            type="button"
-                          >
-                            <span
-                              class="v-btn__content"
-                            >
-                              continue
-                            </span>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </transition-stub>
-                <transition-stub
-                  name="tab-transition"
-                >
-                  <div
-                    class="v-stepper__content"
-                    style="display: none;"
-                  >
-                    <div
-                      class="v-stepper__wrapper"
-                    >
-                      <div
-                        class="v-card v-card--flat v-sheet theme--light rounded-0"
-                      >
-                        <div
-                          class="v-card__text pa-0"
-                        >
-                          <div
-                            class="col col-12 vjsf-property vjsf-property-stepperProp-allOf-1 pa-0"
-                          >
-                            <div
-                              class="row ma-0 "
-                            >
-                              <div
-                                class="col col-12 vjsf-property vjsf-property-stepperProp-allOf-1-stringProp2 pa-0"
-                              >
-                                <div
-                                  class="v-input theme--light v-text-field v-text-field--is-booted"
-                                >
-                                  <div
-                                    class="v-input__control"
-                                  >
-                                    <div
-                                      class="v-input__slot"
-                                    >
-                                      <div
-                                        class="v-text-field__slot"
-                                      >
-                                        <label
-                                          class="v-label theme--light"
-                                          for="stepperProp-allOf-1-stringProp2"
-                                          style="left: 0px; position: absolute;"
-                                        >
-                                          I'm a required property in section 2
-                                        </label>
-                                        <input
-                                          id="stepperProp-allOf-1-stringProp2"
-                                          type="text"
-                                        />
-                                      </div>
-                                    </div>
-                                    <div
-                                      class="v-text-field__details"
-                                    >
-                                      <div
-                                        class="v-messages theme--light"
-                                      >
-                                        <transition-group-stub
-                                          class="v-messages__wrapper"
-                                          name="message-transition"
-                                          tag="div"
-                                        />
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </transition-stub>
-              </div>
-            </div>
+              I'm an object with sections rendered in a stepper. 
+            </span>
           </div>
-        </div>
-      </div>
-      <div
-        class="row ma-0 pl-2 pt-2"
-      >
-        <span
-          class="py-2 title"
-        >
-          I'm an object with sections rendered in a vertical stepper. 
-        </span>
-        <div
-          class="col col-12 vjsf-property vjsf-property-verticalStepperProp pa-0"
-        >
           <div
-            class="row ma-0 "
+            class="v-stepper v-sheet theme--light"
+            style="width: 100%;"
           >
             <div
-              class="v-stepper v-stepper--vertical v-sheet theme--light"
-              style="width: 100%;"
+              class="v-stepper__header"
             >
               <div
                 class="v-stepper__step v-stepper__step--active"
@@ -13931,15 +13705,39 @@ exports[`Examples used as simple test cases Sections as stepper 1`] = `
                   I'm a section
                 </div>
               </div>
+              <hr
+                aria-orientation="horizontal"
+                class="v-divider theme--light"
+                role="separator"
+              />
+              <div
+                class="v-stepper__step v-stepper__step--inactive"
+                tabindex="-1"
+              >
+                <span
+                  class="v-stepper__step__step"
+                >
+                  2
+                </span>
+                <div
+                  class="v-stepper__label"
+                >
+                  I'm another section
+                </div>
+              </div>
+            </div>
+            <div
+              class="v-stepper__items"
+            >
               <transition-stub
                 name="tab-transition"
               >
                 <div
                   class="v-stepper__content"
+                  style=""
                 >
                   <div
                     class="v-stepper__wrapper"
-                    style="height: auto;"
                   >
                     <div
                       class="v-card v-card--flat v-sheet theme--light rounded-0"
@@ -13948,7 +13746,7 @@ exports[`Examples used as simple test cases Sections as stepper 1`] = `
                         class="v-card__text pa-0"
                       >
                         <div
-                          class="col col-12 vjsf-property vjsf-property-verticalStepperProp-allOf-0 pa-0"
+                          class="col col-12 vjsf-property vjsf-property-stepperProp-allOf-0 pa-0"
                         >
                           <div
                             class="row ma-0 "
@@ -13959,7 +13757,7 @@ exports[`Examples used as simple test cases Sections as stepper 1`] = `
                               I'm a description shown as a paragraph on top of section
                             </div>
                             <div
-                              class="col col-12 vjsf-property vjsf-property-verticalStepperProp-allOf-0-stringProp1 pa-0"
+                              class="col col-12 vjsf-property vjsf-property-stepperProp-allOf-0-stringProp1 pa-0"
                             >
                               <div
                                 class="v-input theme--light v-text-field v-text-field--is-booted"
@@ -13975,13 +13773,13 @@ exports[`Examples used as simple test cases Sections as stepper 1`] = `
                                     >
                                       <label
                                         class="v-label theme--light"
-                                        for="verticalStepperProp-allOf-0-stringProp1"
+                                        for="stepperProp-allOf-0-stringProp1"
                                         style="left: 0px; position: absolute;"
                                       >
                                         I'm a required property in section 1
                                       </label>
                                       <input
-                                        id="verticalStepperProp-allOf-0-stringProp1"
+                                        id="stepperProp-allOf-0-stringProp1"
                                         type="text"
                                       />
                                     </div>
@@ -14023,30 +13821,15 @@ exports[`Examples used as simple test cases Sections as stepper 1`] = `
                   </div>
                 </div>
               </transition-stub>
-              <div
-                class="v-stepper__step v-stepper__step--inactive"
-                tabindex="-1"
-              >
-                <span
-                  class="v-stepper__step__step"
-                >
-                  2
-                </span>
-                <div
-                  class="v-stepper__label"
-                >
-                  I'm another section
-                </div>
-              </div>
               <transition-stub
                 name="tab-transition"
               >
                 <div
                   class="v-stepper__content"
+                  style="display: none;"
                 >
                   <div
                     class="v-stepper__wrapper"
-                    style="height: 0px;"
                   >
                     <div
                       class="v-card v-card--flat v-sheet theme--light rounded-0"
@@ -14055,13 +13838,13 @@ exports[`Examples used as simple test cases Sections as stepper 1`] = `
                         class="v-card__text pa-0"
                       >
                         <div
-                          class="col col-12 vjsf-property vjsf-property-verticalStepperProp-allOf-1 pa-0"
+                          class="col col-12 vjsf-property vjsf-property-stepperProp-allOf-1 pa-0"
                         >
                           <div
                             class="row ma-0 "
                           >
                             <div
-                              class="col col-12 vjsf-property vjsf-property-verticalStepperProp-allOf-1-stringProp2 pa-0"
+                              class="col col-12 vjsf-property vjsf-property-stepperProp-allOf-1-stringProp2 pa-0"
                             >
                               <div
                                 class="v-input theme--light v-text-field v-text-field--is-booted"
@@ -14077,13 +13860,13 @@ exports[`Examples used as simple test cases Sections as stepper 1`] = `
                                     >
                                       <label
                                         class="v-label theme--light"
-                                        for="verticalStepperProp-allOf-1-stringProp2"
+                                        for="stepperProp-allOf-1-stringProp2"
                                         style="left: 0px; position: absolute;"
                                       >
                                         I'm a required property in section 2
                                       </label>
                                       <input
-                                        id="verticalStepperProp-allOf-1-stringProp2"
+                                        id="stepperProp-allOf-1-stringProp2"
                                         type="text"
                                       />
                                     </div>
@@ -14112,6 +13895,223 @@ exports[`Examples used as simple test cases Sections as stepper 1`] = `
                 </div>
               </transition-stub>
             </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-verticalStepperProp pa-0"
+      >
+        <div
+          class="row ma-0 "
+        >
+          <div
+            class="col col-12 pa-0"
+          >
+            <span
+              class="py-2 title"
+            >
+              I'm an object with sections rendered in a vertical stepper. 
+            </span>
+          </div>
+          <div
+            class="v-stepper v-stepper--vertical v-sheet theme--light"
+            style="width: 100%;"
+          >
+            <div
+              class="v-stepper__step v-stepper__step--active"
+              tabindex="-1"
+            >
+              <span
+                class="v-stepper__step__step primary"
+              >
+                1
+              </span>
+              <div
+                class="v-stepper__label"
+              >
+                I'm a section
+              </div>
+            </div>
+            <transition-stub
+              name="tab-transition"
+            >
+              <div
+                class="v-stepper__content"
+              >
+                <div
+                  class="v-stepper__wrapper"
+                  style="height: auto;"
+                >
+                  <div
+                    class="v-card v-card--flat v-sheet theme--light rounded-0"
+                  >
+                    <div
+                      class="v-card__text pa-0"
+                    >
+                      <div
+                        class="col col-12 vjsf-property vjsf-property-verticalStepperProp-allOf-0 pa-0"
+                      >
+                        <div
+                          class="row ma-0 "
+                        >
+                          <div
+                            class="col col-12 pa-0"
+                          >
+                            I'm a description shown as a paragraph on top of section
+                          </div>
+                          <div
+                            class="col col-12 vjsf-property vjsf-property-verticalStepperProp-allOf-0-stringProp1 pa-0"
+                          >
+                            <div
+                              class="v-input theme--light v-text-field v-text-field--is-booted"
+                            >
+                              <div
+                                class="v-input__control"
+                              >
+                                <div
+                                  class="v-input__slot"
+                                >
+                                  <div
+                                    class="v-text-field__slot"
+                                  >
+                                    <label
+                                      class="v-label theme--light"
+                                      for="verticalStepperProp-allOf-0-stringProp1"
+                                      style="left: 0px; position: absolute;"
+                                    >
+                                      I'm a required property in section 1
+                                    </label>
+                                    <input
+                                      id="verticalStepperProp-allOf-0-stringProp1"
+                                      type="text"
+                                    />
+                                  </div>
+                                </div>
+                                <div
+                                  class="v-text-field__details"
+                                >
+                                  <div
+                                    class="v-messages theme--light"
+                                  >
+                                    <transition-group-stub
+                                      class="v-messages__wrapper"
+                                      name="message-transition"
+                                      tag="div"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="v-card__actions px-0"
+                    >
+                      <button
+                        class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default primary"
+                        type="button"
+                      >
+                        <span
+                          class="v-btn__content"
+                        >
+                          continue
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </transition-stub>
+            <div
+              class="v-stepper__step v-stepper__step--inactive"
+              tabindex="-1"
+            >
+              <span
+                class="v-stepper__step__step"
+              >
+                2
+              </span>
+              <div
+                class="v-stepper__label"
+              >
+                I'm another section
+              </div>
+            </div>
+            <transition-stub
+              name="tab-transition"
+            >
+              <div
+                class="v-stepper__content"
+              >
+                <div
+                  class="v-stepper__wrapper"
+                  style="height: 0px;"
+                >
+                  <div
+                    class="v-card v-card--flat v-sheet theme--light rounded-0"
+                  >
+                    <div
+                      class="v-card__text pa-0"
+                    >
+                      <div
+                        class="col col-12 vjsf-property vjsf-property-verticalStepperProp-allOf-1 pa-0"
+                      >
+                        <div
+                          class="row ma-0 "
+                        >
+                          <div
+                            class="col col-12 vjsf-property vjsf-property-verticalStepperProp-allOf-1-stringProp2 pa-0"
+                          >
+                            <div
+                              class="v-input theme--light v-text-field v-text-field--is-booted"
+                            >
+                              <div
+                                class="v-input__control"
+                              >
+                                <div
+                                  class="v-input__slot"
+                                >
+                                  <div
+                                    class="v-text-field__slot"
+                                  >
+                                    <label
+                                      class="v-label theme--light"
+                                      for="verticalStepperProp-allOf-1-stringProp2"
+                                      style="left: 0px; position: absolute;"
+                                    >
+                                      I'm a required property in section 2
+                                    </label>
+                                    <input
+                                      id="verticalStepperProp-allOf-1-stringProp2"
+                                      type="text"
+                                    />
+                                  </div>
+                                </div>
+                                <div
+                                  class="v-text-field__details"
+                                >
+                                  <div
+                                    class="v-messages theme--light"
+                                  >
+                                    <transition-group-stub
+                                      class="v-messages__wrapper"
+                                      name="message-transition"
+                                      tag="div"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </transition-stub>
           </div>
         </div>
       </div>
@@ -14399,162 +14399,162 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
       class="row ma-0 "
     >
       <div
-        class="row ma-0 pl-2 pt-2"
+        class="col col-12 vjsf-property vjsf-property-tabs pa-0"
       >
-        <span
-          class="py-2 title"
-        >
-          Tabs with required fields 
-        </span>
         <div
-          class="col col-12 vjsf-property vjsf-property-tabs pa-0"
+          class="row ma-0 "
         >
           <div
-            class="row ma-0 "
+            class="col col-12 pa-0"
+          >
+            <span
+              class="py-2 title"
+            >
+              Tabs with required fields 
+            </span>
+          </div>
+          <div
+            class="v-tabs v-tabs--grow theme--light"
           >
             <div
-              class="v-tabs v-tabs--grow theme--light"
+              class="v-item-group theme--light v-slide-group v-tabs-bar v-tabs-bar--is-mobile primary--text"
+              data-booted="true"
+              role="tablist"
             >
               <div
-                class="v-item-group theme--light v-slide-group v-tabs-bar v-tabs-bar--is-mobile primary--text"
-                data-booted="true"
-                role="tablist"
+                class="v-slide-group__prev v-slide-group__prev--disabled"
+              >
+                <transition-stub
+                  name="fade-transition"
+                />
+              </div>
+              <div
+                class="v-slide-group__wrapper"
               >
                 <div
-                  class="v-slide-group__prev v-slide-group__prev--disabled"
-                >
-                  <transition-stub
-                    name="fade-transition"
-                  />
-                </div>
-                <div
-                  class="v-slide-group__wrapper"
+                  class="v-slide-group__content v-tabs-bar__content"
                 >
                   <div
-                    class="v-slide-group__content v-tabs-bar__content"
+                    class="v-tabs-slider-wrapper"
+                    style="height: 2px; left: 0px; width: 0px;"
                   >
                     <div
-                      class="v-tabs-slider-wrapper"
-                      style="height: 2px; left: 0px; width: 0px;"
-                    >
-                      <div
-                        class="v-tabs-slider error"
-                      />
-                    </div>
-                    <a
-                      aria-selected="true"
-                      class="v-tab v-tab--active"
-                      href="#tab-tabs-section1"
-                      role="tab"
-                      tabindex="0"
-                    >
-                      <span
-                        class="error--text"
-                      >
-                        Section 1
-                      </span>
-                    </a>
-                    <a
-                      aria-selected="false"
-                      class="v-tab"
-                      href="#tab-tabs-section2"
-                      role="tab"
-                      tabindex="0"
-                    >
-                      <span
-                        class=""
-                      >
-                        Section 2
-                      </span>
-                    </a>
+                      class="v-tabs-slider error"
+                    />
                   </div>
-                </div>
-                <div
-                  class="v-slide-group__next v-slide-group__next--disabled"
-                >
-                  <transition-stub
-                    name="fade-transition"
-                  />
+                  <a
+                    aria-selected="true"
+                    class="v-tab v-tab--active"
+                    href="#tab-tabs-section1"
+                    role="tab"
+                    tabindex="0"
+                  >
+                    <span
+                      class="error--text"
+                    >
+                      Section 1
+                    </span>
+                  </a>
+                  <a
+                    aria-selected="false"
+                    class="v-tab"
+                    href="#tab-tabs-section2"
+                    role="tab"
+                    tabindex="0"
+                  >
+                    <span
+                      class=""
+                    >
+                      Section 2
+                    </span>
+                  </a>
                 </div>
               </div>
               <div
-                class="v-window v-item-group theme--light v-tabs-items"
+                class="v-slide-group__next v-slide-group__next--disabled"
               >
-                <div
-                  class="v-window__container"
+                <transition-stub
+                  name="fade-transition"
+                />
+              </div>
+            </div>
+            <div
+              class="v-window v-item-group theme--light v-tabs-items"
+            >
+              <div
+                class="v-window__container"
+              >
+                <transition-stub
+                  name="v-window-x-transition"
                 >
-                  <transition-stub
-                    name="v-window-x-transition"
+                  <div
+                    class="v-window-item v-window-item--active"
+                    id="tab-tabs-section1"
+                    style=""
                   >
                     <div
-                      class="v-window-item v-window-item--active"
-                      id="tab-tabs-section1"
-                      style=""
+                      class="v-card v-card--flat v-sheet theme--light rounded-0"
                     >
                       <div
-                        class="v-card v-card--flat v-sheet theme--light rounded-0"
+                        class="v-card__text"
                       >
                         <div
-                          class="v-card__text"
+                          class="col col-12 vjsf-property vjsf-property-tabs-section1 pa-0"
                         >
                           <div
-                            class="col col-12 vjsf-property vjsf-property-tabs-section1 pa-0"
+                            class="row ma-0 "
                           >
                             <div
-                              class="row ma-0 "
+                              class="col col-12 vjsf-property vjsf-property-tabs-section1-requiredStringProp1 pa-0"
                             >
                               <div
-                                class="col col-12 vjsf-property vjsf-property-tabs-section1-requiredStringProp1 pa-0"
+                                class="v-input v-input--has-state v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted error--text"
                               >
                                 <div
-                                  class="v-input v-input--has-state v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted error--text"
+                                  class="v-input__control"
                                 >
                                   <div
-                                    class="v-input__control"
+                                    class="v-input__slot"
                                   >
                                     <div
-                                      class="v-input__slot"
+                                      class="v-text-field__slot"
                                     >
-                                      <div
-                                        class="v-text-field__slot"
+                                      <label
+                                        class="v-label v-label--active theme--light error--text"
+                                        for="tabs-section1-requiredStringProp1"
+                                        style="left: 0px; position: absolute;"
                                       >
-                                        <label
-                                          class="v-label v-label--active theme--light error--text"
-                                          for="tabs-section1-requiredStringProp1"
-                                          style="left: 0px; position: absolute;"
+                                        I'm a required string with min/max length
+                                      </label>
+                                      <input
+                                        id="tabs-section1-requiredStringProp1"
+                                        type="text"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div
+                                    class="v-text-field__details"
+                                  >
+                                    <div
+                                      class="v-messages theme--light error--text"
+                                      role="alert"
+                                    >
+                                      <transition-group-stub
+                                        class="v-messages__wrapper"
+                                        name="message-transition"
+                                        tag="div"
+                                      >
+                                        <div
+                                          class="v-messages__message"
                                         >
-                                          I'm a required string with min/max length
-                                        </label>
-                                        <input
-                                          id="tabs-section1-requiredStringProp1"
-                                          type="text"
-                                        />
-                                      </div>
+                                          10 characters minimum
+                                        </div>
+                                      </transition-group-stub>
                                     </div>
                                     <div
-                                      class="v-text-field__details"
+                                      class="v-counter theme--light"
                                     >
-                                      <div
-                                        class="v-messages theme--light error--text"
-                                        role="alert"
-                                      >
-                                        <transition-group-stub
-                                          class="v-messages__wrapper"
-                                          name="message-transition"
-                                          tag="div"
-                                        >
-                                          <div
-                                            class="v-messages__message"
-                                          >
-                                            10 characters minimum
-                                          </div>
-                                        </transition-group-stub>
-                                      </div>
-                                      <div
-                                        class="v-counter theme--light"
-                                      >
-                                        3 / 100
-                                      </div>
+                                      3 / 100
                                     </div>
                                   </div>
                                 </div>
@@ -14564,67 +14564,67 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                         </div>
                       </div>
                     </div>
-                  </transition-stub>
-                  <transition-stub
-                    name="v-window-x-transition"
+                  </div>
+                </transition-stub>
+                <transition-stub
+                  name="v-window-x-transition"
+                >
+                  <div
+                    class="v-window-item"
+                    id="tab-tabs-section2"
+                    style="display: none;"
                   >
                     <div
-                      class="v-window-item"
-                      id="tab-tabs-section2"
-                      style="display: none;"
+                      class="v-card v-card--flat v-sheet theme--light rounded-0"
                     >
                       <div
-                        class="v-card v-card--flat v-sheet theme--light rounded-0"
+                        class="v-card__text"
                       >
                         <div
-                          class="v-card__text"
+                          class="col col-12 vjsf-property vjsf-property-tabs-section2 pa-0"
                         >
                           <div
-                            class="col col-12 vjsf-property vjsf-property-tabs-section2 pa-0"
+                            class="row ma-0 "
                           >
                             <div
-                              class="row ma-0 "
+                              class="col col-12 vjsf-property vjsf-property-tabs-section2-requiredStringProp2 pa-0"
                             >
                               <div
-                                class="col col-12 vjsf-property vjsf-property-tabs-section2-requiredStringProp2 pa-0"
+                                class="v-input theme--light v-text-field v-text-field--is-booted"
                               >
                                 <div
-                                  class="v-input theme--light v-text-field v-text-field--is-booted"
+                                  class="v-input__control"
                                 >
                                   <div
-                                    class="v-input__control"
+                                    class="v-input__slot"
                                   >
                                     <div
-                                      class="v-input__slot"
+                                      class="v-text-field__slot"
                                     >
-                                      <div
-                                        class="v-text-field__slot"
+                                      <label
+                                        class="v-label theme--light"
+                                        for="tabs-section2-requiredStringProp2"
+                                        style="left: 0px; position: absolute;"
                                       >
-                                        <label
-                                          class="v-label theme--light"
-                                          for="tabs-section2-requiredStringProp2"
-                                          style="left: 0px; position: absolute;"
-                                        >
-                                          I'm another required string
-                                        </label>
-                                        <input
-                                          id="tabs-section2-requiredStringProp2"
-                                          type="text"
-                                        />
-                                      </div>
+                                        I'm another required string
+                                      </label>
+                                      <input
+                                        id="tabs-section2-requiredStringProp2"
+                                        type="text"
+                                      />
                                     </div>
+                                  </div>
+                                  <div
+                                    class="v-text-field__details"
+                                  >
                                     <div
-                                      class="v-text-field__details"
+                                      class="v-messages theme--light"
                                     >
-                                      <div
-                                        class="v-messages theme--light"
-                                      >
-                                        <transition-group-stub
-                                          class="v-messages__wrapper"
-                                          name="message-transition"
-                                          tag="div"
-                                        />
-                                      </div>
+                                      <transition-group-stub
+                                        class="v-messages__wrapper"
+                                        name="message-transition"
+                                        tag="div"
+                                      />
                                     </div>
                                   </div>
                                 </div>
@@ -14634,108 +14634,108 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                         </div>
                       </div>
                     </div>
-                  </transition-stub>
-                </div>
+                  </div>
+                </transition-stub>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div
-        class="row ma-0 pl-2 pt-2"
+        class="col col-12 vjsf-property vjsf-property-panels pa-0"
       >
-        <span
-          class="py-2 title"
-        >
-          Panels with required fields 
-        </span>
         <div
-          class="col col-12 vjsf-property vjsf-property-panels pa-0"
+          class="row ma-0 "
         >
           <div
-            class="row ma-0 "
+            class="col col-12 pa-0"
+          >
+            <span
+              class="py-2 title"
+            >
+              Panels with required fields 
+            </span>
+          </div>
+          <div
+            class="v-item-group theme--light v-expansion-panels"
           >
             <div
-              class="v-item-group theme--light v-expansion-panels"
+              aria-expanded="true"
+              class="v-expansion-panel v-expansion-panel--active v-item--active"
             >
-              <div
+              <button
                 aria-expanded="true"
-                class="v-expansion-panel v-expansion-panel--active v-item--active"
+                class="v-expansion-panel-header v-expansion-panel-header--active"
+                type="button"
               >
-                <button
-                  aria-expanded="true"
-                  class="v-expansion-panel-header v-expansion-panel-header--active"
-                  type="button"
-                >
-                  Section 1
-                  <transition-stub
-                    name="fade-transition"
-                  >
-                    <div
-                      class="v-expansion-panel-header__icon"
-                    >
-                      <i
-                        aria-hidden="true"
-                        class="v-icon notranslate mdi mdi-chevron-down theme--light"
-                      />
-                    </div>
-                  </transition-stub>
-                </button>
+                Section 1
                 <transition-stub
-                  name="expand-transition"
+                  name="fade-transition"
                 >
                   <div
-                    class="v-expansion-panel-content"
+                    class="v-expansion-panel-header__icon"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-chevron-down theme--light"
+                    />
+                  </div>
+                </transition-stub>
+              </button>
+              <transition-stub
+                name="expand-transition"
+              >
+                <div
+                  class="v-expansion-panel-content"
+                >
+                  <div
+                    class="v-expansion-panel-content__wrap"
                   >
                     <div
-                      class="v-expansion-panel-content__wrap"
+                      class="col col-12 vjsf-property vjsf-property-panels-allOf-0 pa-0"
                     >
                       <div
-                        class="col col-12 vjsf-property vjsf-property-panels-allOf-0 pa-0"
+                        class="row ma-0 "
                       >
                         <div
-                          class="row ma-0 "
+                          class="col col-12 vjsf-property vjsf-property-panels-allOf-0-requiredStringProp1 pa-0"
                         >
                           <div
-                            class="col col-12 vjsf-property vjsf-property-panels-allOf-0-requiredStringProp1 pa-0"
+                            class="v-input theme--light v-text-field v-text-field--is-booted"
                           >
                             <div
-                              class="v-input theme--light v-text-field v-text-field--is-booted"
+                              class="v-input__control"
                             >
                               <div
-                                class="v-input__control"
+                                class="v-input__slot"
                               >
                                 <div
-                                  class="v-input__slot"
+                                  class="v-text-field__slot"
                                 >
-                                  <div
-                                    class="v-text-field__slot"
+                                  <label
+                                    class="v-label theme--light"
+                                    for="panels-allOf-0-requiredStringProp1"
+                                    style="left: 0px; position: absolute;"
                                   >
-                                    <label
-                                      class="v-label theme--light"
-                                      for="panels-allOf-0-requiredStringProp1"
-                                      style="left: 0px; position: absolute;"
-                                    >
-                                      I'm a required string
-                                    </label>
-                                    <input
-                                      id="panels-allOf-0-requiredStringProp1"
-                                      type="text"
-                                    />
-                                  </div>
+                                    I'm a required string
+                                  </label>
+                                  <input
+                                    id="panels-allOf-0-requiredStringProp1"
+                                    type="text"
+                                  />
                                 </div>
+                              </div>
+                              <div
+                                class="v-text-field__details"
+                              >
                                 <div
-                                  class="v-text-field__details"
+                                  class="v-messages theme--light"
                                 >
-                                  <div
-                                    class="v-messages theme--light"
-                                  >
-                                    <transition-group-stub
-                                      class="v-messages__wrapper"
-                                      name="message-transition"
-                                      tag="div"
-                                    />
-                                  </div>
+                                  <transition-group-stub
+                                    class="v-messages__wrapper"
+                                    name="message-transition"
+                                    tag="div"
+                                  />
                                 </div>
                               </div>
                             </div>
@@ -14744,98 +14744,98 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                       </div>
                     </div>
                   </div>
-                </transition-stub>
-              </div>
-              <div
-                aria-expanded="false"
-                class="v-expansion-panel"
+                </div>
+              </transition-stub>
+            </div>
+            <div
+              aria-expanded="false"
+              class="v-expansion-panel"
+            >
+              <button
+                class="v-expansion-panel-header error--text"
+                type="button"
               >
-                <button
-                  class="v-expansion-panel-header error--text"
-                  type="button"
-                >
-                  Section 2
-                  <transition-stub
-                    name="fade-transition"
-                  >
-                    <div
-                      class="v-expansion-panel-header__icon"
-                    >
-                      <i
-                        aria-hidden="true"
-                        class="v-icon notranslate mdi mdi-chevron-down theme--light"
-                      />
-                    </div>
-                  </transition-stub>
-                </button>
+                Section 2
                 <transition-stub
-                  name="expand-transition"
+                  name="fade-transition"
                 >
                   <div
-                    class="v-expansion-panel-content"
-                    style="display: none;"
+                    class="v-expansion-panel-header__icon"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-chevron-down theme--light"
+                    />
+                  </div>
+                </transition-stub>
+              </button>
+              <transition-stub
+                name="expand-transition"
+              >
+                <div
+                  class="v-expansion-panel-content"
+                  style="display: none;"
+                >
+                  <div
+                    class="v-expansion-panel-content__wrap"
                   >
                     <div
-                      class="v-expansion-panel-content__wrap"
+                      class="col col-12 vjsf-property vjsf-property-panels-allOf-1 pa-0"
                     >
                       <div
-                        class="col col-12 vjsf-property vjsf-property-panels-allOf-1 pa-0"
+                        class="row ma-0 "
                       >
                         <div
-                          class="row ma-0 "
+                          class="col col-12 vjsf-property vjsf-property-panels-allOf-1-requiredStringProp2 pa-0"
                         >
                           <div
-                            class="col col-12 vjsf-property vjsf-property-panels-allOf-1-requiredStringProp2 pa-0"
+                            class="v-input v-input--has-state v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted error--text"
                           >
                             <div
-                              class="v-input v-input--has-state v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted error--text"
+                              class="v-input__control"
                             >
                               <div
-                                class="v-input__control"
+                                class="v-input__slot"
                               >
                                 <div
-                                  class="v-input__slot"
+                                  class="v-text-field__slot"
                                 >
-                                  <div
-                                    class="v-text-field__slot"
+                                  <label
+                                    class="v-label v-label--active theme--light error--text"
+                                    for="panels-allOf-1-requiredStringProp2"
+                                    style="left: 0px; position: absolute;"
                                   >
-                                    <label
-                                      class="v-label v-label--active theme--light error--text"
-                                      for="panels-allOf-1-requiredStringProp2"
-                                      style="left: 0px; position: absolute;"
+                                    I'm a required string with min/max length
+                                  </label>
+                                  <input
+                                    id="panels-allOf-1-requiredStringProp2"
+                                    type="text"
+                                  />
+                                </div>
+                              </div>
+                              <div
+                                class="v-text-field__details"
+                              >
+                                <div
+                                  class="v-messages theme--light error--text"
+                                  role="alert"
+                                >
+                                  <transition-group-stub
+                                    class="v-messages__wrapper"
+                                    name="message-transition"
+                                    tag="div"
+                                  >
+                                    <div
+                                      class="v-messages__message"
                                     >
-                                      I'm a required string with min/max length
-                                    </label>
-                                    <input
-                                      id="panels-allOf-1-requiredStringProp2"
-                                      type="text"
-                                    />
-                                  </div>
+                                      10 characters minimum
+                                    </div>
+                                  </transition-group-stub>
                                 </div>
                                 <div
-                                  class="v-text-field__details"
+                                  class="v-counter theme--light"
                                 >
-                                  <div
-                                    class="v-messages theme--light error--text"
-                                    role="alert"
-                                  >
-                                    <transition-group-stub
-                                      class="v-messages__wrapper"
-                                      name="message-transition"
-                                      tag="div"
-                                    >
-                                      <div
-                                        class="v-messages__message"
-                                      >
-                                        10 characters minimum
-                                      </div>
-                                    </transition-group-stub>
-                                  </div>
-                                  <div
-                                    class="v-counter theme--light"
-                                  >
-                                    3 / 100
-                                  </div>
+                                  3 / 100
                                 </div>
                               </div>
                             </div>
@@ -14844,8 +14844,8 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                       </div>
                     </div>
                   </div>
-                </transition-stub>
-              </div>
+                </div>
+              </transition-stub>
             </div>
           </div>
         </div>
@@ -18671,103 +18671,103 @@ exports[`Examples used as simple test cases Tuples 1`] = `
       class="row ma-0 "
     >
       <div
-        class="row ma-0 pl-2 pt-2"
+        class="col col-12 vjsf-property vjsf-property-numberTupleProp pa-0"
       >
-        <span
-          class="py-2 title"
-        >
-          I'm a tuple of 2 numbers 
-        </span>
         <div
-          class="col col-12 vjsf-property vjsf-property-numberTupleProp pa-0"
+          class="row ma-0 "
         >
           <div
-            class="row ma-0 "
+            class="col col-12 pa-0"
+          >
+            <span
+              class="py-2 title"
+            >
+              I'm a tuple of 2 numbers 
+            </span>
+          </div>
+          <div
+            class="col col-12 vjsf-property vjsf-property-numberTupleProp-0 pa-0"
           >
             <div
-              class="col col-12 vjsf-property vjsf-property-numberTupleProp-0 pa-0"
+              class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
             >
               <div
-                class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
+                class="v-input__control"
               >
                 <div
-                  class="v-input__control"
+                  class="v-input__slot"
                 >
                   <div
-                    class="v-input__slot"
+                    class="v-text-field__slot"
                   >
-                    <div
-                      class="v-text-field__slot"
+                    <label
+                      class="v-label v-label--active theme--light"
+                      for="numberTupleProp-0"
+                      style="left: 0px; position: absolute;"
                     >
-                      <label
-                        class="v-label v-label--active theme--light"
-                        for="numberTupleProp-0"
-                        style="left: 0px; position: absolute;"
-                      >
-                        I'm a number
-                      </label>
-                      <input
-                        id="numberTupleProp-0"
-                        type="number"
-                      />
-                    </div>
+                      I'm a number
+                    </label>
+                    <input
+                      id="numberTupleProp-0"
+                      type="number"
+                    />
                   </div>
+                </div>
+                <div
+                  class="v-text-field__details"
+                >
                   <div
-                    class="v-text-field__details"
+                    class="v-messages theme--light"
                   >
-                    <div
-                      class="v-messages theme--light"
-                    >
-                      <transition-group-stub
-                        class="v-messages__wrapper"
-                        name="message-transition"
-                        tag="div"
-                      />
-                    </div>
+                    <transition-group-stub
+                      class="v-messages__wrapper"
+                      name="message-transition"
+                      tag="div"
+                    />
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+          <div
+            class="col col-12 vjsf-property vjsf-property-numberTupleProp-1 pa-0"
+          >
             <div
-              class="col col-12 vjsf-property vjsf-property-numberTupleProp-1 pa-0"
+              class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
             >
               <div
-                class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
+                class="v-input__control"
               >
                 <div
-                  class="v-input__control"
+                  class="v-input__slot"
                 >
                   <div
-                    class="v-input__slot"
+                    class="v-text-field__slot"
                   >
-                    <div
-                      class="v-text-field__slot"
+                    <label
+                      class="v-label v-label--active theme--light"
+                      for="numberTupleProp-1"
+                      style="left: 0px; position: absolute;"
                     >
-                      <label
-                        class="v-label v-label--active theme--light"
-                        for="numberTupleProp-1"
-                        style="left: 0px; position: absolute;"
-                      >
-                        I'm another number
-                      </label>
-                      <input
-                        id="numberTupleProp-1"
-                        type="number"
-                      />
-                    </div>
+                      I'm another number
+                    </label>
+                    <input
+                      id="numberTupleProp-1"
+                      type="number"
+                    />
                   </div>
+                </div>
+                <div
+                  class="v-text-field__details"
+                >
                   <div
-                    class="v-text-field__details"
+                    class="v-messages theme--light"
                   >
-                    <div
-                      class="v-messages theme--light"
-                    >
-                      <transition-group-stub
-                        class="v-messages__wrapper"
-                        name="message-transition"
-                        tag="div"
-                      />
-                    </div>
+                    <transition-group-stub
+                      class="v-messages__wrapper"
+                      name="message-transition"
+                      tag="div"
+                    />
                   </div>
                 </div>
               </div>
@@ -18776,103 +18776,103 @@ exports[`Examples used as simple test cases Tuples 1`] = `
         </div>
       </div>
       <div
-        class="row ma-0 pl-2 pt-2"
+        class="col col-12 vjsf-property vjsf-property-stringTupleProp pa-0"
       >
-        <span
-          class="py-2 title"
-        >
-          I'm a tuple of 2 strings, first one is required 
-        </span>
         <div
-          class="col col-12 vjsf-property vjsf-property-stringTupleProp pa-0"
+          class="row ma-0 "
         >
           <div
-            class="row ma-0 "
+            class="col col-12 pa-0"
+          >
+            <span
+              class="py-2 title"
+            >
+              I'm a tuple of 2 strings, first one is required 
+            </span>
+          </div>
+          <div
+            class="col col-12 vjsf-property vjsf-property-stringTupleProp-0 pa-0"
           >
             <div
-              class="col col-12 vjsf-property vjsf-property-stringTupleProp-0 pa-0"
+              class="v-input theme--light v-text-field v-text-field--is-booted"
             >
               <div
-                class="v-input theme--light v-text-field v-text-field--is-booted"
+                class="v-input__control"
               >
                 <div
-                  class="v-input__control"
+                  class="v-input__slot"
                 >
                   <div
-                    class="v-input__slot"
+                    class="v-text-field__slot"
                   >
-                    <div
-                      class="v-text-field__slot"
+                    <label
+                      class="v-label theme--light"
+                      for="stringTupleProp-0"
+                      style="left: 0px; position: absolute;"
                     >
-                      <label
-                        class="v-label theme--light"
-                        for="stringTupleProp-0"
-                        style="left: 0px; position: absolute;"
-                      >
-                        I'm a required string
-                      </label>
-                      <input
-                        id="stringTupleProp-0"
-                        type="text"
-                      />
-                    </div>
+                      I'm a required string
+                    </label>
+                    <input
+                      id="stringTupleProp-0"
+                      type="text"
+                    />
                   </div>
+                </div>
+                <div
+                  class="v-text-field__details"
+                >
                   <div
-                    class="v-text-field__details"
+                    class="v-messages theme--light"
                   >
-                    <div
-                      class="v-messages theme--light"
-                    >
-                      <transition-group-stub
-                        class="v-messages__wrapper"
-                        name="message-transition"
-                        tag="div"
-                      />
-                    </div>
+                    <transition-group-stub
+                      class="v-messages__wrapper"
+                      name="message-transition"
+                      tag="div"
+                    />
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+          <div
+            class="col col-12 vjsf-property vjsf-property-stringTupleProp-1 pa-0"
+          >
             <div
-              class="col col-12 vjsf-property vjsf-property-stringTupleProp-1 pa-0"
+              class="v-input theme--light v-text-field v-text-field--is-booted"
             >
               <div
-                class="v-input theme--light v-text-field v-text-field--is-booted"
+                class="v-input__control"
               >
                 <div
-                  class="v-input__control"
+                  class="v-input__slot"
                 >
                   <div
-                    class="v-input__slot"
+                    class="v-text-field__slot"
                   >
-                    <div
-                      class="v-text-field__slot"
+                    <label
+                      class="v-label theme--light"
+                      for="stringTupleProp-1"
+                      style="left: 0px; position: absolute;"
                     >
-                      <label
-                        class="v-label theme--light"
-                        for="stringTupleProp-1"
-                        style="left: 0px; position: absolute;"
-                      >
-                        I'm a string
-                      </label>
-                      <input
-                        id="stringTupleProp-1"
-                        type="text"
-                      />
-                    </div>
+                      I'm a string
+                    </label>
+                    <input
+                      id="stringTupleProp-1"
+                      type="text"
+                    />
                   </div>
+                </div>
+                <div
+                  class="v-text-field__details"
+                >
                   <div
-                    class="v-text-field__details"
+                    class="v-messages theme--light"
                   >
-                    <div
-                      class="v-messages theme--light"
-                    >
-                      <transition-group-stub
-                        class="v-messages__wrapper"
-                        name="message-transition"
-                        tag="div"
-                      />
-                    </div>
+                    <transition-group-stub
+                      class="v-messages__wrapper"
+                      name="message-transition"
+                      tag="div"
+                    />
                   </div>
                 </div>
               </div>
