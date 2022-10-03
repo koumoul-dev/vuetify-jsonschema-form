@@ -27,11 +27,13 @@ const schema = {
       },
       allOf: [{
         title: `I'm a subsection`,
+        'x-cols': 6,
         properties: {
           stringProp3: { type: 'string', title: `I'm a property in subsection 2.1` }
         }
       }, {
         title: `I'm another subsection`,
+        'x-cols': 6,
         properties: {
           stringProp4: { type: 'string', title: `I'm a property in subsection 2.2` }
         }
