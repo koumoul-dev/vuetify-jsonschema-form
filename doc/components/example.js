@@ -3,7 +3,6 @@ import Draggable from 'vuedraggable'
 import '../../lib/deps/third-party.js'
 import VJsf from '../../lib/VJsf.js'
 import '../../lib/VJsf.css'
-import EasyMDE from 'easymde/dist/easymde.min.js'
 import 'easymde/dist/easymde.min.css'
 import VJsfTiptap from './wrappers/v-jsf-tiptap.vue'
 import VJsfToastUiEditor from './wrappers/v-jsf-toast-ui-editor.vue'
@@ -12,8 +11,6 @@ import VJsfTable from './wrappers/v-jsf-table.vue'
 import { defaultTemplate } from '../examples'
 
 Vue.component('Draggable', Draggable)
-
-global.EasyMDE = EasyMDE
 
 export default {
   components: { VJsf, VJsfTiptap, VJsfToastUiEditor, VJsfCropImg, VJsfTable },
@@ -31,6 +28,9 @@ export default {
     model () {
       this.params.model = this.model
     }
+  },
+  async mounted() {
+    global.EasyMDE = (await import('easymde/src/js/easymde.js')).default
   },
   render (h) {
     this.compiledTemplate = this.compiledTemplate || Vue.compile(this.template || defaultTemplate)

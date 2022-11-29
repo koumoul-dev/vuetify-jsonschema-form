@@ -114,7 +114,7 @@
         @click.stop="drawer = !drawer"
       />
       <search-widget
-        df-url="https://koumoul.com/s/data-fair"
+        df-url="https://koumoul.com/data-fair"
         dataset-id="vjsf-1"
         :menu-props="{'nudge-left': $vuetify.breakpoint.smAndDown ? 20 : 0}"
         :replace-url="{'https://koumoul-dev.github.io/vuetify-jsonschema-form/latest': ''}"

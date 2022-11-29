@@ -1,12 +1,15 @@
 <template>
   <v-container class="examples-container">
-    <template v-for="(examplesGroup, i) in examples">
+    <div
+      v-for="(examplesGroup, i) in examples"
+      :key="i"
+    >
       <example-wrapper
         v-for="(example, j) in examplesGroup.examples"
         :key="`${i}-${j}`"
         :params="example"
       />
-    </template>
+    </div>
   </v-container>
 </template>
 
@@ -24,7 +27,8 @@ export default {
     }
   },
   mounted () {
-    if (this.$route.hash) {
+    // depcrecated now that we use SSR
+    if (this.$route.hash && process.client) {
       location.hash = this.$route.hash
       scrollToHash(this.$route.hash, false)
     }

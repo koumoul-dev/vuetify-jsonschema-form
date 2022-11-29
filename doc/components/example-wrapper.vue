@@ -38,55 +38,55 @@
         :dark="dark"
         outlined
       >
-        <v-toolbar
-          dark
-          dense
-          flat
-        >
-          <v-spacer />
-          <v-btn
-            icon
-            title="dark mode / light mode"
-            @click="dark = !dark"
+        <client-only>
+          <v-toolbar
+            dark
+            dense
+            flat
           >
-            <v-icon>mdi-invert-colors</v-icon>
-          </v-btn>
-          <v-btn
-            icon
-            title="show parameters"
-            @click="showCode = showCode ? 0 : 1"
-          >
-            <v-icon>mdi-code-braces</v-icon>
-          </v-btn>
-          <form
-            action="https://codepen.io/pen/define"
-            method="POST"
-            target="_blank"
-          >
-            <input
-              type="hidden"
-              name="data"
-              :value="JSON.stringify(codepenParams)"
-            >
+            <v-spacer />
             <v-btn
               icon
-              title="open example in codepen"
-              type="submit"
+              title="dark mode / light mode"
+              @click="dark = !dark"
             >
-              <v-icon>mdi-codepen</v-icon>
+              <v-icon>mdi-invert-colors</v-icon>
             </v-btn>
-          </form>
-        </v-toolbar>
-        <v-alert
-          v-if="ajvError && valid"
-          color="error"
-          dark
-          tile
-        >
-          <p>Warning ! V-jsf considered this form valid while a JSON schema validator dit not. This is not normal and you might consider filing a bug report.</p>
-          <pre>{{ ajvError }}</pre>
-        </v-alert>
-        <client-only>
+            <v-btn
+              icon
+              title="show parameters"
+              @click="showCode = showCode ? 0 : 1"
+            >
+              <v-icon>mdi-code-braces</v-icon>
+            </v-btn>
+            <form
+              action="https://codepen.io/pen/define"
+              method="POST"
+              target="_blank"
+            >
+              <input
+                type="hidden"
+                name="data"
+                :value="JSON.stringify(codepenParams)"
+              >
+              <v-btn
+                icon
+                title="open example in codepen"
+                type="submit"
+              >
+                <v-icon>mdi-codepen</v-icon>
+              </v-btn>
+            </form>
+          </v-toolbar>
+          <v-alert
+            v-if="ajvError && valid"
+            color="error"
+            dark
+            tile
+          >
+            <p>Warning ! V-jsf considered this form valid while a JSON schema validator did not. This is not normal and you might consider filing a bug report.</p>
+            <pre>{{ ajvError }}</pre>
+          </v-alert>
           <v-card-text
             class="pb-12"
             style="min-height: 120px; position: relative;"
@@ -242,6 +242,7 @@ export default {
       return ajv.compile(this.resolvedSchema)
     },
     ajvError () {
+      if (!process.client) return null
       const valid = this.validate(this.params.model)
       if (!valid) {
         ajvLocalize.en(this.validate.errors)

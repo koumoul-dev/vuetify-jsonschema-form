@@ -39,11 +39,10 @@
 // cf https://github.com/nhn/tui.editor/tree/master/apps/vue-editor
 import 'codemirror/lib/codemirror.css'
 import '@toast-ui/editor/dist/toastui-editor.css'
-import { Editor } from '@toast-ui/vue-editor'
 import sanitizeHtml from 'sanitize-html'
 
 export default {
-  components: { Editor },
+  components: { Editor: () => import('@toast-ui/vue-editor').Editor },
   // available props are the contextual elements passed by v-jsf to its slots
   props: {
     value: { type: String, default: '' },

@@ -2,7 +2,7 @@ import colors from 'vuetify/lib/util/colors'
 const path = require('path')
 
 module.exports = {
-  ssr: false,
+  ssr: true,
   build: {
     transpile: [/@koumoul/, 'tiptap-vuetify', /lib/],
     extend (config, ctx) {

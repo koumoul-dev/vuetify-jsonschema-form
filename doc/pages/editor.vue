@@ -47,44 +47,46 @@
         </v-card>
       </v-col>
       <v-col cols="8">
-        <v-form
-          ref="form"
-          v-model="valid"
-        >
-          <v-jsf
-            v-model="model"
-            :schema="schema"
+        <client-only>
+          <v-form
+            ref="form"
+            v-model="valid"
           >
-            <template
-              slot="custom-tiptap"
-              slot-scope="context"
+            <v-jsf
+              v-model="model"
+              :schema="schema"
             >
-              <v-jsf-tiptap v-bind="context" />
-            </template>
-            <template
-              slot="custom-toast-ui-editor"
-              slot-scope="context"
+              <template
+                slot="custom-tiptap"
+                slot-scope="context"
+              >
+                <v-jsf-tiptap v-bind="context" />
+              </template>
+              <template
+                slot="custom-toast-ui-editor"
+                slot-scope="context"
+              >
+                <v-jsf-toast-ui-editor v-bind="context" />
+              </template>
+              <template
+                slot="custom-avatar"
+                slot-scope="context"
+              >
+                <v-jsf-crop-img v-bind="context" />
+              </template>
+            </v-jsf>
+          </v-form>
+          <v-row class="mt-2">
+            <v-spacer />
+            <v-btn
+              :color="valid ? 'primary' : 'warning'"
+              @click="$refs.form.validate()"
             >
-              <v-jsf-toast-ui-editor v-bind="context" />
-            </template>
-            <template
-              slot="custom-avatar"
-              slot-scope="context"
-            >
-              <v-jsf-crop-img v-bind="context" />
-            </template>
-          </v-jsf>
-        </v-form>
-        <v-row class="mt-2">
-          <v-spacer />
-          <v-btn
-            :color="valid ? 'primary' : 'warning'"
-            @click="$refs.form.validate()"
-          >
-            validate
-          </v-btn>
-          <v-spacer />
-        </v-row>
+              validate
+            </v-btn>
+            <v-spacer />
+          </v-row>
+        </client-only>
       </v-col>
     </v-row>
   </v-container>
@@ -99,14 +101,14 @@ import VJsfToastUiEditor from '~/components/wrappers/v-jsf-toast-ui-editor.vue'
 import VJsfCropImg from '~/components/wrappers/v-jsf-crop-img.vue'
 import YAML from 'yaml'
 
-const ace = require('brace')
-require('brace/mode/json')
-require('brace/mode/yaml')
+// const ace = require('brace')
+// require('brace/mode/json')
+// require('brace/mode/yaml')
 // const theme = 'ace/theme/monokai'
 // const theme = 'ace/theme/vibrant_ink'
-const theme = 'ace/theme/vibrant_ink'
+// const theme = 'ace/theme/vibrant_ink'
 // require('br' + theme)
-require('brace/theme/vibrant_ink')
+// require('brace/theme/vibrant_ink')
 
 // cf https://github.com/ajaxorg/ace/wiki/Configuring-Ace
 const aceOptions = {
@@ -146,19 +148,24 @@ export default {
     }
   },
   async mounted () {
+    const ace = (await import('brace')).default
+    await import('brace/mode/json')
+    await import('brace/mode/yaml')
+    // const theme = await import('ace/theme/vibrant_ink')
+    // const theme = await import('brace/theme/vibrant_ink')
     await this.$nextTick()
     this.editors = {}
     const jsonEditor = this.editors.json = ace.edit('json-editor')
     jsonEditor.setOptions(aceOptions)
     jsonEditor.getSession().setMode('ace/mode/json')
-    jsonEditor.setTheme(theme)
+    // jsonEditor.setTheme(theme)
     jsonEditor.setValue(JSON.stringify(this.schema))
     // this.openEditor(jsonEditor)
 
     const yamlEditor = this.editors.yaml = ace.edit('yaml-editor')
     yamlEditor.setOptions(aceOptions)
     yamlEditor.getSession().setMode('ace/mode/yaml')
-    yamlEditor.setTheme(theme)
+    // yamlEditor.setTheme(theme)
     yamlEditor.setValue(YAML.stringify(this.schema))
 
     jsonEditor.session.on('change', () => {
