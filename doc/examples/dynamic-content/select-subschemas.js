@@ -4,7 +4,10 @@ const title = 'Selects of sub-schemas'
 
 const description = `An object containing a \`oneOf\` or \`anyOf\` with varying properties can be represented as a select used to switch between the sub-schemas.
 
-A \`const\` property is required to be used as unique key of a \`oneOf\` element.`
+A \`const\` property is required to be used as unique key of a \`oneOf\` element.
+
+You can change the select field to an auto-complete component with \`x-display = "autocomplete"\`.
+`
 
 const schema = {
   type: 'object',
