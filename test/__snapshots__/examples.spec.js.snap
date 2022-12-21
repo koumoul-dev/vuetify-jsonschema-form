@@ -3660,6 +3660,160 @@ exports[`Examples used as simple test cases Default values 1`] = `
 </form>
 `;
 
+exports[`Examples used as simple test cases Descriptions can be direct links 1`] = `
+<form
+  class="v-form"
+  novalidate="novalidate"
+>
+  <div
+    class="col col-12 vjsf-property vjsf-property-root pa-0"
+  >
+    <div
+      class="row ma-0 "
+    >
+      <div
+        class="col col-12 vjsf-property vjsf-property-stringProp pa-0"
+      >
+        <div
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-text-field__slot"
+              >
+                <label
+                  class="v-label v-label--active theme--light"
+                  for="stringProp"
+                  style="left: 0px; position: absolute;"
+                >
+                  I have a normal help message
+                </label>
+                <input
+                  id="stringProp"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="v-input__append-outer"
+          >
+            <button
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
+              style="pointer-events: auto;"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-information theme--light"
+                />
+              </span>
+            </button>
+            <span
+              class="v-tooltip v-tooltip--left"
+            >
+              <!---->
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 vjsf-property vjsf-property-booleanProp pa-0"
+      >
+        <div
+          class="v-input v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--checkbox primary--text"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-input--selection-controls__input"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-checkbox-marked theme--light primary--text"
+                />
+                <input
+                  aria-checked="true"
+                  id="booleanProp"
+                  role="checkbox"
+                  type="checkbox"
+                  value="true"
+                />
+                <div
+                  class="v-input--selection-controls__ripple primary--text"
+                />
+              </div>
+              <label
+                class="v-label theme--light"
+                for="booleanProp"
+                style="left: 0px; position: relative;"
+              >
+                I have a link only help message
+              </label>
+            </div>
+            <div
+              class="v-messages theme--light primary--text"
+            >
+              <transition-group-stub
+                class="v-messages__wrapper"
+                name="message-transition"
+                tag="div"
+              />
+            </div>
+          </div>
+          <div
+            class="v-input__append-outer"
+          >
+            <a
+              class="v-btn v-btn--icon v-btn--left v-btn--round theme--light v-size--default"
+              href="https://www.example.org"
+              style="pointer-events: auto;"
+              target="_blank"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-information theme--light"
+                />
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`Examples used as simple test cases Directives 1`] = `
 <form
   class="v-form"
