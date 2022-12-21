@@ -1171,6 +1171,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
             <button
               aria-expanded="false"
               aria-haspopup="true"
+              aria-label="description"
               class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
@@ -1449,6 +1450,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
             <button
               aria-expanded="false"
               aria-haspopup="true"
+              aria-label="description"
               class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
@@ -1532,6 +1534,7 @@ exports[`Examples used as simple test cases Basic types 1`] = `
             <button
               aria-expanded="false"
               aria-haspopup="true"
+              aria-label="description"
               class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
@@ -2224,6 +2227,7 @@ exports[`Examples used as simple test cases Colors 1`] = `
             <button
               aria-expanded="false"
               aria-haspopup="true"
+              aria-label="description"
               class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
@@ -3330,6 +3334,7 @@ exports[`Examples used as simple test cases Dates 1`] = `
             <button
               aria-expanded="false"
               aria-haspopup="true"
+              aria-label="description"
               class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
@@ -3719,6 +3724,7 @@ exports[`Examples used as simple test cases Descriptions can be direct links 1`]
             <button
               aria-expanded="false"
               aria-haspopup="true"
+              aria-label="description"
               class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
@@ -3792,6 +3798,7 @@ exports[`Examples used as simple test cases Descriptions can be direct links 1`]
             class="v-input__append-outer"
           >
             <a
+              aria-label="description"
               class="v-btn v-btn--icon v-btn--left v-btn--round theme--light v-size--default"
               href="https://www.example.org"
               style="pointer-events: auto;"
@@ -10983,6 +10990,7 @@ exports[`Examples used as simple test cases Nested allOfs and oneOfs 1`] = `
           <button
             aria-expanded="false"
             aria-haspopup="true"
+            aria-label="description"
             class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
             style="pointer-events: auto;"
             type="button"
@@ -12022,6 +12030,7 @@ exports[`Examples used as simple test cases Read only content 1`] = `
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
+                  aria-label="description"
                   class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
                   style="pointer-events: auto;"
                   type="button"
@@ -15124,6 +15133,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
             <button
               aria-expanded="false"
               aria-haspopup="true"
+              aria-label="description"
               class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
@@ -15257,6 +15267,7 @@ exports[`Examples used as simple test cases Selection controls 1`] = `
             <button
               aria-expanded="false"
               aria-haspopup="true"
+              aria-label="description"
               class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
@@ -15502,6 +15513,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <button
               aria-expanded="false"
               aria-haspopup="true"
+              aria-label="description"
               class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
@@ -15845,6 +15857,7 @@ exports[`Examples used as simple test cases Selects 1`] = `
             <button
               aria-expanded="false"
               aria-haspopup="true"
+              aria-label="description"
               class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
@@ -16700,6 +16713,7 @@ exports[`Examples used as simple test cases Selects from HTTP 1`] = `
             <button
               aria-expanded="false"
               aria-haspopup="true"
+              aria-label="description"
               class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
@@ -16813,6 +16827,7 @@ exports[`Examples used as simple test cases Selects of sub-schemas 1`] = `
           <button
             aria-expanded="false"
             aria-haspopup="true"
+            aria-label="description"
             class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
             style="pointer-events: auto;"
             type="button"
@@ -19157,6 +19172,7 @@ exports[`Examples used as simple test cases Vuetify props 1`] = `
             <button
               aria-expanded="false"
               aria-haspopup="true"
+              aria-label="description"
               class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
@@ -19298,6 +19314,7 @@ exports[`Examples used as simple test cases resolved schema 1`] = `
             <button
               aria-expanded="false"
               aria-haspopup="true"
+              aria-label="description"
               class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
               style="pointer-events: auto;"
               type="button"
