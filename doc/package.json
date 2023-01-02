@@ -26,7 +26,7 @@
     "jest": "^26.1.0",
     "jest-serializer-vue": "^2.0.2",
     "markdown-it": "^12.3.2",
-    "nuxt": "^2.15.8",
+    "nuxt": "^3.0.0",
     "property-expr": "^2.0.5",
     "random-words": "^1.1.0",
     "sanitize-html": "^2.6.1",
