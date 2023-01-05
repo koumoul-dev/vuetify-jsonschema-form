@@ -115,7 +115,7 @@
       />
       <search-widget
         df-url="https://koumoul.com/data-fair"
-        dataset-id="vjsf-1"
+        dataset-id="vjsf-doc"
         :menu-props="{'nudge-left': $vuetify.breakpoint.smAndDown ? 20 : 0}"
         :replace-url="{'https://koumoul-dev.github.io/vuetify-jsonschema-form/latest': ''}"
         :to-links="true"
