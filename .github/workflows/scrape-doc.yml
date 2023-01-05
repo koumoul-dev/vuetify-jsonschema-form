@@ -1,4 +1,4 @@
-name: Publish documentation
+name: Scrape documentation for search engine
 
 on:
   push:
