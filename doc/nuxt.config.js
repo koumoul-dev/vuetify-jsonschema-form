@@ -1,6 +1,8 @@
 import colors from 'vuetify/lib/util/colors'
 const path = require('path')
 
+const targetURL = new URL(process.env.TARGET || 'http://localhost:3133/')
+
 module.exports = {
   ssr: true,
   build: {
@@ -24,6 +26,9 @@ module.exports = {
     { src: '~/plugins/mask.js', ssr: false },
     { src: '~/plugins/tiptap-vuetify.js', ssr: false }
   ],
+  sitemap: {
+    hostname: targetURL.origin
+  },
   vuetify: {
     // uncomment to test mdiSvg support
     /* defaultAssets: {
@@ -42,7 +47,7 @@ module.exports = {
     }
   },
   router: {
-    base: process.env.BASE || '/'
+    base: targetURL.pathname
   },
   head: {
     title: 'vjsf - Documentation',
