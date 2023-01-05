@@ -13,7 +13,8 @@ module.exports = {
     }
   },
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/sitemap'
   ],
   buildModules: [
     '@nuxtjs/vuetify'
