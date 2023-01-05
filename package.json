@@ -13,7 +13,7 @@
     "test-watch": "jest --watch",
     "test-update": "jest --updateSnapshot",
     "doc-build": "(cd doc && BASE=/vuetify-jsonschema-form/latest/ nuxt generate)",
-    "doc-master": "(cd doc && BASE=/vuetify-jsonschema-form/master/ nuxt generate) && gh-pages-multi deploy -v -s doc/dist -t maste",
+    "doc-master": "(cd doc && BASE=/vuetify-jsonschema-form/master/ nuxt generate) && gh-pages-multi deploy -v -s doc/dist -t master",
     "analyze": "webpack --profile --json > dist/stats.json && webpack-bundle-analyzer dist/stats.json"
   },
   "jest": {
