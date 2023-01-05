@@ -90,7 +90,7 @@
     "random-words": "^1.1.2",
     "v-mask": "^2.3.0",
     "vue-axios": "^2.1.5",
-    "vue-jest": "^3.0.7",
+    "vue-jest": "^4.0.1",
     "vue-loader": "^15.9.8",
     "webpack": "^5.72.0",
     "webpack-bundle-analyzer": "^4.5.0",
