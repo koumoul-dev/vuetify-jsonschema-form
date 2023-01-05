@@ -1,0 +1,14 @@
+name: Publish documentation
+
+on:
+  push:
+    branches: [ 'master' ]
+    tags: [ 'v*.*.*' ]
+
+jobs:
+  publish-doc:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -XPOST "${{ secrets.TRIGGER_DOC_SCRAPING }}&delay=300"
+
