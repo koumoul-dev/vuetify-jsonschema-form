@@ -2,7 +2,7 @@ name: Scrape documentation for search engine
 
 on:
   push:
-    branches: [ 'master' ]
+    # branches: [ 'master' ]
     tags: [ 'v*.*.*' ]
 
 jobs:
