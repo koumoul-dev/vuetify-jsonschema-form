@@ -57,20 +57,17 @@
               :schema="schema"
             >
               <template
-                slot="custom-tiptap"
-                slot-scope="context"
+                v-slot:custom-tiptap="context"
               >
                 <v-jsf-tiptap v-bind="context" />
               </template>
               <template
-                slot="custom-toast-ui-editor"
-                slot-scope="context"
+                v-slot:custom-toast-ui-editor="context"
               >
                 <v-jsf-toast-ui-editor v-bind="context" />
               </template>
               <template
-                slot="custom-avatar"
-                slot-scope="context"
+                v-slot:custom-avatar="context"
               >
                 <v-jsf-crop-img v-bind="context" />
               </template>

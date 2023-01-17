@@ -27,7 +27,7 @@ exports.getExampleWrapper = (example) => {
     .replace('"options"', '"props.options"')
     .replace(/logEvent/g, 'props.logEvent')
 
-  if (template.includes('slot-scope')) {
+  if (template.includes('v-slot:')) {
     // TODO: investigate
     console.log('No test for example with scoped slots')
     return

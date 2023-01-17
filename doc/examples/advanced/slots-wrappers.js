@@ -108,16 +108,16 @@ const model = {
 }
 
 const template = `<v-jsf v-model="model" :schema="schema" :options="options">
-  <template slot="custom-tiptap" slot-scope="context">
+  <template v-slot:custom-tiptap="context">
     <v-jsf-tiptap v-bind="context" />
   </template>
-  <template slot="custom-toast-ui-editor" slot-scope="context">
+  <template v-slot:custom-toast-ui-editor="context">
     <v-jsf-toast-ui-editor v-bind="context" />
   </template>
-  <template slot="custom-avatar" slot-scope="context">
+  <template v-slot:custom-avatar="context">
     <v-jsf-crop-img v-bind="context" />
   </template>
-  <template slot="custom-table" slot-scope="context">
+  <template v-slot:custom-table="context">
       <v-jsf-table v-bind="context" />
   </template>
 </v-jsf>`
