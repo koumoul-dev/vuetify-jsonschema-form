@@ -20,7 +20,7 @@ See [CONTRIBUTE.md](./CONTRIBUTE.md).
 
 ## What comes next ?
 
-I think a few thinks converge toward rethinking and rewriting large parts of vjsf.
+I think a few things converge toward rethinking and rewriting large parts of vjsf.
 
   - major versions of frameworks and greater maturity of libraries and schema specifications
   - performance issues on large schemas inherent to the way reactivity is implemented
@@ -30,7 +30,8 @@ Next are a few ideas about how things could look on the next major version. Some
 
 ### Vocabulary / expressivity
 
-  - define a [form or display or layout vocabulary](https://github.com/koumoul-dev/vuetify-jsonschema-form/issues/304) ?
+  - define a [layout vocabulary](https://github.com/koumoul-dev/vuetify-jsonschema-form/issues/304) ?
+  - maybe layout would be better defined using a JTD mostly for better typescript leverage in the lib ?
   - use a common [data vocabulary](https://github.com/koumoul-dev/vuetify-jsonschema-form/issues/306) in replacement of x-fromUrl and x-fromData ?
   - implement [explicit layout management](https://github.com/koumoul-dev/vuetify-jsonschema-form/issues/293) as well as the current implicit layout
   - better distinction between disabled (fields are rendered but not active) and readonly (content is rendered purely for reading, does not even look like a form) ?
@@ -68,22 +69,21 @@ If we manage to implement a saner reactivity system and by leveraging the separa
 
 The following is an initial proposition. It needs more thinking and testing.
 
-The core manages:
+The core:
 
-  - layout object construction from schema and other layout object manipulations
-  - model reactivity, root model immutability
-  - global form validation (errorMessages are then dispatched to individual properties)
-  - data fetching
-  - a generic component "vjsf-property" that
-    - propagates schema validation information
+  - manages layout object construction from schema and other layout object manipulations
+  - manages model reactivity, root model immutability, full model initialization, etc
+  - manages schema validation
+  - manages data fetching
+  - provides a generic component "vjsf-property" 
     - renders the component provided by the lib "vjsf-property-lib" or a custom component or a slot, all with a homogenous signature (value, layout, errorMessages, @input, @change, etc.)
     - maybe also render some standard slots like before and after ?
     - uses the provide/inject pattern for awareness of ifs parent and children
-  - renders the generic component once for the root object
+  - renders vjsf-property once for the root object
 
-The components lib provides:
+The components lib:
 
-  - a main "vjsf-property-lib" component that has a common props and events signature as simple as possible to work with the core vjsf-property component (value, layout, errorMessages, @input, @change) then uses components from the target UI framework (vuetify by default)
+  - provides a main "vjsf-property-lib" component that has a common props and events signature as simple as possible to work with the core vjsf-property component (value, layout, errorMessages, @input, @change) then uses components from the target UI framework (vuetify by default)
   - a few possibilities for nested rendering:
     - the lib component can in turn use the core vjsf-property to render child properties based on their "layout" prop
     - the core component can fill slots for the lib component
@@ -108,13 +108,13 @@ I really want to check if a very strong ajv integration could solve all our sche
 
 The core component vjsf-property would apply ajv on all its intermediate models. At an object level either a child already displays an error (we can know that using inject/provide mechanism) or the error is displayed on the current level.
 
-We should look info [ajv-errors](https://www.npmjs.com/package/ajv-errors) and [ajv-i18n](https://github.com/ajv-validator/ajv-i18n).
+We should look info [ajv-errors](https://www.npmjs.com/package/ajv-errors) and [ajv-i18n](https://github.com/ajv-validator/ajv-i18n) and see if we can get error messages good enough for our users directly from ajv validation.
 
-The validator could also be used to validate also the internal vocabularies (cf section "Vocabulary / expressivity").
+The validator could also be used to validate the internal vocabularies (cf section "Vocabulary / expressivity").
 
-The validator could also be used detect the current item of a select based on oneOf/anyOf.
+The validator could also be used detect the current item of a select based on oneOf/anyOf which would allow for a more permissive convention than the strict convention of a property with const value. Also we should have a look at the [discriminator keyword](https://ajv.js.org/json-schema.html#discriminator) for this question.
 
-If we use ajv specifically then we could also use more functionality like [Modifying data during validation](https://ajv.js.org/guide/modifying-data.html).
+If we use ajv specifically then we could also use more functionality like [Modifying data during validation](https://ajv.js.org/guide/modifying-data.html). Initialization of the model from the schema inside the recursive rendering of vjsf has long been a source of complexity (we render recursively and immediately bubble up some changes that trigger re-renders, it is a circular mess). Using ajv to fill default values only once on the root model might solve this issue at least partially.
 
 With strong validation integration the tagline "Create beautiful and low-effort forms that output **valid data**" would become a hard reality instead of a moving target where we strive to cover more cases as we go.
 
