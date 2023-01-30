@@ -36,17 +36,6 @@ Next are a few ideas about how things could look on the next major version. Some
   - better distinction between disabled (fields are rendered but not active) and readonly (content is rendered purely for reading, does not even look like a form) ?
   - use standard json pointers for key, fullKey, fromData, etc
 
-
-### Better responsive
-
-Similar logic to the usual responsive breakpoints (xs, sm, etc.), but base this on the actual size available to the form (and invidually to each of its children). This should be solved in the core vjsf-property component so that when given to the lib component it has a single value to apply.
-
-Do we keep using a 12 columns grid system like vuetify of do we try to use a more generic percent based value ?
-
-The responsive breakpoint should be usable at the lowest level possible to define the width of each property or at the highest level possible to define a totally different layout (change order, hide an avanced section, use expansion panels instead of tabs, etc.).
-
-Also different layouts might be provided for editable and readOnly mode.
-
 ### Development frameworks and tools
 
   - Vue 3
@@ -72,6 +61,7 @@ More generic/meta injection of custom components, slots, props, etc so that many
   - optional immutability on the root component (cloning of the root model)
   - allow for mutability of objects and arrays below root component
 
+If we manage to implement a saner reactivity system and by leveraging the separation between the root component and vjef-property component I think we can solve the annoying issue of [external schema/data change](https://github.com/koumoul-dev/vuetify-jsonschema-form/issues/58#issuecomment-1408141749) and have more predictable behaviors in general.
 
 ### Decoupling of core and components
 
@@ -99,6 +89,18 @@ The components lib provides:
     - the core component can fill slots for the lib component
 
 Ideally the core and the components lib would be sufficiently decoupled to allow for creating alternate component libs for other frameworks than vuetify. Maybe this project should even be separated into 'vue-json-schema-form' and 'vuetify-json-schema-form'. This is not a top priority and should not be done if it compromises maintenability.
+
+### Better responsive design
+
+Similar logic to the usual responsive breakpoints (xs, sm, etc.), but base this on the actual size available to the form (and invidually to each of its children). This should be solved in the core vjsf-property component so that when given to the lib component it has a single value to apply.
+
+Do we keep using a 12 columns grid system like vuetify or do we use more generic percent based values ?
+
+Do we implement responsive layout with flexbox directly in the core vjsf-property component or do we delegate this to the lib component ?
+
+The responsive breakpoint should be usable at the lowest level possible to define the width of each property or at the highest level possible to define a totally different layout (change order, hide an avanced section, use expansion panels instead of tabs, etc.).
+
+Also different layouts might be provided for editable and readOnly mode.
 
 ### Schema validation
 
