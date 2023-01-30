@@ -35,6 +35,7 @@ Next are a few ideas about how things could look on the next major version. Some
   - implement [explicit layout management](https://github.com/koumoul-dev/vuetify-jsonschema-form/issues/293) as well as the current implicit layout
   - better distinction between disabled (fields are rendered but not active) and readonly (content is rendered purely for reading, does not even look like a form) ?
   - use standard json pointers for key, fullKey, fromData, etc
+  - find a better way of resolving $refs, the copy/pasted chunk of code we use for now is not a great fit
 
 ### Development frameworks and tools
 
@@ -45,7 +46,7 @@ Next are a few ideas about how things could look on the next major version. Some
 
 Do we keep building a dist ? I suspect most people use a toolchain that can load the lib from source code and build it inside their app.
 
-Do we get back to using templates instead of render functions ? I think maybe the limitations we tried to circumvent are not so true anymore or not so important in the new architecture. If we do this we might clarify components import.
+Do we get back to using templates instead of render functions ? I think maybe the limitations we tried to circumvent are not so true anymore or not so important in the new architecture. If we do this we might clarify components import and improve overall maintenability.
 
 ### Improved composition
 
@@ -57,13 +58,13 @@ More generic/meta injection of custom components, slots, props, etc so that many
 
 ### Reactivity and performance
 
-  - no recursivity of the root component (but the vjsf-property property described in next section would be recurstive)
+  - no recursivity of the root component (but the vjsf-property property described in next section would be recursive)
   - optional immutability on the root component (cloning of the root model)
   - allow for mutability of objects and arrays below root component
 
-If we manage to implement a saner reactivity system and by leveraging the separation between the root component and vjef-property component I think we can solve the annoying issue of [external schema/data change](https://github.com/koumoul-dev/vuetify-jsonschema-form/issues/58#issuecomment-1408141749) and have more predictable behaviors in general.
+If we manage to implement a saner reactivity system and by leveraging the separation between the root component and vjsf-property component I think we can solve the annoying issue of [external schema/data change](https://github.com/koumoul-dev/vuetify-jsonschema-form/issues/58#issuecomment-1408141749) and have more predictable behaviors in general.
 
-### Decoupling of core and components
+### Decoupling of core and lib components
 
 The following is an initial proposition. It needs more thinking and testing.
 
@@ -71,19 +72,18 @@ The core manages:
 
   - layout object construction from schema and other layout object manipulations
   - model reactivity, root model immutability
-  - global form validation (errorMessages are then dispatched to propertis based on key)
+  - global form validation (errorMessages are then dispatched to individual properties)
   - data fetching
-  - a generic component (vjsf-property ?) that
-    - propagates schema validation up the component tree
-    - provides validation errors to children
-    - renders the component provided by the lib (vjsf-property-lib ? vjsf-property-vuetify ?) or a custom component or a slot, all with a homogenous signature (value, layout, errorMessages, @input, @change)
+  - a generic component "vjsf-property" that
+    - propagates schema validation information
+    - renders the component provided by the lib "vjsf-property-lib" or a custom component or a slot, all with a homogenous signature (value, layout, errorMessages, @input, @change, etc.)
     - maybe also render some standard slots like before and after ?
     - uses the provide/inject pattern for awareness of ifs parent and children
   - renders the generic component once for the root object
 
 The components lib provides:
 
-  - a main component that has a common props and events signature as simple as possible to work with the core vjsf-property component (value, layout, errorMessages, @input, @change) then uses components from the target UI framework
+  - a main "vjsf-property-lib" component that has a common props and events signature as simple as possible to work with the core vjsf-property component (value, layout, errorMessages, @input, @change) then uses components from the target UI framework (vuetify by default)
   - a few possibilities for nested rendering:
     - the lib component can in turn use the core vjsf-property to render child properties based on their "layout" prop
     - the core component can fill slots for the lib component
@@ -92,7 +92,7 @@ Ideally the core and the components lib would be sufficiently decoupled to allow
 
 ### Better responsive design
 
-Similar logic to the usual responsive breakpoints (xs, sm, etc.), but base this on the actual size available to the form (and invidually to each of its children). This should be solved in the core vjsf-property component so that when given to the lib component it has a single value to apply.
+Similar logic to the usual responsive breakpoints (xs, sm, etc.), but based on the actual size available to the form (and invidually to each of its children). This should be solved in the core vjsf-property component so that when given to the lib component it has a single value to apply.
 
 Do we keep using a 12 columns grid system like vuetify or do we use more generic percent based values ?
 
