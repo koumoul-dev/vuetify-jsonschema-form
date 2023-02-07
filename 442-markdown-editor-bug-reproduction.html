@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EasyMD Bug</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
+    <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
+
+    <script>
+        function showDiv2ForBug() {
+            document.getElementById('div-2').style.display = 'block'
+        }
+
+        function showDiv2WithBugFixing() {
+            document.getElementById('div-2').style.display = 'block'
+            // https://github.com/Ionaru/easy-markdown-editor/blob/master/src/js/easymde.js#L2859
+            const oldValue = window.easyMDE2.value();
+            window.easyMDE2.value(oldValue)
+        }
+    </script>
+</head>
+<body>
+
+<h1>EasyMd Bug example</h1>
+
+<button onclick="showDiv2ForBug()">show MDEasy with Bug</button>
+<button onclick="showDiv2WithBugFixing()">show MDEasy with workaround</button>
+
+<div id="div-1">
+    <h5>Tab 1</h5>
+    <textarea id="ta-1"></textarea>
+</div>
+<div id="div-2" style="display:none">
+    <h5>Tab 2</h5>
+    <textarea id="ta-2"></textarea>
+</div>
+
+
+<script>
+    new EasyMDE({
+        element: document.getElementById("ta-1"),
+        initialValue: "initial value"
+    });
+
+    window.easyMDE2 = new EasyMDE({
+        autofocus: true,
+        element: document.getElementById("ta-2"),
+        initialValue: "Hallo dudu",
+    });
+</script>
+
+</body>
+</html>
