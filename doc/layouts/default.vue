@@ -2,21 +2,19 @@
   <v-app>
     <v-navigation-drawer
       v-model="drawer"
-      :temporary="$vuetify.breakpoint.smAndDown"
-      :permanent="$vuetify.breakpoint.mdAndUp"
+      :temporary="$vuetify.display.smAndDown"
+      :permanent="$vuetify.display.mdAndUp"
       app
       dark
     >
       <v-list class="py-0">
         <v-list-item to="/">
-          <v-list-item-content>
-            <v-list-item-title class="title primary--text">
-              vjsf
-            </v-list-item-title>
-            <v-list-item-subtitle class="primary--text">
-              {{ version }}
-            </v-list-item-subtitle>
-          </v-list-item-content>
+          <v-list-item-title class="title primary--text">
+            vjsf
+          </v-list-item-title>
+          <v-list-item-subtitle class="primary--text">
+            {{ version }}
+          </v-list-item-subtitle>
         </v-list-item>
       </v-list>
 
@@ -25,44 +23,35 @@
         class="pt-0"
       >
         <v-list-item to="/about">
-          <v-list-item-content>
-            <v-list-item-title>
-              About
-            </v-list-item-title>
-          </v-list-item-content>
+          <v-list-item-title>
+            About
+          </v-list-item-title>
         </v-list-item>
         <v-list-item to="/getting-started">
-          <v-list-item-content>
-            <v-list-item-title>
-              Getting started
-            </v-list-item-title>
-          </v-list-item-content>
+          <v-list-item-title>
+            Getting started
+          </v-list-item-title>
         </v-list-item>
         <v-list-item to="/configuration">
-          <v-list-item-content>
-            <v-list-item-title>
-              Configuration
-            </v-list-item-title>
-          </v-list-item-content>
+          <v-list-item-title>
+            Configuration
+          </v-list-item-title>
         </v-list-item>
         <v-list-item to="/0to1">
-          <v-list-item-content>
-            <v-list-item-title>
-              0.x to 1.x
-            </v-list-item-title>
-          </v-list-item-content>
+          <v-list-item-title>
+            0.x to 1.x
+          </v-list-item-title>
         </v-list-item>
         <v-list-item to="/1to2">
-          <v-list-item-content>
-            <v-list-item-title>
-              1.x to 2.x
-            </v-list-item-title>
-          </v-list-item-content>
+          <v-list-item-title>
+            1.x to 2.x
+          </v-list-item-title>
         </v-list-item>
       </v-list>
 
       <v-divider />
 
+      <!--
       <v-list
         dense
         shaped
@@ -98,28 +87,29 @@
           </v-expansion-panel>
         </v-expansion-panels>
       </v-list>
+      -->
 
       <v-footer absolute>
         <v-spacer />
         <span class="caption">Maintained by&nbsp;<a href="https://koumoul.com">Koumoul</a></span>
       </v-footer>
     </v-navigation-drawer>
-    <!--<v-app-bar app :color="$vuetify.breakpoint.smAndDown ? 'white' : 'transparent'" dense flat>-->
+    <!--<v-app-bar app :color="$vuetify.display.smAndDown ? 'white' : 'transparent'" dense flat>-->
     <v-app-bar
       app
       flat
     >
       <v-app-bar-nav-icon
-        v-if="$vuetify.breakpoint.smAndDown"
+        v-if="$vuetify.display.smAndDown"
         @click.stop="drawer = !drawer"
       />
-      <search-widget
+      <!--<search-widget
         df-url="https://koumoul.com/data-fair"
         dataset-id="vjsf-doc"
-        :menu-props="{'nudge-left': $vuetify.breakpoint.smAndDown ? 20 : 0}"
+        :menu-props="{'nudge-left': $vuetify.display.smAndDown ? 20 : 0}"
         :replace-url="{'https://koumoul-dev.github.io/vuetify-jsonschema-form/latest': ''}"
         :to-links="true"
-      />
+      />-->
       <v-spacer />
       <v-btn
         href="https://github.com/sponsors/koumoul-dev"
@@ -155,20 +145,19 @@
       </v-btn>
     </v-app-bar>
     <v-main>
-      <nuxt />
+      <slot />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import SearchWidget from '@koumoul/data-fair-search-widget/src/components/search-widget.vue'
-import { examples } from '~/examples'
+// import SearchWidget from '@koumoul/data-fair-search-widget/src/components/search-widget.vue'
 import { version } from '~/../package.json'
+// import { examples } from '~/examples'
 
 export default {
-  components: { SearchWidget },
+  components: { },
   data: () => ({
-    examples,
     version,
     drawer: false,
     nodeEnv: process.env.NODE_ENV

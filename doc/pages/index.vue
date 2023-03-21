@@ -23,21 +23,7 @@
       src="https://videos.koumoul.com/videos/embed/29d12ba2-f694-4659-8027-e9386692d8b5?title=0&warningTitle=0&peertubeLink=0&autoplay=1"
       frameborder="0"
       allowfullscreen
-    />
-
-    <h2 class="title mt-6 mb-4 primary--text">
-      Sponsors
-    </h2>
-    <a
-      href="https://www.crossref.org/"
-      target="_blank"
-    >
-      <img
-        src="~/assets/crossref-logo-200.svg"
-        title="Crossref"
-        style="max-width: 120px"
-      >
-    </a>
+    />>
   </v-container>
 </template>
 

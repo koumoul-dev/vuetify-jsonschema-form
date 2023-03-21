@@ -1,42 +1,31 @@
-import colors from 'vuetify/lib/util/colors'
-const path = require('path')
+// https://www.the-koi.com/projects/how-to-set-up-a-project-with-nuxt3-and-vuetify3-with-a-quick-overview/
+import vuetify from 'vite-plugin-vuetify'
+
+// import colors from 'vuetify/lib/util/colors'
+// import path from 'path'
 
 const targetURL = new URL(process.env.TARGET || 'http://localhost:3133/')
 
-module.exports = {
-  ssr: true,
+export default defineNuxtConfig({
+  ssr: false,
+  css: ['vuetify/styles'],
   build: {
-    transpile: [/@koumoul/, 'tiptap-vuetify', /lib/],
-    extend (config, ctx) {
-      // Include the compiler version of Vue so that we can compile examples templates
-      config.resolve.alias['vue$'] = 'vue/dist/vue.esm.js'
-      // force resolving in doc/node_modules even when importing from ../lib
-      config.resolve.modules = [path.join(__dirname, 'node_modules'), 'node_modules']
-    }
+    transpile: [/vuetify/]
   },
   modules: [
-    '@nuxtjs/axios',
-    '@nuxtjs/sitemap'
-  ],
-  buildModules: [
-    '@nuxtjs/vuetify'
+    // '@nuxtjs/sitemap'
+    // @ts-ignore
+    (_, nuxt) => nuxt.hooks.hook('vite:extendConfig', config => config.plugins.push(vuetify()))
   ],
   plugins: [
-    { src: '~/plugins/highlight.js', ssr: false },
-    { src: '~/plugins/mask.js', ssr: false },
-    { src: '~/plugins/tiptap-vuetify.js', ssr: false }
+    // { src: '~/plugins/highlight.js', ssr: false },
+    // { src: '~/plugins/mask.js', ssr: false },
+    // { src: '~/plugins/tiptap-vuetify.js', ssr: false }
   ],
-  sitemap: {
-    hostname: targetURL.origin
-  },
-  vuetify: {
-    // uncomment to test mdiSvg support
-    /* defaultAssets: {
-      icons: false
-    },
-    icons: {
-      iconfont: 'mdiSvg'
-    }, */
+  // sitemap: {
+  //   hostname: targetURL.origin
+  // },
+  /* vuetify: {
     theme: {
       themes: {
         light: {
@@ -45,16 +34,14 @@ module.exports = {
         }
       }
     }
+  }, */
+  app: {
+    baseURL: targetURL.pathname
   },
-  router: {
-    base: targetURL.pathname
-  },
-  head: {
+  meta: {
     title: 'vjsf - Documentation',
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: `vjsf - Documentation` }
+      { name: 'description', content: 'vjsf - Documentation' }
     ],
     link: [{
       rel: 'stylesheet',
@@ -65,4 +52,4 @@ module.exports = {
       async: true
     }]
   }
-}
+})
