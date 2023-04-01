@@ -5,14 +5,14 @@
       :temporary="$vuetify.display.smAndDown"
       :permanent="$vuetify.display.mdAndUp"
       app
-      dark
+      class="main-drawer"
     >
       <v-list class="py-0">
-        <v-list-item to="/">
-          <v-list-item-title class="title primary--text">
+        <v-list-item to="/" class="text-primary">
+          <v-list-item-title class="text-h6 font-weight-bold">
             vjsf
           </v-list-item-title>
-          <v-list-item-subtitle class="primary--text">
+          <v-list-item-subtitle class="font-weight-bold">
             {{ version }}
           </v-list-item-subtitle>
         </v-list-item>
@@ -51,6 +51,8 @@
 
       <v-divider />
 
+      {{ examples }}
+
       <!--
       <v-list
         dense
@@ -88,16 +90,18 @@
         </v-expansion-panels>
       </v-list>
       -->
-
-      <v-footer absolute>
-        <v-spacer />
-        <span class="caption">Maintained by&nbsp;<a href="https://koumoul.com">Koumoul</a></span>
-      </v-footer>
+      <template #append>
+        <v-footer>
+          <v-spacer />
+          <span class="caption">Maintained by&nbsp;<a href="https://koumoul.com" class="text-primary text-decoration-none font-weight-medium">Koumoul</a></span>
+        </v-footer>
+      </template>
     </v-navigation-drawer>
     <!--<v-app-bar app :color="$vuetify.display.smAndDown ? 'white' : 'transparent'" dense flat>-->
     <v-app-bar
       app
       flat
+      density="comfortable"
     >
       <v-app-bar-nav-icon
         v-if="$vuetify.display.smAndDown"
@@ -113,17 +117,20 @@
       <v-spacer />
       <v-btn
         href="https://github.com/sponsors/koumoul-dev"
-        outlined
+        variant="outlined"
         rounded
-        class="ml-2 pl-3"
         color="primary"
         style="text-transform: none;"
+        prepend-icon=""
       >
-        <v-icon color="pink">
-          mdi-heart-outline
-        </v-icon>&nbsp;&nbsp;Sponsor
+        <template #prepend>
+          <v-icon color="pink" size="large">
+            mdi-heart-outline
+          </v-icon>
+        </template>
+        Sponsor
       </v-btn>
-      <v-btn
+      <!--<v-btn
         fab
         small
         href="https://gitter.im/koumoul-dev/vjsf"
@@ -132,13 +139,14 @@
         title="chat on gitter"
       >
         <v-icon>mdi-chat</v-icon>
-      </v-btn>
+      </v-btn>-->
       <v-btn
-        fab
-        small
+        icon
         href="https://github.com/koumoul-dev/vuetify-jsonschema-form"
         color="primary"
         class="ml-2"
+        size="x-large"
+        density="compact"
         title="repository on github"
       >
         <v-icon>mdi-github</v-icon>
@@ -152,15 +160,16 @@
 
 <script>
 // import SearchWidget from '@koumoul/data-fair-search-widget/src/components/search-widget.vue'
+import { examples } from '@json-layout/examples'
 import { version } from '~/../package.json'
-// import { examples } from '~/examples'
 
 export default {
   components: { },
   data: () => ({
     version,
-    drawer: false,
-    nodeEnv: process.env.NODE_ENV
+    drawer: true,
+    nodeEnv: process.env.NODE_ENV,
+    examples
   })
 }
 

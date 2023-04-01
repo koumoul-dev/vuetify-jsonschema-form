@@ -1,16 +1,25 @@
 // https://www.the-koi.com/projects/how-to-set-up-a-project-with-nuxt3-and-vuetify3-with-a-quick-overview/
+import { resolve } from 'path'
 import vuetify from 'vite-plugin-vuetify'
 
 // import colors from 'vuetify/lib/util/colors'
 // import path from 'path'
 
 const targetURL = new URL(process.env.TARGET || 'http://localhost:3133/')
-
+console.log(resolve('../../json-layout'))
 export default defineNuxtConfig({
   ssr: false,
-  css: ['vuetify/styles'],
+  css: ['vuetify/styles', '@mdi/font/css/materialdesignicons.css'],
   build: {
     transpile: [/vuetify/]
+  },
+  vite: {
+    server: {
+      fs: {
+      // necessary to work with npm links
+        allow: [resolve('../../json-layout')]
+      }
+    }
   },
   modules: [
     // '@nuxtjs/sitemap'

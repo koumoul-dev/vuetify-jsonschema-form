@@ -460,7 +460,6 @@
 
 <script>
 import { defaultOptions, formats, localizedMessages, iconSets } from '../../lib/utils/options'
-import { scrollToHash } from '~/app/router.scrollBehavior.js'
 
 export default {
   data () {
@@ -526,7 +525,7 @@ export default {
   mounted () {
     if (this.$route.hash) {
       location.hash = this.$route.hash
-      scrollToHash(this.$route.hash, false)
+      // scrollToHash(this.$route.hash, false)
     }
   }
 }
