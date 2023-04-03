@@ -6,13 +6,13 @@ Run all prepublishing checks at once:
 
     npm run prepublish
 
-## Coding style
+## Quality checks
 
-It is enforced by [eslint](https://eslint.org/) and configured in [.eslintrc.js](./.eslintrc.js), you should probably use a plugin to integrate it in your editor.
+This project uses [husky](https://typicode.github.io/husky/) to ensure quality of contributions in a pre-commit hook.
 
-Check all rules:
-
-    npm run lint
+  - code source is linted using [eslint](https://eslint.org/), you can run the linter manually with `npm run lint`
+  - code source is tested, you can run the tests manually with `npm test`
+  - commit messages are checked against [conventional rules](https://www.conventionalcommits.org/en/v1.0.0/)
 
 ## Development server
 

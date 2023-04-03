@@ -16,13 +16,14 @@
     "src"
   ],
   "scripts": {
-    "lint": "eslint --ext js .",
-    "lint-fix": "eslint --fix --ext js .",
+    "lint": "eslint --ext .js,.ts,.vue .",
+    "lint-fix": "eslint --fix --ext .js,.ts,.vue .",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "postpublish": "gh-pages-multi deploy -v -s doc/dist -t latest",
     "doc-build": "(cd doc && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/latest/ nuxt generate)",
-    "doc-master": "(cd doc && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/master/ nuxt generate) && gh-pages-multi deploy -v -s doc/dist -t master"
+    "doc-master": "(cd doc && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/master/ nuxt generate) && gh-pages-multi deploy -v -s doc/dist -t master",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -43,9 +44,16 @@
     "@json-layout/vocabulary": "file:../json-layout/vocabulary"
   },
   "devDependencies": {
+    "@commitlint/config-conventional": "^17.4.4",
     "@koumoul/gh-pages-multi": "^0.6.0",
     "@types/node": "^18.15.11",
     "@vitejs/plugin-vue": "^4.1.0",
+    "commitlint": "^17.5.1",
+    "eslint": "^8.37.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-config-typescript": "^3.0.0",
+    "eslint-plugin-vue": "^9.10.0",
+    "husky": "^8.0.3",
     "typescript": "^4.9.3",
     "vite": "^4.2.0",
     "vite-plugin-dts": "^2.2.0",
