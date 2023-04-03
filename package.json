@@ -2,38 +2,27 @@
   "name": "@koumoul/vjsf",
   "version": "2.21.3",
   "description": "Generate forms for the vuetify UI library (vuejs) based on annotated JSON schemas.",
-  "main": "dist/main.js",
+  "main": "./dist/fileName.umd.js",
+  "module": "./dist/fileName.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/fileName.esm.js",
+      "require": "./dist/fileName.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "lint": "eslint --ext js .",
     "lint-fix": "eslint --fix --ext js .",
-    "build": "rm -rf dist && webpack && cp lib/VJsf.css dist/main.css",
-    "prepare": "npm run lint && npm test && npm run build && npm run doc-build",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
     "postpublish": "gh-pages-multi deploy -v -s doc/dist -t latest",
-    "test": "jest",
-    "test-watch": "jest --watch",
-    "test-update": "jest --updateSnapshot",
     "doc-build": "(cd doc && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/latest/ nuxt generate)",
-    "doc-master": "(cd doc && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/master/ nuxt generate) && gh-pages-multi deploy -v -s doc/dist -t master",
-    "analyze": "webpack --profile --json > dist/stats.json && webpack-bundle-analyzer dist/stats.json"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "vue"
-    ],
-    "transform": {
-      ".*\\.(vue)$": "vue-jest",
-      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
-    },
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "lib/**/*.{js,vue}"
-    ],
-    "snapshotSerializers": [
-      "jest-serializer-vue"
-    ],
-    "testEnvironment": "jsdom"
+    "doc-master": "(cd doc && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/master/ nuxt generate) && gh-pages-multi deploy -v -s doc/dist -t master"
   },
   "repository": {
     "type": "git",
@@ -45,55 +34,21 @@
     "url": "https://github.com/koumoul-dev/vuetify-jsonschema-form/issues"
   },
   "homepage": "https://github.com/koumoul-dev/vuetify-jsonschema-form#readme",
-  "dependencies": {
-    "debounce": "^1.2.1",
-    "debounce-promise": "^3.1.2",
-    "debug": "^4.3.3",
-    "fast-copy": "^2.1.1",
-    "fast-equals": "^2.0.4",
-    "match-all": "^1.2.6"
-  },
-  "optionalDependencies": {
-    "@mdi/font": "^6.5.95",
-    "@mdi/js": "^6.5.95",
-    "ajv": "^8.11.0",
-    "ajv-formats": "^2.1.1",
-    "ajv-i18n": "^4.2.0",
-    "expr-eval": "^2.0.2",
-    "markdown-it": "^12.3.2",
-    "property-expr": "^2.0.5",
-    "vuedraggable": "^2.24.3"
-  },
   "peerDependencies": {
-    "vuetify": "^2.0.0"
+    "vue": "^3.2.47",
+    "vuetify": "^3.1.12"
+  },
+  "dependencies": {
+    "@json-layout/core": "file:../json-layout/core",
+    "@json-layout/vocabulary": "file:../json-layout/vocabulary"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.12",
-    "@babel/plugin-transform-runtime": "^7.17.0",
-    "@babel/preset-env": "^7.16.11",
-    "@koumoul/data-fair-search-widget": "^0.3.0",
     "@koumoul/gh-pages-multi": "^0.6.0",
-    "@vue/test-utils": "^1.3.0",
-    "babel-eslint": "^10.1.0",
-    "babel-jest": "^27.5.1",
-    "babel-loader": "^8.2.4",
-    "eslint": "^6.1.0",
-    "eslint-config-standard": "^13.0.1",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jest": "^23.1.1",
-    "eslint-plugin-node": "^9.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-vue": "^7.20.0",
-    "jest": "^27.5.1",
-    "jest-serializer-vue": "^2.0.2",
-    "random-words": "^1.1.2",
-    "v-mask": "^2.3.0",
-    "vue-axios": "^2.1.5",
-    "vue-jest": "^3.0.7",
-    "vue-loader": "^15.9.8",
-    "webpack": "^5.72.0",
-    "webpack-bundle-analyzer": "^4.5.0",
-    "webpack-cli": "^4.9.2"
+    "@types/node": "^18.15.11",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "typescript": "^4.9.3",
+    "vite": "^4.2.0",
+    "vite-plugin-dts": "^2.2.0",
+    "vue-tsc": "^1.2.0"
   }
 }
