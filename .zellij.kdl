@@ -1,0 +1,20 @@
+layout {
+    pane name="vjsf" borderless=true {
+      command "bash"
+      args "-ic" "nvm use && bash"
+    }
+    pane {
+      split_direction "vertical"
+      pane name="build lib" {
+        command "bash"
+        args "-ic" "nvm use && npm run build -- --watch"
+      }
+      pane name="run doc" {
+        command "bash"
+        args "-ic" "nvm use && cd doc && npm run dev"
+      }
+    }
+    pane size=2 borderless=true {
+        plugin location="zellij:status-bar"
+    }
+}
