@@ -9,14 +9,14 @@ const targetURL = new URL(process.env.TARGET || 'http://localhost:3133/')
 console.log(resolve('../../json-layout'))
 export default defineNuxtConfig({
   ssr: false,
-  css: ['vuetify/styles', '@mdi/font/css/materialdesignicons.css'],
+  css: ['vuetify/styles'],
   build: {
     transpile: [/vuetify/]
   },
   vite: {
     server: {
       fs: {
-      // necessary to work with npm links
+        // necessary to work with npm links
         allow: [resolve('../../json-layout')]
       }
     }
@@ -24,7 +24,8 @@ export default defineNuxtConfig({
   modules: [
     // '@nuxtjs/sitemap'
     // @ts-ignore
-    (_, nuxt) => nuxt.hooks.hook('vite:extendConfig', config => config.plugins.push(vuetify()))
+    (_, nuxt) => nuxt.hooks.hook('vite:extendConfig', config => config.plugins.push(vuetify())),
+    ['unplugin-icons/nuxt', { /* options */ }]
   ],
   plugins: [
     // { src: '~/plugins/highlight.js', ssr: false },

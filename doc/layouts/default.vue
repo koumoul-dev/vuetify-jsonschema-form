@@ -125,7 +125,7 @@
       >
         <template #prepend>
           <v-icon color="pink" size="large">
-            mdi-heart-outline
+            <icon-heart-outline />
           </v-icon>
         </template>
         Sponsor
@@ -149,7 +149,7 @@
         density="compact"
         title="repository on github"
       >
-        <v-icon>mdi-github</v-icon>
+        <v-icon><icon-github /></v-icon>
       </v-btn>
     </v-app-bar>
     <v-main>
@@ -162,9 +162,11 @@
 // import SearchWidget from '@koumoul/data-fair-search-widget/src/components/search-widget.vue'
 import { examples } from '@json-layout/examples'
 import { version } from '~/../package.json'
+import IconHeartOutline from '~icons/mdi/heart-outline'
+import IconGithub from '~icons/mdi/github'
 
 export default {
-  components: { },
+  components: {IconHeartOutline, IconGithub },
   data: () => ({
     version,
     drawer: true,

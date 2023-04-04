@@ -8,8 +8,7 @@
 </template>
 
 <script>
-import ExampleWrapper from '~/components/example-wrapper'
-// import { examples } from '~/examples'
+import VJsf from '../../components/VJsf'
 
 export default {
   components: { ExampleWrapper }
