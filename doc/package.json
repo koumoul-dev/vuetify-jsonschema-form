@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "nuxt dev --port 3133",
     "start": "nuxt build && nuxt start",
-    "lint": "eslint . --fix"
+    "analyze": "nuxt analyze"
   },
   "dependencies": {
     "nuxt": "^3.3.1",
@@ -12,8 +12,6 @@
     "vuetify": "^3.1.12"
   },
   "devDependencies": {
-    "@iconify-json/mdi": "^1.1.50",
-    "@nuxtjs/eslint-config-typescript": "^12.0.0",
-    "eslint": "^8.36.0"
+    "@iconify-json/mdi": "^1.1.50"
   }
 }

@@ -2,7 +2,7 @@ const id = '_infinite_loop'
 
 const title = 'infinite loop'
 
-const description = `The empty string in default values along with the nesting can create some infinite loops`
+const description = 'The empty string in default values along with the nesting can create some infinite loops'
 
 const schema = {
   type: 'object',

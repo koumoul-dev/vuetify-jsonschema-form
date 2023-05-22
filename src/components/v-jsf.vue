@@ -1,11 +1,22 @@
 <script setup lang="ts">
-// compile and init layout state then render vjsf-node on root node
-// import { compile } from '@json-layout/core'
+import { compile, StatefulLayout } from '@json-layout/core'
+import Node from './node.vue'
 
-defineProps<{ schema?: object }>()
+const props = defineProps<{ schema: object, modelValue: unknown }>()
+const emit = defineEmits(['update:modelValue'])
 
+const compiledLayout = compile(props.schema)
+
+const statefulLayout = new StatefulLayout(compiledLayout, compiledLayout.tree, 'write', 1000, props.modelValue)
+statefulLayout.events.on('input', (value) => {
+  emit('update:modelValue', value)
+})
 </script>
 
 <template>
-  <vjsf-node />
+  hello
+  <node
+    :stateful-layout="statefulLayout"
+    :node="statefulLayout.root"
+  />
 </template>

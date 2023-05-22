@@ -8,13 +8,13 @@ Use the special key \`parent.value\` to access the value of the parent property.
 
 const schema = {
   type: 'array',
-  title: `I'm an array of objects`,
+  title: 'I\'m an array of objects',
   items: {
     type: 'object',
     properties: {
       selectAjaxObject: {
         type: 'object',
-        title: `I'm an object from HTTP request used as source for next select`,
+        title: 'I\'m an object from HTTP request used as source for next select',
         'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&select=title,schema&owner={context.owner.type}:{context.owner.id}',
         'x-itemsProp': 'results',
         'x-itemTitle': 'title',
@@ -31,14 +31,14 @@ const schema = {
         properties: {
           selectFromData: {
             type: 'object',
-            title: `I'm an object selected from a child array of the previous property`,
+            title: 'I\'m an object selected from a child array of the previous property',
             'x-fromData': 'parent.value.selectAjaxObject.schema',
             'x-itemTitle': 'x-originalName',
             'x-itemKey': 'key'
           },
           selectAjaxDep: {
             type: 'object',
-            title: `I'm an object selected from HTTP request based on the first property`,
+            title: 'I\'m an object selected from HTTP request based on the first property',
             'x-fromUrl': '{parent.value.selectAjaxObject.href}/schema',
             'x-itemTitle': 'label',
             'x-itemKey': 'key'

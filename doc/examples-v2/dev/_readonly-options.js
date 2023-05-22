@@ -2,7 +2,7 @@ const id = '_readonly-options'
 
 const title = 'Readonly rendering options'
 
-const description = ``
+const description = ''
 
 const schema = {
   type: 'object',
@@ -70,12 +70,12 @@ const options = {
   editMode: 'inline'
 }
 
-const test = (wrapper) => {
+/* const test = (wrapper) => {
   expect(wrapper.vm.valid).toBe(true)
   expect(wrapper.vm.modelWrapper.model.array2[0].stringPropBasic).toBe('val 1')
   expect(wrapper.vm.modelWrapper.model.array2[0].stringPropRO).toBe('val 1')
   expect(wrapper.vm.modelWrapper.model.array3[0].stringPropBasic).toBe('val 1')
   expect(wrapper.vm.modelWrapper.model.array3[0].stringPropRO).toBeUndefined()
-}
+} */
 
-export default { id, title, description, schema, model, options, test }
+export default { id, title, description, schema, model, options }

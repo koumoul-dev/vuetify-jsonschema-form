@@ -2,7 +2,7 @@ const id = 'prefilled-arrays-dependency'
 
 const title = 'Prefilled array as a dependency'
 
-const description = `When selecting topic the change event should be emitted after all async operations are finished. See sharedData.asyncOperations in the code.`
+const description = 'When selecting topic the change event should be emitted after all async operations are finished. See sharedData.asyncOperations in the code.'
 
 const schema = {
   type: 'object',
@@ -20,7 +20,7 @@ const schema = {
       properties: {
         filledArray: {
           type: 'array',
-          title: `I'm an array filled by HTTP request`,
+          title: 'I\'m an array filled by HTTP request',
           'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&size=2&select=href,title&owner={context.owner.type}:{context.owner.id}&topics={selectTopic}',
           'x-itemsProp': 'results',
           'x-itemTitle': 'title',

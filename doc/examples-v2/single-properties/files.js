@@ -9,12 +9,12 @@ An object property can also be rendered as a file upload. In this case the name,
 const schema = {
   type: 'object',
   properties: {
-    pngProp: { type: 'string', title: `I'm a PNG image stored as a base64 string`, contentMediaType: 'image/png', writeOnly: true },
-    imageProp: { type: 'string', title: `I'm an image stored as a data url`, contentMediaType: 'image/*', 'x-options': { filesAsDataUrl: true }, writeOnly: true },
-    imageArrayProp: { type: 'array', title: `I'm an array of images`, items: { type: 'string', contentMediaType: 'image/*' }, 'x-options': { filesAsDataUrl: true }, writeOnly: true },
+    pngProp: { type: 'string', title: 'I\'m a PNG image stored as a base64 string', contentMediaType: 'image/png', writeOnly: true },
+    imageProp: { type: 'string', title: 'I\'m an image stored as a data url', contentMediaType: 'image/*', 'x-options': { filesAsDataUrl: true }, writeOnly: true },
+    imageArrayProp: { type: 'array', title: 'I\'m an array of images', items: { type: 'string', contentMediaType: 'image/*' }, 'x-options': { filesAsDataUrl: true }, writeOnly: true },
     objectFileProp: {
       type: 'object',
-      title: `I'm a file as an object with base64 data`,
+      title: 'I\'m a file as an object with base64 data',
       contentMediaType: 'image/*',
       writeOnly: true,
       properties: {
@@ -27,7 +27,7 @@ const schema = {
     },
     objectFileBlobProp: {
       type: 'object',
-      title: `I'm a file as an object with Blob data`,
+      title: 'I\'m a file as an object with Blob data',
       contentMediaType: 'image/*',
       writeOnly: true,
       properties: {
@@ -39,7 +39,7 @@ const schema = {
     },
     arrayFileBlobProp: {
       type: 'array',
-      title: `I'm an array of files as objects with Blob data`,
+      title: 'I\'m an array of files as objects with Blob data',
       items: {
         type: 'object',
         contentMediaType: 'image/*',

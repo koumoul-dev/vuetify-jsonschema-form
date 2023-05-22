@@ -1,3 +1,3 @@
-import Vjsf from './components/v-jsf.vue'
+import VJsf from './components/v-jsf.vue'
 
-export { Vjsf }
+export { VJsf }

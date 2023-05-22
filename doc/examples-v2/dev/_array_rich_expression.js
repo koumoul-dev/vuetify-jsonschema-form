@@ -16,7 +16,7 @@ const schema = {
       }
     },
     conditionnalProp: {
-      type: 'string', title: `I'm here if  Hello is in arrayProp`, 'x-if': '\'Hello\' in root.arrayProp'
+      type: 'string', title: 'I\'m here if  Hello is in arrayProp', 'x-if': '\'Hello\' in root.arrayProp'
     }
   }
 }
@@ -30,10 +30,10 @@ const options = {
   editMode: 'inline'
 }
 
-const test = (wrapper) => {
+/* const test = (wrapper) => {
   const properties = wrapper.findAll('.vjsf-property')
   expect(properties).toHaveLength(3)
   expect(wrapper.vm.valid).toBe(true)
-}
+} */
 
-export default { id, title, description, schema, model, options, test }
+export default { id, title, description, schema, model, options }

@@ -2,17 +2,17 @@ const id = '_optional-object'
 
 const title = 'An object not required but with required properties'
 
-const description = `This object should not be filled.`
+const description = 'This object should not be filled.'
 
 const schema = {
   type: 'object',
   properties: {
     string1: {
-      title: `I'm a string with object as original data`,
+      title: 'I\'m a string with object as original data',
       type: 'string'
     },
     string2: {
-      title: `I'm a string with string as original data`,
+      title: 'I\'m a string with string as original data',
       type: 'string'
     }
   },

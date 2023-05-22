@@ -2,14 +2,14 @@ const id = '_select-filled-deps'
 
 const title = 'Selects with prefilled dependencies'
 
-const description = `This can be buggy and we might lose the content of the dependency`
+const description = 'This can be buggy and we might lose the content of the dependency'
 
 const schema = {
   type: 'object',
   properties: {
     selectAjaxObject: {
       type: 'object',
-      title: `I'm an object from HTTP request used as source for next select`,
+      title: 'I\'m an object from HTTP request used as source for next select',
       'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&select=title,schema&owner={context.owner.type}:{context.owner.id}',
       'x-itemsProp': 'results',
       'x-itemTitle': 'title',
@@ -26,14 +26,14 @@ const schema = {
       properties: {
         selectFromData: {
           type: 'object',
-          title: `I'm an object selected from a child array of the previous property`,
+          title: 'I\'m an object selected from a child array of the previous property',
           'x-fromData': 'selectAjaxObject.schema',
           'x-itemTitle': 'x-originalName',
           'x-itemKey': 'key'
         },
         selectAjaxDep: {
           type: 'object',
-          title: `I'm an object selected from HTTP request based on the first property`,
+          title: 'I\'m an object selected from HTTP request based on the first property',
           'x-fromUrl': '{selectAjaxObject.href}/schema',
           'x-itemTitle': 'label',
           'x-itemKey': 'key'
@@ -127,11 +127,11 @@ const model = {
 
 const options = { context: { owner: { type: 'organization', id: '5a5dc47163ebd4a6f438589b' } } }
 
-const test = (wrapper) => {
+/* const test = (wrapper) => {
   const properties = wrapper.findAll('.vjsf-property')
   expect(properties).toHaveLength(4)
   expect(wrapper.vm.valid).toBe(true)
-}
+} */
 
 const httpMocks = {
   'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&select=title,schema&owner=organization:5a5dc47163ebd4a6f438589b': {
@@ -146,4 +146,4 @@ const httpMocks = {
   'https://koumoul.com/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417/schema': datasetSchema
 }
 
-export default { id, title, description, schema, model, options, test, httpMocks }
+export default { id, title, description, schema, model, options, httpMocks }

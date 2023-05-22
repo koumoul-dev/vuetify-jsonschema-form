@@ -3,4 +3,5 @@ node_modules
 /coverage
 /doc/dist
 /doc/.nuxt
+/doc/.output
 .idea/

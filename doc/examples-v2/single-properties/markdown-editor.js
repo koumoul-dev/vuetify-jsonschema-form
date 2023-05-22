@@ -19,14 +19,14 @@ const schema = {
   properties: {
     objectArrayProp: {
       type: 'array',
-      title: `I'm an array of objects`,
+      title: 'I\'m an array of objects',
       'x-itemTitle': 'titleProp',
       items: {
         type: 'object',
         required: ['titleProp'],
         properties: {
-          titleProp: { type: 'string', title: `I'm a required string used as title` },
-          markdownProp: { type: 'string', 'x-display': 'markdown', title: `I'm a markdown string` }
+          titleProp: { type: 'string', title: 'I\'m a required string used as title' },
+          markdownProp: { type: 'string', 'x-display': 'markdown', title: 'I\'m a markdown string' }
         }
       }
     }

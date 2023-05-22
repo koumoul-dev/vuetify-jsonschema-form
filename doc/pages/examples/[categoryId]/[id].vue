@@ -1,18 +1,27 @@
 <template>
   <v-container>
-    <example-wrapper
-      :params="example"
-      :start-activated="true"
-    />
+    <!--<v-text-field label="hey!" />-->
+    <!--{{ example }}-->
+    {{ model }}
+    <v-form>
+      <v-jsf
+        v-model="model"
+        :schema="example.schema"
+      />
+    </v-form>
   </v-container>
 </template>
 
 <script>
-import VJsf from '../../components/VJsf'
+import { examples } from '@json-layout/examples'
+import { VJsf } from '~/../src/'
 
 export default {
-  components: { ExampleWrapper }
-  /* computed: {
+  components: { VJsf },
+  data: () => ({
+    model: {}
+  }),
+  computed: {
     example () {
       for (const examplesGroup of examples) {
         for (const example of examplesGroup.examples) {
@@ -21,7 +30,7 @@ export default {
       }
       return null
     }
-  } */
+  }
 }
 </script>
 

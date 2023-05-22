@@ -2,7 +2,7 @@ const id = '_string_default'
 
 const title = 'String default values'
 
-const description = `The default value of a string should only be used if is string is not defined, but not if it is empty.`
+const description = 'The default value of a string should only be used if is string is not defined, but not if it is empty.'
 
 const schema = {
   type: 'object',

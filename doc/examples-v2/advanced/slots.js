@@ -16,22 +16,22 @@ You can write code slots used for multiple properties by naming the slot with a 
 const schema = {
   type: 'object',
   properties: {
-    stringProp1: { type: 'string', title: `I'm a property with Vuetify slots`, 'x-slots': { 'append-outer': 'this is a markdown **slot**' }, enum: ['value 1', 'value 2'] },
-    stringProp2: { type: 'string', title: `I'm a property with a before/after/default slots`, 'x-slots': { after: 'this is a markdown **after slot** with some html <img width="20" src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-light.png">' } },
-    stringProp3: { type: 'string', title: `I'm a property with a custom display`, 'x-display': 'custom-string1' },
+    stringProp1: { type: 'string', title: 'I\'m a property with Vuetify slots', 'x-slots': { 'append-outer': 'this is a markdown **slot**' }, enum: ['value 1', 'value 2'] },
+    stringProp2: { type: 'string', title: 'I\'m a property with a before/after/default slots', 'x-slots': { after: 'this is a markdown **after slot** with some html <img width="20" src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-light.png">' } },
+    stringProp3: { type: 'string', title: 'I\'m a property with a custom display', 'x-display': 'custom-string1' },
     object1: {
       type: 'object',
       title: 'I am an object containing properties with slots',
       properties: {
-        stringProp11: { type: 'string', title: `I'm a nested property with slots`, 'x-slots': { 'append-outer': 'this is a markdown **slot**' } },
-        stringProp12: { type: 'string', title: `I'm a nested property with a custom display`, 'x-display': 'custom-string1' }
+        stringProp11: { type: 'string', title: 'I\'m a nested property with slots', 'x-slots': { 'append-outer': 'this is a markdown **slot**' } },
+        stringProp12: { type: 'string', title: 'I\'m a nested property with a custom display', 'x-display': 'custom-string1' }
       }
     }
   },
   allOf: [{
     title: 'I am an allOf section containing properties with slots',
     properties: {
-      stringProp21: { type: 'string', title: `I'm a property in a allOf with a before/after/default slots`, 'x-slots': { after: 'this is a markdown **after slot** with some html <img width="20" src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-light.png">' } }
+      stringProp21: { type: 'string', title: 'I\'m a property in a allOf with a before/after/default slots', 'x-slots': { after: 'this is a markdown **after slot** with some html <img width="20" src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-light.png">' } }
     }
   }]
 }

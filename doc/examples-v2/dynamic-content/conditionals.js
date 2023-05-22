@@ -16,7 +16,7 @@ const schema = {
         booleanConditionProp: {
           type: 'boolean',
           'x-display': 'switch',
-          title: `I'm a boolean used to toggle the content below`
+          title: 'I\'m a boolean used to toggle the content below'
         }
       },
       if: {
@@ -29,7 +29,7 @@ const schema = {
         properties: {
           stringProp1: {
             type: 'string',
-            title: `I'm a string available if the boolean switch is true`
+            title: 'I\'m a string available if the boolean switch is true'
           }
         }
       },
@@ -37,7 +37,7 @@ const schema = {
         properties: {
           stringProp2: {
             type: 'string',
-            title: `I'm another string available if the boolean switch is false`
+            title: 'I\'m another string available if the boolean switch is false'
           }
         }
       }
@@ -48,7 +48,7 @@ const schema = {
           type: 'integer',
           minimum: 0,
           maximum: 120,
-          title: `I'm a number whose value is used to toggle content below`
+          title: 'I\'m a number whose value is used to toggle content below'
         }
       },
       if: {
@@ -61,7 +61,7 @@ const schema = {
         properties: {
           stringProp3: {
             type: 'string',
-            title: `I'm a string available if the number condition is less than 18`
+            title: 'I\'m a string available if the number condition is less than 18'
           }
         }
       }

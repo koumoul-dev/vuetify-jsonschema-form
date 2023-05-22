@@ -17,10 +17,10 @@ const schema = {
       'x-if': 'context.showActive'
     },
     inactiveProp: { type: 'string', 'x-if': 'context.showInactive' },
-    conditionProp: { type: 'string', title: `I'm a string whose content is used to evaluate an expression` },
+    conditionProp: { type: 'string', title: 'I\'m a string whose content is used to evaluate an expression' },
     conditionalProp: {
       type: 'string',
-      title: `I'm here if previous prop is equal to "hello"`,
+      title: 'I\'m here if previous prop is equal to "hello"',
       'x-if': 'parent.value.conditionProp  == \'hello\'',
       'x-options': { evalMethod: 'evalExpr' }
     }

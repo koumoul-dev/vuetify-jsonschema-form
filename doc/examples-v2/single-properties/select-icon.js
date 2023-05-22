@@ -12,13 +12,13 @@ const schema = {
   type: 'object',
   properties: {
     iconEnum: {
-      title: `I'm a simple select with icon codes in enum`,
+      title: 'I\'m a simple select with icon codes in enum',
       type: 'string',
       'x-display': 'icon',
       enum: ['mdi-alarm', 'mdi-alarm-plus', 'mdi-alarm-off']
     },
     iconEnumArray: {
-      title: `I'm a multiple select with icon codes in enum`,
+      title: 'I\'m a multiple select with icon codes in enum',
       type: 'array',
       'x-display': 'icon',
       items: {
@@ -27,7 +27,7 @@ const schema = {
       }
     },
     iconOneOf: {
-      title: `I'm a select with icon codes and titles in a oneOf`,
+      title: 'I\'m a select with icon codes and titles in a oneOf',
       type: 'string',
       'x-display': 'icon',
       'x-itemIcon': 'icon',
@@ -37,7 +37,7 @@ const schema = {
       ]
     },
     iconAjaxImages: {
-      title: `I'm a select based on HTTP requests with links to icons`,
+      title: 'I\'m a select based on HTTP requests with links to icons',
       type: 'object',
       'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets/icons-mdi-latest/lines?q={q}',
       'x-itemKey': 'name',
@@ -54,7 +54,7 @@ const schema = {
       }
     },
     iconAjaxSVG: {
-      title: `I'm a select based on HTTP requests with SVG code in response`,
+      title: 'I\'m a select based on HTTP requests with SVG code in response',
       type: 'object',
       'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets/icons-mdi-latest/lines?q={q}',
       'x-itemKey': 'name',

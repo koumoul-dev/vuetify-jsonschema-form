@@ -27,8 +27,8 @@ export default defineNuxtPlugin((nuxtApp) => {
       defaultSet: 'mdi',
       aliases,
       sets: {
-        mdi,
-      },
+        mdi
+      }
     }
   })
   nuxtApp.vueApp.use(vuetify)

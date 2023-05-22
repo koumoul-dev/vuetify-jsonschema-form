@@ -13,10 +13,10 @@ There are also many options that can be used to apply classes to different parts
 const schema = {
   type: 'object',
   properties: {
-    stringPropHalf: { type: 'string', title: `I'm a half width string using x-cols`, 'x-cols': 6 },
-    stringPropHalf2: { type: 'string', title: `I'm another half width string using fieldColProps option`, 'x-options': { fieldColProps: { cols: 6 } } },
-    stringPropClass: { type: 'string', title: `I'm a string with class pl-10`, 'x-class': 'pl-10' },
-    stringPropStyle: { type: 'string', title: `I'm a string with style`, 'x-style': 'background-color: pink; padding-left: 20px;' }
+    stringPropHalf: { type: 'string', title: 'I\'m a half width string using x-cols', 'x-cols': 6 },
+    stringPropHalf2: { type: 'string', title: 'I\'m another half width string using fieldColProps option', 'x-options': { fieldColProps: { cols: 6 } } },
+    stringPropClass: { type: 'string', title: 'I\'m a string with class pl-10', 'x-class': 'pl-10' },
+    stringPropStyle: { type: 'string', title: 'I\'m a string with style', 'x-style': 'background-color: pink; padding-left: 20px;' }
   }
 }
 

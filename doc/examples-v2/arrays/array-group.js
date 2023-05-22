@@ -2,7 +2,7 @@ const id = 'array-group'
 
 const title = 'Share items across arrays'
 
-const description = `You can use the annotation \`x-arrayGroup\` to signify that some arrays share some common scope. In this case it should be possible to drag and drop or copy and paste items across these arrays.`
+const description = 'You can use the annotation `x-arrayGroup` to signify that some arrays share some common scope. In this case it should be possible to drag and drop or copy and paste items across these arrays.'
 
 const schema = {
   type: 'object',

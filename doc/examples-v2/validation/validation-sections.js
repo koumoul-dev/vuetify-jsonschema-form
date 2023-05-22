@@ -18,18 +18,18 @@ const schema = {
       properties: {
         section1: {
           type: 'object',
-          title: `Section 1`,
+          title: 'Section 1',
           required: ['requiredStringProp1'],
           properties: {
-            requiredStringProp1: { type: 'string', title: `I'm a required string with min/max length`, minLength: 10, maxLength: 100 }
+            requiredStringProp1: { type: 'string', title: 'I\'m a required string with min/max length', minLength: 10, maxLength: 100 }
           }
         },
         section2: {
           type: 'object',
-          title: `Section 2`,
+          title: 'Section 2',
           required: ['requiredStringProp2'],
           properties: {
-            requiredStringProp2: { type: 'string', title: `I'm another required string` }
+            requiredStringProp2: { type: 'string', title: 'I\'m another required string' }
           }
         }
       }
@@ -40,18 +40,18 @@ const schema = {
       'x-display': 'expansion-panels',
       allOf: [{
         type: 'object',
-        title: `Section 1`,
+        title: 'Section 1',
         required: ['requiredStringProp1'],
         properties: {
-          requiredStringProp1: { type: 'string', title: `I'm a required string` }
+          requiredStringProp1: { type: 'string', title: 'I\'m a required string' }
         }
       },
       {
         type: 'object',
-        title: `Section 2`,
+        title: 'Section 2',
         required: ['requiredStringProp2'],
         properties: {
-          requiredStringProp2: { type: 'string', title: `I'm a required string with min/max length`, minLength: 10, maxLength: 100 }
+          requiredStringProp2: { type: 'string', title: 'I\'m a required string with min/max length', minLength: 10, maxLength: 100 }
         }
       }]
     }

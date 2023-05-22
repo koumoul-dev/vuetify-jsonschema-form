@@ -12,7 +12,7 @@ const schema = {
   type: 'object',
   properties: {
     selectStringOneOf: {
-      title: `I'm an array of strings from a oneOf definition`,
+      title: 'I\'m an array of strings from a oneOf definition',
       type: 'array',
       items: {
         type: 'string',
@@ -29,7 +29,7 @@ const schema = {
     selectStringOneOf: {
       properties: {
         selectStringDep: {
-          title: `I'm an an array of string from a dependency to other property values and schema`,
+          title: 'I\'m an an array of string from a dependency to other property values and schema',
           type: 'array',
           items: {
             type: 'string'

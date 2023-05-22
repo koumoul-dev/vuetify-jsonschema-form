@@ -459,7 +459,7 @@
 </template>
 
 <script>
-import { defaultOptions, formats, localizedMessages, iconSets } from '../../lib/utils/options'
+/* import { defaultOptions, formats, localizedMessages, iconSets } from '../../lib/utils/options'
 
 export default {
   data () {
@@ -529,6 +529,7 @@ export default {
     }
   }
 }
+*/
 </script>
 
 <style lang="css" scoped>

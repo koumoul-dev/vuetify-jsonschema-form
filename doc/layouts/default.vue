@@ -8,7 +8,10 @@
       class="main-drawer"
     >
       <v-list class="py-0">
-        <v-list-item to="/" class="text-primary">
+        <v-list-item
+          to="/"
+          class="text-primary"
+        >
           <v-list-item-title class="text-h6 font-weight-bold">
             vjsf
           </v-list-item-title>
@@ -51,7 +54,23 @@
 
       <v-divider />
 
-      {{ examples }}
+      <v-expansion-panels>
+        <v-expansion-panel
+          v-for="category of examples"
+          :key="category.id"
+          :title="category.title"
+        >
+          <v-list>
+            <v-list-item
+              v-for="example of category.examples"
+              :key="example.id"
+              :to="`/examples/${category.id}/${example.id}`"
+            >
+              <v-list-item-title>{{ example.title }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-expansion-panel>
+      </v-expansion-panels>
 
       <!--
       <v-list
@@ -93,7 +112,10 @@
       <template #append>
         <v-footer>
           <v-spacer />
-          <span class="caption">Maintained by&nbsp;<a href="https://koumoul.com" class="text-primary text-decoration-none font-weight-medium">Koumoul</a></span>
+          <span class="caption">Maintained by&nbsp;<a
+            href="https://koumoul.com"
+            class="text-primary text-decoration-none font-weight-medium"
+          >Koumoul</a></span>
         </v-footer>
       </template>
     </v-navigation-drawer>
@@ -124,7 +146,10 @@
         prepend-icon=""
       >
         <template #prepend>
-          <v-icon color="pink" size="large">
+          <v-icon
+            color="pink"
+            size="large"
+          >
             <icon-heart-outline />
           </v-icon>
         </template>
@@ -166,7 +191,7 @@ import IconHeartOutline from '~icons/mdi/heart-outline'
 import IconGithub from '~icons/mdi/github'
 
 export default {
-  components: {IconHeartOutline, IconGithub },
+  components: { IconHeartOutline, IconGithub },
   data: () => ({
     version,
     drawer: true,

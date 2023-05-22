@@ -2,7 +2,7 @@ const id = '_wrong-enum-value'
 
 const title = 'Array inside a anyof with a value outside enum'
 
-const description = `This can create an infinite loop.`
+const description = 'This can create an infinite loop.'
 
 const options = {}
 

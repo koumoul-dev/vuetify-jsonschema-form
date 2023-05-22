@@ -11,7 +11,7 @@ const schema = {
   properties: {
     selectAjaxString: {
       type: 'string',
-      title: `I'm a string selected from results of an HTTP request`,
+      title: 'I\'m a string selected from results of an HTTP request',
       'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&select=title&owner={context.owner.type}:{context.owner.id}',
       'x-itemsProp': 'results',
       'x-itemTitle': 'title',
@@ -19,7 +19,7 @@ const schema = {
     },
     selectAjaxStringUnknown: {
       type: 'string',
-      title: `I'm a string selected from results of an HTTP request with prefilled unknown value`,
+      title: 'I\'m a string selected from results of an HTTP request with prefilled unknown value',
       'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&select=title&owner={context.owner.type}:{context.owner.id}&q={q}',
       'x-itemsProp': 'results',
       'x-itemTitle': 'title',
@@ -27,7 +27,7 @@ const schema = {
     },
     selectAjaxObject: {
       type: 'object',
-      title: `I'm an object selected from results of an HTTP request`,
+      title: 'I\'m an object selected from results of an HTTP request',
       'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&select=title,schema&owner={context.owner.type}:{context.owner.id}',
       'x-itemsProp': 'results',
       'x-itemTitle': 'title',

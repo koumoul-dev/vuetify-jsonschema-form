@@ -7,10 +7,10 @@ import dts from 'vite-plugin-dts'
 export default defineConfig({
   plugins: [vue(), dts()],
   build: {
+    sourcemap: true,
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'Vjsf',
-      fileName: 'vjsf'
+      name: 'VJsf'
     },
     rollupOptions: {
       external: ['vue', 'vuetify', 'ajv'],

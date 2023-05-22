@@ -2,7 +2,7 @@ const id = '_array-oneof-title'
 
 const title = 'Array item titles from oneOf'
 
-const description = ``
+const description = ''
 
 const schema = {
   type: 'object',

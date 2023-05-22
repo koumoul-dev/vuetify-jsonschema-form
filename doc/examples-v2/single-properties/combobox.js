@@ -14,32 +14,32 @@ const schema = {
   properties: {
     examplesString: {
       type: 'string',
-      title: `I'm a string with some examples`,
-      default: `I'm a default value`,
-      examples: [`I'm a suggested value`, `I'm another suggestion`]
+      title: 'I\'m a string with some examples',
+      default: 'I\'m a default value',
+      examples: ['I\'m a suggested value', 'I\'m another suggestion']
     },
     examplesNumber: {
       type: 'number',
-      title: `I'm a number with some examples`,
+      title: 'I\'m a number with some examples',
       default: 1,
       examples: [11, 22, 33, 44, 55]
     },
     examplesStringArray: {
       type: 'array',
-      title: `I'm an array of strings with some examples`,
+      title: 'I\'m an array of strings with some examples',
       items: {
         type: 'string',
-        examples: [`I'm a suggested value`, `I'm another suggestion`]
+        examples: ['I\'m a suggested value', 'I\'m another suggestion']
       }
     },
     anyOfString: {
       type: 'string',
-      title: `I'm a string with an open-ended anyOf`,
+      title: 'I\'m a string with an open-ended anyOf',
       anyOf: [{ const: 'value1', title: 'Value 1' }, { const: 'value2', title: 'Value 2' }, {}]
     },
     anyOfStringArray: {
       type: 'array',
-      title: `I'm an array of strings with an open-ended anyOf`,
+      title: 'I\'m an array of strings with an open-ended anyOf',
       items: {
         type: 'string',
         anyOf: [{ const: 'value1', title: 'Value 1' }, { const: 'value2', title: 'Value 2' }, {}]
@@ -47,7 +47,7 @@ const schema = {
     },
     ajaxString: {
       type: 'string',
-      title: `I'm a string selected from results of an HTTP request`,
+      title: 'I\'m a string selected from results of an HTTP request',
       'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&select=title&owner={context.owner.type}:{context.owner.id}',
       'x-itemsProp': 'results',
       'x-itemTitle': 'title',

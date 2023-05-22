@@ -17,45 +17,45 @@ const schema = {
   properties: {
     stringEnum: {
       type: 'string',
-      title: `I'm a string with values from an enum`,
+      title: 'I\'m a string with values from an enum',
       enum: ['value 1', 'value 2'],
       description: 'This description is used as a help message.'
     },
     stringsArrayEnum: {
       type: 'array',
-      title: `I'm an array of strings with values from an enum`,
+      title: 'I\'m an array of strings with values from an enum',
       items: { type: 'string', enum: ['value 1', 'value 2'] }
     },
     stringOneOf: {
       type: 'string',
-      title: `I'm a string with values/labels from a oneOf`,
+      title: 'I\'m a string with values/labels from a oneOf',
       oneOf: [{ const: 'value1', title: 'Value 1' }, { const: 'value2', title: 'Value 2' }]
     },
     stringArrayOneOf: {
       type: 'array',
-      title: `I'm an array of strings with values/labels from a oneOf`,
+      title: 'I\'m an array of strings with values/labels from a oneOf',
       items: { type: 'string', oneOf: [{ const: 'value1', title: 'Value 1' }, { const: 'value2', title: 'Value 2' }] }
     },
     stringEnumLarge: {
       type: 'string',
-      title: `I'm a string with values from a large enum`,
+      title: 'I\'m a string with values from a large enum',
       enum: randomWords({ exactly: 25, wordsPerString: 2 }),
       description: 'This description is used as a help message.'
     },
     stringArrayEnumLargeSelect: {
       type: 'array',
-      title: `I'm an array with values from large enum rendered as a select`,
+      title: 'I\'m an array with values from large enum rendered as a select',
       items: { type: 'string', enum: randomWords({ exactly: 25, wordsPerString: 2 }) },
       'x-display': 'select'
     },
     stringContext: {
       type: 'string',
-      title: `I'm a string with values from the context`,
+      title: 'I\'m a string with values from the context',
       'x-fromData': 'context.items'
     },
     objectContext: {
       type: 'object',
-      title: `I'm an object with values from the context`,
+      title: 'I\'m an object with values from the context',
       'x-fromData': 'context.objectItems',
       'x-itemKey': 'val',
       'x-itemTitle': 'label'

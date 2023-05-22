@@ -10,27 +10,27 @@ const schema = {
   type: 'object',
   'x-display': 'tabs',
   'x-props': { grow: true },
-  description: `I'm an object with sections rendered as tabs.`,
+  description: 'I\'m an object with sections rendered as tabs.',
   allOf: [{
-    title: `I'm a section`,
-    description: `I'm a description shown as a paragraph on top of section`,
+    title: 'I\'m a section',
+    description: 'I\'m a description shown as a paragraph on top of section',
     type: 'object',
     properties: {
-      stringProp1: { type: 'string', title: `I'm a property in section 1` }
+      stringProp1: { type: 'string', title: 'I\'m a property in section 1' }
     }
   },
   {
-    title: `I'm another section`,
+    title: 'I\'m another section',
     type: 'object',
     oneOf: [{
       properties: {
         key: { type: 'string', const: 'type1', title: 'type 1' },
-        stringProp2: { type: 'string', title: `I'm a property in section 2 / type 1` }
+        stringProp2: { type: 'string', title: 'I\'m a property in section 2 / type 1' }
       }
     }, {
       properties: {
         key: { type: 'string', const: 'type2', title: 'type 2' },
-        stringProp3: { type: 'string', title: `I'm a property in section 2 / type 2` }
+        stringProp3: { type: 'string', title: 'I\'m a property in section 2 / type 2' }
       }
     }]
 

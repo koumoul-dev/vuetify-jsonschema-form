@@ -2,7 +2,7 @@ const id = '_separator'
 
 const title = 'Multiple values in a single string'
 
-const description = `Use the x-separator or separator keyword.`
+const description = 'Use the x-separator or separator keyword.'
 
 const schema = {
   type: 'object',

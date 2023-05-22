@@ -2,13 +2,13 @@ const id = '_readonly-select-icon'
 
 const title = 'Readonly select with icons'
 
-const description = `Check rendering of readOnly select.`
+const description = 'Check rendering of readOnly select.'
 
 const schema = {
   type: 'object',
   properties: {
     iconOneOf: {
-      title: `I'm a select with icon codes and titles in a oneOf`,
+      title: 'I\'m a select with icon codes and titles in a oneOf',
       type: 'string',
       'x-display': 'icon',
       'x-itemIcon': 'icon',

@@ -2,17 +2,17 @@ const id = '_wrong-types'
 
 const title = 'Ignore values with wrong type'
 
-const description = `Can happen both in case of invalid original data and incompatible schemas in a select.`
+const description = 'Can happen both in case of invalid original data and incompatible schemas in a select.'
 
 const schema = {
   type: 'object',
   properties: {
     string1: {
-      title: `I'm a string with object as original data`,
+      title: 'I\'m a string with object as original data',
       type: 'string'
     },
     string2: {
-      title: `I'm a string with string as original data`,
+      title: 'I\'m a string with string as original data',
       type: 'string'
     }
   },

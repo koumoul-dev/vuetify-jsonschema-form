@@ -11,7 +11,7 @@ const schema = {
   properties: {
     filledArray: {
       type: 'array',
-      title: `I'm an array filled by HTTP request`,
+      title: 'I\'m an array filled by HTTP request',
       'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&size=4&select=href,title&owner={context.owner.type}:{context.owner.id}',
       'x-itemsProp': 'results',
       'x-itemTitle': 'title',
@@ -22,7 +22,7 @@ const schema = {
         properties: {
           href: { type: 'string', 'x-display': 'hidden' },
           title: { type: 'string', 'x-display': 'hidden' },
-          additionalProp: { type: 'string', title: `I'm an additional field` },
+          additionalProp: { type: 'string', title: 'I\'m an additional field' },
           icon: {
             type: 'object',
             title: 'Icone',
@@ -75,7 +75,8 @@ const model = {
 const options = { context: { owner: { type: 'organization', id: '5a5dc47163ebd4a6f438589b' } } }
 
 const httpMocks = {
-  'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&size=4&select=href,title&owner=organization:5a5dc47163ebd4a6f438589b': { count: 2,
+  'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&size=4&select=href,title&owner=organization:5a5dc47163ebd4a6f438589b': {
+    count: 2,
     results: [{
       id: 'tour_1_resultats_par_pays_240417',
       title: "Présidentielles 2017 - Votes des français à l'étranger - 1er tour",

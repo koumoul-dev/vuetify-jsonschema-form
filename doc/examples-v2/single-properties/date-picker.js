@@ -15,9 +15,9 @@ Notes about timezone management:
 const schema = {
   type: 'object',
   properties: {
-    dateProp: { type: 'string', title: `I'm a simple date`, format: 'date', description: 'This description is used as a help message.' },
-    timeProp: { type: 'string', title: `I'm a simple time of day`, format: 'time' },
-    dateTimeProp: { type: 'string', title: `I'm a date with time`, format: 'date-time' }
+    dateProp: { type: 'string', title: 'I\'m a simple date', format: 'date', description: 'This description is used as a help message.' },
+    timeProp: { type: 'string', title: 'I\'m a simple time of day', format: 'time' },
+    dateTimeProp: { type: 'string', title: 'I\'m a date with time', format: 'date-time' }
   }
 }
 

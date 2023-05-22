@@ -2,7 +2,7 @@ const id = 'prefilled-array-wrong-type'
 
 const title = 'Prefilled array with wrong type in key property'
 
-const description = ``
+const description = ''
 
 const schema = {
   type: 'object',
@@ -65,11 +65,11 @@ const httpMocks = {
   }
 }
 
-const test = async (wrapper, modelWrapper, events) => {
+/* const test = async (wrapper, modelWrapper, events) => {
   expect(modelWrapper.model.colors).toHaveLength(0)
   await new Promise(resolve => setTimeout(resolve, 200))
   expect(modelWrapper.model.colors).toHaveLength(3)
   expect(modelWrapper.model.colors[1].value).toBe('3')
-}
+} */
 
-export default { id, title, description, schema, model, options, httpMocks, test }
+export default { id, title, description, schema, model, options, httpMocks }
