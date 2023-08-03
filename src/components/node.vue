@@ -1,24 +1,26 @@
-// TODO: a large switch based on layoutNode subtype checks
-// or a dynamic component name like so: "vjsf-node-{stateNode.comp}" ?
-// that would make more sense in the context of pre-compiled vjsf component with dynamic list of node components loaded
-
 <script setup lang="ts">
-import { isTextField, isSection, StateNode, StatefulLayout } from '@json-layout/core'
+import { isTextField, isSection, isNumberField, StateNode, StatefulLayout } from '@json-layout/core'
 import NodeSection from './nodes/section.vue'
 import NodeTextField from './nodes/text-field.vue'
+import NodeNumberField from './nodes/number-field.vue'
 
-defineProps<{ node: StateNode, statefulLayout: StatefulLayout }>()
+defineProps<{ modelValue: StateNode, statefulLayout: StatefulLayout }>()
 </script>
 
 <template>
   <node-section
-    v-if="isSection(node)"
+    v-if="isSection(modelValue)"
+    :model-value="modelValue"
     :stateful-layout="statefulLayout"
-    :node="node"
   />
   <node-text-field
-    v-if="isTextField(node)"
+    v-if="isTextField(modelValue)"
+    :model-value="modelValue"
     :stateful-layout="statefulLayout"
-    :node="node"
+  />
+  <node-number-field
+    v-if="isNumberField(modelValue)"
+    :model-value="modelValue"
+    :stateful-layout="statefulLayout"
   />
 </template>

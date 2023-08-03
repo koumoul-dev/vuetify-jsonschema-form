@@ -2,14 +2,15 @@
 import { StatefulLayout, TextFieldNode } from '@json-layout/core'
 import { VTextField } from 'vuetify/components'
 
-defineProps<{ node: TextFieldNode, statefulLayout: StatefulLayout }>()
+defineProps<{ modelValue: TextFieldNode, statefulLayout: StatefulLayout }>()
 </script>
 
 <template>
-  text:
   <v-text-field
-    label="label"
-    :model-value="node.value"
-    @update:model-value="value => statefulLayout.input(node, value)"
+    :label="modelValue.layout.label"
+    :error-messages="modelValue.error"
+    :model-value="modelValue.value"
+    :readonly="modelValue.mode === 'read'"
+    @update:model-value="value => statefulLayout.input(modelValue, value)"
   />
 </template>

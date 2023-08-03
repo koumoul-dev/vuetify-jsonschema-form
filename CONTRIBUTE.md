@@ -4,7 +4,7 @@ Pull requests are welcome, just make sure that you discuss important changes in 
 
 Run all prepublishing checks at once:
 
-    npm run prepublish
+    npm run prepublishOnly
 
 ## Quality checks
 
@@ -18,13 +18,13 @@ This project uses [husky](https://typicode.github.io/husky/) to ensure quality o
 
 Run a local development server:
 
+    npm install
     cd doc
     npm install
-    npm run dev
+    cd -
+    npm run dev-zellij
 
 This simply opens the documentation site in a local web server that will watch your edits to the source code both of the library and of the documentation and its examples.
-
-Please note that you can open a single example in a lighter page by replacing the # by a slash in the URL (for example http://localhost:3133/examples#basic => http://localhost:3133/examples/basic).
 
 An additionnal "Development" group of examples is visible, please add in this group examples that do not need to be presented to the users but has some value for maintainers.
 

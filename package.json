@@ -20,6 +20,7 @@
     "lint-fix": "eslint --fix --ext .js,.ts,.vue .",
     "build": "vue-tsc && vite build",
     "dev-zellij": "zellij --layout .zellij.kdl",
+    "prepublishOnly": "npm run lint && npm run build",
     "postpublish": "gh-pages-multi deploy -v -s doc/dist -t latest",
     "doc-build": "(cd doc && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/latest/ nuxt generate)",
     "doc-master": "(cd doc && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/master/ nuxt generate) && gh-pages-multi deploy -v -s doc/dist -t master",

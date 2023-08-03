@@ -2,15 +2,15 @@
 import { SectionNode, StatefulLayout } from '@json-layout/core'
 import Node from '../node.vue'
 
-defineProps<{ node: SectionNode, statefulLayout: StatefulLayout }>()
+defineProps<{ modelValue: SectionNode, statefulLayout: StatefulLayout }>()
 </script>
 
 <template>
   section:
   <node
-    v-for="child of node.children"
+    v-for="child of modelValue.children"
     :key="child.key"
-    :node="child"
+    :model-value="child"
     :stateful-layout="statefulLayout"
   />
 </template>

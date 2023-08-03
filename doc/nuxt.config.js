@@ -25,8 +25,7 @@ export default defineNuxtConfig({
   modules: [
     // '@nuxtjs/sitemap'
     // @ts-ignore
-    (_, nuxt) => nuxt.hooks.hook('vite:extendConfig', config => config.plugins.push(vuetify())),
-    ['unplugin-icons/nuxt', { /* options */ }]
+    (_, nuxt) => nuxt.hooks.hook('vite:extendConfig', config => config.plugins.push(vuetify()))
   ],
   plugins: [
     // { src: '~/plugins/highlight.js', ssr: false },
