@@ -1,5 +1,8 @@
 <template>
-  <v-container fluid class="text-center index-container">
+  <v-container
+    fluid
+    class="text-center index-container"
+  >
     <h1 class="text-h1 my-4 text-primary font-weight-bold">
       vjsf
     </h1>
@@ -13,7 +16,16 @@
     </p>
 
     <p class="my-2">
-      Based on <a href="https://vuejs.org/" class="text-primary text-decoration-none font-weight-medium">Vue.js</a> / <a href="https://vuetifyjs.com/" class="text-primary text-decoration-none font-weight-medium">Vuetify</a> / <a href="https://json-schema.org/" class="text-primary text-decoration-none font-weight-medium">JSON Schema</a>.
+      Based on <a
+        href="https://vuejs.org/"
+        class="text-primary text-decoration-none font-weight-medium"
+      >Vue.js</a> / <a
+        href="https://vuetifyjs.com/"
+        class="text-primary text-decoration-none font-weight-medium"
+      >Vuetify</a> / <a
+        href="https://json-schema.org/"
+        class="text-primary text-decoration-none font-weight-medium"
+      >JSON Schema</a>.
     </p>
 
     <!--<iframe

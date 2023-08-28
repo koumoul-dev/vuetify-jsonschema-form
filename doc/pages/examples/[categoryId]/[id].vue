@@ -18,7 +18,6 @@
           v-for="tabItem in [
             {value: 'schema', title: 'Schema'},
             {value: 'model', title: 'Data'},
-            {value: '_stateTree', title: 'State tree'},
             {value: 'config', title: 'Configuration'}
           ]"
           :key="tabItem.value"
@@ -57,16 +56,6 @@
           <pre><code
               class="language-javascript"
               v-html="highlight(model)"
-          /></pre>
-        </v-window-item>
-
-        <v-window-item
-          value="_stateTree"
-          class="ma-3"
-        >
-          <pre><code
-              class="language-javascript"
-              v-html="highlight(state)"
           /></pre>
         </v-window-item>
 

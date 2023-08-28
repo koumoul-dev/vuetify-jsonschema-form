@@ -11,7 +11,7 @@ defineProps<{ modelValue: NumberFieldNode, statefulLayout: StatefulLayout }>()
     type="number"
     :step="modelValue.layout.step"
     :error-messages="modelValue.error"
-    :model-value="modelValue.value"
+    :model-value="modelValue.data"
     :readonly="modelValue.mode === 'read'"
     @update:model-value="value => statefulLayout.input(modelValue, value && Number(value))"
   />

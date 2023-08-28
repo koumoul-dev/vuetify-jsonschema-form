@@ -6,10 +6,9 @@ defineProps<{ modelValue: SectionNode, statefulLayout: StatefulLayout }>()
 </script>
 
 <template>
-  section:
   <node
     v-for="child of modelValue.children"
-    :key="child.key"
+    :key="child.fullKey"
     :model-value="child"
     :stateful-layout="statefulLayout"
   />
