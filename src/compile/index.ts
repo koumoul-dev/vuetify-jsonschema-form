@@ -17,6 +17,7 @@ export function compile (schema: object, baseImport = '@koumoul/vjsf/src/compone
       for (const switchCase of layout.switch) comps.add(switchCase.comp)
     }
   }
+  comps.delete('none')
   const code = ejs.render(template, { compiledLayoutCode, comps, baseImport })
   return code
 }
