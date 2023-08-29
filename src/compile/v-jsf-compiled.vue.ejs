@@ -1,0 +1,31 @@
+<script setup>
+import { StatefulLayout } from '@json-layout/core'
+import { ref, getCurrentInstance } from 'vue'
+
+import Tree from '<%- baseImport %>/tree.vue'
+<% comps.forEach(function(comp){ %>import <%= comp.replace(/-/g, '') %> from '<%- baseImport %>/nodes/<%= comp %>.vue'
+<% }); %>
+
+<%- compiledLayoutCode %>
+
+const vueInstance = getCurrentInstance()
+<% comps.forEach(function(comp){ %>vueInstance.appContext.app.component('vjsf-node-<%= comp %>', <%= comp.replace(/-/g, '') %>)
+<% }); %>
+
+const props = defineProps(['modelValue', 'mode'])
+const emit = defineEmits(['update:modelValue', 'update:state'])
+
+const statefulLayout = new StatefulLayout(compiledLayout, compiledLayout.skeletonTree, { mode: props.mode ?? 'write', width: 1000 }, props.modelValue)
+const stateTree = ref(statefulLayout.stateTree)
+
+statefulLayout.events.on('update', (newValue) => {
+  stateTree.value = newValue.stateTree
+  emit('update:modelValue', newValue.data)
+  emit('update:state', newValue)
+})
+emit('update:state', statefulLayout)
+</script>
+
+<template>
+  <tree :model-value="stateTree" :stateful-layout="statefulLayout" />
+</template>

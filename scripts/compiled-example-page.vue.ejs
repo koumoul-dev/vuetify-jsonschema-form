@@ -1,0 +1,20 @@
+<template>
+  <example :example="example">
+    <template #vjsf="{modelValue, mode, updateState}">
+      <compiled-examples-<%= exampleSuite.id %>-<%= example.id %> :model-value="modelValue" :mode="mode" @update:state="updateState" />
+    </template>
+  </example>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      example: <%- JSON.stringify(example) %>
+    }
+  }
+}
+</script>
+
+<style lang="css" scoped>
+</style>

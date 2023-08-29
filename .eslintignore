@@ -1,2 +1,4 @@
 /node_modules/
 /dist
+/doc/pages/compiled-examples
+/doc/components/compiled-examples
