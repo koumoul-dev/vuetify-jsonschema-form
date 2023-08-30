@@ -50,65 +50,15 @@
             1.x to 2.x
           </v-list-item-title>
         </v-list-item>
+        <v-list-item
+          v-for="examplesCategory of examples"
+          :key="examplesCategory.id"
+          :to="`/${examplesCategory.id}`"
+        >
+          <v-list-item-title>{{ examplesCategory.title }}</v-list-item-title>
+        </v-list-item>
       </v-list>
 
-      <v-divider />
-
-      <v-expansion-panels>
-        <v-expansion-panel
-          v-for="category of examples"
-          :key="category.id"
-          :title="category.title"
-        >
-          <v-list>
-            <v-list-item
-              v-for="example of category.examples"
-              :key="example.id"
-              :to="`/examples/${category.id}/${example.id}`"
-            >
-              <v-list-item-title>{{ example.title }}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-expansion-panel>
-      </v-expansion-panels>
-
-      <!--
-      <v-list
-        dense
-        shaped
-        class="mb-6 pr-0"
-      >
-        <v-subheader>EXAMPLES</v-subheader>
-        <v-expansion-panels
-          id="examples-panels"
-          accordion
-          flat
-        >
-          <v-expansion-panel
-            v-for="(examplesGroup, i) in examples.filter(eg => eg.title !== 'Development' || nodeEnv === 'development')"
-            :key="i"
-          >
-            <v-expansion-panel-header
-              class="px-3"
-              :color="examplesGroup.color || ''"
-            >
-              {{ examplesGroup.title }}
-            </v-expansion-panel-header>
-            <v-expansion-panel-content>
-              <v-list-item
-                v-for="example in examplesGroup.examples"
-                :key="example.id"
-                :to="{name: 'examples', hash: '#' + example.id}"
-              >
-                <v-list-item-content>
-                  <v-list-item-title>{{ example.title }}</v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-expansion-panel-content>
-          </v-expansion-panel>
-        </v-expansion-panels>
-      </v-list>
-      -->
       <template #append>
         <v-footer>
           <v-spacer />

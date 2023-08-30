@@ -7,7 +7,8 @@
   },
   "dependencies": {
     "@mdi/font": "^7.2.96",
-    "marked": "^5.0.5",
+    "@types/markdown-it": "^13.0.1",
+    "markdown-it": "^13.0.1",
     "nuxt": "^3.6.5",
     "prismjs": "^1.29.0",
     "vite-plugin-vuetify": "^1.0.2",

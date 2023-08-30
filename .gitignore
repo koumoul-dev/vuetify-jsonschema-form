@@ -4,6 +4,6 @@ node_modules
 /doc/dist
 /doc/.nuxt
 /doc/.output
-/doc/components/compiled-examples
-/doc/pages/compiled-examples
+/doc/components/compiled
+/doc/pages/compiled
 .idea/

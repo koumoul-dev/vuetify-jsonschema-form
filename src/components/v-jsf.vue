@@ -6,13 +6,21 @@ import { ref, computed, getCurrentInstance } from 'vue'
 import NodeSection from './nodes/section.vue'
 import NodeTextField from './nodes/text-field.vue'
 import NodeNumberField from './nodes/number-field.vue'
-import OneOfSelect from './nodes/one-of-select.vue'
+import NodeOneOfSelect from './nodes/one-of-select.vue'
+
+const comps = {
+  Section: NodeSection,
+  TextField: NodeTextField,
+  NumberField: NodeNumberField,
+  OneOfSelect: NodeOneOfSelect
+}
 
 const instance = getCurrentInstance()
-instance?.appContext.app.component('vjsf-node-section', NodeSection)
-instance?.appContext.app.component('vjsf-node-text-field', NodeTextField)
-instance?.appContext.app.component('vjsf-node-number-field', NodeNumberField)
-instance?.appContext.app.component('vjsf-node-one-of-select', OneOfSelect)
+for (const [name, comp] of Object.entries(comps)) {
+  if (!instance?.appContext.app.component(`VjsfNode${name}`)) {
+    instance?.appContext.app.component(`VjsfNode${name}`, comp)
+  }
+}
 
 const props = defineProps<{ schema: object, modelValue: unknown, mode?: 'read' | 'write' }>()
 const emit = defineEmits(['update:modelValue', 'update:state'])

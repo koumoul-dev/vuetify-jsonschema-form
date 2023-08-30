@@ -4,11 +4,11 @@ import ejs from 'ejs'
 import { compile } from '../src/compile'
 import { examples } from '@json-layout/examples'
 
-const compBaseDir = path.join(__dirname, '../doc/components/compiled-examples')
+const compBaseDir = path.join(__dirname, '../doc/components/compiled')
 rmSync(compBaseDir, { recursive: true, force: true })
 mkdirSync(compBaseDir)
 
-const pageBaseDir = path.join(__dirname, '../doc/pages/compiled-examples')
+const pageBaseDir = path.join(__dirname, '../doc/pages/compiled')
 rmSync(pageBaseDir, { recursive: true, force: true })
 mkdirSync(pageBaseDir)
 const pageTemplate = readFileSync(path.join(__dirname, 'compiled-example-page.vue.ejs'), 'utf8')

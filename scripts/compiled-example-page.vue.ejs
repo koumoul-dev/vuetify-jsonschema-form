@@ -1,9 +1,15 @@
 <template>
-  <example :example="example">
-    <template #vjsf="{modelValue, mode, updateState}">
-      <compiled-examples-<%= exampleSuite.id %>-<%= example.id %> :model-value="modelValue" :mode="mode" @update:state="updateState" />
-    </template>
-  </example>
+  <v-container>
+    <h1 class="text-h3 mt-8 mb-3">
+      {{ example.title }}
+    </h1>
+    <div v-html="$markdown(example.description)" />
+    <example :example="example">
+      <template #vjsf="{modelValue, mode, updateState}">
+        <compiled-<%= exampleSuite.id %>-<%= example.id %> :model-value="modelValue" :mode="mode" @update:state="updateState" />
+      </template>
+    </example>
+  </v-container>
 </template>
 
 <script>
