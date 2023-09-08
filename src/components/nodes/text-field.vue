@@ -1,16 +1,19 @@
 <script setup lang="ts">
 import { StatefulLayout, TextFieldNode } from '@json-layout/core'
 import { VTextField } from 'vuetify/components'
+import { computed } from 'vue'
+import { fullFieldProps } from './utils'
 
-defineProps<{ modelValue: TextFieldNode, statefulLayout: StatefulLayout }>()
+const props = defineProps<{ modelValue: TextFieldNode, statefulLayout: StatefulLayout }>()
+
+const fieldProps = computed(() =>
+  fullFieldProps([props.modelValue.layout.options?.textFieldProps, props.modelValue.layout.props], props.modelValue)
+)
 </script>
 
 <template>
   <v-text-field
-    :label="modelValue.layout.label"
-    :error-messages="modelValue.error"
-    :model-value="modelValue.data"
-    :readonly="modelValue.mode === 'read'"
+    v-bind="fieldProps"
     @update:model-value="value => statefulLayout.input(modelValue, value)"
   />
 </template>

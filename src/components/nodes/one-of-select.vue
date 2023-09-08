@@ -18,7 +18,7 @@ const createStatefulLayout = () => {
       props.statefulLayout.compiledLayout,
       activeChildTree.value,
       // TODO: width should come from current node not global layout
-      { mode: props.modelValue.mode, width: props.statefulLayout.options.width },
+      props.modelValue.options,
       props.modelValue.data
     )
     childStatefulLayout.value.events.on('update', (newValue: StatefulLayout) => {
@@ -34,7 +34,7 @@ const createStatefulLayout = () => {
 
 const updateStatefulLayout = () => {
   if (!childStatefulLayout.value) return
-  childStatefulLayout.value.options = { mode: props.modelValue.mode, width: 1000 }
+  childStatefulLayout.value.options = props.modelValue.options
   childStatefulLayout.value.data = props.modelValue.data
 }
 

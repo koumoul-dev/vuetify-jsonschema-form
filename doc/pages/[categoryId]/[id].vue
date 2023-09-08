@@ -5,22 +5,23 @@
       {{ example.title }}
     </h1>
     <div v-html="$markdown(example.description)" />
-    <example :example="example" />
+    <example
+      :example="example"
+      :v2="examplesCategory.id === 'v2'"
+    />
   </v-container>
 </template>
 
 <script>
-import { examples } from '@json-layout/examples'
+import examples from '~/examples/'
 
 export default {
   computed: {
+    examplesCategory () {
+      return examples.find(e => e.id === this.$route.params.categoryId)
+    },
     example () {
-      for (const examplesCategory of examples) {
-        for (const example of examplesCategory.examples) {
-          if (example.id === this.$route.params.id) { return example }
-        }
-      }
-      return null
+      return this.examplesCategory?.find(e => e.id === this.$route.params.id)
     }
   }
 }

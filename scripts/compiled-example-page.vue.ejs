@@ -4,7 +4,7 @@
       {{ example.title }}
     </h1>
     <div v-html="$markdown(example.description)" />
-    <example :example="example">
+    <example :example="example" :v2="<%= exampleSuite.id === 'v2' %>">
       <template #vjsf="{modelValue, mode, updateState}">
         <compiled-<%= exampleSuite.id %>-<%= example.id %> :model-value="modelValue" :mode="mode" @update:state="updateState" />
       </template>

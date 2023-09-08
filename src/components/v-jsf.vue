@@ -5,20 +5,27 @@ import { ref, computed, getCurrentInstance } from 'vue'
 
 import NodeSection from './nodes/section.vue'
 import NodeTextField from './nodes/text-field.vue'
+import NodeTextarea from './nodes/textarea.vue'
+import NodeCheckbox from './nodes/checkbox.vue'
+import NodeSwitch from './nodes/switch.vue'
 import NodeNumberField from './nodes/number-field.vue'
 import NodeOneOfSelect from './nodes/one-of-select.vue'
 
 const comps = {
-  Section: NodeSection,
-  TextField: NodeTextField,
-  NumberField: NodeNumberField,
-  OneOfSelect: NodeOneOfSelect
+  section: NodeSection,
+  'text-field': NodeTextField,
+  textarea: NodeTextarea,
+  checkbox: NodeCheckbox,
+  switch: NodeSwitch,
+  'number-field': NodeNumberField,
+  'one-of-select': NodeOneOfSelect
 }
 
 const instance = getCurrentInstance()
 for (const [name, comp] of Object.entries(comps)) {
-  if (!instance?.appContext.app.component(`VjsfNode${name}`)) {
-    instance?.appContext.app.component(`VjsfNode${name}`, comp)
+  if (!instance?.appContext.app.component(`vjsf-node-${name}`)) {
+    console.log('REGISTER', `vjsf-node-${name}`)
+    instance?.appContext.app.component(`vjsf-node-${name}`, comp)
   }
 }
 

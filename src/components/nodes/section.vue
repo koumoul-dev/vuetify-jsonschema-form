@@ -3,6 +3,7 @@ import { SectionNode, StatefulLayout } from '@json-layout/core'
 import Node from '../node.vue'
 
 defineProps<{ modelValue: SectionNode, statefulLayout: StatefulLayout }>()
+
 </script>
 
 <template>

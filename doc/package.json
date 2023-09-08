@@ -11,6 +11,7 @@
     "markdown-it": "^13.0.1",
     "nuxt": "^3.6.5",
     "prismjs": "^1.29.0",
+    "random-words": "^2.0.0",
     "vite-plugin-vuetify": "^1.0.2",
     "vuetify": "^3.3.11"
   }

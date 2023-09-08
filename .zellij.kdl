@@ -1,7 +1,14 @@
 layout {
-    pane name="vjsf" borderless=true {
-      command "bash"
-      args "-ic" "nvm use && bash"
+    pane {
+      split_direction "vertical"
+      pane name="vjsf" borderless=true {
+        command "bash"
+        args "-ic" "nvm use && bash"
+      }
+      pane name="run tests" {
+        command "bash"
+        args "-ic" "nvm use && npm run test"
+      }
     }
     pane {
       split_direction "vertical"
@@ -11,7 +18,7 @@ layout {
       }
       pane name="run doc" {
         command "bash"
-        args "-ic" "nvm use && cd doc && npm run dev"
+        args "-ic" "nvm use && npm run compile-examples && cd doc && npm run dev"
       }
     }
     pane size=2 borderless=true {

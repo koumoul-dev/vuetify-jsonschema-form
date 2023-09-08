@@ -2,7 +2,7 @@ import path from 'path'
 import { mkdirSync, writeFileSync, rmSync, readFileSync } from 'fs'
 import ejs from 'ejs'
 import { compile } from '../src/compile'
-import { examples } from '@json-layout/examples'
+import examples from '../doc/examples'
 
 const compBaseDir = path.join(__dirname, '../doc/components/compiled')
 rmSync(compBaseDir, { recursive: true, force: true })

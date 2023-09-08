@@ -1,5 +1,3 @@
-const randomWords = require('random-words')
-
 const id = 'select'
 
 const title = 'Selects'
@@ -11,6 +9,14 @@ Arrays are represented as multi-value select fields.
 If the number of items is too large the select is replaced by a auto-complete except if you force the use of a select using the \`x-display=select\` annotation.
 
 The \`selectAll\` options can be used to add a "select all" action prepended to the list of items. It is only applied on multi-value select fields (not autocomplete).`
+
+const generate = (nb) => {
+  const words = []
+  for (let i = 0; i < nb; i++) {
+    words.push((Math.random() + 1).toString(36).substring(7))
+  }
+  return words
+}
 
 const schema = {
   type: 'object',
@@ -39,13 +45,13 @@ const schema = {
     stringEnumLarge: {
       type: 'string',
       title: 'I\'m a string with values from a large enum',
-      enum: randomWords({ exactly: 25, wordsPerString: 2 }),
+      enum: generate(25),
       description: 'This description is used as a help message.'
     },
     stringArrayEnumLargeSelect: {
       type: 'array',
       title: 'I\'m an array with values from large enum rendered as a select',
-      items: { type: 'string', enum: randomWords({ exactly: 25, wordsPerString: 2 }) },
+      items: { type: 'string', enum: generate(25) },
       'x-display': 'select'
     },
     stringContext: {

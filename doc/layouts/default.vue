@@ -93,7 +93,6 @@
         rounded
         color="primary"
         style="text-transform: none;"
-        prepend-icon=""
       >
         <template #prepend>
           <v-icon
@@ -134,7 +133,7 @@
 
 <script>
 // import SearchWidget from '@koumoul/data-fair-search-widget/src/components/search-widget.vue'
-import { examples } from '@json-layout/examples'
+import examples from '~/examples/'
 import { version } from '~/../package.json'
 
 export default {

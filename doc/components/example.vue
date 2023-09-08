@@ -9,11 +9,7 @@
       color="#F5F5F5"
     >
       <v-btn
-        v-for="tabItem in [
-          {value: 'schema', title: 'Schema'},
-          {value: 'model', title: 'Data'},
-          {value: 'config', title: 'Configuration'}
-        ]"
+        v-for="tabItem in tabs"
         :key="tabItem.value"
         class="text-none font-weight-bold"
         size="small"
@@ -34,12 +30,22 @@
       style="height: 400px;background-color:#F5F5F5;overflow-y: auto;"
     >
       <v-window-item
-        value="schema"
+        value="schemaV2"
         class="ma-3"
       >
         <pre><code
               class="language-javascript"
               v-html="highlight(example.schema)"
+        /></pre>
+      </v-window-item>
+
+      <v-window-item
+        value="schema"
+        class="ma-3"
+      >
+        <pre><code
+              class="language-javascript"
+              v-html="highlight(schema)"
         /></pre>
       </v-window-item>
 
@@ -78,7 +84,7 @@
       >
         <v-jsf
           :model-value="model"
-          :schema="example.schema"
+          :schema="schema"
           :mode="mode"
           @update:state="updateState"
         />
@@ -91,13 +97,15 @@
 import 'prismjs/themes/prism.css'
 import Prism from 'prismjs'
 import { VJsf } from '~/../src/'
+import { v2compat } from '~/../src/compat/v2'
 
 Prism.manual = true
 
 export default {
   components: { VJsf },
   props: {
-    example: { type: Object, required: true }
+    example: { type: Object, required: true },
+    v2: { type: Boolean, default: false }
   },
   data: () => ({
     model: null,
@@ -105,6 +113,20 @@ export default {
     state: null,
     mode: 'write'
   }),
+  computed: {
+    tabs () {
+      const tabs = []
+      if (this.v2) tabs.push({ value: 'schemaV2', title: 'Schema V2' })
+      tabs.push({ value: 'schema', title: 'Schema' })
+      tabs.push({ value: 'model', title: 'Data' })
+      tabs.push({ value: 'config', title: 'Configuration' })
+      return tabs
+    },
+    schema () {
+      if (this.v2) return v2compat(this.example.schema)
+      return this.example.schema
+    }
+  },
   methods: {
     highlight (text) {
       return Prism.highlight(typeof text === 'string' ? text : JSON.stringify(text, null, 2), Prism.languages.javascript, 'javascript')
