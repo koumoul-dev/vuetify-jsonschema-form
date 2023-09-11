@@ -5,12 +5,14 @@ defineProps<{ modelValue: StateNode, statefulLayout: StatefulLayout }>()
 </script>
 
 <template>
-  <component
-    :is="`vjsf-node-${modelValue.layout.comp}`"
-    v-if="modelValue.layout.comp !== 'none'"
-    :model-value="modelValue"
-    :stateful-layout="statefulLayout"
-  />
+  <v-col :cols="modelValue.cols">
+    <component
+      :is="`vjsf-node-${modelValue.layout.comp}`"
+      v-if="modelValue.layout.comp !== 'none'"
+      :model-value="modelValue"
+      :stateful-layout="statefulLayout"
+    />
+  </v-col>
 </template>
 
 <!--<script>

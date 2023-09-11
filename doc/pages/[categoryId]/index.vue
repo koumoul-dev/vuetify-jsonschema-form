@@ -4,20 +4,32 @@
     <h1 class="text-h3 mb-6">
       {{ examplesCategory.title }}
     </h1>
-    <div v-html="$markdown(examplesCategory.description)" />
+    <markdown-block :content="examplesCategory.description" />
     <template
       v-for="example in examplesCategory.examples"
       :key="example.id"
     >
+      <a
+        :id="example.id"
+        class="anchor"
+      />
       <h2 class="text-h4 mt-8 mb-3">
         {{ example.title }}
+        <v-btn
+          icon="mdi-fullscreen"
+          flat
+          title="open example in fullscreen"
+          :to="`/${examplesCategory.id}/${example.id}`"
+        />
       </h2>
-      <div v-html="$markdown(example.description)" />
+      <markdown-block :content="example.description" />
       <example
         :example="example"
         :v2="examplesCategory.id === 'v2'"
       />
     </template>
+
+    <toc :sections="examplesCategory.examples" />
   </v-container>
   <v-alert v-else>
     No examples category found with id {{ $route.params.categoryId }}
@@ -36,5 +48,11 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
+a.anchor {
+  display: block;
+  position: relative;
+  top: -60px;
+  visibility: hidden;
+}
 </style>

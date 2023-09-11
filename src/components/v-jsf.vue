@@ -24,7 +24,6 @@ const comps = {
 const instance = getCurrentInstance()
 for (const [name, comp] of Object.entries(comps)) {
   if (!instance?.appContext.app.component(`vjsf-node-${name}`)) {
-    console.log('REGISTER', `vjsf-node-${name}`)
     instance?.appContext.app.component(`vjsf-node-${name}`, comp)
   }
 }

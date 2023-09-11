@@ -24,6 +24,9 @@
       <v-list
         dense
         class="pt-0"
+        color="primary"
+        nav
+        density="compact"
       >
         <v-list-item to="/about">
           <v-list-item-title>

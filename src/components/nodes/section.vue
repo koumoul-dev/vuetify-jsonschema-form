@@ -7,10 +7,12 @@ defineProps<{ modelValue: SectionNode, statefulLayout: StatefulLayout }>()
 </script>
 
 <template>
-  <node
-    v-for="child of modelValue.children"
-    :key="child.fullKey"
-    :model-value="child"
-    :stateful-layout="statefulLayout"
-  />
+  <v-row>
+    <node
+      v-for="child of modelValue.children"
+      :key="child.fullKey"
+      :model-value="child"
+      :stateful-layout="statefulLayout"
+    />
+  </v-row>
 </template>

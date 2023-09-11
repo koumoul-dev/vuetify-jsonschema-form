@@ -2,8 +2,14 @@
   <v-container>
     <h1 class="text-h3 mt-8 mb-3">
       {{ example.title }}
+      <v-btn
+        icon="mdi-reply"
+        flat
+        title="get back to non-compiled page"
+        :to="`/<%= exampleSuite.id %>/<%= example.id %>`"
+      />
     </h1>
-    <div v-html="$markdown(example.description)" />
+    <markdown-block :content="example.description" />
     <example :example="example" :v2="<%= exampleSuite.id === 'v2' %>">
       <template #vjsf="{modelValue, mode, updateState}">
         <compiled-<%= exampleSuite.id %>-<%= example.id %> :model-value="modelValue" :mode="mode" @update:state="updateState" />

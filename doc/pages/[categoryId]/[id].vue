@@ -3,8 +3,20 @@
   <v-container>
     <h1 class="text-h3 mt-8 mb-3">
       {{ example.title }}
+      <v-btn
+        icon="mdi-reply"
+        flat
+        title="get back to parent page"
+        :to="`/${examplesCategory.id}`"
+      />
+      <v-btn
+        icon="mdi-package-variant-closed"
+        flat
+        title="open compiled version"
+        :to="`/compiled/${examplesCategory.id}/${example.id}`"
+      />
     </h1>
-    <div v-html="$markdown(example.description)" />
+    <markdown-block :content="example.description" />
     <example
       :example="example"
       :v2="examplesCategory.id === 'v2'"
@@ -21,7 +33,7 @@ export default {
       return examples.find(e => e.id === this.$route.params.categoryId)
     },
     example () {
-      return this.examplesCategory?.find(e => e.id === this.$route.params.id)
+      return this.examplesCategory?.examples.find(e => e.id === this.$route.params.id)
     }
   }
 }
