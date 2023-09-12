@@ -10,6 +10,9 @@ import NodeCheckbox from './nodes/checkbox.vue'
 import NodeSwitch from './nodes/switch.vue'
 import NodeNumberField from './nodes/number-field.vue'
 import NodeOneOfSelect from './nodes/one-of-select.vue'
+import Tabs from './nodes/tabs.vue'
+import VerticalTabs from './nodes/vertical-tabs.vue'
+import ExpansionPanels from './nodes/expansion-panels.vue'
 
 const comps = {
   section: NodeSection,
@@ -18,7 +21,10 @@ const comps = {
   checkbox: NodeCheckbox,
   switch: NodeSwitch,
   'number-field': NodeNumberField,
-  'one-of-select': NodeOneOfSelect
+  'one-of-select': NodeOneOfSelect,
+  tabs: Tabs,
+  'vertical-tabs': VerticalTabs,
+  'expansion-panels': ExpansionPanels
 }
 
 const instance = getCurrentInstance()
