@@ -6,7 +6,7 @@
   >
     <v-toolbar
       density="compact"
-      color="#F5F5F5"
+      theme="dark"
     >
       <v-btn
         v-for="tabItem in tabs"

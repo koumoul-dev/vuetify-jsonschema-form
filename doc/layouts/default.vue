@@ -65,7 +65,7 @@
       <template #append>
         <v-footer>
           <v-spacer />
-          <span class="caption">Maintained by&nbsp;<a
+          <span class="text-caption">Maintained by&nbsp;<a
             href="https://koumoul.com"
             class="text-primary text-decoration-none font-weight-medium"
           >Koumoul</a></span>

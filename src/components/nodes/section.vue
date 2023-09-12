@@ -7,6 +7,13 @@ defineProps<{ modelValue: SectionNode, statefulLayout: StatefulLayout }>()
 </script>
 
 <template>
+  <component
+    :is="`h${modelValue.options.sectionDepth}`"
+    v-if="modelValue.layout.title"
+    :class="`text-h${modelValue.options.sectionDepth}`"
+  >
+    {{ modelValue.layout.title }}
+  </component>
   <v-row>
     <node
       v-for="child of modelValue.children"
