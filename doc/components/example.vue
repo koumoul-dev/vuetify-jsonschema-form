@@ -85,35 +85,63 @@
           :step="1"
           color="primary"
           label="titleDepth"
-          :thumb-label="true"
           style="max-width:300px;"
           hide-details
           density="compact"
           show-ticks="always"
-        />
+        >
+          <template #append>
+            h{{ options.titleDepth }}
+          </template>
+        </v-slider>
+
         <pre><code
               class="language-javascript"
               v-html="highlight(options)"
         /></pre>
+
+        <v-slider
+          v-model="wrapperWidth"
+          :min="0"
+          :max="100"
+          :step="1"
+          color="primary"
+          label="container width"
+          style="max-width:500px;"
+          hide-details
+          density="compact"
+        >
+          <template #append>
+            {{ wrapperWidth }} %
+          </template>
+        </v-slider>
+        <div
+          v-if="display"
+          class="text-caption ml-6"
+        >
+          width={{ display.width }}px, display={{ display.name }}
+        </div>
       </v-window-item>
     </v-window>
 
     <v-divider />
 
     <v-form class="ma-3">
-      <slot
-        name="vjsf"
-        :model-value="model"
-        :options="options"
-        :update-state="updateState"
-      >
-        <v-jsf
+      <div :style="`width: ${wrapperWidth}%`">
+        <slot
+          name="vjsf"
           :model-value="model"
-          :schema="schema"
           :options="options"
-          @update:state="updateState"
-        />
-      </slot>
+          :update-state="updateState"
+        >
+          <v-jsf
+            :model-value="model"
+            :schema="schema"
+            :options="options"
+            @update:state="updateState"
+          />
+        </slot>
+      </div>
     </v-form>
   </v-sheet>
 </template>
@@ -135,12 +163,14 @@ export default {
   data: () => ({
     model: null,
     tab: null,
-    state: null,
+    stateTree: null,
+    display: null,
     options: {
       readOnly: false,
       summary: false,
       titleDepth: 4
-    }
+    },
+    wrapperWidth: 100
   }),
   computed: {
     tabs () {
@@ -166,8 +196,9 @@ export default {
       return Prism.highlight(typeof text === 'string' ? text : JSON.stringify(text, null, 2), Prism.languages.javascript, 'javascript')
     },
     updateState (newState) {
-      this.state = newState
+      this.stateTree = newState.stateTree
       this.model = newState.data
+      this.display = newState.display
     }
   }
 }
