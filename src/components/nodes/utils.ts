@@ -7,6 +7,6 @@ export function fullFieldProps (propsLevels: any[], node: StateNode) {
   fullProps.label = node.layout.label
   fullProps.errorMessages = node.error
   fullProps.modelValue = node.data
-  fullProps.readonly = node.options.readOnly
+  fullProps.disabled = node.options.readOnly
   return fullProps
 }

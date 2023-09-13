@@ -1,13 +1,15 @@
 <script setup lang="ts">
+import { VExpansionPanels, VExpansionPanel, VExpansionPanelTitle, VContainer } from 'vuetify/components'
 import { ExpansionPanelsNode, StatefulLayout, isSection } from '@json-layout/core'
 import Node from '../node.vue'
-import { VExpansionPanels, VExpansionPanel, VExpansionPanelTitle, VContainer } from 'vuetify/components'
+import SectionTitle from '../fragments/section-title.vue'
 
 defineProps<{ modelValue: ExpansionPanelsNode, statefulLayout: StatefulLayout }>()
 
 </script>
 
 <template>
+  <section-title :node="modelValue" />
   <v-expansion-panels>
     <v-expansion-panel
       v-for="(child, i) of modelValue.children"

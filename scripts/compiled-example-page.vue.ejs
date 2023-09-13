@@ -11,8 +11,8 @@
     </h1>
     <markdown-block :content="example.description" />
     <example :example="example" :v2="<%= exampleSuite.id === 'v2' %>">
-      <template #vjsf="{modelValue, mode, updateState}">
-        <compiled-<%= exampleSuite.id %>-<%= example.id %> :model-value="modelValue" :mode="mode" @update:state="updateState" />
+      <template #vjsf="{modelValue, options, updateState}">
+        <compiled-<%= exampleSuite.id %>-<%= example.id %> :model-value="modelValue" :options="options" @update:state="updateState" />
       </template>
     </example>
   </v-container>

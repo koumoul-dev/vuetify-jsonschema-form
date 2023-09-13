@@ -61,15 +61,40 @@
       </v-window-item>
 
       <v-window-item
-        value="config"
+        value="options"
         class="ma-3"
       >
         <v-switch
-          label="readonly"
-          :model-value="mode === 'read'"
+          v-model="options.readOnly"
+          label="readOnly"
           color="primary"
-          @update:model-value="value => {mode = value ? 'read' : 'write'}"
+          hide-details
+          density="compact"
         />
+        <v-switch
+          v-model="options.summary"
+          label="summary"
+          color="primary"
+          hide-details
+          density="compact"
+        />
+        <v-slider
+          v-model="options.titleDepth"
+          :min="1"
+          :max="6"
+          :step="1"
+          color="primary"
+          label="titleDepth"
+          :thumb-label="true"
+          style="max-width:300px;"
+          hide-details
+          density="compact"
+          show-ticks="always"
+        />
+        <pre><code
+              class="language-javascript"
+              v-html="highlight(options)"
+        /></pre>
       </v-window-item>
     </v-window>
 
@@ -79,13 +104,13 @@
       <slot
         name="vjsf"
         :model-value="model"
-        :mode="mode"
+        :options="options"
         :update-state="updateState"
       >
         <v-jsf
           :model-value="model"
           :schema="schema"
-          :mode="mode"
+          :options="options"
           @update:state="updateState"
         />
       </slot>
@@ -111,7 +136,11 @@ export default {
     model: null,
     tab: null,
     state: null,
-    mode: 'write'
+    options: {
+      readOnly: false,
+      summary: false,
+      titleDepth: 4
+    }
   }),
   computed: {
     tabs () {
@@ -119,12 +148,17 @@ export default {
       if (this.v2) tabs.push({ value: 'schemaV2', title: 'Schema V2' })
       tabs.push({ value: 'schema', title: 'Schema' })
       tabs.push({ value: 'model', title: 'Data' })
-      tabs.push({ value: 'config', title: 'Configuration' })
+      tabs.push({ value: 'options', title: 'Options' })
       return tabs
     },
     schema () {
       if (this.v2) return v2compat(this.example.schema)
       return this.example.schema
+    },
+    changeOption (key) {
+      return (value) => {
+        this.options = { ...this.options, [key]: value }
+      }
     }
   },
   methods: {

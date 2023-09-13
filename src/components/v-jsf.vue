@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { compile, StatefulLayout } from '@json-layout/core'
+import { compile, StatefulLayout, StatefulLayoutOptions } from '@json-layout/core'
 import Tree from './tree.vue'
-import { ref, computed, getCurrentInstance } from 'vue'
+import { ref, computed, getCurrentInstance, watch } from 'vue'
 
 import NodeSection from './nodes/section.vue'
 import NodeTextField from './nodes/text-field.vue'
@@ -34,18 +34,26 @@ for (const [name, comp] of Object.entries(comps)) {
   }
 }
 
-const props = defineProps<{ schema: object, modelValue: unknown, mode?: 'read' | 'write' }>()
+const props = defineProps<{ schema: object, modelValue: unknown, options: StatefulLayoutOptions }>()
 const emit = defineEmits(['update:modelValue', 'update:state'])
 
 const compiledLayout = computed(() => compile(props.schema))
-const statefulLayout = new StatefulLayout(compiledLayout.value, compiledLayout.value.skeletonTree, { mode: props.mode ?? 'write', width: 1000 }, props.modelValue)
+const statefulLayout = new StatefulLayout(compiledLayout.value, compiledLayout.value.skeletonTree, props.options, props.modelValue)
+
+// apply options when it is mutated
+watch(() => props.options, (newOptions) => { statefulLayout.options = { ...newOptions } }, { deep: true })
+
+watch(() => props.modelValue, (newData) => {
+  // case where data is updated from outside
+  if (statefulLayout.data !== newData) statefulLayout.data = newData
+})
 
 const stateTree = ref(statefulLayout.stateTree)
 
-statefulLayout.events.on('update', (newValue: StatefulLayout) => {
-  stateTree.value = newValue.stateTree
-  emit('update:modelValue', newValue.data)
-  emit('update:state', newValue)
+statefulLayout.events.on('update', () => {
+  stateTree.value = statefulLayout.stateTree
+  emit('update:modelValue', statefulLayout.data)
+  emit('update:state', statefulLayout)
 })
 emit('update:state', statefulLayout)
 
