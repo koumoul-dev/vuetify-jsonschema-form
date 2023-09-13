@@ -1,17 +1,32 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { camelize } from 'vue'
 import { StateNode } from '@json-layout/core'
+import { VjsfOptions } from '../options'
+
+const densityBaseProps = {
+  compact: {
+    density: 'compact',
+    hideDetails: 'auto'
+  },
+  comfortable: {
+    density: 'comfortable'
+  },
+  default: {}
+}
 
 export function fullFieldProps (node: StateNode) {
-  const propsLevels = [
-    node.options?.fieldProps
+  const options = node.options as VjsfOptions
+  const propsLevels: (Record<string, any> | undefined)[] = [
+    densityBaseProps[options.density ?? 'default'],
+    options.fieldProps
   ]
-  if (node.options.readOnly) propsLevels.push(node.options?.fieldPropsReadOnly)
-  propsLevels.push(node.options?.[`${node.layout.comp}Props`])
-  if (node.options.readOnly) propsLevels.push(node.options?.[`${node.layout.comp}PropsReadOnly`])
+  if (node.options.readOnly) propsLevels.push(options.fieldPropsReadOnly)
+  propsLevels.push(options[`${node.layout.comp}Props`] as Record<string, any> | undefined)
+  if (node.options.readOnly) propsLevels.push(options[`${node.layout.comp}PropsReadOnly`] as Record<string, any> | undefined)
   propsLevels.push(node.layout.props)
+
   const fullProps: any = {}
-  for (const propsLevel of propsLevels as Record<string, any>[]) {
+  for (const propsLevel of propsLevels) {
     if (propsLevel) {
       for (const key of Object.keys(propsLevel)) {
         fullProps[camelize(key)] = propsLevel[key]

@@ -48,11 +48,12 @@ const { width } = useElementSize(el)
 
 const fullOptions = computed<VjsfOptions | null>(() => {
   if (!width.value) return null
-  return {
-    ...defaultOptions(props.options),
+  const options = {
+    ...defaultOptions,
     ...props.options,
     width: Math.round(width.value)
-  } as VjsfOptions
+  }
+  return options as VjsfOptions
 })
 
 const initStatefulLayout = () => {

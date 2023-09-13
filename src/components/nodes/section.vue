@@ -9,7 +9,7 @@ defineProps<{ modelValue: SectionNode, statefulLayout: StatefulLayout }>()
 
 <template>
   <section-title :node="modelValue" />
-  <v-row>
+  <v-row :dense="modelValue.options?.density === 'compact' || modelValue.options?.density === 'comfortable'">
     <node
       v-for="child of modelValue.children"
       :key="child.fullKey"

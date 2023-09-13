@@ -7,11 +7,6 @@ defineProps<{ modelValue: StateNode, statefulLayout: StatefulLayout }>()
 <template>
   <v-col
     :cols="modelValue.cols"
-    :class="{
-      'pa-2': modelValue.options.density === 'default',
-      'pa-1': modelValue.options.density === 'comfortable',
-      'pa-1 pb-0': modelValue.options.density === 'compact'
-    }"
   >
     <component
       :is="`vjsf-node-${modelValue.layout.comp}`"

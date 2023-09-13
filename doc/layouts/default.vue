@@ -2,8 +2,8 @@
   <v-app>
     <v-navigation-drawer
       v-model="drawer"
-      :temporary="$vuetify.display.smAndDown"
-      :permanent="$vuetify.display.mdAndUp"
+      :temporary="temporary"
+      :permanent="!temporary"
       app
       class="main-drawer"
     >
@@ -79,7 +79,7 @@
       density="comfortable"
     >
       <v-app-bar-nav-icon
-        v-if="$vuetify.display.smAndDown"
+        v-if="temporary"
         @click.stop="drawer = !drawer"
       />
       <!--<search-widget
@@ -143,10 +143,23 @@ export default {
   components: { },
   data: () => ({
     version,
-    drawer: true,
+    drawer: false,
     nodeEnv: process.env.NODE_ENV,
     examples
-  })
+  }),
+  computed: {
+    temporary () {
+      return this.$route.name === 'categoryId-id' || this.$vuetify.display.smAndDown
+    }
+  },
+  watch: {
+    temporary: {
+      handler (newValue) {
+        this.drawer = !newValue
+      },
+      immediate: true
+    }
+  }
 }
 
 </script>

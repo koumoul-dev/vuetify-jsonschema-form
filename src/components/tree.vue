@@ -6,8 +6,10 @@ defineProps<{ modelValue: StateTree, statefulLayout: StatefulLayout }>()
 </script>
 
 <template>
-  <node
-    :stateful-layout="statefulLayout"
-    :model-value="modelValue.root"
-  />
+  <v-row>
+    <node
+      :stateful-layout="statefulLayout"
+      :model-value="modelValue.root"
+    />
+  </v-row>
 </template>

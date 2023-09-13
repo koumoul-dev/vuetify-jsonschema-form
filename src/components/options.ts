@@ -14,21 +14,19 @@ export type VjsfOptions = StatefulLayoutOptions & {
   switchPropsReadOnly: Record<string, unknown>,
 }
 
-export const defaultOptions = (options: Partial<VjsfOptions>): Partial<VjsfOptions> => {
-  return {
-    // matches the density prop found in many vuetify components
-    density: 'default',
-    titleDepth: 4,
-    fieldProps: options.density === 'compact' ? { hideDetails: 'auto', density: options.density ?? 'default' } : { density: options.density ?? 'default' },
-    fieldPropsReadOnly: { hideDetails: 'auto', variant: 'plain' },
-    textfieldProps: {},
-    textfieldPropsReadOnly: {},
-    textareaProps: {},
-    textareaPropsReadOnly: {},
-    // it is not very common to show an error below checkboxes and switches and without hide-details=auto they take a lot of space
-    checkboxProps: options.density === 'compact' ? {} : { hideDetails: 'auto' },
-    checkboxPropsReadOnly: {},
-    switchProps: options.density === 'compact' ? {} : { hideDetails: 'auto' },
-    switchPropsReadOnly: {}
-  }
+export const defaultOptions: Partial<VjsfOptions> = {
+  // matches the density prop found in many vuetify components
+  density: 'default',
+  titleDepth: 2,
+  fieldProps: {},
+  fieldPropsReadOnly: { hideDetails: 'auto', variant: 'plain' },
+  textfieldProps: {},
+  textfieldPropsReadOnly: {},
+  textareaProps: {},
+  textareaPropsReadOnly: {},
+  // it is not very common to show an error below checkboxes and switches and without hide-details=auto they take a lot of space
+  checkboxProps: { hideDetails: 'auto' },
+  checkboxPropsReadOnly: {},
+  switchProps: { hideDetails: 'auto' },
+  switchPropsReadOnly: {}
 }

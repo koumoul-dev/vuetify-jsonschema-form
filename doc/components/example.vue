@@ -78,7 +78,7 @@
           hide-details
           density="compact"
         />
-        <v-slider
+        <!--<v-slider
           v-model="options.titleDepth"
           :min="1"
           :max="6"
@@ -93,7 +93,7 @@
           <template #append>
             h{{ options.titleDepth }}
           </template>
-        </v-slider>
+        </v-slider>-->
         <v-select
           v-model="options.density"
           density="compact"
@@ -182,7 +182,6 @@ export default {
     options: {
       readOnly: false,
       summary: false,
-      titleDepth: 4,
       density: 'default'
     },
     filledOptions: null,
@@ -206,6 +205,9 @@ export default {
         this.options = { ...this.options, [key]: value }
       }
     }
+  },
+  created () {
+    if (this.example.options) Object.assign(this.options, this.example.options)
   },
   methods: {
     highlight (text) {
