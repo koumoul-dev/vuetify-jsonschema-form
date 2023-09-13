@@ -19,7 +19,6 @@ if (!vueInstance?.appContext.app.component('vjsf-node-<%= comp %>')) {
 const props = defineProps(['modelValue', 'mode'])
 const emit = defineEmits(['update:modelValue', 'update:state'])
 
-const compiledLayout = computed(() => compile(props.schema))
 const statefulLayout = ref(null)
 const stateTree = ref(null)
 
@@ -33,7 +32,7 @@ const fullOptions = computed(() => {
 
 const initStatefulLayout = () => {
   if (!fullOptions.value) return
-  const _statefulLayout = new StatefulLayout(compiledLayout.value, compiledLayout.value.skeletonTree, fullOptions.value, props.modelValue)
+  const _statefulLayout = new StatefulLayout(compiledLayout, compiledLayout.skeletonTree, fullOptions.value, props.modelValue)
   statefulLayout.value = _statefulLayout
   stateTree.value = _statefulLayout.stateTree
   _statefulLayout.events.on('update', () => {
@@ -59,11 +58,6 @@ watch(() => props.modelValue, (newData) => {
   if (statefulLayout.value && statefulLayout.value.data !== newData) statefulLayout.value.data = newData
 })
 
-// case where schema is updated from outside
-watch(compiledLayout, (newCompiledLayout) => {
-  initStatefulLayout()
-})
-
 </script>
 
 <template>
@@ -71,7 +65,7 @@ watch(compiledLayout, (newCompiledLayout) => {
     <tree
       v-if="statefulLayout && stateTree"
       :model-value="stateTree"
-      :stateful-layout="(statefulLayout as StatefulLayout)"
+      :stateful-layout="statefulLayout"
     />
   </div>
 </template>

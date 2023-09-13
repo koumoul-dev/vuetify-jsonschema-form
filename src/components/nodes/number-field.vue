@@ -7,7 +7,7 @@ import { fullFieldProps } from './utils'
 const props = defineProps<{ modelValue: NumberFieldNode, statefulLayout: StatefulLayout }>()
 
 const fieldProps = computed(() => {
-  const fieldProps = fullFieldProps([props.modelValue.layout.options?.numberFieldProps, props.modelValue.layout.props], props.modelValue)
+  const fieldProps = fullFieldProps(props.modelValue)
   if ('step' in props.modelValue.layout) fieldProps.step = props.modelValue.layout
   return fieldProps
 })

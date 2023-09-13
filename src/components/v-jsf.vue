@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, getCurrentInstance, watch } from 'vue'
 import { useElementSize } from '@vueuse/core'
-import { compile, StatefulLayout, StatefulLayoutOptions, StateTree } from '@json-layout/core'
+import { compile, StatefulLayout, StateTree } from '@json-layout/core'
 import Tree from './tree.vue'
 
 import NodeSection from './nodes/section.vue'
@@ -14,6 +14,7 @@ import NodeOneOfSelect from './nodes/one-of-select.vue'
 import Tabs from './nodes/tabs.vue'
 import VerticalTabs from './nodes/vertical-tabs.vue'
 import ExpansionPanels from './nodes/expansion-panels.vue'
+import { defaultOptions, type VjsfOptions } from './options'
 
 const comps = {
   section: NodeSection,
@@ -35,7 +36,7 @@ for (const [name, comp] of Object.entries(comps)) {
   }
 }
 
-const props = defineProps<{ schema: object, modelValue: unknown, options: StatefulLayoutOptions }>()
+const props = defineProps<{ schema: object, modelValue: unknown, options: Partial<Omit<VjsfOptions, 'width'>> }>()
 const emit = defineEmits(['update:modelValue', 'update:state'])
 
 const compiledLayout = computed(() => compile(props.schema))
@@ -45,9 +46,13 @@ const stateTree = ref<StateTree | null>(null)
 const el = ref(null)
 const { width } = useElementSize(el)
 
-const fullOptions = computed<StatefulLayoutOptions | null>(() => {
+const fullOptions = computed<VjsfOptions | null>(() => {
   if (!width.value) return null
-  return { ...props.options, width: Math.round(width.value) }
+  return {
+    ...defaultOptions(props.options),
+    ...props.options,
+    width: Math.round(width.value)
+  } as VjsfOptions
 })
 
 const initStatefulLayout = () => {
@@ -79,9 +84,7 @@ watch(() => props.modelValue, (newData) => {
 })
 
 // case where schema is updated from outside
-watch(compiledLayout, (newCompiledLayout) => {
-  initStatefulLayout()
-})
+watch(compiledLayout, (newCompiledLayout) => initStatefulLayout())
 
 </script>
 
@@ -94,3 +97,16 @@ watch(compiledLayout, (newCompiledLayout) => {
     />
   </div>
 </template>
+
+<style lang="css">
+/* override vuetify styles to manage readOnly fields more usable than the default disabled fields */
+.vjsf-field--readonly.v-input--disabled  .v-field--disabled {
+  pointer-events: auto;
+}
+.vjsf-field--readonly.v-input--disabled .v-field--disabled,
+.vjsf-field--readonly.v-input--disabled .v-input__details,
+.vjsf-field--readonly.v-input--disabled .v-input__append,
+.vjsf-field--readonly.v-input--disabled .v-input__prepend {
+  opacity: inherit;
+}
+</style>

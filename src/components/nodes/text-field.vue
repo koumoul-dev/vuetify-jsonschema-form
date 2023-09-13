@@ -6,9 +6,7 @@ import { fullFieldProps } from './utils'
 
 const props = defineProps<{ modelValue: TextFieldNode, statefulLayout: StatefulLayout }>()
 
-const fieldProps = computed(() =>
-  fullFieldProps([props.modelValue.layout.options?.textFieldProps, props.modelValue.layout.props], props.modelValue)
-)
+const fieldProps = computed(() => fullFieldProps(props.modelValue))
 </script>
 
 <template>

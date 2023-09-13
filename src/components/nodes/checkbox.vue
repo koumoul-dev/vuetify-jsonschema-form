@@ -6,9 +6,7 @@ import { fullFieldProps } from './utils'
 
 const props = defineProps<{ modelValue: CheckboxNode, statefulLayout: StatefulLayout }>()
 
-const fieldProps = computed(() =>
-  fullFieldProps([props.modelValue.layout.options?.checkboxProps, props.modelValue.layout.props], props.modelValue)
-)
+const fieldProps = computed(() => fullFieldProps(props.modelValue))
 </script>
 
 <template>

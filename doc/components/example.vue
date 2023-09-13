@@ -94,11 +94,14 @@
             h{{ options.titleDepth }}
           </template>
         </v-slider>
-
-        <pre><code
-              class="language-javascript"
-              v-html="highlight(options)"
-        /></pre>
+        <v-select
+          v-model="options.density"
+          density="compact"
+          hide-details
+          label="density"
+          style="max-width:300px;"
+          :items="['default', 'comfortable', 'compact']"
+        />
 
         <v-slider
           v-model="wrapperWidth"
@@ -117,10 +120,21 @@
         </v-slider>
         <div
           v-if="display"
-          class="text-caption ml-6"
+          class="text-caption ml-2"
         >
           width={{ display.width }}px, display={{ display.name }}
         </div>
+
+        <v-divider class="my-2" />
+
+        <div class="text-subtitle">
+          Options filled with default values:
+        </div>
+
+        <pre><code
+              class="language-javascript"
+              v-html="highlight(filledOptions)"
+        /></pre>
       </v-window-item>
     </v-window>
 
@@ -168,8 +182,10 @@ export default {
     options: {
       readOnly: false,
       summary: false,
-      titleDepth: 4
+      titleDepth: 4,
+      density: 'default'
     },
+    filledOptions: null,
     wrapperWidth: 100
   }),
   computed: {
@@ -199,6 +215,7 @@ export default {
       this.stateTree = newState.stateTree
       this.model = newState.data
       this.display = newState.display
+      this.filledOptions = newState.options
     }
   }
 }
