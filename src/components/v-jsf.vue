@@ -50,27 +50,37 @@ const fullOptions = computed<StatefulLayoutOptions | null>(() => {
   return { ...props.options, width: Math.round(width.value) }
 })
 
+const initStatefulLayout = () => {
+  if (!fullOptions.value) return
+  const _statefulLayout = new StatefulLayout(compiledLayout.value, compiledLayout.value.skeletonTree, fullOptions.value, props.modelValue)
+  statefulLayout.value = _statefulLayout
+  stateTree.value = _statefulLayout.stateTree
+  _statefulLayout.events.on('update', () => {
+    stateTree.value = _statefulLayout.stateTree
+    emit('update:modelValue', _statefulLayout.data)
+    emit('update:state', _statefulLayout)
+  })
+  emit('update:state', _statefulLayout)
+}
+
 watch(fullOptions, (newOptions) => {
   if (!newOptions) {
     statefulLayout.value = null
   } else if (statefulLayout.value) {
     statefulLayout.value.options = newOptions
   } else {
-    const _statefulLayout = new StatefulLayout(compiledLayout.value, compiledLayout.value.skeletonTree, newOptions, props.modelValue)
-    statefulLayout.value = _statefulLayout
-    stateTree.value = _statefulLayout.stateTree
-    _statefulLayout.events.on('update', () => {
-      stateTree.value = _statefulLayout.stateTree
-      emit('update:modelValue', _statefulLayout.data)
-      emit('update:state', _statefulLayout)
-    })
-    emit('update:state', _statefulLayout)
+    initStatefulLayout()
   }
 })
 
 // case where data is updated from outside
 watch(() => props.modelValue, (newData) => {
   if (statefulLayout.value && statefulLayout.value.data !== newData) statefulLayout.value.data = newData
+})
+
+// case where schema is updated from outside
+watch(compiledLayout, (newCompiledLayout) => {
+  initStatefulLayout()
 })
 
 </script>
