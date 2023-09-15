@@ -64,21 +64,23 @@
         value="options"
         class="ma-3"
       >
-        <v-switch
-          v-model="options.readOnly"
-          label="readOnly"
-          color="primary"
-          hide-details
-          density="compact"
-        />
-        <v-switch
-          v-model="options.summary"
-          label="summary"
-          color="primary"
-          hide-details
-          density="compact"
-        />
-        <!--<v-slider
+        <v-row>
+          <v-col>
+            <v-switch
+              v-model="options.readOnly"
+              label="readOnly"
+              color="primary"
+              hide-details
+              density="compact"
+            />
+            <v-switch
+              v-model="options.summary"
+              label="summary"
+              color="primary"
+              hide-details
+              density="compact"
+            />
+            <!--<v-slider
           v-model="options.titleDepth"
           :min="1"
           :max="6"
@@ -94,47 +96,50 @@
             h{{ options.titleDepth }}
           </template>
         </v-slider>-->
-        <v-select
-          v-model="options.density"
-          density="compact"
-          hide-details
-          label="density"
-          style="max-width:300px;"
-          :items="['default', 'comfortable', 'compact']"
-        />
+            <v-select
+              v-model="options.density"
+              density="compact"
+              hide-details
+              label="density"
+              style="max-width:300px;"
+              :items="['default', 'comfortable', 'compact']"
+            />
 
-        <v-slider
-          v-model="wrapperWidth"
-          :min="0"
-          :max="100"
-          :step="1"
-          color="primary"
-          label="container width"
-          style="max-width:500px;"
-          hide-details
-          density="compact"
-        >
-          <template #append>
-            {{ wrapperWidth }} %
-          </template>
-        </v-slider>
-        <div
-          v-if="display"
-          class="text-caption ml-2"
-        >
-          width={{ display.width }}px, display={{ display.name }}
-        </div>
+            <v-slider
+              v-model="wrapperWidth"
+              :min="0"
+              :max="100"
+              :step="1"
+              color="primary"
+              label="container width"
+              style="max-width:500px;"
+              hide-details
+              density="compact"
+            >
+              <template #append>
+                {{ wrapperWidth }} %
+              </template>
+            </v-slider>
+            <div
+              v-if="display"
+              class="text-caption ml-2"
+            >
+              width={{ display.width }}px, display={{ display.name }}
+            </div>
 
-        <v-divider class="my-2" />
+            <v-divider class="my-2" />
 
-        <div class="text-subtitle">
-          Options filled with default values:
-        </div>
-
-        <pre><code
+            <div class="text-subtitle">
+              Options filled with default values:
+            </div>
+          </v-col>
+          <v-col>
+            <pre><code
               class="language-javascript"
               v-html="highlight(filledOptions)"
-        /></pre>
+            /></pre>
+          </v-col>
+        </v-row>
       </v-window-item>
     </v-window>
 

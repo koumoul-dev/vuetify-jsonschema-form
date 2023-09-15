@@ -3,6 +3,8 @@ import { StatefulLayoutOptions } from '@json-layout/core'
 export type VjsfOptions = StatefulLayoutOptions & {
   density: 'default' | 'comfortable' | 'compact',
   fieldProps: Record<string, unknown>,
+  fieldPropsCompact: Record<string, unknown>,
+  fieldPropsComfortable: Record<string, unknown>,
   fieldPropsReadOnly: Record<string, unknown>,
   textfieldProps: Record<string, unknown>,
   textfieldPropsReadOnly: Record<string, unknown>,
@@ -19,6 +21,13 @@ export const defaultOptions: Partial<VjsfOptions> = {
   density: 'default',
   titleDepth: 2,
   fieldProps: {},
+  fieldPropsCompact: {
+    density: 'compact',
+    hideDetails: 'auto'
+  },
+  fieldPropsComfortable: {
+    density: 'comfortable'
+  },
   fieldPropsReadOnly: { hideDetails: 'auto', variant: 'plain' },
   textfieldProps: {},
   textfieldPropsReadOnly: {},

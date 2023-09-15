@@ -10,6 +10,8 @@ import NodeTextarea from './nodes/textarea.vue'
 import NodeCheckbox from './nodes/checkbox.vue'
 import NodeSwitch from './nodes/switch.vue'
 import NodeNumberField from './nodes/number-field.vue'
+import NodeSlider from './nodes/slider.vue'
+import NodeDatePicker from './nodes/date-picker.vue'
 import NodeOneOfSelect from './nodes/one-of-select.vue'
 import Tabs from './nodes/tabs.vue'
 import VerticalTabs from './nodes/vertical-tabs.vue'
@@ -23,6 +25,8 @@ const comps = {
   checkbox: NodeCheckbox,
   switch: NodeSwitch,
   'number-field': NodeNumberField,
+  slider: NodeSlider,
+  'date-picker': NodeDatePicker,
   'one-of-select': NodeOneOfSelect,
   tabs: Tabs,
   'vertical-tabs': VerticalTabs,
@@ -101,13 +105,13 @@ watch(compiledLayout, (newCompiledLayout) => initStatefulLayout())
 
 <style lang="css">
 /* override vuetify styles to manage readOnly fields more usable than the default disabled fields */
-.vjsf-field--readonly.v-input--disabled  .v-field--disabled {
+.vjsf-input--readonly.v-input--disabled  .v-field--disabled {
   pointer-events: auto;
 }
-.vjsf-field--readonly.v-input--disabled .v-field--disabled,
-.vjsf-field--readonly.v-input--disabled .v-input__details,
-.vjsf-field--readonly.v-input--disabled .v-input__append,
-.vjsf-field--readonly.v-input--disabled .v-input__prepend {
+.vjsf-input--readonly.v-input--disabled .v-field--disabled,
+.vjsf-input--readonly.v-input--disabled .v-input__details,
+.vjsf-input--readonly.v-input--disabled .v-input__append,
+.vjsf-input--readonly.v-input--disabled .v-input__prepend {
   opacity: inherit;
 }
 </style>
