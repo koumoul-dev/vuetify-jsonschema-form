@@ -2,9 +2,9 @@
 import { StateNode } from '@json-layout/core'
 import { VMenu, VTextField } from 'vuetify/components'
 import { computed, ref } from 'vue'
-import { getCompProps, getInputProps } from '../nodes/utils'
+import { getCompProps, getInputProps } from '../../utils/props'
 
-const props = defineProps<{ modelValue: StateNode }>()
+const props = defineProps<{ modelValue: StateNode, formattedValue: string | undefined }>()
 
 const fieldProps = computed(() => {
   const fieldProps = getInputProps(props.modelValue, false)
@@ -28,6 +28,7 @@ const menuOpened = ref<boolean>(false)
   <v-text-field
     ref="textField"
     v-bind="fieldProps"
+    :model-value="formattedValue ?? modelValue.data"
     @click:control="e => {menuOpened = !menuOpened; e.stopPropagation()}"
   />
   <v-menu
@@ -39,3 +40,4 @@ const menuOpened = ref<boolean>(false)
     <slot :close="() => menuOpened = false" />
   </v-menu>
 </template>
+../../utils/utils

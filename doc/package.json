@@ -9,10 +9,9 @@
     "@mdi/font": "^7.2.96",
     "@types/markdown-it": "^13.0.1",
     "markdown-it": "^13.0.1",
-    "nuxt": "^3.6.5",
+    "nuxt": "^3.7.3",
     "prismjs": "^1.29.0",
-    "random-words": "^2.0.0",
     "vite-plugin-vuetify": "^1.0.2",
-    "vuetify": "^3.3.11"
+    "vuetify": "^3.3.16"
   }
 }

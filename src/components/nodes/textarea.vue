@@ -2,7 +2,7 @@
 import { StatefulLayout, TextareaNode } from '@json-layout/core'
 import { VTextarea } from 'vuetify/components'
 import { computed } from 'vue'
-import { getInputProps } from './utils'
+import { getInputProps } from '../../utils/props'
 
 const props = defineProps<{ modelValue: TextareaNode, statefulLayout: StatefulLayout }>()
 

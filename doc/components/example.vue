@@ -51,7 +51,7 @@
 
       <v-window-item
         value="model"
-        class="ma-3"
+        class="ma-3 fill-height"
       >
         <pre><code
               v-if="model !== null && model !== undefined"
@@ -63,8 +63,9 @@
       <v-window-item
         value="options"
         class="ma-3"
+        style="height: 400px"
       >
-        <v-row>
+        <v-row style="height:400px;">
           <v-col>
             <v-switch
               v-model="options.readOnly"
@@ -126,14 +127,12 @@
             >
               width={{ display.width }}px, display={{ display.name }}
             </div>
-
-            <v-divider class="my-2" />
-
+          </v-col>
+          <v-divider vertical />
+          <v-col style="height:400px;overflow-y: auto;">
             <div class="text-subtitle">
               Options filled with default values:
             </div>
-          </v-col>
-          <v-col>
             <pre><code
               class="language-javascript"
               v-html="highlight(filledOptions)"

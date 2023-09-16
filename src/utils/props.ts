@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { camelize } from 'vue'
 import { StateNode } from '@json-layout/core'
-import { VjsfOptions } from '../options'
+import { VjsfOptions } from '../components/options'
 
 export function mergePropsLevels (propsLevels: (Record<string, any> | undefined)[]): Record<string, any> {
   const fullProps: Record<string, any> = {}

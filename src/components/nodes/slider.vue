@@ -2,7 +2,7 @@
 import { StatefulLayout, SliderNode } from '@json-layout/core'
 import { VSlider } from 'vuetify/components'
 import { computed } from 'vue'
-import { getInputProps } from './utils'
+import { getInputProps } from '../../utils/props'
 
 const props = defineProps<{ modelValue: SliderNode, statefulLayout: StatefulLayout }>()
 

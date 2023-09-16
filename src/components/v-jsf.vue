@@ -12,10 +12,13 @@ import NodeSwitch from './nodes/switch.vue'
 import NodeNumberField from './nodes/number-field.vue'
 import NodeSlider from './nodes/slider.vue'
 import NodeDatePicker from './nodes/date-picker.vue'
+import NodeDateTimePicker from './nodes/date-time-picker.vue'
+import NodeColorPicker from './nodes/color-picker.vue'
 import NodeOneOfSelect from './nodes/one-of-select.vue'
-import Tabs from './nodes/tabs.vue'
-import VerticalTabs from './nodes/vertical-tabs.vue'
-import ExpansionPanels from './nodes/expansion-panels.vue'
+import NodeTabs from './nodes/tabs.vue'
+import NodeVerticalTabs from './nodes/vertical-tabs.vue'
+import NodeExpansionPanels from './nodes/expansion-panels.vue'
+import NodeList from './nodes/list.vue'
 import { defaultOptions, type VjsfOptions } from './options'
 
 const comps = {
@@ -27,10 +30,13 @@ const comps = {
   'number-field': NodeNumberField,
   slider: NodeSlider,
   'date-picker': NodeDatePicker,
+  'date-time-picker': NodeDateTimePicker,
+  'color-picker': NodeColorPicker,
   'one-of-select': NodeOneOfSelect,
-  tabs: Tabs,
-  'vertical-tabs': VerticalTabs,
-  'expansion-panels': ExpansionPanels
+  tabs: NodeTabs,
+  'vertical-tabs': NodeVerticalTabs,
+  'expansion-panels': NodeExpansionPanels,
+  list: NodeList
 }
 
 const instance = getCurrentInstance()

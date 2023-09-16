@@ -4,7 +4,7 @@ import { ref, getCurrentInstance } from 'vue'
 
 import Tree from '<%- baseImport %>/tree.vue'
 <% comps.forEach(function(comp){ %>
-import <%= comp.replace(/-/g, '') %> from '<%- baseImport %>/nodes/<%= comp %>.vue'
+import <%= comp.replace(/-/g, '') %>Node from '<%- baseImport %>/nodes/<%= comp %>.vue'
 <% }); %>
 
 <%- compiledLayoutCode %>
@@ -12,7 +12,7 @@ import <%= comp.replace(/-/g, '') %> from '<%- baseImport %>/nodes/<%= comp %>.v
 const vueInstance = getCurrentInstance()
 <% comps.forEach(function(comp){ %>
 if (!vueInstance?.appContext.app.component('vjsf-node-<%= comp %>')) {
-  vueInstance.appContext.app.component('vjsf-node-<%= comp %>', <%= comp.replace(/-/g, '') %>)
+  vueInstance.appContext.app.component('vjsf-node-<%= comp %>', <%= comp.replace(/-/g, '') %>Node)
 }
 <% }); %>
 
