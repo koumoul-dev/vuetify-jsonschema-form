@@ -51,5 +51,7 @@ export function getCompProps (node: StateNode, comp: string, isMainComp = true) 
   propsLevels.push(options[`${comp}Props`] as Record<string, any> | undefined)
   if (node.options.readOnly) propsLevels.push(options[`${comp}PropsReadOnly`] as Record<string, any> | undefined)
   if (isMainComp) propsLevels.push(node.layout.props)
-  return mergePropsLevels(propsLevels)
+  const fullProps = mergePropsLevels(propsLevels)
+  if (isMainComp) fullProps.modelValue = node.data
+  return fullProps
 }

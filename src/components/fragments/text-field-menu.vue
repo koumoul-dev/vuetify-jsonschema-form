@@ -4,7 +4,7 @@ import { VMenu, VTextField } from 'vuetify/components'
 import { computed, ref } from 'vue'
 import { getCompProps, getInputProps } from '../../utils/props'
 
-const props = defineProps<{ modelValue: StateNode, formattedValue: string | undefined }>()
+const props = defineProps<{ modelValue: StateNode, formattedValue: string | null | undefined }>()
 
 const fieldProps = computed(() => {
   const fieldProps = getInputProps(props.modelValue, false)

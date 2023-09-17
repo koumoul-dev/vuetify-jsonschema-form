@@ -14,6 +14,10 @@ const processFragment = (schema: SchemaObject) => {
       delete schema['x-display']
     }
 
+    if (schema.format === 'hexcolor') {
+      schema.layout.comp = 'color-picker'
+    }
+
     if (Object.keys(schema.layout).length === 1 && 'comp' in schema.layout) {
       schema.layout = schema.layout.comp
     }
