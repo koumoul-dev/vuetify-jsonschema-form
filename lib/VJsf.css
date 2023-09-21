@@ -61,3 +61,7 @@
   border-bottom-color: transparent !important;
   border-left-color: transparent !important;
 }
+
+.vjsf-array-item .v-alert__content {
+  max-width: 100%;
+}
