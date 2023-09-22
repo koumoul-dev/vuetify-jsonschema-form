@@ -500,6 +500,7 @@ export default {
         hideReadOnly: 'by default read-only properties are rendered as disabled fields, set this to true to hide them entirely',
         deleteReadOnly: 'set this to true to not only hide read-only properties, but also remove them from the model',
         hideTooltips: 'by default descriptions are rendered as help tooltip on properties, set this to true to disable this functionality',
+        linkTooltipsIfAvailable: 'by default, link only descriptions will be rendered as regular tooltips, while this option renders links via opening them in a new tab',
         disableSorting: 'by default editable array are sortable, set this to true to disable this functionality',
         context: 'an optional contextual information object, properties from here can be used as variables in URL templates',
         rules: 'some custom rule functions that can be referenced by the x-rules annotation on properties',

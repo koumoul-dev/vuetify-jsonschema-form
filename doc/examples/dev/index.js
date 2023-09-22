@@ -6,6 +6,7 @@ import readOnlySelectIcon from './_readonly-select-icon'
 import ValidationExtraCases from './_validation-extra-cases'
 import WrongTypes from './_wrong-types'
 import LargeForm from './_large-form'
+import LinkDescriptions from './_link-descriptions'
 import SimpleArrayValidation from './_simple-array-validation'
 import NestedAllofOneof from './_nested_allof_oneof'
 import PrefilledArrayWrongType from './_prefilled_array_wrong_type'
@@ -42,7 +43,8 @@ const examplesGroup = {
     ArrayRichExpression,
     ArrayOneOfTitle,
     ReadonlyOptions,
-    StringDefault
+    StringDefault,
+    LinkDescriptions
   ]
 }
 
