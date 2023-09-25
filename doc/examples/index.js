@@ -2,7 +2,7 @@ import { examples } from '@json-layout/examples'
 import textField from './text-field.js'
 import { examples as v2ExampleGroups } from './v2/index.js'
 
-/** @type JSONLayoutExamplesCategory */
+/** @type {import("@json-layout/examples").JSONLayoutExamplesCategory} */
 const vuetifyExamples = {
   id: 'vuetify',
   title: 'Vuetify integration',
@@ -10,7 +10,7 @@ const vuetifyExamples = {
   examples: [textField]
 }
 
-/** @type JSONLayoutExample[] */
+/** @type {import("@json-layout/examples").JSONLayoutExample[]} */
 const v2Examples = []
 for (const v2ExamplesGroup of v2ExampleGroups) {
   for (const v2Example of v2ExamplesGroup.examples) {
@@ -18,7 +18,7 @@ for (const v2ExamplesGroup of v2ExampleGroups) {
   }
 }
 
-/** @type JSONLayoutExamplesCategory */
+/** @type {import('@json-layout/examples').JSONLayoutExamplesCategory} */
 const v2 = {
   id: 'v2',
   title: 'Vjsf 2 compatibility',

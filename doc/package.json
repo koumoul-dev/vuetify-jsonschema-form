@@ -8,7 +8,7 @@
     "start": "nuxt build && nuxt start",
     "analyze": "nuxt analyze",
     "build": "npm run compile-examples && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/latest/ nuxt generate",
-    "publish-master": "npm run compile-examples && (cd doc && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/master/ nuxt generate) && gh-pages-multi deploy -v -s doc/dist -t master",
+    "publish-master": "npm run compile-examples && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/master/ nuxt generate && gh-pages-multi deploy -v -s doc/dist -t master",
     "compile-examples": "node scripts/compile-examples.mjs"
   },
   "dependencies": {

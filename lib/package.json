@@ -4,12 +4,13 @@
   "description": "Generate forms for the vuetify UI library (vuejs) based on annotated JSON schemas.",
   "scripts": {
     "test": "vitest",
-    "build": "vue-tsc"
+    "build": "vue-tsc",
+    "watch:build": "vue-tsc --watch"
   },
   "author": "Alban Mouton <alban.mouton@gmail.com>",
   "license": "MIT",
   "files": [
-    "dist",
+    "types",
     "src"
   ],
   "type": "module",
@@ -17,7 +18,7 @@
     ".": {
       "import": {
         "default": "./src/index.js",
-        "types": "./dist/index.d.ts"
+        "types": "./types/index.d.ts"
       }
     },
     "./components/*": {
@@ -29,13 +30,13 @@
     "./compile": {
       "import": {
         "default": "./src/compile/index.js",
-        "types": "./dist/compile/index.d.ts"
+        "types": "./types/compile/index.d.ts"
       }
     },
     "./compat/v2": {
       "import": {
         "default": "./src/compat/v2.js",
-        "types": "./dist/compat/v2.d.ts"
+        "types": "./types/compat/v2.d.ts"
       }
     }
   },
@@ -54,6 +55,7 @@
   "devDependencies": {
     "@types/debug": "^4.1.8",
     "@types/ejs": "^3.1.2",
+    "vitest": "^0.34.5",
     "vue": "^3.3.4",
     "vue-tsc": "^1.8.11"
   }

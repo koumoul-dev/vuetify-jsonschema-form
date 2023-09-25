@@ -3,5 +3,5 @@
 </script>
 
 <template>
-  TODO
+  TODO list
 </template>

@@ -30,14 +30,24 @@ const menuOpened = ref<boolean>(false)
     v-bind="fieldProps"
     :model-value="formattedValue ?? modelValue.data"
     @click:control="e => {menuOpened = !menuOpened; e.stopPropagation()}"
-  />
+  >
+    <template #prepend-inner>
+      <slot name="prepend-inner" />
+    </template>
+  </v-text-field>
   <v-menu
     v-if="textField"
     v-bind="menuProps"
     v-model="menuOpened"
+    class="vjsf-text-field-menu"
     :activator="textField"
   >
     <slot :close="() => menuOpened = false" />
   </v-menu>
 </template>
-../../utils/utils
+
+<style>
+.vjsf-text-field-menu .v-sheet.v-color-picker {
+  overflow-x: hidden;
+}
+</style>

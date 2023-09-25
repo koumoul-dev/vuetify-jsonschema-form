@@ -18,6 +18,12 @@ const colorPickerProps = computed(() => {
     :model-value="modelValue"
     :formatted-value="modelValue.data"
   >
+    <template
+      v-if="modelValue.data"
+      #prepend-inner
+    >
+      <div :style="`height:30px; width: 30px; border-radius: 40px; margin-right:6px; background: ${modelValue.data};`" />
+    </template>
     <v-color-picker
       v-bind="colorPickerProps"
       @update:model-value="value => statefulLayout.input(modelValue, value)"
