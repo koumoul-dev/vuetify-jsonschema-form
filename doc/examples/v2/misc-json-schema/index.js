@@ -1,6 +1,6 @@
-import defaultValues from './default-values'
-import nullable from './nullable'
-import readOnly from './read-only'
+import defaultValues from './default-values.js'
+import nullable from './nullable.js'
+import readOnly from './read-only.js'
 
 const examplesGroup = {
   title: 'Misc json-schema',

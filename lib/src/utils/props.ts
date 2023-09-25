@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { camelize } from 'vue'
 import { StateNode } from '@json-layout/core'
-import { VjsfOptions } from '../components/options'
+import { VjsfOptions } from '../components/options.js'
 
 export function mergePropsLevels (propsLevels: (Record<string, any> | undefined)[]): Record<string, any> {
   const fullProps: Record<string, any> = {}
@@ -35,9 +35,7 @@ export function getInputProps (node: StateNode, isMainComp = true) {
   if (node.error) fullProps.errorMessages = node.error
   fullProps.modelValue = node.data
   if (node.options.readOnly) {
-    // fullProps.readOnly = true
     fullProps.disabled = true
-    // fullProps.style = 'pointer-events: none'
     fullProps.class = 'vjsf-input--readonly'
   }
 

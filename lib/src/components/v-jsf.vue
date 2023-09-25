@@ -14,12 +14,13 @@ import NodeSlider from './nodes/slider.vue'
 import NodeDatePicker from './nodes/date-picker.vue'
 import NodeDateTimePicker from './nodes/date-time-picker.vue'
 import NodeColorPicker from './nodes/color-picker.vue'
+import NodeSelect from './nodes/select.vue'
 import NodeOneOfSelect from './nodes/one-of-select.vue'
 import NodeTabs from './nodes/tabs.vue'
 import NodeVerticalTabs from './nodes/vertical-tabs.vue'
 import NodeExpansionPanels from './nodes/expansion-panels.vue'
 import NodeList from './nodes/list.vue'
-import { defaultOptions, type VjsfOptions } from './options'
+import { defaultOptions, type VjsfOptions } from './options.js'
 
 const comps = {
   section: NodeSection,
@@ -32,6 +33,7 @@ const comps = {
   'date-picker': NodeDatePicker,
   'date-time-picker': NodeDateTimePicker,
   'color-picker': NodeColorPicker,
+  select: NodeSelect,
   'one-of-select': NodeOneOfSelect,
   tabs: NodeTabs,
   'vertical-tabs': NodeVerticalTabs,
@@ -61,6 +63,7 @@ const fullOptions = computed<VjsfOptions | null>(() => {
   const options = {
     ...defaultOptions,
     ...props.options,
+    context: props.options.context ? JSON.parse(JSON.stringify(props.options.context)) : {},
     width: Math.round(width.value)
   }
   return options as VjsfOptions
@@ -111,7 +114,7 @@ watch(compiledLayout, (newCompiledLayout) => initStatefulLayout())
 
 <style lang="css">
 /* override vuetify styles to manage readOnly fields more usable than the default disabled fields */
-.vjsf-input--readonly.v-input--disabled  .v-field--disabled {
+.vjsf-input--readonly.v-input--disabled.v-text-field  .v-field--disabled input {
   pointer-events: auto;
 }
 .vjsf-input--readonly.v-input--disabled .v-field--disabled,

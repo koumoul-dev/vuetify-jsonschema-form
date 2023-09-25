@@ -1,13 +1,13 @@
-import basic from './basic'
-import datePicker from './date-picker'
-import colorPicker from './color-picker'
-import select from './select'
-import combobox from './combobox'
-import selectHTTP from './select-http'
-import selectIcon from './select-icon'
-import selectionControls from './selection-controls'
-import files from './files'
-import markdownEditor from './markdown-editor'
+import basic from './basic.js'
+import datePicker from './date-picker.js'
+import colorPicker from './color-picker.js'
+import select from './select.js'
+import combobox from './combobox.js'
+import selectHTTP from './select-http.js'
+import selectIcon from './select-icon.js'
+import selectionControls from './selection-controls.js'
+import files from './files.js'
+import markdownEditor from './markdown-editor.js'
 
 const examplesGroup = {
   title: 'Single properties',

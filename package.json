@@ -1,32 +1,16 @@
 {
-  "name": "@koumoul/vjsf",
+  "name": "@koumoul/vjsf-monorepo",
   "version": "2.21.3",
-  "description": "Generate forms for the vuetify UI library (vuejs) based on annotated JSON schemas.",
-  "main": "./dist/vjsf.umd.js",
-  "module": "./dist/vjsf.mjs",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/vjsf.mjs",
-      "require": "./dist/vjsf.umd.js"
-    }
-  },
-  "files": [
-    "dist",
-    "src"
-  ],
+  "description": "The monorepo for vjsf lib, docs, examples, etc.",
   "scripts": {
-    "test": "vitest",
+    "build": "npm -w lib run build && npm -w doc run build",
+    "test": "npm -w lib run test",
     "lint": "eslint --ext .js,.ts,.vue .",
     "lint-fix": "eslint --fix --ext .js,.ts,.vue .",
-    "build": "vue-tsc && vite build",
     "dev-zellij": "zellij --layout .zellij.kdl",
     "prepublishOnly": "npm run lint && npm run build",
     "postpublish": "gh-pages-multi deploy -v -s doc/dist -t latest",
-    "doc-build": "npm run compile-examples && (cd doc && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/latest/ nuxt generate)",
-    "doc-master": "npm run compile-examples && (cd doc && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/master/ nuxt generate) && gh-pages-multi deploy -v -s doc/dist -t master",
-    "prepare": "husky install",
-    "compile-examples": "ts-node scripts/compile-examples.ts"
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -38,25 +22,9 @@
     "url": "https://github.com/koumoul-dev/vuetify-jsonschema-form/issues"
   },
   "homepage": "https://github.com/koumoul-dev/vuetify-jsonschema-form#readme",
-  "peerDependencies": {
-    "vue": "^3.3.4",
-    "vuetify": "^3.3.16"
-  },
-  "dependencies": {
-    "@json-layout/core": "file:../json-layout/core",
-    "@json-layout/examples": "file:../json-layout/examples",
-    "@json-layout/vocabulary": "file:../json-layout/vocabulary",
-    "@types/debug": "^4.1.8",
-    "@vueuse/core": "^10.4.1",
-    "debug": "^4.3.4",
-    "ejs": "^3.1.9",
-    "rfdc": "^1.3.0"
-  },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.4.4",
     "@koumoul/gh-pages-multi": "^0.6.0",
-    "@types/ejs": "^3.1.2",
-    "@types/node": "^18.15.11",
     "@vitejs/plugin-vue": "^4.3.4",
     "commitlint": "^17.7.1",
     "eslint": "^8.49.0",
@@ -65,10 +33,10 @@
     "eslint-plugin-vue": "^9.17.0",
     "husky": "^8.0.3",
     "ts-node": "^10.9.1",
-    "typescript": "^5.2.2",
-    "vite": "^4.4.9",
-    "vite-plugin-dts": "^3.5.2",
-    "vitest": "^0.34.4",
-    "vue-tsc": "^1.8.11"
-  }
+    "typescript": "^5.2.2"
+  },
+  "workspaces": [
+    "doc",
+    "lib"
+  ]
 }

@@ -54,9 +54,9 @@
         class="ma-3 fill-height"
       >
         <pre><code
-              v-if="model !== null && model !== undefined"
+              v-if="data !== null && data !== undefined"
               class="language-javascript"
-              v-html="highlight(model)"
+              v-html="highlight(data)"
         /></pre>
       </v-window-item>
 
@@ -148,12 +148,12 @@
       <div :style="`width: ${wrapperWidth}%`">
         <slot
           name="vjsf"
-          :model-value="model"
+          :model-value="data"
           :options="options"
           :update-state="updateState"
         >
           <v-jsf
-            :model-value="model"
+            :model-value="data"
             :schema="schema"
             :options="options"
             @update:state="updateState"
@@ -167,8 +167,8 @@
 <script>
 import 'prismjs/themes/prism.css'
 import Prism from 'prismjs'
-import { VJsf } from '~/../src/'
-import { v2compat } from '~/../src/compat/v2'
+import { VJsf } from '@koumoul/vjsf'
+import { v2compat } from '@koumoul/vjsf/compat/v2'
 
 Prism.manual = true
 
@@ -179,7 +179,7 @@ export default {
     v2: { type: Boolean, default: false }
   },
   data: () => ({
-    model: null,
+    data: null,
     tab: null,
     stateTree: null,
     display: null,
@@ -212,6 +212,7 @@ export default {
   },
   created () {
     if (this.example.options) Object.assign(this.options, this.example.options)
+    if (this.example.data) this.data = JSON.parse(JSON.stringify(this.example.data))
   },
   methods: {
     highlight (text) {
@@ -219,7 +220,7 @@ export default {
     },
     updateState (newState) {
       this.stateTree = newState.stateTree
-      this.model = newState.data
+      this.data = newState.data
       this.display = newState.display
       this.filledOptions = newState.options
     }

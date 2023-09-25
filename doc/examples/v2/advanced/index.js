@@ -1,9 +1,9 @@
-import classes from './classes'
-import vuetifyProps from './vuetify-props'
-import slots from './slots'
-import slotsWrappers from './slots-wrappers'
-import directives from './directives'
-import localization from './localization'
+import classes from './classes.js'
+import vuetifyProps from './vuetify-props.js'
+import slots from './slots.js'
+import slotsWrappers from './slots-wrappers.js'
+import directives from './directives.js'
+import localization from './localization.js'
 
 const examplesGroup = {
   title: 'Advanced integration',

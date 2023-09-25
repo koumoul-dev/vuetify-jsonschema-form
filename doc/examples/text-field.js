@@ -1,6 +1,5 @@
-import { JSONLayoutExample } from '@json-layout/examples'
-
-const example: JSONLayoutExample = {
+/** @type {JSONLayoutExample} */
+const example = {
   title: 'Text field',
   id: 'text-field',
   description: 'It is possible to spefify [VTextField props](https://vuetifyjs.com/en/api/v-text-field/) using `layout.props`.',

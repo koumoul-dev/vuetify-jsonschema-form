@@ -4,8 +4,8 @@ import TextFieldMenu from '../fragments/text-field-menu.vue'
 import { VDatePicker } from 'vuetify/labs/VDatePicker'
 import { useDate } from 'vuetify/labs/date'
 import { computed } from 'vue'
-import { getCompProps } from '../../utils/props'
-import { getDateTimeParts } from '../../utils/dates'
+import { getCompProps } from '../../utils/props.js'
+import { getDateTimeParts } from '../../utils/dates.js'
 
 const props = defineProps<{ modelValue: DatePickerNode, statefulLayout: StatefulLayout }>()
 

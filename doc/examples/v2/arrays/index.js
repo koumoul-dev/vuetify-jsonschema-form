@@ -1,8 +1,8 @@
-import editableArray from './editable-array'
-import editableArrayInline from './editable-array-inline'
-import prefilledArrays from './prefilled-arrays'
-import tuples from './tuples'
-import arrayGroup from './array-group'
+import editableArray from './editable-array.js'
+import editableArrayInline from './editable-array-inline.js'
+import prefilledArrays from './prefilled-arrays.js'
+import tuples from './tuples.js'
+import arrayGroup from './array-group.js'
 
 const examplesGroup = {
   title: 'Arrays of objects',

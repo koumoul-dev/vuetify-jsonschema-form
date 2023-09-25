@@ -1,6 +1,6 @@
-import validationBasic from './validation-basic'
-import validationSections from './validation-sections'
-import validationExternal from './validation-external'
+import validationBasic from './validation-basic.js'
+import validationSections from './validation-sections.js'
+import validationExternal from './validation-external.js'
 
 const examplesGroup = {
   title: 'Validation',

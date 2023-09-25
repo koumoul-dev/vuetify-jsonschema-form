@@ -1,6 +1,6 @@
 node_modules
-/dist
-/coverage
+/lib/types
+/lib/coverage
 /doc/dist
 /doc/.nuxt
 /doc/.output

@@ -1,7 +1,7 @@
-import sections from './sections'
-import sectionsExpansionPanels from './sections-expansion-panels'
-import sectionsTab from './sections-tabs'
-import sectionsStepper from './sections-stepper'
+import sections from './sections.js'
+import sectionsExpansionPanels from './sections-expansion-panels.js'
+import sectionsTab from './sections-tabs.js'
+import sectionsStepper from './sections-stepper.js'
 
 const examplesGroup = {
   title: 'Sections',

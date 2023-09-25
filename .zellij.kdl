@@ -5,20 +5,16 @@ layout {
         command "bash"
         args "-ic" "nvm use && bash"
       }
-      pane name="run tests" {
-        command "bash"
-        args "-ic" "nvm use && npm run test"
-      }
     }
     pane {
       split_direction "vertical"
-      pane name="build lib" {
+      pane name="run tests" {
         command "bash"
-        args "-ic" "nvm use && npm run build -- --watch"
+        args "-ic" "nvm use && npm -w lib run test"
       }
       pane name="run doc" {
         command "bash"
-        args "-ic" "nvm use && npm run compile-examples && cd doc && npm run dev"
+        args "-ic" "nvm use && npm -w doc run compile-examples && npm -w doc run dev"
       }
     }
     pane size=2 borderless=true {

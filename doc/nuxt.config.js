@@ -12,7 +12,7 @@ export default defineNuxtConfig({
   ssr: false,
   css: ['vuetify/styles'],
   build: {
-    transpile: [/vuetify/]
+    transpile: [/vuetify/, /@koumoul/]
   },
   vite: {
     server: {

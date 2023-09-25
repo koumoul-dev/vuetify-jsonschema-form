@@ -1,4 +1,4 @@
-/node_modules/
-/dist
+node_modules
+/lib/types
 /doc/pages/compiled
 /doc/components/compiled

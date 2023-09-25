@@ -1,17 +1,30 @@
 {
+  "name": "@koumoul/vjsf-doc",
+  "version": "2.21.3",
   "description": "VJSF - Documentation",
+  "type": "module",
   "scripts": {
     "dev": "nuxt dev --port 3133",
     "start": "nuxt build && nuxt start",
-    "analyze": "nuxt analyze"
+    "analyze": "nuxt analyze",
+    "build": "npm run compile-examples && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/latest/ nuxt generate",
+    "publish-master": "npm run compile-examples && (cd doc && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/master/ nuxt generate) && gh-pages-multi deploy -v -s doc/dist -t master",
+    "compile-examples": "node scripts/compile-examples.mjs"
   },
   "dependencies": {
+    "@json-layout/examples": "file:../../json-layout/examples",
+    "@koumoul/vjsf": "2.21.3",
     "@mdi/font": "^7.2.96",
+    "@types/ejs": "^3.1.2",
     "@types/markdown-it": "^13.0.1",
+    "ajv-formats": "^2.1.1",
+    "ejs": "^3.1.9",
     "markdown-it": "^13.0.1",
     "nuxt": "^3.7.3",
     "prismjs": "^1.29.0",
     "vite-plugin-vuetify": "^1.0.2",
     "vuetify": "^3.3.16"
-  }
+  },
+  "author": "Alban Mouton <alban.mouton@gmail.com>",
+  "license": "MIT"
 }

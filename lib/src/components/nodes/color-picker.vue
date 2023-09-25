@@ -3,7 +3,7 @@ import { StatefulLayout, ColorPickerNode } from '@json-layout/core'
 import TextFieldMenu from '../fragments/text-field-menu.vue'
 import { VColorPicker } from 'vuetify/components'
 import { computed } from 'vue'
-import { getCompProps } from '../../utils/props'
+import { getCompProps } from '../../utils/props.js'
 
 const props = defineProps<{ modelValue: ColorPickerNode, statefulLayout: StatefulLayout }>()
 

@@ -2,7 +2,7 @@
 import { StateNode } from '@json-layout/core'
 import { VMenu, VTextField } from 'vuetify/components'
 import { computed, ref } from 'vue'
-import { getCompProps, getInputProps } from '../../utils/props'
+import { getCompProps, getInputProps } from '../../utils/props.js'
 
 const props = defineProps<{ modelValue: StateNode, formattedValue: string | null | undefined }>()
 

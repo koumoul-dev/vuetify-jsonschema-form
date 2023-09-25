@@ -1,11 +1,11 @@
-import singleProperties from './single-properties'
-import dynamicContent from './dynamic-content'
-import sections from './sections'
-import arrays from './arrays'
-import validation from './validation'
-import miscJsonSchema from './misc-json-schema'
-import advanced from './advanced'
-import dev from './dev'
+import singleProperties from './single-properties/index.js'
+import dynamicContent from './dynamic-content/index.js'
+import sections from './sections/index.js'
+import arrays from './arrays/index.js'
+import validation from './validation/index.js'
+import miscJsonSchema from './misc-json-schema/index.js'
+import advanced from './advanced/index.js'
+import dev from './dev/index.js'
 
 const examples = [
   singleProperties,

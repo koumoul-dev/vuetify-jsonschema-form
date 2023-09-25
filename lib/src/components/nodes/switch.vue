@@ -2,7 +2,7 @@
 import { StatefulLayout, type SwitchNode } from '@json-layout/core'
 import { VSwitch } from 'vuetify/components'
 import { computed } from 'vue'
-import { getInputProps } from '../../utils/props'
+import { getInputProps } from '../../utils/props.js'
 
 const props = defineProps<{ modelValue: SwitchNode, statefulLayout: StatefulLayout }>()
 
