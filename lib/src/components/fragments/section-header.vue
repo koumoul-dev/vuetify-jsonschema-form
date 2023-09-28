@@ -20,11 +20,19 @@ const titleClass = computed(() => {
 </script>
 
 <template>
-  <component
-    :is="`h${node.options.titleDepth}`"
-    v-if="node.layout.title"
-    :class="`${titleClass} mb-${titleDepthBase - node.options.titleDepth} mt-${titleDepthBase - node.options.titleDepth}`"
-  >
-    {{ node.layout.title }}
-  </component>
+  <div :class="`mb-${titleDepthBase - node.options.titleDepth} mt-${titleDepthBase - node.options.titleDepth}`">
+    <component
+      :is="`h${node.options.titleDepth}`"
+      v-if="node.layout.title"
+      :class="`${titleClass}`"
+    >
+      {{ node.layout.title }}
+    </component>
+    <p
+      v-if="node.layout.subtitle"
+      :class="`text-subtitle mt-${titleDepthBase - node.options.titleDepth}`"
+    >
+      {{ node.layout.subtitle }}
+    </p>
+  </div>
 </template>

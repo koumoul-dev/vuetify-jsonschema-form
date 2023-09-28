@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, getCurrentInstance, watch } from 'vue'
+import { ref, shallowRef, computed, getCurrentInstance, watch } from 'vue'
 import { useElementSize } from '@vueuse/core'
 import { compile, StatefulLayout, StateTree } from '@json-layout/core'
 import Tree from './tree.vue'
@@ -52,8 +52,8 @@ const props = defineProps<{ schema: object, modelValue: unknown, options: Partia
 const emit = defineEmits(['update:modelValue', 'update:state'])
 
 const compiledLayout = computed(() => compile(props.schema))
-const statefulLayout = ref<StatefulLayout | null>(null)
-const stateTree = ref<StateTree | null>(null)
+const statefulLayout = shallowRef<StatefulLayout | null>(null)
+const stateTree = shallowRef<StateTree | null>(null)
 
 const el = ref(null)
 const { width } = useElementSize(el)

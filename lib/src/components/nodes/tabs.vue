@@ -3,7 +3,7 @@ import { VTabs, VTab, VContainer } from 'vuetify/components'
 import { ref } from 'vue'
 import { TabsNode, StatefulLayout, isSection } from '@json-layout/core'
 import Node from '../node.vue'
-import SectionTitle from '../fragments/section-title.vue'
+import SectionHeader from '../fragments/section-header.vue'
 
 defineProps<{ modelValue: TabsNode, statefulLayout: StatefulLayout }>()
 
@@ -11,7 +11,7 @@ const tab = ref<number | null>(0)
 </script>
 
 <template>
-  <section-title :node="modelValue" />
+  <section-header :node="modelValue" />
   <v-sheet border>
     <v-tabs v-model="tab">
       <v-tab

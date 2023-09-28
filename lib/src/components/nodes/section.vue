@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { SectionNode, StatefulLayout } from '@json-layout/core'
 import Node from '../node.vue'
-import SectionTitle from '../fragments/section-title.vue'
+import SectionHeader from '../fragments/section-header.vue'
 
 defineProps<{ modelValue: SectionNode, statefulLayout: StatefulLayout }>()
 
 </script>
 
 <template>
-  <section-title :node="modelValue" />
+  <section-header :node="modelValue" />
   <v-row :dense="modelValue.options?.density === 'compact' || modelValue.options?.density === 'comfortable'">
     <node
       v-for="child of modelValue.children"
