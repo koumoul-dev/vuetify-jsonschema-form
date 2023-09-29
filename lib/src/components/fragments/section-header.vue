@@ -1,8 +1,13 @@
-<script setup lang="ts">
+<script setup>
 import { computed } from 'vue'
-import { StateNode } from '@json-layout/core'
 
-const props = defineProps<{ node: StateNode }>()
+const props = defineProps({
+  node: {
+    /** @type import('vue').PropType<import('@json-layout/core').StateNode> */
+    type: Object,
+    required: true
+  }
+})
 
 const titleDepthBase = computed(() => {
   if (props.node.options.density === 'compact') return 6

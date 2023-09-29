@@ -1,7 +1,7 @@
-<script setup lang="ts">
+<script setup>
 import { ref, shallowRef, computed, getCurrentInstance, watch } from 'vue'
 import { useElementSize } from '@vueuse/core'
-import { compile, StatefulLayout, StateTree } from '@json-layout/core'
+import { StatefulLayout, compile } from '@json-layout/core'
 import Tree from './tree.vue'
 
 import NodeSection from './nodes/section.vue'
@@ -20,7 +20,7 @@ import NodeTabs from './nodes/tabs.vue'
 import NodeVerticalTabs from './nodes/vertical-tabs.vue'
 import NodeExpansionPanels from './nodes/expansion-panels.vue'
 import NodeList from './nodes/list.vue'
-import { defaultOptions, type VjsfOptions } from './options.js'
+import { defaultOptions } from './options.js'
 
 const comps = {
   section: NodeSection,
@@ -48,17 +48,35 @@ for (const [name, comp] of Object.entries(comps)) {
   }
 }
 
-const props = defineProps<{ schema: object, modelValue: unknown, options: Partial<Omit<VjsfOptions, 'width'>> }>()
+const props = defineProps({
+  schema: {
+    type: Object,
+    required: true
+  },
+  modelValue: {
+    type: [Object, String, Number, Boolean],
+    required: true
+  },
+  options: {
+    /** @type import('vue').PropType<Partial<Omit<import('./types.js').VjsfOptions, 'width'>>> */
+    type: Object,
+    required: true
+  }
+})
+
 const emit = defineEmits(['update:modelValue', 'update:state'])
 
 const compiledLayout = computed(() => compile(props.schema))
-const statefulLayout = shallowRef<StatefulLayout | null>(null)
-const stateTree = shallowRef<StateTree | null>(null)
+/** @type import('vue').ShallowRef<StatefulLayout | null> */
+const statefulLayout = shallowRef(null)
+/** @type import('vue').ShallowRef<import('@json-layout/core').StateTree | null> */
+const stateTree = shallowRef(null)
 
 const el = ref(null)
 const { width } = useElementSize(el)
 
-const fullOptions = computed<VjsfOptions | null>(() => {
+/** @type import('vue').ComputedRef<import('./types.js').VjsfOptions | null> */
+const fullOptions = computed(() => {
   if (!width.value) return null
   const options = {
     ...defaultOptions,
@@ -66,7 +84,7 @@ const fullOptions = computed<VjsfOptions | null>(() => {
     context: props.options.context ? JSON.parse(JSON.stringify(props.options.context)) : {},
     width: Math.round(width.value)
   }
-  return options as VjsfOptions
+  return /** @type import('./types.js').VjsfOptions */ (options)
 })
 
 const initStatefulLayout = () => {
@@ -107,7 +125,7 @@ watch(compiledLayout, (newCompiledLayout) => initStatefulLayout())
     <tree
       v-if="statefulLayout && stateTree"
       :model-value="stateTree"
-      :stateful-layout="(statefulLayout as StatefulLayout)"
+      :stateful-layout="statefulLayout"
     />
   </div>
 </template>

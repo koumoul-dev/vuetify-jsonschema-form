@@ -1,5 +1,5 @@
-<script setup lang="ts">
-import { StatefulLayout, OneOfSelectNode, SkeletonTree } from '@json-layout/core'
+<script setup>
+import { StatefulLayout } from '@json-layout/core'
 import { VSelect } from 'vuetify/components'
 import Tree from '../tree.vue'
 import { ref, watch } from 'vue'
@@ -7,9 +7,21 @@ import debug from 'debug'
 
 const log = debug('vjsf:oneOf')
 
-const props = defineProps<{ modelValue: OneOfSelectNode, statefulLayout: StatefulLayout }>()
+const props = defineProps({
+  modelValue: {
+    /** @type import('vue').PropType<import('@json-layout/core').OneOfSelectNode> */
+    type: Object,
+    required: true
+  },
+  statefulLayout: {
+    /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+    type: Object,
+    required: true
+  }
+})
 
-const childStatefulLayout = ref<StatefulLayout | null>(null)
+/** @type import('vue').Ref<StatefulLayout | null> */
+const childStatefulLayout = ref(null)
 
 const createStatefulLayout = () => {
   log('create child statefulLayout')
@@ -21,7 +33,7 @@ const createStatefulLayout = () => {
       props.modelValue.options,
       props.modelValue.data
     )
-    childStatefulLayout.value.events.on('update', (newValue: StatefulLayout) => {
+    childStatefulLayout.value.events.on('update', (newValue) => {
       if (newValue.stateTree.valid) {
         log('bubble data from active child to parent state')
         props.statefulLayout.input(props.modelValue, newValue.data)
@@ -38,10 +50,11 @@ const updateStatefulLayout = () => {
   childStatefulLayout.value.data = props.modelValue.data
 }
 
-const activeChildTree = ref<SkeletonTree | null>(null)
+/** @type import('vue').Ref<import('@json-layout/core').SkeletonTree | null> */
+const activeChildTree = ref(null)
 watch(() => props.modelValue, () => {
   // we set the active oneOf child as the one whose schema validates on the current data
-  activeChildTree.value = props.modelValue.skeleton.childrenTrees?.find((childTree: SkeletonTree) => {
+  activeChildTree.value = props.modelValue.skeleton.childrenTrees?.find((childTree) => {
     return props.statefulLayout.compiledLayout.validates[childTree.root.pointer](props.modelValue.data)
   }) ?? null
   if (childStatefulLayout.value && activeChildTree.value === childStatefulLayout.value.skeletonTree) {
@@ -57,7 +70,6 @@ watch(activeChildTree, () => {
 </script>
 
 <template>
-  {{ activeChildTree }}
   <v-select
     v-model="activeChildTree"
     :items="modelValue.skeleton.childrenTrees"
@@ -66,7 +78,7 @@ watch(activeChildTree, () => {
   />
   <tree
     v-if="childStatefulLayout"
-    :stateful-layout="(childStatefulLayout as StatefulLayout)"
+    :stateful-layout="childStatefulLayout"
     :model-value="childStatefulLayout.stateTree"
   />
 </template>

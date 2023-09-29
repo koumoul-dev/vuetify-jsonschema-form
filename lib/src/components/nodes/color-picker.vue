@@ -1,11 +1,21 @@
-<script setup lang="ts">
-import { StatefulLayout, ColorPickerNode } from '@json-layout/core'
+<script setup>
 import TextFieldMenu from '../fragments/text-field-menu.vue'
 import { VColorPicker } from 'vuetify/components'
 import { computed } from 'vue'
 import { getCompProps } from '../../utils/props.js'
 
-const props = defineProps<{ modelValue: ColorPickerNode, statefulLayout: StatefulLayout }>()
+const props = defineProps({
+  modelValue: {
+    /** @type import('vue').PropType<import('@json-layout/core').ColorPickerNode> */
+    type: Object,
+    required: true
+  },
+  statefulLayout: {
+    /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+    type: Object,
+    required: true
+  }
+})
 
 const colorPickerProps = computed(() => {
   const colorPickerProps = getCompProps(props.modelValue, 'colorPicker', true)

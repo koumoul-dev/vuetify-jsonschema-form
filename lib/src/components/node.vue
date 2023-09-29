@@ -1,7 +1,16 @@
-<script setup lang="ts">
-import { StateNode, StatefulLayout } from '@json-layout/core'
-
-defineProps<{ modelValue: StateNode, statefulLayout: StatefulLayout }>()
+<script setup>
+defineProps({
+  modelValue: {
+    /** @type import('vue').PropType<import('@json-layout/core').StateNode> */
+    type: Object,
+    required: true
+  },
+  statefulLayout: {
+    /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+    type: Object,
+    required: true
+  }
+})
 </script>
 
 <template>

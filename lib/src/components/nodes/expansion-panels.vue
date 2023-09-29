@@ -1,10 +1,21 @@
-<script setup lang="ts">
+<script setup>
 import { VExpansionPanels, VExpansionPanel, VExpansionPanelTitle, VContainer } from 'vuetify/components'
-import { ExpansionPanelsNode, StatefulLayout, isSection } from '@json-layout/core'
+import { isSection } from '@json-layout/core'
 import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'
 
-defineProps<{ modelValue: ExpansionPanelsNode, statefulLayout: StatefulLayout }>()
+defineProps({
+  modelValue: {
+    /** @type import('vue').PropType<import('@json-layout/core').ExpansionPanelsNode> */
+    type: Object,
+    required: true
+  },
+  statefulLayout: {
+    /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+    type: Object,
+    required: true
+  }
+})
 
 </script>
 

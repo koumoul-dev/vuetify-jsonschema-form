@@ -1,11 +1,20 @@
-<script setup lang="ts">
-import { StatefulLayout, SelectNode, StateTree } from '@json-layout/core'
+<script setup>
 import { VSelect } from 'vuetify/components'
 import { computed, ref } from 'vue'
 import { getInputProps } from '../../utils/props.js'
-import { SelectItems } from '@json-layout/vocabulary'
 
-const props = defineProps<{ modelValue: SelectNode, statefulLayout: StatefulLayout }>()
+const props = defineProps({
+  modelValue: {
+    /** @type import('vue').PropType<import('@json-layout/core').SelectNode> */
+    type: Object,
+    required: true
+  },
+  statefulLayout: {
+    /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+    type: Object,
+    required: true
+  }
+})
 
 const fieldProps = computed(() => {
   const fieldProps = getInputProps(props.modelValue)
@@ -13,11 +22,15 @@ const fieldProps = computed(() => {
   return fieldProps
 })
 
-const items = ref<SelectItems>(props.modelValue.layout.items ?? [])
-const loading = ref<boolean>(false)
+/** @type import('vue').Ref<import('@json-layout/vocabulary').SelectItems> */
+const items = ref(props.modelValue.layout.items ?? [])
+/** @type import('vue').Ref<boolean> */
+const loading = ref(false)
 
-let lastStateTree: StateTree | null = null
-let lastContext: Record<string, any> | null = null
+/** @type import('@json-layout/core').StateTree | null */
+let lastStateTree = null
+/** @type Record<string, any> | null */
+let lastContext = null
 
 const refresh = async () => {
   if (props.modelValue.layout.items) return

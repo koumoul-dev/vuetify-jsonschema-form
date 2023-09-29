@@ -1,13 +1,24 @@
-<script setup lang="ts">
-import { VerticalTabsNode, StatefulLayout, isSection } from '@json-layout/core'
+<script setup>
+import { isSection } from '@json-layout/core'
 import { VTabs, VTab, VContainer } from 'vuetify/components'
 import { ref } from 'vue'
 import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'
 
-defineProps<{ modelValue: VerticalTabsNode, statefulLayout: StatefulLayout }>()
+defineProps({
+  modelValue: {
+    /** @type import('vue').PropType<import('@json-layout/core').VerticalTabsNode> */
+    type: Object,
+    required: true
+  },
+  statefulLayout: {
+    /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+    type: Object,
+    required: true
+  }
+})
 
-const tab = ref<number | null>(0)
+const tab = ref(0)
 </script>
 
 <template>

@@ -1,10 +1,20 @@
-<script setup lang="ts">
-import { StatefulLayout, TextFieldNode } from '@json-layout/core'
+<script setup>
 import { VTextField } from 'vuetify/components'
 import { computed } from 'vue'
 import { getInputProps } from '../../utils/props.js'
 
-const props = defineProps<{ modelValue: TextFieldNode, statefulLayout: StatefulLayout }>()
+const props = defineProps({
+  modelValue: {
+    /** @type import('vue').PropType<import('@json-layout/core').TextFieldNode> */
+    type: Object,
+    required: true
+  },
+  statefulLayout: {
+    /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+    type: Object,
+    required: true
+  }
+})
 
 const fieldProps = computed(() => getInputProps(props.modelValue))
 </script>

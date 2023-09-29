@@ -1,10 +1,20 @@
-<script setup lang="ts">
-import { StateNode } from '@json-layout/core'
+<script setup>
 import { VMenu, VTextField } from 'vuetify/components'
 import { computed, ref } from 'vue'
 import { getCompProps, getInputProps } from '../../utils/props.js'
 
-const props = defineProps<{ modelValue: StateNode, formattedValue: string | null | undefined }>()
+const props = defineProps({
+  modelValue: {
+    /** @type import('vue').PropType<import('@json-layout/core').StateNode> */
+    type: Object,
+    required: true
+  },
+  formattedValue: {
+    /** @type import('vue').PropType<string | null> */
+    type: String,
+    default: null
+  }
+})
 
 const fieldProps = computed(() => {
   const fieldProps = getInputProps(props.modelValue, false)
@@ -20,7 +30,7 @@ const menuProps = computed(() => {
 })
 
 const textField = ref(null)
-const menuOpened = ref<boolean>(false)
+const menuOpened = ref(false)
 
 </script>
 

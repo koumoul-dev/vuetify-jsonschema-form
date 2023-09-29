@@ -1,16 +1,26 @@
-<script setup lang="ts">
+<script setup>
 import { VList, VListItem, VBtn } from 'vuetify/components'
-import { ListNode, StatefulLayout, isSection } from '@json-layout/core'
+import { isSection } from '@json-layout/core'
 import Node from '../node.vue'
-import { VjsfOptions } from '../options.js'
 import clone from '../../utils/clone.js'
 
-defineProps<{ modelValue: ListNode, statefulLayout: StatefulLayout }>()
+defineProps({
+  modelValue: {
+    /** @type import('vue').PropType<import('@json-layout/core').ListNode> */
+    type: Object,
+    required: true
+  },
+  statefulLayout: {
+    /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+    type: Object,
+    required: true
+  }
+})
 </script>
 
 <template>
   <v-list
-    :density="(modelValue.options as VjsfOptions).density"
+    :density="/** @type import('../types.js').VjsfOptions */(modelValue.options).density"
   >
     <v-list-subheader v-if="modelValue.layout.title">
       {{ modelValue.layout.title }}

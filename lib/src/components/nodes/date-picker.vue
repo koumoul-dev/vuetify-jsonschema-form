@@ -1,5 +1,4 @@
-<script setup lang="ts">
-import { StatefulLayout, DatePickerNode } from '@json-layout/core'
+<script setup>
 import TextFieldMenu from '../fragments/text-field-menu.vue'
 import { VDatePicker } from 'vuetify/labs/VDatePicker'
 import { useDate } from 'vuetify/labs/date'
@@ -7,7 +6,18 @@ import { computed } from 'vue'
 import { getCompProps } from '../../utils/props.js'
 import { getDateTimeParts } from '../../utils/dates.js'
 
-const props = defineProps<{ modelValue: DatePickerNode, statefulLayout: StatefulLayout }>()
+const props = defineProps({
+  modelValue: {
+    /** @type import('vue').PropType<import('@json-layout/core').DatePickerNode> */
+    type: Object,
+    required: true
+  },
+  statefulLayout: {
+    /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+    type: Object,
+    required: true
+  }
+})
 
 const vDate = useDate()
 
@@ -27,7 +37,7 @@ const datePickerProps = computed(() => {
     <template #default="{close}">
       <v-date-picker
         v-bind="datePickerProps"
-        @update:model-value="value => {statefulLayout.input(modelValue, value && getDateTimeParts(value as unknown as Date)[0]); close()}"
+        @update:model-value="value => {statefulLayout.input(modelValue, value && getDateTimeParts(/** @type Date */(/** @type unknown */(value)))[0]); close()}"
       />
     </template>
   </text-field-menu>

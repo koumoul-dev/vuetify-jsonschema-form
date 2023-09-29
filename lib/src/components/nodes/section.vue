@@ -1,9 +1,19 @@
-<script setup lang="ts">
-import { SectionNode, StatefulLayout } from '@json-layout/core'
+<script setup>
 import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'
 
-defineProps<{ modelValue: SectionNode, statefulLayout: StatefulLayout }>()
+defineProps({
+  modelValue: {
+    /** @type import('vue').PropType<import('@json-layout/core').SectionNode> */
+    type: Object,
+    required: true
+  },
+  statefulLayout: {
+    /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+    type: Object,
+    required: true
+  }
+})
 
 </script>
 
