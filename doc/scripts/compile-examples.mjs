@@ -4,6 +4,7 @@ import { mkdirSync, writeFileSync, rmSync, readFileSync } from 'fs'
 import ejs from 'ejs'
 import { compile } from '@koumoul/vjsf/compile'
 import examples from '../examples/index.js'
+import slotCodes from '../examples/slot-codes.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -23,7 +24,11 @@ for (const exampleSuite of examples) {
     const compCode = compile(example.schema)
     writeFileSync(path.join(compBaseDir, exampleSuite.id, example.id + '.vue'), compCode)
 
-    const pageCode = ejs.render(pageTemplate, { exampleSuite, example })
+    let slotsCode = ''
+    for (const key of example.codeSlots || []) {
+      slotsCode += slotCodes[key] + '\n'
+    }
+    const pageCode = ejs.render(pageTemplate, { exampleSuite, example, slotsCode })
     writeFileSync(path.join(pageBaseDir, exampleSuite.id, example.id + '.vue'), pageCode)
   }
 }

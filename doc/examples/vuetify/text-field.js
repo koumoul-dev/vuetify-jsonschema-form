@@ -1,4 +1,4 @@
-/** @type {JSONLayoutExample} */
+/** @type {import("@json-layout/examples").JSONLayoutExample} */
 const example = {
   title: 'Text field',
   id: 'text-field',

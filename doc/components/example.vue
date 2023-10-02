@@ -61,6 +61,19 @@
       </v-window-item>
 
       <v-window-item
+        value="slots"
+        class="ma-3"
+      >
+        <pre
+          v-for="key of example.codeSlots"
+          :key="key"
+        ><code
+class="language-javascript"
+                   v-html="highlight(slotCodes[key])"
+        /></pre>
+      </v-window-item>
+
+      <v-window-item
         value="options"
         class="ma-3"
         style="height: 400px"
@@ -157,7 +170,16 @@
             :schema="schema"
             :options="options"
             @update:state="updateState"
-          />
+          >
+            <template #custom-textarea="{node, statefulLayout}">
+              <textarea
+                :value="node.data"
+                style="border: 1px solid red;"
+                placeholder="A custom textarea"
+                @input="event => statefulLayout.input(node, event.target.value)"
+              />
+            </template>
+          </v-jsf>
         </slot>
       </div>
     </v-form>
@@ -169,27 +191,38 @@ import 'prismjs/themes/prism.css'
 import Prism from 'prismjs'
 import { VJsf } from '@koumoul/vjsf'
 import { v2compat } from '@koumoul/vjsf/compat/v2'
+import slotCodes from '../examples/slot-codes.js'
 
 Prism.manual = true
 
 export default {
   components: { VJsf },
   props: {
-    example: { type: Object, required: true },
+    example: {
+      /** @type import('vue').PropType<import('@json-layout/examples').JSONLayoutExample> */
+      type: Object,
+      required: true
+    },
     v2: { type: Boolean, default: false }
   },
   data: () => ({
+    /** @type unknown */
     data: null,
+    /** @type string | null */
     tab: null,
+    /** @type import('@json-layout/core').StateTree | null */
     stateTree: null,
+    /** @type import('@json-layout/core').Display | null */
     display: null,
     options: {
       readOnly: false,
       summary: false,
       density: 'default'
     },
+    /** @type import('@json-layout/core').StatefulLayoutOptions | null */
     filledOptions: null,
-    wrapperWidth: 100
+    wrapperWidth: 100,
+    slotCodes
   }),
   computed: {
     tabs () {
@@ -197,6 +230,9 @@ export default {
       if (this.v2) tabs.push({ value: 'schemaV2', title: 'Schema V2' })
       tabs.push({ value: 'schema', title: 'Schema' })
       tabs.push({ value: 'model', title: 'Data' })
+      if (this.example.codeSlots?.length) {
+        tabs.push({ value: 'slots', title: 'Slots' })
+      }
       tabs.push({ value: 'options', title: 'Options' })
       return tabs
     },
@@ -204,8 +240,8 @@ export default {
       if (this.v2) return v2compat(this.example.schema)
       return this.example.schema
     },
-    changeOption (key) {
-      return (value) => {
+    changeOption (/** @type string  */key) {
+      return (/** @type any */value) => {
         this.options = { ...this.options, [key]: value }
       }
     }
@@ -215,10 +251,10 @@ export default {
     if (this.example.data) this.data = JSON.parse(JSON.stringify(this.example.data))
   },
   methods: {
-    highlight (text) {
+    highlight (/** @type string | object | null  */text) {
       return Prism.highlight(typeof text === 'string' ? text : JSON.stringify(text, null, 2), Prism.languages.javascript, 'javascript')
     },
-    updateState (newState) {
+    updateState (/** @type import('@json-layout/core').StatefulLayout */newState) {
       this.stateTree = newState.stateTree
       this.data = newState.data
       this.display = newState.display

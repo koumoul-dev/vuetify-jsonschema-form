@@ -1,7 +1,9 @@
 import { StatefulLayoutOptions } from '@json-layout/core'
 
+export type Density = 'default' | 'comfortable' | 'compact'
+
 export type VjsfOptions = StatefulLayoutOptions & {
-  density: 'default' | 'comfortable' | 'compact',
+  density: Density,
   fieldProps: Record<string, unknown>,
   fieldPropsCompact: Record<string, unknown>,
   fieldPropsComfortable: Record<string, unknown>,
@@ -14,4 +16,5 @@ export type VjsfOptions = StatefulLayoutOptions & {
   checkboxPropsReadOnly: Record<string, unknown>,
   switchProps: Record<string, unknown>,
   switchPropsReadOnly: Record<string, unknown>,
+  vjsfSlots: Record<string, unknown>
 }

@@ -1,4 +1,6 @@
 <script setup>
+import nodeSlot from './fragments/node-slot.vue'
+
 defineProps({
   modelValue: {
     /** @type import('vue').PropType<import('@json-layout/core').StateNode> */
@@ -11,33 +13,48 @@ defineProps({
     required: true
   }
 })
+
+/** @type Record<import('./types.js').Density, string> */
+const beforeAfterClasses = {
+  compact: 'my-1',
+  comfortable: 'my-2',
+  default: 'my-3'
+}
 </script>
 
 <template>
   <v-col
     :cols="modelValue.cols"
   >
+    <node-slot
+      v-if="modelValue.layout.slots?.before"
+      key="before"
+      :layout-slot="modelValue.layout.slots?.before"
+      :node="modelValue"
+      :stateful-layout="statefulLayout"
+      :class="beforeAfterClasses[/** @type import('./types.js').VjsfOptions */(modelValue.options).density]"
+    />
+
+    <node-slot
+      v-if="modelValue.layout.slots?.component"
+      key="component"
+      :layout-slot="modelValue.layout.slots?.component"
+      :node="modelValue"
+      :stateful-layout="statefulLayout"
+    />
     <component
       :is="`vjsf-node-${modelValue.layout.comp}`"
-      v-if="modelValue.layout.comp !== 'none'"
+      v-else-if="modelValue.layout.comp !== 'none'"
       :model-value="modelValue"
       :stateful-layout="statefulLayout"
     />
+    <node-slot
+      v-if="modelValue.layout.slots?.after"
+      key="after"
+      :layout-slot="modelValue.layout.slots?.after"
+      :node="modelValue"
+      :stateful-layout="statefulLayout"
+      :class="beforeAfterClasses[/** @type import('./types.js').VjsfOptions */(modelValue.options).density]"
+    />
   </v-col>
 </template>
-
-<!--<script>
-import { h, getCurrentInstance } from 'vue'
-
-export default {
-  props: ['modelValue', 'statefulLayout'],
-  render () {
-    if (this.modelValue.layout.comp === 'none') return
-    const instance = getCurrentInstance()
-    console.log('RENDER ?', `vjsf-node-${this.modelValue.layout.comp}`, this.modelValue.fullKey)
-    const component = instance?.appContext.app.component(`vjsf-node-${this.modelValue.layout.comp}`)
-    return h(component, { modelValue: this.modelValue, statefulLayout: this.statefulLayout })
-  }
-}
-</script>
--->

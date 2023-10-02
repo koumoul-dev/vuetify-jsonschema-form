@@ -1,14 +1,10 @@
 import { examples } from '@json-layout/examples'
-import textField from './text-field.js'
+import vuetifyExamples from './vuetify/index.js'
 import { examples as v2ExampleGroups } from './v2/index.js'
+import codeSlots from './merged/code-slots.js'
 
-/** @type {import("@json-layout/examples").JSONLayoutExamplesCategory} */
-const vuetifyExamples = {
-  id: 'vuetify',
-  title: 'Vuetify integration',
-  description: '',
-  examples: [textField]
-}
+const slotsCategory = examples.find(e => e.id === 'slots')
+slotsCategory?.examples.push(codeSlots)
 
 /** @type {import("@json-layout/examples").JSONLayoutExample[]} */
 const v2Examples = []

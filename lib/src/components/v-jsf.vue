@@ -1,5 +1,5 @@
 <script setup>
-import { ref, shallowRef, computed, getCurrentInstance, watch } from 'vue'
+import { ref, shallowRef, computed, getCurrentInstance, watch, useSlots } from 'vue'
 import { useElementSize } from '@vueuse/core'
 import { StatefulLayout, compile } from '@json-layout/core'
 import Tree from './tree.vue'
@@ -75,6 +75,8 @@ const stateTree = shallowRef(null)
 const el = ref(null)
 const { width } = useElementSize(el)
 
+const slots = useSlots()
+
 /** @type import('vue').ComputedRef<import('./types.js').VjsfOptions | null> */
 const fullOptions = computed(() => {
   if (!width.value) return null
@@ -82,7 +84,8 @@ const fullOptions = computed(() => {
     ...defaultOptions,
     ...props.options,
     context: props.options.context ? JSON.parse(JSON.stringify(props.options.context)) : {},
-    width: Math.round(width.value)
+    width: Math.round(width.value),
+    vjsfSlots: { ...slots }
   }
   return /** @type import('./types.js').VjsfOptions */ (options)
 })
