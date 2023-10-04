@@ -1,8 +1,6 @@
 {
   "compilerOptions": {
-    "checkJs": true,
-    "module": "nodenext",
-    "moduleResolution": "nodenext"
+    "checkJs": true
   },
   "extends": "./.nuxt/tsconfig.json"
 }

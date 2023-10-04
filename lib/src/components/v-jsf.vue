@@ -55,7 +55,7 @@ const props = defineProps({
   },
   modelValue: {
     type: [Object, String, Number, Boolean],
-    required: true
+    default: null
   },
   options: {
     /** @type import('vue').PropType<Partial<Omit<import('./types.js').VjsfOptions, 'width'>>> */
