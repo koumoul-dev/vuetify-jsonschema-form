@@ -1,9 +1,66 @@
+<!-- eslint-disable vue/no-v-html -->
 <template>
-  <v-container>
-    <h1 class="display-1 mb-4">
+  <v-container class="doc-content-page">
+    <h1 class="text-h2 mb-8">
       {{ title }}
     </h1>
-    TODO
+
+    <v-alert
+      type="warning"
+      variant="outlined"
+      class="mb-8"
+    >
+      VJSF and its core <i>JSON Layout</i> are not pre-bundled. They are distributed as pure ESM modules written in JS code with type annotations. The transpiling, tree-shaking, minifying, etc should be performed on your side.
+    </v-alert>
+
+    <p>Install from npm:</p>
+    <code-block>
+      <pre>
+npm install @koumoul/vjsf
+      </pre>
+    </code-block>
+
+    <h2 class="text-h4 mb-6">
+      Compile at runtime
+    </h2>
+    <p>This is the simplest way to use VJSF. If you work with static schemas you might want to look into compiling at build time instead.</p>
+
+    <code-block language="markup">
+      <pre>
+&lt;script setup&gt;
+  import { VJsf } from '@koumoul/vjsf'
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;v-jsf v-model="data" :schema="schema" :options="options" /&gt;
+&lt;/template&gt;
+      </pre>
+    </code-block>
+
+    <h2 class="text-h4 mb-6">
+      Compile at build time
+    </h2>
+    <p>This is a more advanced way of using VJSF. All pre-processing that can be done prior to execution is done at build time, this includes compiling validation functions, compiling expression functions, normalizing the layout keywords and building a skeleton tree of the components that will be used to render the form.</p>
+
+    <p>In the build script:</p>
+    <code-block>
+      <pre>
+import { compile } from '@koumoul/vjsf/compile'
+const code = compile(schema, options)
+await writeFile('./components/my-v-jsf.vue', code)
+      </pre>
+    </code-block>
+
+    <p>In your page:</p>
+    <code-block language="markup">
+      <pre>
+&lt;script setup&gt;
+  import { VJsf } from './components/my-v-jsf'
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;my-v-jsf v-model="data" :options="options" /&gt;
+&lt;/template&gt;
+      </pre>
+    </code-block>
   </v-container>
 </template>
 
@@ -19,18 +76,3 @@ export default {
   }
 }
 </script>
-
-<style lang="css" scoped>
-.v-sheet.codeblock {
-  margin-top: 6px;
-  margin-bottom: 18px;
-  padding: 8px 8px 2px 8px;
-}
-.v-sheet.codeblock code {
-  background: none;
-  box-shadow: none;
-}
-.v-sheet.codeblock code::before {
-  content: "";
-}
-</style>

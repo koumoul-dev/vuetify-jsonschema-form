@@ -33,10 +33,9 @@
         value="schemaV2"
         class="ma-3"
       >
-        <pre><code
-              class="language-javascript"
-              v-html="highlight(example.schema)"
-        /></pre>
+        <code-block>
+          <pre>{{ JSON.stringify(example.schema, null, 2) }}</pre>
+        </code-block>
       </v-window-item>
 
       <v-window-item
@@ -53,24 +52,21 @@
         value="model"
         class="ma-3 fill-height"
       >
-        <pre><code
-              v-if="data !== null && data !== undefined"
-              class="language-javascript"
-              v-html="highlight(data)"
-        /></pre>
+        <code-block v-if="data !== null && data !== undefined">
+          <pre>{{ JSON.stringify(data, null, 2) }}</pre>
+        </code-block>
       </v-window-item>
 
       <v-window-item
         value="slots"
         class="ma-3"
       >
-        <pre
+        <code-block
           v-for="key of example.codeSlots"
           :key="key"
-        ><code
-class="language-javascript"
-                   v-html="highlight(slotCodes[key])"
-        /></pre>
+        >
+          <pre>{{ slotCodes[key] }}</pre>
+        </code-block>
       </v-window-item>
 
       <v-window-item
@@ -179,6 +175,9 @@ class="language-javascript"
                 @input="event => statefulLayout.input(node, event.target.value)"
               />
             </template>
+            <template #custom-message="{node}">
+              This message is defined in a slot (key={{ node.key }})
+            </template>
           </v-jsf>
         </slot>
       </div>
@@ -187,13 +186,9 @@ class="language-javascript"
 </template>
 
 <script>
-import 'prismjs/themes/prism.css'
-import Prism from 'prismjs'
 import { VJsf } from '@koumoul/vjsf'
 import { v2compat } from '@koumoul/vjsf/compat/v2'
 import slotCodes from '../examples/slot-codes.js'
-
-Prism.manual = true
 
 export default {
   components: { VJsf },
@@ -251,9 +246,6 @@ export default {
     if (this.example.data) this.data = JSON.parse(JSON.stringify(this.example.data))
   },
   methods: {
-    highlight (/** @type string | object | null  */text) {
-      return Prism.highlight(typeof text === 'string' ? text : JSON.stringify(text, null, 2), Prism.languages.javascript, 'javascript')
-    },
     updateState (/** @type import('@json-layout/core').StatefulLayout */newState) {
       this.stateTree = newState.stateTree
       this.data = newState.data

@@ -43,14 +43,9 @@
             Configuration
           </v-list-item-title>
         </v-list-item>
-        <v-list-item to="/0to1">
+        <v-list-item to="/2to3">
           <v-list-item-title>
-            0.x to 1.x
-          </v-list-item-title>
-        </v-list-item>
-        <v-list-item to="/1to2">
-          <v-list-item-title>
-            1.x to 2.x
+            2.x to 3.x
           </v-list-item-title>
         </v-list-item>
         <v-list-item

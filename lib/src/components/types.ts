@@ -16,5 +16,5 @@ export type VjsfOptions = StatefulLayoutOptions & {
   checkboxPropsReadOnly: Record<string, unknown>,
   switchProps: Record<string, unknown>,
   switchPropsReadOnly: Record<string, unknown>,
-  vjsfSlots: Record<string, unknown>
+  vjsfSlots: Record<string, () => unknown>
 }
