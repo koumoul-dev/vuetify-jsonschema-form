@@ -8,6 +8,10 @@ const codes = {
       placeholder="A custom textarea"
       @input="event => statefulLayout.input(node, event.target.value)"
     />
+  </template>`,
+  'custom-message': `
+  <template #custom-message="{node, statefulLayout}">
+    This message is defined in a slot (key={{ node.key }})
   </template>`
 }
 

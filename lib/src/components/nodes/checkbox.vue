@@ -16,7 +16,7 @@ const props = defineProps({
   }
 })
 
-const fieldProps = computed(() => getInputProps(props.modelValue))
+const fieldProps = computed(() => getInputProps(props.modelValue, props.statefulLayout))
 </script>
 
 <template>

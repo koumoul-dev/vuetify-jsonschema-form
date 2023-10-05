@@ -1,27 +1,29 @@
-<script setup>
+<script>
+import { defineComponent, h, computed } from 'vue'
 import { VTextarea } from 'vuetify/components'
-import { computed } from 'vue'
 import { getInputProps } from '../../utils/props.js'
+import { getCompSlots } from '../../utils/slots.js'
 
-const props = defineProps({
-  modelValue: {
-    /** @type import('vue').PropType<import('@json-layout/core').TextareaNode> */
-    type: Object,
-    required: true
+export default defineComponent({
+  props: {
+    modelValue: {
+      /** @type import('vue').PropType<import('@json-layout/core').TextFieldNode> */
+      type: Object,
+      required: true
+    },
+    statefulLayout: {
+      /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+      type: Object,
+      required: true
+    }
   },
-  statefulLayout: {
-    /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
-    type: Object,
-    required: true
+  setup (props) {
+    const fieldProps = computed(() => getInputProps(props.modelValue, props.statefulLayout))
+    const fieldSlots = computed(() => getCompSlots(props.modelValue, props.statefulLayout))
+
+    // @ts-ignore
+    return () => h(VTextarea, fieldProps.value, fieldSlots.value)
   }
 })
 
-const fieldProps = computed(() => getInputProps(props.modelValue))
 </script>
-
-<template>
-  <v-textarea
-    v-bind="fieldProps"
-    @update:model-value="value => statefulLayout.input(modelValue, value)"
-  />
-</template>

@@ -9,7 +9,7 @@
 <script setup>
 import 'prismjs/themes/prism.css'
 import Prism from 'prismjs'
-import { useSlots } from 'vue'
+import { useSlots, computed } from 'vue'
 
 Prism.manual = true
 
@@ -21,9 +21,11 @@ const props = defineProps({
 })
 
 const slots = useSlots()
-const code = slots.default?.()[0].children
 
-const html = Prism.highlight(code, Prism.languages[props.language], props.language)
+const html = computed(() => {
+  const code = slots.default?.()[0].children
+  return Prism.highlight(code, Prism.languages[props.language], props.language)
+})
 </script>
 
 <style>

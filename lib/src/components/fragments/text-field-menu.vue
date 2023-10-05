@@ -9,6 +9,11 @@ const props = defineProps({
     type: Object,
     required: true
   },
+  statefulLayout: {
+    /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+    type: Object,
+    required: true
+  },
   formattedValue: {
     /** @type import('vue').PropType<string | null> */
     type: String,
@@ -17,7 +22,7 @@ const props = defineProps({
 })
 
 const fieldProps = computed(() => {
-  const fieldProps = getInputProps(props.modelValue, false)
+  const fieldProps = getInputProps(props.modelValue, props.statefulLayout, false)
   fieldProps.readonly = true
   return fieldProps
 })

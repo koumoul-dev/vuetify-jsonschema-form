@@ -17,7 +17,7 @@ const props = defineProps({
 })
 
 const fieldProps = computed(() => {
-  const fieldProps = getInputProps(props.modelValue)
+  const fieldProps = getInputProps(props.modelValue, props.statefulLayout)
   if ('step' in props.modelValue.layout) fieldProps.step = props.modelValue.layout.step
   fieldProps.min = props.modelValue.layout.min
   fieldProps.max = props.modelValue.layout.max

@@ -1,33 +1,35 @@
-<script setup>
+<script>
+import { defineComponent, h, computed } from 'vue'
 import { VTextField } from 'vuetify/components'
-import { computed } from 'vue'
 import { getInputProps } from '../../utils/props.js'
+import { getCompSlots } from '../../utils/slots.js'
 
-const props = defineProps({
-  modelValue: {
-    /** @type import('vue').PropType<import('@json-layout/core').NumberFieldNode> */
-    type: Object,
-    required: true
+export default defineComponent({
+  props: {
+    modelValue: {
+      /** @type import('vue').PropType<import('@json-layout/core').NumberFieldNode> */
+      type: Object,
+      required: true
+    },
+    statefulLayout: {
+      /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+      type: Object,
+      required: true
+    }
   },
-  statefulLayout: {
-    /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
-    type: Object,
-    required: true
+  setup (props) {
+    const fieldProps = computed(() => {
+      const fieldProps = getInputProps(props.modelValue, props.statefulLayout)
+      fieldProps.type = 'number'
+      if ('step' in props.modelValue.layout) fieldProps.step = props.modelValue.layout.step
+      fieldProps['onUpdate:modelValue'] = (/** @type string */value) => props.statefulLayout.input(props.modelValue, value && Number(value))
+      return fieldProps
+    })
+    const fieldSlots = computed(() => getCompSlots(props.modelValue, props.statefulLayout))
+
+    // @ts-ignore
+    return () => h(VTextField, fieldProps.value, fieldSlots.value)
   }
 })
 
-const fieldProps = computed(() => {
-  const fieldProps = getInputProps(props.modelValue)
-  if ('step' in props.modelValue.layout) fieldProps.step = props.modelValue.layout.step
-  return fieldProps
-})
-
 </script>
-
-<template>
-  <v-text-field
-    type="number"
-    v-bind="fieldProps"
-    @update:model-value="value => statefulLayout.input(modelValue, value && Number(value))"
-  />
-</template>

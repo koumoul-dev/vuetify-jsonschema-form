@@ -17,7 +17,7 @@ const props = defineProps({
 })
 
 const fieldProps = computed(() => {
-  const fieldProps = getInputProps(props.modelValue)
+  const fieldProps = getInputProps(props.modelValue, props.statefulLayout)
   if (props.modelValue.options.readOnly) fieldProps.menuProps = { modelValue: false }
   return fieldProps
 })

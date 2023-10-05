@@ -26,6 +26,7 @@ const colorPickerProps = computed(() => {
 <template>
   <text-field-menu
     :model-value="modelValue"
+    :stateful-layout="statefulLayout"
     :formatted-value="modelValue.data"
   >
     <template
