@@ -115,6 +115,24 @@
               :items="['default', 'comfortable', 'compact']"
             />
 
+            <v-select
+              v-model="options.initialValidation"
+              density="compact"
+              hide-details
+              label="initialValidation"
+              style="max-width:300px;"
+              :items="['never', 'withData', 'always']"
+            />
+
+            <v-select
+              v-model="options.validateOn"
+              density="compact"
+              hide-details
+              label="validateOn"
+              style="max-width:300px;"
+              :items="['input', 'blur', 'submit']"
+            />
+
             <v-slider
               v-model="wrapperWidth"
               :min="0"
@@ -155,31 +173,47 @@
 
     <v-form class="ma-3">
       <div :style="`width: ${wrapperWidth}%`">
-        <slot
-          name="vjsf"
-          :model-value="data"
-          :options="options"
-          :update-state="updateState"
+        <v-form
+          ref="form"
+          v-model="valid"
         >
-          <v-jsf
+          <slot
+            name="vjsf"
             :model-value="data"
-            :schema="schema"
             :options="options"
-            @update:state="updateState"
+            :update-state="updateState"
           >
-            <template #custom-textarea="{node, statefulLayout}">
-              <textarea
-                :value="node.data"
-                style="border: 1px solid red;"
-                placeholder="A custom textarea"
-                @input="event => statefulLayout.input(node, event.target.value)"
-              />
-            </template>
-            <template #custom-message="{node}">
-              This message is defined in a slot (key={{ node.key }})
-            </template>
-          </v-jsf>
-        </slot>
+            <v-jsf
+              :model-value="data"
+              :schema="schema"
+              :options="options"
+              @update:state="updateState"
+            >
+              <template #custom-textarea="{node, statefulLayout}">
+                <textarea
+                  :value="node.data"
+                  style="border: 1px solid red;"
+                  placeholder="A custom textarea"
+                  @input="event => statefulLayout.input(node, event.target.value)"
+                />
+              </template>
+              <template #custom-message="{node}">
+                This message is defined in a slot (key={{ node.key }})
+              </template>
+            </v-jsf>
+          </slot>
+          <v-row>
+            <v-spacer />
+            <v-btn
+              :color="validateColor"
+              flat
+              class="ma-2"
+              @click="$refs.form.validate()"
+            >
+              Validate
+            </v-btn>
+          </v-row>
+        </v-form>
       </div>
     </v-form>
   </v-sheet>
@@ -212,12 +246,15 @@ export default {
     options: {
       readOnly: false,
       summary: false,
-      density: 'default'
+      density: 'default',
+      initialValidation: 'withData',
+      validateOn: 'input'
     },
     /** @type import('@json-layout/core').StatefulLayoutOptions | null */
     filledOptions: null,
     wrapperWidth: 100,
-    slotCodes
+    slotCodes,
+    valid: null
   }),
   computed: {
     tabs () {
@@ -239,6 +276,12 @@ export default {
       return (/** @type any */value) => {
         this.options = { ...this.options, [key]: value }
       }
+    },
+    validateColor () {
+      // cf https://vuetifyjs.com/en/components/forms/#validation-state
+      if (this.valid === false) return 'error'
+      if (this.valid === true) return 'success'
+      return 'default'
     }
   },
   created () {

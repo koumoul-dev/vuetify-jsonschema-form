@@ -7,7 +7,7 @@ import { getCompSlots } from '../../utils/slots.js'
 export default defineComponent({
   props: {
     modelValue: {
-      /** @type import('vue').PropType<import('@json-layout/core').NumberFieldNode> */
+      /** @type import('vue').PropType<import('../types.js').VjsfNumberFieldNode> */
       type: Object,
       required: true
     },

@@ -19,7 +19,7 @@ defineProps({
   <v-row>
     <node
       :stateful-layout="statefulLayout"
-      :model-value="modelValue.root"
+      :model-value="/** @type import('./types.js').VjsfNode */(modelValue.root)"
     />
   </v-row>
 </template>

@@ -8,7 +8,7 @@ import { getDateTimeParts } from '../../utils/dates.js'
 
 const props = defineProps({
   modelValue: {
-    /** @type import('vue').PropType<import('@json-layout/core').DatePickerNode> */
+    /** @type import('vue').PropType<import('../types.js').VjsfDatePickerNode> */
     type: Object,
     required: true
   },

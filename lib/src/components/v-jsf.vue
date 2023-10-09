@@ -1,5 +1,5 @@
 <script setup>
-import { ref, shallowRef, computed, getCurrentInstance, watch, useSlots } from 'vue'
+import { ref, shallowRef, computed, getCurrentInstance, watch, useSlots, inject } from 'vue'
 import { useElementSize } from '@vueuse/core'
 import { StatefulLayout, compile } from '@json-layout/core'
 import Tree from './tree.vue'
@@ -72,6 +72,17 @@ const statefulLayout = shallowRef(null)
 /** @type import('vue').ShallowRef<import('@json-layout/core').StateTree | null> */
 const stateTree = shallowRef(null)
 
+// cf https://github.com/vuetifyjs/vuetify/blob/master/packages/vuetify/src/composables/form.ts
+const form = inject(Symbol.for('vuetify:form'))
+if (form) {
+  form.register({
+    id: 'vjsf', // TODO: a unique random id ?
+    validate: () => statefulLayout.value?.validate(),
+    reset: () => statefulLayout.value?.resetValidation(), // TODO: also empty the data ?
+    resetValidation: () => statefulLayout.value?.resetValidation()
+  })
+}
+
 const el = ref(null)
 const { width } = useElementSize(el)
 
@@ -82,6 +93,7 @@ const fullOptions = computed(() => {
   if (!width.value) return null
   const options = {
     ...defaultOptions,
+    readOnly: form.isDisabled || form.isReadOnly,
     ...props.options,
     context: props.options.context ? JSON.parse(JSON.stringify(props.options.context)) : {},
     width: Math.round(width.value),
@@ -90,15 +102,26 @@ const fullOptions = computed(() => {
   return /** @type import('./types.js').VjsfOptions */ (options)
 })
 
+const onStatefulLayoutUpdate = () => {
+  if (!statefulLayout.value) return
+  stateTree.value = statefulLayout.value.stateTree
+  emit('update:modelValue', statefulLayout.value.data)
+  emit('update:state', statefulLayout.value)
+  if (form) {
+    // cf https://vuetifyjs.com/en/components/forms/#validation-state
+    if (statefulLayout.value.valid) form.update('vjsf', true)
+    else if (statefulLayout.value.hasHiddenError) form.update('vjsf', null)
+    else form.update('vjsf', false)
+  }
+}
+
 const initStatefulLayout = () => {
   if (!fullOptions.value) return
   const _statefulLayout = new StatefulLayout(compiledLayout.value, compiledLayout.value.skeletonTree, fullOptions.value, props.modelValue)
   statefulLayout.value = _statefulLayout
-  stateTree.value = _statefulLayout.stateTree
+  onStatefulLayoutUpdate()
   _statefulLayout.events.on('update', () => {
-    stateTree.value = _statefulLayout.stateTree
-    emit('update:modelValue', _statefulLayout.data)
-    emit('update:state', _statefulLayout)
+    onStatefulLayoutUpdate()
   })
   emit('update:state', _statefulLayout)
 }

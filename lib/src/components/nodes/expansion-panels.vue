@@ -6,7 +6,7 @@ import SectionHeader from '../fragments/section-header.vue'
 
 defineProps({
   modelValue: {
-    /** @type import('vue').PropType<import('@json-layout/core').ExpansionPanelsNode> */
+    /** @type import('vue').PropType<import('../types.js').VjsfExpansionPanelsNode> */
     type: Object,
     required: true
   },
@@ -28,6 +28,13 @@ defineProps({
       :value="i"
     >
       <v-expansion-panel-title>
+        <v-icon
+          v-if="child.validated && (child.error || child.childError)"
+          color="error"
+          class="mr-2"
+        >
+          mdi-alert
+        </v-icon>
         {{ child.layout.title ?? child.layout.label }}
       </v-expansion-panel-title>
       <v-container fluid>
@@ -35,7 +42,7 @@ defineProps({
           <node
             v-for="grandChild of isSection(child) ? child.children : [child]"
             :key="grandChild.fullKey"
-            :model-value="grandChild"
+            :model-value="/** @type import('../types.js').VjsfNode */(grandChild)"
             :stateful-layout="statefulLayout"
           />
         </v-row>

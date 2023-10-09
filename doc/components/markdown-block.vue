@@ -18,4 +18,8 @@ export default {
 .markdown-block p:not(:last-child), .markdown-block pre:not(:last-child) {
   margin-bottom: 20px;
 }
+.markdown-block ul {
+  margin-left: 28px;
+  margin-bottom: 16px;
+}
 </style>

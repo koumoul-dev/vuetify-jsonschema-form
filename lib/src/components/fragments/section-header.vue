@@ -1,9 +1,10 @@
 <script setup>
+import { VAlert } from 'vuetify/components'
 import { computed } from 'vue'
 
 const props = defineProps({
   node: {
-    /** @type import('vue').PropType<import('@json-layout/core').StateNode> */
+    /** @type import('vue').PropType<import('../types.js').VjsfNode> */
     type: Object,
     required: true
   }
@@ -39,5 +40,13 @@ const titleClass = computed(() => {
     >
       {{ node.layout.subtitle }}
     </p>
+    <v-alert
+      v-if="node.error && node.validated"
+      v-bind="node.options.errorAlertProps"
+      :class="`mt-${titleDepthBase - node.options.titleDepth}`"
+      :density="node.options.density"
+    >
+      {{ node.error }}
+    </v-alert>
   </div>
 </template>

@@ -6,7 +6,7 @@ import clone from '../../utils/clone.js'
 
 defineProps({
   modelValue: {
-    /** @type import('vue').PropType<import('@json-layout/core').ListNode> */
+    /** @type import('vue').PropType<import('../types.js').VjsfListNode> */
     type: Object,
     required: true
   },
@@ -33,7 +33,7 @@ defineProps({
         <node
           v-for="grandChild of isSection(child) ? child.children : [child]"
           :key="grandChild.fullKey"
-          :model-value="grandChild"
+          :model-value="/** @type import('../types.js').VjsfNode */(grandChild)"
           :stateful-layout="statefulLayout"
         />
       </v-row>

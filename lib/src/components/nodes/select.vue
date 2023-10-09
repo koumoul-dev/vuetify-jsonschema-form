@@ -5,7 +5,7 @@ import { getInputProps } from '../../utils/props.js'
 
 const props = defineProps({
   modelValue: {
-    /** @type import('vue').PropType<import('@json-layout/core').SelectNode> */
+    /** @type import('vue').PropType<import('../types.js').VjsfSelectNode> */
     type: Object,
     required: true
   },

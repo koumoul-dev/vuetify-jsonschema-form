@@ -2,7 +2,7 @@
 
 defineProps({
   modelValue: {
-    /** @type import('vue').PropType<import('@json-layout/core').DateTimePickerNode> */
+    /** @type import('vue').PropType<import('../types.js').VjsfDateTimePickerNode> */
     type: Object,
     required: true
   },

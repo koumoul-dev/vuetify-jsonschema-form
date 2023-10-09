@@ -3,7 +3,7 @@ import nodeSlot from './fragments/node-slot.vue'
 
 defineProps({
   modelValue: {
-    /** @type import('vue').PropType<import('@json-layout/core').StateNode> */
+    /** @type import('vue').PropType<import('./types.js').VjsfNode> */
     type: Object,
     required: true
   },

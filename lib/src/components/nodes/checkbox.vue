@@ -5,7 +5,7 @@ import { getInputProps } from '../../utils/props.js'
 
 const props = defineProps({
   modelValue: {
-    /** @type import('vue').PropType<import('@json-layout/core').CheckboxNode> */
+    /** @type import('vue').PropType<import('../types.js').VjsfCheckboxNode> */
     type: Object,
     required: true
   },

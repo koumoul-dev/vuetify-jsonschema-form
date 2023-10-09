@@ -12,7 +12,7 @@ export default {
       required: true
     },
     node: {
-      /** @type import('vue').PropType<import('@json-layout/core').StateNode> */
+      /** @type import('vue').PropType<import('../types.js').VjsfNode> */
       type: Object,
       required: true
     },

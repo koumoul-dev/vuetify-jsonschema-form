@@ -7,7 +7,7 @@ import SectionHeader from '../fragments/section-header.vue'
 
 defineProps({
   modelValue: {
-    /** @type import('vue').PropType<import('@json-layout/core').TabsNode> */
+    /** @type import('vue').PropType<import('../types.js').VjsfTabsNode> */
     type: Object,
     required: true
   },
@@ -29,7 +29,15 @@ const tab = ref(0)
         v-for="(child, i) of modelValue.children"
         :key="child.key"
         :value="i"
+        :density="modelValue.options.density"
+        :color="child.validated && (child.error || child.childError) ? 'error' : undefined"
       >
+        <v-icon
+          v-if="child.validated && (child.error || child.childError)"
+          color="error"
+        >
+          mdi-alert
+        </v-icon>
         {{ child.layout.title ?? child.layout.label }}
       </v-tab>
     </v-tabs>
@@ -44,7 +52,7 @@ const tab = ref(0)
             <node
               v-for="grandChild of isSection(child) ? child.children : [child]"
               :key="grandChild.fullKey"
-              :model-value="grandChild"
+              :model-value="/** @type import('../types.js').VjsfNode */(grandChild)"
               :stateful-layout="statefulLayout"
             />
           </v-row>

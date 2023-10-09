@@ -9,7 +9,7 @@ const log = debug('vjsf:oneOf')
 
 const props = defineProps({
   modelValue: {
-    /** @type import('vue').PropType<import('@json-layout/core').OneOfSelectNode> */
+    /** @type import('vue').PropType<import('../types.js').VjsfOneOfSelectNode> */
     type: Object,
     required: true
   },

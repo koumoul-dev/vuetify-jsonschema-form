@@ -6,7 +6,7 @@ import { getCompProps } from '../../utils/props.js'
 
 const props = defineProps({
   modelValue: {
-    /** @type import('vue').PropType<import('@json-layout/core').ColorPickerNode> */
+    /** @type import('vue').PropType<import('../types.js').VjsfColorPickerNode> */
     type: Object,
     required: true
   },

@@ -5,7 +5,7 @@ import { getCompProps, getInputProps } from '../../utils/props.js'
 
 const props = defineProps({
   modelValue: {
-    /** @type import('vue').PropType<import('@json-layout/core').StateNode> */
+    /** @type import('vue').PropType<import('../types.js').VjsfNode> */
     type: Object,
     required: true
   },
