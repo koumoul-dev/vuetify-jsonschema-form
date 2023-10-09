@@ -75,6 +75,7 @@ watch(activeChildTree, () => {
     :items="modelValue.skeleton.childrenTrees"
     item-title="title"
     return-object
+    :error-messages="modelValue.validated ? modelValue.error : null"
   />
   <tree
     v-if="childStatefulLayout"

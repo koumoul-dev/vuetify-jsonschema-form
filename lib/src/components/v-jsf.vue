@@ -66,7 +66,6 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue', 'update:state'])
 
-const compiledLayout = computed(() => compile(props.schema))
 /** @type import('vue').ShallowRef<StatefulLayout | null> */
 const statefulLayout = shallowRef(null)
 /** @type import('vue').ShallowRef<import('@json-layout/core').StateTree | null> */
@@ -88,19 +87,20 @@ const { width } = useElementSize(el)
 
 const slots = useSlots()
 
-/** @type import('vue').ComputedRef<import('./types.js').VjsfOptions | null> */
+/** @type import('vue').ComputedRef<import('./types.js').VjsfOptions> */
 const fullOptions = computed(() => {
-  if (!width.value) return null
   const options = {
     ...defaultOptions,
     readOnly: form.isDisabled || form.isReadOnly,
     ...props.options,
     context: props.options.context ? JSON.parse(JSON.stringify(props.options.context)) : {},
-    width: Math.round(width.value),
+    width: Math.round(width.value ?? 0),
     vjsfSlots: { ...slots }
   }
   return /** @type import('./types.js').VjsfOptions */ (options)
 })
+
+const compiledLayout = computed(() => compile(props.schema, fullOptions.value))
 
 const onStatefulLayoutUpdate = () => {
   if (!statefulLayout.value) return
@@ -109,14 +109,14 @@ const onStatefulLayoutUpdate = () => {
   emit('update:state', statefulLayout.value)
   if (form) {
     // cf https://vuetifyjs.com/en/components/forms/#validation-state
-    if (statefulLayout.value.valid) form.update('vjsf', true)
-    else if (statefulLayout.value.hasHiddenError) form.update('vjsf', null)
-    else form.update('vjsf', false)
+    if (statefulLayout.value.valid) form.update('vjsf', true, [])
+    else if (statefulLayout.value.hasHiddenError) form.update('vjsf', null, [])
+    else form.update('vjsf', false, [])
   }
 }
 
 const initStatefulLayout = () => {
-  if (!fullOptions.value) return
+  if (!width.value) return
   const _statefulLayout = new StatefulLayout(compiledLayout.value, compiledLayout.value.skeletonTree, fullOptions.value, props.modelValue)
   statefulLayout.value = _statefulLayout
   onStatefulLayoutUpdate()
@@ -127,9 +127,7 @@ const initStatefulLayout = () => {
 }
 
 watch(fullOptions, (newOptions) => {
-  if (!newOptions) {
-    statefulLayout.value = null
-  } else if (statefulLayout.value) {
+  if (statefulLayout.value) {
     statefulLayout.value.options = newOptions
   } else {
     initStatefulLayout()

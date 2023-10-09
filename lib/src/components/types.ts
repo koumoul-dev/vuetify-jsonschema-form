@@ -16,12 +16,13 @@ import {
   SwitchNode,
   TextFieldNode,
   TextareaNode,
-  VerticalTabsNode
+  VerticalTabsNode,
+  CompileOptions
 } from '@json-layout/core'
 
 export type Density = 'default' | 'comfortable' | 'compact'
 
-export type VjsfOptions = StatefulLayoutOptions & {
+export type VjsfOptions = StatefulLayoutOptions & CompileOptions & {
   density: Density,
   fieldProps: Record<string, unknown>,
   fieldPropsCompact: Record<string, unknown>,
@@ -36,7 +37,7 @@ export type VjsfOptions = StatefulLayoutOptions & {
   switchProps: Record<string, unknown>,
   switchPropsReadOnly: Record<string, unknown>,
   errorAlertProps: Record<string, unknown>,
-  vjsfSlots: Record<string, () => unknown>
+  vjsfSlots: Record<string, () => unknown>,
 }
 
 export type VjsfNode = Omit<StateNode, 'options'> & {options: VjsfOptions}

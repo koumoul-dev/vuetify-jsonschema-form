@@ -42,10 +42,9 @@
         value="schema"
         class="ma-3"
       >
-        <pre><code
-              class="language-javascript"
-              v-html="highlight(schema)"
-        /></pre>
+        <code-block>
+          <pre>{{ JSON.stringify(schema, null, 2) }}</pre>
+        </code-block>
       </v-window-item>
 
       <v-window-item
@@ -133,6 +132,15 @@
               :items="['input', 'blur', 'submit']"
             />
 
+            <v-select
+              v-model="options.locale"
+              density="compact"
+              hide-details
+              label="locale"
+              style="max-width:300px;"
+              :items="['en', 'fr']"
+            />
+
             <v-slider
               v-model="wrapperWidth"
               :min="0"
@@ -160,10 +168,9 @@
             <div class="text-subtitle">
               Options filled with default values:
             </div>
-            <pre><code
-              class="language-javascript"
-              v-html="highlight(filledOptions)"
-            /></pre>
+            <code-block>
+              <pre>{{ JSON.stringify(filledOptions, null, 2) }}</pre>
+            </code-block>
           </v-col>
         </v-row>
       </v-window-item>
@@ -248,7 +255,8 @@ export default {
       summary: false,
       density: 'default',
       initialValidation: 'withData',
-      validateOn: 'input'
+      validateOn: 'input',
+      locale: 'en'
     },
     /** @type import('@json-layout/core').StatefulLayoutOptions | null */
     filledOptions: null,
