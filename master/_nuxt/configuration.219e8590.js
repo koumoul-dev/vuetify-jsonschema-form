@@ -1,1 +1,0 @@
-import{_ as t,I as e,x as o,m as r,y as a}from"./entry.bb0bdacd.js";import{V as c}from"./VContainer.d256f190.js";import"./tag.ddf107cf.js";const n={};function s(_,f){return r(),e(c,null,{default:o(()=>[a(" TODO ")]),_:1})}const p=t(n,[["render",s]]);export{p as default};
