@@ -2,7 +2,7 @@
 import { StatefulLayout } from '@json-layout/core'
 import { VSelect } from 'vuetify/components'
 import Tree from '../tree.vue'
-import { ref, watch } from 'vue'
+import { shallowRef, watch } from 'vue'
 import debug from 'debug'
 
 const log = debug('vjsf:oneOf')
@@ -21,7 +21,7 @@ const props = defineProps({
 })
 
 /** @type import('vue').Ref<StatefulLayout | null> */
-const childStatefulLayout = ref(null)
+const childStatefulLayout = shallowRef(null)
 
 const createStatefulLayout = () => {
   log('create child statefulLayout')
@@ -51,7 +51,7 @@ const updateStatefulLayout = () => {
 }
 
 /** @type import('vue').Ref<import('@json-layout/core').SkeletonTree | null> */
-const activeChildTree = ref(null)
+const activeChildTree = shallowRef(null)
 watch(() => props.modelValue, () => {
   // we set the active oneOf child as the one whose schema validates on the current data
   activeChildTree.value = props.modelValue.skeleton.childrenTrees?.find((childTree) => {
