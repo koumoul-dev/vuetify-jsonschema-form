@@ -1,14 +1,10 @@
 <script setup>
-import { shallowRef, watch } from 'vue'
 import { VList, VListItem, VListItemAction, VBtn, VMenu, VIcon } from 'vuetify/components'
-import { isSection, StatefulLayout } from '@json-layout/core'
+import { isSection } from '@json-layout/core'
 import Node from '../node.vue'
 import clone from '../../utils/clone.js'
-import debug from 'debug'
 
-const log = debug('vjsf:list')
-
-const props = defineProps({
+defineProps({
   modelValue: {
     /** @type import('vue').PropType<import('../types.js').VjsfListNode> */
     type: Object,
@@ -19,56 +15,6 @@ const props = defineProps({
     type: Object,
     required: true
   }
-})
-
-/** @type import('vue').Ref<StatefulLayout | null> */
-const childStatefulLayout = shallowRef(null)
-
-const createStatefulLayout = () => {
-  log('create child statefulLayout')
-  if (childTree.value) {
-    childStatefulLayout.value = new StatefulLayout(
-      props.statefulLayout.compiledLayout,
-      childTree.value,
-      // TODO: width should come from current node not global layout
-      props.modelValue.options,
-      activeChildIndex.value === -1 ? props.modelValue.data[activeChildIndex.value] : null
-    )
-    childStatefulLayout.value.events.on('update', (newValue) => {
-      if (newValue.stateTree.valid) {
-        log('bubble data from active child to parent state')
-        props.statefulLayout.input(props.modelValue.children[activeChildIndex.value], newValue.data)
-      }
-    })
-  } else {
-    childStatefulLayout.value = null
-  }
-}
-
-const updateStatefulLayout = () => {
-  if (!childStatefulLayout.value) return
-  childStatefulLayout.value.options = props.modelValue.options
-  childStatefulLayout.value.data = activeChildIndex.value === -1 ? props.modelValue.data[activeChildIndex.value] : null
-}
-
-/** @type import('vue').Ref<number> */
-const activeChildIndex = shallowRef(-1)
-
-/** @type import('vue').Ref<import('@json-layout/core').SkeletonTree | null> */
-const childTree = shallowRef(null)
-
-watch(() => props.modelValue, () => {
-  // we set the active oneOf child as the one whose schema validates on the current data
-  childTree.value = props.modelValue.skeleton.childrenTrees?.[0] ?? null
-  if (childStatefulLayout.value && childTree.value === childStatefulLayout.value.skeletonTree) {
-    log('update child statefulLayout')
-    updateStatefulLayout()
-  }
-})
-
-watch(childTree, () => {
-  log('active child tree changed', childTree.value)
-  createStatefulLayout()
 })
 
 </script>
@@ -83,14 +29,8 @@ watch(childTree, () => {
       :key="child.key"
     >
       <v-row>
-        <tree
-          v-if="childStatefulLayout && activeChildIndex === childIndex && modelValue.layout.listEditMode === 'inline'"
-          :stateful-layout="childStatefulLayout"
-          :model-value="childStatefulLayout.stateTree"
-        />
         <node
           v-for="grandChild of isSection(child) ? child.children : [child]"
-          v-else
           :key="grandChild.fullKey"
           :model-value="/** @type import('../types.js').VjsfNode */(grandChild)"
           :stateful-layout="statefulLayout"
@@ -98,16 +38,26 @@ watch(childTree, () => {
       </v-row>
       <template #append>
         <v-list-item-action
-          v-if="modelValue.layout.listActions.includes('edit') && modelValue.layout.listEditMode !== 'inline'"
+          v-if="modelValue.layout.listActions.includes('edit') && modelValue.layout.listEditMode === 'inline-single'"
           class="ml-1"
         >
           <v-btn
+            v-if="child.options.readOnly"
             :title="modelValue.messages.edit"
             icon="mdi-pencil"
             variant="text"
             color="primary"
             :density="modelValue.options.density"
-            @click="activeChildIndex = childIndex"
+            @click="statefulLayout.activateItem(modelValue, childIndex)"
+          />
+          <v-btn
+            v-else
+            :title="modelValue.messages.edit"
+            icon="mdi-pencil"
+            variant="flat"
+            color="primary"
+            :density="modelValue.options.density"
+            @click="statefulLayout.deactivateItem(modelValue)"
           />
         </v-list-item-action>
         <v-list-item-action
@@ -119,7 +69,7 @@ watch(childTree, () => {
               <v-btn
                 v-bind="activatorProps"
                 icon="mdi-dots-vertical"
-                variant="text"
+                variant="plain"
                 :density="modelValue.options.density"
               />
             </template>
@@ -153,7 +103,7 @@ watch(childTree, () => {
       <v-btn
         color="primary"
         :density="modelValue.options.density"
-        @click="statefulLayout.input(modelValue, (modelValue.data || []).concat([clone(modelValue.skeleton.childrenTrees?.[0]?.root.defaultData)]))"
+        @click="statefulLayout.input(modelValue, (modelValue.data || []).concat([clone(modelValue.skeleton.childrenTrees?.[0]?.root.defaultData)]), (modelValue.data || []).length)"
       >
         {{ modelValue.messages.addItem }}
       </v-btn>
