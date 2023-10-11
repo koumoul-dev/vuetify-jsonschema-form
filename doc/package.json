@@ -15,11 +15,9 @@
     "@json-layout/examples": "file:../../json-layout/examples",
     "@koumoul/vjsf": "2.21.3",
     "@mdi/font": "^7.2.96",
-    "@types/ejs": "^3.1.2",
-    "@types/markdown-it": "^13.0.1",
     "ajv-formats": "^2.1.1",
     "ejs": "^3.1.9",
-    "markdown-it": "^13.0.1",
+    "markdown-it": "^13.0.2",
     "nuxt": "^3.7.4",
     "prismjs": "^1.29.0",
     "vite-plugin-vuetify": "^1.0.2",
@@ -28,6 +26,8 @@
   "author": "Alban Mouton <alban.mouton@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/ejs": "^3.1.2",
+    "@types/markdown-it": "^13.0.1",
     "@types/prismjs": "^1.26.1"
   }
 }
