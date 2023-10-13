@@ -1,10 +1,10 @@
 # vjsf
 
-*vuetify-jsonschema-form* - *@koumoul/vjsf on npm*
+*vuetify-json-schema-form* - *@koumoul/vjsf on npm*
 
-Create beautiful and low-effort forms that output valid data.
+Easily create beautiful forms that output valid data.
 
-Based on [Vue.js](https://vuejs.org/) / [Vuetify](https://vuetifyjs.com/) / [JSON Schema](https://json-schema.org/).
+Based on [Vue.js](https://vuejs.org/) / [Vuetify](https://vuetifyjs.com/) / [JSON Schema](https://json-schema.org/) / [JSON Layout](https://github.com/json-layout/json-layout).
 
 See [the documentation](https://koumoul-dev.github.io/vuetify-jsonschema-form/latest/) and join us [on gitter](https://gitter.im/koumoul-dev/vjsf).
 

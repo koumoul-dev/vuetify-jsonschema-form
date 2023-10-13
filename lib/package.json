@@ -11,7 +11,8 @@
   "license": "MIT",
   "files": [
     "types",
-    "src"
+    "src",
+    "LICENSE"
   ],
   "type": "module",
   "exports": {

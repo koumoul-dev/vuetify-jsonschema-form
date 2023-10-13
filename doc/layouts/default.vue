@@ -160,7 +160,7 @@
 import { watch, ref, computed } from 'vue'
 import { useTheme, useDisplay } from 'vuetify'
 import examples from '~/examples/'
-import { version } from '~/../package.json'
+import { version } from '~/../lib/package.json'
 
 const theme = useTheme()
 const display = useDisplay()

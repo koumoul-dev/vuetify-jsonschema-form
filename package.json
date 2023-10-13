@@ -1,6 +1,4 @@
 {
-  "name": "@koumoul/vjsf-monorepo",
-  "version": "2.21.3",
   "description": "The monorepo for vjsf lib, docs, examples, etc.",
   "scripts": {
     "build": "npm -w lib run build && npm -w doc run build",

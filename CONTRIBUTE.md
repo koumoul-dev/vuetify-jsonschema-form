@@ -47,15 +47,15 @@ You can also write additionnal test assertions in the examples themselves, see [
 Release and publish usin npm:
 
 ```
-npm version minor
-npm publish
-git push && git push --tags
+npm -w lib version minor
+npm -w lib publish
+git push
 ```
 
 To publish a beta version, use prerelease versioning with a npm tag:
 
 ```
-npm version preminor --preid=beta # use prerelease instead of preminor to increment
-npm publish --tag=beta
-git push && git push --tags
+npm -w lib version preminor --preid=beta # use prerelease instead of preminor to increment
+npm -w lib publish --tag=next
+git push
 ```
