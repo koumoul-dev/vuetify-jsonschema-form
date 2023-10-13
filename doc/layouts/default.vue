@@ -81,9 +81,9 @@
     <!--<v-app-bar app :color="$vuetify.display.smAndDown ? 'white' : 'transparent'" dense flat>-->
     <v-app-bar
       app
-      flat
       density="comfortable"
-      color="transparent"
+      :color="theme.global.name.value === 'dark' ? '#121212' : '#FFFFFF'"
+      scroll-behavior="elevate"
     >
       <v-app-bar-nav-icon
         v-if="temporary"
@@ -178,7 +178,7 @@ const drawer = ref(false)
 
 // eslint-disable-next-line no-undef
 const route = useRoute()
-const temporary = computed(() => route.name === 'categoryId-id' || display.smAndDown.value)
+const temporary = computed(() => route.name === 'categoryId-id' || /** @type string */(route.name).startsWith('compiled-') || display.smAndDown.value)
 
 watch(temporary, (newValue) => {
   drawer.value = !newValue

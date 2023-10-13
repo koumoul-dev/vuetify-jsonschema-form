@@ -2,6 +2,8 @@ const id = 'basic'
 
 const title = 'Basic types'
 
+const warning = 'Arrays of strings and numbers are not yet represented as comboboxes.'
+
 const description = 'All basic types are supported : string, number, integer, boolean.'
 
 const schema = {
@@ -35,4 +37,4 @@ const model = {
   expect(wrapper.vm.valid).toBe(true)
 } */
 
-export default { id, title, description, schema, model }
+export default { id, title, warning, description, schema, model }

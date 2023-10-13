@@ -2,6 +2,8 @@ const id = 'select'
 
 const title = 'Selects'
 
+const warning = 'Multi-select for arrays is not yet supported.'
+
 const description = `Enums, oneOfs with const values and the \`x-fromData\` annotation can be used to create select fields.
 
 Arrays are represented as multi-value select fields.
@@ -79,4 +81,4 @@ const options = {
 
 const model = {}
 
-export default { id, title, description, schema, model, options }
+export default { id, title, warning, description, schema, model, options }

@@ -2,6 +2,8 @@ const id = 'date-picker'
 
 const title = 'Dates'
 
+const warning = 'The "date-time" format is not supported yet.'
+
 const description = `The formats relative to dates are managed using the date and time pickers from Vuetify.
 
 The formatting and the pickers are heavily dependant on the \`locale\` option. To customize the formatting you can look at the \`Formatting functions\` section in the configuration documentation.
@@ -23,4 +25,4 @@ const schema = {
 
 const model = {}
 
-export default { id, title, description, schema, model }
+export default { id, title, warning, description, schema, model }

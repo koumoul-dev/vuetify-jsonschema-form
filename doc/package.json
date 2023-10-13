@@ -13,7 +13,7 @@
     "compile-examples": "node scripts/compile-examples.mjs"
   },
   "dependencies": {
-    "@json-layout/examples": "file:../../json-layout/examples",
+    "@json-layout/examples": "0.1.0",
     "@koumoul/vjsf": "3.0.0-alpha.0",
     "@mdi/font": "^7.2.96",
     "ajv-formats": "^2.1.1",

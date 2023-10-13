@@ -24,6 +24,7 @@
     <ul>
       <li><b>data</b> - it varies depending on the expression you are using, it can be the data from the current node, an item in a select component, etc.</li>
       <li><b>options</b> - the options object passed to VJSF then merged with contextual options from all parent nodes.</li>
+      <li><b>context</b> - shortcut for "options.context".</li>
       <li><b>display</b> - the display object used to manage responsive layouts.</li>
     </ul>
 

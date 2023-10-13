@@ -22,10 +22,18 @@
           :to="`/${examplesCategory.id}/${example.id}`"
         />
       </h2>
+      <v-alert
+        v-if="example.warning"
+        type="warning"
+        variant="outlined"
+        class="mb-4"
+      >
+        <markdown-block :content="example.warning" />
+      </v-alert>
       <markdown-block :content="example.description" />
       <example
         :example="example"
-        :v2="examplesCategory.id === 'v2'"
+        :v2="examplesCategory.id === 'v2-compat'"
       />
     </template>
 

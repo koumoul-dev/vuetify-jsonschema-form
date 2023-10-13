@@ -2,6 +2,8 @@ const id = 'select-schema-deps'
 
 const title = 'Selects with schema dependencies'
 
+const warning = 'Using eval-expr is not supported in VJSF 3.'
+
 const description = `Using expressions in fromData it is possible to mix information from both other parts of the model and other parts of the schema.
 
 This example illustrates this by reusing the oneOf list of values from a property in another while also filtering this oneOf using the current value of the first property. This creates a select based on the selected values of another select that also uses the proper titles.
@@ -49,4 +51,4 @@ const model = {}
 
 const options = { evalMethod: 'evalExpr' }
 
-export default { id, title, description, schema, model, options }
+export default { id, title, warning, description, schema, model, options }
