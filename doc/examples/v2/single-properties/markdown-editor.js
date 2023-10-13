@@ -4,7 +4,7 @@ const title = 'Markdown editor (beta)'
 
 const description = `You can edit markdown content using the \`x-display=markdown\` annotation.
 
-To do this VJsf integrates [EasyMDE](https://github.com/Ionaru/easy-markdown-editor). But to prevent creating a larger distributable it is not declared as a dependency, you need to load it yourself and make it available in global.EasyMDE (or window.EasyMDE). For example:
+To do this Vjsf integrates [EasyMDE](https://github.com/Ionaru/easy-markdown-editor). But to prevent creating a larger distributable it is not declared as a dependency, you need to load it yourself and make it available in global.EasyMDE (or window.EasyMDE). For example:
 
 \`\`\`
 import EasyMDE from 'easymde/dist/easymde.min.js'

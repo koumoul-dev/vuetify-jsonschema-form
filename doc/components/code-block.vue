@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
-  <pre><code
-:class="`code-block language-${language}`"
+  <pre class="code-block"><code
+:class="`language-${language}`"
              v-html="html"
   /></pre>
 </template>
@@ -30,6 +30,8 @@ const html = computed(() => {
 
 <style>
 .code-block {
-  background-color: blue;
+  background-color: white;
+  padding: 8px;
+  border-radius: 4px;
 }
 </style>

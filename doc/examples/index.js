@@ -16,9 +16,9 @@ for (const v2ExamplesGroup of v2ExampleGroups) {
 
 /** @type {import('@json-layout/examples').JSONLayoutExamplesCategory} */
 const v2 = {
-  id: 'v2',
-  title: 'Vjsf 2 compatibility',
-  description: 'The v2compat function can be used to produce a schema compatible with Vjsf v3. Compatibility is almost complete but not 100%, please test your schemas.',
+  id: 'v2-compat',
+  title: 'VJSF 2 compatibility',
+  description: 'The v2compat function can be used to produce a schema compatible with VJSF v3. Compatibility is not 100% please test your schemas.',
   examples: v2Examples
 }
 

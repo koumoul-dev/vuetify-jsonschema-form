@@ -4,18 +4,18 @@
     class="text-center index-container"
   >
     <h1 class="text-h1 my-4 text-primary font-weight-bold">
-      vjsf
+      VJSF
     </h1>
 
-    <p class="text-subtitle font-italic">
-      vuetify-jsonschema-form
+    <p class="text-subtitle font-italic mb-8">
+      <b class="text-primary">V</b>uetify <b class="text-primary">J</b>SON <b class="text-primary">S</b>chema <b class="text-primary">F</b>orm
     </p>
 
-    <p class="mt-2">
-      Create beautiful and low-effort forms that output valid data.
+    <p class="my-4">
+      Easily create beautiful forms that output valid data.
     </p>
 
-    <p class="my-2">
+    <p class="my-4">
       Based on <a
         href="https://vuejs.org/"
         class="text-primary text-decoration-none font-weight-medium"
@@ -25,7 +25,10 @@
       >Vuetify</a> / <a
         href="https://json-schema.org/"
         class="text-primary text-decoration-none font-weight-medium"
-      >JSON Schema</a>.
+      >JSON Schema</a> / <a
+        href="https://github.com/json-layout/json-layout"
+        class="text-primary text-decoration-none font-weight-medium"
+      >JSON Layout</a>.
     </p>
 
     <!--<iframe

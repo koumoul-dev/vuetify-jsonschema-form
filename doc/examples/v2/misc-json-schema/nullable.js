@@ -4,7 +4,7 @@ const title = 'Nullable properties'
 
 const description = `Properties with basic types can support alternative "null" type.
 
-In this case VJsf will set null values when initializing empty properties or when clearing an existing property.`
+In this case Vjsf will set null values when initializing empty properties or when clearing an existing property.`
 
 const schema = {
   type: 'object',

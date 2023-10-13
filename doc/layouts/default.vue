@@ -6,14 +6,15 @@
       :permanent="!temporary"
       app
       class="main-drawer"
+      theme="dark"
     >
       <v-list class="py-0">
         <v-list-item
           to="/"
-          class="text-primary"
+          class="text-primary py-2"
         >
           <v-list-item-title class="text-h6 font-weight-bold">
-            vjsf
+            VJSF
           </v-list-item-title>
           <v-list-item-subtitle class="font-weight-bold">
             {{ version }}
@@ -22,11 +23,8 @@
       </v-list>
 
       <v-list
-        dense
         class="pt-0"
         color="primary"
-        nav
-        density="compact"
       >
         <v-list-item to="/about">
           <v-list-item-title>
@@ -38,20 +36,33 @@
             Getting started
           </v-list-item-title>
         </v-list-item>
-        <v-list-item to="/configuration">
-          <v-list-item-title>
-            Configuration
-          </v-list-item-title>
-        </v-list-item>
         <v-list-item to="/2to3">
           <v-list-item-title>
             2.x to 3.x
           </v-list-item-title>
         </v-list-item>
+        <v-list-item to="/configuration">
+          <v-list-item-title>
+            Configuration
+          </v-list-item-title>
+        </v-list-item>
+        <v-list-item to="/expressions">
+          <v-list-item-title>
+            Expressions
+          </v-list-item-title>
+        </v-list-item>
+      </v-list>
+
+      <v-list
+        density="compact"
+        nav
+      >
+        <v-list-subheader>Examples</v-list-subheader>
         <v-list-item
           v-for="examplesCategory of examples"
           :key="examplesCategory.id"
           :to="`/${examplesCategory.id}`"
+          class="mb-0"
         >
           <v-list-item-title>{{ examplesCategory.title }}</v-list-item-title>
         </v-list-item>
@@ -72,6 +83,7 @@
       app
       flat
       density="comfortable"
+      color="transparent"
     >
       <v-app-bar-nav-icon
         v-if="temporary"
@@ -86,17 +98,32 @@
       />-->
       <v-spacer />
       <v-btn
+        icon
+        color="primary"
+        @click="toggleTheme"
+      >
+        <v-icon
+          v-if="theme.global.name.value === 'light'"
+          icon="mdi-weather-night"
+        />
+        <v-icon
+          v-else
+          icon="mdi-weather-sunny"
+        />
+      </v-btn>
+      <v-btn
         href="https://github.com/sponsors/koumoul-dev"
         variant="outlined"
         rounded
         color="primary"
         style="text-transform: none;"
+        class="mx-2"
       >
         <template #prepend>
           <v-icon
-            color="pink"
+            color="pink-accent-3"
             size="large"
-            icon="mdi-heart-outline"
+            icon="mdi-heart"
           />
         </template>
         Sponsor
@@ -114,8 +141,7 @@
       <v-btn
         icon
         href="https://github.com/koumoul-dev/vuetify-jsonschema-form"
-        color="primary"
-        class="ml-2"
+        :color="theme.global.name.value === 'light' ? 'black' : 'white'"
         size="x-large"
         density="compact"
         title="repository on github"
@@ -129,34 +155,34 @@
   </v-app>
 </template>
 
-<script>
+<script setup>
 // import SearchWidget from '@koumoul/data-fair-search-widget/src/components/search-widget.vue'
+import { watch, ref, computed } from 'vue'
+import { useTheme, useDisplay } from 'vuetify'
 import examples from '~/examples/'
 import { version } from '~/../package.json'
 
-export default {
-  components: { },
-  data: () => ({
-    version,
-    drawer: false,
-    nodeEnv: process.env.NODE_ENV,
-    examples
-  }),
-  computed: {
-    temporary () {
-      return this.$route.name === 'categoryId-id' || this.$vuetify.display.smAndDown
-    }
-  },
-  watch: {
-    temporary: {
-      handler (newValue) {
-        this.drawer = !newValue
-      },
-      immediate: true
-    }
-  }
+const theme = useTheme()
+const display = useDisplay()
+
+const storedTheme = localStorage.getItem('theme')
+if (storedTheme) theme.global.name.value = storedTheme
+
+const toggleTheme = () => {
+  if (theme.global.name.value === 'dark') theme.global.name.value = 'light'
+  else theme.global.name.value = 'dark'
+  localStorage.setItem('theme', theme.global.name.value)
 }
 
+const drawer = ref(false)
+
+// eslint-disable-next-line no-undef
+const route = useRoute()
+const temporary = computed(() => route.name === 'categoryId-id' || display.smAndDown.value)
+
+watch(temporary, (newValue) => {
+  drawer.value = !newValue
+}, { immediate: true })
 </script>
 
 <style>

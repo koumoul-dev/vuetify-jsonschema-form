@@ -14,11 +14,7 @@
     </v-alert>
 
     <p>Install from npm:</p>
-    <code-block>
-      <pre>
-npm install @koumoul/vjsf
-      </pre>
-    </code-block>
+    <code-block>npm install @koumoul/vjsf</code-block>
 
     <h2 class="text-h4 mb-6">
       Compile at runtime
@@ -28,12 +24,11 @@ npm install @koumoul/vjsf
     <code-block language="markup">
       <pre>
 &lt;script setup&gt;
-  import { VJsf } from '@koumoul/vjsf'
+  import { Vjsf } from '@koumoul/vjsf'
 &lt;/script&gt;
 &lt;template&gt;
-  &lt;v-jsf v-model="data" :schema="schema" :options="options" /&gt;
-&lt;/template&gt;
-      </pre>
+  &lt;vjsf v-model="data" :schema="schema" :options="options" /&gt;
+&lt;/template&gt;</pre>
     </code-block>
 
     <h2 class="text-h4 mb-6">
@@ -46,20 +41,18 @@ npm install @koumoul/vjsf
       <pre>
 import { compile } from '@koumoul/vjsf/compile'
 const code = compile(schema, options)
-await writeFile('./components/my-v-jsf.vue', code)
-      </pre>
+await writeFile('./components/compiled/my-vjsf.vue', code)</pre>
     </code-block>
 
-    <p>In your page:</p>
+    <p>In the page:</p>
     <code-block language="markup">
       <pre>
 &lt;script setup&gt;
-  import { VJsf } from './components/my-v-jsf'
+  import MyVjsf from './components/compiled/my-vjsf.vue'
 &lt;/script&gt;
 &lt;template&gt;
-  &lt;my-v-jsf v-model="data" :options="options" /&gt;
-&lt;/template&gt;
-      </pre>
+  &lt;my-vjsf v-model="data" :options="options" /&gt;
+&lt;/template&gt;</pre>
     </code-block>
   </v-container>
 </template>
@@ -71,7 +64,7 @@ export default {
   }),
   head () {
     return {
-      title: 'vjsf - ' + this.title
+      title: 'VJSF - ' + this.title
     }
   }
 }

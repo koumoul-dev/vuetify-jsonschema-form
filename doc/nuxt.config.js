@@ -49,9 +49,9 @@ export default defineNuxtConfig({
     baseURL: targetURL.pathname
   },
   meta: {
-    title: 'vjsf - Documentation',
+    title: 'VJSF - Documentation',
     meta: [
-      { name: 'description', content: 'vjsf - Documentation' }
+      { name: 'description', content: 'VJSF - Documentation' }
     ],
     link: [{
       rel: 'stylesheet',

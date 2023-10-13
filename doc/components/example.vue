@@ -3,11 +3,10 @@
   <v-sheet
     class="my-6"
     border
+    rounded
+    color="transparent"
   >
-    <v-toolbar
-      density="compact"
-      theme="dark"
-    >
+    <v-toolbar density="compact">
       <v-btn
         v-for="tabItem in tabs"
         :key="tabItem.value"
@@ -27,7 +26,7 @@
     <v-window
       v-if="tab"
       v-model="tab"
-      style="height: 400px;background-color:#F5F5F5;overflow-y: auto;"
+      style="height: 400px;overflow-y: auto;"
     >
       <v-window-item
         value="schemaV2"
@@ -190,7 +189,7 @@
             :options="options"
             :update-state="updateState"
           >
-            <v-jsf
+            <vjsf
               :model-value="data"
               :schema="schema"
               :options="options"
@@ -207,7 +206,7 @@
               <template #custom-message="{node}">
                 This message is defined in a slot (key={{ node.key }})
               </template>
-            </v-jsf>
+            </vjsf>
           </slot>
           <v-row>
             <v-spacer />
@@ -227,12 +226,12 @@
 </template>
 
 <script>
-import { VJsf } from '@koumoul/vjsf'
+import { Vjsf } from '@koumoul/vjsf'
 import { v2compat } from '@koumoul/vjsf/compat/v2'
 import slotCodes from '../examples/slot-codes.js'
 
 export default {
-  components: { VJsf },
+  components: { Vjsf },
   props: {
     example: {
       /** @type import('vue').PropType<import('@json-layout/examples').JSONLayoutExample> */

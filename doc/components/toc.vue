@@ -4,6 +4,7 @@
     location="right"
     permanent
     floating
+    color="transparent"
   >
     <v-list
       v-if="sections && sections.length"

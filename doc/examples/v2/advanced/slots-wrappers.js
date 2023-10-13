@@ -107,20 +107,20 @@ const model = {
   }`
 }
 
-const template = `<v-jsf v-model="model" :schema="schema" :options="options">
+const template = `<vjsf v-model="model" :schema="schema" :options="options">
   <template slot="custom-tiptap" slot-scope="context">
-    <v-jsf-tiptap v-bind="context" />
+    <vjsf-tiptap v-bind="context" />
   </template>
   <template slot="custom-toast-ui-editor" slot-scope="context">
-    <v-jsf-toast-ui-editor v-bind="context" />
+    <vjsf-toast-ui-editor v-bind="context" />
   </template>
   <template slot="custom-avatar" slot-scope="context">
-    <v-jsf-crop-img v-bind="context" />
+    <vjsf-crop-img v-bind="context" />
   </template>
   <template slot="custom-table" slot-scope="context">
-      <v-jsf-table v-bind="context" />
+      <vjsf-table v-bind="context" />
   </template>
-</v-jsf>`
+</vjsf>`
 
 const options = {
   editMode: 'inline'
