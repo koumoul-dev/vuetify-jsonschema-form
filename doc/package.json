@@ -9,6 +9,7 @@
     "analyze": "nuxt analyze",
     "build": "rm -rf pages/compiled && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/next/ nuxt generate",
     "build:master": "rm -rf pages/compiled && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/master/ nuxt generate",
+    "build:next": "rm -rf pages/compiled && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/next/ nuxt generate",
     "compile-examples": "node scripts/compile-examples.mjs"
   },
   "dependencies": {

@@ -9,6 +9,7 @@
     "prepublishOnly": "npm run lint && npm run build",
     "postpublish": "gh-pages-multi deploy -v -s doc/.output/public -t next",
     "publish:master": "npm -w doc run build:master && gh-pages-multi deploy -v -s doc/.output/public -t master",
+    "publish:next": "npm -w doc run build:next && gh-pages-multi deploy -v -s doc/.output/public -t next",
     "prepare": "husky install"
   },
   "repository": {
