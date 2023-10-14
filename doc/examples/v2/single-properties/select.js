@@ -2,7 +2,7 @@ const id = 'select'
 
 const title = 'Selects'
 
-const warning = 'Multi-select for arrays is not yet supported.'
+const warning = 'Auto-complete on large number of items is not supported yet.'
 
 const description = `Enums, oneOfs with const values and the \`x-fromData\` annotation can be used to create select fields.
 

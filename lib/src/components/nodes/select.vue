@@ -19,6 +19,7 @@ const props = defineProps({
 const fieldProps = computed(() => {
   const fieldProps = getInputProps(props.modelValue, props.statefulLayout)
   if (props.modelValue.options.readOnly) fieldProps.menuProps = { modelValue: false }
+  if (props.modelValue.layout.multiple) fieldProps.multiple = true
   return fieldProps
 })
 
