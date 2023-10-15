@@ -1,6 +1,6 @@
 <script setup>
 import { VSelect } from 'vuetify/components'
-import { computed, ref } from 'vue'
+import { computed, ref, shallowRef } from 'vue'
 import { getInputProps } from '../../utils/props.js'
 
 const props = defineProps({
@@ -24,7 +24,7 @@ const fieldProps = computed(() => {
 })
 
 /** @type import('vue').Ref<import('@json-layout/vocabulary').SelectItems> */
-const items = ref(props.modelValue.layout.items ?? [])
+const items = shallowRef(props.modelValue.layout.items ?? [])
 /** @type import('vue').Ref<boolean> */
 const loading = ref(false)
 
