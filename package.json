@@ -14,6 +14,7 @@
     "test-update": "jest --updateSnapshot",
     "doc-build": "(cd doc && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/latest/ nuxt generate)",
     "doc-master": "(cd doc && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/master/ nuxt generate) && gh-pages-multi deploy -v -s doc/dist -t master",
+    "doc-2x": "(cd doc && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/2.x/ nuxt generate) && gh-pages-multi deploy -v -s doc/dist -t 2.x",
     "analyze": "webpack --profile --json > dist/stats.json && webpack-bundle-analyzer dist/stats.json"
   },
   "jest": {
