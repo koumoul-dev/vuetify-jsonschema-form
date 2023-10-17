@@ -16,7 +16,7 @@ const schema = {
       type: 'string',
       readOnly: true,
       'x-options': { evalMethod: 'evalExpr' },
-      'x-constExpr': 'concatString("Hello ", toUpperCase(parent.value.string1), " !")'
+      'x-constExpr': 'concatString("Hello ", toUpperCase(data.string1), " !")'
     }
   }
 }
