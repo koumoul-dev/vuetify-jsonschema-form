@@ -19,6 +19,7 @@ import NodeOneOfSelect from './nodes/one-of-select.vue'
 import NodeTabs from './nodes/tabs.vue'
 import NodeVerticalTabs from './nodes/vertical-tabs.vue'
 import NodeCombobox from './nodes/combobox.vue'
+import NodeNumberCombobox from './nodes/number-combobox.vue'
 import NodeExpansionPanels from './nodes/expansion-panels.vue'
 import NodeList from './nodes/list.vue'
 import { defaultOptions } from './options.js'
@@ -40,7 +41,8 @@ const comps = {
   'vertical-tabs': NodeVerticalTabs,
   'expansion-panels': NodeExpansionPanels,
   list: NodeList,
-  combobox: NodeCombobox
+  combobox: NodeCombobox,
+  'number-combobox': NodeNumberCombobox
 }
 
 const instance = getCurrentInstance()

@@ -49,7 +49,8 @@ export default defineComponent({
     }
 
     const fieldProps = computed(() => {
-      const fieldProps = getInputProps(props.modelValue, props.statefulLayout)
+      const fieldProps = getInputProps(props.modelValue, props.statefulLayout, ['step', 'min', 'max'])
+      fieldProps.type = 'number'
       fieldProps.loading = loading.value
       if (hasItems.value) fieldProps.items = items.value
       if (props.modelValue.options.readOnly) fieldProps.menuProps = { modelValue: false }
@@ -59,6 +60,7 @@ export default defineComponent({
         fieldProps.closableChips = true
       }
       fieldProps['onUpdate:menu'] = () => refresh()
+      fieldProps['onUpdate:modelValue'] = (/** @type string[] */value) => props.statefulLayout.input(props.modelValue, value && value.map(Number))
       return fieldProps
     })
     const fieldSlots = computed(() => getCompSlots(props.modelValue, props.statefulLayout))

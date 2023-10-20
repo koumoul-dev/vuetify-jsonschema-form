@@ -22,7 +22,7 @@ const props = defineProps({
 })
 
 const fieldProps = computed(() => {
-  const fieldProps = getInputProps(props.modelValue, props.statefulLayout, false)
+  const fieldProps = getInputProps(props.modelValue, props.statefulLayout, [], false)
   fieldProps.readonly = true
   return fieldProps
 })

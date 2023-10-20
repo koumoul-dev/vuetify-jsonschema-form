@@ -19,9 +19,8 @@ export default defineComponent({
   },
   setup (props) {
     const fieldProps = computed(() => {
-      const fieldProps = getInputProps(props.modelValue, props.statefulLayout)
+      const fieldProps = getInputProps(props.modelValue, props.statefulLayout, ['step', 'min', 'max'])
       fieldProps.type = 'number'
-      if ('step' in props.modelValue.layout) fieldProps.step = props.modelValue.layout.step
       fieldProps['onUpdate:modelValue'] = (/** @type string */value) => props.statefulLayout.input(props.modelValue, value && Number(value))
       return fieldProps
     })
