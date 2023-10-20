@@ -1,5 +1,5 @@
 <script setup>
-import { ref, shallowRef, computed, getCurrentInstance, watch, useSlots, inject } from 'vue'
+import { ref, shallowRef, computed, getCurrentInstance, watch, useSlots, inject, toRaw } from 'vue'
 import { useElementSize } from '@vueuse/core'
 import { StatefulLayout, compile } from '@json-layout/core'
 import Tree from './tree.vue'
@@ -15,6 +15,7 @@ import NodeDatePicker from './nodes/date-picker.vue'
 import NodeDateTimePicker from './nodes/date-time-picker.vue'
 import NodeColorPicker from './nodes/color-picker.vue'
 import NodeSelect from './nodes/select.vue'
+import NodeAutocomplete from './nodes/autocomplete.vue'
 import NodeOneOfSelect from './nodes/one-of-select.vue'
 import NodeTabs from './nodes/tabs.vue'
 import NodeVerticalTabs from './nodes/vertical-tabs.vue'
@@ -36,6 +37,7 @@ const comps = {
   'date-time-picker': NodeDateTimePicker,
   'color-picker': NodeColorPicker,
   select: NodeSelect,
+  autocomplete: NodeAutocomplete,
   'one-of-select': NodeOneOfSelect,
   tabs: NodeTabs,
   'vertical-tabs': NodeVerticalTabs,
@@ -121,7 +123,7 @@ const onStatefulLayoutUpdate = () => {
 
 const initStatefulLayout = () => {
   if (!width.value) return
-  const _statefulLayout = new StatefulLayout(compiledLayout.value, compiledLayout.value.skeletonTree, fullOptions.value, props.modelValue)
+  const _statefulLayout = new StatefulLayout(toRaw(compiledLayout.value), toRaw(compiledLayout.value.skeletonTree), toRaw(fullOptions.value), props.modelValue)
   statefulLayout.value = _statefulLayout
   onStatefulLayoutUpdate()
   _statefulLayout.events.on('update', () => {

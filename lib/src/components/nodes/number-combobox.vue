@@ -39,7 +39,7 @@ export default defineComponent({
       lastContext = props.statefulLayout.options.context ?? null
       if (hasItems.value) {
         loading.value = true
-        items.value = await props.statefulLayout.getSelectItems(props.modelValue)
+        items.value = await props.statefulLayout.getItems(props.modelValue)
         loading.value = false
       }
     }
