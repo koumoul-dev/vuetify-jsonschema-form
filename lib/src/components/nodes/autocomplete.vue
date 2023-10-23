@@ -3,6 +3,8 @@ import { VAutocomplete } from 'vuetify/components'
 import { defineComponent, computed, ref, shallowRef, h } from 'vue'
 import { getInputProps } from '../../utils/props.js'
 import { getCompSlots } from '../../utils/slots.js'
+import SelectItem from '../fragments/select-item.vue'
+import SelectSelection from '../fragments/select-selection.vue'
 
 export default defineComponent({
   props: {
@@ -39,8 +41,6 @@ export default defineComponent({
       return fieldProps
     })
 
-    const fieldSlots = computed(() => getCompSlots(props.modelValue, props.statefulLayout))
-
     /** @type import('@json-layout/core').StateTree | null */
     let lastStateTree = null
     /** @type Record<string, any> | null */
@@ -61,6 +61,25 @@ export default defineComponent({
     if (!props.modelValue.layout.items) {
       refresh()
     }
+
+    const fieldSlots = computed(() => {
+      const slots = getCompSlots(props.modelValue, props.statefulLayout)
+      if (!slots.item) {
+        slots.item = (/** @type {any} */ context) => h(SelectItem, {
+          multiple: props.modelValue.layout.multiple,
+          itemProps: context.props,
+          item: context.item.raw
+        })
+      }
+      if (!slots.selection) {
+        slots.selection = (/** @type {any} */ context) => h(SelectSelection, {
+          multiple: props.modelValue.layout.multiple,
+          last: props.modelValue.layout.multiple && context.index === props.modelValue.data.length - 1,
+          item: context.item.raw
+        })
+      }
+      return slots
+    })
 
     return () => h(VAutocomplete, fieldProps.value, fieldSlots.value)
   }
