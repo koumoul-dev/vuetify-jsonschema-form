@@ -22,4 +22,5 @@ const v2 = {
   examples: v2Examples
 }
 
+/** @type {import('@json-layout/examples').JSONLayoutExamplesCategory[]} */
 export default examples.concat([vuetifyExamples, v2])

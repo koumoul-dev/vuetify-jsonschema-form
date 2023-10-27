@@ -1,4 +1,5 @@
 <script setup>
+import { VCol } from 'vuetify/components'
 import nodeSlot from './fragments/node-slot.vue'
 
 defineProps({

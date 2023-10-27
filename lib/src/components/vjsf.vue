@@ -70,7 +70,17 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits(['update:modelValue', 'update:state'])
+// const emit = defineEmits(['update:modelValue', 'update:state'])
+const emit = defineEmits({
+  /**
+   * @arg {any} data
+  */
+  'update:modelValue': (data) => true,
+  /**
+   * @arg {StatefulLayout} state
+  */
+  'update:state': (state) => true
+})
 
 /** @type import('vue').ShallowRef<StatefulLayout | null> */
 const statefulLayout = shallowRef(null)
@@ -97,7 +107,7 @@ const slots = useSlots()
 const fullOptions = computed(() => {
   const options = {
     ...defaultOptions,
-    readOnly: form.isDisabled || form.isReadOnly,
+    readOnly: !!(form && (form.isDisabled.value || form.isReadonly.value)),
     ...props.options,
     context: props.options.context ? JSON.parse(JSON.stringify(props.options.context)) : {},
     width: Math.round(width.value ?? 0),
@@ -154,6 +164,7 @@ watch(compiledLayout, (newCompiledLayout) => initStatefulLayout())
   <div ref="el">
     <tree
       v-if="statefulLayout && stateTree"
+      ref="tree"
       :model-value="stateTree"
       :stateful-layout="statefulLayout"
     />

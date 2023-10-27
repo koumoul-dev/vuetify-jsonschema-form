@@ -1,0 +1,120 @@
+<template>
+  <v-sheet
+    border
+    elevation="2"
+    style="position:relative;background-color:white;"
+  >
+    <v-btn-group
+      class="rounded-0 rounded-bs-xl"
+      rounded="bs"
+      density="compact"
+      variant="elevated"
+      elevation="1"
+      theme="light"
+      style="position:absolute;top:0;right:0;z-index:200;height:24px;"
+    >
+      <v-btn
+        size="small"
+        :color="language === 'json' ? 'primary' : ''"
+        @click="language = 'json'"
+      >
+        JSON
+      </v-btn>
+      <v-btn
+        size="small"
+        :color="language === 'yaml' ? 'primary' : ''"
+        @click="language = 'yaml'"
+      >
+        YAML
+      </v-btn>
+      <v-btn
+        v-if="!readonly"
+        size="small"
+        @click="code = format(insideValue)"
+      >
+        <v-icon>mdi-format-align-left</v-icon>
+      </v-btn>
+    </v-btn-group>
+    <prism-editor
+      v-model="code"
+      class="vjsf-code-editor my-4"
+      :highlight="highlighter"
+      line-numbers
+      :readonly="readonly"
+      @update:model-value="(/** @type string */code) => $emit('update:modelValue', parse(code))"
+    />
+  </v-sheet>
+</template>
+
+<script setup>
+import { ref, watch } from 'vue'
+import yaml from 'yaml'
+import { PrismEditor } from 'vue-prism-editor'
+import 'vue-prism-editor/dist/prismeditor.min.css'
+import 'prismjs/themes/prism.css'
+import Prism from 'prismjs'
+import 'prismjs/components/prism-json'
+import 'prismjs/components/prism-yaml'
+
+Prism.manual = true
+
+const props = defineProps({
+  modelValue: {
+    type: Object,
+    required: true
+  },
+  readonly: {
+    type: Boolean,
+    default: false
+  }
+})
+
+defineEmits(['update:modelValue'])
+
+const insideValue = ref({})
+const language = ref('json')
+const code = ref('{}')
+
+/**
+ * @param {string} code
+ * @param {string} [lang]
+ */
+const parse = (code, lang) => {
+  lang = lang ?? language.value
+  return lang === 'yaml' ? yaml.parse(code) : JSON.parse(code)
+}
+/**
+ * @param {object} value
+ * @param {string} [lang]
+ */
+const format = (value, lang) => {
+  lang = lang ?? language.value
+  return lang === 'yaml' ? yaml.stringify(value) : JSON.stringify(value, null, 2)
+}
+
+watch(language, () => {
+  code.value = format(insideValue.value)
+})
+
+// when the model is changed from outside
+watch(props.modelValue, () => {
+  if (props.modelValue !== insideValue.value) {
+    insideValue.value = JSON.parse(JSON.stringify(props.modelValue))
+    language.value = 'json'
+    code.value = format(insideValue.value)
+  }
+}, { immediate: true })
+
+const highlighter = (/** @type string */code) => {
+  return Prism.highlight(code, Prism.languages[language.value], language.value)
+}
+
+</script>
+
+<style>
+/* optional class for removing the outline */
+.prism-editor__textarea:focus {
+  outline: none;
+}
+
+</style>

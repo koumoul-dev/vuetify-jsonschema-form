@@ -51,6 +51,11 @@
             Expressions
           </v-list-item-title>
         </v-list-item>
+        <v-list-item to="/editor">
+          <v-list-item-title>
+            Editor
+          </v-list-item-title>
+        </v-list-item>
       </v-list>
 
       <v-list
@@ -178,7 +183,7 @@ const drawer = ref(false)
 
 // eslint-disable-next-line no-undef
 const route = useRoute()
-const temporary = computed(() => route.name === 'categoryId-id' || /** @type string */(route.name).startsWith('compiled-') || display.smAndDown.value)
+const temporary = computed(() => ['categoryId-id', 'editor'].includes(/** @type string */(route.name)) || /** @type string */(route.name).startsWith('compiled-') || display.smAndDown.value)
 
 watch(temporary, (newValue) => {
   drawer.value = !newValue

@@ -1,4 +1,5 @@
 <script setup>
+import { VRow } from 'vuetify/components'
 import Node from './node.vue'
 
 defineProps({
