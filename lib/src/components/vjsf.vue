@@ -161,7 +161,10 @@ watch(compiledLayout, (newCompiledLayout) => initStatefulLayout())
 </script>
 
 <template>
-  <div ref="el">
+  <div
+    ref="el"
+    class="vjsf"
+  >
     <tree
       v-if="statefulLayout && stateTree"
       ref="tree"

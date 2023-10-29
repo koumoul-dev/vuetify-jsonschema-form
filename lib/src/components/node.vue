@@ -1,6 +1,7 @@
 <script setup>
 import { VCol } from 'vuetify/components'
-import nodeSlot from './fragments/node-slot.vue'
+import NodeSlot from './fragments/node-slot.vue'
+import HelpMessage from './fragments/help-message.vue'
 
 defineProps({
   modelValue: {
@@ -26,6 +27,7 @@ const beforeAfterClasses = {
 <template>
   <v-col
     :cols="modelValue.cols"
+    class="vjsf-node"
   >
     <node-slot
       v-if="modelValue.layout.slots?.before"
@@ -36,6 +38,11 @@ const beforeAfterClasses = {
       :class="beforeAfterClasses[/** @type import('./types.js').VjsfOptions */(modelValue.options).density]"
     />
 
+    <help-message
+      v-if="modelValue.layout.help"
+      :node="modelValue"
+      :class="beforeAfterClasses[/** @type import('./types.js').VjsfOptions */(modelValue.options).density]"
+    />
     <node-slot
       v-if="modelValue.layout.slots?.component"
       key="component"
@@ -46,9 +53,11 @@ const beforeAfterClasses = {
     <component
       :is="`vjsf-node-${modelValue.layout.comp}`"
       v-else-if="modelValue.layout.comp !== 'none'"
+      :class="`vjsf-node-${modelValue.layout.comp}`"
       :model-value="modelValue"
       :stateful-layout="statefulLayout"
     />
+
     <node-slot
       v-if="modelValue.layout.slots?.after"
       key="after"

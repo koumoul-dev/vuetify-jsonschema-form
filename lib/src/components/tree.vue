@@ -17,7 +17,7 @@ defineProps({
 </script>
 
 <template>
-  <v-row>
+  <v-row class="vjsf-tree">
     <node
       :stateful-layout="statefulLayout"
       :model-value="/** @type import('./types.js').VjsfNode */(modelValue.root)"
