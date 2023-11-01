@@ -28,6 +28,17 @@ This simply opens the documentation site in a local web server that will watch y
 
 An additionnal "Development" group of examples is visible, please add in this group examples that do not need to be presented to the users but has some value for maintainers.
 
+## Working on json-layout locally
+
+We use [relative-deps]():
+
+```
+npx -w lib relative-deps add ../../json-layout/core/
+npx -w lib relative-deps add ../../json-layout/vocabulary/
+npx -w doc relative-deps add ../../json-layout/examples/
+```
+
+
 ## Tests
 
 the test suite is written with [Jest](https://jestjs.io/).

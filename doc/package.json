@@ -10,7 +10,8 @@
     "build": "rm -rf pages/compiled && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/next/ nuxt generate",
     "build:master": "rm -rf pages/compiled && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/master/ nuxt generate",
     "build:next": "rm -rf pages/compiled && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/next/ nuxt generate",
-    "compile-examples": "node scripts/compile-examples.mjs"
+    "compile-examples": "node scripts/compile-examples.mjs",
+    "prepare": "relative-deps"
   },
   "dependencies": {
     "@json-layout/examples": "0.1.0",
@@ -32,6 +33,10 @@
   "devDependencies": {
     "@types/ejs": "^3.1.2",
     "@types/markdown-it": "^13.0.1",
-    "@types/prismjs": "^1.26.1"
+    "@types/prismjs": "^1.26.1",
+    "relative-deps": "^1.0.7"
+  },
+  "relativeDependencies": {
+    "@json-layout/examples": "../../json-layout/examples/"
   }
 }

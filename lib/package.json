@@ -5,7 +5,8 @@
   "scripts": {
     "test": "vitest",
     "build": "vue-tsc",
-    "watch:build": "vue-tsc --watch"
+    "watch:build": "vue-tsc --watch",
+    "prepare": "relative-deps"
   },
   "author": "Alban Mouton <alban.mouton@gmail.com>",
   "license": "MIT",
@@ -56,8 +57,13 @@
   "devDependencies": {
     "@types/debug": "^4.1.8",
     "@types/ejs": "^3.1.2",
+    "relative-deps": "^1.0.7",
     "vitest": "^0.34.5",
     "vue": "^3.3.4",
     "vue-tsc": "^1.8.15"
+  },
+  "relativeDependencies": {
+    "@json-layout/core": "../../json-layout/core/",
+    "@json-layout/vocabulary": "../../json-layout/vocabulary/"
   }
 }

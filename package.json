@@ -10,7 +10,7 @@
     "postpublish": "gh-pages-multi deploy -v -s doc/.output/public -t next",
     "publish:master": "npm -w doc run build:master && gh-pages-multi deploy -v -s doc/.output/public -t master",
     "publish:next": "npm -w doc run build:next && gh-pages-multi deploy -v -s doc/.output/public -t next",
-    "prepare": "husky install"
+    "prepare": "husky install && relative-deps"
   },
   "repository": {
     "type": "git",
@@ -31,10 +31,12 @@
     "eslint-config-typescript": "^3.0.0",
     "eslint-plugin-vue": "^9.17.0",
     "husky": "^8.0.3",
+    "relative-deps": "^1.0.7",
     "typescript": "^5.2.2"
   },
   "workspaces": [
     "doc",
     "lib"
-  ]
+  ],
+  "relativeDependencies": {}
 }
