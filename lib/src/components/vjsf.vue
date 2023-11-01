@@ -59,12 +59,17 @@ const props = defineProps({
     type: Object,
     required: true
   },
+  precompiledLayout: {
+    /** @type import('vue').PropType<import('@json-layout/core').CompiledLayout> */
+    type: Object,
+    default: null
+  },
   modelValue: {
     type: [Object, String, Number, Boolean],
     default: null
   },
   options: {
-    /** @type import('vue').PropType<Partial<Omit<import('./types.js').VjsfOptions, 'width'>>> */
+    /** @type import('vue').PropType<import('./types.js').PartialVjsfOptions> */
     type: Object,
     required: true
   }
@@ -103,7 +108,6 @@ const { width } = useElementSize(el)
 
 const slots = useSlots()
 
-/** @type import('vue').ComputedRef<import('./types.js').VjsfOptions> */
 const fullOptions = computed(() => {
   const options = {
     ...defaultOptions,
@@ -116,7 +120,10 @@ const fullOptions = computed(() => {
   return /** @type import('./types.js').VjsfOptions */ (options)
 })
 
-const compiledLayout = computed(() => compile(props.schema, fullOptions.value))
+const compiledLayout = computed(() => {
+  if (props.precompiledLayout) return props.precompiledLayout
+  return compile(props.schema, fullOptions.value)
+})
 
 const onStatefulLayoutUpdate = () => {
   if (!statefulLayout.value) return

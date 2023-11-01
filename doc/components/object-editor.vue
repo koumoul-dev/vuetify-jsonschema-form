@@ -41,7 +41,7 @@
       :highlight="highlighter"
       line-numbers
       :readonly="readonly"
-      @update:model-value="(/** @type string */code) => $emit('update:modelValue', parse(code))"
+      @update:model-value="updateCode"
     />
   </v-sheet>
 </template>
@@ -69,7 +69,7 @@ const props = defineProps({
   }
 })
 
-defineEmits(['update:modelValue'])
+const emits = defineEmits(['update:modelValue'])
 
 const insideValue = ref({})
 const language = ref('json')
@@ -95,12 +95,15 @@ const format = (value, lang) => {
 watch(language, () => {
   code.value = format(insideValue.value)
 })
+const updateCode = (/** @type string */code) => {
+  insideValue.value = parse(code)
+  emits('update:modelValue', insideValue.value)
+}
 
 // when the model is changed from outside
-watch(props.modelValue, () => {
+watch(() => props.modelValue, () => {
   if (props.modelValue !== insideValue.value) {
     insideValue.value = JSON.parse(JSON.stringify(props.modelValue))
-    language.value = 'json'
     code.value = format(insideValue.value)
   }
 }, { immediate: true })

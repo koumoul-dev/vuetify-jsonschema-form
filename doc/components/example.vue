@@ -19,6 +19,11 @@
         {{ tabItem.title }}
       </v-btn>
       <v-spacer />
+      <v-btn
+        color="primary"
+        icon="mdi-pencil"
+        @click="editExample"
+      />
     </v-toolbar>
 
     <v-divider />
@@ -301,6 +306,14 @@ export default {
       this.data = newState.data
       this.display = newState.display
       this.filledOptions = newState.options
+    },
+    editExample () {
+      localStorage.setItem('vjsf-editor-state', JSON.stringify({
+        schema: this.schema,
+        options: this.options,
+        data: this.data
+      }))
+      this.$router.push('/editor')
     }
   }
 }

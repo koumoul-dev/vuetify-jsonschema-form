@@ -41,6 +41,8 @@ export type VjsfOptions = StatefulLayoutOptions & CompileOptions & {
   vjsfSlots: Record<string, () => unknown>,
 }
 
+export type PartialVjsfOptions = Partial<Omit<VjsfOptions, 'width'>>
+
 export type VjsfNode = Omit<StateNode, 'options'> & {options: VjsfOptions}
 export type VjsfTabsNode = Omit<TabsNode, 'options'> & {options: VjsfOptions}
 export type VjsfCheckboxNode = Omit<CheckboxNode, 'options'> & {options: VjsfOptions}

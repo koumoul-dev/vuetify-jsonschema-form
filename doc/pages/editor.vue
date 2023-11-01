@@ -1,5 +1,6 @@
 <template>
   <v-container
+    v-if="schema && options && data"
     fluid
     class="pa-0"
   >
@@ -82,17 +83,39 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
+import { watchDebounced } from '@vueuse/core'
 import yaml from 'yaml'
-import { Vjsf } from '@koumoul/vjsf'
+import { Vjsf, defaultOptions } from '@koumoul/vjsf'
 import { compile } from '@json-layout/core'
 import examples from '~/examples/'
 
 const firstExample = examples[0].examples[0]
-const schema = ref(firstExample.schema)
-const options = ref(firstExample.options ?? {})
-const data = ref(firstExample.data ?? {})
-const state = ref(null)
+const schema = ref(null)
+/** @type import('vue').Ref<any | null> */
+const options = ref(null)
+const data = ref(null)
+
+onMounted(() => {
+  const editorStateStr = window.localStorage.getItem('vjsf-editor-state')
+  if (editorStateStr) {
+    const editorState = JSON.parse(editorStateStr)
+    schema.value = editorState.schema
+    options.value = editorState.options ?? {}
+    data.value = editorState.data ?? {}
+  } else {
+    schema.value = firstExample.schema
+    options.value = firstExample.options ?? {}
+    data.value = firstExample.data ?? {}
+  }
+  watchDebounced([schema, options, data], () => {
+    window.localStorage.setItem('vjsf-editor-state', JSON.stringify({
+      schema: schema.value,
+      options: options.value,
+      data: data.value
+    }))
+  }, { debounce: 500, immediate: true })
+})
 
 const codeTabs = [
   { value: 'schema', title: 'Schema' },
@@ -104,10 +127,17 @@ const codeTab = ref('schema')
 const validationErrors = ref({})
 const vjsfParams = ref({})
 watch([schema, options], () => {
-  const compiledLayout = compile(schema.value)
-  validationErrors.value = compiledLayout.validationErrors
+  if (!options.value || !schema.value) return
+  let compiledLayout
+  try {
+    compiledLayout = compile(schema.value, { defaultOptions, ...options.value })
+    validationErrors.value = compiledLayout.validationErrors
+  } catch (/** @type any */err) {
+    validationErrors.value = { '': [err.message] }
+  }
+
   if (!Object.keys(validationErrors.value).length) {
-    vjsfParams.value = { schema: schema.value, options: options.value }
+    vjsfParams.value = { precompiledLayout: compiledLayout, options: options.value }
   }
 }, { immediate: true })
 const validationErrorsYaml = computed(() => Object.keys(validationErrors.value).length ? yaml.stringify(validationErrors.value).trim() : '')
