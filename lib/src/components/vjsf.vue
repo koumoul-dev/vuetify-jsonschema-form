@@ -140,7 +140,7 @@ const onStatefulLayoutUpdate = () => {
 
 const initStatefulLayout = () => {
   if (!width.value) return
-  const _statefulLayout = new StatefulLayout(toRaw(compiledLayout.value), toRaw(compiledLayout.value.skeletonTree), toRaw(fullOptions.value), props.modelValue)
+  const _statefulLayout = new StatefulLayout(toRaw(compiledLayout.value), toRaw(compiledLayout.value.skeletonTree), toRaw(fullOptions.value), toRaw(props.modelValue))
   statefulLayout.value = _statefulLayout
   onStatefulLayoutUpdate()
   _statefulLayout.events.on('update', () => {

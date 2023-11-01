@@ -4,46 +4,65 @@
     fluid
     class="pa-0"
   >
-    <v-row>
-      <v-col>
-        <v-toolbar density="compact">
-          <v-btn
-            v-for="tabItem in codeTabs"
-            :key="tabItem.value"
-            class="text-none font-weight-bold"
-            size="small"
-            :variant="codeTab === tabItem.value ? 'flat' : 'text'"
-            :active="codeTab === tabItem.value"
-            :color="codeTab === tabItem.value ? 'primary' : ''"
-            @click="codeTab = tabItem.value"
-          >
-            {{ tabItem.title }}
-          </v-btn>
-          <v-spacer />
-        </v-toolbar>
-
-        <v-window v-model="codeTab">
-          <v-window-item value="schema">
-            <object-editor v-model="schema" />
-          </v-window-item>
-          <v-window-item value="options">
-            <object-editor v-model="options" />
-          </v-window-item>
-          <v-window-item value="data">
-            <object-editor v-model="data" />
-          </v-window-item>
-        </v-window>
+    <v-row dense>
+      <v-col
+        class="ml-2"
+      >
         <v-alert
-          v-if="validationErrorsYaml"
-          color="error"
           variant="outlined"
-          class="pa-2"
+          :color="errorsYaml ? 'error' : 'grey'"
+          class="pa-0"
+          :style="`max-height: ${height - 8}px;overflow-y: auto;`"
         >
-          <pre class="text-caption">{{ validationErrorsYaml }}</pre>
+          <v-toolbar density="compact">
+            <v-btn
+              v-for="tabItem in codeTabs"
+              :key="tabItem.value"
+              class="text-none font-weight-bold"
+              size="small"
+              :variant="codeTab === tabItem.value ? 'flat' : 'text'"
+              :active="codeTab === tabItem.value"
+              :color="codeTab === tabItem.value ? 'primary' : ''"
+              @click="codeTab = tabItem.value"
+            >
+              {{ tabItem.title }}
+            </v-btn>
+            <v-spacer />
+          </v-toolbar>
+
+          <v-window v-model="codeTab">
+            <v-window-item value="schema">
+              <object-editor
+                v-model="schema"
+                @update:parseError="err => setParseError('schema', err)"
+              />
+            </v-window-item>
+            <v-window-item value="options">
+              <object-editor
+                v-model="options"
+                @update:parseError="err => setParseError('options', err)"
+              />
+            </v-window-item>
+            <v-window-item value="data">
+              <object-editor
+                v-model="data"
+                @update:parseError="err => setParseError('schema', err)"
+              />
+            </v-window-item>
+          </v-window>
+          <v-alert
+            v-if="errorsYaml"
+            color="error"
+            variant="text"
+            class="pa-2"
+          >
+            <pre class="text-caption">{{ errorsYaml }}</pre>
+          </v-alert>
         </v-alert>
       </v-col>
       <v-col>
         <v-form
+          v-if="vjsfParams"
           ref="form"
           v-model="valid"
           class="mr-4"
@@ -83,8 +102,8 @@
 </template>
 
 <script setup>
-import { ref, computed, watch, onMounted } from 'vue'
-import { watchDebounced } from '@vueuse/core'
+import { ref, reactive, computed, watch, onMounted } from 'vue'
+import { watchDebounced, useWindowSize } from '@vueuse/core'
 import yaml from 'yaml'
 import { Vjsf, defaultOptions } from '@koumoul/vjsf'
 import { compile } from '@json-layout/core'
@@ -124,8 +143,12 @@ const codeTabs = [
 ]
 const codeTab = ref('schema')
 
+const { height: windowHeight } = useWindowSize()
+const height = computed(() => windowHeight.value - 56)
+
 const validationErrors = ref({})
-const vjsfParams = ref({})
+/** @type import('vue').Ref<any | null> */
+const vjsfParams = ref(null)
 watch([schema, options], () => {
   if (!options.value || !schema.value) return
   let compiledLayout
@@ -140,7 +163,22 @@ watch([schema, options], () => {
     vjsfParams.value = { precompiledLayout: compiledLayout, options: options.value }
   }
 }, { immediate: true })
-const validationErrorsYaml = computed(() => Object.keys(validationErrors.value).length ? yaml.stringify(validationErrors.value).trim() : '')
+
+/** @type Record<string, string> */
+const parseErrors = reactive({})
+/**
+ * @param {string} key
+ * @param {string} err
+ */
+const setParseError = (key, err) => {
+  if (err) parseErrors[key] = err
+  else delete parseErrors[key]
+}
+
+const errorsYaml = computed(() => {
+  const fullErrors = { ...parseErrors, ...validationErrors.value }
+  return Object.keys(fullErrors).length ? yaml.stringify(fullErrors).trim() : ''
+})
 
 const form = ref(null)
 const valid = ref(null)

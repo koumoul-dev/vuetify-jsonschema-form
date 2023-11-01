@@ -1,7 +1,5 @@
 <template>
   <v-sheet
-    border
-    elevation="2"
     style="position:relative;background-color:white;"
   >
     <v-btn-group
@@ -37,7 +35,8 @@
     </v-btn-group>
     <prism-editor
       v-model="code"
-      class="vjsf-code-editor my-4"
+      class="vjsf-code-editor py-2"
+      style="min-height:200px"
       :highlight="highlighter"
       line-numbers
       :readonly="readonly"
@@ -69,7 +68,7 @@ const props = defineProps({
   }
 })
 
-const emits = defineEmits(['update:modelValue'])
+const emits = defineEmits(['update:modelValue', 'update:parseError'])
 
 const insideValue = ref({})
 const language = ref('json')
@@ -96,8 +95,13 @@ watch(language, () => {
   code.value = format(insideValue.value)
 })
 const updateCode = (/** @type string */code) => {
-  insideValue.value = parse(code)
-  emits('update:modelValue', insideValue.value)
+  try {
+    insideValue.value = parse(code)
+    emits('update:modelValue', insideValue.value)
+    emits('update:parseError', null)
+  } catch (/** @type any */err) {
+    emits('update:parseError', err.message)
+  }
 }
 
 // when the model is changed from outside
