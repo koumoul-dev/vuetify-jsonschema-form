@@ -27,7 +27,7 @@ const beforeAfterClasses = {
 <template>
   <v-col
     :cols="modelValue.cols"
-    class="vjsf-node"
+    :class="`vjsf-node vjsf-node-${modelValue.layout.comp}`"
   >
     <node-slot
       v-if="modelValue.layout.slots?.before"
@@ -53,7 +53,6 @@ const beforeAfterClasses = {
     <component
       :is="`vjsf-node-${modelValue.layout.comp}`"
       v-else-if="modelValue.layout.comp !== 'none'"
-      :class="`vjsf-node-${modelValue.layout.comp}`"
       :model-value="modelValue"
       :stateful-layout="statefulLayout"
     />

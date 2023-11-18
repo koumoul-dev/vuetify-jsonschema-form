@@ -37,6 +37,7 @@ export default defineComponent({
       if (props.statefulLayout.stateTree === lastStateTree && props.statefulLayout.options.context === lastContext) return
       lastStateTree = props.statefulLayout.stateTree
       lastContext = props.statefulLayout.options.context ?? null
+      console.log('HAS ITEMS ?', hasItems.value)
       if (hasItems.value) {
         loading.value = true
         items.value = await props.statefulLayout.getItems(props.modelValue)
