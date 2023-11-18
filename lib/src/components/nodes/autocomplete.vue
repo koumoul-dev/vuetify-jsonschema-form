@@ -81,6 +81,7 @@ export default defineComponent({
       return slots
     })
 
+    // @ts-ignore
     return () => h(VAutocomplete, fieldProps.value, fieldSlots.value)
   }
 })

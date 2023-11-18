@@ -1,7 +1,7 @@
 <script setup>
 import TextFieldMenu from '../fragments/text-field-menu.vue'
-import { VDatePicker } from 'vuetify/labs/VDatePicker'
-import { useDate } from 'vuetify/labs/date'
+import { VDatePicker } from 'vuetify/components/VDatePicker'
+import { useDate } from 'vuetify'
 import { computed } from 'vue'
 import { getCompProps } from '../../utils/props.js'
 import { getDateTimeParts } from '../../utils/dates.js'
