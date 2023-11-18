@@ -5,8 +5,7 @@
   "scripts": {
     "test": "vitest",
     "build": "vue-tsc",
-    "watch:build": "vue-tsc --watch",
-    "prepare": "relative-deps"
+    "watch:build": "vue-tsc --watch"
   },
   "author": "Alban Mouton <alban.mouton@gmail.com>",
   "license": "MIT",

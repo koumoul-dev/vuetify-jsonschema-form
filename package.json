@@ -10,7 +10,7 @@
     "postpublish": "gh-pages-multi deploy -v -s doc/.output/public -t next",
     "publish:master": "npm -w doc run build:master && gh-pages-multi deploy -v -s doc/.output/public -t master",
     "publish:next": "npm -w doc run build:next && gh-pages-multi deploy -v -s doc/.output/public -t next",
-    "prepare": "husky install && relative-deps"
+    "prepare": "husky install && npx -w doc relative-deps && npx -w lib relative-deps"
   },
   "repository": {
     "type": "git",
@@ -37,6 +37,5 @@
   "workspaces": [
     "doc",
     "lib"
-  ],
-  "relativeDependencies": {}
+  ]
 }

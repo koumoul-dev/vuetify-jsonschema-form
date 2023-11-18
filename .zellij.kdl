@@ -21,6 +21,17 @@ layout {
         args "-ic" "nvm use && npm -w lib run watch:build"
       }
     }
+    pane {
+      split_direction "vertical"
+      pane name="doc rel deps" {
+        command "bash"
+        args "-ic" "nvm use && npx -w doc relative-deps watch"
+      }
+      pane name="lib rel deps" {
+        command "bash"
+        args "-ic" "nvm use && npx -w lib relative-deps watch"
+      }
+    }
     pane size=2 borderless=true {
         plugin location="zellij:status-bar"
     }
