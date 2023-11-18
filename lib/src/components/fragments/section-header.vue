@@ -26,7 +26,10 @@ const titleClass = computed(() => {
 </script>
 
 <template>
-  <div :class="`mb-${titleDepthBase - node.options.titleDepth} mt-${titleDepthBase - node.options.titleDepth}`">
+  <div
+    v-if="node.layout.title ?? node.layout.subtitle ?? (node.error && node.validated)"
+    :class="`mb-${titleDepthBase - node.options.titleDepth} mt-${titleDepthBase - node.options.titleDepth}`"
+  >
     <component
       :is="`h${node.options.titleDepth}`"
       v-if="node.layout.title"

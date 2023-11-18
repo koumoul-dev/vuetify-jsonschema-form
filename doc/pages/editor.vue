@@ -34,19 +34,19 @@
             <v-window-item value="schema">
               <object-editor
                 v-model="schema"
-                @update:parseError="err => setParseError('schema', err)"
+                @update:parse-error="err => setParseError('schema', err)"
               />
             </v-window-item>
             <v-window-item value="options">
               <object-editor
                 v-model="options"
-                @update:parseError="err => setParseError('options', err)"
+                @update:parse-error="err => setParseError('options', err)"
               />
             </v-window-item>
             <v-window-item value="data">
               <object-editor
                 v-model="data"
-                @update:parseError="err => setParseError('schema', err)"
+                @update:parse-error="err => setParseError('schema', err)"
               />
             </v-window-item>
           </v-window>
