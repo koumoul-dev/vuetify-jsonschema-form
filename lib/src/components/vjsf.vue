@@ -23,6 +23,7 @@ import NodeCombobox from './nodes/combobox.vue'
 import NodeNumberCombobox from './nodes/number-combobox.vue'
 import NodeExpansionPanels from './nodes/expansion-panels.vue'
 import NodeList from './nodes/list.vue'
+import NodeMarkdown from './nodes/markdown.vue'
 import { defaultOptions } from './options.js'
 
 const comps = {
@@ -44,7 +45,8 @@ const comps = {
   'expansion-panels': NodeExpansionPanels,
   list: NodeList,
   combobox: NodeCombobox,
-  'number-combobox': NodeNumberCombobox
+  'number-combobox': NodeNumberCombobox,
+  markdown: NodeMarkdown
 }
 
 const instance = getCurrentInstance()

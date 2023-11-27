@@ -39,6 +39,7 @@ export type VjsfOptions = StatefulLayoutOptions & CompileOptions & {
   switchPropsReadOnly: Record<string, unknown>,
   errorAlertProps: Record<string, unknown>,
   vjsfSlots: Record<string, () => unknown>,
+  easyMDEOptions: Record<string, unknown>,
 }
 
 export type PartialVjsfOptions = Partial<Omit<VjsfOptions, 'width'>>
