@@ -212,3 +212,22 @@ export default defineComponent({
 })
 
 </script>
+
+<style>
+.vjsf-node-markdown .v-input--density-compact .editor-toolbar {
+  padding: 0;
+}
+.vjsf-node-markdown .v-input--density-comfortable .editor-toolbar {
+  padding: 4px;
+}
+
+.vjsf-node-markdown .v-input--density-compact .CodeMirror-wrap {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.vjsf-node-markdown .v-input--density-comfortable .CodeMirror-wrap {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+</style>
