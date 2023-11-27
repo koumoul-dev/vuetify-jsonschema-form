@@ -195,10 +195,16 @@ export default defineComponent({
       if (easymde) easymde.toTextArea()
     })
 
+    // update data from outside
     watch(() => props.modelValue, () => {
       if (easymde && (easymde.value() !== props.modelValue.data ?? '')) {
         easymde.value(props.modelValue.data ?? '')
       }
+    })
+
+    // update easymde config from outside
+    watch(() => [props.modelValue.messages, props.modelValue.options.easyMDEOptions], () => {
+      initEasyMDE()
     })
 
     return () => h(VInput, fieldProps.value, fieldSlots.value)
