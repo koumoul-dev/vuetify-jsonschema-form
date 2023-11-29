@@ -18,7 +18,7 @@ export default defineComponent({
     }
   },
   setup (props) {
-    const fieldProps = computed(() => getInputProps(props.modelValue, props.statefulLayout))
+    const fieldProps = computed(() => getInputProps(props.modelValue, props.statefulLayout, ['placeholder']))
     const fieldSlots = computed(() => getCompSlots(props.modelValue, props.statefulLayout))
 
     // @ts-ignore
