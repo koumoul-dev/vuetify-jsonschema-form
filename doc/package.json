@@ -34,12 +34,6 @@
   "devDependencies": {
     "@types/ejs": "^3.1.2",
     "@types/markdown-it": "^13.0.1",
-    "@types/prismjs": "^1.26.1",
-    "relative-deps": "^1.0.7"
-  },
-  "relativeDependencies": {
-    "@json-layout/examples": "../../json-layout/examples/",
-    "@json-layout/core": "../../json-layout/core/",
-    "@json-layout/vocabulary": "../../json-layout/vocabulary/"
+    "@types/prismjs": "^1.26.1"
   }
 }

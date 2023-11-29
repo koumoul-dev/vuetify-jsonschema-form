@@ -10,7 +10,7 @@
     "postpublish": "gh-pages-multi deploy -v -s doc/.output/public -t next",
     "publish:master": "npm -w doc run build:master && gh-pages-multi deploy -v -s doc/.output/public -t master",
     "publish:next": "npm -w doc run build:next && gh-pages-multi deploy -v -s doc/.output/public -t next",
-    "prepare": "husky install && npx -w doc relative-deps && npx -w lib relative-deps"
+    "prepare": "husky install && npx relative-deps"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,9 @@
   },
   "homepage": "https://github.com/koumoul-dev/vuetify-jsonschema-form#readme",
   "devDependencies": {
+    "@json-layout/core": "0.2.0",
+    "@json-layout/vocabulary": "0.2.0",
+    "@json-layout/examples": "0.2.0",
     "@commitlint/config-conventional": "^17.7.0",
     "@koumoul/gh-pages-multi": "^0.6.0",
     "commitlint": "^17.7.2",
@@ -37,5 +40,10 @@
   "workspaces": [
     "doc",
     "lib"
-  ]
+  ],
+  "relativeDependencies": {
+    "@json-layout/examples": "../json-layout/examples/",
+    "@json-layout/core": "../json-layout/core/",
+    "@json-layout/vocabulary": "../json-layout/vocabulary/"
+  }
 }
