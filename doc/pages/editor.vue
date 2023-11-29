@@ -160,7 +160,7 @@ watch([schema, options], () => {
   }
 
   if (!Object.keys(validationErrors.value).length) {
-    vjsfParams.value = { precompiledLayout: compiledLayout, options: options.value }
+    vjsfParams.value = { precompiledLayout: compiledLayout, options: options.value, schema: schema.value }
   }
 }, { immediate: true })
 
