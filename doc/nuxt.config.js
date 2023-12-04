@@ -1,12 +1,15 @@
 // https://www.the-koi.com/projects/how-to-set-up-a-project-with-nuxt3-and-vuetify3-with-a-quick-overview/
-import { resolve } from 'path'
+import path, { resolve } from 'path'
 import vuetify from 'vite-plugin-vuetify'
 import { defineNuxtConfig } from 'nuxt/config'
+import dependencyWatcher from 'vite-plugin-dependency-watcher' // cf https://github.com/vitejs/vite/issues/4533
 
 // import colors from 'vuetify/lib/util/colors'
 // import path from 'path'
 
 const targetURL = new URL(process.env.TARGET || 'http://localhost:3133/')
+
+const packageNames = ['@json-layout/core', '@json-layout/vocabulary', '@json-layout/examples', '@koumoul/vjsf']
 
 export default defineNuxtConfig({
   ssr: false,
@@ -20,7 +23,11 @@ export default defineNuxtConfig({
         // necessary to work with npm links
         allow: [resolve('../../json-layout')]
       }
-    }
+    },
+    plugins: [
+      // @ts-ignore
+      dependencyWatcher(packageNames, packageNames.map(name => path.resolve(process.cwd(), 'node_modules', name)))
+    ]
   },
   modules: [
     // '@nuxtjs/sitemap'

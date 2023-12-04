@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "@json-layout/core": "0.2.0",
-    "@json-layout/vocabulary": "0.2.0",
     "@json-layout/examples": "0.2.0",
+    "@json-layout/vocabulary": "0.2.0",
     "@koumoul/vjsf": "3.0.0-alpha.1",
     "@mdi/font": "^7.2.96",
     "ajv-formats": "^2.1.1",
@@ -34,6 +34,7 @@
   "devDependencies": {
     "@types/ejs": "^3.1.2",
     "@types/markdown-it": "^13.0.1",
-    "@types/prismjs": "^1.26.1"
+    "@types/prismjs": "^1.26.1",
+    "vite-plugin-dependency-watcher": "^0.5.0"
   }
 }
