@@ -17,6 +17,7 @@ import {
   TextFieldNode,
   TextareaNode,
   VerticalTabsNode,
+  StepperNode,
   ComboboxNode,
   CompileOptions
 } from '@json-layout/core'
@@ -61,4 +62,6 @@ export type VjsfSwitchNode = Omit<SwitchNode, 'options'> & {options: VjsfOptions
 export type VjsfTextFieldNode = Omit<TextFieldNode, 'options'> & {options: VjsfOptions}
 export type VjsfTextareaNode = Omit<TextareaNode, 'options'> & {options: VjsfOptions}
 export type VjsfVerticalTabsNode = Omit<VerticalTabsNode, 'options'> & {options: VjsfOptions}
+export type VjsfStepperNode = Omit<StepperNode, 'options'> & {options: VjsfOptions}
+
 export type VjsfComboboxNode = Omit<ComboboxNode, 'options'> & {options: VjsfOptions}

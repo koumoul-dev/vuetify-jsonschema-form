@@ -22,6 +22,7 @@ import NodeVerticalTabs from './nodes/vertical-tabs.vue'
 import NodeCombobox from './nodes/combobox.vue'
 import NodeNumberCombobox from './nodes/number-combobox.vue'
 import NodeExpansionPanels from './nodes/expansion-panels.vue'
+import NodeStepper from './nodes/stepper.vue'
 import NodeList from './nodes/list.vue'
 import NodeMarkdown from './nodes/markdown.vue'
 import { defaultOptions } from './options.js'
@@ -43,6 +44,7 @@ const comps = {
   tabs: NodeTabs,
   'vertical-tabs': NodeVerticalTabs,
   'expansion-panels': NodeExpansionPanels,
+  stepper: NodeStepper,
   list: NodeList,
   combobox: NodeCombobox,
   'number-combobox': NodeNumberCombobox,
@@ -99,7 +101,10 @@ const form = inject(Symbol.for('vuetify:form'))
 if (form) {
   form.register({
     id: 'vjsf', // TODO: a unique random id ?
-    validate: () => statefulLayout.value?.validate(),
+    validate: () => {
+      statefulLayout.value?.validate()
+      return statefulLayout.value?.errors
+    },
     reset: () => statefulLayout.value?.resetValidation(), // TODO: also empty the data ?
     resetValidation: () => statefulLayout.value?.resetValidation()
   })
