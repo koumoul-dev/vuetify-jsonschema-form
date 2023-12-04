@@ -103,7 +103,7 @@ defineProps({
       <v-btn
         color="primary"
         :density="modelValue.options.density"
-        @click="statefulLayout.input(modelValue, (modelValue.data || []).concat([clone(modelValue.skeleton.childrenTrees?.[0]?.root.defaultData)]), (modelValue.data || []).length)"
+        @click="statefulLayout.input(modelValue, (modelValue.data ?? []).concat([undefined]))"
       >
         {{ modelValue.messages.addItem }}
       </v-btn>
