@@ -28,6 +28,12 @@
         "types": "./types/components/*.d.ts"
       }
     },
+    "./composables/*": {
+      "import": {
+        "default": "./src/composables/*",
+        "types": "./types/composables/*.d.ts"
+      }
+    },
     "./compile": {
       "import": {
         "default": "./src/compile/index.js",

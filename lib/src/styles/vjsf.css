@@ -1,0 +1,10 @@
+/* override vuetify styles to manage readOnly fields more usable than the default disabled fields */
+.vjsf-input--readonly.v-input--disabled.v-text-field  .v-field--disabled input {
+  pointer-events: auto;
+}
+.vjsf-input--readonly.v-input--disabled .v-field--disabled,
+.vjsf-input--readonly.v-input--disabled .v-input__details,
+.vjsf-input--readonly.v-input--disabled .v-input__append,
+.vjsf-input--readonly.v-input--disabled .v-input__prepend {
+  opacity: inherit;
+}

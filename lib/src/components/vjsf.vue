@@ -1,8 +1,10 @@
 <script setup>
-import { ref, shallowRef, computed, getCurrentInstance, watch, useSlots, inject, toRaw } from 'vue'
-import { useElementSize } from '@vueuse/core'
-import { StatefulLayout, compile } from '@json-layout/core'
+import { computed, getCurrentInstance } from 'vue'
+
+import { compile } from '@json-layout/core'
 import Tree from './tree.vue'
+import { useVjsf, emits } from '../composables/use-vjsf.js'
+import '../styles/vjsf.css'
 
 import NodeSection from './nodes/section.vue'
 import NodeTextField from './nodes/text-field.vue'
@@ -25,7 +27,6 @@ import NodeExpansionPanels from './nodes/expansion-panels.vue'
 import NodeStepper from './nodes/stepper.vue'
 import NodeList from './nodes/list.vue'
 import NodeMarkdown from './nodes/markdown.vue'
-import { defaultOptions } from './options.js'
 
 const comps = {
   section: NodeSection,
@@ -69,7 +70,7 @@ const props = defineProps({
     default: null
   },
   modelValue: {
-    type: [Object, String, Number, Boolean],
+    type: null,
     default: null
   },
   options: {
@@ -79,106 +80,16 @@ const props = defineProps({
   }
 })
 
-// const emit = defineEmits(['update:modelValue', 'update:state'])
-const emit = defineEmits({
-  /**
-   * @arg {any} data
-  */
-  'update:modelValue': (data) => true,
-  /**
-   * @arg {StatefulLayout} state
-  */
-  'update:state': (state) => true
-})
+const emit = defineEmits(emits)
 
-/** @type import('vue').ShallowRef<StatefulLayout | null> */
-const statefulLayout = shallowRef(null)
-/** @type import('vue').ShallowRef<import('@json-layout/core').StateTree | null> */
-const stateTree = shallowRef(null)
-
-// cf https://github.com/vuetifyjs/vuetify/blob/master/packages/vuetify/src/composables/form.ts
-const form = inject(Symbol.for('vuetify:form'))
-if (form) {
-  form.register({
-    id: 'vjsf', // TODO: a unique random id ?
-    validate: () => {
-      statefulLayout.value?.validate()
-      return statefulLayout.value?.errors
-    },
-    reset: () => statefulLayout.value?.resetValidation(), // TODO: also empty the data ?
-    resetValidation: () => statefulLayout.value?.resetValidation()
-  })
-}
-
-const el = ref(null)
-const { width } = useElementSize(el)
-
-const slots = useSlots()
-
-const fullOptions = computed(() => {
-  const options = {
-    ...defaultOptions,
-    readOnly: !!(form && (form.isDisabled.value || form.isReadonly.value)),
-    ...props.options,
-    context: props.options.context ? JSON.parse(JSON.stringify(props.options.context)) : {},
-    width: Math.round(width.value ?? 0),
-    vjsfSlots: { ...slots }
-  }
-  return /** @type import('./types.js').VjsfOptions */ (options)
-})
-
-const compiledLayout = computed(() => {
-  if (props.precompiledLayout) return props.precompiledLayout
-  return compile(props.schema, fullOptions.value)
-})
-
-const onStatefulLayoutUpdate = () => {
-  if (!statefulLayout.value) return
-  stateTree.value = statefulLayout.value.stateTree
-  emit('update:modelValue', statefulLayout.value.data)
-  emit('update:state', statefulLayout.value)
-  if (form) {
-    // cf https://vuetifyjs.com/en/components/forms/#validation-state
-    if (statefulLayout.value.valid) form.update('vjsf', true, [])
-    else if (statefulLayout.value.hasHiddenError) form.update('vjsf', null, [])
-    else form.update('vjsf', false, [])
-  }
-}
-
-const initStatefulLayout = () => {
-  if (!width.value) return
-  const _statefulLayout = new StatefulLayout(toRaw(compiledLayout.value), toRaw(compiledLayout.value.skeletonTree), toRaw(fullOptions.value), toRaw(props.modelValue))
-  statefulLayout.value = _statefulLayout
-  onStatefulLayoutUpdate()
-  _statefulLayout.events.on('update', () => {
-    onStatefulLayoutUpdate()
-  })
-  emit('update:state', _statefulLayout)
-  _statefulLayout.events.on('autofocus', () => {
-    if (!el.value) return
-    const autofocusNodeElement = el.value.querySelector('.vjsf-input--autofocus')
-    if (autofocusNodeElement) {
-      const autofocusInputElement = autofocusNodeElement.querySelector('input')
-      if (autofocusInputElement) autofocusInputElement.focus()
-    }
-  })
-}
-
-watch(fullOptions, (newOptions) => {
-  if (statefulLayout.value) {
-    statefulLayout.value.options = newOptions
-  } else {
-    initStatefulLayout()
-  }
-})
-
-// case where data is updated from outside
-watch(() => props.modelValue, (newData) => {
-  if (statefulLayout.value && statefulLayout.value.data !== newData) statefulLayout.value.data = newData
-})
-
-// case where schema is updated from outside
-watch(compiledLayout, (newCompiledLayout) => initStatefulLayout())
+const { el, statefulLayout, stateTree } = useVjsf(
+  computed(() => props.schema),
+  computed(() => props.modelValue),
+  computed(() => props.options),
+  emit,
+  compile,
+  props.precompiledLayout
+)
 
 </script>
 
@@ -197,14 +108,5 @@ watch(compiledLayout, (newCompiledLayout) => initStatefulLayout())
 </template>
 
 <style lang="css">
-/* override vuetify styles to manage readOnly fields more usable than the default disabled fields */
-.vjsf-input--readonly.v-input--disabled.v-text-field  .v-field--disabled input {
-  pointer-events: auto;
-}
-.vjsf-input--readonly.v-input--disabled .v-field--disabled,
-.vjsf-input--readonly.v-input--disabled .v-input__details,
-.vjsf-input--readonly.v-input--disabled .v-input__append,
-.vjsf-input--readonly.v-input--disabled .v-input__prepend {
-  opacity: inherit;
-}
+/* nothing here, use ../styles/vjsf.css */
 </style>

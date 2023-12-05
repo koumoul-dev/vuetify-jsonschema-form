@@ -63,7 +63,7 @@ const buttonDensity = computed(() => {
           v-bind="itemBind(childIndex)"
           :density="modelValue.options.density"
           :draggable="draggable === childIndex"
-          :variant="editedItem === childIndex ? 'outlined' : (activeItem === childIndex ? 'tonal' : 'flat')"
+          :variant="editedItem === childIndex ? 'outlined' : 'flat'"
           class="pa-1 vjsf-list-item"
           @mouseenter="hoveredItem = childIndex"
           @mouseleave="hoveredItem = -1"
@@ -80,7 +80,7 @@ const buttonDensity = computed(() => {
             v-if="activeItem === childIndex"
             #append
           >
-            <div :style="`display:flex; flex-direction: ${isSection(child) ? 'column' : 'row'};`">
+            <div>
               <v-list-item-action
                 v-if="modelValue.layout.listActions.includes('edit') && modelValue.layout.listEditMode === 'inline-single'"
               >
