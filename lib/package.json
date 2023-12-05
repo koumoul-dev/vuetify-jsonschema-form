@@ -52,8 +52,7 @@
     "vuetify": "^3.4.2"
   },
   "dependencies": {
-    "@json-layout/core": "0.2.0",
-    "@json-layout/vocabulary": "0.2.0",
+    "@json-layout/core": "0.3.0",
     "@vueuse/core": "^10.5.0",
     "debug": "^4.3.4",
     "easymde": "^2.18.0",

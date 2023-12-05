@@ -13,9 +13,9 @@
     "compile-examples": "node scripts/compile-examples.mjs"
   },
   "dependencies": {
-    "@json-layout/core": "0.2.0",
-    "@json-layout/examples": "0.2.0",
-    "@json-layout/vocabulary": "0.2.0",
+    "@json-layout/core": "0.3.0",
+    "@json-layout/examples": "0.3.0",
+    "@json-layout/vocabulary": "0.3.0",
     "@koumoul/vjsf": "3.0.0-alpha.1",
     "@mdi/font": "^7.2.96",
     "ajv-formats": "^2.1.1",
