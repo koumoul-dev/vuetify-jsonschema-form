@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watch, computed } from 'vue'
 import { VList, VListItem, VListItemAction, VBtn, VMenu, VIcon } from 'vuetify/components'
 import { isSection } from '@json-layout/core'
 import Node from '../node.vue'
@@ -18,6 +18,14 @@ const props = defineProps({
   }
 })
 
+const supportDragAndDrop = computed(() => {
+  // cf https://ultimatecourses.com/blog/feature-detect-javascript-drag-drop-api
+  if (!('draggable' in document.createElement('div'))) return false
+  // cf https://stackoverflow.com/questions/4817029/whats-the-best-way-to-detect-a-touch-screen-device-using-javascript
+  if (window.matchMedia('(pointer: coarse)').matches) return false
+  return true
+})
+
 /**
  * @template T
  * @param {T[]} array
@@ -25,7 +33,7 @@ const props = defineProps({
  * @param {number} toIndex
  * @return {T[]}
  */
-function moveItem (array, fromIndex, toIndex) {
+function moveArrayItem (array, fromIndex, toIndex) {
   if (fromIndex === toIndex || fromIndex === -1 || toIndex === -1) return array
   const newArray = [...array]
   const element = newArray[fromIndex]
@@ -34,16 +42,13 @@ function moveItem (array, fromIndex, toIndex) {
   return newArray
 }
 
-// cf https://stackoverflow.com/questions/4817029/whats-the-best-way-to-detect-a-touch-screen-device-using-javascript
-const isTouchDevice = window.matchMedia('(pointer: coarse)').matches
-
 const sortableChildren = ref(props.modelValue.children)
 watch(() => props.modelValue.children, (children) => { sortableChildren.value = children })
 
 const draggable = ref(-1)
 const dragging = ref(-1)
 const dragOver = (/** @type {any} */event, /** @type {number} */childIndex) => {
-  sortableChildren.value = moveItem(sortableChildren.value, dragging.value, childIndex)
+  sortableChildren.value = moveArrayItem(sortableChildren.value, dragging.value, childIndex)
   dragging.value = childIndex
 }
 const dragEnd = () => {
@@ -104,7 +109,7 @@ const dragEnd = () => {
                 />
               </v-list-item-action>
               <v-list-item-action
-                v-if="modelValue.layout.listActions.includes('sort') && !isTouchDevice"
+                v-if="modelValue.layout.listActions.includes('sort') && supportDragAndDrop"
                 class="ma-1"
               >
                 <v-btn
@@ -152,7 +157,7 @@ const dragEnd = () => {
                     </v-list-item>
                     <v-list-item
                       v-if="modelValue.layout.listActions.includes('sort')"
-                      @click="statefulLayout.input(modelValue, moveItem(modelValue.data, childIndex, childIndex - 1))"
+                      @click="statefulLayout.input(modelValue, moveArrayItem(modelValue.data, childIndex, childIndex - 1))"
                     >
                       <template #prepend>
                         <v-icon icon="mdi-arrow-up" />
@@ -161,7 +166,7 @@ const dragEnd = () => {
                     </v-list-item>
                     <v-list-item
                       v-if="modelValue.layout.listActions.includes('sort')"
-                      @click="statefulLayout.input(modelValue, moveItem(modelValue.data, childIndex, childIndex + 1))"
+                      @click="statefulLayout.input(modelValue, moveArrayItem(modelValue.data, childIndex, childIndex + 1))"
                     >
                       <template #prepend>
                         <v-icon icon="mdi-arrow-down" />
