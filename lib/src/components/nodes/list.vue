@@ -1,9 +1,10 @@
 <script setup>
-import { ref, watch, computed } from 'vue'
 import { VList, VListItem, VListItemAction, VBtn, VMenu, VIcon } from 'vuetify/components'
 import { isSection } from '@json-layout/core'
 import Node from '../node.vue'
 import clone from '../../utils/clone.js'
+import { moveArrayItem } from '../../utils/arrays.js'
+import useDnd from '../../composables/use-dnd.js'
 
 const props = defineProps({
   modelValue: {
@@ -18,43 +19,10 @@ const props = defineProps({
   }
 })
 
-const supportDragAndDrop = computed(() => {
-  // cf https://ultimatecourses.com/blog/feature-detect-javascript-drag-drop-api
-  if (!('draggable' in document.createElement('div'))) return false
-  // cf https://stackoverflow.com/questions/4817029/whats-the-best-way-to-detect-a-touch-screen-device-using-javascript
-  if (window.matchMedia('(pointer: coarse)').matches) return false
-  return true
-})
-
-/**
- * @template T
- * @param {T[]} array
- * @param {number} fromIndex
- * @param {number} toIndex
- * @return {T[]}
- */
-function moveArrayItem (array, fromIndex, toIndex) {
-  if (fromIndex === toIndex || fromIndex === -1 || toIndex === -1) return array
-  const newArray = [...array]
-  const element = newArray[fromIndex]
-  newArray.splice(fromIndex, 1)
-  newArray.splice(toIndex, 0, element)
-  return newArray
-}
-
-const sortableChildren = ref(props.modelValue.children)
-watch(() => props.modelValue.children, (children) => { sortableChildren.value = children })
-
-const draggable = ref(-1)
-const dragging = ref(-1)
-const dragOver = (/** @type {any} */event, /** @type {number} */childIndex) => {
-  sortableChildren.value = moveArrayItem(sortableChildren.value, dragging.value, childIndex)
-  dragging.value = childIndex
-}
-const dragEnd = () => {
-  props.statefulLayout.input(props.modelValue, sortableChildren.value.map((child) => child.data))
-  dragging.value = -1
-}
+const { activeDnd, sortableArray, draggable, itemBind, handleBind } = useDnd(
+  props.modelValue.children,
+  () => { props.statefulLayout.input(props.modelValue, sortableArray.value.map((child) => child.data)) }
+)
 
 </script>
 
@@ -65,15 +33,13 @@ const dragEnd = () => {
         {{ modelValue.layout.title }}
       </v-list-subheader>
       <template
-        v-for="(child, childIndex) of sortableChildren"
+        v-for="(child, childIndex) of sortableArray"
         :key="child.key"
       >
         <v-list-item
           :density="modelValue.options.density"
           :draggable="draggable === childIndex"
-          @dragstart="dragging = childIndex"
-          @dragend="dragEnd"
-          @dragover="dragOver($event, childIndex)"
+          v-bind="itemBind(childIndex)"
         >
           <v-row class="ma-0">
             <node
@@ -109,7 +75,7 @@ const dragEnd = () => {
                 />
               </v-list-item-action>
               <v-list-item-action
-                v-if="modelValue.layout.listActions.includes('sort') && supportDragAndDrop"
+                v-if="modelValue.layout.listActions.includes('sort') && activeDnd"
                 class="ma-1"
               >
                 <v-btn
@@ -117,9 +83,7 @@ const dragEnd = () => {
                   icon="mdi-arrow-up-down"
                   variant="plain"
                   :density="modelValue.options.density"
-                  @clickdown="draggable = childIndex"
-                  @mouseover="draggable = childIndex"
-                  @mouseout="draggable = -1"
+                  v-bind="handleBind(childIndex)"
                 />
               </v-list-item-action>
               <v-list-item-action
