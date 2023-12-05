@@ -154,6 +154,14 @@ const initStatefulLayout = () => {
     onStatefulLayoutUpdate()
   })
   emit('update:state', _statefulLayout)
+  _statefulLayout.events.on('autofocus', () => {
+    if (!el.value) return
+    const autofocusNodeElement = el.value.querySelector('.vjsf-input--autofocus')
+    if (autofocusNodeElement) {
+      const autofocusInputElement = autofocusNodeElement.querySelector('input')
+      if (autofocusInputElement) autofocusInputElement.focus()
+    }
+  })
 }
 
 watch(fullOptions, (newOptions) => {

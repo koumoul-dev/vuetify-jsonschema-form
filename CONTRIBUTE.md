@@ -55,7 +55,7 @@ You can also write additionnal test assertions in the examples themselves, see [
 
 ## Publishing
 
-Release and publish usin npm:
+Release and publish using npm:
 
 ```
 npm -w lib version minor
