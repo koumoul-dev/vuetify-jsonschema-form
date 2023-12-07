@@ -1,9 +1,8 @@
 <script setup>
 import { watch, computed, ref } from 'vue'
 import { VList, VListItem, VListItemAction, VBtn, VMenu, VIcon } from 'vuetify/components'
-import { isSection } from '@json-layout/core'
+import { isSection, clone } from '@json-layout/core'
 import Node from '../node.vue'
-import clone from '../../utils/clone.js'
 import { moveArrayItem } from '../../utils/arrays.js'
 import useDnd from '../../composables/use-dnd.js'
 
