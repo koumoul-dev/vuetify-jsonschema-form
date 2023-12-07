@@ -3,6 +3,7 @@ import path, { resolve } from 'path'
 import vuetify from 'vite-plugin-vuetify'
 import { defineNuxtConfig } from 'nuxt/config'
 import dependencyWatcher from 'vite-plugin-dependency-watcher' // cf https://github.com/vitejs/vite/issues/4533
+import examples from './examples/index.js'
 
 // import colors from 'vuetify/lib/util/colors'
 // import path from 'path'
@@ -12,7 +13,7 @@ const targetURL = new URL(process.env.TARGET || 'http://localhost:3133/')
 const packageNames = ['@json-layout/core', '@json-layout/vocabulary', '@json-layout/examples', '@koumoul/vjsf']
 
 export default defineNuxtConfig({
-  ssr: true,
+  ssr: false,
   css: ['vuetify/styles'],
   build: {
     transpile: [/vuetify/, /@koumoul/]
@@ -28,6 +29,16 @@ export default defineNuxtConfig({
       // @ts-ignore
       dependencyWatcher(packageNames, packageNames.map(name => path.resolve(process.cwd(), 'node_modules', name)))
     ]
+  },
+  hooks: {
+    async 'nitro:config' (config) {
+      for (const examplesCategory of examples) {
+        config.prerender?.routes?.push(`/${examplesCategory.id}`)
+        for (const example of examplesCategory.examples) {
+          config.prerender?.routes?.push(`/${examplesCategory.id}/${example.id}`)
+        }
+      }
+    }
   },
   modules: [
     // '@nuxtjs/sitemap'
