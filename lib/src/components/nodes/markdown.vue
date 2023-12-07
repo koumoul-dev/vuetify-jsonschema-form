@@ -3,8 +3,7 @@ import { defineComponent, h, computed, onMounted, ref, onUnmounted, watch } from
 import { VInput, VLabel } from 'vuetify/components'
 import { getInputProps } from '../../utils/props.js'
 import { getCompSlots } from '../../utils/slots.js'
-// import 'easymde/dist/easymde.min.css'
-// import EasyMDE from 'easymde'
+import 'easymde/dist/easymde.min.css'
 
 export default defineComponent({
   props: {
@@ -41,8 +40,6 @@ export default defineComponent({
     const initEasyMDE = async () => {
       if (!element.value) throw new Error('component was not mounted for markdown editor')
 
-      // @ts-ignore
-      await import('easymde/dist/easymde.min.css')
       const EasyMDE = (await import('easymde')).default
 
       const messages = props.modelValue.messages

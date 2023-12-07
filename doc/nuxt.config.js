@@ -12,7 +12,7 @@ const targetURL = new URL(process.env.TARGET || 'http://localhost:3133/')
 const packageNames = ['@json-layout/core', '@json-layout/vocabulary', '@json-layout/examples', '@koumoul/vjsf']
 
 export default defineNuxtConfig({
-  ssr: false,
+  ssr: true,
   css: ['vuetify/styles'],
   build: {
     transpile: [/vuetify/, /@koumoul/]

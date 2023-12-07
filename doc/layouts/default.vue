@@ -162,7 +162,7 @@
 
 <script setup>
 // import SearchWidget from '@koumoul/data-fair-search-widget/src/components/search-widget.vue'
-import { watch, ref, computed } from 'vue'
+import { watch, ref, computed, onMounted } from 'vue'
 import { useTheme, useDisplay } from 'vuetify'
 import examples from '~/examples/'
 import { version } from '~/../lib/package.json'
@@ -170,8 +170,10 @@ import { version } from '~/../lib/package.json'
 const theme = useTheme()
 const display = useDisplay()
 
-const storedTheme = localStorage.getItem('theme')
-if (storedTheme) theme.global.name.value = storedTheme
+onMounted(() => {
+  const storedTheme = window.localStorage.getItem('theme')
+  if (storedTheme) theme.global.name.value = storedTheme
+})
 
 const toggleTheme = () => {
   if (theme.global.name.value === 'dark') theme.global.name.value = 'light'
