@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "checkJs": true
+    "checkJs": true,
+    "moduleResolution": "bundler"
   },
   "extends": "./.nuxt/tsconfig.json"
 }
