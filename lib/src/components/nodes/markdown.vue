@@ -28,7 +28,7 @@ export default defineComponent({
       fieldSlots.default = () => [
         h('div', { style: 'width:100%' }, [
           h(VLabel, { text: fieldProps.value.label }),
-          h('textarea', { ref: element })
+          h('textarea', { ref: element, style: 'display:none' })
         ])
       ]
       return fieldSlots
@@ -184,6 +184,10 @@ export default defineComponent({
       easymde.codemirror.on('focus', () => {
         if (blurTimeout) clearTimeout(blurTimeout)
       })
+
+      if (props.modelValue.autofocus) {
+        easymde.codemirror.focus()
+      }
     }
 
     onMounted(initEasyMDE)
@@ -200,8 +204,16 @@ export default defineComponent({
     })
 
     // update easymde config from outside
-    watch(() => [props.modelValue.messages, props.modelValue.options.easyMDEOptions], () => {
-      initEasyMDE()
+    watch(() => [props.modelValue.messages, props.modelValue.options.easyMDEOptions], (newValues, oldValues) => {
+      if (newValues[0] !== oldValues[0] || newValues[1] !== oldValues[1]) {
+        initEasyMDE()
+      }
+    })
+
+    props.statefulLayout.events.on('autofocus', () => {
+      if (props.modelValue.autofocus && easymde) {
+        easymde.codemirror.focus()
+      }
     })
 
     return () => h(VInput, fieldProps.value, fieldSlots.value)
