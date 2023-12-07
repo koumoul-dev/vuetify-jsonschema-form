@@ -68,5 +68,4 @@ To publish a beta version, use prerelease versioning with a npm tag:
 ```
 npm -w lib version preminor --preid=beta # use prerelease instead of preminor to increment
 npm -w lib publish --tag=next
-git push
 ```
