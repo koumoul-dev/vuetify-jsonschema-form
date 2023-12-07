@@ -48,7 +48,12 @@
 </template>
 
 <script>
+import { VContainer } from 'vuetify/components'
+
 export default {
+  components: {
+    VContainer
+  },
   data: () => ({
     title: 'About'
   }),

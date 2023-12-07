@@ -58,7 +58,13 @@ await writeFile('./components/compiled/my-vjsf.vue', code)</pre>
 </template>
 
 <script>
+import { VContainer, VAlert } from 'vuetify/components'
+
 export default {
+  components: {
+    VContainer,
+    VAlert
+  },
   data: () => ({
     title: 'Getting started'
   }),

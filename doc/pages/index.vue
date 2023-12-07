@@ -42,8 +42,8 @@
   </v-container>
 </template>
 
-<script>
-export default {}
+<script setup>
+import { VContainer } from 'vuetify/components'
 </script>
 
 <style lang="css" scoped>

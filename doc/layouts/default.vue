@@ -164,6 +164,7 @@
 // import SearchWidget from '@koumoul/data-fair-search-widget/src/components/search-widget.vue'
 import { watch, ref, computed, onMounted } from 'vue'
 import { useTheme, useDisplay } from 'vuetify'
+import { VApp, VMain, VAppBar, VAppBarNavIcon, VBtn, VIcon, VNavigationDrawer, VList, VListItem, VListItemTitle, VListItemSubtitle, VListSubheader, VSpacer, VFooter } from 'vuetify/components'
 import examples from '~/examples/'
 import { version } from '~/../lib/package.json'
 

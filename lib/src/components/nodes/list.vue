@@ -1,6 +1,6 @@
 <script setup>
 import { watch, computed, ref } from 'vue'
-import { VList, VListItem, VListItemAction, VBtn, VMenu, VIcon } from 'vuetify/components'
+import { VList, VListItem, VListItemAction, VBtn, VMenu, VIcon, VSheet, VSpacer, VDivider, VRow, VListSubheader } from 'vuetify/components'
 import { isSection, clone } from '@json-layout/core'
 import Node from '../node.vue'
 import { moveArrayItem } from '../../utils/arrays.js'

@@ -1,5 +1,5 @@
 <script setup>
-import { VSelect } from 'vuetify/components'
+import { VSelect, VRow } from 'vuetify/components'
 import { shallowRef, watch } from 'vue'
 import { isSection } from '@json-layout/core'
 import Node from '../node.vue'

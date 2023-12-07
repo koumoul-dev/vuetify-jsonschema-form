@@ -87,9 +87,3 @@ export default defineComponent({
 })
 
 </script>
-
-<template>
-  <v-select
-    v-bind="fieldProps"
-  />
-</template>

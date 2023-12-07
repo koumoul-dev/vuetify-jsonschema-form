@@ -43,7 +43,10 @@ export default defineNuxtConfig({
   modules: [
     // '@nuxtjs/sitemap'
     // @ts-ignore
-    (_, nuxt) => nuxt.hooks.hook('vite:extendConfig', config => config.plugins.push(vuetify()))
+    (_, nuxt) => nuxt.hooks.hook('vite:extendConfig', config => {
+      // we disable autoImport because to be warned of missing importes in vjsf
+      config.plugins.push(vuetify({ autoImport: false }))
+    })
   ],
   plugins: [
     // { src: '~/plugins/highlight.js', ssr: false },

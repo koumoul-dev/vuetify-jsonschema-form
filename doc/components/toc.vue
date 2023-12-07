@@ -30,7 +30,12 @@
 </template>
 
 <script>
+import { VNavigationDrawer, VList, VListItem, VListItemTitle, VListSubheader } from 'vuetify/components'
+import { Scroll } from 'vuetify/directives'
+
 export default {
+  components: { VNavigationDrawer, VList, VListItem, VListItemTitle, VListSubheader },
+  directives: { Scroll },
   props: {
     sections: {
       /** @type import('vue').PropType<{id: string, title: string}[]> */

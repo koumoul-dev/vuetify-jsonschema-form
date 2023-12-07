@@ -45,9 +45,11 @@
 </template>
 
 <script>
+import { VContainer, VBtn, VAlert } from 'vuetify/components'
 import examples from '~/examples'
 
 export default {
+  components: { VContainer, VBtn, VAlert },
   computed: {
     nodeEnv () {
       return process.env.NODE_ENV

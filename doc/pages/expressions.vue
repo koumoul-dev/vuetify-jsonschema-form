@@ -88,15 +88,11 @@
   </v-container>
 </template>
 
-<script>
-export default {
-  data: () => ({
-    title: 'Expressions'
-  }),
-  head () {
-    return {
-      title: 'VJSF - ' + this.title
-    }
-  }
-}
+<script setup>
+import { VContainer, VAlert } from 'vuetify/components'
+
+const title = 'Expressions'
+useHead({
+  title: 'VJSF - ' + title
+})
 </script>

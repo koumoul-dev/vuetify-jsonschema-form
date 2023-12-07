@@ -104,6 +104,7 @@
 <script setup>
 import { ref, reactive, computed, watch, onMounted } from 'vue'
 import { watchDebounced, useWindowSize } from '@vueuse/core'
+import { VContainer, VRow, VCol, VSpacer, VForm, VBtn, VAlert, VWindow, VWindowItem, VToolbar } from 'vuetify/components'
 import yaml from 'yaml'
 import { Vjsf, defaultOptions } from '@koumoul/vjsf'
 import { compile } from '@json-layout/core'
@@ -189,4 +190,7 @@ const validateColor = computed(() => {
   return 'default'
 })
 
+useHead({
+  title: 'VJSF - Editor'
+})
 </script>

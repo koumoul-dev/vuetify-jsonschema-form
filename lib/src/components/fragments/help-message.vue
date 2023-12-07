@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import { VAlert, VBtn } from 'vuetify/components'
+import { VAlert, VBtn, VSlideXReverseTransition } from 'vuetify/components'
 import { ref } from 'vue'
 
 defineProps({

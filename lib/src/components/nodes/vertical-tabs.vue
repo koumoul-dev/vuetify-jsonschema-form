@@ -1,6 +1,6 @@
 <script setup>
 import { isSection } from '@json-layout/core'
-import { VTabs, VTab, VContainer } from 'vuetify/components'
+import { VTabs, VTab, VContainer, VSheet, VWindow, VWindowItem, VRow, VIcon } from 'vuetify/components'
 import { ref } from 'vue'
 import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'

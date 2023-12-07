@@ -34,7 +34,12 @@ const v3Schema = v2compat(schema)
 </template>
 
 <script>
+import { VContainer } from 'vuetify/components'
+
 export default {
+  components: {
+    VContainer
+  },
   data: () => ({
     title: 'v2 to v3'
   }),

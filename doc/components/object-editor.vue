@@ -47,6 +47,7 @@
 
 <script setup>
 import { ref, watch } from 'vue'
+import { VSheet, VBtn, VBtnGroup, VIcon } from 'vuetify/components'
 import yaml from 'yaml'
 import { PrismEditor } from 'vue-prism-editor'
 import 'vue-prism-editor/dist/prismeditor.min.css'
