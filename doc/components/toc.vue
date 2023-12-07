@@ -17,7 +17,7 @@
       <v-list-item
         v-for="(section, i) in sections"
         :key="i"
-        :style="itemStyle(activeSection && activeSection.id === section.id)"
+        :style="itemStyle(!!activeSection && activeSection.id === section.id)"
         :to="{hash: `#${section.id}`}"
         :active="false"
       >
@@ -32,12 +32,20 @@
 <script>
 export default {
   props: {
-    sections: { type: Array, default: () => ([]) }
+    sections: {
+      /** @type import('vue').PropType<{id: string, title: string}[]> */
+      type: Array,
+      default: () => ([])
+    }
   },
   data: () => ({
+    /** @type { number[] } */
     offsets: [],
+    /** @type { ReturnType<typeof setTimeout> | null } */
     timeout: null,
+    /** @type {{id: string, title: string} | null} */
     activeSection: null,
+    /** @type {number | null} */
     activeIndex: null
   }),
   computed: {
@@ -49,16 +57,18 @@ export default {
     this.onScroll()
   },
   methods: {
-    itemStyle (active) {
+    itemStyle (/** @type {boolean} */active) {
       return `border-left: 2px solid ${active ? this.$vuetify.theme.themes.light.colors.primary : 'transparent'};`
     },
-    goTo (id) {
+    goTo (/** @type {string} */id) {
       const e = document.getElementById(id)
       if (!e) return null
+      // @ts-ignore
       this.$vuetify.goTo(e.offsetTop + 20)
     },
     // inspired by https://github.com/vuetifyjs/vuetify/blob/34a37a06fd49e4c70f47b17e46eaa56716250283/packages/docs/src/layouts/default/Toc.vue#L126
     setOffsets () {
+      // @ts-ignore
       this.offsets = this.toc.map(t => {
         const e = document.getElementById(t.id)
         if (!e) return null
@@ -84,7 +94,7 @@ export default {
       this.activeSection = this.toc[index]
     },
     onScroll () {
-      clearTimeout(this.timeout)
+      if (this.timeout) clearTimeout(this.timeout)
       this.timeout = setTimeout(this.findActiveIndex, 17)
     }
   }

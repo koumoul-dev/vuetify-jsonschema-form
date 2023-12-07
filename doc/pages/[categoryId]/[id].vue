@@ -1,6 +1,17 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
-  <v-container fluid>
+  <v-alert
+    v-if="!examplesCategory || !example"
+    type="warning"
+    variant="outlined"
+    class="mb-4"
+  >
+    Unknown example
+  </v-alert>
+  <v-container
+    v-else
+    fluid
+  >
     <h1 class="text-h3 mb-3">
       {{ example.title }}
       <v-btn
@@ -34,7 +45,7 @@
 </template>
 
 <script>
-import examples from '~/examples/'
+import examples from '~/examples'
 
 export default {
   computed: {
