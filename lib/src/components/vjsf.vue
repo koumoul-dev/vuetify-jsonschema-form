@@ -88,7 +88,7 @@ const { el, statefulLayout, stateTree } = useVjsf(
   computed(() => props.options),
   emit,
   compile,
-  props.precompiledLayout
+  computed(() => props.precompiledLayout)
 )
 
 </script>
