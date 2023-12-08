@@ -1,9 +1,10 @@
 <script setup>
+import { computed } from 'vue'
 import { VCol } from 'vuetify/components'
 import NodeSlot from './fragments/node-slot.vue'
 import HelpMessage from './fragments/help-message.vue'
 
-defineProps({
+const props = defineProps({
   modelValue: {
     /** @type import('vue').PropType<import('./types.js').VjsfNode> */
     type: Object,
@@ -22,12 +23,19 @@ const beforeAfterClasses = {
   comfortable: 'my-2',
   default: 'my-3'
 }
+
+const nodeClasses = computed(() => {
+  let classes = `vjsf-node vjsf-node-${props.modelValue.layout.comp} vjsf-density-${props.modelValue.options.density}`
+  if (props.modelValue.options.readOnly) classes += ' vjsf-readonly'
+  if (props.modelValue.options.summary) classes += ' vjsf-summary'
+  return classes
+})
 </script>
 
 <template>
   <v-col
     :cols="modelValue.cols"
-    :class="`vjsf-node vjsf-node-${modelValue.layout.comp}`"
+    :class="nodeClasses"
   >
     <node-slot
       v-if="modelValue.layout.slots?.before"

@@ -20,7 +20,7 @@ const props = defineProps({
 })
 
 /* use composable for drag and drop */
-const { activeDnd, sortableArray, draggable, itemBind, handleBind } = useDnd(props.modelValue.children, () => {
+const { activeDnd, sortableArray, draggable, hovered, dragging, itemBind, handleBind } = useDnd(props.modelValue.children, () => {
   props.statefulLayout.input(props.modelValue, sortableArray.value.map((child) => child.data))
 })
 watch(() => props.modelValue.children, (array) => { sortableArray.value = array })
@@ -29,7 +29,7 @@ watch(() => props.modelValue.children, (array) => { sortableArray.value = array 
 const editedItem = computed(() => {
   return props.statefulLayout.activeItems[props.modelValue.fullKey]
 })
-const hoveredItem = ref(1)
+const menuOpened = ref(-1)
 const activeItem = computed(() => {
   if (
     props.modelValue.layout.listActions.includes('edit') &&
@@ -38,7 +38,9 @@ const activeItem = computed(() => {
   ) {
     return editedItem.value
   }
-  return hoveredItem.value
+  if (dragging.value !== -1) return -1
+  if (menuOpened.value !== -1) return menuOpened.value
+  return hovered.value
 })
 
 const buttonDensity = computed(() => {
@@ -64,8 +66,6 @@ const buttonDensity = computed(() => {
           :draggable="draggable === childIndex"
           :variant="editedItem === childIndex ? 'outlined' : 'flat'"
           class="pa-1 vjsf-list-item"
-          @mouseenter="hoveredItem = childIndex"
-          @mouseleave="hoveredItem = -1"
         >
           <v-row class="ma-0">
             <node
@@ -116,7 +116,10 @@ const buttonDensity = computed(() => {
               <v-list-item-action
                 v-if="editedItem === undefined && (modelValue.layout.listActions.includes('delete') || modelValue.layout.listActions.includes('duplicate') || modelValue.layout.listActions.includes('sort'))"
               >
-                <v-menu location="bottom end">
+                <v-menu
+                  location="bottom end"
+                  @update:model-value="value => {menuOpened = value ? childIndex : -1}"
+                >
                   <template #activator="{props: activatorProps}">
                     <v-btn
                       v-bind="activatorProps"

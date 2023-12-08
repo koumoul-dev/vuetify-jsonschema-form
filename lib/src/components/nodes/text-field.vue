@@ -27,3 +27,9 @@ export default defineComponent({
 })
 
 </script>
+
+<style>
+.vjsf-node-text-field.vjsf-readonly.vjsf-summary input {
+  text-overflow: ellipsis;
+}
+</style>
