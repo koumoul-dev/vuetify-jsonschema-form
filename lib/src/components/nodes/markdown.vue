@@ -44,37 +44,24 @@ export default defineComponent({
 
       const messages = props.modelValue.messages
 
-      const config = {
-        element: element.value,
-        initialValue: props.modelValue.data ?? '',
-        renderingConfig: {},
-        status: false,
-        autoDownloadFontAwesome: false,
-        spellChecker: false,
-        minHeight: '300px',
-        insertTexts: {
-          link: [messages.mdeLink1, messages.mdeLink2],
-          image: [messages.mdeImg1, messages.mdeImg2],
-          table: [messages.mdeTable1, messages.mdeTable2],
-          horizontalRule: ['', '\n\n-----\n\n']
-        },
-        // cf https://github.com/Ionaru/easy-markdown-editor/blob/master/src/js/easymde.js#L1380
-        toolbar: [{
-          name: 'bold',
-          action: EasyMDE.toggleBold,
-          className: 'mdi mdi-format-bold',
-          title: messages.bold
-        }, {
-          name: 'italic',
-          action: EasyMDE.toggleItalic,
-          className: 'mdi mdi-format-italic',
-          title: messages.italic
-        }, {
-          name: 'heading',
-          action: EasyMDE.toggleHeadingSmaller,
-          className: 'mdi mdi-format-title',
-          title: messages.heading
-        }, /* {
+      const toolbar = props.modelValue.options.readOnly
+        ? []
+        : [{
+            name: 'bold',
+            action: EasyMDE.toggleBold,
+            className: 'mdi mdi-format-bold',
+            title: messages.bold
+          }, {
+            name: 'italic',
+            action: EasyMDE.toggleItalic,
+            className: 'mdi mdi-format-italic',
+            title: messages.italic
+          }, {
+            name: 'heading',
+            action: EasyMDE.toggleHeadingSmaller,
+            className: 'mdi mdi-format-title',
+            title: messages.heading
+          }, /* {
     name: 'heading-1',
     action: EasyMDE.toggleHeading1,
     className: 'mdi mdi-format-title',
@@ -90,76 +77,92 @@ export default defineComponent({
     className: 'mdi mdi-format-title',
     title: 'Titre 3'
   }, */
-        '|',
-        {
-          name: 'quote',
-          action: EasyMDE.toggleBlockquote,
-          className: 'mdi mdi-format-quote-open',
-          title: messages.quote
+          '|',
+          {
+            name: 'quote',
+            action: EasyMDE.toggleBlockquote,
+            className: 'mdi mdi-format-quote-open',
+            title: messages.quote
+          },
+          {
+            name: 'unordered-list',
+            action: EasyMDE.toggleUnorderedList,
+            className: 'mdi mdi-format-list-bulleted',
+            title: messages.unorderedList
+          },
+          {
+            name: 'ordered-list',
+            action: EasyMDE.toggleOrderedList,
+            className: 'mdi mdi-format-list-numbered',
+            title: messages.orderedList
+          },
+          '|',
+          {
+            name: 'link',
+            action: EasyMDE.drawLink,
+            className: 'mdi mdi-link',
+            title: messages.createLink
+          },
+          {
+            name: 'image',
+            action: EasyMDE.drawImage,
+            className: 'mdi mdi-image',
+            title: messages.insertImage
+          },
+          {
+            name: 'table',
+            action: EasyMDE.drawTable,
+            className: 'mdi mdi-table',
+            title: messages.createTable
+          },
+          '|',
+          {
+            name: 'preview',
+            action: EasyMDE.togglePreview,
+            className: 'mdi mdi-eye text-accent',
+            title: messages.preview,
+            noDisable: true
+          },
+          '|',
+          {
+            name: 'undo',
+            action: EasyMDE.undo,
+            className: 'mdi mdi-undo',
+            title: messages.undo,
+            noDisable: true
+          },
+          {
+            name: 'redo',
+            action: EasyMDE.redo,
+            className: 'mdi mdi-redo',
+            title: messages.redo,
+            noDisable: true
+          },
+          '|',
+          {
+            name: 'guide',
+            action: 'https://simplemde.com/markdown-guide',
+            className: 'mdi mdi-help-circle text-success',
+            title: messages.mdeGuide,
+            noDisable: true
+          }]
+
+      const config = {
+        element: element.value,
+        initialValue: props.modelValue.data ?? '',
+        renderingConfig: {},
+        status: false,
+        autoDownloadFontAwesome: false,
+        spellChecker: false,
+        minHeight: '300px',
+        insertTexts: {
+          link: [messages.mdeLink1, messages.mdeLink2],
+          image: [messages.mdeImg1, messages.mdeImg2],
+          table: [messages.mdeTable1, messages.mdeTable2],
+          horizontalRule: ['', '\n\n-----\n\n']
         },
-        {
-          name: 'unordered-list',
-          action: EasyMDE.toggleUnorderedList,
-          className: 'mdi mdi-format-list-bulleted',
-          title: messages.unorderedList
-        },
-        {
-          name: 'ordered-list',
-          action: EasyMDE.toggleOrderedList,
-          className: 'mdi mdi-format-list-numbered',
-          title: messages.orderedList
-        },
-        '|',
-        {
-          name: 'link',
-          action: EasyMDE.drawLink,
-          className: 'mdi mdi-link',
-          title: messages.createLink
-        },
-        {
-          name: 'image',
-          action: EasyMDE.drawImage,
-          className: 'mdi mdi-image',
-          title: messages.insertImage
-        },
-        {
-          name: 'table',
-          action: EasyMDE.drawTable,
-          className: 'mdi mdi-table',
-          title: messages.createTable
-        },
-        '|',
-        {
-          name: 'preview',
-          action: EasyMDE.togglePreview,
-          className: 'mdi mdi-eye text-accent',
-          title: messages.preview,
-          noDisable: true
-        },
-        '|',
-        {
-          name: 'undo',
-          action: EasyMDE.undo,
-          className: 'mdi mdi-undo',
-          title: messages.undo,
-          noDisable: true
-        },
-        {
-          name: 'redo',
-          action: EasyMDE.redo,
-          className: 'mdi mdi-redo',
-          title: messages.redo,
-          noDisable: true
-        },
-        '|',
-        {
-          name: 'guide',
-          action: 'https://simplemde.com/markdown-guide',
-          className: 'mdi mdi-help-circle text-success',
-          title: messages.mdeGuide,
-          noDisable: true
-        }
-        ],
+        // cf https://github.com/Ionaru/easy-markdown-editor/blob/master/src/js/easymde.js#L1380
+        toolbar,
         ...props.modelValue.options.easyMDEOptions
       }
 
