@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from 'vue'
+import { useTheme } from 'vuetify'
 import { VCol } from 'vuetify/components'
 import NodeSlot from './fragments/node-slot.vue'
 import HelpMessage from './fragments/help-message.vue'
@@ -24,12 +25,16 @@ const beforeAfterClasses = {
   default: 'my-3'
 }
 
+const theme = useTheme()
+
 const nodeClasses = computed(() => {
   let classes = `vjsf-node vjsf-node-${props.modelValue.layout.comp} vjsf-density-${props.modelValue.options.density}`
   if (props.modelValue.options.readOnly) classes += ' vjsf-readonly'
   if (props.modelValue.options.summary) classes += ' vjsf-summary'
+  if (theme.current.value.dark) classes += ' vjsf-dark'
   return classes
 })
+
 </script>
 
 <template>
