@@ -44,6 +44,9 @@ export default defineComponent({
       return fieldSlots
     })
 
+    /** @type {ReturnType<typeof setTimeout> | null} */
+    let blurTimeout = null
+
     /** @type {EasyMDE | null} */
     let easymde = null
 
@@ -184,9 +187,8 @@ export default defineComponent({
         changed = true
         if (easymde) props.statefulLayout.input(props.modelValue, easymde.value())
       })
-      /** @type {ReturnType<typeof setTimeout> | null} */
-      let blurTimeout = null
       easymde.codemirror.on('blur', () => {
+        console.log('onblur')
         // timeout to prevent triggering save when clicking on a menu button
         blurTimeout = setTimeout(() => {
           if (changed) props.statefulLayout.blur(props.modelValue)
@@ -223,6 +225,7 @@ export default defineComponent({
     })
 
     props.statefulLayout.events.on('autofocus', () => {
+      console.log('focus code mirror ?')
       if (props.modelValue.autofocus && easymde) {
         easymde.codemirror.focus()
       }
@@ -301,6 +304,10 @@ const getDarkStyle = (/** @type {import('vuetify').ThemeInstance} */theme) => {
 </script>
 
 <style>
+.vjsf-node-markdown .vjsf-node-markdown-content {
+  width: 100%;
+}
+
 /* adjust to density */
 .vjsf-node-markdown .v-input--density-compact .editor-toolbar {
   padding: 0;
@@ -327,7 +334,8 @@ const getDarkStyle = (/** @type {import('vuetify').ThemeInstance} */theme) => {
   overflow: hidden;
   mask-image: linear-gradient(180deg, #000 66%, transparent 90%);
 }
-.vjsf-node-markdown .vjsf-node-markdown-content textarea {
+.vjsf-node-markdown.vjsf-readonly .vjsf-node-markdown-content textarea {
   display: none;
 }
+
 </style>
