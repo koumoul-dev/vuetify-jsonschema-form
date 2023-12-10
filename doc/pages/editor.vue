@@ -61,48 +61,50 @@
         </v-alert>
       </v-col>
       <v-col>
-        <v-form
-          v-if="vjsfParams"
-          ref="form"
-          v-model="valid"
-          class="mr-4"
-        >
-          <vjsf
-            v-model="data"
-            v-bind="vjsfParams"
-            @update:state="(/** @type {import('@json-layout/core').StatefulLayout} */newState) => state = newState"
+        <div :style="`max-height: ${height - 8}px;overflow-y: auto;`">
+          <v-form
+            v-if="vjsfParams"
+            ref="form"
+            v-model="valid"
+            class="mr-4"
           >
-            <template #custom-textarea="{node, statefulLayout}">
-              <textarea
-                :value="node.data"
-                style="border: 1px solid red;"
-                placeholder="A custom textarea"
-                @input="event => statefulLayout.input(node, event.target.value)"
-              />
-            </template>
-            <template #custom-message="{node}">
-              This message is defined in a slot (key={{ node.key }})
-            </template>
-          </vjsf>
-          <v-row>
-            <v-spacer />
-            <v-btn
-              :color="validateColor"
-              flat
-              class="ma-2"
-              @click="form?.validate()"
+            <vjsf
+              v-model="data"
+              v-bind="vjsfParams"
+              @update:state="(/** @type {import('@json-layout/core').StatefulLayout} */newState) => state = newState"
             >
-              Validate
-            </v-btn>
-          </v-row>
-        </v-form>
+              <template #custom-textarea="{node, statefulLayout}">
+                <textarea
+                  :value="node.data"
+                  style="border: 1px solid red;"
+                  placeholder="A custom textarea"
+                  @input="event => statefulLayout.input(node, event.target.value)"
+                />
+              </template>
+              <template #custom-message="{node}">
+                This message is defined in a slot (key={{ node.key }})
+              </template>
+            </vjsf>
+            <v-row>
+              <v-spacer />
+              <v-btn
+                :color="validateColor"
+                flat
+                class="ma-2"
+                @click="form?.validate()"
+              >
+                Validate
+              </v-btn>
+            </v-row>
+          </v-form>
+        </div>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script setup>
-import { ref, reactive, computed, watch, onMounted } from 'vue'
+import { ref, reactive, computed, watch, onMounted, onUnmounted } from 'vue'
 import { watchDebounced, useWindowSize } from '@vueuse/core'
 import { VContainer, VRow, VCol, VSpacer, VForm, VBtn, VAlert, VWindow, VWindowItem, VToolbar } from 'vuetify/components'
 import yaml from 'yaml'
@@ -192,5 +194,13 @@ const validateColor = computed(() => {
 
 useHead({
   title: 'VJSF - Editor'
+})
+
+// hide scrollbar in this specific page
+onMounted(() => {
+  document.getElementsByTagName('html')[0].style.overflowY = 'hidden'
+})
+onUnmounted(() => {
+  document.getElementsByTagName('html')[0].style.overflowY = ''
 })
 </script>
