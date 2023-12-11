@@ -16,7 +16,9 @@ const schema = {
       }
     },
     conditionnalProp: {
-      type: 'string', title: 'I\'m here if  Hello is in arrayProp', 'x-if': '\'Hello\' in root.arrayProp'
+      type: 'string',
+      title: 'I\'m here if  Hello is in arrayProp',
+      'x-if': '\'Hello\' in root.arrayProp'
     }
   }
 }

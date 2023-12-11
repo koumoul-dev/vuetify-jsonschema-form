@@ -53,6 +53,27 @@
     </code-block>
 
     <h2 class="text-h4 my-6">
+      Pure/impure expressions
+    </h2>
+
+    <p>Expressions are considered as pure by default. It means that they should only use their input parameters, and no global variable. This allows for caching optimizations. It is possible to declare that an expression is not pure like this:</p>
+
+    <code-block>
+      <pre>
+{
+  expr: '!!window.myVar',
+  pure: false
+}</pre>
+    </code-block>
+
+    <p>This kind of expression has access to some extra parameters:</p>
+
+    <ul>
+      <li><b>parentData</b> - the data of the parent node where this expression is evaluated.</li>
+      <li><b>rootData</b> - the root data of this vjsf instance.</li>
+    </ul>
+
+    <h2 class="text-h4 my-6">
       Type <code>js-fn</code>
     </h2>
 
