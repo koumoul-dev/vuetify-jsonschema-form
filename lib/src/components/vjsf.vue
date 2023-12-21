@@ -27,6 +27,7 @@ import NodeExpansionPanels from './nodes/expansion-panels.vue'
 import NodeStepper from './nodes/stepper.vue'
 import NodeList from './nodes/list.vue'
 import NodeMarkdown from './nodes/markdown.vue'
+import NodeFileInput from './nodes/file-input.vue'
 
 const comps = {
   section: NodeSection,
@@ -49,7 +50,8 @@ const comps = {
   list: NodeList,
   combobox: NodeCombobox,
   'number-combobox': NodeNumberCombobox,
-  markdown: NodeMarkdown
+  markdown: NodeMarkdown,
+  'file-input': NodeFileInput
 }
 
 const instance = getCurrentInstance()
