@@ -2,6 +2,8 @@ const id = 'prefilled-arrays'
 
 const title = 'Prefilled arrays'
 
+const warning = 'Prefilled arrays based on HTTP requests are not supported yet in v3.'
+
 const description = `Arrays can be initialized using a list of values. In this case elements can be edited and sorted but it is not possible to add or remove them.
 
 Objects used to initialize the array are fetched using similar methods as for select fields (fromData, fromUrl).`
@@ -165,4 +167,4 @@ const httpMocks = {
   }
 }
 
-export default { id, title, description, schema, model, options, httpMocks }
+export default { id, title, warning, description, schema, model, options, httpMocks }
