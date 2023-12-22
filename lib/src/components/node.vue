@@ -7,18 +7,18 @@ import HelpMessage from './fragments/help-message.vue'
 
 const props = defineProps({
   modelValue: {
-    /** @type import('vue').PropType<import('./types.js').VjsfNode> */
+    /** @type import('vue').PropType<import('../types.js').VjsfNode> */
     type: Object,
     required: true
   },
   statefulLayout: {
-    /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+    /** @type import('vue').PropType<import('../types.js').VjsfStatefulLayout> */
     type: Object,
     required: true
   }
 })
 
-/** @type Record<import('./types.js').Density, string> */
+/** @type Record<import('../types.js').Density, string> */
 const beforeAfterClasses = {
   compact: 'my-1',
   comfortable: 'my-2',
@@ -35,6 +35,10 @@ const nodeClasses = computed(() => {
   return classes
 })
 
+if (!props.statefulLayout.options.nodeComponents[props.modelValue.layout.comp]) {
+  console.error(`vjsf: missing component to render vjsf node "${props.modelValue.layout.comp}", maybe you forgot to register a component from a plugin ?`)
+}
+
 </script>
 
 <template>
@@ -48,13 +52,13 @@ const nodeClasses = computed(() => {
       :layout-slot="modelValue.layout.slots?.before"
       :node="modelValue"
       :stateful-layout="statefulLayout"
-      :class="beforeAfterClasses[/** @type import('./types.js').VjsfOptions */(modelValue.options).density]"
+      :class="beforeAfterClasses[modelValue.options.density]"
     />
 
     <help-message
       v-if="modelValue.layout.help"
       :node="modelValue"
-      :class="beforeAfterClasses[/** @type import('./types.js').VjsfOptions */(modelValue.options).density]"
+      :class="beforeAfterClasses[modelValue.options.density]"
     />
     <node-slot
       v-if="modelValue.layout.slots?.component"
@@ -64,8 +68,8 @@ const nodeClasses = computed(() => {
       :stateful-layout="statefulLayout"
     />
     <component
-      :is="`vjsf-node-${modelValue.layout.comp}`"
-      v-else-if="modelValue.layout.comp !== 'none'"
+      :is="props.statefulLayout.options.nodeComponents[modelValue.layout.comp]"
+      v-else-if="modelValue.layout.comp !== 'none' "
       :model-value="modelValue"
       :stateful-layout="statefulLayout"
     />
@@ -76,7 +80,7 @@ const nodeClasses = computed(() => {
       :layout-slot="modelValue.layout.slots?.after"
       :node="modelValue"
       :stateful-layout="statefulLayout"
-      :class="beforeAfterClasses[/** @type import('./types.js').VjsfOptions */(modelValue.options).density]"
+      :class="beforeAfterClasses[modelValue.options.density]"
     />
   </v-col>
 </template>

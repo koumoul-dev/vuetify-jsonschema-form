@@ -71,7 +71,6 @@
             <vjsf
               v-model="data"
               v-bind="vjsfParams"
-              @update:state="(/** @type {import('@json-layout/core').StatefulLayout} */newState) => state = newState"
             >
               <template #custom-textarea="{node, statefulLayout}">
                 <textarea
@@ -109,6 +108,7 @@ import { watchDebounced, useWindowSize } from '@vueuse/core'
 import { VContainer, VRow, VCol, VSpacer, VForm, VBtn, VAlert, VWindow, VWindowItem, VToolbar } from 'vuetify/components'
 import yaml from 'yaml'
 import { Vjsf, defaultOptions } from '@koumoul/vjsf'
+import '@koumoul/vjsf-markdown'
 import { compile } from '@json-layout/core'
 import examples from '~/examples/'
 

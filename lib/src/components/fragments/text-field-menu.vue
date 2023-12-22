@@ -1,16 +1,16 @@
 <script setup>
 import { VMenu, VTextField } from 'vuetify/components'
 import { computed, ref } from 'vue'
-import { getCompProps, getInputProps } from '../../utils/props.js'
+import { getCompProps, getInputProps } from '../../utils/index.js'
 
 const props = defineProps({
   modelValue: {
-    /** @type import('vue').PropType<import('../types.js').VjsfNode> */
+    /** @type import('vue').PropType<import('../../types.js').VjsfNode> */
     type: Object,
     required: true
   },
   statefulLayout: {
-    /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+    /** @type import('vue').PropType<import('../../types.js').VjsfStatefulLayout> */
     type: Object,
     required: true
   },

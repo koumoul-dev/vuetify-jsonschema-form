@@ -4,7 +4,7 @@ import { computed } from 'vue'
 
 const props = defineProps({
   node: {
-    /** @type import('vue').PropType<import('../types.js').VjsfNode> */
+    /** @type import('vue').PropType<import('../../types.js').VjsfNode> */
     type: Object,
     required: true
   }
@@ -53,3 +53,4 @@ const titleClass = computed(() => {
     </v-alert>
   </div>
 </template>
+../../../types.js

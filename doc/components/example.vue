@@ -233,7 +233,8 @@
 </template>
 
 <script>
-import { Vjsf } from '@koumoul/vjsf'
+import Vjsf from '@koumoul/vjsf'
+import '@koumoul/vjsf-markdown'
 import { v2compat } from '@koumoul/vjsf/compat/v2'
 import { VContainer, VRow, VCol, VSpacer, VForm, VBtn, VDivider, VSelect, VSwitch, VToolbar, VSheet, VWindow, VSlider, VWindowItem } from 'vuetify/components'
 import slotCodes from '../examples/slot-codes.js'

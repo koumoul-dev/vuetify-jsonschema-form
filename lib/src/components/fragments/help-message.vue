@@ -25,7 +25,7 @@ import { ref } from 'vue'
 
 defineProps({
   node: {
-    /** @type import('vue').PropType<import('../types.js').VjsfNode> */
+    /** @type import('vue').PropType<import('../../types.js').VjsfNode> */
     type: Object,
     required: true
   }
@@ -46,3 +46,4 @@ const show = ref(false)
   z-index: 1;
 }
 </style>
+../../../types.js

@@ -3,19 +3,18 @@ import { defineComponent, h, computed, onMounted, ref, onUnmounted, watch } from
 import { useTheme } from 'vuetify'
 import { VInput, VLabel } from 'vuetify/components'
 import { marked } from 'marked'
-import { getInputProps } from '../../utils/props.js'
-import { getCompSlots } from '../../utils/slots.js'
+import { getInputProps, getCompSlots } from '@koumoul/vjsf/utils'
 import 'easymde/dist/easymde.min.css'
 
 export default defineComponent({
   props: {
     modelValue: {
-      /** @type import('vue').PropType<import('../types.js').VjsfTextareaNode> */
+      /** @type import('vue').PropType<import('@koumoul/vjsf/types.js').VjsfMarkdownNode> */
       type: Object,
       required: true
     },
     statefulLayout: {
-      /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+      /** @type import('vue').PropType<import('@koumoul/vjsf/types.js').VjsfStatefulLayout> */
       type: Object,
       required: true
     }

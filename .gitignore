@@ -1,6 +1,7 @@
 node_modules
 /lib/types
 /lib/coverage
+/markdown/types
 /doc/dist
 /doc/.nuxt
 /doc/.output

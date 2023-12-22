@@ -6,12 +6,12 @@ import Node from '../node.vue'
 
 const props = defineProps({
   modelValue: {
-    /** @type import('vue').PropType<import('../types.js').VjsfOneOfSelectNode> */
+    /** @type import('vue').PropType<import('../../types.js').VjsfOneOfSelectNode> */
     type: Object,
     required: true
   },
   statefulLayout: {
-    /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+    /** @type import('vue').PropType<import('../../types.js').VjsfStatefulLayout> */
     type: Object,
     required: true
   }
@@ -49,7 +49,7 @@ const onChange = (/** @type import('@json-layout/core').SkeletonTree */childTree
     <node
       v-for="grandChild of isSection(modelValue.children?.[0]) ? modelValue.children?.[0].children : modelValue.children"
       :key="grandChild.fullKey"
-      :model-value="/** @type import('../types.js').VjsfNode */(grandChild)"
+      :model-value="/** @type import('../../types.js').VjsfNode */(grandChild)"
       :stateful-layout="statefulLayout"
     />
   </v-row>

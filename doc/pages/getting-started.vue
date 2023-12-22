@@ -24,7 +24,7 @@
     <code-block language="markup">
       <pre>
 &lt;script setup&gt;
-  import { Vjsf } from '@koumoul/vjsf'
+  import Vjsf from '@koumoul/vjsf'
 &lt;/script&gt;
 &lt;template&gt;
   &lt;vjsf v-model="data" :schema="schema" :options="options" /&gt;

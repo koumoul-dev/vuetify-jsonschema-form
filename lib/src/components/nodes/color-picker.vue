@@ -2,16 +2,16 @@
 import TextFieldMenu from '../fragments/text-field-menu.vue'
 import { VColorPicker } from 'vuetify/components'
 import { computed } from 'vue'
-import { getCompProps } from '../../utils/props.js'
+import { getCompProps } from '../../utils/index.js'
 
 const props = defineProps({
   modelValue: {
-    /** @type import('vue').PropType<import('../types.js').VjsfColorPickerNode> */
+    /** @type import('vue').PropType<import('../../types.js').VjsfColorPickerNode> */
     type: Object,
     required: true
   },
   statefulLayout: {
-    /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+    /** @type import('vue').PropType<import('../../types.js').VjsfStatefulLayout> */
     type: Object,
     required: true
   }

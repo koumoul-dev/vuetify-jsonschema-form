@@ -1,10 +1,11 @@
 <script setup>
-import { computed, getCurrentInstance } from 'vue'
+import { computed } from 'vue'
 
 import { compile } from '@json-layout/core'
 import Tree from './tree.vue'
 import { useVjsf, emits } from '../composables/use-vjsf.js'
 import '../styles/vjsf.css'
+import { registeredNodeComponents } from '../utils/index.js'
 
 import NodeSection from './nodes/section.vue'
 import NodeTextField from './nodes/text-field.vue'
@@ -26,10 +27,10 @@ import NodeNumberCombobox from './nodes/number-combobox.vue'
 import NodeExpansionPanels from './nodes/expansion-panels.vue'
 import NodeStepper from './nodes/stepper.vue'
 import NodeList from './nodes/list.vue'
-import NodeMarkdown from './nodes/markdown.vue'
 import NodeFileInput from './nodes/file-input.vue'
 
-const comps = {
+/** @type {Record<string, import('vue').Component>} */
+const nodeComponents = {
   section: NodeSection,
   'text-field': NodeTextField,
   textarea: NodeTextarea,
@@ -50,15 +51,8 @@ const comps = {
   list: NodeList,
   combobox: NodeCombobox,
   'number-combobox': NodeNumberCombobox,
-  markdown: NodeMarkdown,
-  'file-input': NodeFileInput
-}
-
-const instance = getCurrentInstance()
-for (const [name, comp] of Object.entries(comps)) {
-  if (!instance?.appContext.app.component(`vjsf-node-${name}`)) {
-    instance?.appContext.app.component(`vjsf-node-${name}`, comp)
-  }
+  'file-input': NodeFileInput,
+  ...registeredNodeComponents
 }
 
 const props = defineProps({
@@ -76,7 +70,7 @@ const props = defineProps({
     default: null
   },
   options: {
-    /** @type import('vue').PropType<import('./types.js').PartialVjsfOptions> */
+    /** @type import('vue').PropType<import('../types.js').PartialVjsfOptions> */
     type: Object,
     required: true
   }
@@ -88,6 +82,7 @@ const { el, statefulLayout, stateTree } = useVjsf(
   computed(() => props.schema),
   computed(() => props.modelValue),
   computed(() => props.options),
+  nodeComponents,
   emit,
   compile,
   computed(() => props.precompiledLayout)
@@ -102,7 +97,6 @@ const { el, statefulLayout, stateTree } = useVjsf(
   >
     <tree
       v-if="statefulLayout && stateTree"
-      ref="tree"
       :model-value="stateTree"
       :stateful-layout="statefulLayout"
     />

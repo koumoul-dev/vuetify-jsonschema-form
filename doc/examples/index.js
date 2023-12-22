@@ -1,10 +1,18 @@
 import { examples } from '@json-layout/examples'
 import vuetifyExamples from './vuetify/index.js'
 import { examples as v2ExampleGroups } from './v2/index.js'
-import codeSlots from './merged/code-slots.js'
+import { additionalExamples, overwrites } from './merged/index.js'
 
-const slotsCategory = examples.find(e => e.id === 'slots')
-slotsCategory?.examples.push(codeSlots)
+for (const exampleCategory of examples) {
+  if (additionalExamples[exampleCategory.id]) {
+    exampleCategory.examples.push(...additionalExamples[exampleCategory.id])
+  }
+  for (const example of exampleCategory.examples) {
+    if (overwrites[exampleCategory.id]?.[example.id]) {
+      Object.assign(example, overwrites[exampleCategory.id]?.[example.id])
+    }
+  }
+}
 
 /** @type {import("@json-layout/examples").JSONLayoutExample[]} */
 const v2Examples = []

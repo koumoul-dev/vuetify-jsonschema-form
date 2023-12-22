@@ -3,17 +3,17 @@ import { watch, computed, ref } from 'vue'
 import { VList, VListItem, VListItemAction, VBtn, VMenu, VIcon, VSheet, VSpacer, VDivider, VRow, VListSubheader } from 'vuetify/components'
 import { isSection, clone } from '@json-layout/core'
 import Node from '../node.vue'
-import { moveArrayItem } from '../../utils/arrays.js'
+import { moveArrayItem } from '../../utils/index.js'
 import useDnd from '../../composables/use-dnd.js'
 
 const props = defineProps({
   modelValue: {
-    /** @type import('vue').PropType<import('../types.js').VjsfListNode> */
+    /** @type import('vue').PropType<import('../../types.js').VjsfListNode> */
     type: Object,
     required: true
   },
   statefulLayout: {
-    /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+    /** @type import('vue').PropType<import('../../types.js').VjsfStatefulLayout> */
     type: Object,
     required: true
   }
@@ -71,7 +71,7 @@ const buttonDensity = computed(() => {
             <node
               v-for="grandChild of isSection(child) ? child.children : [child]"
               :key="grandChild.fullKey"
-              :model-value="/** @type import('../types.js').VjsfNode */(grandChild)"
+              :model-value="/** @type import('../../types.js').VjsfNode */(grandChild)"
               :stateful-layout="statefulLayout"
             />
           </v-row>

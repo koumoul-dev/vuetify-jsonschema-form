@@ -1,7 +1,13 @@
+<script setup>
+import { VContainer, VBtn } from 'vuetify/components'
+
+const exampleObject = <%- JSON.stringify(example) %>
+</script>
+
 <template>
   <v-container>
     <h1 class="text-h3 mt-8 mb-3">
-      {{ example.title }}
+      {{ exampleObject.title }}
       <v-btn
         icon="mdi-reply"
         flat
@@ -9,8 +15,8 @@
         :to="`/<%= exampleSuite.id %>/<%= example.id %>`"
       />
     </h1>
-    <markdown-block :content="example.description" />
-    <example :example="example" :v2="<%= exampleSuite.id === 'v2' %>">
+    <markdown-block :content="exampleObject.description" />
+    <example :example="exampleObject" :v2="<%= exampleSuite.id === 'v2' %>">
       <template #vjsf="{modelValue, options, updateState}">
         <compiled-<%= exampleSuite.id %>-<%= example.id %> :model-value="modelValue" :options="options" @update:state="updateState">
           <%- slotsCode %>          
@@ -19,16 +25,3 @@
     </example>
   </v-container>
 </template>
-
-<script>
-export default {
-  data () {
-    return {
-      example: <%- JSON.stringify(example) %>
-    }
-  }
-}
-</script>
-
-<style lang="css" scoped>
-</style>

@@ -5,12 +5,12 @@ import SectionHeader from '../fragments/section-header.vue'
 
 defineProps({
   modelValue: {
-    /** @type import('vue').PropType<import('../types.js').VjsfSectionNode> */
+    /** @type import('vue').PropType<import('../../types.js').VjsfSectionNode> */
     type: Object,
     required: true
   },
   statefulLayout: {
-    /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+    /** @type import('vue').PropType<import('../../types.js').VjsfStatefulLayout> */
     type: Object,
     required: true
   }
@@ -24,7 +24,7 @@ defineProps({
     <node
       v-for="child of modelValue.children"
       :key="child.fullKey"
-      :model-value="/** @type import('../types.js').VjsfNode */(child)"
+      :model-value="/** @type import('../../types.js').VjsfNode */(child)"
       :stateful-layout="statefulLayout"
     />
   </v-row>

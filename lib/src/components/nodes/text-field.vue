@@ -1,18 +1,17 @@
 <script>
 import { defineComponent, h, computed } from 'vue'
 import { VTextField } from 'vuetify/components'
-import { getInputProps } from '../../utils/props.js'
-import { getCompSlots } from '../../utils/slots.js'
+import { getInputProps, getCompSlots } from '../../utils/index.js'
 
 export default defineComponent({
   props: {
     modelValue: {
-      /** @type import('vue').PropType<import('../types.js').VjsfTextFieldNode> */
+      /** @type import('vue').PropType<import('../../types.js').VjsfTextFieldNode> */
       type: Object,
       required: true
     },
     statefulLayout: {
-      /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+      /** @type import('vue').PropType<import('../../types.js').VjsfStatefulLayout> */
       type: Object,
       required: true
     }

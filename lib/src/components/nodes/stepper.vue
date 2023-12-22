@@ -7,12 +7,12 @@ import SectionHeader from '../fragments/section-header.vue'
 
 const props = defineProps({
   modelValue: {
-    /** @type import('vue').PropType<import('../types.js').VjsfStepperNode> */
+    /** @type import('vue').PropType<import('../../types.js').VjsfStepperNode> */
     type: Object,
     required: true
   },
   statefulLayout: {
-    /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+    /** @type import('vue').PropType<import('../../types.js').VjsfStatefulLayout> */
     type: Object,
     required: true
   }
@@ -26,10 +26,8 @@ const firstErrorIndex = computed(() => {
 })
 
 const goNext = () => {
-  console.log(props.statefulLayout.validationState)
   const child = props.modelValue.children[step.value]
   props.statefulLayout.validateNodeRecurse(child)
-  console.log(props.statefulLayout.validationState)
   if (!(child.error || child.childError)) step.value++
 }
 </script>
@@ -65,7 +63,7 @@ const goNext = () => {
             <node
               v-for="grandChild of isSection(child) ? child.children : [child]"
               :key="grandChild.fullKey"
-              :model-value="/** @type import('../types.js').VjsfNode */(grandChild)"
+              :model-value="/** @type import('../../types.js').VjsfNode */(grandChild)"
               :stateful-layout="statefulLayout"
             />
           </v-row>

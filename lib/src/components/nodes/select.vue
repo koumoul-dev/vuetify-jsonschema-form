@@ -1,20 +1,19 @@
 <script>
 import { VSelect } from 'vuetify/components'
 import { defineComponent, h, computed, ref, shallowRef } from 'vue'
-import { getInputProps } from '../../utils/props.js'
-import { getCompSlots } from '../../utils/slots.js'
+import { getInputProps, getCompSlots } from '../../utils/index.js'
 import SelectItem from '../fragments/select-item.vue'
 import SelectSelection from '../fragments/select-selection.vue'
 
 export default defineComponent({
   props: {
     modelValue: {
-    /** @type import('vue').PropType<import('../types.js').VjsfSelectNode> */
+    /** @type import('vue').PropType<import('../../types.js').VjsfSelectNode> */
       type: Object,
       required: true
     },
     statefulLayout: {
-    /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+    /** @type import('vue').PropType<import('../../types.js').VjsfStatefulLayout> */
       type: Object,
       required: true
     }

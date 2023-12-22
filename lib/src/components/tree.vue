@@ -9,7 +9,7 @@ defineProps({
     required: true
   },
   statefulLayout: {
-    /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+    /** @type import('vue').PropType<import('../types.js').VjsfStatefulLayout> */
     type: Object,
     required: true
   }
@@ -20,7 +20,7 @@ defineProps({
   <v-row class="vjsf-tree">
     <node
       :stateful-layout="statefulLayout"
-      :model-value="/** @type import('./types.js').VjsfNode */(modelValue.root)"
+      :model-value="/** @type import('../types.js').VjsfNode */(modelValue.root)"
     />
   </v-row>
 </template>

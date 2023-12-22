@@ -1,16 +1,16 @@
 <script setup>
 import { VSwitch } from 'vuetify/components'
 import { computed } from 'vue'
-import { getInputProps } from '../../utils/props.js'
+import { getInputProps } from '../../utils/index.js'
 
 const props = defineProps({
   modelValue: {
-    /** @type import('vue').PropType<import('../types.js').VjsfSwitchNode> */
+    /** @type import('vue').PropType<import('../../types.js').VjsfSwitchNode> */
     type: Object,
     required: true
   },
   statefulLayout: {
-    /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+    /** @type import('vue').PropType<import('../../types.js').VjsfStatefulLayout> */
     type: Object,
     required: true
   }

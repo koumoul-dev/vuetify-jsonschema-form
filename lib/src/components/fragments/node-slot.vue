@@ -12,12 +12,12 @@ export default {
       required: true
     },
     node: {
-      /** @type import('vue').PropType<import('../types.js').VjsfNode> */
+      /** @type import('vue').PropType<import('../../types.js').VjsfNode> */
       type: Object,
       required: true
     },
     statefulLayout: {
-      /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+      /** @type import('vue').PropType<import('../../types.js').VjsfStatefulLayout> */
       type: Object,
       required: true
     },
@@ -38,7 +38,7 @@ export default {
     }
     if (isNameSlot(this.layoutSlot)) {
       if (!this.statefulLayout.options.vjsfSlots[this.layoutSlot.name]) {
-        console.error(`layout references a code slot "${this.layoutSlot.name}" that was not provided.`)
+        console.error(`vjsf: layout references a code slot "${this.layoutSlot.name}" that was not provided.`)
       } else {
         return h(renderTag, this.statefulLayout.options.vjsfSlots[this.layoutSlot.name]({ node: this.node, statefulLayout: this.statefulLayout }))
       }

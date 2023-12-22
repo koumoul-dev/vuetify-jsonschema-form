@@ -7,12 +7,12 @@ import SectionHeader from '../fragments/section-header.vue'
 
 defineProps({
   modelValue: {
-    /** @type import('vue').PropType<import('../types.js').VjsfTabsNode> */
+    /** @type import('vue').PropType<import('../../types.js').VjsfTabsNode> */
     type: Object,
     required: true
   },
   statefulLayout: {
-    /** @type import('vue').PropType<import('@json-layout/core').StatefulLayout> */
+    /** @type import('vue').PropType<import('../../types.js').VjsfStatefulLayout> */
     type: Object,
     required: true
   }
@@ -52,7 +52,7 @@ const tab = ref(0)
             <node
               v-for="grandChild of isSection(child) ? child.children : [child]"
               :key="grandChild.fullKey"
-              :model-value="/** @type import('../types.js').VjsfNode */(grandChild)"
+              :model-value="/** @type import('../../types.js').VjsfNode */(grandChild)"
               :stateful-layout="statefulLayout"
             />
           </v-row>

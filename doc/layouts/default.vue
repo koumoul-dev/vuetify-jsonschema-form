@@ -56,6 +56,11 @@
             Editor
           </v-list-item-title>
         </v-list-item>
+        <v-list-item to="/plugins">
+          <v-list-item-title>
+            Plugins
+          </v-list-item-title>
+        </v-list-item>
       </v-list>
 
       <v-list

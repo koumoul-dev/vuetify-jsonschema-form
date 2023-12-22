@@ -1,0 +1,45 @@
+{
+  "name": "@koumoul/vjsf-markdown",
+  "version": "0.0.0",
+  "description": "A plugin to add markdown edition capability to vjsf.",
+  "scripts": {
+    "test": "vitest",
+    "build": "vue-tsc",
+    "watch:build": "vue-tsc --watch"
+  },
+  "author": "Alban Mouton <alban.mouton@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "types",
+    "src",
+    "LICENSE"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./src/index.js",
+        "types": "./types/index.d.ts"
+      }
+    },
+    "./components/*": {
+      "import": {
+        "default": "./src/components/*",
+        "types": "./types/components/*.d.ts"
+      }
+    }
+  },
+  "peerDependencies": {
+    "@koumoul/vjsf": ">=3.0.0-alpha",
+    "vue": "^3.3.4",
+    "vuetify": "^3.4.8"
+  },
+  "devDependencies": {
+    "vitest": "^0.34.5",
+    "vue": "^3.3.4",
+    "vue-tsc": "^1.8.15"
+  },
+  "dependencies": {
+    "easymde": "^2.18.0"
+  }
+}
