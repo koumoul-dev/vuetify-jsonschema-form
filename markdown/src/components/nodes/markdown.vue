@@ -50,10 +50,6 @@ export default defineComponent({
     let easymde = null
 
     const initEasyMDE = async () => {
-      if (easymde) {
-        easymde.toTextArea()
-        easymde = null
-      }
       if (props.modelValue.options.readOnly) return
       if (!element.value) throw new Error('component was not mounted for markdown editor')
 
@@ -178,6 +174,8 @@ export default defineComponent({
         }],
         ...props.modelValue.options.easyMDEOptions
       }
+
+      if (easymde) easymde.toTextArea()
       // @ts-ignore
       easymde = new EasyMDE(config)
 
@@ -187,7 +185,6 @@ export default defineComponent({
         if (easymde) props.statefulLayout.input(props.modelValue, easymde.value())
       })
       easymde.codemirror.on('blur', () => {
-        console.log('onblur')
         // timeout to prevent triggering save when clicking on a menu button
         blurTimeout = setTimeout(() => {
           if (changed) props.statefulLayout.blur(props.modelValue)
