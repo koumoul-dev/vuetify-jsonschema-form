@@ -1,0 +1,1 @@
+import{Z as t,at as n}from"./entry.5dcac124.js";const s=t({class:[String,Array],style:{type:[String,Array,Object],default:null}},"component");function o(e){const r=n("useRender");r.render=e}const c=t({tag:{type:String,default:"div"}},"tag");export{c as a,s as m,o as u};
