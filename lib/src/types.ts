@@ -35,6 +35,7 @@ export type VjsfStatefulLayoutOptions = StatefulLayoutOptions & {
   fieldPropsCompact: Record<string, unknown>,
   fieldPropsComfortable: Record<string, unknown>,
   fieldPropsReadOnly: Record<string, unknown>,
+  fieldPropsSummary: Record<string, unknown>,
   textfieldProps: Record<string, unknown>,
   textfieldPropsReadOnly: Record<string, unknown>,
   textareaProps: Record<string, unknown>,
