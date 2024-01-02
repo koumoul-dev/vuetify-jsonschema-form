@@ -44,6 +44,10 @@
 
 <script setup>
 import { VContainer } from 'vuetify/components'
+
+useHead({
+  title: 'VJSF'
+})
 </script>
 
 <style lang="css" scoped>

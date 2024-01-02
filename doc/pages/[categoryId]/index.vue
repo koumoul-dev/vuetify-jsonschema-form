@@ -44,18 +44,18 @@
   </v-alert>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue'
 import { VContainer, VBtn, VAlert } from 'vuetify/components'
 import examples from '~/examples/'
 
-export default {
-  components: { VContainer, VBtn, VAlert },
-  computed: {
-    examplesCategory () {
-      return examples.find(e => e.id === this.$route.params.categoryId)
-    }
-  }
-}
+const route = useRoute()
+
+const examplesCategory = computed(() => examples.find(e => e.id === route.params.categoryId))
+
+const title = computed(() => 'VJSF - ' + (examplesCategory.value?.title || 'Unknown category'))
+
+useHead({ title })
 </script>
 
 <style lang="css">

@@ -10,7 +10,9 @@
 
 <script setup>
 import { VContainer } from 'vuetify/components'
+
 const title = 'Configuration'
+
 useHead({
   title: 'VJSF - ' + title
 })

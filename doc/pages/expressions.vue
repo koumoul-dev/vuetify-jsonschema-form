@@ -113,6 +113,7 @@
 import { VContainer, VAlert } from 'vuetify/components'
 
 const title = 'Expressions'
+
 useHead({
   title: 'VJSF - ' + title
 })

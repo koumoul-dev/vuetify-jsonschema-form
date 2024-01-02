@@ -42,6 +42,7 @@ import '@koumoul/vjsf-markdown'
 import { VContainer } from 'vuetify/components'
 
 const title = 'Plugins'
+
 useHead({
   title: 'VJSF - ' + title
 })

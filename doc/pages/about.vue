@@ -47,22 +47,14 @@
   </v-container>
 </template>
 
-<script>
+<script setup>
 import { VContainer } from 'vuetify/components'
 
-export default {
-  components: {
-    VContainer
-  },
-  data: () => ({
-    title: 'About'
-  }),
-  head () {
-    return {
-      title: 'VJSF - ' + this.title
-    }
-  }
-}
+const title = 'About'
+
+useHead({
+  title: 'VJSF - ' + title
+})
 </script>
 
 <style lang="css">

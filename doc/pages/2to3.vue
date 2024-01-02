@@ -33,22 +33,14 @@ const v3Schema = v2compat(schema)
   </v-container>
 </template>
 
-<script>
+<script setup>
 import { VContainer } from 'vuetify/components'
 
-export default {
-  components: {
-    VContainer
-  },
-  data: () => ({
-    title: 'v2 to v3'
-  }),
-  head () {
-    return {
-      title: 'VJSF - ' + this.title
-    }
-  }
-}
+const title = 'v2 to v3'
+
+useHead({
+  title: 'VJSF - ' + title
+})
 </script>
 
 <style lang="css" scoped>

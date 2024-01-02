@@ -60,18 +60,9 @@ await writeFile('./components/compiled/my-vjsf.vue', code)</pre>
 <script>
 import { VContainer, VAlert } from 'vuetify/components'
 
-export default {
-  components: {
-    VContainer,
-    VAlert
-  },
-  data: () => ({
-    title: 'Getting started'
-  }),
-  head () {
-    return {
-      title: 'VJSF - ' + this.title
-    }
-  }
-}
+const title = 'Getting started'
+
+useHead({
+  title: 'VJSF - ' + title
+})
 </script>

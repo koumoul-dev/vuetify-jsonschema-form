@@ -11,7 +11,7 @@ export const additionalExamples = {
 export const overwrites = {
   formats: {
     markdown: {
-      warning: 'This component requires the "@koumoul/vjsf-markdown" plugin.'
+      warning: 'This component requires the @koumoul/vjsf-markdown plugin.'
     }
   }
 }

@@ -44,25 +44,18 @@
   </v-container>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue'
 import { VContainer, VBtn, VAlert } from 'vuetify/components'
 import examples from '~/examples'
 
-export default {
-  components: { VContainer, VBtn, VAlert },
-  computed: {
-    nodeEnv () {
-      return process.env.NODE_ENV
-    },
-    examplesCategory () {
-      return examples.find(e => e.id === this.$route.params.categoryId)
-    },
-    example () {
-      return this.examplesCategory?.examples.find(e => e.id === this.$route.params.id)
-    }
-  }
-}
-</script>
+const route = useRoute()
 
-<style lang="css" scoped>
-</style>
+const nodeEnv = process.env.NODE_ENV
+const examplesCategory = computed(() => examples.find(e => e.id === route.params.categoryId))
+const example = computed(() => examplesCategory.value?.examples.find(e => e.id === route.params.id))
+
+const title = computed(() => 'VJSF - ' + (example.value?.title || 'Unknown example'))
+
+useHead({ title })
+</script>
