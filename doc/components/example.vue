@@ -183,7 +183,7 @@
     <v-divider />
 
     <v-container fluid>
-      <client-only fallback="loading...">
+      <v-lazy :min-height="120">
         <div :style="`width: ${wrapperWidth}%`">
           <v-form
             ref="form"
@@ -227,7 +227,7 @@
             </v-row>
           </v-form>
         </div>
-      </client-only>
+      </v-lazy>
     </v-container>
   </v-sheet>
 </template>
@@ -236,11 +236,11 @@
 import Vjsf from '@koumoul/vjsf'
 import '@koumoul/vjsf-markdown'
 import { v2compat } from '@koumoul/vjsf/compat/v2'
-import { VContainer, VRow, VCol, VSpacer, VForm, VBtn, VDivider, VSelect, VSwitch, VToolbar, VSheet, VWindow, VSlider, VWindowItem } from 'vuetify/components'
+import { VContainer, VRow, VCol, VSpacer, VForm, VBtn, VDivider, VSelect, VSwitch, VToolbar, VSheet, VWindow, VSlider, VWindowItem, VLazy } from 'vuetify/components'
 import slotCodes from '../examples/slot-codes.js'
 
 export default {
-  components: { Vjsf, VContainer, VRow, VCol, VSpacer, VForm, VBtn, VDivider, VSelect, VSwitch, VToolbar, VSheet, VWindow, VSlider, VWindowItem },
+  components: { Vjsf, VContainer, VRow, VCol, VSpacer, VForm, VBtn, VDivider, VSelect, VSwitch, VToolbar, VSheet, VWindow, VSlider, VWindowItem, VLazy },
   props: {
     example: {
       /** @type import('vue').PropType<import('@json-layout/examples').JSONLayoutExample> */

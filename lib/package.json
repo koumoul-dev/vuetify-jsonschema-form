@@ -71,8 +71,8 @@
     }
   },
   "peerDependencies": {
-    "vue": "^3.3.4",
-    "vuetify": "^3.4.8"
+    "vue": "^3.4.3",
+    "vuetify": "^3.4.9"
   },
   "dependencies": {
     "@json-layout/core": "0.7.0",
@@ -83,8 +83,8 @@
   "devDependencies": {
     "@types/debug": "^4.1.8",
     "@types/ejs": "^3.1.2",
-    "vitest": "^0.34.5",
-    "vue": "^3.3.4",
-    "vue-tsc": "^1.8.15"
+    "vitest": "^1.1.1",
+    "vue": "^3.4.3",
+    "vue-tsc": "^1.8.27"
   }
 }

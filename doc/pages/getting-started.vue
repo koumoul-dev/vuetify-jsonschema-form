@@ -57,7 +57,7 @@ await writeFile('./components/compiled/my-vjsf.vue', code)</pre>
   </v-container>
 </template>
 
-<script>
+<script setup>
 import { VContainer, VAlert } from 'vuetify/components'
 
 const title = 'Getting started'

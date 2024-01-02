@@ -31,13 +31,13 @@
   },
   "peerDependencies": {
     "@koumoul/vjsf": ">=3.0.0-alpha",
-    "vue": "^3.3.4",
-    "vuetify": "^3.4.8"
+    "vue": "^3.4.2",
+    "vuetify": "^3.4.9"
   },
   "devDependencies": {
-    "vitest": "^0.34.5",
-    "vue": "^3.3.4",
-    "vue-tsc": "^1.8.15"
+    "vitest": "^1.1.1",
+    "vue": "^3.4.2",
+    "vue-tsc": "^1.8.27"
   },
   "dependencies": {
     "easymde": "^2.18.0"
