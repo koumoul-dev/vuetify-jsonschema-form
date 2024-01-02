@@ -5,7 +5,6 @@ import { compile } from '@json-layout/core'
 import Tree from './tree.vue'
 import { useVjsf, emits } from '../composables/use-vjsf.js'
 import '../styles/vjsf.css'
-import { registeredNodeComponents } from '../utils/index.js'
 
 import NodeSection from './nodes/section.vue'
 import NodeTextField from './nodes/text-field.vue'
@@ -51,8 +50,7 @@ const nodeComponents = {
   list: NodeList,
   combobox: NodeCombobox,
   'number-combobox': NodeNumberCombobox,
-  'file-input': NodeFileInput,
-  ...registeredNodeComponents
+  'file-input': NodeFileInput
 }
 
 const props = defineProps({
