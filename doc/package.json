@@ -16,7 +16,7 @@
     "@json-layout/core": "0.7.0",
     "@json-layout/examples": "0.5.0",
     "@json-layout/vocabulary": "0.7.0",
-    "@koumoul/vjsf": "3.0.0-alpha.6",
+    "@koumoul/vjsf": "3.0.0-alpha.7",
     "@koumoul/vjsf-markdown": "0.1.0",
     "@mdi/font": "^7.2.96",
     "ajv-formats": "^2.1.1",
@@ -25,7 +25,7 @@
     "markdown-it": "^13.0.2",
     "nuxt": "^3.8.2",
     "prismjs": "^1.29.0",
-    "vite-plugin-vuetify": "^2.0.1",
+    "vite-plugin-vuetify": "^1.0.2",
     "vue-prism-editor": "^2.0.0-alpha.2",
     "vuetify": "^3.4.8",
     "yaml": "^2.3.3"
