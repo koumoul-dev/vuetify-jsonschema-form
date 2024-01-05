@@ -29,10 +29,10 @@
     "@commitlint/config-conventional": "^17.7.0",
     "@koumoul/gh-pages-multi": "^0.7.2",
     "commitlint": "^17.7.2",
-    "eslint": "^8.50.0",
+    "eslint": "^8.56.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-config-typescript": "^3.0.0",
-    "eslint-plugin-vue": "^9.17.0",
+    "eslint-plugin-vue": "^9.19.2",
     "husky": "^8.0.3",
     "relative-deps": "^1.0.7",
     "typescript": "^5.2.2"
