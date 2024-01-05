@@ -16,12 +16,12 @@ const exampleObject = <%- JSON.stringify(example) %>
       />
     </h1>
     <markdown-block :content="exampleObject.description" />
-    <example :example="exampleObject" :v2="<%= exampleSuite.id === 'v2' %>">
+    <vjsf-example :example="exampleObject" :v2="<%= exampleSuite.id === 'v2' %>">
       <template #vjsf="{modelValue, options, updateState}">
         <compiled-<%= exampleSuite.id %>-<%= example.id %> :model-value="modelValue" :options="options" @update:state="updateState">
           <%- slotsCode %>          
         </compiled-<%= exampleSuite.id %>-<%= example.id %>>
       </template>
-    </example>
+    </vjsf-example>
   </v-container>
 </template>

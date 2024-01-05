@@ -37,7 +37,7 @@
       <markdown-block :content="example.warning" />
     </v-alert>
     <markdown-block :content="example.description" />
-    <example
+    <vjsf-example
       :example="example"
       :v2="examplesCategory.id === 'v2-compat'"
     />

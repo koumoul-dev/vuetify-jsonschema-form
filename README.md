@@ -1,4 +1,4 @@
-# vjsf
+# VJSF
 
 *vuetify-json-schema-form* - *@koumoul/vjsf on npm*
 
