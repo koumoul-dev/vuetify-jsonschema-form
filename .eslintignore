@@ -5,3 +5,4 @@ node_modules
 /doc/dist
 /doc/.output
 /doc/.nuxt
+app-examples
