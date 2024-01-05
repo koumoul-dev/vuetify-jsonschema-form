@@ -1,7 +1,7 @@
 {
   "description": "VJSF - Documentation",
   "scripts": {
-    "dev": "nuxt --port 3133",
+    "dev": "export NODE_OPTIONS=--openssl-legacy-provider && nuxt --port 3133",
     "start": "nuxt build && nuxt start"
   },
   "dependencies": {
