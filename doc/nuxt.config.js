@@ -1,6 +1,6 @@
 // https://www.the-koi.com/projects/how-to-set-up-a-project-with-nuxt3-and-vuetify3-with-a-quick-overview/
 import path, { resolve } from 'path'
-import vuetify from 'vite-plugin-vuetify'
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 import { defineNuxtConfig } from 'nuxt/config'
 import dependencyWatcher from 'vite-plugin-dependency-watcher' // cf https://github.com/vitejs/vite/issues/4533
 import examples from './examples/index.js'
@@ -19,6 +19,11 @@ export default defineNuxtConfig({
     transpile: [/vuetify/, /@koumoul/]
   },
   vite: {
+    vue: {
+      template: {
+        transformAssetUrls
+      }
+    },
     server: {
       fs: {
         // necessary to work with npm links
