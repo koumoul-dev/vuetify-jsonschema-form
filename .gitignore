@@ -7,5 +7,4 @@ node_modules
 /doc/.output
 /doc/components/compiled
 /doc/pages/compiled
-/app-examples/
 .idea/

@@ -54,6 +54,27 @@ await writeFile('./components/compiled/my-vjsf.vue', code)</pre>
   &lt;my-vjsf v-model="data" :options="options" /&gt;
 &lt;/template&gt;</pre>
     </code-block>
+
+    <h2 class="text-h4 mb-6">
+      CommonJS dependencies
+    </h2>
+    <p>Unfortunately some of the dependencies used by vjsf are published in the CommonJS format. This breaks homogeneity with the otherwise ESM modules of this library. You might need to inform your build system, for example with Vite:</p>
+
+    <code-block language="js">
+      <pre>
+import { commonjsDeps } from '@koumoul/vjsf/utils/build.js'
+...
+  optimizeDeps: {
+    include: commonjsDeps,
+  },
+  build: {
+    commonjsOptions: {
+      include: commonjsDeps,
+    },
+  },
+...
+    </pre>
+    </code-block>
   </v-container>
 </template>
 

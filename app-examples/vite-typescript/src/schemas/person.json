@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "title": "A simple person definition",
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "title": "First name"
+    },
+    "lastName": {
+      "type": "string",
+      "title": "Last name"
+    }
+  }
+}
