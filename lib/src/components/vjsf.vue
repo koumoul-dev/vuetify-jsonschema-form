@@ -68,9 +68,9 @@ const props = defineProps({
     default: null
   },
   options: {
-    /** @type import('vue').PropType<import('../types.js').PartialVjsfOptions> */
+    /** @type import('vue').PropType<import('../types.js').PartialVjsfOptions | null> */
     type: Object,
-    required: true
+    default: null
   }
 })
 
