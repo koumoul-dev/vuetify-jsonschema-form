@@ -214,7 +214,7 @@
                 </template>
               </vjsf>
             </slot>
-            <v-row>
+            <v-row class="ma-0">
               <v-spacer />
               <v-btn
                 :color="validateColor"
