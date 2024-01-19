@@ -11,9 +11,23 @@
       Known plugins
     </h2>
 
-    <ul>
-      <li><b>@koumoul/vjsf-markdown</b> - provides a rich markdown editor based on <a href="https://github.com/Ionaru/easy-markdown-editor">EasyMDE</a>.</li>
-    </ul>
+    <h3 class="test-h6 my-4">
+      @koumoul/vjsf-markdown
+    </h3>
+
+    <p>This plugin provides a rich markdown editor based on <a href="https://github.com/Ionaru/easy-markdown-editor">EasyMDE</a>. You can customize EasyMDE configuration like so:</p>
+
+    <code-block>
+      <pre>
+const vjsfOptions = {
+  ...
+  plugins: {
+    markdown: {
+      easyMDEOptions: { minHeight: '300px', maxHeight: '300px' }
+    }
+  }
+}</pre>
+    </code-block>
 
     <h2 class="text-h4 my-6">
       Using a plugin
@@ -21,7 +35,7 @@
 
     <p>Install it:</p>
 
-    <code-block>
+    <code-block language="bash">
       npm install @koumoul/vjsf-markdown
     </code-block>
 
@@ -32,8 +46,7 @@
     <code-block>
       <pre>
 import Vjsf from '@koumoul/vjsf'
-import '@koumoul/vjsf-markdown'
-      </pre>
+import '@koumoul/vjsf-markdown'</pre>
     </code-block>
   </v-container>
 </template>

@@ -30,10 +30,9 @@ import {
 export type Density = 'default' | 'comfortable' | 'compact'
 
 export type VjsfStatefulLayoutOptions = StatefulLayoutOptions & {
-  density: Density,
   vjsfSlots: Record<string, () => unknown>,
-  easyMDEOptions: Record<string, unknown>, // TODO: this should be managed in the plugin specifically
   nodeComponents: Record<string, Component>,
+  plugins: Record<string, unknown>
 }
 
 export type VjsfCompileOptions = CompileOptions & {

@@ -6,6 +6,8 @@ import { marked } from 'marked'
 import { getInputProps, getCompSlots } from '@koumoul/vjsf/utils'
 import 'easymde/dist/easymde.min.css'
 
+/** @typedef {{easyMDEOptions: Record<string, any> | undefined}} VjsfPluginMarkdownOptions */
+
 export default defineComponent({
   props: {
     modelValue: {
@@ -56,6 +58,10 @@ export default defineComponent({
       const EasyMDE = (await import('easymde')).default
 
       const messages = props.modelValue.messages
+
+      const pluginOptions = /** @type {VjsfPluginMarkdownOptions | undefined} */(props.modelValue.options.plugins.markdown)
+
+      console.log('PLUGIN OPTS', pluginOptions)
 
       const config = {
         element: element.value,
@@ -172,7 +178,7 @@ export default defineComponent({
           title: messages.mdeGuide,
           noDisable: true
         }],
-        ...props.modelValue.options.easyMDEOptions
+        ...pluginOptions?.easyMDEOptions
       }
 
       if (easymde) easymde.toTextArea()
