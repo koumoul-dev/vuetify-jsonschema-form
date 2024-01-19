@@ -31,22 +31,8 @@ export type Density = 'default' | 'comfortable' | 'compact'
 
 export type VjsfStatefulLayoutOptions = StatefulLayoutOptions & {
   density: Density,
-  fieldProps: Record<string, unknown>,
-  fieldPropsCompact: Record<string, unknown>,
-  fieldPropsComfortable: Record<string, unknown>,
-  fieldPropsReadOnly: Record<string, unknown>,
-  fieldPropsSummary: Record<string, unknown>,
-  textfieldProps: Record<string, unknown>,
-  textfieldPropsReadOnly: Record<string, unknown>,
-  textareaProps: Record<string, unknown>,
-  textareaPropsReadOnly: Record<string, unknown>,
-  checkboxProps: Record<string, unknown>,
-  checkboxPropsReadOnly: Record<string, unknown>,
-  switchProps: Record<string, unknown>,
-  switchPropsReadOnly: Record<string, unknown>,
-  errorAlertProps: Record<string, unknown>,
   vjsfSlots: Record<string, () => unknown>,
-  easyMDEOptions: Record<string, unknown>,
+  easyMDEOptions: Record<string, unknown>, // TODO: this should be managed in the plugin specifically
   nodeComponents: Record<string, Component>,
 }
 

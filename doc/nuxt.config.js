@@ -4,7 +4,6 @@ import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 import { defineNuxtConfig } from 'nuxt/config'
 import dependencyWatcher from 'vite-plugin-dependency-watcher' // cf https://github.com/vitejs/vite/issues/4533
 import examples from './examples/index.js'
-import { commonjsDeps } from '@koumoul/vjsf/utils/build'
 
 // import colors from 'vuetify/lib/util/colors'
 // import path from 'path'
@@ -20,14 +19,6 @@ export default defineNuxtConfig({
     transpile: [/vuetify/, /@koumoul/]
   },
   vite: {
-    optimizeDeps: {
-      include: commonjsDeps
-    },
-    build: {
-      commonjsOptions: {
-        include: commonjsDeps
-      }
-    },
     vue: {
       template: {
         transformAssetUrls
