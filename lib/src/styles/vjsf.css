@@ -1,7 +1,3 @@
-.vjsf {
-  overflow: hidden;
-}
-
 /* override vuetify styles to manage readOnly fields more usable than the default disabled fields */
 .vjsf-input--readonly.v-input--disabled.v-text-field  .v-field--disabled input {
   pointer-events: auto;

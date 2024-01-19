@@ -17,7 +17,7 @@
 
     <p>There are 3 types of expressions supported for the time being : "js-fn", "js-eval" and "js-tpl". All of them are compiled to Javascript functions that accept the same parameters.</p>
 
-    <h2 class="text-h4 my-6">
+    <h2 class="text-h4 mt-8 mb-6">
       Parameters
     </h2>
 
@@ -26,6 +26,7 @@
       <li><b>options</b> - the options object passed to VJSF then merged with contextual options from all parent nodes.</li>
       <li><b>context</b> - shortcut for "options.context".</li>
       <li><b>display</b> - the display object used to manage responsive layouts.</li>
+      <li><b>layout</b> - normalized layout information of the current component.</li>
     </ul>
 
     Content of the display parameter:
@@ -52,7 +53,7 @@
 }</pre>
     </code-block>
 
-    <h2 class="text-h4 my-6">
+    <h2 class="text-h4 mt-8 mb-6">
       Pure/impure expressions
     </h2>
 
@@ -73,17 +74,7 @@
       <li><b>rootData</b> - the root data of this vjsf instance.</li>
     </ul>
 
-    <h2 class="text-h4 my-6">
-      Type <code>js-fn</code>
-    </h2>
-
-    <p>This type of expression lets you write the full body of a JS function including its return statement. It is compiled like this :</p>
-
-    <code-block>
-      new Function(...params, expression)
-    </code-block>
-
-    <h2 class="text-h4 my-6">
+    <h2 class="text-h4 mt-8 mb-6">
       Type <code>js-eval</code>
     </h2>
 
@@ -95,7 +86,7 @@
 
     <p>This is the default type when the expected result of the expression is a boolean or a complex object (like the <code>if</code> property).</p>
 
-    <h2 class="text-h4 my-6">
+    <h2 class="text-h4 mt-8 mb-6">
       Type <code>js-tpl</code>
     </h2>
 
@@ -106,6 +97,16 @@
     </code-block>
 
     <p>This is the default type when the expected result of the expression is a string (like the <code>url</code> property in a <code>fetch</code> instruction).</p>
+
+    <h2 class="text-h4 mt-8 mb-6">
+      Type <code>js-fn</code>
+    </h2>
+
+    <p>This type of expression lets you write the full body of a JS function including its return statement. It is compiled like this :</p>
+
+    <code-block>
+      new Function(...params, expression)
+    </code-block>
   </v-container>
 </template>
 
