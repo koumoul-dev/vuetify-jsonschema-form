@@ -84,7 +84,7 @@
                 This message is defined in a slot (key={{ node.key }})
               </template>
             </vjsf>
-            <v-row>
+            <v-row class="ma-0">
               <v-spacer />
               <v-btn
                 :color="validateColor"

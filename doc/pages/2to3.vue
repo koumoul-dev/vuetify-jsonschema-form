@@ -27,8 +27,7 @@
     <code-block>
       <pre>
 import { v2compat } from '@koumoul/vjsf/compat/v2'
-const v3Schema = v2compat(schema)
-      </pre>
+const v3Schema = v2compat(schema)</pre>
     </code-block>
   </v-container>
 </template>

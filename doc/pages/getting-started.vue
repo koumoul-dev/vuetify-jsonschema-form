@@ -72,8 +72,7 @@ import { commonjsDeps } from '@koumoul/vjsf/utils/build.js'
       include: commonjsDeps,
     },
   },
-...
-    </pre>
+...</pre>
     </code-block>
   </v-container>
 </template>
