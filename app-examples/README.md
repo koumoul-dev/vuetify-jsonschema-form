@@ -22,7 +22,7 @@ Install VJSF:
 
 ```
 cd vite-typescript
-npm install @koumoul/vjsf@next
+npm install @koumoul/vjsf
 ```
 
 Create file [src/schemas/person.json](./vite-typescript/src/schemas/person.json).

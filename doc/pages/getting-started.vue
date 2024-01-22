@@ -14,7 +14,7 @@
     </v-alert>
 
     <p>Install from npm:</p>
-    <code-block>npm install @koumoul/vjsf@next</code-block>
+    <code-block>npm install @koumoul/vjsf</code-block>
 
     <h2 class="text-h4 mb-6">
       Compile at runtime
