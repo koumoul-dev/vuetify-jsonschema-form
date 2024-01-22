@@ -25,7 +25,7 @@ cd vite-typescript
 npm install @koumoul/vjsf
 ```
 
-Use "commonjsDeps" exported by vjsf to [declare the commonjs dependencies to your build system](./vite-typescript/vite.config.js)
+Use "commonjsDeps" exported by vjsf to [declare the commonjs dependencies to your build system](./vite-typescript/vite.config.ts)
 
 Create file [src/schemas/person.json](./vite-typescript/src/schemas/person.json).
 
