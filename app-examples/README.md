@@ -13,7 +13,7 @@ Vuetify.js - Material Component Framework for Vue
 
 ✔ Project name: … vite-typescript
 ✔ Which preset would you like to install? › Default (Vuetify)
-✔ Use TypeScript? … No
+✔ Use TypeScript? … Yes
 ✔ Would you like to install dependencies with yarn, npm, pnpm, or bun? › npm
 
 ```
