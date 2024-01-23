@@ -74,6 +74,7 @@ import { commonjsDeps } from '@koumoul/vjsf/utils/build.js'
   },
 ...</pre>
     </code-block>
+    <p>When changing these parameters in Vite some caching can create confusion, in this case you can use `vite --force` or remove `node_modules/.cache/vite`.</p>
   </v-container>
 </template>
 
