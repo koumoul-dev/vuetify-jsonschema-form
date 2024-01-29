@@ -18,38 +18,38 @@
   "exports": {
     ".": {
       "import": {
-        "default": "./src/index.js",
-        "types": "./types/index.d.ts"
+        "types": "./types/index.d.ts",
+        "default": "./src/index.js"
       }
     },
     "./types.js": {
       "import": {
-        "default": "./src/types.js",
-        "types": "./types/types.d.ts"
+        "types": "./types/types.d.ts",
+        "default": "./src/types.js"
       }
     },
     "./components/*": {
       "import": {
-        "default": "./src/components/*",
-        "types": "./types/components/*.d.ts"
+        "types": "./types/components/*.d.ts",
+        "default": "./src/components/*"
       }
     },
     "./composables/*": {
       "import": {
-        "default": "./src/composables/*",
-        "types": "./types/composables/*.d.ts"
+        "types": "./types/composables/*.d.ts",
+        "default": "./src/composables/*"
       }
     },
     "./utils": {
       "import": {
-        "default": "./src/utils/index.js",
-        "types": "./types/utils/index.d.ts"
+        "types": "./types/utils/index.d.ts",
+        "default": "./src/utils/index.js"
       }
     },
     "./utils/*": {
       "import": {
-        "default": "./src/utils/*",
-        "types": "./types/utils/*.d.ts"
+        "types": "./types/utils/*.d.ts",
+        "default": "./src/utils/*"
       }
     },
     "./styles/*": {
@@ -59,14 +59,14 @@
     },
     "./compile": {
       "import": {
-        "default": "./src/compile/index.js",
-        "types": "./types/compile/index.d.ts"
+        "types": "./types/compile/index.d.ts",
+        "default": "./src/compile/index.js"
       }
     },
     "./compat/v2": {
       "import": {
-        "default": "./src/compat/v2.js",
-        "types": "./types/compat/v2.d.ts"
+        "types": "./types/compat/v2.d.ts",
+        "default": "./src/compat/v2.js"
       }
     }
   },
@@ -75,7 +75,7 @@
     "vuetify": "^3.4.9"
   },
   "dependencies": {
-    "@json-layout/core": "0.9.1",
+    "@json-layout/core": "0.9.2",
     "@vueuse/core": "^10.5.0",
     "debug": "^4.3.4",
     "ejs": "^3.1.9"
