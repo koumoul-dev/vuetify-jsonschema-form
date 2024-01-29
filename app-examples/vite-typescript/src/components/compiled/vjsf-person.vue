@@ -102,8 +102,8 @@ return errors === 0;
 }
 validate23.evaluated = {"props":{"firstName":true,"lastName":true},"dynamicProps":false,"dynamicItems":false};
 
-function expression0(data, options, context, display) {
-return ({})
+function expression0(data, options, context, display, layout) {
+return (layout.defaultData)
 }
 
 const compiledLayout = {
@@ -144,9 +144,11 @@ const compiledLayout = {
         key: "lastName"
       }],
 
-      defaultData: {
+      defaultData: {},
+
+      getDefaultData: {
         type: "js-eval",
-        expr: "{}",
+        expr: "layout.defaultData",
         pure: true,
         ref: 0
       }
