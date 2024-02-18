@@ -1742,7 +1742,16 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
                   for="requiredStringProp"
                   style="left: 0px; position: absolute;"
                 >
-                  I'm a required string
+                  <div>
+                    <span>
+                      I'm a required string
+                      <span
+                        style="font-weight: bold; color: red"
+                      >
+                         *
+                      </span>
+                    </span>
+                  </div>
                 </label>
                 <input
                   id="requiredStringProp"
@@ -1959,7 +1968,16 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
                   for="limitedString"
                   style="left: 0px; position: absolute;"
                 >
-                  I'm a string with min/max length and bad initial value
+                  <div>
+                    <span>
+                      I'm a string with min/max length and bad initial value
+                      <span
+                        style="font-weight: bold; color: red"
+                      >
+                         *
+                      </span>
+                    </span>
+                  </div>
                 </label>
                 <input
                   id="limitedString"
@@ -2019,7 +2037,16 @@ exports[`Examples used as simple test cases Basic validation 1`] = `
                   for="limitedArray"
                   style="left: 0px; position: absolute;"
                 >
-                  I'm an array with min/max items
+                  <div>
+                    <span>
+                      I'm an array with min/max items
+                      <span
+                        style="font-weight: bold; color: red"
+                      >
+                         *
+                      </span>
+                    </span>
+                  </div>
                 </label>
                 <div
                   class="v-select__selections"
@@ -3927,7 +3954,16 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
                                       for="objectArrayProp-item-0-titleProp"
                                       style="left: 0px; position: absolute;"
                                     >
-                                      I'm a required string used as title
+                                      <div>
+                                        <span>
+                                          I'm a required string used as title
+                                          <span
+                                            style="font-weight: bold; color: red"
+                                          >
+                                             *
+                                          </span>
+                                        </span>
+                                      </div>
                                     </label>
                                     <input
                                       disabled="disabled"
@@ -3959,7 +3995,16 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
                                       for="objectArrayProp-item-0-stringProp"
                                       style="left: 0px; position: absolute;"
                                     >
-                                      I'm another required string
+                                      <div>
+                                        <span>
+                                          I'm another required string
+                                          <span
+                                            style="font-weight: bold; color: red"
+                                          >
+                                             *
+                                          </span>
+                                        </span>
+                                      </div>
                                     </label>
                                     <input
                                       disabled="disabled"
@@ -4057,7 +4102,16 @@ exports[`Examples used as simple test cases Editable array inline 1`] = `
                                                           for="objectArrayProp-item-0-nestedObjectArrayProp-item-0-titleProp"
                                                           style="left: 0px; position: absolute;"
                                                         >
-                                                          I'm a required string used as title
+                                                          <div>
+                                                            <span>
+                                                              I'm a required string used as title
+                                                              <span
+                                                                style="font-weight: bold; color: red"
+                                                              >
+                                                                 *
+                                                              </span>
+                                                            </span>
+                                                          </div>
                                                         </label>
                                                         <input
                                                           disabled="disabled"
@@ -4210,7 +4264,16 @@ exports[`Examples used as simple test cases External validator 1`] = `
                   for="stringPropWithFormats"
                   style="left: 0px; position: absolute;"
                 >
-                  I'm a string with combined validation rules
+                  <div>
+                    <span>
+                      I'm a string with combined validation rules
+                      <span
+                        style="font-weight: bold; color: red"
+                      >
+                         *
+                      </span>
+                    </span>
+                  </div>
                 </label>
                 <input
                   id="stringPropWithFormats"
@@ -4337,7 +4400,16 @@ exports[`Examples used as simple test cases External validator 1`] = `
                                     for="invalidSection-stringProp2"
                                     style="left: 0px; position: absolute;"
                                   >
-                                    I'm a required string prop
+                                    <div>
+                                      <span>
+                                        I'm a required string prop
+                                        <span
+                                          style="font-weight: bold; color: red"
+                                        >
+                                           *
+                                        </span>
+                                      </span>
+                                    </div>
                                   </label>
                                   <input
                                     id="invalidSection-stringProp2"
@@ -5102,7 +5174,16 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                       for="objectArrayProp-item-0-titleProp"
                                       style="left: 0px; position: absolute;"
                                     >
-                                      I'm a required string used as title
+                                      <div>
+                                        <span>
+                                          I'm a required string used as title
+                                          <span
+                                            style="font-weight: bold; color: red"
+                                          >
+                                             *
+                                          </span>
+                                        </span>
+                                      </div>
                                     </label>
                                     <input
                                       disabled="disabled"
@@ -5497,7 +5578,16 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                                               for="objectArrayProp-item-0-currentOneOf-childArrayProp-item-0-titleProp"
                                                               style="left: 0px; position: absolute;"
                                                             >
-                                                              I'm a required string used as title
+                                                              <div>
+                                                                <span>
+                                                                  I'm a required string used as title
+                                                                  <span
+                                                                    style="font-weight: bold; color: red"
+                                                                  >
+                                                                     *
+                                                                  </span>
+                                                                </span>
+                                                              </div>
                                                             </label>
                                                             <input
                                                               disabled="disabled"
@@ -5578,7 +5668,16 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                                               for="objectArrayProp-item-0-currentOneOf-childArrayProp-item-1-titleProp"
                                                               style="left: 0px; position: absolute;"
                                                             >
-                                                              I'm a required string used as title
+                                                              <div>
+                                                                <span>
+                                                                  I'm a required string used as title
+                                                                  <span
+                                                                    style="font-weight: bold; color: red"
+                                                                  >
+                                                                     *
+                                                                  </span>
+                                                                </span>
+                                                              </div>
                                                             </label>
                                                             <input
                                                               disabled="disabled"
@@ -5705,7 +5804,16 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                       for="objectArrayProp-item-1-titleProp"
                                       style="left: 0px; position: absolute;"
                                     >
-                                      I'm a required string used as title
+                                      <div>
+                                        <span>
+                                          I'm a required string used as title
+                                          <span
+                                            style="font-weight: bold; color: red"
+                                          >
+                                             *
+                                          </span>
+                                        </span>
+                                      </div>
                                     </label>
                                     <input
                                       disabled="disabled"
@@ -6096,7 +6204,16 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                       for="objectArrayProp-item-2-titleProp"
                                       style="left: 0px; position: absolute;"
                                     >
-                                      I'm a required string used as title
+                                      <div>
+                                        <span>
+                                          I'm a required string used as title
+                                          <span
+                                            style="font-weight: bold; color: red"
+                                          >
+                                             *
+                                          </span>
+                                        </span>
+                                      </div>
                                     </label>
                                     <input
                                       disabled="disabled"
@@ -6491,7 +6608,16 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                                               for="objectArrayProp-item-2-currentOneOf-childArrayProp-item-0-titleProp"
                                                               style="left: 0px; position: absolute;"
                                                             >
-                                                              I'm a required string used as title
+                                                              <div>
+                                                                <span>
+                                                                  I'm a required string used as title
+                                                                  <span
+                                                                    style="font-weight: bold; color: red"
+                                                                  >
+                                                                     *
+                                                                  </span>
+                                                                </span>
+                                                              </div>
                                                             </label>
                                                             <input
                                                               disabled="disabled"
@@ -6572,7 +6698,16 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                                               for="objectArrayProp-item-2-currentOneOf-childArrayProp-item-1-titleProp"
                                                               style="left: 0px; position: absolute;"
                                                             >
-                                                              I'm a required string used as title
+                                                              <div>
+                                                                <span>
+                                                                  I'm a required string used as title
+                                                                  <span
+                                                                    style="font-weight: bold; color: red"
+                                                                  >
+                                                                     *
+                                                                  </span>
+                                                                </span>
+                                                              </div>
                                                             </label>
                                                             <input
                                                               disabled="disabled"
@@ -6699,7 +6834,16 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                       for="objectArrayProp-item-3-titleProp"
                                       style="left: 0px; position: absolute;"
                                     >
-                                      I'm a required string used as title
+                                      <div>
+                                        <span>
+                                          I'm a required string used as title
+                                          <span
+                                            style="font-weight: bold; color: red"
+                                          >
+                                             *
+                                          </span>
+                                        </span>
+                                      </div>
                                     </label>
                                     <input
                                       disabled="disabled"
@@ -7090,7 +7234,16 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                       for="objectArrayProp-item-4-titleProp"
                                       style="left: 0px; position: absolute;"
                                     >
-                                      I'm a required string used as title
+                                      <div>
+                                        <span>
+                                          I'm a required string used as title
+                                          <span
+                                            style="font-weight: bold; color: red"
+                                          >
+                                             *
+                                          </span>
+                                        </span>
+                                      </div>
                                     </label>
                                     <input
                                       disabled="disabled"
@@ -7485,7 +7638,16 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                                               for="objectArrayProp-item-4-currentOneOf-childArrayProp-item-0-titleProp"
                                                               style="left: 0px; position: absolute;"
                                                             >
-                                                              I'm a required string used as title
+                                                              <div>
+                                                                <span>
+                                                                  I'm a required string used as title
+                                                                  <span
+                                                                    style="font-weight: bold; color: red"
+                                                                  >
+                                                                     *
+                                                                  </span>
+                                                                </span>
+                                                              </div>
                                                             </label>
                                                             <input
                                                               disabled="disabled"
@@ -7566,7 +7728,16 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                                               for="objectArrayProp-item-4-currentOneOf-childArrayProp-item-1-titleProp"
                                                               style="left: 0px; position: absolute;"
                                                             >
-                                                              I'm a required string used as title
+                                                              <div>
+                                                                <span>
+                                                                  I'm a required string used as title
+                                                                  <span
+                                                                    style="font-weight: bold; color: red"
+                                                                  >
+                                                                     *
+                                                                  </span>
+                                                                </span>
+                                                              </div>
                                                             </label>
                                                             <input
                                                               disabled="disabled"
@@ -7693,7 +7864,16 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                       for="objectArrayProp-item-5-titleProp"
                                       style="left: 0px; position: absolute;"
                                     >
-                                      I'm a required string used as title
+                                      <div>
+                                        <span>
+                                          I'm a required string used as title
+                                          <span
+                                            style="font-weight: bold; color: red"
+                                          >
+                                             *
+                                          </span>
+                                        </span>
+                                      </div>
                                     </label>
                                     <input
                                       disabled="disabled"
@@ -8084,7 +8264,16 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                       for="objectArrayProp-item-6-titleProp"
                                       style="left: 0px; position: absolute;"
                                     >
-                                      I'm a required string used as title
+                                      <div>
+                                        <span>
+                                          I'm a required string used as title
+                                          <span
+                                            style="font-weight: bold; color: red"
+                                          >
+                                             *
+                                          </span>
+                                        </span>
+                                      </div>
                                     </label>
                                     <input
                                       disabled="disabled"
@@ -8479,7 +8668,16 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                                               for="objectArrayProp-item-6-currentOneOf-childArrayProp-item-0-titleProp"
                                                               style="left: 0px; position: absolute;"
                                                             >
-                                                              I'm a required string used as title
+                                                              <div>
+                                                                <span>
+                                                                  I'm a required string used as title
+                                                                  <span
+                                                                    style="font-weight: bold; color: red"
+                                                                  >
+                                                                     *
+                                                                  </span>
+                                                                </span>
+                                                              </div>
                                                             </label>
                                                             <input
                                                               disabled="disabled"
@@ -8560,7 +8758,16 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                                               for="objectArrayProp-item-6-currentOneOf-childArrayProp-item-1-titleProp"
                                                               style="left: 0px; position: absolute;"
                                                             >
-                                                              I'm a required string used as title
+                                                              <div>
+                                                                <span>
+                                                                  I'm a required string used as title
+                                                                  <span
+                                                                    style="font-weight: bold; color: red"
+                                                                  >
+                                                                     *
+                                                                  </span>
+                                                                </span>
+                                                              </div>
                                                             </label>
                                                             <input
                                                               disabled="disabled"
@@ -8687,7 +8894,16 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                       for="objectArrayProp-item-7-titleProp"
                                       style="left: 0px; position: absolute;"
                                     >
-                                      I'm a required string used as title
+                                      <div>
+                                        <span>
+                                          I'm a required string used as title
+                                          <span
+                                            style="font-weight: bold; color: red"
+                                          >
+                                             *
+                                          </span>
+                                        </span>
+                                      </div>
                                     </label>
                                     <input
                                       disabled="disabled"
@@ -9078,7 +9294,16 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                       for="objectArrayProp-item-8-titleProp"
                                       style="left: 0px; position: absolute;"
                                     >
-                                      I'm a required string used as title
+                                      <div>
+                                        <span>
+                                          I'm a required string used as title
+                                          <span
+                                            style="font-weight: bold; color: red"
+                                          >
+                                             *
+                                          </span>
+                                        </span>
+                                      </div>
                                     </label>
                                     <input
                                       disabled="disabled"
@@ -9473,7 +9698,16 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                                               for="objectArrayProp-item-8-currentOneOf-childArrayProp-item-0-titleProp"
                                                               style="left: 0px; position: absolute;"
                                                             >
-                                                              I'm a required string used as title
+                                                              <div>
+                                                                <span>
+                                                                  I'm a required string used as title
+                                                                  <span
+                                                                    style="font-weight: bold; color: red"
+                                                                  >
+                                                                     *
+                                                                  </span>
+                                                                </span>
+                                                              </div>
                                                             </label>
                                                             <input
                                                               disabled="disabled"
@@ -9554,7 +9788,16 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                                               for="objectArrayProp-item-8-currentOneOf-childArrayProp-item-1-titleProp"
                                                               style="left: 0px; position: absolute;"
                                                             >
-                                                              I'm a required string used as title
+                                                              <div>
+                                                                <span>
+                                                                  I'm a required string used as title
+                                                                  <span
+                                                                    style="font-weight: bold; color: red"
+                                                                  >
+                                                                     *
+                                                                  </span>
+                                                                </span>
+                                                              </div>
                                                             </label>
                                                             <input
                                                               disabled="disabled"
@@ -9681,7 +9924,16 @@ exports[`Examples used as simple test cases Large form 1`] = `
                                       for="objectArrayProp-item-9-titleProp"
                                       style="left: 0px; position: absolute;"
                                     >
-                                      I'm a required string used as title
+                                      <div>
+                                        <span>
+                                          I'm a required string used as title
+                                          <span
+                                            style="font-weight: bold; color: red"
+                                          >
+                                             *
+                                          </span>
+                                        </span>
+                                      </div>
                                     </label>
                                     <input
                                       disabled="disabled"
@@ -10287,7 +10539,16 @@ exports[`Examples used as simple test cases Localization 1`] = `
                   for="selectAjaxWithQuery"
                   style="left: 0px; position: absolute;"
                 >
-                  Je suis un champ de recherche
+                  <div>
+                    <span>
+                      Je suis un champ de recherche
+                      <span
+                        style="font-weight: bold; color: red"
+                      >
+                         *
+                      </span>
+                    </span>
+                  </div>
                 </label>
                 <div
                   class="v-select__selections"
@@ -10486,7 +10747,16 @@ exports[`Examples used as simple test cases Markdown editor (beta) 1`] = `
                                       for="objectArrayProp-item-0-titleProp"
                                       style="left: 0px; position: absolute;"
                                     >
-                                      I'm a required string used as title
+                                      <div>
+                                        <span>
+                                          I'm a required string used as title
+                                          <span
+                                            style="font-weight: bold; color: red"
+                                          >
+                                             *
+                                          </span>
+                                        </span>
+                                      </div>
                                     </label>
                                     <input
                                       disabled="disabled"
@@ -13775,7 +14045,16 @@ exports[`Examples used as simple test cases Sections as stepper 1`] = `
                                           for="stepperProp-allOf-0-stringProp1"
                                           style="left: 0px; position: absolute;"
                                         >
-                                          I'm a required property in section 1
+                                          <div>
+                                            <span>
+                                              I'm a required property in section 1
+                                              <span
+                                                style="font-weight: bold; color: red"
+                                              >
+                                                 *
+                                              </span>
+                                            </span>
+                                          </div>
                                         </label>
                                         <input
                                           id="stepperProp-allOf-0-stringProp1"
@@ -13862,7 +14141,16 @@ exports[`Examples used as simple test cases Sections as stepper 1`] = `
                                           for="stepperProp-allOf-1-stringProp2"
                                           style="left: 0px; position: absolute;"
                                         >
-                                          I'm a required property in section 2
+                                          <div>
+                                            <span>
+                                              I'm a required property in section 2
+                                              <span
+                                                style="font-weight: bold; color: red"
+                                              >
+                                                 *
+                                              </span>
+                                            </span>
+                                          </div>
                                         </label>
                                         <input
                                           id="stepperProp-allOf-1-stringProp2"
@@ -13978,7 +14266,16 @@ exports[`Examples used as simple test cases Sections as stepper 1`] = `
                                         for="verticalStepperProp-allOf-0-stringProp1"
                                         style="left: 0px; position: absolute;"
                                       >
-                                        I'm a required property in section 1
+                                        <div>
+                                          <span>
+                                            I'm a required property in section 1
+                                            <span
+                                              style="font-weight: bold; color: red"
+                                            >
+                                               *
+                                            </span>
+                                          </span>
+                                        </div>
                                       </label>
                                       <input
                                         id="verticalStepperProp-allOf-0-stringProp1"
@@ -14080,7 +14377,16 @@ exports[`Examples used as simple test cases Sections as stepper 1`] = `
                                         for="verticalStepperProp-allOf-1-stringProp2"
                                         style="left: 0px; position: absolute;"
                                       >
-                                        I'm a required property in section 2
+                                        <div>
+                                          <span>
+                                            I'm a required property in section 2
+                                            <span
+                                              style="font-weight: bold; color: red"
+                                            >
+                                               *
+                                            </span>
+                                          </span>
+                                        </div>
                                       </label>
                                       <input
                                         id="verticalStepperProp-allOf-1-stringProp2"
@@ -14523,7 +14829,16 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                           for="tabs-section1-requiredStringProp1"
                                           style="left: 0px; position: absolute;"
                                         >
-                                          I'm a required string with min/max length
+                                          <div>
+                                            <span>
+                                              I'm a required string with min/max length
+                                              <span
+                                                style="font-weight: bold; color: red"
+                                              >
+                                                 *
+                                              </span>
+                                            </span>
+                                          </div>
                                         </label>
                                         <input
                                           id="tabs-section1-requiredStringProp1"
@@ -14605,7 +14920,16 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                           for="tabs-section2-requiredStringProp2"
                                           style="left: 0px; position: absolute;"
                                         >
-                                          I'm another required string
+                                          <div>
+                                            <span>
+                                              I'm another required string
+                                              <span
+                                                style="font-weight: bold; color: red"
+                                              >
+                                                 *
+                                              </span>
+                                            </span>
+                                          </div>
                                         </label>
                                         <input
                                           id="tabs-section2-requiredStringProp2"
@@ -14716,7 +15040,16 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                       for="panels-allOf-0-requiredStringProp1"
                                       style="left: 0px; position: absolute;"
                                     >
-                                      I'm a required string
+                                      <div>
+                                        <span>
+                                          I'm a required string
+                                          <span
+                                            style="font-weight: bold; color: red"
+                                          >
+                                             *
+                                          </span>
+                                        </span>
+                                      </div>
                                     </label>
                                     <input
                                       id="panels-allOf-0-requiredStringProp1"
@@ -14804,7 +15137,16 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
                                       for="panels-allOf-1-requiredStringProp2"
                                       style="left: 0px; position: absolute;"
                                     >
-                                      I'm a required string with min/max length
+                                      <div>
+                                        <span>
+                                          I'm a required string with min/max length
+                                          <span
+                                            style="font-weight: bold; color: red"
+                                          >
+                                             *
+                                          </span>
+                                        </span>
+                                      </div>
                                     </label>
                                     <input
                                       id="panels-allOf-1-requiredStringProp2"
@@ -18704,7 +19046,16 @@ exports[`Examples used as simple test cases Tuples 1`] = `
                         for="numberTupleProp-0"
                         style="left: 0px; position: absolute;"
                       >
-                        I'm a number
+                        <div>
+                          <span>
+                            I'm a number
+                            <span
+                              style="font-weight: bold; color: red"
+                            >
+                               *
+                            </span>
+                          </span>
+                        </div>
                       </label>
                       <input
                         id="numberTupleProp-0"
@@ -18748,7 +19099,16 @@ exports[`Examples used as simple test cases Tuples 1`] = `
                         for="numberTupleProp-1"
                         style="left: 0px; position: absolute;"
                       >
-                        I'm another number
+                        <div>
+                          <span>
+                            I'm another number
+                            <span
+                              style="font-weight: bold; color: red"
+                            >
+                               *
+                            </span>
+                          </span>
+                        </div>
                       </label>
                       <input
                         id="numberTupleProp-1"
@@ -18809,7 +19169,16 @@ exports[`Examples used as simple test cases Tuples 1`] = `
                         for="stringTupleProp-0"
                         style="left: 0px; position: absolute;"
                       >
-                        I'm a required string
+                        <div>
+                          <span>
+                            I'm a required string
+                            <span
+                              style="font-weight: bold; color: red"
+                            >
+                               *
+                            </span>
+                          </span>
+                        </div>
                       </label>
                       <input
                         id="stringTupleProp-0"
