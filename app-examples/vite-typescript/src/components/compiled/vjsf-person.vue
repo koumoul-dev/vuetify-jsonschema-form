@@ -15,10 +15,15 @@ import sectionNode from '@koumoul/vjsf/components/nodes/section.vue'
 
 import textfieldNode from '@koumoul/vjsf/components/nodes/text-field.vue'
 
+import datepickerNode from '@koumoul/vjsf/components/nodes/date-picker.vue'
+
 
 import localizeErrors from "ajv-i18n/localize/en/index.js";
+import { fullFormats } from "ajv-formats/dist/formats.js";
+
 const schema28 = {"$id":"export0","$ref":"_jl#"};
-const schema27 = {"type":"object","title":"A simple person definition","properties":{"firstName":{"type":"string","title":"First name","errorMessage":{}},"lastName":{"type":"string","title":"Last name","errorMessage":{}}},"$id":"_jl","errorMessage":{}};
+const schema27 = {"type":"object","title":"A simple person definition","properties":{"firstName":{"type":"string","title":"First name","errorMessage":{}},"lastName":{"type":"string","title":"Last name","errorMessage":{}},"birthday":{"type":"string","title":"Birthday","format":"date","errorMessage":{}}},"$id":"_jl","errorMessage":{}};
+const formats0 = fullFormats.date;
 
 function validate23(data, {instancePath="", parentData, parentDataProperty, rootData=data, dynamicAnchors={}}={}){
 /*# sourceURL="export0" */;
@@ -76,9 +81,11 @@ vErrors = emErrs1;
 errors = emErrs1.length;
 }
 }
-}
-else {
-const err4 = {instancePath,schemaPath:"_jl#/type",keyword:"type",params:{type: "object"},message:"must be object"};
+if(data.birthday !== undefined){
+let data2 = data.birthday;
+if(typeof data2 === "string"){
+if(!(formats0.validate(data2))){
+const err4 = {instancePath:instancePath+"/birthday",schemaPath:"_jl#/properties/birthday/format",keyword:"format",params:{format: "date"},message:"must match format \""+"date"+"\""};
 if(vErrors === null){
 vErrors = [err4];
 }
@@ -87,20 +94,53 @@ vErrors.push(err4);
 }
 errors++;
 }
+}
+else {
+const err5 = {instancePath:instancePath+"/birthday",schemaPath:"_jl#/properties/birthday/type",keyword:"type",params:{type: "string"},message:"must be string"};
+if(vErrors === null){
+vErrors = [err5];
+}
+else {
+vErrors.push(err5);
+}
+errors++;
+}
 if(errors > 0){
 const emErrs2 = [];
-for(const err5 of vErrors){
-if(!err5.emUsed){
-emErrs2.push(err5);
+for(const err6 of vErrors){
+if(!err6.emUsed){
+emErrs2.push(err6);
 }
 }
 vErrors = emErrs2;
 errors = emErrs2.length;
 }
+}
+}
+else {
+const err7 = {instancePath,schemaPath:"_jl#/type",keyword:"type",params:{type: "object"},message:"must be object"};
+if(vErrors === null){
+vErrors = [err7];
+}
+else {
+vErrors.push(err7);
+}
+errors++;
+}
+if(errors > 0){
+const emErrs3 = [];
+for(const err8 of vErrors){
+if(!err8.emUsed){
+emErrs3.push(err8);
+}
+}
+vErrors = emErrs3;
+errors = emErrs3.length;
+}
 validate23.errors = vErrors;
 return errors === 0;
 }
-validate23.evaluated = {"props":{"firstName":true,"lastName":true},"dynamicProps":false,"dynamicItems":false};
+validate23.evaluated = {"props":{"firstName":true,"lastName":true,"birthday":true},"dynamicProps":false,"dynamicItems":false};
 
 function expression0(data, options, context, display, layout) {
 return (layout.defaultData)
@@ -115,7 +155,7 @@ const compiledLayout = {
       pointer: "_jl#",
       parentPointer: null,
       pure: true,
-      propertyKeys: ["firstName", "lastName"],
+      propertyKeys: ["firstName", "lastName", "birthday"],
 
       children: [{
         key: "firstName",
@@ -126,6 +166,12 @@ const compiledLayout = {
       }, {
         key: "lastName",
         pointer: "_jl#/properties/lastName",
+        parentPointer: "_jl#",
+        pure: true,
+        propertyKeys: []
+      }, {
+        key: "birthday",
+        pointer: "_jl#/properties/birthday",
         parentPointer: "_jl#",
         pure: true,
         propertyKeys: []
@@ -142,6 +188,8 @@ const compiledLayout = {
         key: "firstName"
       }, {
         key: "lastName"
+      }, {
+        key: "birthday"
       }],
 
       defaultData: {},
@@ -162,6 +210,12 @@ const compiledLayout = {
     "_jl#/properties/lastName": {
       comp: "text-field",
       label: "Last name"
+    },
+
+    "_jl#/properties/birthday": {
+      comp: "date-picker",
+      label: "Birthday",
+      format: "date"
     }
   },
 
@@ -213,6 +267,8 @@ const nodeComponents = {
   "section": sectionNode,
   
   "text-field": textfieldNode,
+  
+  "date-picker": datepickerNode,
     
 }
 

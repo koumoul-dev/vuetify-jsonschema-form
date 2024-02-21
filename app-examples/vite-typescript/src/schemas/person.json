@@ -9,6 +9,11 @@
     "lastName": {
       "type": "string",
       "title": "Last name"
+    },
+    "birthday": {
+      "type": "string",
+      "title": "Birthday",
+      "format": "date"
     }
   }
 }
