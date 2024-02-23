@@ -1,9 +1,0 @@
-import{_ as a}from"./code-block.BUZ7QqZU.js";import{u as l}from"./vue.f36acd1f.C13U_LYS.js";import{F as r,A as o,G as u,t as c,x as t,y as m,z as s,B as e}from"./entry.CIfCUsW3.js";import{V as p}from"./VContainer.BQPGiiDO.js";import"./prism.D-WdbFFZ.js";/* empty css              */import"./tag.CXSr1bWs.js";const d=t("p",null,"All components that are quite light and that mostly use Vuetify components are included directly into vjsf. But other components that use more specific dependencies are externalized into plugins.",-1),h=t("h2",{class:"text-h4 my-6"}," Known plugins ",-1),_=t("h3",{class:"test-h6 my-4"}," @koumoul/vjsf-markdown ",-1),f=t("p",null,[e("This plugin provides a rich markdown editor based on "),t("a",{href:"https://github.com/Ionaru/easy-markdown-editor"},"EasyMDE"),e(". You can customize EasyMDE configuration like so:")],-1),g=t("pre",null,`const vjsfOptions = {
-  ...
-  plugins: {
-    markdown: {
-      easyMDEOptions: { minHeight: '300px', maxHeight: '300px' }
-    }
-  }
-}`,-1),k=t("h2",{class:"text-h4 my-6"}," Using a plugin ",-1),y=t("p",null,"Install it:",-1),x=t("p",null,"When using compilation at build time, installing the plugin is sufficient and the necessary imports will be taken care of automatically.",-1),w=t("p",null,"When using compilation at runtime, you should import the plugin for it to register its component(s) with vjsf:",-1),j=t("pre",null,`import Vjsf from '@koumoul/vjsf'
-import '@koumoul/vjsf-markdown'`,-1),i="Plugins",A={__name:"plugins",setup(v){return l({title:"VJSF - "+i}),(V,b)=>{const n=a;return c(),r(u(p),{class:"doc-content-page"},{default:o(()=>[t("h1",{class:"text-h2 mb-8"},m(i)),d,h,_,f,s(n,null,{default:o(()=>[g]),_:1}),k,y,s(n,{language:"bash"},{default:o(()=>[e(" npm install @koumoul/vjsf-markdown ")]),_:1}),x,w,s(n,null,{default:o(()=>[j]),_:1})]),_:1})}}};export{A as default};
