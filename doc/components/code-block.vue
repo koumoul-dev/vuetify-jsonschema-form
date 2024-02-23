@@ -7,10 +7,7 @@
 </template>
 
 <script setup>
-import 'prismjs/themes/prism.css'
-import Prism from 'prismjs'
-import 'prismjs/components/prism-javascript'
-import 'prismjs/components/prism-bash'
+import Prism from '../assets/prism.js'
 import { useSlots, computed } from 'vue'
 
 Prism.manual = true

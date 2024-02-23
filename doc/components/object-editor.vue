@@ -49,18 +49,13 @@
 import { ref, watch } from 'vue'
 import { VSheet, VBtn, VBtnGroup, VIcon } from 'vuetify/components'
 import yaml from 'yaml'
-import { PrismEditor } from 'vue-prism-editor'
-import 'vue-prism-editor/dist/prismeditor.min.css'
-import 'prismjs/themes/prism.css'
-import Prism from 'prismjs'
-import 'prismjs/components/prism-json'
-import 'prismjs/components/prism-yaml'
+import Prism, { PrismEditor } from '../assets/prism.js'
 
 Prism.manual = true
 
 const props = defineProps({
   modelValue: {
-    type: Object,
+    type: [Object, String, Number, Boolean, Array],
     required: true
   },
   readonly: {

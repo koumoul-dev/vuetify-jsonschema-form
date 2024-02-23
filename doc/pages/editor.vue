@@ -1,6 +1,6 @@
 <template>
   <v-container
-    v-if="schema && options && data"
+    v-if="schema && options && data !== undefined"
     fluid
     class="pa-0"
   >
