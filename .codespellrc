@@ -1,6 +1,7 @@
 [codespell]
 # Ref: https://github.com/codespell-project/codespell#using-a-config-file
-skip = .git,*.svg,package-lock.json,*.css,.codespellrc
+skip = .git,*.svg,package-lock.json,*.css,.codespellrc,options.js
 check-hidden = true
-# ignore-regex = 
+# Ignore lines which have non-english characters
+ignore-regex = .*[éà].*
 # ignore-words-list =
