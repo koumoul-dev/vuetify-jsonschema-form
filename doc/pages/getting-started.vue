@@ -59,7 +59,7 @@ Vue.component('VJsf', VJsf)</code></pre>
       Import module from source
     </h3>
     <p>
-      This is useful if you wish to let your build tool analyze the source code of vjsf. Particularily interesting if you use vuetify-loader.
+      This is useful if you wish to let your build tool analyze the source code of vjsf. Particularly interesting if you use vuetify-loader.
     </p>
     <v-sheet
 v-hljs
