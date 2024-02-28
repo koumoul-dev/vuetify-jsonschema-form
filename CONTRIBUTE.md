@@ -26,7 +26,7 @@ This simply opens the documentation site in a local web server that will watch y
 
 Please note that you can open a single example in a lighter page by replacing the # by a slash in the URL (for example http://localhost:3133/examples#basic => http://localhost:3133/examples/basic).
 
-An additionnal "Development" group of examples is visible, please add in this group examples that do not need to be presented to the users but has some value for maintainers.
+An additional "Development" group of examples is visible, please add in this group examples that do not need to be presented to the users but has some value for maintainers.
 
 ## Tests
 
@@ -40,11 +40,11 @@ To increase efficiency test cases and documented examples are the same thing in 
 
 When running tests each example is rendered and a HTML snapshot is extracted and compared to a previous one. When the tests fail because of a snapshot diff, you should check that it is a valid change, then run `npm run test-update`.
 
-You can also write additionnal test assertions in the examples themselves, see [_resolved-schema.js](./doc/examples/_resolved-schema.js) for example.
+You can also write additional test assertions in the examples themselves, see [_resolved-schema.js](./doc/examples/_resolved-schema.js) for example.
 
 ## Publishing
 
-Release and publish usin npm:
+Release and publish using npm:
 
 ```
 npm version minor

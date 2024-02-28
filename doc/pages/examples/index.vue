@@ -27,7 +27,7 @@ export default {
     }
   },
   mounted () {
-    // depcrecated now that we use SSR
+    // deprecated now that we use SSR
     if (this.$route.hash && process.client) {
       location.hash = this.$route.hash
       scrollToHash(this.$route.hash, false)

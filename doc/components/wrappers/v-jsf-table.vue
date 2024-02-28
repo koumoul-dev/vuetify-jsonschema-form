@@ -99,9 +99,9 @@
  *
  * @param obj - The input object
  * @param path - The value path definition e.g.: "prop1.prop2"
- * @param separater - The property separator in path definition
+ * @param separator - The property separator in path definition
  *
- * @returns Tha value defined path in obj or undefined
+ * @returns The value defined path in obj or undefined
  */
 function getObjectValue (obj, path, separator = '.') {
   if (path.startsWith(separator)) {
