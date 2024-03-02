@@ -3652,7 +3652,9 @@ exports[`Examples used as simple test cases Default values 1`] = `
             class="col col-12 pa-0"
           >
             <span
+              aria-level="4"
               class="py-2 title"
+              role="heading"
             >
               I'm a section with a default value 
             </span>
@@ -11919,7 +11921,9 @@ exports[`Examples used as simple test cases Read only content 1`] = `
             class="col col-12 pa-0"
           >
             <span
+              aria-level="4"
               class="py-2 title"
+              role="heading"
             >
               I'm a section with readOnly=true in schema 
             </span>
@@ -11993,7 +11997,9 @@ exports[`Examples used as simple test cases Read only content 1`] = `
             class="col col-12 pa-0"
           >
             <span
+              aria-level="4"
               class="py-2 title"
+              role="heading"
             >
               I'm a section with disableAll=true in options 
             </span>
@@ -12055,7 +12061,9 @@ exports[`Examples used as simple test cases Read only content 1`] = `
             class="col col-12 pa-0"
           >
             <span
+              aria-level="4"
               class="py-2 title"
+              role="heading"
             >
               I'm a section whose read-only content is hidden 
             </span>
@@ -12118,7 +12126,9 @@ exports[`Examples used as simple test cases Read only content 1`] = `
             class="col col-12 pa-0"
           >
             <span
+              aria-level="4"
               class="py-2 title"
+              role="heading"
             >
               I'm a section whose read-only content is deleted 
             </span>
@@ -13299,7 +13309,9 @@ exports[`Examples used as simple test cases Sections 1`] = `
             class="col col-12 pa-0"
           >
             <span
+              aria-level="4"
               class="py-2 title"
+              role="heading"
             >
               I'm a section 
             </span>
@@ -13365,7 +13377,9 @@ exports[`Examples used as simple test cases Sections 1`] = `
             class="col col-12 pa-0"
           >
             <span
+              aria-level="4"
               class="py-2 title"
+              role="heading"
             >
               I'm another section 
             </span>
@@ -13424,7 +13438,9 @@ exports[`Examples used as simple test cases Sections 1`] = `
                 class="col col-12 pa-0"
               >
                 <span
+                  aria-level="5"
                   class="py-2 subtitle-1"
+                  role="heading"
                 >
                   I'm a subsection 
                 </span>
@@ -13485,7 +13501,9 @@ exports[`Examples used as simple test cases Sections 1`] = `
                 class="col col-12 pa-0"
               >
                 <span
+                  aria-level="5"
                   class="py-2 subtitle-1"
+                  role="heading"
                 >
                   I'm another subsection 
                 </span>
@@ -13770,7 +13788,9 @@ exports[`Examples used as simple test cases Sections as stepper 1`] = `
             class="col col-12 pa-0"
           >
             <span
+              aria-level="4"
               class="py-2 title"
+              role="heading"
             >
               I'm an object with sections rendered in a stepper. 
             </span>
@@ -14000,7 +14020,9 @@ exports[`Examples used as simple test cases Sections as stepper 1`] = `
             class="col col-12 pa-0"
           >
             <span
+              aria-level="4"
               class="py-2 title"
+              role="heading"
             >
               I'm an object with sections rendered in a vertical stepper. 
             </span>
@@ -14500,7 +14522,9 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
             class="col col-12 pa-0"
           >
             <span
+              aria-level="4"
               class="py-2 title"
+              role="heading"
             >
               Tabs with required fields 
             </span>
@@ -14743,7 +14767,9 @@ exports[`Examples used as simple test cases Sections validation 1`] = `
             class="col col-12 pa-0"
           >
             <span
+              aria-level="4"
               class="py-2 title"
+              role="heading"
             >
               Panels with required fields 
             </span>
@@ -18772,7 +18798,9 @@ exports[`Examples used as simple test cases Tuples 1`] = `
             class="col col-12 pa-0"
           >
             <span
+              aria-level="4"
               class="py-2 title"
+              role="heading"
             >
               I'm a tuple of 2 numbers 
             </span>
@@ -18877,7 +18905,9 @@ exports[`Examples used as simple test cases Tuples 1`] = `
             class="col col-12 pa-0"
           >
             <span
+              aria-level="4"
               class="py-2 title"
+              role="heading"
             >
               I'm a tuple of 2 strings, first one is required 
             </span>
