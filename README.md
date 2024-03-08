@@ -6,7 +6,7 @@ Create beautiful and low-effort forms that output valid data.
 
 Based on [Vue.js](https://vuejs.org/) / [Vuetify](https://vuetifyjs.com/) / [JSON Schema](https://json-schema.org/).
 
-See [the documentation](https://koumoul-dev.github.io/vuetify-jsonschema-form/latest/) and join us [on gitter](https://gitter.im/koumoul-dev/vjsf).
+See [the documentation](https://koumoul-dev.github.io/vuetify-jsonschema-form/2.x/).
 
 ![](doc/static/vjsf.gif)
 

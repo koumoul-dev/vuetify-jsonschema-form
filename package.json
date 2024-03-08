@@ -8,13 +8,11 @@
     "lint-fix": "eslint --fix --ext js .",
     "build": "rm -rf dist && webpack && cp lib/VJsf.css dist/main.css",
     "prepare": "npm run lint && npm test && npm run build && npm run doc-build",
-    "postpublish": "gh-pages-multi deploy -v -s doc/dist -t latest",
+    "postpublish": "gh-pages-multi deploy -v -s doc/dist -t 2.x",
     "test": "jest",
     "test-watch": "jest --watch",
     "test-update": "jest --updateSnapshot",
-    "doc-build": "(cd doc && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/latest/ nuxt generate)",
-    "doc-master": "(cd doc && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/master/ nuxt generate) && gh-pages-multi deploy -v -s doc/dist -t master",
-    "doc-2x": "(cd doc && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/2.x/ nuxt generate) && gh-pages-multi deploy -v -s doc/dist -t 2.x",
+    "doc-build": "(cd doc && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/2.x/ nuxt generate)",
     "analyze": "webpack --profile --json > dist/stats.json && webpack-bundle-analyzer dist/stats.json"
   },
   "jest": {
