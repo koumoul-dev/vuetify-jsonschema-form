@@ -5,7 +5,7 @@
     </h1>
 
     <p class="subtitle-2 font-italic">
-      vuetify-jsonschema-form
+      vuetify-jsonschema-form (2.x branch)
     </p>
 
     <p class="mt-2 text-center">
@@ -13,7 +13,7 @@
     </p>
 
     <p class="mt-2 text-center">
-      Based on <a href="https://vuejs.org/">Vue.js</a> / <a href="https://vuetifyjs.com/">Vuetify</a> / <a href="https://json-schema.org/">JSON Schema</a>.
+      Based on <a href="https://vuejs.org/">Vue.js 2</a> / <a href="https://vuetifyjs.com/">Vuetify 2</a> / <a href="https://json-schema.org/">JSON Schema</a>.
     </p>
 
     <iframe
