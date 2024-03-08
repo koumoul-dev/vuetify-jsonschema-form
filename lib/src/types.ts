@@ -29,6 +29,9 @@ import {
 
 export type Density = 'default' | 'comfortable' | 'compact'
 
+// these options used to contain many possibilities to override props in various components
+// this was unmaintainable and has been removed, customization of components should be done via slots
+// and vuetify defaults providers
 export type VjsfStatefulLayoutOptions = StatefulLayoutOptions & {
   vjsfSlots: Record<string, () => unknown>,
   nodeComponents: Record<string, Component>,

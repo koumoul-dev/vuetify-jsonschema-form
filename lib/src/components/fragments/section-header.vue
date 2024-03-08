@@ -45,7 +45,7 @@ const titleClass = computed(() => {
     </p>
     <v-alert
       v-if="node.error && node.validated"
-      v-bind="node.options.errorAlertProps"
+      type="error"
       :class="`mt-${titleDepthBase - node.options.titleDepth}`"
       :density="node.options.density"
     >
@@ -53,4 +53,3 @@ const titleClass = computed(() => {
     </v-alert>
   </div>
 </template>
-../../../types.js

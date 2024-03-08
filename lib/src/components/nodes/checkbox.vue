@@ -16,7 +16,12 @@ const props = defineProps({
   }
 })
 
-const fieldProps = computed(() => getInputProps(props.modelValue, props.statefulLayout))
+const fieldProps = computed(() => {
+  const inputProps = getInputProps(props.modelValue, props.statefulLayout)
+  // it is not very common to show an error below checkboxes and switches and without hide-details=auto they take a lot of space
+  if (!('hideDetails' in inputProps)) inputProps.hideDetails = 'auto'
+  return inputProps
+})
 </script>
 
 <template>
