@@ -14,7 +14,7 @@ for (const exampleCategory of examples) {
   }
 }
 
-/** @type {import("@json-layout/examples").JSONLayoutExample[]} */
+/** @type {import("./types.js").VJSFExample[]} */
 const v2Examples = []
 for (const v2ExamplesGroup of v2ExampleGroups) {
   for (const v2Example of v2ExamplesGroup.examples) {
@@ -22,7 +22,7 @@ for (const v2ExamplesGroup of v2ExampleGroups) {
   }
 }
 
-/** @type {import('@json-layout/examples').JSONLayoutExamplesCategory} */
+/** @type {import('./types.js').VJSFExamplesCategory} */
 const v2 = {
   id: 'v2-compat',
   title: 'VJSF 2 compatibility',
@@ -30,5 +30,5 @@ const v2 = {
   examples: v2Examples
 }
 
-/** @type {import('@json-layout/examples').JSONLayoutExamplesCategory[]} */
+/** @type {import('./types.js').VJSFExamplesCategory[]} */
 export default examples.concat([vuetifyExamples, v2])

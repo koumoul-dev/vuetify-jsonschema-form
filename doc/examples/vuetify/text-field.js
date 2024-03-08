@@ -1,4 +1,4 @@
-/** @type {import("@json-layout/examples").JSONLayoutExample} */
+/** @type {import("../types.js").VJSFExample} */
 const example = {
   title: 'Text field',
   id: 'text-field',
@@ -8,7 +8,7 @@ const example = {
     properties: {
       str1: {
         type: 'string',
-        title: 'A text field with custom props and slots',
+        title: 'A text field with custom props and slots and using v-defaults-provider tu set variant',
         layout: {
           props: {
             appendIcon: 'mdi-heart'
@@ -20,7 +20,12 @@ const example = {
       }
     }
   },
-  codeSlots: ['custom-message']
+  codeSlots: ['custom-message'],
+  defaultProps: {
+    VTextField: {
+      variant: 'outlined'
+    }
+  }
 }
 
 export default example

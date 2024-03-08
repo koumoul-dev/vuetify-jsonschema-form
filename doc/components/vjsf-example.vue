@@ -73,6 +73,15 @@
       </v-window-item>
 
       <v-window-item
+        value="defaultProps"
+        class="ma-3"
+      >
+        <code-block>
+          <pre>{{ JSON.stringify(example.defaultProps, null, 2) }}</pre>
+        </code-block>
+      </v-window-item>
+
+      <v-window-item
         value="options"
         class="ma-3"
         style="height: 400px"
@@ -189,31 +198,33 @@
             ref="form"
             v-model="valid"
           >
-            <slot
-              name="vjsf"
-              :model-value="data"
-              :options="options"
-              :update-state="updateState"
-            >
-              <vjsf
+            <v-defaults-provider :defaults="example.defaultProps || {}">
+              <slot
+                name="vjsf"
                 :model-value="data"
-                :schema="schema"
                 :options="options"
-                @update:state="updateState"
+                :update-state="updateState"
               >
-                <template #custom-textarea="{node, statefulLayout}">
-                  <textarea
-                    :value="node.data"
-                    style="border: 1px solid red;"
-                    placeholder="A custom textarea"
-                    @input="event => statefulLayout.input(node, event.target.value)"
-                  />
-                </template>
-                <template #custom-message="{node}">
-                  This message is defined in a slot (key={{ node.key }})
-                </template>
-              </vjsf>
-            </slot>
+                <vjsf
+                  :model-value="data"
+                  :schema="schema"
+                  :options="options"
+                  @update:state="updateState"
+                >
+                  <template #custom-textarea="{node, statefulLayout}">
+                    <textarea
+                      :value="node.data"
+                      style="border: 1px solid red;"
+                      placeholder="A custom textarea"
+                      @input="event => statefulLayout.input(node, event.target.value)"
+                    />
+                  </template>
+                  <template #custom-message="{node}">
+                    This message is defined in a slot (key={{ node.key }})
+                  </template>
+                </vjsf>
+              </slot>
+            </v-defaults-provider>
             <v-row class="ma-0">
               <v-spacer />
               <v-btn
@@ -236,14 +247,14 @@
 import Vjsf from '@koumoul/vjsf'
 import '@koumoul/vjsf-markdown'
 import { v2compat } from '@koumoul/vjsf/compat/v2'
-import { VContainer, VRow, VCol, VSpacer, VForm, VBtn, VDivider, VSelect, VSwitch, VToolbar, VSheet, VWindow, VSlider, VWindowItem, VLazy } from 'vuetify/components'
+import { VContainer, VRow, VCol, VSpacer, VForm, VBtn, VDivider, VSelect, VSwitch, VToolbar, VSheet, VWindow, VSlider, VWindowItem, VLazy, VDefaultsProvider, VTextField } from 'vuetify/components'
 import slotCodes from '../examples/slot-codes.js'
 
 export default {
-  components: { Vjsf, VContainer, VRow, VCol, VSpacer, VForm, VBtn, VDivider, VSelect, VSwitch, VToolbar, VSheet, VWindow, VSlider, VWindowItem, VLazy },
+  components: { Vjsf, VContainer, VRow, VCol, VSpacer, VForm, VBtn, VDivider, VSelect, VSwitch, VToolbar, VSheet, VWindow, VSlider, VWindowItem, VLazy, VDefaultsProvider, VTextField },
   props: {
     example: {
-      /** @type import('vue').PropType<import('@json-layout/examples').JSONLayoutExample> */
+      /** @type import('vue').PropType<import('../examples/types.js').VJSFExample> */
       type: Object,
       required: true
     },
@@ -280,6 +291,9 @@ export default {
       tabs.push({ value: 'model', title: 'Data' })
       if (this.example.codeSlots?.length) {
         tabs.push({ value: 'slots', title: 'Slots' })
+      }
+      if (this.example.defaultProps) {
+        tabs.push({ value: 'defaultProps', title: 'Default props' })
       }
       tabs.push({ value: 'options', title: 'Options' })
       return tabs

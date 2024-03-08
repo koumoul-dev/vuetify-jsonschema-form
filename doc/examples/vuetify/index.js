@@ -1,6 +1,6 @@
 import textField from './text-field.js'
 
-/** @type {import("@json-layout/examples").JSONLayoutExamplesCategory} */
+/** @type {import("../types.js").VJSFExamplesCategory} */
 const vuetifyExamples = {
   id: 'vuetify',
   title: 'Vuetify integration',
