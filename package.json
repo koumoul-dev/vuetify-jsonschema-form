@@ -6,8 +6,6 @@
     "lint": "eslint --ext .js,.ts,.vue .",
     "lint-fix": "eslint --fix --ext .js,.ts,.vue .",
     "dev-zellij": "zellij --layout .zellij.kdl",
-    "prepublishOnly": "npm run lint && npm run build",
-    "postpublish": "npm run publish:latest",
     "publish:master": "npm -w doc run build:master && gh-pages-multi deploy -v -s doc/.output/public -t master",
     "publish:latest": "npm -w doc run build:latest && gh-pages-multi deploy -v -s doc/.output/public -t latest",
     "prepare": "husky install && npx relative-deps"
