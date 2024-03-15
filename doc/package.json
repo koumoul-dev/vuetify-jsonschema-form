@@ -12,8 +12,8 @@
     "compile-examples": "node scripts/compile-examples.mjs"
   },
   "dependencies": {
-    "@json-layout/vocabulary": "0.11.0",
-    "@json-layout/core": "0.11.0",
+    "@json-layout/vocabulary": "0.12.0",
+    "@json-layout/core": "0.12.0",
     "@json-layout/examples": "0.7.0",
     "@koumoul/vjsf": "3.0.0-beta.6",
     "@koumoul/vjsf-markdown": "0.1.0",
