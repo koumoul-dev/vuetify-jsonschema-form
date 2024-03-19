@@ -48,6 +48,12 @@ const buttonDensity = computed(() => {
   return props.modelValue.options.density
 })
 
+const pushEmptyItem = () => {
+  const newData = (props.modelValue.data ?? []).concat([undefined])
+  props.statefulLayout.input(props.modelValue, newData)
+  props.statefulLayout.activateItem(props.modelValue, newData.length - 1)
+}
+
 </script>
 
 <template>
@@ -180,7 +186,7 @@ const buttonDensity = computed(() => {
         <v-btn
           color="primary"
           :density="modelValue.options.density"
-          @click="statefulLayout.input(modelValue, (modelValue.data ?? []).concat([undefined]))"
+          @click="pushEmptyItem"
         >
           {{ modelValue.messages.addItem }}
         </v-btn>
