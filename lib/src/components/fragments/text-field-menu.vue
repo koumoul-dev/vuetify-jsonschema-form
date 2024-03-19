@@ -28,7 +28,7 @@ const fieldProps = computed(() => {
 })
 
 const menuProps = computed(() => {
-  const menuProps = getCompProps(props.modelValue, 'menu', false)
+  const menuProps = getCompProps(props.modelValue)
   menuProps.closeOnContentClick = false
   menuProps.disabled = true
   return menuProps

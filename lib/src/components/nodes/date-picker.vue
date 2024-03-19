@@ -21,7 +21,7 @@ const props = defineProps({
 const vDate = useDate()
 
 const datePickerProps = computed(() => {
-  const datePickerProps = getCompProps(props.modelValue, 'datePicker', true)
+  const datePickerProps = getCompProps(props.modelValue, true)
   datePickerProps.hideActions = true
   if (props.modelValue.data) datePickerProps.modelValue = new Date(props.modelValue.data)
   return datePickerProps

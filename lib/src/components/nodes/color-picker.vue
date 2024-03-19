@@ -18,7 +18,8 @@ const props = defineProps({
 })
 
 const colorPickerProps = computed(() => {
-  const colorPickerProps = getCompProps(props.modelValue, 'colorPicker', true)
+  const colorPickerProps = getCompProps(props.modelValue, true)
+  colorPickerProps.modelValue = props.modelValue.data
   return colorPickerProps
 })
 </script>
