@@ -146,6 +146,15 @@
             />
 
             <v-select
+              v-model="options.updateOn"
+              density="compact"
+              hide-details
+              label="updateOn"
+              style="max-width:300px;"
+              :items="['input', 'blur']"
+            />
+
+            <v-select
               v-model="options.locale"
               density="compact"
               hide-details
@@ -204,9 +213,10 @@
                 :model-value="data"
                 :options="options"
                 :update-state="updateState"
+                :update-model-value="modelValue => data = modelValue"
               >
                 <vjsf
-                  :model-value="data"
+                  v-model="data"
                   :schema="schema"
                   :options="options"
                   @update:state="updateState"
@@ -275,6 +285,7 @@ export default {
       density: 'default',
       initialValidation: 'withData',
       validateOn: 'input',
+      updateOn: 'input',
       locale: 'en'
     },
     /** @type import('@json-layout/core').StatefulLayoutOptions | null */
@@ -321,7 +332,6 @@ export default {
   methods: {
     updateState (/** @type import('@json-layout/core').StatefulLayout */newState) {
       this.stateTree = newState.stateTree
-      this.data = newState.data
       this.display = newState.display
       this.filledOptions = newState.options
     },
