@@ -41,12 +41,19 @@ const vjsfOptions = {
 
     <p>When using compilation at build time, installing the plugin is sufficient and the necessary imports will be taken care of automatically.</p>
 
-    <p>When using compilation at runtime, you should import the plugin for it to register its component(s) with vjsf:</p>
+    <p>When using compilation at runtime, you should import the plugin and provide it to vjsf using the nodeComponents option:</p>
 
     <code-block>
       <pre>
 import Vjsf from '@koumoul/vjsf'
-import '@koumoul/vjsf-markdown'</pre>
+import VjsfNodeMarkdown from '@koumoul/vjsf-markdown'
+
+const options = {
+  nodeComponents: {
+    markdown: VjsfNodeMarkdown
+  }
+}
+</pre>
     </code-block>
   </v-container>
 </template>

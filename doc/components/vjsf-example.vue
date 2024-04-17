@@ -255,7 +255,7 @@
 
 <script>
 import Vjsf from '@koumoul/vjsf'
-import '@koumoul/vjsf-markdown'
+import VjsfNodeMarkdown from '@koumoul/vjsf-markdown'
 import { v2compat } from '@koumoul/vjsf/compat/v2'
 import { VContainer, VRow, VCol, VSpacer, VForm, VBtn, VDivider, VSelect, VSwitch, VToolbar, VSheet, VWindow, VSlider, VWindowItem, VLazy, VDefaultsProvider, VTextField } from 'vuetify/components'
 import slotCodes from '../examples/slot-codes.js'
@@ -286,7 +286,8 @@ export default {
       initialValidation: 'withData',
       validateOn: 'input',
       updateOn: 'input',
-      locale: 'en'
+      locale: 'en',
+      nodeComponents: { markdown: VjsfNodeMarkdown }
     },
     /** @type import('@json-layout/core').StatefulLayoutOptions | null */
     filledOptions: null,
