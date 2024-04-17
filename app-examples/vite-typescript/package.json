@@ -9,7 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@koumoul/vjsf": "^3.0.0-beta.3",
+    "@koumoul/vjsf": "^3.0.0-beta.10",
+    "@koumoul/vjsf-markdown": "^0.1.1",
     "@mdi/font": "7.0.96",
     "roboto-fontface": "*",
     "vue": "^3.4.19",

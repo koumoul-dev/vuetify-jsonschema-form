@@ -17,12 +17,14 @@ import textfieldNode from '@koumoul/vjsf/components/nodes/text-field.vue'
 
 import datepickerNode from '@koumoul/vjsf/components/nodes/date-picker.vue'
 
+import markdownNode from '@koumoul/vjsf-markdown'
+
 
 import localizeErrors from "ajv-i18n/localize/en/index.js";
 import { fullFormats } from "ajv-formats/dist/formats.js";
 
 const schema28 = {"$id":"export0","$ref":"_jl#"};
-const schema27 = {"type":"object","title":"A simple person definition","properties":{"firstName":{"type":"string","title":"First name","errorMessage":{}},"lastName":{"type":"string","title":"Last name","errorMessage":{}},"birthday":{"type":"string","title":"Birthday","format":"date","errorMessage":{}}},"$id":"_jl","errorMessage":{}};
+const schema27 = {"type":"object","title":"A simple person definition","properties":{"firstName":{"type":"string","title":"First name","errorMessage":{}},"lastName":{"type":"string","title":"Last name","errorMessage":{}},"birthday":{"type":"string","title":"Birthday","format":"date","errorMessage":{}},"presentation":{"type":"string","title":"Presentation","layout":"markdown","errorMessage":{}}},"$id":"_jl","errorMessage":{}};
 const formats0 = fullFormats.date;
 
 function validate23(data, {instancePath="", parentData, parentDataProperty, rootData=data, dynamicAnchors={}}={}){
@@ -116,9 +118,9 @@ vErrors = emErrs2;
 errors = emErrs2.length;
 }
 }
-}
-else {
-const err7 = {instancePath,schemaPath:"_jl#/type",keyword:"type",params:{type: "object"},message:"must be object"};
+if(data.presentation !== undefined){
+if(typeof data.presentation !== "string"){
+const err7 = {instancePath:instancePath+"/presentation",schemaPath:"_jl#/properties/presentation/type",keyword:"type",params:{type: "string"},message:"must be string"};
 if(vErrors === null){
 vErrors = [err7];
 }
@@ -137,10 +139,32 @@ emErrs3.push(err8);
 vErrors = emErrs3;
 errors = emErrs3.length;
 }
+}
+}
+else {
+const err9 = {instancePath,schemaPath:"_jl#/type",keyword:"type",params:{type: "object"},message:"must be object"};
+if(vErrors === null){
+vErrors = [err9];
+}
+else {
+vErrors.push(err9);
+}
+errors++;
+}
+if(errors > 0){
+const emErrs4 = [];
+for(const err10 of vErrors){
+if(!err10.emUsed){
+emErrs4.push(err10);
+}
+}
+vErrors = emErrs4;
+errors = emErrs4.length;
+}
 validate23.errors = vErrors;
 return errors === 0;
 }
-validate23.evaluated = {"props":{"firstName":true,"lastName":true,"birthday":true},"dynamicProps":false,"dynamicItems":false};
+validate23.evaluated = {"props":{"firstName":true,"lastName":true,"birthday":true,"presentation":true},"dynamicProps":false,"dynamicItems":false};
 
 function expression0(data, options, context, display, layout) {
 return (layout.defaultData)
@@ -155,26 +179,37 @@ const compiledLayout = {
       pointer: "_jl#",
       parentPointer: null,
       pure: true,
-      propertyKeys: ["firstName", "lastName", "birthday"],
+      propertyKeys: ["firstName", "lastName", "birthday", "presentation"],
+      roPropertyKeys: [],
 
       children: [{
         key: "firstName",
         pointer: "_jl#/properties/firstName",
         parentPointer: "_jl#",
         pure: true,
-        propertyKeys: []
+        propertyKeys: [],
+        roPropertyKeys: []
       }, {
         key: "lastName",
         pointer: "_jl#/properties/lastName",
         parentPointer: "_jl#",
         pure: true,
-        propertyKeys: []
+        propertyKeys: [],
+        roPropertyKeys: []
       }, {
         key: "birthday",
         pointer: "_jl#/properties/birthday",
         parentPointer: "_jl#",
         pure: true,
-        propertyKeys: []
+        propertyKeys: [],
+        roPropertyKeys: []
+      }, {
+        key: "presentation",
+        pointer: "_jl#/properties/presentation",
+        parentPointer: "_jl#",
+        pure: true,
+        propertyKeys: [],
+        roPropertyKeys: []
       }]
     }
   },
@@ -190,6 +225,8 @@ const compiledLayout = {
         key: "lastName"
       }, {
         key: "birthday"
+      }, {
+        key: "presentation"
       }],
 
       defaultData: {},
@@ -216,6 +253,11 @@ const compiledLayout = {
       comp: "date-picker",
       label: "Birthday",
       format: "date"
+    },
+
+    "_jl#/properties/presentation": {
+      comp: "markdown",
+      label: "Presentation"
     }
   },
 
@@ -269,6 +311,8 @@ const nodeComponents = {
   "text-field": textfieldNode,
   
   "date-picker": datepickerNode,
+  
+  "markdown": markdownNode,
     
 }
 

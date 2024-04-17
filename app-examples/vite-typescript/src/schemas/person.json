@@ -14,6 +14,11 @@
       "type": "string",
       "title": "Birthday",
       "format": "date"
+    },
+    "presentation": {
+      "type": "string",
+      "title": "Presentation",
+      "layout": "markdown"
     }
   }
 }
