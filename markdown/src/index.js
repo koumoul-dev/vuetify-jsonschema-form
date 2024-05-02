@@ -1,4 +1,11 @@
-import VjsfNodeMarkdown from './components/nodes/markdown.vue'
+import { markRaw } from 'vue'
+import info from './info.js'
+import nodeComponent from './node.vue'
 
-export { VjsfNodeMarkdown }
-export default VjsfNodeMarkdown
+markRaw(nodeComponent)
+
+/** @type {import('../../lib/src/types.js').Plugin} */
+export default {
+  info,
+  nodeComponent
+}

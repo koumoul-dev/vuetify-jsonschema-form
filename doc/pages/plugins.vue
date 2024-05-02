@@ -8,6 +8,36 @@
     <p>All components that are quite light and that mostly use Vuetify components are included directly into vjsf. But other components that use more specific dependencies are externalized into plugins.</p>
 
     <h2 class="text-h4 my-6">
+      Using a plugin
+    </h2>
+
+    <p>Install it:</p>
+
+    <code-block language="bash">
+      npm install @koumoul/vjsf-markdown
+    </code-block>
+
+    <p>When using compilation at build time, installing the plugin is sufficient and the necessary imports will be taken care of automatically.</p>
+
+    <p>When using compilation at runtime, you should import the plugin and provide it to vjsf using the <code>plugins</code> option:</p>
+
+    <p>Plugins can use specific options defined in the <code>pluginsOptions</code> options.</p>
+
+    <code-block>
+      <pre>
+import Vjsf from '@koumoul/vjsf'
+import VjsfMarkdown from '@koumoul/vjsf-markdown'
+
+const options = {
+  plugins: [VjsfMarkdown],
+  pluginsOptions: {
+    markdown: {...}
+  }
+}
+</pre>
+    </code-block>
+
+    <h2 class="text-h4 my-6">
       Known plugins
     </h2>
 
@@ -20,8 +50,8 @@
     <code-block>
       <pre>
 const vjsfOptions = {
-  ...
-  plugins: {
+  plugins: [VjsfMarkdown],
+  pluginsOptions: {
     markdown: {
       easyMDEOptions: { minHeight: '300px', maxHeight: '300px' }
     }
@@ -34,33 +64,6 @@ const vjsfOptions = {
       <pre>
 optimizeDeps: {
   include: ['easymde']
-}
-</pre>
-    </code-block>
-
-    <h2 class="text-h4 my-6">
-      Using a plugin
-    </h2>
-
-    <p>Install it:</p>
-
-    <code-block language="bash">
-      npm install @koumoul/vjsf-markdown
-    </code-block>
-
-    <p>When using compilation at build time, installing the plugin is sufficient and the necessary imports will be taken care of automatically.</p>
-
-    <p>When using compilation at runtime, you should import the plugin and provide it to vjsf using the nodeComponents option:</p>
-
-    <code-block>
-      <pre>
-import Vjsf from '@koumoul/vjsf'
-import VjsfNodeMarkdown from '@koumoul/vjsf-markdown'
-
-const options = {
-  nodeComponents: {
-    markdown: VjsfNodeMarkdown
-  }
 }
 </pre>
     </code-block>

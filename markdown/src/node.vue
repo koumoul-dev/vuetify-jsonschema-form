@@ -7,16 +7,17 @@ import { getInputProps, getCompSlots } from '@koumoul/vjsf/utils'
 import 'easymde/dist/easymde.min.css'
 
 /** @typedef {{easyMDEOptions: Record<string, any> | undefined}} VjsfPluginMarkdownOptions */
+/** @typedef {import('@koumoul/vjsf/types.js').VjsfNode & {data: string | undefined | null}} MarkdownNode */
 
 export default defineComponent({
   props: {
     modelValue: {
-      /** @type import('vue').PropType<import('@koumoul/vjsf/types.js').VjsfMarkdownNode> */
+      /** @type {import('vue').PropType<MarkdownNode>} */
       type: Object,
       required: true
     },
     statefulLayout: {
-      /** @type import('vue').PropType<import('@koumoul/vjsf/types.js').VjsfStatefulLayout> */
+      /** @type {import('vue').PropType<import('@koumoul/vjsf/types.js').VjsfStatefulLayout>} */
       type: Object,
       required: true
     }
@@ -59,9 +60,7 @@ export default defineComponent({
 
       const messages = props.modelValue.messages
 
-      const pluginOptions = /** @type {VjsfPluginMarkdownOptions | undefined} */(props.modelValue.options.plugins.markdown)
-
-      console.log('PLUGIN OPTS', pluginOptions)
+      const pluginOptions = /** @type {VjsfPluginMarkdownOptions | undefined} */(props.modelValue.options.pluginsOptions.markdown)
 
       const config = {
         element: element.value,

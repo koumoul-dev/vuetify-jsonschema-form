@@ -21,7 +21,7 @@ for (const exampleSuite of examples) {
   mkdirSync(path.join(compBaseDir, exampleSuite.id))
   mkdirSync(path.join(pageBaseDir, exampleSuite.id))
   for (const example of exampleSuite.examples) {
-    const compCode = compile(example.schema)
+    const compCode = await compile(example.schema)
     writeFileSync(path.join(compBaseDir, exampleSuite.id, example.id + '.vue'), compCode)
 
     let slotsCode = ''

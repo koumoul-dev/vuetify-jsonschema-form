@@ -22,10 +22,16 @@
         "types": "./types/index.d.ts"
       }
     },
-    "./components/*": {
+    "./info.js": {
       "import": {
-        "default": "./src/components/*",
-        "types": "./types/components/*.d.ts"
+        "default": "./src/info.js",
+        "types": "./types/info.d.ts"
+      }
+    },
+    "./node.vue": {
+      "import": {
+        "default": "./src/node.vue",
+        "types": "./types/node.d.ts"
       }
     }
   },
