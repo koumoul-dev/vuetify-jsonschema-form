@@ -42,7 +42,9 @@ const onChange = (/** @type import('@json-layout/core').SkeletonTree */childTree
     :items="modelValue.skeleton.childrenTrees"
     item-title="title"
     return-object
+    :label="modelValue.layout.label"
     :error-messages="modelValue.validated ? modelValue.error : null"
+    :density="modelValue.options.density"
     @update:model-value="onChange"
   />
   <v-row v-if="modelValue.children?.[0]">
