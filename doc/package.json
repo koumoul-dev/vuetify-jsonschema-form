@@ -15,7 +15,7 @@
     "@json-layout/vocabulary": "0.16.0",
     "@json-layout/core": "0.16.3",
     "@json-layout/examples": "0.9.0",
-    "@koumoul/vjsf": "3.0.0-beta.15",
+    "@koumoul/vjsf": "3.0.0-beta.17",
     "@koumoul/vjsf-markdown": "0.2.0",
     "@mdi/font": "^7.2.96",
     "ajv-formats": "^2.1.1",
