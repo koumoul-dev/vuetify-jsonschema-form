@@ -1,5 +1,5 @@
 <script setup>
-import { VSelect, VRow } from 'vuetify/components'
+import { VSelect, VRow, VCol } from 'vuetify/components'
 import { shallowRef, watch, computed, h } from 'vue'
 import { isSection } from '@json-layout/core'
 import { getInputProps, getCompSlots } from '../../utils/index.js'
@@ -46,16 +46,19 @@ const fieldProps = computed(() => {
 </script>
 
 <template>
-  <v-select
-    v-if="modelValue.skeleton.childrenTrees"
-    v-bind="fieldProps"
-  />
-  <v-row v-if="modelValue.children?.[0]">
-    <node
-      v-for="grandChild of isSection(modelValue.children?.[0]) ? modelValue.children?.[0].children : modelValue.children"
-      :key="grandChild.fullKey"
-      :model-value="/** @type import('../../types.js').VjsfNode */(grandChild)"
-      :stateful-layout="statefulLayout"
-    />
+  <v-row>
+    <v-col v-if="modelValue.skeleton.childrenTrees">
+      <v-select
+        v-bind="fieldProps"
+      />
+    </v-col>
+    <template v-if="modelValue.children?.[0]">
+      <node
+        v-for="grandChild of isSection(modelValue.children?.[0]) ? modelValue.children?.[0].children : modelValue.children"
+        :key="grandChild.fullKey"
+        :model-value="/** @type import('../../types.js').VjsfNode */(grandChild)"
+        :stateful-layout="statefulLayout"
+      />
+    </template>
   </v-row>
 </template>
