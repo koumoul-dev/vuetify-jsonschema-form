@@ -43,6 +43,7 @@ if (props.modelValue.layout.comp !== 'none' && !props.statefulLayout.options.nod
 
 <template>
   <v-col
+    v-if="modelValue.layout.comp !== 'none'"
     :cols="modelValue.cols"
     :class="nodeClasses"
   >
@@ -69,7 +70,7 @@ if (props.modelValue.layout.comp !== 'none' && !props.statefulLayout.options.nod
     />
     <component
       :is="props.statefulLayout.options.nodeComponents[modelValue.layout.comp]"
-      v-else-if="modelValue.layout.comp !== 'none' "
+      v-else
       :model-value="modelValue"
       :stateful-layout="statefulLayout"
     />
