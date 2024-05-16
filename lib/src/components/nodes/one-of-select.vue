@@ -1,7 +1,8 @@
 <script setup>
 import { VSelect, VRow } from 'vuetify/components'
-import { shallowRef, watch } from 'vue'
+import { shallowRef, watch, computed, h } from 'vue'
 import { isSection } from '@json-layout/core'
+import { getInputProps, getCompSlots } from '../../utils/index.js'
 import Node from '../node.vue'
 
 const props = defineProps({
@@ -33,19 +34,21 @@ const onChange = (/** @type import('@json-layout/core').SkeletonTree */childTree
   props.statefulLayout.activateItem(props.modelValue, props.modelValue.skeleton.childrenTrees.indexOf(childTree))
 }
 
+const fieldProps = computed(() => {
+  const fieldProps = getInputProps(props.modelValue, props.statefulLayout)
+  fieldProps.modelValue = activeChildTree.value
+  fieldProps['onUpdate:modelValue'] = onChange
+  fieldProps.returnObject = true
+  fieldProps.items = props.modelValue.skeleton.childrenTrees
+  fieldProps.itemTitle = 'title'
+  return fieldProps
+})
 </script>
 
 <template>
   <v-select
     v-if="modelValue.skeleton.childrenTrees"
-    v-model="activeChildTree"
-    :items="modelValue.skeleton.childrenTrees"
-    item-title="title"
-    return-object
-    :label="modelValue.layout.label"
-    :error-messages="modelValue.validated ? modelValue.error : null"
-    :density="modelValue.options.density"
-    @update:model-value="onChange"
+    v-bind="fieldProps"
   />
   <v-row v-if="modelValue.children?.[0]">
     <node
