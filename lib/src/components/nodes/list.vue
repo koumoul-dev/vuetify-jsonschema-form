@@ -1,5 +1,6 @@
 <script setup>
 import { watch, computed, ref } from 'vue'
+import { useTheme } from 'vuetify'
 import { VList, VListItem, VListItemAction, VBtn, VMenu, VIcon, VSheet, VSpacer, VDivider, VRow, VListSubheader } from 'vuetify/components'
 import { isSection, clone } from '@json-layout/core'
 import Node from '../node.vue'
@@ -18,6 +19,8 @@ const props = defineProps({
     required: true
   }
 })
+
+const theme = useTheme()
 
 /* use composable for drag and drop */
 const { activeDnd, sortableArray, draggable, hovered, dragging, itemBind, handleBind } = useDnd(props.modelValue.children, () => {
@@ -54,6 +57,32 @@ const pushEmptyItem = () => {
   props.statefulLayout.activateItem(props.modelValue, newData.length - 1)
 }
 
+/**
+ * @param {number} childIndex
+ */
+const deleteItem = (childIndex) => {
+  const newData = [...props.modelValue.data.slice(0, childIndex), ...props.modelValue.data.slice(childIndex + 1)]
+  props.statefulLayout.input(props.modelValue, newData)
+  menuOpened.value = -1
+}
+
+/**
+ * @param {import('@json-layout/core').StateNode} child
+ * @param {number} childIndex
+ */
+const duplicateItem = (child, childIndex) => {
+  const newData = [...props.modelValue.data.slice(0, childIndex), clone(child.data), ...props.modelValue.data.slice(childIndex)]
+  props.statefulLayout.input(props.modelValue, newData)
+  props.statefulLayout.activateItem(props.modelValue, childIndex + 1)
+  menuOpened.value = -1
+}
+
+const itemBorderColor = computed(() => (child, childIndex) => {
+  if (editedItem.value === childIndex) return theme.current.value.colors.primary
+  if (child.validated && (child.error || child.childError)) return theme.current.value.colors.error
+  return 'transparent'
+})
+
 </script>
 
 <template>
@@ -70,7 +99,8 @@ const pushEmptyItem = () => {
           v-bind="itemBind(childIndex)"
           :density="modelValue.options.density"
           :draggable="draggable === childIndex"
-          :variant="editedItem === childIndex ? 'outlined' : 'flat'"
+          variant="flat"
+          :style="`border: 1px solid ${itemBorderColor(child, childIndex)}`"
           class="pa-1 vjsf-list-item"
         >
           <v-row class="ma-0">
@@ -82,100 +112,110 @@ const pushEmptyItem = () => {
             />
           </v-row>
           <template
-            v-if="activeItem === childIndex"
+            v-if="!modelValue.options.readOnly && modelValue.layout.listActions.length"
             #append
           >
             <div>
-              <v-list-item-action
-                v-if="modelValue.layout.listActions.includes('edit') && modelValue.layout.listEditMode === 'inline-single'"
-              >
+              <v-list-item-action v-if="activeItem !== childIndex">
                 <v-btn
-                  v-if="editedItem !== childIndex"
-                  :title="modelValue.messages.edit"
-                  icon="mdi-pencil"
+                  style="visibility:hidden"
                   variant="text"
-                  color="primary"
                   :density="buttonDensity"
-                  @click="statefulLayout.activateItem(modelValue, childIndex)"
-                />
-                <v-btn
-                  v-else
-                  :title="modelValue.messages.edit"
                   icon="mdi-pencil"
-                  variant="flat"
-                  color="primary"
-                  :density="buttonDensity"
-                  @click="statefulLayout.deactivateItem(modelValue)"
                 />
               </v-list-item-action>
-              <v-list-item-action
-                v-if="editedItem === undefined && modelValue.layout.listActions.includes('sort') && activeDnd"
-              >
-                <v-btn
-                  :title="modelValue.messages.sort"
-                  icon="mdi-arrow-up-down"
-                  variant="plain"
-                  :density="buttonDensity"
-                  v-bind="handleBind(childIndex)"
-                />
-              </v-list-item-action>
-              <v-list-item-action
-                v-if="editedItem === undefined && (modelValue.layout.listActions.includes('delete') || modelValue.layout.listActions.includes('duplicate') || modelValue.layout.listActions.includes('sort'))"
-              >
-                <v-menu
-                  location="bottom end"
-                  @update:model-value="value => {menuOpened = value ? childIndex : -1}"
+              <template v-else>
+                <v-list-item-action
+                  v-if="modelValue.layout.listActions.includes('edit') && modelValue.layout.listEditMode === 'inline-single'"
                 >
-                  <template #activator="{props: activatorProps}">
-                    <v-btn
-                      v-bind="activatorProps"
-                      icon="mdi-dots-vertical"
-                      variant="plain"
-                      slim
-                      :density="buttonDensity"
-                    />
-                  </template>
-                  <v-list :density="modelValue.options.density">
-                    <v-list-item
-                      v-if="modelValue.layout.listActions.includes('delete')"
-                      base-color="warning"
-                      @click="statefulLayout.input(modelValue, [...modelValue.data.slice(0, childIndex), ...modelValue.data.slice(childIndex + 1)])"
-                    >
-                      <template #prepend>
-                        <v-icon icon="mdi-delete" />
-                      </template>
-                      {{ modelValue.messages.delete }}
-                    </v-list-item>
-                    <v-list-item
-                      v-if="modelValue.layout.listActions.includes('duplicate')"
-                      @click="statefulLayout.input(modelValue, [...modelValue.data.slice(0, childIndex), clone(child.data), ...modelValue.data.slice(childIndex)])"
-                    >
-                      <template #prepend>
-                        <v-icon icon="mdi-content-duplicate" />
-                      </template>
-                      {{ modelValue.messages.duplicate }}
-                    </v-list-item>
-                    <v-list-item
-                      v-if="modelValue.layout.listActions.includes('sort')"
-                      @click="statefulLayout.input(modelValue, moveArrayItem(modelValue.data, childIndex, childIndex - 1))"
-                    >
-                      <template #prepend>
-                        <v-icon icon="mdi-arrow-up" />
-                      </template>
-                      {{ modelValue.messages.up }}
-                    </v-list-item>
-                    <v-list-item
-                      v-if="modelValue.layout.listActions.includes('sort')"
-                      @click="statefulLayout.input(modelValue, moveArrayItem(modelValue.data, childIndex, childIndex + 1))"
-                    >
-                      <template #prepend>
-                        <v-icon icon="mdi-arrow-down" />
-                      </template>
-                      {{ modelValue.messages.down }}
-                    </v-list-item>
-                  </v-list>
-                </v-menu>
-              </v-list-item-action>
+                  <v-btn
+                    v-if="editedItem !== childIndex"
+                    :title="modelValue.messages.edit"
+                    icon="mdi-pencil"
+                    variant="text"
+                    color="primary"
+                    :density="buttonDensity"
+                    @click="statefulLayout.activateItem(modelValue, childIndex)"
+                  />
+                  <v-btn
+                    v-else
+                    :title="modelValue.messages.edit"
+                    icon="mdi-close"
+                    variant="flat"
+                    color="primary"
+                    :density="buttonDensity"
+                    @click="statefulLayout.deactivateItem(modelValue)"
+                  />
+                </v-list-item-action>
+                <v-list-item-action
+                  v-if="editedItem === undefined && modelValue.layout.listActions.includes('sort') && activeDnd"
+                >
+                  <v-btn
+                    :title="modelValue.messages.sort"
+                    icon="mdi-arrow-up-down"
+                    variant="plain"
+                    :density="buttonDensity"
+                    v-bind="handleBind(childIndex)"
+                  />
+                </v-list-item-action>
+                <v-list-item-action
+                  v-if="editedItem === undefined && (modelValue.layout.listActions.includes('delete') || modelValue.layout.listActions.includes('duplicate') || modelValue.layout.listActions.includes('sort'))"
+                >
+                  <v-menu
+                    location="bottom end"
+                    @update:model-value="value => {menuOpened = value ? childIndex : -1}"
+                  >
+                    <template #activator="{props: activatorProps}">
+                      <v-btn
+                        v-bind="activatorProps"
+                        icon="mdi-dots-vertical"
+                        variant="plain"
+                        slim
+                        :density="buttonDensity"
+                      />
+                    </template>
+                    <v-list :density="modelValue.options.density">
+                      <v-list-item
+                        v-if="modelValue.layout.listActions.includes('delete')"
+                        base-color="warning"
+                        @click="deleteItem(childIndex)"
+                      >
+                        <template #prepend>
+                          <v-icon icon="mdi-delete" />
+                        </template>
+                        {{ modelValue.messages.delete }}
+                      </v-list-item>
+                      <v-list-item
+                        v-if="modelValue.layout.listActions.includes('duplicate')"
+                        @click="duplicateItem(child, childIndex)"
+                      >
+                        <template #prepend>
+                          <v-icon icon="mdi-content-duplicate" />
+                        </template>
+                        {{ modelValue.messages.duplicate }}
+                      </v-list-item>
+                      <v-list-item
+                        v-if="modelValue.layout.listActions.includes('sort')"
+                        @click="statefulLayout.input(modelValue, moveArrayItem(modelValue.data, childIndex, childIndex - 1))"
+                      >
+                        <template #prepend>
+                          <v-icon icon="mdi-arrow-up" />
+                        </template>
+                        {{ modelValue.messages.up }}
+                      </v-list-item>
+                      <v-list-item
+                        v-if="modelValue.layout.listActions.includes('sort')"
+                        @click="statefulLayout.input(modelValue, moveArrayItem(modelValue.data, childIndex, childIndex + 1))"
+                      >
+                        <template #prepend>
+                          <v-icon icon="mdi-arrow-down" />
+                        </template>
+                        {{ modelValue.messages.down }}
+                      </v-list-item>
+                    </v-list>
+                  </v-menu>
+                </v-list-item-action>
+              </template>
             </div>
           </template>
         </v-list-item>
