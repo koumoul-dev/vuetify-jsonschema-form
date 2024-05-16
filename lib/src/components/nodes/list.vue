@@ -77,7 +77,7 @@ const duplicateItem = (child, childIndex) => {
   menuOpened.value = -1
 }
 
-const itemBorderColor = computed(() => (child, childIndex) => {
+const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').StateNode} */child, /** @type {number} */childIndex) => {
   if (editedItem.value === childIndex) return theme.current.value.colors.primary
   if (child.validated && (child.error || child.childError)) return theme.current.value.colors.error
   return 'transparent'
@@ -86,7 +86,10 @@ const itemBorderColor = computed(() => (child, childIndex) => {
 </script>
 
 <template>
-  <v-sheet :elevation="1">
+  <v-sheet
+    :elevation="2"
+    rounded
+  >
     <v-list :density="modelValue.options.density">
       <v-list-subheader v-if="modelValue.layout.title">
         {{ modelValue.layout.title }}

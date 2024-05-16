@@ -4,15 +4,17 @@
       <v-alert
         v-show="show"
         color="info"
+        :density="node.options.density"
       >
         <div v-html="node.layout.help" />
       </v-alert>
     </v-slide-x-reverse-transition>
     <v-btn
       color="info"
-      class="vjsf-help-message-toggle"
+      :class="`vjsf-help-message-toggle vjsf-help-message-toggle-${node.options.density}`"
       :icon="show ? 'mdi-close-circle' : 'mdi-information'"
       density="compact"
+      :size="node.options.density !== 'default' ? 'small' : 'default'"
       :title="show ? '' : node.messages.showHelp"
       @click="show = !show"
     />
@@ -44,6 +46,14 @@ const show = ref(false)
   top: -10px;
   right: -4px;
   z-index: 1;
+}
+.vjsf-help-message-toggle-comfortable {
+  top: -4px;
+  right: -4px;
+}
+.vjsf-help-message-toggle-compact {
+  top: -4px;
+  right: -4px;
 }
 </style>
 ../../../types.js
