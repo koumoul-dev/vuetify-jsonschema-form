@@ -18,6 +18,9 @@ import NodeDateTimePicker from './nodes/date-time-picker.vue'
 import NodeColorPicker from './nodes/color-picker.vue'
 import NodeSelect from './nodes/select.vue'
 import NodeAutocomplete from './nodes/autocomplete.vue'
+import NodeRadioGroup from './nodes/radio-group.vue'
+import NodeCheckboxGroup from './nodes/checkbox-group.vue'
+// import NodeSwitchGroup from './nodes/switch-group.vue'
 import NodeOneOfSelect from './nodes/one-of-select.vue'
 import NodeTabs from './nodes/tabs.vue'
 import NodeVerticalTabs from './nodes/vertical-tabs.vue'
@@ -42,6 +45,8 @@ const nodeComponents = {
   'color-picker': NodeColorPicker,
   select: NodeSelect,
   autocomplete: NodeAutocomplete,
+  'radio-group': NodeRadioGroup,
+  'checkbox-group': NodeCheckboxGroup,
   'one-of-select': NodeOneOfSelect,
   tabs: NodeTabs,
   'vertical-tabs': NodeVerticalTabs,

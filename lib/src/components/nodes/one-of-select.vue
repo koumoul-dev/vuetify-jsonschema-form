@@ -2,7 +2,7 @@
 import { VSelect, VRow, VCol } from 'vuetify/components'
 import { shallowRef, watch, computed, h } from 'vue'
 import { isSection } from '@json-layout/core'
-import { getInputProps, getCompSlots } from '../../utils/index.js'
+import { getInputProps } from '../../utils/index.js'
 import Node from '../node.vue'
 
 const props = defineProps({
