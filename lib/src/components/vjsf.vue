@@ -20,7 +20,7 @@ import NodeSelect from './nodes/select.vue'
 import NodeAutocomplete from './nodes/autocomplete.vue'
 import NodeRadioGroup from './nodes/radio-group.vue'
 import NodeCheckboxGroup from './nodes/checkbox-group.vue'
-// import NodeSwitchGroup from './nodes/switch-group.vue'
+import NodeSwitchGroup from './nodes/switch-group.vue'
 import NodeOneOfSelect from './nodes/one-of-select.vue'
 import NodeTabs from './nodes/tabs.vue'
 import NodeVerticalTabs from './nodes/vertical-tabs.vue'
@@ -47,6 +47,7 @@ const nodeComponents = {
   autocomplete: NodeAutocomplete,
   'radio-group': NodeRadioGroup,
   'checkbox-group': NodeCheckboxGroup,
+  'switch-group': NodeSwitchGroup,
   'one-of-select': NodeOneOfSelect,
   tabs: NodeTabs,
   'vertical-tabs': NodeVerticalTabs,

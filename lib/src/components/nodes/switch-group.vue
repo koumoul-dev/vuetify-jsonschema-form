@@ -21,7 +21,7 @@ export default defineComponent({
       return h(SelectionGroup, {
         modelValue: props.modelValue,
         statefulLayout: props.statefulLayout,
-        type: 'checkbox'
+        type: 'switch'
       })
     }
   }
