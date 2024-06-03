@@ -70,8 +70,8 @@
     <p>This kind of expression has access to some extra parameters:</p>
 
     <ul>
-      <li><b>parentData</b> - the data of the parent node where this expression is evaluated.</li>
       <li><b>rootData</b> - the root data of this vjsf instance.</li>
+      <li><b>parent</b> - wrapper to access data from the parent node (use parent.data or go higher in the hierarchy with parent.parent).</li>
     </ul>
 
     <h2 class="text-h4 mt-8 mb-6">

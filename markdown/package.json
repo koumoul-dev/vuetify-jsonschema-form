@@ -38,7 +38,7 @@
   "peerDependencies": {
     "@koumoul/vjsf": ">=3.0.0-beta",
     "vue": "^3.4.2",
-    "vuetify": "^3.4.9"
+    "vuetify": "^3.6.8"
   },
   "devDependencies": {
     "vitest": "^1.1.1",

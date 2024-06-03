@@ -17,6 +17,9 @@ import {
   OneOfSelectNode,
   SectionNode,
   SelectNode,
+  RadioGroupNode,
+  CheckboxGroupNode,
+  SwitchGroupNode,
   SliderNode,
   SwitchNode,
   TextFieldNode,
@@ -68,6 +71,9 @@ export type VjsfNumberFieldNode = Omit<NumberFieldNode, 'options'> & {options: V
 export type VjsfOneOfSelectNode = Omit<OneOfSelectNode, 'options'> & {options: VjsfOptions}
 export type VjsfSectionNode = Omit<SectionNode, 'options'> & {options: VjsfOptions}
 export type VjsfSelectNode = Omit<SelectNode, 'options'> & {options: VjsfOptions}
+export type VjsfRadioGroupNode = Omit<RadioGroupNode, 'options'> & {options: VjsfOptions}
+export type VjsfCheckboxGroupNode = Omit<CheckboxGroupNode, 'options'> & {options: VjsfOptions}
+export type VjsfSwitchGroupNode = Omit<SwitchGroupNode, 'options'> & {options: VjsfOptions}
 export type VjsfSliderNode = Omit<SliderNode, 'options'> & {options: VjsfOptions}
 export type VjsfSwitchNode = Omit<SwitchNode, 'options'> & {options: VjsfOptions}
 export type VjsfTextFieldNode = Omit<TextFieldNode, 'options'> & {options: VjsfOptions}
