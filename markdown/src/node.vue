@@ -226,7 +226,6 @@ export default defineComponent({
     })
 
     props.statefulLayout.events.on('autofocus', () => {
-      console.log('focus code mirror ?')
       if (props.modelValue.autofocus && easymde) {
         easymde.codemirror.focus()
       }

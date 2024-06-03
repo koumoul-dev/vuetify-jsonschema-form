@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@json-layout/vocabulary": "0.16.0",
-    "@json-layout/core": "0.16.4",
+    "@json-layout/core": "0.17.0",
     "@json-layout/examples": "0.9.0",
     "@koumoul/vjsf": "3.0.0-beta.21",
     "@koumoul/vjsf-markdown": "0.2.0",
@@ -27,7 +27,7 @@
     "prismjs": "^1.29.0",
     "vite-plugin-vuetify": "^2.0.1",
     "vue-prism-editor": "^2.0.0-alpha.2",
-    "vuetify": "^3.4.9",
+    "vuetify": "^3.6.8",
     "yaml": "^2.3.3"
   },
   "author": "Alban Mouton <alban.mouton@gmail.com>",
