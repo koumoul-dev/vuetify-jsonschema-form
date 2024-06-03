@@ -2,6 +2,7 @@
 import { VSelect, VRow, VCol } from 'vuetify/components'
 import { shallowRef, watch, computed, h } from 'vue'
 import { isSection } from '@json-layout/core'
+import { isCompObject } from '@json-layout/vocabulary'
 import { getInputProps } from '../../utils/index.js'
 import Node from '../node.vue'
 
@@ -39,7 +40,14 @@ const fieldProps = computed(() => {
   fieldProps.modelValue = activeChildTree.value
   fieldProps['onUpdate:modelValue'] = onChange
   fieldProps.returnObject = true
-  fieldProps.items = props.modelValue.skeleton.childrenTrees
+  const items = []
+  for (const childTree of props.modelValue.skeleton.childrenTrees || []) {
+    const childLayout = props.statefulLayout.compiledLayout.normalizedLayouts[childTree.root.pointer]
+    if (!isCompObject(childLayout) || !childLayout.if || !!props.statefulLayout.evalNodeExpression(props.modelValue, childLayout.if, props.modelValue.data)) {
+      items.push(childTree)
+    }
+  }
+  fieldProps.items = items
   fieldProps.itemTitle = 'title'
   return fieldProps
 })
