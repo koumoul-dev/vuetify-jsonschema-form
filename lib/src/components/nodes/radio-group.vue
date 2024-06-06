@@ -6,12 +6,12 @@ import { getInputProps, getCompSlots } from '../../utils/index.js'
 export default defineComponent({
   props: {
     modelValue: {
-    /** @type import('vue').PropType<import('../../types.js').VjsfSelectNode> */
+      /** @type import('vue').PropType<import('../../types.js').VjsfRadioGroupNode> */
       type: Object,
       required: true
     },
     statefulLayout: {
-    /** @type import('vue').PropType<import('../../types.js').VjsfStatefulLayout> */
+      /** @type import('vue').PropType<import('../../types.js').VjsfStatefulLayout> */
       type: Object,
       required: true
     }
