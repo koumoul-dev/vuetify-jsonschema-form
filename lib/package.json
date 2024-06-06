@@ -5,7 +5,8 @@
   "scripts": {
     "test": "vitest",
     "build": "vue-tsc",
-    "watch:build": "vue-tsc --watch"
+    "watch:build": "vue-tsc --watch",
+    "prepublishOnly": "cp ../README.md README.md && cp ../LICENSE LICENSE"
   },
   "author": "Alban Mouton <alban.mouton@gmail.com>",
   "license": "MIT",
