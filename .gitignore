@@ -8,3 +8,5 @@ node_modules
 /doc/components/compiled
 /doc/pages/compiled
 .idea/
+/lib/README.md
+/lib/LICENSE
