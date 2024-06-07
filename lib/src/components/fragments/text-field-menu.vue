@@ -24,7 +24,7 @@ const props = defineProps({
 const fieldProps = computed(() => {
   const fieldProps = getInputProps(props.modelValue, props.statefulLayout, [], false)
   fieldProps.readonly = true
-  fieldProps.clearable = !props.modelValue.skeleton.required
+  fieldProps.clearable = fieldProps.clearable ?? !props.modelValue.skeleton.required
   fieldProps['onClick:clear'] = () => {
     props.statefulLayout.input(props.modelValue, null)
   }
