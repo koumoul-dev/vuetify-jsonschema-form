@@ -30,6 +30,7 @@ export default defineComponent({
       fieldProps.loading = loading.value
       fieldProps.items = items.value
       fieldProps['onUpdate:menu'] = refresh
+      fieldProps.clearable = !props.modelValue.skeleton.required
       return fieldProps
     })
 
