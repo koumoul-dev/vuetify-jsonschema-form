@@ -91,6 +91,6 @@ describe('schema compatibility function', () => {
 
     assert.equal(schema.allOf?.[0]?.oneOfLayout?.label, 'Action')
     // eslint-disable-next-line no-template-curly-in-string
-    assert.equal(schema.allOf?.[0]?.oneOf?.[1]?.properties?.dataset?.layout?.getItems.url, '${context.dataFairUrl}/api/v1/datasets?q={q}&select=id,title&${context.ownerFilter}')
+    assert.deepEqual(schema.allOf?.[0]?.oneOf?.[1]?.properties?.dataset?.layout?.getItems.url, { expr: '${context.dataFairUrl}/api/v1/datasets?q={q}&select=id,title&${context.ownerFilter}', type: 'js-tpl', pure: true })
   })
 })
