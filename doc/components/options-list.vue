@@ -10,7 +10,7 @@
       >
         <v-list-item class="my-2 px-2">
           <v-list-item-title>
-            {{ option.key }}
+            <strong>{{ option.key }}</strong> <span v-if="option.default !== undefined">(default={{ option.default }})</span>
           </v-list-item-title>
           <v-list-item-subtitle>
             {{ option.description }}
