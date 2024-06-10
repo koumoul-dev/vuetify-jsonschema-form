@@ -20,7 +20,7 @@ export default defineComponent({
       } else if (isSVG.value) {
         return h('div', { innerHTML: props.icon.replace('<svg ', '<svg class="v-icon__svg" '), class: 'v-icon' })
       } else {
-        return h(VIcon, null, props.icon)
+        return h(VIcon, null, () => props.icon)
       }
     }
   }
