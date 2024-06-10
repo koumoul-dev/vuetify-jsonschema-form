@@ -1,7 +1,8 @@
 <script>
 import { VSelect } from 'vuetify/components'
-import { defineComponent, h, computed, ref, shallowRef } from 'vue'
+import { defineComponent, h, computed } from 'vue'
 import { getInputProps, getCompSlots } from '../../utils/index.js'
+import useGetItems from '../../composables/use-get-items.js'
 import SelectItem from '../fragments/select-item.vue'
 import SelectSelection from '../fragments/select-selection.vue'
 
@@ -19,38 +20,16 @@ export default defineComponent({
     }
   },
   setup (props) {
-    /** @type import('vue').Ref<import('@json-layout/vocabulary').SelectItems> */
-    const items = shallowRef([])
-    /** @type import('vue').Ref<boolean> */
-    const loading = ref(false)
+    const getItems = useGetItems(props)
 
     const fieldProps = computed(() => {
       const fieldProps = getInputProps(props.modelValue, props.statefulLayout, ['multiple'])
       if (props.modelValue.options.readOnly) fieldProps.menuProps = { modelValue: false }
-      fieldProps.loading = loading.value
-      fieldProps.items = items.value
-      fieldProps['onUpdate:menu'] = refresh
+      fieldProps.loading = getItems.loading.value
+      fieldProps.items = getItems.items.value
       fieldProps.clearable = fieldProps.clearable ?? !props.modelValue.skeleton.required
       return fieldProps
     })
-
-    /** @type import('@json-layout/core').StateTree | null */
-    let lastStateTree = null
-    /** @type Record<string, any> | null */
-    let lastContext = null
-
-    const refresh = async () => {
-      if (props.statefulLayout.stateTree === lastStateTree && props.statefulLayout.options.context === lastContext) return
-      lastStateTree = props.statefulLayout.stateTree
-      lastContext = props.statefulLayout.options.context ?? null
-      loading.value = true
-      items.value = await props.statefulLayout.getItems(props.modelValue)
-      loading.value = false
-    }
-
-    if (!props.modelValue.layout.items) {
-      refresh()
-    }
 
     const fieldSlots = computed(() => {
       const slots = getCompSlots(props.modelValue, props.statefulLayout)
@@ -58,15 +37,17 @@ export default defineComponent({
         slots.item = (/** @type {any} */ context) => h(SelectItem, {
           multiple: props.modelValue.layout.multiple,
           itemProps: context.props,
-          item: context.item.raw
+          item: context.item
         })
       }
       if (!slots.selection) {
-        slots.selection = (/** @type {any} */ context) => h(SelectSelection, {
-          multiple: props.modelValue.layout.multiple,
-          last: props.modelValue.layout.multiple && context.index === props.modelValue.data.length - 1,
-          item: context.item.raw
-        })
+        slots.selection = (/** @type {any} */ context) => {
+          return h(SelectSelection, {
+            multiple: props.modelValue.layout.multiple,
+            last: props.modelValue.layout.multiple && context.index === props.modelValue.data.length - 1,
+            item: context.item
+          })
+        }
       }
       return slots
     })

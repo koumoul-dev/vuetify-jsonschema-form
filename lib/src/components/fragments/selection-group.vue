@@ -1,7 +1,8 @@
 <script>
 import { VInput, VLabel, VCheckbox, VSwitch, VSkeletonLoader } from 'vuetify/components'
-import { defineComponent, h, computed, ref, shallowRef } from 'vue'
+import { defineComponent, h, computed } from 'vue'
 import { getInputProps, getCompSlots } from '../../utils/index.js'
+import useGetItems from '../../composables/use-get-items.js'
 
 export default defineComponent({
   props: {
@@ -21,10 +22,7 @@ export default defineComponent({
     }
   },
   setup (props) {
-    /** @type import('vue').Ref<import('@json-layout/vocabulary').SelectItems> */
-    const items = shallowRef([])
-    /** @type import('vue').Ref<boolean> */
-    const loading = ref(false)
+    const getItems = useGetItems(props)
 
     const fieldProps = computed(() => {
       const fieldProps = getInputProps(props.modelValue, props.statefulLayout)
@@ -33,24 +31,6 @@ export default defineComponent({
       return fieldProps
     })
 
-    /** @type import('@json-layout/core').StateTree | null */
-    let lastStateTree = null
-    /** @type Record<string, any> | null */
-    let lastContext = null
-
-    const refresh = async () => {
-      if (props.statefulLayout.stateTree === lastStateTree && props.statefulLayout.options.context === lastContext) return
-      lastStateTree = props.statefulLayout.stateTree
-      lastContext = props.statefulLayout.options.context ?? null
-      loading.value = true
-      items.value = await props.statefulLayout.getItems(props.modelValue)
-      loading.value = false
-    }
-
-    if (!props.modelValue.layout.items) {
-      refresh()
-    }
-
     const fieldSlots = computed(() => {
       const slots = getCompSlots(props.modelValue, props.statefulLayout)
 
@@ -58,12 +38,12 @@ export default defineComponent({
         slots.default = () => {
           /** @type {import('vue').VNode[]} */
           const children = [h(VLabel, { text: fieldProps.value.label })]
-          if (loading.value) {
+          if (getItems.loading.value) {
             children.push(h(VSkeletonLoader, { type: 'chip' }))
           } else {
             /** @type {import('vue').VNode[]} */
             const checkboxes = []
-            for (const item of items.value) {
+            for (const item of getItems.items.value) {
               let modelValue = false
               if (props.modelValue.layout.multiple) {
                 modelValue = props.modelValue.data?.includes(item.value)

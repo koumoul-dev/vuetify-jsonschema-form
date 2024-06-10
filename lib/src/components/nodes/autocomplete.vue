@@ -1,7 +1,8 @@
 <script>
 import { VAutocomplete } from 'vuetify/components'
-import { defineComponent, computed, ref, shallowRef, h } from 'vue'
+import { defineComponent, computed, h } from 'vue'
 import { getInputProps, getCompSlots } from '../../utils/index.js'
+import useGetItems from '../../composables/use-get-items.js'
 import SelectItem from '../fragments/select-item.vue'
 import SelectSelection from '../fragments/select-selection.vue'
 
@@ -13,54 +14,26 @@ export default defineComponent({
       required: true
     },
     statefulLayout: {
-    /** @type import('vue').PropType<import('../../types.js').VjsfStatefulLayout> */
+      /** @type import('vue').PropType<import('../../types.js').VjsfStatefulLayout> */
       type: Object,
       required: true
     }
   },
   setup (props) {
-    /** @type import('vue').ShallowRef<import('@json-layout/vocabulary').SelectItems> */
-    const items = shallowRef([])
-    /** @type import('vue').Ref<boolean> */
-    const loading = ref(false)
-    /** @type import('vue').Ref<string> */
-    const search = ref('')
+    const getItems = useGetItems(props)
 
     const fieldProps = computed(() => {
       const fieldProps = getInputProps(props.modelValue, props.statefulLayout, ['multiple'])
       if (props.modelValue.options.readOnly) fieldProps.menuProps = { modelValue: false }
       fieldProps.noFilter = true
       fieldProps['onUpdate:search'] = (/** @type string */searchValue) => {
-        search.value = searchValue
-        refresh()
+        getItems.search.value = searchValue
       }
-      fieldProps['onUpdate:menu'] = refresh
-      fieldProps.items = items.value
-      fieldProps.loading = loading.value
+      fieldProps.items = getItems.items.value
+      fieldProps.loading = getItems.loading.value
       fieldProps.clearable = fieldProps.clearable ?? !props.modelValue.skeleton.required
       return fieldProps
     })
-
-    /** @type import('@json-layout/core').StateTree | null */
-    let lastStateTree = null
-    /** @type Record<string, any> | null */
-    let lastContext = null
-    /** @type string */
-    let lastSearch = ''
-
-    const refresh = async () => {
-      if (props.statefulLayout.stateTree === lastStateTree && props.statefulLayout.options.context === lastContext && search.value === lastSearch) return
-      loading.value = true
-      items.value = await props.statefulLayout.getItems(props.modelValue, search.value)
-      lastStateTree = props.statefulLayout.stateTree
-      lastContext = props.statefulLayout.options.context ?? null
-      lastSearch = search.value
-      loading.value = false
-    }
-
-    if (!props.modelValue.layout.items) {
-      refresh()
-    }
 
     const fieldSlots = computed(() => {
       const slots = getCompSlots(props.modelValue, props.statefulLayout)
