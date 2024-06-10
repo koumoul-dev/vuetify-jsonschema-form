@@ -288,7 +288,7 @@ export default {
       initialValidation: 'withData',
       updateOn: 'input',
       debounceInputMs: 300,
-      defaultOn: 'input',
+      defaultOn: 'empty',
       removeAdditional: 'error',
       autofocus: false,
       readOnlyPropertiesMode: 'show',
