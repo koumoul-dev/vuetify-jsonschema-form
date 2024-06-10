@@ -142,7 +142,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                   />
                   <v-btn
                     v-else
-                    :title="modelValue.messages.edit"
+                    :title="modelValue.messages.close"
                     icon="mdi-close"
                     variant="flat"
                     color="primary"
