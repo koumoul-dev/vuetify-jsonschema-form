@@ -18,6 +18,7 @@ defineProps({
     required: true
   }
 })
+
 </script>
 
 <template>
@@ -26,7 +27,7 @@ defineProps({
       v-if="item.icon"
       :icon="item.icon"
     />
-    {{ item.title }}
+    {{ item.title ?? item.key ?? item.value }}
     <span
       v-if="multiple && !last"
       class="v-select__selection-comma"

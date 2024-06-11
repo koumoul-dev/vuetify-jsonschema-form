@@ -37,17 +37,15 @@ export default defineComponent({
         slots.item = (/** @type {any} */ context) => h(SelectItem, {
           multiple: props.modelValue.layout.multiple,
           itemProps: context.props,
-          item: context.item
+          item: context.item.raw
         })
       }
       if (!slots.selection) {
-        slots.selection = (/** @type {any} */ context) => {
-          return h(SelectSelection, {
-            multiple: props.modelValue.layout.multiple,
-            last: props.modelValue.layout.multiple && context.index === props.modelValue.data.length - 1,
-            item: context.item
-          })
-        }
+        slots.selection = (/** @type {any} */ context) => h(SelectSelection, {
+          multiple: props.modelValue.layout.multiple,
+          last: props.modelValue.layout.multiple && context.index === props.modelValue.data.length - 1,
+          item: getItems.prepareSelectedItem(context.item.raw, context.item.value)
+        })
       }
       return slots
     })

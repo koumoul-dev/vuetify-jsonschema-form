@@ -48,7 +48,7 @@ export default defineComponent({
         slots.selection = (/** @type {any} */ context) => h(SelectSelection, {
           multiple: props.modelValue.layout.multiple,
           last: props.modelValue.layout.multiple && context.index === props.modelValue.data.length - 1,
-          item: context.item.raw
+          item: getItems.prepareSelectedItem(context.item.raw, context.item.value)
         })
       }
       return slots
