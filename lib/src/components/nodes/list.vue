@@ -30,7 +30,7 @@ watch(() => props.modelValue.children, (array) => { sortableArray.value = array 
 
 /* manage hovered and edited items */
 const editedItem = computed(() => {
-  return props.statefulLayout.activeItems[props.modelValue.fullKey]
+  return props.statefulLayout.activatedItems[props.modelValue.fullKey]
 })
 const menuOpened = ref(-1)
 const activeItem = computed(() => {
@@ -54,7 +54,9 @@ const buttonDensity = computed(() => {
 const pushEmptyItem = () => {
   const newData = (props.modelValue.data ?? []).concat([undefined])
   props.statefulLayout.input(props.modelValue, newData)
-  props.statefulLayout.activateItem(props.modelValue, newData.length - 1)
+  if (props.modelValue.layout.listEditMode === 'inline-single') {
+    props.statefulLayout.activateItem(props.modelValue, newData.length - 1)
+  }
 }
 
 /**
@@ -73,13 +75,17 @@ const deleteItem = (childIndex) => {
 const duplicateItem = (child, childIndex) => {
   const newData = [...props.modelValue.data.slice(0, childIndex), clone(child.data), ...props.modelValue.data.slice(childIndex)]
   props.statefulLayout.input(props.modelValue, newData)
-  props.statefulLayout.activateItem(props.modelValue, childIndex + 1)
+  if (props.modelValue.layout.listEditMode === 'inline-single') {
+    props.statefulLayout.activateItem(props.modelValue, childIndex + 1)
+  }
   menuOpened.value = -1
 }
 
 const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').StateNode} */child, /** @type {number} */childIndex) => {
   if (editedItem.value === childIndex) return theme.current.value.colors.primary
   if (child.validated && (child.error || child.childError)) return theme.current.value.colors.error
+  if (props.modelValue.options.readOnly) return 'transparent'
+  if (activeItem.value === childIndex) return theme.current.value.colors.primary
   return 'transparent'
 })
 

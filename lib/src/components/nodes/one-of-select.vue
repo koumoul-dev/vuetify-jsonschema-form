@@ -1,6 +1,6 @@
 <script setup>
 import { VSelect, VRow, VCol } from 'vuetify/components'
-import { shallowRef, watch, computed, h } from 'vue'
+import { ref, watch, computed, h } from 'vue'
 import { isSection } from '@json-layout/core'
 import { isCompObject } from '@json-layout/vocabulary'
 import { getInputProps } from '../../utils/index.js'
@@ -19,18 +19,19 @@ const props = defineProps({
   }
 })
 
-/** @type import('vue').ShallowRef<import('@json-layout/core').SkeletonTree | undefined> */
-const activeChildTree = shallowRef(undefined)
+/** @type import('vue').Ref<string | undefined> */
+const activeChildTree = ref(undefined)
 watch(() => props.modelValue, () => {
-  // we set the active oneOf child as the one whose schema validates on the current data
-  if (props.modelValue.fullKey in props.statefulLayout.activeItems) {
-    activeChildTree.value = props.modelValue.skeleton.childrenTrees?.[props.statefulLayout.activeItems[props.modelValue.fullKey]]
+  if (props.modelValue.children?.length === 1) {
+    if (typeof props.modelValue.children[0].key === 'number') {
+      activeChildTree.value = props.modelValue.skeleton.childrenTrees?.[props.modelValue.children[0].key]
+    }
   } else {
     activeChildTree.value = undefined
   }
 }, { immediate: true })
 
-const onChange = (/** @type import('@json-layout/core').SkeletonTree */childTree) => {
+const onChange = (/** @type {string} */childTree) => {
   if (!props.modelValue.skeleton.childrenTrees) return
   props.statefulLayout.activateItem(props.modelValue, props.modelValue.skeleton.childrenTrees.indexOf(childTree))
 }
@@ -39,9 +40,9 @@ const fieldProps = computed(() => {
   const fieldProps = getInputProps(props.modelValue, props.statefulLayout)
   fieldProps.modelValue = activeChildTree.value
   fieldProps['onUpdate:modelValue'] = onChange
-  fieldProps.returnObject = true
   const items = []
-  for (const childTree of props.modelValue.skeleton.childrenTrees || []) {
+  for (const childTreePointer of props.modelValue.skeleton.childrenTrees || []) {
+    const childTree = props.statefulLayout.compiledLayout.skeletonTrees[childTreePointer]
     const childLayout = props.statefulLayout.compiledLayout.normalizedLayouts[childTree.root.pointer]
     if (!isCompObject(childLayout) || !childLayout.if || !!props.statefulLayout.evalNodeExpression(props.modelValue, childLayout.if, props.modelValue.data)) {
       items.push(childTree)
@@ -49,6 +50,7 @@ const fieldProps = computed(() => {
   }
   fieldProps.items = items
   fieldProps.itemTitle = 'title'
+  fieldProps.itemValue = (/** @type {import('@json-layout/core').SkeletonTree} */childTree) => childTree.root.pointer
   return fieldProps
 })
 </script>
