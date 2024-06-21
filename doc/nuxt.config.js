@@ -3,6 +3,7 @@ import path, { resolve } from 'path'
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 import { defineNuxtConfig } from 'nuxt/config'
 import dependencyWatcher from 'vite-plugin-dependency-watcher' // cf https://github.com/vitejs/vite/issues/4533
+import { commonjsDeps } from '@koumoul/vjsf/utils/build.js'
 import examples from './examples/index.js'
 
 // import colors from 'vuetify/lib/util/colors'
@@ -11,28 +12,23 @@ import examples from './examples/index.js'
 const targetURL = new URL(process.env.TARGET || 'http://localhost:3133/')
 
 const packageNames = ['@json-layout/core', '@json-layout/vocabulary', '@json-layout/examples', '@koumoul/vjsf']
+const packagePaths = packageNames.map(name => path.resolve(process.cwd(), '../node_modules', name))
 
 export default defineNuxtConfig({
   ssr: false,
   css: ['vuetify/styles'],
-  build: {
-    transpile: [/vuetify/, /@koumoul/]
-  },
   vite: {
     vue: {
       template: {
         transformAssetUrls
       }
     },
-    server: {
-      fs: {
-        // necessary to work with npm links
-        allow: [resolve('../../json-layout')]
-      }
+    optimizeDeps: {
+      include: commonjsDeps
     },
     plugins: [
       // @ts-ignore
-      dependencyWatcher(packageNames, packageNames.map(name => path.resolve(process.cwd(), 'node_modules', name)))
+      dependencyWatcher(packagePaths, packageNames)
     ]
   },
   hooks: {
