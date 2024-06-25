@@ -103,12 +103,12 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, watch, onMounted, onUnmounted } from 'vue'
+import { ref, reactive, computed, watch, onMounted, onUnmounted, markRaw } from 'vue'
 import { watchDebounced, useWindowSize } from '@vueuse/core'
 import { VContainer, VRow, VCol, VSpacer, VForm, VBtn, VAlert, VWindow, VWindowItem, VToolbar } from 'vuetify/components'
 import yaml from 'yaml'
 import { Vjsf, defaultOptions } from '@koumoul/vjsf'
-import '@koumoul/vjsf-markdown'
+import VjsfMarkdown from '@koumoul/vjsf-markdown'
 import { compile } from '@json-layout/core'
 import examples from '~/examples/'
 
@@ -156,14 +156,18 @@ watch([schema, options], () => {
   if (!options.value || !schema.value) return
   let compiledLayout
   try {
-    compiledLayout = compile(schema.value, { defaultOptions, ...options.value })
+    compiledLayout = compile(schema.value, {
+      ...defaultOptions,
+      ...options.value,
+      components: { [VjsfMarkdown.info.name]: VjsfMarkdown.info }
+    })
     validationErrors.value = compiledLayout.validationErrors
   } catch (/** @type any */err) {
     validationErrors.value = { '': [err.message] }
   }
 
   if (!Object.keys(validationErrors.value).length) {
-    vjsfParams.value = { precompiledLayout: compiledLayout, options: options.value, schema: schema.value }
+    vjsfParams.value = { options: { ...options.value, plugins: [VjsfMarkdown] }, schema: schema.value }
   }
 }, { immediate: true })
 

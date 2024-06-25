@@ -57,7 +57,7 @@ export type VjsfOptions = VjsfCompileOptions & VjsfStatefulLayoutOptions
 export type VjsfStatefulLayout = Omit<StatefulLayout, 'options'> & {options: VjsfStatefulLayoutOptions}
 
 export type PartialVjsfCompileOptions = Partial<VjsfCompileOptions>
-export type PartialVjsfOptions = Partial<Omit<VjsfOptions, 'width' | 'vjsfSlots'>>
+export type PartialVjsfOptions = Partial<Omit<VjsfOptions, 'width' | 'vjsfSlots' | 'onData' | 'onUpdate' | 'onAutofocus'>>
 
 export type VjsfNode = Omit<StateNode, 'options'> & {options: VjsfOptions}
 export type VjsfTabsNode = Omit<TabsNode, 'options'> & {options: VjsfOptions}

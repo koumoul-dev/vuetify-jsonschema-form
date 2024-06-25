@@ -225,11 +225,12 @@ export default defineComponent({
       }
     })
 
+    /* TODO: manage autofocus change ? statefulLayout.events no longer exists
     props.statefulLayout.events.on('autofocus', () => {
       if (props.modelValue.autofocus && easymde) {
         easymde.codemirror.focus()
       }
-    })
+    }) */
 
     const theme = useTheme()
     const darkStyle = computed(() => getDarkStyle(theme))

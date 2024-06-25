@@ -343,9 +343,12 @@ export default {
       this.filledOptions = newState.options
     },
     editExample () {
+      /** @type {any} */
+      const editOptions = { ...this.options }
+      delete editOptions.plugins
       localStorage.setItem('vjsf-editor-state', JSON.stringify({
         schema: this.schema,
-        options: this.options,
+        options: editOptions,
         data: this.data
       }))
       this.$router.push('/editor')
