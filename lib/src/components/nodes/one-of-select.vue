@@ -43,14 +43,14 @@ const fieldProps = computed(() => {
   const items = []
   for (const childTreePointer of props.modelValue.skeleton.childrenTrees || []) {
     const childTree = props.statefulLayout.compiledLayout.skeletonTrees[childTreePointer]
-    const childLayout = props.statefulLayout.compiledLayout.normalizedLayouts[childTree.root.pointer]
+    const childLayout = props.statefulLayout.compiledLayout.normalizedLayouts[childTree.root]
     if (!isCompObject(childLayout) || !childLayout.if || !!props.statefulLayout.evalNodeExpression(props.modelValue, childLayout.if, props.modelValue.data)) {
       items.push(childTree)
     }
   }
   fieldProps.items = items
   fieldProps.itemTitle = 'title'
-  fieldProps.itemValue = (/** @type {import('@json-layout/core').SkeletonTree} */childTree) => childTree.root.pointer
+  fieldProps.itemValue = (/** @type {import('@json-layout/core').SkeletonTree} */childTree) => childTree.root
   return fieldProps
 })
 </script>
