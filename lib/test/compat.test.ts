@@ -93,4 +93,73 @@ describe('schema compatibility function', () => {
     // eslint-disable-next-line no-template-curly-in-string
     assert.deepEqual(schema.allOf?.[0]?.oneOf?.[1]?.properties?.dataset?.layout?.getItems.url, { expr: '${context.dataFairUrl}/api/v1/datasets?q={q}&select=id,title&${context.ownerFilter}', type: 'js-tpl', pure: true })
   })
+
+  it('should transform an example with recursion', () => {
+    const schema = v2compat({
+      type: 'object',
+      'x-display': 'tabs',
+      required: ['block'],
+
+      properties: {
+        block: { $ref: '#/definitions/block' },
+        separator: {
+          'x-if': 'parent.value.multivalued == true',
+          type: 'string',
+          title: 'Séparateur',
+          default: ';'
+        }
+      },
+      definitions: {
+        block: {
+          type: 'object',
+          properties: {
+            mapping: {
+              type: 'array',
+              title: 'Champs à récupérer',
+              description: 'Les colonnes qui seront récupéré depuis ce niveau',
+              'x-itemTitle': 'key',
+              items: {
+                type: 'object',
+                required: ['key', 'path'],
+                properties: {
+                  key: {
+                    type: 'string',
+                    title: 'Identifiant de la colonne',
+                    description: 'Clé de la colonne'
+                  },
+                  path: {
+                    type: 'string',
+                    title: 'Chemin de la colonne',
+                    description: "Chemin d'accès dans le json à partir de cette position"
+                  }
+                }
+              }
+            },
+            expand: {
+              title: "Données en profondeur d'un tableau",
+              type: 'object',
+              properties: {
+                path: {
+                  type: 'string',
+                  title: 'Chemin de la colonne',
+                  description: "Chemin d'accès dans le json à partir de cette position"
+                }
+              },
+              dependencies: {
+                path: {
+                  properties: {
+                    block: { $ref: '#/definitions/block', 'x-display': 'card' }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    })
+
+    // assert.equal(schema.allOf?.[0]?.oneOfLayout?.label, 'Action')
+    // eslint-disable-next-line no-template-curly-in-string
+    // assert.deepEqual(schema.allOf?.[0]?.oneOf?.[1]?.properties?.dataset?.layout?.getItems.url, { expr: '${context.dataFairUrl}/api/v1/datasets?q={q}&select=id,title&${context.ownerFilter}', type: 'js-tpl', pure: true })
+  })
 })
