@@ -5,6 +5,7 @@ import { getInputProps, getCompSlots } from '../../utils/index.js'
 import useGetItems from '../../composables/use-get-items.js'
 import SelectItem from '../fragments/select-item.vue'
 import SelectSelection from '../fragments/select-selection.vue'
+import { useDefaults } from 'vuetify'
 
 export default defineComponent({
   props: {
@@ -20,6 +21,8 @@ export default defineComponent({
     }
   },
   setup (props) {
+    useDefaults({}, 'VjsfSelect')
+
     const getItems = useGetItems(props)
 
     const fieldProps = computed(() => {

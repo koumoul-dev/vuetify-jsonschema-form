@@ -1,4 +1,5 @@
 <script>
+import { useDefaults } from 'vuetify'
 import SelectionGroup from '../fragments/selection-group.vue'
 import { defineComponent, h } from 'vue'
 
@@ -16,6 +17,8 @@ export default defineComponent({
     }
   },
   setup (props) {
+    useDefaults({}, 'VjsfCheckboxGroup')
+
     // @ts-ignore
     return () => {
       return h(SelectionGroup, {

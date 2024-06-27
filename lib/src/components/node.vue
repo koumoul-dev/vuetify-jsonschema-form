@@ -1,9 +1,11 @@
 <script setup>
 import { computed } from 'vue'
-import { useTheme } from 'vuetify'
+import { useTheme, useDefaults } from 'vuetify'
 import { VCol } from 'vuetify/components'
 import NodeSlot from './fragments/node-slot.vue'
 import HelpMessage from './fragments/help-message.vue'
+
+useDefaults({}, 'VjsfNode')
 
 const props = defineProps({
   modelValue: {

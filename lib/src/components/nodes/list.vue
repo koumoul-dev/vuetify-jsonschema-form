@@ -1,11 +1,15 @@
 <script setup>
 import { watch, computed, ref } from 'vue'
-import { useTheme } from 'vuetify'
+import { useDefaults, useTheme } from 'vuetify'
 import { VList, VListItem, VListItemAction, VBtn, VMenu, VIcon, VSheet, VSpacer, VDivider, VRow, VListSubheader } from 'vuetify/components'
 import { isSection, clone } from '@json-layout/core'
 import Node from '../node.vue'
 import { moveArrayItem } from '../../utils/index.js'
 import useDnd from '../../composables/use-dnd.js'
+import useCompDefaults from '../../composables/use-comp-defaults.js'
+
+useDefaults({}, 'VjsfList')
+const vSheetProps = useCompDefaults('VjsfList-VSheet', { border: true })
 
 const props = defineProps({
   modelValue: {
@@ -92,10 +96,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
 </script>
 
 <template>
-  <v-sheet
-    :elevation="2"
-    rounded
-  >
+  <v-sheet v-bind="vSheetProps">
     <v-list :density="modelValue.options.density">
       <v-list-subheader v-if="modelValue.layout.title">
         {{ modelValue.layout.title }}

@@ -3,6 +3,7 @@ import { VRadioGroup, VRadio, VSkeletonLoader } from 'vuetify/components'
 import { defineComponent, h, computed } from 'vue'
 import { getInputProps, getCompSlots } from '../../utils/index.js'
 import useGetItems from '../../composables/use-get-items.js'
+import { useDefaults } from 'vuetify'
 
 export default defineComponent({
   props: {
@@ -18,6 +19,8 @@ export default defineComponent({
     }
   },
   setup (props) {
+    useDefaults({}, 'VjsfRadioGroup')
+
     const getItems = useGetItems(props)
 
     const fieldProps = computed(() => {

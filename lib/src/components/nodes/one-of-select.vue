@@ -5,6 +5,9 @@ import { isSection } from '@json-layout/core'
 import { isCompObject } from '@json-layout/vocabulary'
 import { getInputProps } from '../../utils/index.js'
 import Node from '../node.vue'
+import { useDefaults } from 'vuetify'
+
+useDefaults({}, 'VjsfOneOfSelect')
 
 const props = defineProps({
   modelValue: {

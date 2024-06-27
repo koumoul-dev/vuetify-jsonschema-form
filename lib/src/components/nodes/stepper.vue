@@ -4,6 +4,9 @@ import { VStepper, VStepperHeader, VStepperItem, VStepperWindow, VStepperWindowI
 import { isSection } from '@json-layout/core'
 import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'
+import { useDefaults } from 'vuetify'
+
+useDefaults({}, 'VjsfStepper')
 
 const props = defineProps({
   modelValue: {

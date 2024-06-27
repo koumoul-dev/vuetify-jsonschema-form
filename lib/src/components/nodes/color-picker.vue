@@ -3,6 +3,9 @@ import TextFieldMenu from '../fragments/text-field-menu.vue'
 import { VColorPicker } from 'vuetify/components'
 import { computed } from 'vue'
 import { getCompProps } from '../../utils/index.js'
+import { useDefaults } from 'vuetify'
+
+useDefaults({}, 'VjsfColorPicker')
 
 const props = defineProps({
   modelValue: {

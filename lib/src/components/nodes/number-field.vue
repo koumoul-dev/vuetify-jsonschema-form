@@ -2,6 +2,7 @@
 import { defineComponent, h, computed } from 'vue'
 import { VTextField } from 'vuetify/components'
 import { getInputProps, getCompSlots } from '../../utils/index.js'
+import { useDefaults } from 'vuetify'
 
 export default defineComponent({
   props: {
@@ -17,6 +18,8 @@ export default defineComponent({
     }
   },
   setup (props) {
+    useDefaults({}, 'VjsfNumberField')
+
     const fieldProps = computed(() => {
       const fieldProps = getInputProps(props.modelValue, props.statefulLayout, ['step', 'min', 'max', 'placeholder'])
       fieldProps.type = 'number'

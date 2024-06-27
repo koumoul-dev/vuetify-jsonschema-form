@@ -4,6 +4,11 @@ import { VTabs, VTab, VContainer, VSheet, VWindow, VWindowItem, VRow, VIcon } fr
 import { ref } from 'vue'
 import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'
+import { useDefaults } from 'vuetify'
+import useCompDefaults from '../../composables/use-comp-defaults.js'
+
+useDefaults({}, 'VjsfVerticalTabs')
+const vSheetProps = useCompDefaults('VjsfVerticalTabs-VSheet', { border: true })
 
 defineProps({
   modelValue: {
@@ -23,7 +28,7 @@ const tab = ref(0)
 
 <template>
   <section-header :node="modelValue" />
-  <v-sheet border>
+  <v-sheet v-bind="vSheetProps">
     <div class="d-flex flex-row">
       <v-tabs
         v-model="tab"

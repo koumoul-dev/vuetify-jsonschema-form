@@ -2,6 +2,9 @@
 import { VSwitch } from 'vuetify/components'
 import { computed } from 'vue'
 import { getInputProps } from '../../utils/index.js'
+import { useDefaults } from 'vuetify'
+
+useDefaults({}, 'VjsfSwitch')
 
 const props = defineProps({
   modelValue: {

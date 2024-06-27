@@ -1,9 +1,14 @@
 <script setup>
 import { VTabs, VTab, VContainer, VSheet, VWindow, VWindowItem, VRow, VIcon } from 'vuetify/components'
+import { useDefaults } from 'vuetify'
 import { ref } from 'vue'
 import { isSection } from '@json-layout/core'
 import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'
+import useCompDefaults from '../../composables/use-comp-defaults.js'
+
+useDefaults({}, 'VjsfTabs')
+const vSheetProps = useCompDefaults('VjsfTabs-VSheet', { border: true })
 
 defineProps({
   modelValue: {
@@ -23,8 +28,11 @@ const tab = ref(0)
 
 <template>
   <section-header :node="modelValue" />
-  <v-sheet border>
-    <v-tabs v-model="tab">
+  <v-sheet v-bind="vSheetProps">
+    <v-tabs
+      v-model="tab"
+      direction="horizontal"
+    >
       <v-tab
         v-for="(child, i) of modelValue.children"
         :key="child.key"

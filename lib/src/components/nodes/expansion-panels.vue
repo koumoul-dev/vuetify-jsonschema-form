@@ -1,10 +1,12 @@
 <script setup>
 import { VExpansionPanels, VExpansionPanel, VExpansionPanelTitle, VExpansionPanelText, VContainer, VRow, VIcon } from 'vuetify/components'
-import { computed } from 'vue'
 import { isSection } from '@json-layout/core'
 import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'
 import { getCompProps } from '../../utils/index.js'
+import { useDefaults } from 'vuetify'
+
+useDefaults({}, 'VjsfExpansionPanels')
 
 defineProps({
   modelValue: {

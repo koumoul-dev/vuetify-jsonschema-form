@@ -1,5 +1,6 @@
 <script>
 import { VAutocomplete } from 'vuetify/components'
+import { useDefaults } from 'vuetify'
 import { defineComponent, computed, h } from 'vue'
 import { getInputProps, getCompSlots } from '../../utils/index.js'
 import useGetItems from '../../composables/use-get-items.js'
@@ -20,6 +21,7 @@ export default defineComponent({
     }
   },
   setup (props) {
+    useDefaults({}, 'VjsfAutocomplete')
     const getItems = useGetItems(props)
 
     const fieldProps = computed(() => {

@@ -2,6 +2,7 @@
 import { defineComponent, h, computed, shallowRef, ref } from 'vue'
 import { VCombobox } from 'vuetify/components'
 import { getInputProps, getCompSlots } from '../../utils/index.js'
+import { useDefaults } from 'vuetify'
 
 export default defineComponent({
   props: {
@@ -17,6 +18,8 @@ export default defineComponent({
     }
   },
   setup (props) {
+    useDefaults({}, 'VjsfNumberCombobox')
+
     /** @type import('vue').Ref<import('@json-layout/vocabulary').SelectItems> */
     const items = shallowRef(props.modelValue.layout.items ?? [])
     /** @type import('vue').Ref<boolean> */

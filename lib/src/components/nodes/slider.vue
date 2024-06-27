@@ -2,6 +2,9 @@
 import { VSlider } from 'vuetify/components'
 import { computed } from 'vue'
 import { getInputProps } from '../../utils/index.js'
+import { useDefaults } from 'vuetify'
+
+useDefaults({}, 'VjsfSlider')
 
 const props = defineProps({
   modelValue: {

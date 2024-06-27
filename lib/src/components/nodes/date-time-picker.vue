@@ -1,4 +1,7 @@
 <script setup>
+import { useDefaults } from 'vuetify'
+
+useDefaults({}, 'VjsfDateTimePicker')
 
 defineProps({
   modelValue: {

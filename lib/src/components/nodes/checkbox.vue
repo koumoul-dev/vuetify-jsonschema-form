@@ -2,6 +2,9 @@
 import { VCheckbox } from 'vuetify/components'
 import { computed } from 'vue'
 import { getInputProps } from '../../utils/index.js'
+import { useDefaults } from 'vuetify'
+
+useDefaults({}, 'VjsfCheckbox')
 
 const props = defineProps({
   modelValue: {

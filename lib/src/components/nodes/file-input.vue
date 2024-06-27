@@ -2,6 +2,7 @@
 import { defineComponent, h, computed } from 'vue'
 import { VFileInput } from 'vuetify/components'
 import { getInputProps, getCompSlots } from '../../utils/index.js'
+import { useDefaults } from 'vuetify'
 
 export default defineComponent({
   props: {
@@ -17,6 +18,8 @@ export default defineComponent({
     }
   },
   setup (props) {
+    useDefaults({}, 'VjsfFileInput')
+
     const fieldProps = computed(() => {
       const fieldProps = getInputProps(props.modelValue, props.statefulLayout, ['placeholder', 'accept'])
       if (props.modelValue.layout.multiple) {

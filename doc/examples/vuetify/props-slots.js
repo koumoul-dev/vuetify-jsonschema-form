@@ -1,8 +1,8 @@
 /** @type {import("../types.js").VJSFExample} */
 const example = {
-  title: 'Text field',
-  id: 'text-field',
-  description: 'It is possible to specify [VTextField props and slots](https://vuetifyjs.com/en/api/v-text-field/).',
+  title: 'Props and slots',
+  id: 'props-slots',
+  description: 'It is possible to specify directly some props and slots for some of the Vuetify components that closely match a node in the layout.',
   schema: {
     type: 'object',
     properties: {

@@ -1,9 +1,11 @@
 <script setup>
 import TextFieldMenu from '../fragments/text-field-menu.vue'
 import { VDatePicker } from 'vuetify/components/VDatePicker'
-import { useDate } from 'vuetify'
+import { useDate, useDefaults } from 'vuetify'
 import { computed } from 'vue'
 import { getCompProps, getDateTimeParts } from '../../utils/index.js'
+
+useDefaults({}, 'VjsfDatePicker')
 
 const props = defineProps({
   modelValue: {
