@@ -53,7 +53,6 @@ export default defineComponent({
               checkboxes.push(h(props.type === 'switch' ? VSwitch : VCheckbox, {
                 label: item.title,
                 hideDetails: true,
-                density: props.modelValue.options?.density,
                 key: item.key,
                 modelValue,
                 onClick: () => {

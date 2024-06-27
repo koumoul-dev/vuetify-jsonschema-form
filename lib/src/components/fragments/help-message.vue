@@ -4,7 +4,6 @@
       <v-alert
         v-show="show"
         color="info"
-        :density="node.options.density"
       >
         <div v-html="node.layout.help" />
       </v-alert>

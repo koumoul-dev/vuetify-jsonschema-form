@@ -37,7 +37,6 @@ const tab = ref(0)
         v-for="(child, i) of modelValue.children"
         :key="child.key"
         :value="i"
-        :density="modelValue.options.density"
         :color="child.validated && (child.error || child.childError) ? 'error' : undefined"
       >
         <v-icon

@@ -97,7 +97,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
 
 <template>
   <v-sheet v-bind="vSheetProps">
-    <v-list :density="modelValue.options.density">
+    <v-list>
       <v-list-subheader v-if="modelValue.layout.title">
         {{ modelValue.layout.title }}
       </v-list-subheader>
@@ -107,7 +107,6 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
       >
         <v-list-item
           v-bind="itemBind(childIndex)"
-          :density="modelValue.options.density"
           :draggable="draggable === childIndex"
           variant="flat"
           :style="`border: 1px solid ${itemBorderColor(child, childIndex)}`"
@@ -184,7 +183,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                         :density="buttonDensity"
                       />
                     </template>
-                    <v-list :density="modelValue.options.density">
+                    <v-list>
                       <v-list-item
                         v-if="modelValue.layout.listActions.includes('delete')"
                         base-color="warning"
@@ -235,7 +234,6 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
         <v-spacer />
         <v-btn
           color="primary"
-          :density="modelValue.options.density"
           @click="pushEmptyItem"
         >
           {{ modelValue.messages.addItem }}

@@ -47,7 +47,6 @@ const titleClass = computed(() => {
       v-if="node.error && node.validated"
       type="error"
       :class="`mt-${titleDepthBase - node.options.titleDepth}`"
-      :density="node.options.density"
     >
       {{ node.error }}
     </v-alert>

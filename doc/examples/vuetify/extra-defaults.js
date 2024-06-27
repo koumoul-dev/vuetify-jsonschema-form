@@ -12,7 +12,7 @@ const example = {
       },
       nb1: {
         type: 'number',
-        title: 'A number field with filled variant'
+        title: 'A number field with underlined variant'
       },
       obj1: {
         type: 'object',
@@ -33,7 +33,7 @@ const example = {
     },
     VjsfNumberField: {
       VTextField: {
-        variant: 'filled'
+        variant: 'underlined'
       }
     },
     'VjsfTabs-VSheet': {

@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useTheme, useDefaults } from 'vuetify'
-import { VCol } from 'vuetify/components'
+import { VCol, VDefaultsProvider } from 'vuetify/components'
 import NodeSlot from './fragments/node-slot.vue'
 import HelpMessage from './fragments/help-message.vue'
 
@@ -44,46 +44,48 @@ if (props.modelValue.layout.comp !== 'none' && !props.statefulLayout.options.nod
 </script>
 
 <template>
-  <v-col
-    v-if="modelValue.layout.comp !== 'none'"
-    :cols="modelValue.cols"
-    :class="nodeClasses"
-  >
-    <node-slot
-      v-if="modelValue.layout.slots?.before"
-      key="before"
-      :layout-slot="modelValue.layout.slots?.before"
-      :node="modelValue"
-      :stateful-layout="statefulLayout"
-      :class="beforeAfterClasses[modelValue.options.density]"
-    />
+  <v-defaults-provider :defaults="{global: { density: props.modelValue.options.density }}">
+    <v-col
+      v-if="modelValue.layout.comp !== 'none'"
+      :cols="modelValue.cols"
+      :class="nodeClasses"
+    >
+      <node-slot
+        v-if="modelValue.layout.slots?.before"
+        key="before"
+        :layout-slot="modelValue.layout.slots?.before"
+        :node="modelValue"
+        :stateful-layout="statefulLayout"
+        :class="beforeAfterClasses[modelValue.options.density]"
+      />
 
-    <help-message
-      v-if="modelValue.layout.help && !modelValue.options.summary"
-      :node="modelValue"
-      :class="beforeAfterClasses[modelValue.options.density]"
-    />
-    <node-slot
-      v-if="modelValue.layout.slots?.component"
-      key="component"
-      :layout-slot="modelValue.layout.slots?.component"
-      :node="modelValue"
-      :stateful-layout="statefulLayout"
-    />
-    <component
-      :is="props.statefulLayout.options.nodeComponents[modelValue.layout.comp]"
-      v-else
-      :model-value="modelValue"
-      :stateful-layout="statefulLayout"
-    />
+      <help-message
+        v-if="modelValue.layout.help && !modelValue.options.summary"
+        :node="modelValue"
+        :class="beforeAfterClasses[modelValue.options.density]"
+      />
+      <node-slot
+        v-if="modelValue.layout.slots?.component"
+        key="component"
+        :layout-slot="modelValue.layout.slots?.component"
+        :node="modelValue"
+        :stateful-layout="statefulLayout"
+      />
+      <component
+        :is="props.statefulLayout.options.nodeComponents[modelValue.layout.comp]"
+        v-else
+        :model-value="modelValue"
+        :stateful-layout="statefulLayout"
+      />
 
-    <node-slot
-      v-if="modelValue.layout.slots?.after"
-      key="after"
-      :layout-slot="modelValue.layout.slots?.after"
-      :node="modelValue"
-      :stateful-layout="statefulLayout"
-      :class="beforeAfterClasses[modelValue.options.density]"
-    />
-  </v-col>
+      <node-slot
+        v-if="modelValue.layout.slots?.after"
+        key="after"
+        :layout-slot="modelValue.layout.slots?.after"
+        :node="modelValue"
+        :stateful-layout="statefulLayout"
+        :class="beforeAfterClasses[modelValue.options.density]"
+      />
+    </v-col>
+  </v-defaults-provider>
 </template>
