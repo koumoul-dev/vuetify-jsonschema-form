@@ -190,7 +190,7 @@
               hide-details
               label="locale"
               style="max-width:300px;"
-              :items="['en', 'fr']"
+              :items="['en', 'fr', 'nl']"
             />
 
             <v-slider
