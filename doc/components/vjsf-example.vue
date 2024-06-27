@@ -31,7 +31,7 @@
     <v-window
       v-if="tab"
       v-model="tab"
-      style="height: 400px;overflow-y: auto;"
+      style="height: 560px;overflow-y: auto;"
     >
       <v-window-item
         value="schemaV2"
@@ -84,9 +84,9 @@
       <v-window-item
         value="options"
         class="ma-3"
-        style="height: 400px"
+        style="height: 560px"
       >
-        <v-row style="height:400px;">
+        <v-row style="height:560px;">
           <v-col>
             <v-switch
               v-model="options.readOnly"
@@ -95,6 +95,7 @@
               hide-details
               density="compact"
             />
+
             <v-switch
               v-model="options.summary"
               label="summary"
@@ -102,22 +103,15 @@
               hide-details
               density="compact"
             />
-            <!--<v-slider
-          v-model="options.titleDepth"
-          :min="1"
-          :max="6"
-          :step="1"
-          color="primary"
-          label="titleDepth"
-          style="max-width:300px;"
-          hide-details
-          density="compact"
-          show-ticks="always"
-        >
-          <template #append>
-            h{{ options.titleDepth }}
-          </template>
-        </v-slider>-->
+
+            <v-switch
+              v-model="options.autofocus"
+              label="autofocus"
+              color="primary"
+              hide-details
+              density="compact"
+            />
+
             <v-select
               v-model="options.density"
               density="compact"
@@ -128,12 +122,12 @@
             />
 
             <v-select
-              v-model="options.initialValidation"
+              v-model="options.titleDepth"
               density="compact"
               hide-details
-              label="initialValidation"
+              label="titleDepth"
               style="max-width:300px;"
-              :items="['never', 'withData', 'always']"
+              :items="[1, 2, 3, 4, 5, 6]"
             />
 
             <v-select
@@ -146,12 +140,48 @@
             />
 
             <v-select
+              v-model="options.initialValidation"
+              density="compact"
+              hide-details
+              label="initialValidation"
+              style="max-width:300px;"
+              :items="['never', 'withData', 'always']"
+            />
+
+            <v-select
               v-model="options.updateOn"
               density="compact"
               hide-details
               label="updateOn"
               style="max-width:300px;"
               :items="['input', 'blur']"
+            />
+
+            <v-select
+              v-model="options.defaultOn"
+              density="compact"
+              hide-details
+              label="defaultOn"
+              style="max-width:300px;"
+              :items="['never', 'missing', 'empty']"
+            />
+
+            <v-select
+              v-model="options.removeAdditional"
+              density="compact"
+              hide-details
+              label="removeAdditional"
+              style="max-width:300px;"
+              :items="['unknown', 'error', 'none']"
+            />
+
+            <v-select
+              v-model="options.readOnlyPropertiesMode"
+              density="compact"
+              hide-details
+              label="readOnlyPropertiesMode"
+              style="max-width:300px;"
+              :items="['remove', 'hide', 'show']"
             />
 
             <v-select
@@ -170,7 +200,7 @@
               :step="1"
               color="primary"
               label="container width"
-              style="max-width:500px;"
+              style="max-width:560px;"
               hide-details
               density="compact"
             >
@@ -186,7 +216,7 @@
             </div>
           </v-col>
           <v-divider vertical />
-          <v-col style="height:400px;overflow-y: auto;">
+          <v-col style="height:560px;overflow-y: auto;">
             <div class="text-subtitle">
               Options filled with default values:
             </div>
@@ -283,7 +313,7 @@ export default {
       readOnly: false,
       summary: false,
       density: 'default',
-      titleDepth: 4,
+      titleDepth: 2,
       validateOn: 'input',
       initialValidation: 'withData',
       updateOn: 'input',
@@ -340,7 +370,11 @@ export default {
     updateState (/** @type import('@json-layout/core').StatefulLayout */newState) {
       this.stateTree = newState.stateTree
       this.display = newState.display
-      this.filledOptions = newState.options
+      this.filledOptions = { ...newState.options }
+      delete this.filledOptions.vjsfSlots
+      delete this.filledOptions.nodeComponents
+      delete this.filledOptions.components
+      delete this.filledOptions.plugins
     },
     editExample () {
       /** @type {any} */
