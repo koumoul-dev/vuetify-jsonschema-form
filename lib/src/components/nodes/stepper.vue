@@ -4,6 +4,7 @@ import { VStepper, VStepperHeader, VStepperItem, VStepperWindow, VStepperWindowI
 import { isSection } from '@json-layout/core'
 import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'
+import ChildSubtitle from '../fragments/child-subtitle.vue'
 import { useDefaults } from 'vuetify'
 
 useDefaults({}, 'VjsfStepper')
@@ -62,6 +63,7 @@ const goNext = () => {
           fluid
           class="pa-0"
         >
+          <child-subtitle :model-value="child" />
           <v-row>
             <node
               v-for="grandChild of isSection(child) ? child.children : [child]"

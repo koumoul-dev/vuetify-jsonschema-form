@@ -4,6 +4,7 @@ import { VTabs, VTab, VContainer, VSheet, VWindow, VWindowItem, VRow, VIcon } fr
 import { ref } from 'vue'
 import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'
+import ChildSubtitle from '../fragments/child-subtitle.vue'
 import { useDefaults } from 'vuetify'
 import useCompDefaults from '../../composables/use-comp-defaults.js'
 
@@ -59,6 +60,7 @@ const tab = ref(0)
           :value="i"
         >
           <v-container fluid>
+            <child-subtitle :model-value="child" />
             <v-row>
               <node
                 v-for="grandChild of isSection(child) ? child.children : [child]"
