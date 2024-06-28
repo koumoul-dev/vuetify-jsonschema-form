@@ -1,5 +1,5 @@
 <template>
-  <div class="vjsf-help-message">
+  <div :class="`vjsf-help-message vjsf-help-message-${node.options.density}`">
     <v-slide-x-reverse-transition>
       <v-alert
         v-show="show"
@@ -11,9 +11,11 @@
     <v-btn
       color="info"
       :class="`vjsf-help-message-toggle vjsf-help-message-toggle-${node.options.density}`"
-      :icon="show ? 'mdi-close-circle' : 'mdi-information'"
+      :icon="show ? 'mdi-close' : 'mdi-information-symbol'"
+      :border="0"
+      :elevation="show ? 0 : 2"
       density="compact"
-      :size="node.options.density !== 'default' ? 'small' : 'default'"
+      :size="node.options.density === 'default' ? 28 : 24"
       :title="show ? '' : node.messages.showHelp"
       @click="show = !show"
     />
@@ -38,21 +40,33 @@ const show = ref(false)
 <style>
 .vjsf-help-message {
   position: relative;
-  min-height: 10px;
+}
+.vjsf-help-message-compact {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  min-height:24px;
+}
+.vjsf-help-message-comfortable {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  min-height:24px;
+}
+.vjsf-help-message-default {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  min-height:28px;
 }
 .vjsf-help-message-toggle {
   position: absolute;
-  top: -10px;
-  right: -4px;
+  top: 0px;
+  right: 0px;
   z-index: 1;
 }
-.vjsf-help-message-toggle-comfortable {
-  top: -4px;
-  right: -4px;
+.vjsf-help-message .v-alert {
+  padding-right: 22px;
 }
-.vjsf-help-message-toggle-compact {
-  top: -4px;
-  right: -4px;
+.vjsf-help-message-default .v-alert {
+  padding-right: 26px;
 }
+
 </style>
-../../../types.js

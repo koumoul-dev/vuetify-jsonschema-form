@@ -62,7 +62,6 @@ if (props.modelValue.layout.comp !== 'none' && !props.statefulLayout.options.nod
       <help-message
         v-if="modelValue.layout.help && !modelValue.options.summary"
         :node="modelValue"
-        :class="beforeAfterClasses[modelValue.options.density]"
       />
       <node-slot
         v-if="modelValue.layout.slots?.component"
