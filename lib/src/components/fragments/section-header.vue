@@ -40,9 +40,8 @@ const titleClass = computed(() => {
     <p
       v-if="node.layout.subtitle"
       :class="`text-subtitle mt-${titleDepthBase - node.options.titleDepth}`"
-    >
-      {{ node.layout.subtitle }}
-    </p>
+      v-html="node.layout.subtitle"
+    />
     <v-alert
       v-if="node.error && node.validated"
       type="error"
