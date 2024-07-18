@@ -121,6 +121,14 @@
               :items="['default', 'comfortable', 'compact']"
             />
 
+            <v-switch
+              v-model="options.indent"
+              label="indent"
+              color="primary"
+              hide-details
+              density="compact"
+            />
+
             <v-select
               v-model="options.titleDepth"
               density="compact"
@@ -313,6 +321,7 @@ export default {
       readOnly: false,
       summary: false,
       density: 'default',
+      indent: false,
       titleDepth: 2,
       validateOn: 'input',
       initialValidation: 'withData',

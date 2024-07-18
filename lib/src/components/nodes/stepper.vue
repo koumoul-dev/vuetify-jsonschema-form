@@ -64,7 +64,7 @@ const goNext = () => {
           class="pa-0"
         >
           <child-subtitle :model-value="child" />
-          <v-row>
+          <v-row :dense="modelValue.options?.density === 'compact' || modelValue.options?.density === 'comfortable'">
             <node
               v-for="grandChild of isSection(child) ? child.children : [child]"
               :key="grandChild.fullKey"

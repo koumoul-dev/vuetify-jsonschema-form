@@ -30,6 +30,7 @@ import NodeExpansionPanels from './nodes/expansion-panels.vue'
 import NodeStepper from './nodes/stepper.vue'
 import NodeList from './nodes/list.vue'
 import NodeFileInput from './nodes/file-input.vue'
+import NodeCard from './nodes/card.vue'
 
 /** @type {Record<string, import('vue').Component>} */
 const nodeComponents = {
@@ -56,7 +57,8 @@ const nodeComponents = {
   list: NodeList,
   combobox: NodeCombobox,
   'number-combobox': NodeNumberCombobox,
-  'file-input': NodeFileInput
+  'file-input': NodeFileInput,
+  card: NodeCard
 }
 
 const props = defineProps({

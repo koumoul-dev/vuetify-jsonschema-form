@@ -29,11 +29,23 @@ const beforeAfterClasses = {
 
 const theme = useTheme()
 
+const indent = computed(() => {
+  if (props.modelValue.parentFullKey === null) return 0
+  if (!props.modelValue.options.indent) return 0
+  if (props.modelValue.layout.comp !== 'section') return 0
+  if (!props.modelValue.layout.title) return 0
+  if (typeof props.modelValue.options.indent === 'number') return props.modelValue.options.indent
+  if (props.modelValue.options.density === 'compact') return 2
+  if (props.modelValue.options.density === 'comfortable') return 4
+  return 6
+})
+
 const nodeClasses = computed(() => {
   let classes = `vjsf-node vjsf-node-${props.modelValue.layout.comp} vjsf-density-${props.modelValue.options.density}`
   if (props.modelValue.options.readOnly) classes += ' vjsf-readonly'
   if (props.modelValue.options.summary) classes += ' vjsf-summary'
   if (theme.current.value.dark) classes += ' vjsf-dark'
+  if (indent.value) classes += ' ml-' + indent.value
   return classes
 })
 

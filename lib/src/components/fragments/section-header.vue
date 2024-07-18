@@ -7,6 +7,10 @@ const props = defineProps({
     /** @type import('vue').PropType<import('../../types.js').VjsfNode> */
     type: Object,
     required: true
+  },
+  hideTitle: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -27,12 +31,12 @@ const titleClass = computed(() => {
 
 <template>
   <div
-    v-if="node.layout.title ?? node.layout.subtitle ?? (node.error && node.validated)"
+    v-if="(node.layout.title && !hideTitle) || node.layout.subtitle || (node.error && node.validated)"
     :class="`mb-${titleDepthBase - node.options.titleDepth} mt-${titleDepthBase - node.options.titleDepth}`"
   >
     <component
       :is="`h${node.options.titleDepth}`"
-      v-if="node.layout.title"
+      v-if="node.layout.title && !hideTitle"
       :class="`${titleClass}`"
     >
       {{ node.layout.title }}

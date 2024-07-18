@@ -28,6 +28,7 @@ import {
   StepperNode,
   ComboboxNode,
   FileInputNode,
+  CardNode,
   CompileOptions
 } from '@json-layout/core'
 
@@ -82,3 +83,4 @@ export type VjsfVerticalTabsNode = Omit<VerticalTabsNode, 'options'> & {options:
 export type VjsfStepperNode = Omit<StepperNode, 'options'> & {options: VjsfOptions}
 export type VjsfComboboxNode = Omit<ComboboxNode, 'options'> & {options: VjsfOptions}
 export type VjsfFileInputNode = Omit<FileInputNode, 'options'> & {options: VjsfOptions}
+export type VjsfCardNode = Omit<CardNode, 'options'> & {options: VjsfOptions}

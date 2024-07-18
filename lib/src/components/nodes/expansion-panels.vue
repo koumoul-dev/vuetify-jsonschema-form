@@ -3,6 +3,7 @@ import { VExpansionPanels, VExpansionPanel, VExpansionPanelTitle, VExpansionPane
 import { isSection } from '@json-layout/core'
 import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'
+import ChildSubtitle from '../fragments/child-subtitle.vue'
 import { getCompProps } from '../../utils/index.js'
 import { useDefaults } from 'vuetify'
 
@@ -43,7 +44,8 @@ defineProps({
       </v-expansion-panel-title>
       <v-expansion-panel-text>
         <v-container fluid>
-          <v-row>
+          <child-subtitle :model-value="child" />
+          <v-row :dense="modelValue.options?.density === 'compact' || modelValue.options?.density === 'comfortable'">
             <node
               v-for="grandChild of isSection(child) ? child.children : [child]"
               :key="grandChild.fullKey"

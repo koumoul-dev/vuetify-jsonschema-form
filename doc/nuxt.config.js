@@ -1,5 +1,5 @@
 // https://www.the-koi.com/projects/how-to-set-up-a-project-with-nuxt3-and-vuetify3-with-a-quick-overview/
-import path, { resolve } from 'path'
+import path from 'path'
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 import { defineNuxtConfig } from 'nuxt/config'
 import dependencyWatcher from 'vite-plugin-dependency-watcher' // cf https://github.com/vitejs/vite/issues/4533
@@ -45,7 +45,7 @@ export default defineNuxtConfig({
     // '@nuxtjs/sitemap'
     // @ts-ignore
     (_, nuxt) => nuxt.hooks.hook('vite:extendConfig', config => {
-      // we disable autoImport because to be warned of missing importes in vjsf
+      // we disable autoImport because we want to be warned of missing imports in vjsf
       config.plugins.push(vuetify({ autoImport: false }))
     })
   ],
