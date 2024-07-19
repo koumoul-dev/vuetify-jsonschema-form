@@ -1,5 +1,9 @@
 <script>
-import { VInput, VLabel, VCheckbox, VSwitch, VSkeletonLoader } from 'vuetify/components'
+import { VSkeletonLoader } from 'vuetify/components/VSkeletonLoader'
+import { VInput } from 'vuetify/components/VInput'
+import { VLabel } from 'vuetify/components/VLabel'
+import { VCheckbox } from 'vuetify/components/VCheckbox'
+import { VSwitch } from 'vuetify/components/VSwitch'
 import { defineComponent, h, computed } from 'vue'
 import { getInputProps, getCompSlots } from '../../utils/index.js'
 import useGetItems from '../../composables/use-get-items.js'

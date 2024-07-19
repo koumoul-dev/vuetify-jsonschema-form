@@ -1,6 +1,6 @@
 <script>
 import { defineComponent, h, computed } from 'vue'
-import { VTextField } from 'vuetify/components'
+import { VTextField } from 'vuetify/components/VTextField'
 import { getInputProps, getCompSlots } from '../../utils/index.js'
 import { useDefaults } from 'vuetify'
 

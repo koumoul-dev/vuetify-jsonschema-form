@@ -1,5 +1,5 @@
 <script>
-import { VAutocomplete } from 'vuetify/components'
+import { VAutocomplete } from 'vuetify/components/VAutocomplete'
 import { useDefaults } from 'vuetify'
 import { defineComponent, computed, h } from 'vue'
 import { getInputProps, getCompSlots } from '../../utils/index.js'

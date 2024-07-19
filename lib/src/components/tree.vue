@@ -1,5 +1,5 @@
 <script setup>
-import { VRow } from 'vuetify/components'
+import { VRow } from 'vuetify/components/VGrid'
 import Node from './node.vue'
 
 defineProps({

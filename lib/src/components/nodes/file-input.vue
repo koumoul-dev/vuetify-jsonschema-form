@@ -1,6 +1,6 @@
 <script>
 import { defineComponent, h, computed } from 'vue'
-import { VFileInput } from 'vuetify/components'
+import { VFileInput } from 'vuetify/components/VFileInput'
 import { getInputProps, getCompSlots } from '../../utils/index.js'
 import { useDefaults } from 'vuetify'
 

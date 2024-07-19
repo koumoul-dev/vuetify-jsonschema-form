@@ -1,5 +1,7 @@
 <script>
-import { VRadioGroup, VRadio, VSkeletonLoader } from 'vuetify/components'
+import { VRadio } from 'vuetify/components/VRadio'
+import { VRadioGroup } from 'vuetify/components/VRadioGroup'
+import { VSkeletonLoader } from 'vuetify/components/VSkeletonLoader'
 import { defineComponent, h, computed } from 'vue'
 import { getInputProps, getCompSlots } from '../../utils/index.js'
 import useGetItems from '../../composables/use-get-items.js'

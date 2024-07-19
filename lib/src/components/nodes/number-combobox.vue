@@ -1,6 +1,6 @@
 <script>
 import { defineComponent, h, computed, shallowRef, ref } from 'vue'
-import { VCombobox } from 'vuetify/components'
+import { VCombobox } from 'vuetify/components/VCombobox'
 import { getInputProps, getCompSlots } from '../../utils/index.js'
 import { useDefaults } from 'vuetify'
 

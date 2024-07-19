@@ -1,5 +1,5 @@
 <script setup>
-import { VSlider } from 'vuetify/components'
+import { VSlider } from 'vuetify/components/VSlider'
 import { computed } from 'vue'
 import { getInputProps } from '../../utils/index.js'
 import { useDefaults } from 'vuetify'

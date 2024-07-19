@@ -1,6 +1,6 @@
 <script>
 import { defineComponent, h, computed, ref, watch } from 'vue'
-import { VTextarea } from 'vuetify/components'
+import { VTextarea } from 'vuetify/components/VTextarea'
 import { getInputProps, getCompSlots } from '../../utils/index.js'
 import { useDefaults } from 'vuetify'
 

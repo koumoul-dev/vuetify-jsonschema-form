@@ -1,5 +1,5 @@
 <script>
-import { VSelect } from 'vuetify/components'
+import { VSelect } from 'vuetify/components/VSelect'
 import { defineComponent, h, computed } from 'vue'
 import { getInputProps, getCompSlots } from '../../utils/index.js'
 import useGetItems from '../../composables/use-get-items.js'

@@ -1,5 +1,9 @@
 <script setup>
-import { VTabs, VTab, VContainer, VSheet, VWindow, VWindowItem, VRow, VIcon } from 'vuetify/components'
+import { VTabs, VTab } from 'vuetify/components/VTabs'
+import { VContainer, VRow } from 'vuetify/components/VGrid'
+import { VIcon } from 'vuetify/components/VIcon'
+import { VSheet } from 'vuetify/components/VSheet'
+import { VWindow, VWindowItem } from 'vuetify/components/VWindow'
 import { useDefaults } from 'vuetify'
 import { ref } from 'vue'
 import { isSection } from '@json-layout/core'

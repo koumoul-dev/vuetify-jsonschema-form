@@ -1,5 +1,6 @@
 <script setup>
-import { VCard, VContainer, VRow } from 'vuetify/components'
+import { VCard } from 'vuetify/components/VCard'
+import { VContainer, VRow } from 'vuetify/components/VGrid'
 import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'
 import { useDefaults } from 'vuetify'

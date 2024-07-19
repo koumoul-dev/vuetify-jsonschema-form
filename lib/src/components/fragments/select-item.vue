@@ -1,7 +1,8 @@
 <script setup>
 // cf https://github.com/vuetifyjs/vuetify/blob/master/packages/vuetify/src/components/VSelect/VSelect.tsx#L374
 
-import { VListItem, VCheckboxBtn } from 'vuetify/components'
+import { VCheckboxBtn } from 'vuetify/components/VCheckbox'
+import { VListItem } from 'vuetify/components/VList'
 import VSelectItemIcon from './select-item-icon.vue'
 
 defineProps({

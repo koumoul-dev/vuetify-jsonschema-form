@@ -1,5 +1,7 @@
 <script setup>
-import { VExpansionPanels, VExpansionPanel, VExpansionPanelTitle, VExpansionPanelText, VContainer, VRow, VIcon } from 'vuetify/components'
+import { VExpansionPanels, VExpansionPanel, VExpansionPanelTitle, VExpansionPanelText } from 'vuetify/components/VExpansionPanel'
+import { VContainer, VRow } from 'vuetify/components/VGrid'
+import { VIcon } from 'vuetify/components/VIcon'
 import { isSection } from '@json-layout/core'
 import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'

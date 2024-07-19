@@ -1,5 +1,6 @@
 <script setup>
-import { VSelect, VRow, VCol } from 'vuetify/components'
+import { VRow, VCol } from 'vuetify/components/VGrid'
+import { VSelect } from 'vuetify/components/VSelect'
 import { ref, watch, computed, h } from 'vue'
 import { isSection } from '@json-layout/core'
 import { isCompObject } from '@json-layout/vocabulary'

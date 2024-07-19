@@ -1,5 +1,5 @@
 <script setup>
-import { VAlert } from 'vuetify/components'
+import { VAlert } from 'vuetify/components/VAlert'
 import { computed } from 'vue'
 
 const props = defineProps({

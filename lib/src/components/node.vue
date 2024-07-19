@@ -1,7 +1,8 @@
 <script setup>
 import { computed } from 'vue'
 import { useTheme, useDefaults } from 'vuetify'
-import { VCol, VDefaultsProvider } from 'vuetify/components'
+import { VCol } from 'vuetify/components/VGrid'
+import { VDefaultsProvider } from 'vuetify/components/VDefaultsProvider'
 import NodeSlot from './fragments/node-slot.vue'
 import HelpMessage from './fragments/help-message.vue'
 

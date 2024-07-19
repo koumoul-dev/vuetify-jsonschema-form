@@ -1,5 +1,5 @@
 <script setup>
-import { VCheckbox } from 'vuetify/components'
+import { VCheckbox } from 'vuetify/components/VCheckbox'
 import { computed } from 'vue'
 import { getInputProps } from '../../utils/index.js'
 import { useDefaults } from 'vuetify'

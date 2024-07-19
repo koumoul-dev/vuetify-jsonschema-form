@@ -1,5 +1,6 @@
 <script setup>
-import { VMenu, VTextField } from 'vuetify/components'
+import { VMenu } from 'vuetify/components/VMenu'
+import { VTextField } from 'vuetify/components/VTextField'
 import { computed, ref } from 'vue'
 import { getCompProps, getInputProps } from '../../utils/index.js'
 

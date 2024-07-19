@@ -1,5 +1,5 @@
 <script setup>
-import { VSwitch } from 'vuetify/components'
+import { VSwitch } from 'vuetify/components/VSwitch'
 import { computed } from 'vue'
 import { getInputProps } from '../../utils/index.js'
 import { useDefaults } from 'vuetify'

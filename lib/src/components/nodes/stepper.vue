@@ -1,6 +1,9 @@
 <script setup>
 import { ref, computed } from 'vue'
-import { VStepper, VStepperHeader, VStepperItem, VStepperWindow, VStepperWindowItem, VStepperActions, VContainer, VRow, VSpacer, VBtn, VDivider } from 'vuetify/components'
+import { VStepper, VStepperHeader, VStepperItem, VStepperWindow, VStepperWindowItem, VStepperActions } from 'vuetify/components/VStepper'
+import { VContainer, VRow, VSpacer } from 'vuetify/components/VGrid'
+import { VBtn } from 'vuetify/components/VBtn'
+import { VDivider } from 'vuetify/components/VDivider'
 import { isSection } from '@json-layout/core'
 import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'

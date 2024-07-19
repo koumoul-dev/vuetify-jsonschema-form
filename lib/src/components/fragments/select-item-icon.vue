@@ -2,7 +2,7 @@
 // cf https://github.com/vuetifyjs/vuetify/blob/master/packages/vuetify/src/components/VSelect/VSelect.tsx#L374
 
 import { defineComponent, h, computed } from 'vue'
-import { VIcon } from 'vuetify/components'
+import { VIcon } from 'vuetify/components/VIcon'
 
 export default defineComponent({
   props: {
