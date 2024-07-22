@@ -17,6 +17,7 @@ const packagePaths = packageNames.map(name => path.resolve(process.cwd(), '../no
 export default defineNuxtConfig({
   ssr: false,
   css: ['vuetify/styles'],
+
   vite: {
     vue: {
       template: {
@@ -31,6 +32,7 @@ export default defineNuxtConfig({
       dependencyWatcher(packagePaths, packageNames)
     ]
   },
+
   hooks: {
     async 'nitro:config' (config) {
       for (const examplesCategory of examples) {
@@ -41,6 +43,7 @@ export default defineNuxtConfig({
       }
     }
   },
+
   modules: [
     // '@nuxtjs/sitemap'
     // @ts-ignore
@@ -49,11 +52,13 @@ export default defineNuxtConfig({
       config.plugins.push(vuetify({ autoImport: false }))
     })
   ],
+
   plugins: [
     // { src: '~/plugins/highlight.js', ssr: false },
     // { src: '~/plugins/mask.js', ssr: false },
     // { src: '~/plugins/tiptap-vuetify.js', ssr: false }
   ],
+
   // sitemap: {
   //   hostname: targetURL.origin
   // },
@@ -70,6 +75,7 @@ export default defineNuxtConfig({
   app: {
     baseURL: targetURL.pathname
   },
+
   meta: {
     title: 'VJSF - Documentation',
     meta: [
@@ -83,5 +89,7 @@ export default defineNuxtConfig({
       src: 'https://cdn.jsdelivr.net/npm/@koumoul/data-fair-search-widget@0.1.7/dist/search-widget.js',
       async: true
     }]
-  }
+  },
+
+  compatibilityDate: '2024-07-22'
 })
