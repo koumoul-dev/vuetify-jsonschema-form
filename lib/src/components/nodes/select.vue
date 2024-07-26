@@ -1,10 +1,9 @@
 <script>
 import { VSelect } from 'vuetify/components/VSelect'
 import { defineComponent, h, computed } from 'vue'
-import { getInputProps, getCompSlots } from '../../utils/index.js'
+import { getSelectProps, getSelectSlots } from '../../utils/index.js'
 import useGetItems from '../../composables/use-get-items.js'
-import SelectItem from '../fragments/select-item.vue'
-import SelectSelection from '../fragments/select-selection.vue'
+
 import { useDefaults } from 'vuetify'
 
 export default defineComponent({
@@ -26,35 +25,14 @@ export default defineComponent({
     const getItems = useGetItems(props)
 
     const fieldProps = computed(() => {
-      const fieldProps = getInputProps(props.modelValue, props.statefulLayout, ['multiple'])
-      if (props.modelValue.options.readOnly) fieldProps.menuProps = { modelValue: false }
+      const fieldProps = getSelectProps(props.modelValue, props.statefulLayout)
       fieldProps.loading = getItems.loading.value
       fieldProps.items = getItems.items.value
-      fieldProps.clearable = fieldProps.clearable ?? !props.modelValue.skeleton.required
       return fieldProps
     })
 
-    const fieldSlots = computed(() => {
-      const slots = getCompSlots(props.modelValue, props.statefulLayout)
-      if (!slots.item) {
-        slots.item = (/** @type {any} */ context) => h(SelectItem, {
-          multiple: props.modelValue.layout.multiple,
-          itemProps: context.props,
-          item: context.item.raw
-        })
-      }
-      if (!slots.selection) {
-        slots.selection = (/** @type {any} */ context) => h(SelectSelection, {
-          multiple: props.modelValue.layout.multiple,
-          last: props.modelValue.layout.multiple && context.index === props.modelValue.data.length - 1,
-          item: getItems.prepareSelectedItem(context.item.raw, context.item.value)
-        })
-      }
-      return slots
-    })
-
     // @ts-ignore
-    return () => h(VSelect, fieldProps.value, fieldSlots.value)
+    return () => h(VSelect, fieldProps.value, getSelectSlots(props.modelValue, props.statefulLayout, getItems))
   }
 })
 
