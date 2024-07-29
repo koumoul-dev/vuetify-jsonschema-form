@@ -40,7 +40,7 @@ const menuProps = computed(() => {
 })
 
 const textField = ref(null)
-const menuOpened = ref(false)
+const menuOpened = defineModel('menuOpened', { type: Boolean, default: false })
 
 </script>
 

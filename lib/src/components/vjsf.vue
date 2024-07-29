@@ -14,6 +14,7 @@ import NodeSwitch from './nodes/switch.vue'
 import NodeNumberField from './nodes/number-field.vue'
 import NodeSlider from './nodes/slider.vue'
 import NodeDatePicker from './nodes/date-picker.vue'
+import NodeTimePicker from './nodes/time-picker.vue'
 import NodeDateTimePicker from './nodes/date-time-picker.vue'
 import NodeColorPicker from './nodes/color-picker.vue'
 import NodeSelect from './nodes/select.vue'
@@ -42,6 +43,7 @@ const nodeComponents = {
   'number-field': NodeNumberField,
   slider: NodeSlider,
   'date-picker': NodeDatePicker,
+  'time-picker': NodeTimePicker,
   'date-time-picker': NodeDateTimePicker,
   'color-picker': NodeColorPicker,
   select: NodeSelect,
