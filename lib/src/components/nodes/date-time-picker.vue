@@ -7,7 +7,7 @@ import { VIcon } from 'vuetify/components/VIcon'
 import { VSheet } from 'vuetify/components/VSheet'
 import { useDate, useDefaults } from 'vuetify'
 import { computed, ref, watch } from 'vue'
-import { getCompProps, getDateTimeParts, getLongTime, getDateTimeWithOffset, getShortTime } from '../../utils/index.js'
+import { getCompProps, getDateTimeParts, getDateTimeWithOffset, getShortTime } from '../../utils/index.js'
 
 useDefaults({}, 'VjsfDatePicker')
 
