@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/koumoul-dev/vuetify-jsonschema-form#readme",
   "devDependencies": {
-    "@json-layout/core": "0.30.0",
+    "@json-layout/core": "0.30.1",
     "@json-layout/vocabulary": "0.22.0",
     "@json-layout/examples": "0.18.0",
     "@commitlint/config-conventional": "^17.7.0",
