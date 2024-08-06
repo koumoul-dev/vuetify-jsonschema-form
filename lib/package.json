@@ -1,6 +1,6 @@
 {
   "name": "@koumoul/vjsf",
-  "version": "3.0.0-beta.39",
+  "version": "3.0.0-beta.40",
   "description": "Generate forms for the vuetify UI library (vuejs) based on annotated JSON schemas.",
   "scripts": {
     "test": "vitest",
@@ -76,7 +76,7 @@
     "vuetify": "^3.6.13"
   },
   "dependencies": {
-    "@json-layout/core": "0.30.1",
+    "@json-layout/core": "0.31.0",
     "@vueuse/core": "^10.5.0",
     "debug": "^4.3.4",
     "ejs": "^3.1.9"
