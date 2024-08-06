@@ -1,16 +1,18 @@
 <script setup>
 import { watch, computed, ref } from 'vue'
 import { useDefaults, useTheme } from 'vuetify'
-import { VList, VListItem, VListItemAction, VListSubheader } from 'vuetify/components/VList'
-import { VRow, VSpacer } from 'vuetify/components/VGrid'
+import { VList, VListItem, VListItemAction, VListItemTitle, VListSubheader } from 'vuetify/components/VList'
+import { VRow } from 'vuetify/components/VGrid'
+import { VTextField } from 'vuetify/components/VTextField'
 import { VSheet } from 'vuetify/components/VSheet'
 import { VDivider } from 'vuetify/components/VDivider'
 import { VIcon } from 'vuetify/components/VIcon'
 import { VBtn } from 'vuetify/components/VBtn'
 import { VMenu } from 'vuetify/components/VMenu'
-import { isSection, clone } from '@json-layout/core'
+import { VForm } from 'vuetify/components/VForm'
+import { isSection, clone, getRegexp } from '@json-layout/core'
 import Node from '../node.vue'
-import { moveArrayItem } from '../../utils/index.js'
+import { moveDataItem } from '../../utils/index.js'
 import useDnd from '../../composables/use-dnd.js'
 import useCompDefaults from '../../composables/use-comp-defaults.js'
 
@@ -34,7 +36,11 @@ const theme = useTheme()
 
 /* use composable for drag and drop */
 const { activeDnd, sortableArray, draggable, hovered, dragging, itemBind, handleBind } = useDnd(props.modelValue.children, () => {
-  props.statefulLayout.input(props.modelValue, sortableArray.value.map((child) => child.data))
+  const newData = props.modelValue.layout.indexed
+    ? sortableArray.value.reduce((a, child) => { a[child.key] = child.data; return a }, /** @type {Record<string, any>} */({}))
+    : sortableArray.value.map((child) => child.data)
+  console.log(newData)
+  props.statefulLayout.input(props.modelValue, newData)
 })
 watch(() => props.modelValue.children, (array) => { sortableArray.value = array })
 
@@ -69,12 +75,40 @@ const pushEmptyItem = () => {
   }
 }
 
+const newKey = ref('')
+/** @type {import('vue').Ref<InstanceType<typeof import('vuetify/components/VForm').VForm> | null>} */
+const newKeyForm = ref(null)
+const pushEmptyIndexedItem = () => {
+  if (!newKey.value) return
+  if (!newKeyForm.value) return
+  if (!newKeyForm.value.isValid) return
+  const newData = { ...(props.modelValue.data ?? {}), [newKey.value]: null }
+  props.statefulLayout.input(props.modelValue, newData)
+  if (props.modelValue.layout.listEditMode === 'inline-single') {
+    props.statefulLayout.activateItem(props.modelValue, Object.keys(newData).length - 1)
+  }
+  newKey.value = ''
+  newKeyForm.value?.reset()
+}
+
 /**
  * @param {number} childIndex
  */
 const deleteItem = (childIndex) => {
-  const newData = [...props.modelValue.data.slice(0, childIndex), ...props.modelValue.data.slice(childIndex + 1)]
-  props.statefulLayout.input(props.modelValue, newData)
+  if (props.modelValue.layout.indexed) {
+    const oldData = /** @type {Record<string, any>} */(props.modelValue.data)
+    const keys = Object.keys(props.modelValue.data)
+    /** @type {Record<string, any>} */
+    const newData = {}
+    for (let i = 0; i < keys.length; i++) {
+      if (i !== childIndex) newData[keys[i]] = oldData[keys[i]]
+    }
+    props.statefulLayout.input(props.modelValue, newData)
+  } else {
+    const newData = [...props.modelValue.data.slice(0, childIndex), ...props.modelValue.data.slice(childIndex + 1)]
+    props.statefulLayout.input(props.modelValue, newData)
+  }
+
   menuOpened.value = -1
 }
 
@@ -103,7 +137,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
 
 <template>
   <v-sheet v-bind="vSheetProps">
-    <v-list>
+    <v-list class="py-0">
       <v-list-subheader v-if="modelValue.layout.title">
         {{ modelValue.layout.title }}
       </v-list-subheader>
@@ -118,6 +152,12 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
           :style="`border: 1px solid ${itemBorderColor(child, childIndex)}`"
           class="pa-1 vjsf-list-item"
         >
+          <v-list-item-title
+            v-if="modelValue.layout.indexed"
+            class="pl-4 pt-2"
+          >
+            {{ child.key }}
+          </v-list-item-title>
           <v-row class="ma-0">
             <node
               v-for="grandChild of isSection(child) ? child.children : [child]"
@@ -130,7 +170,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
             v-if="!modelValue.options.readOnly && modelValue.layout.listActions.length"
             #append
           >
-            <div>
+            <div class="vjsf-list-item-actions-wrapper">
               <v-list-item-action v-if="activeItem !== childIndex">
                 <v-btn
                   style="visibility:hidden"
@@ -211,7 +251,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                       </v-list-item>
                       <v-list-item
                         v-if="modelValue.layout.listActions.includes('sort')"
-                        @click="statefulLayout.input(modelValue, moveArrayItem(modelValue.data, childIndex, childIndex - 1))"
+                        @click="statefulLayout.input(modelValue, moveDataItem(modelValue.data, childIndex, childIndex - 1))"
                       >
                         <template #prepend>
                           <v-icon icon="mdi-arrow-up" />
@@ -220,7 +260,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                       </v-list-item>
                       <v-list-item
                         v-if="modelValue.layout.listActions.includes('sort')"
-                        @click="statefulLayout.input(modelValue, moveArrayItem(modelValue.data, childIndex, childIndex + 1))"
+                        @click="statefulLayout.input(modelValue, moveDataItem(modelValue.data, childIndex, childIndex + 1))"
                       >
                         <template #prepend>
                           <v-icon icon="mdi-arrow-down" />
@@ -236,15 +276,44 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
         </v-list-item>
         <v-divider v-if="childIndex < modelValue.children.length - 1" />
       </template>
-      <v-list-item v-if="!modelValue.options.readOnly && modelValue.layout.listActions.includes('add')">
-        <v-spacer />
-        <v-btn
-          color="primary"
-          @click="pushEmptyItem"
-        >
-          {{ modelValue.messages.addItem }}
-        </v-btn>
-        <v-spacer />
+      <v-list-item
+        v-if="!modelValue.options.readOnly && modelValue.layout.listActions.includes('add')"
+        class="py-2"
+      >
+        <template v-if="modelValue.layout.indexed">
+          <v-form
+            ref="newKeyForm"
+            style="max-width: 250px;"
+            @submit.prevent
+          >
+            <v-text-field
+              v-model="newKey"
+              variant="outlined"
+              :placeholder="modelValue.messages.addItem"
+              hide-details
+              :rules="[v => !modelValue.children.some(c => c.key === v), v => !v || modelValue.layout.indexed?.some(pattern => v.match(getRegexp(pattern)))]"
+              @keypress.enter="pushEmptyIndexedItem"
+            >
+              <template #append>
+                <v-icon
+                  color="primary"
+                  size="large"
+                  @click="pushEmptyIndexedItem"
+                >
+                  mdi-plus
+                </v-icon>
+              </template>
+            </v-text-field>
+          </v-form>
+        </template>
+        <template v-else>
+          <v-btn
+            color="primary"
+            @click="pushEmptyItem"
+          >
+            {{ modelValue.messages.addItem }}
+          </v-btn>
+        </template>
       </v-list-item>
     </v-list>
   </v-sheet>
@@ -254,5 +323,11 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
 .vjsf-list-item .v-list-item__append {
   height: 100%;
   align-items: start;
+}
+.vjsf-list-item .v-list-item__content {
+  padding-right: 4px;
+}
+.vjsf-list-item-actions-wrapper {
+  /*margin: -4px;*/
 }
 </style>
