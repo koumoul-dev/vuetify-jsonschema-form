@@ -25,9 +25,12 @@
       <pre>
 &lt;script setup&gt;
   import Vjsf from '@koumoul/vjsf'
+  import { VForm } from 'vuetify/components'
 &lt;/script&gt;
 &lt;template&gt;
-  &lt;vjsf v-model="data" :schema="schema" :options="options" /&gt;
+  &lt;v-form&gt;
+    &lt;vjsf v-model="data" :schema="schema" :options="options" /&gt;
+  &lt;/v-form&gt;
 &lt;/template&gt;</pre>
     </code-block>
 
@@ -49,9 +52,12 @@ await writeFile('./components/compiled/my-vjsf.vue', code)</pre>
       <pre>
 &lt;script setup&gt;
   import MyVjsf from './components/compiled/my-vjsf.vue'
+  import { VForm } from 'vuetify/components'
 &lt;/script&gt;
 &lt;template&gt;
-  &lt;my-vjsf v-model="data" :options="options" /&gt;
+  &lt;v-form&gt;
+    &lt;my-vjsf v-model="data" :options="options" /&gt;
+  &lt;/v-form&gt;
 &lt;/template&gt;</pre>
     </code-block>
 
