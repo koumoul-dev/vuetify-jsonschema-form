@@ -24,7 +24,7 @@
 
 <script setup>
 import { VSlideXReverseTransition } from 'vuetify/components/transitions'
-import { VAlert} from 'vuetify/components/VAlert'
+import { VAlert } from 'vuetify/components/VAlert'
 import { VBtn } from 'vuetify/components/VBtn'
 import { ref } from 'vue'
 
