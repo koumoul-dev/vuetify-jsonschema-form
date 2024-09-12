@@ -68,14 +68,14 @@ await writeFile('./components/compiled/my-vjsf.vue', code)</pre>
 
     <code-block language="js">
       <pre>
-import { commonjsDeps, commonjsDepsPaths } from '@koumoul/vjsf/utils/build.js'
+import { commonjsDeps } from '@koumoul/vjsf/utils/build.js'
 ...
   optimizeDeps: {
     include: commonjsDeps,
   },
   build: {
     commonjsOptions: {
-      include: commonjsDepsPaths,
+      transformMixedEsModules: true,
     },
   },
 ...</pre>

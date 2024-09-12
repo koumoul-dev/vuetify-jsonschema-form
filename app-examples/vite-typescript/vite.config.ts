@@ -18,7 +18,8 @@ export default defineConfig({
   },
   build: {
     commonjsOptions: {
-      include: commonjsDeps,
+      // include: commonjsDeps,
+      transformMixedEsModules: true
     },
   },*/
   plugins: [
