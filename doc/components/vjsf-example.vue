@@ -31,7 +31,7 @@
     <v-window
       v-if="tab"
       v-model="tab"
-      style="height: 560px;overflow-y: auto;"
+      style="height: 600px;overflow-y: auto;"
     >
       <v-window-item
         value="schemaV2"
@@ -84,9 +84,9 @@
       <v-window-item
         value="options"
         class="ma-3"
-        style="height: 560px"
+        style="height: 600px"
       >
-        <v-row style="height:560px;">
+        <v-row style="height:600px;">
           <v-col>
             <v-switch
               v-model="options.readOnly"
@@ -208,7 +208,7 @@
               :step="1"
               color="primary"
               label="container width"
-              style="max-width:560px;"
+              style="max-width:600px;"
               hide-details
               density="compact"
             >
@@ -224,7 +224,7 @@
             </div>
           </v-col>
           <v-divider vertical />
-          <v-col style="height:560px;overflow-y: auto;">
+          <v-col style="height:600px;overflow-y: auto;">
             <div class="text-subtitle">
               Options filled with default values:
             </div>
