@@ -31,19 +31,19 @@ const tab = ref('date')
 const menuOpened = ref(false)
 watch(menuOpened, () => { tab.value = 'date' })
 
-const { compProps } = useField(toRef(props, 'modelValue'), props.statefulLayout)
+const { compProps, localData } = useField(toRef(props, 'modelValue'), props.statefulLayout)
 
 const datePickerProps = computed(() => {
   const datePickerProps = { ...compProps.value }
   datePickerProps.hideActions = true
-  if (props.modelValue.data) datePickerProps.modelValue = new Date(props.modelValue.data)
+  if (localData.value) datePickerProps.modelValue = new Date(localData.value)
   datePickerProps['onUpdate:modelValue'] = (/** @type {Date} */value) => {
     if (!value) return
 
-    if (props.modelValue.data) {
+    if (localData.value) {
       // replace date part of current value
       const datePart = value && getDateTimeParts(/** @type Date */(/** @type unknown */(value)))[0]
-      props.statefulLayout.input(props.modelValue, datePart + props.modelValue.data.slice(10))
+      props.statefulLayout.input(props.modelValue, datePart + localData.value.slice(10))
     } else {
       props.statefulLayout.input(props.modelValue, getDateTimeWithOffset(value))
     }
@@ -55,11 +55,11 @@ const datePickerProps = computed(() => {
 const timePickerProps = computed(() => {
   const timePickerProps = { ...compProps.value }
   timePickerProps['ampm-in-title'] = true
-  if (props.modelValue.data) timePickerProps.modelValue = getShortTime(props.modelValue.data.slice(11))
+  if (localData.value) timePickerProps.modelValue = getShortTime(localData.value.slice(11))
   timePickerProps['onUpdate:modelValue'] = (/** @type {string} */value) => {
-    if (!props.modelValue.data) return
-    console.log('set time', value, props.modelValue.data.slice(0, 10), props.modelValue.data.slice(15))
-    props.statefulLayout.input(props.modelValue, props.modelValue.data.slice(0, 11) + value + props.modelValue.data.slice(16))
+    if (!localData.value) return
+    console.log('set time', value, localData.value.slice(0, 10), localData.value.slice(15))
+    props.statefulLayout.input(props.modelValue, localData.value.slice(0, 11) + value + localData.value.slice(16))
   }
   return timePickerProps
 })

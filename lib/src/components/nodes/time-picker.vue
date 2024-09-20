@@ -23,12 +23,12 @@ const props = defineProps({
 
 const vDate = useDate()
 
-const { compProps } = useField(toRef(props, 'modelValue'), props.statefulLayout)
+const { compProps, localData } = useField(toRef(props, 'modelValue'), props.statefulLayout)
 
 const timePickerProps = computed(() => {
   const timePickerProps = { ...compProps.value }
   timePickerProps['ampm-in-title'] = true
-  if (props.modelValue.data) timePickerProps.modelValue = getShortTime(props.modelValue.data)
+  if (localData.value) timePickerProps.modelValue = getShortTime(localData.value)
   return timePickerProps
 })
 </script>

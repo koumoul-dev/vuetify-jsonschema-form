@@ -29,28 +29,22 @@
         "default": "./src/types.js"
       }
     },
-    "./components/*": {
+    "./components/vjsf.vue": {
       "import": {
-        "types": "./types/components/*.d.ts",
-        "default": "./src/components/*"
+        "types": "./types/components/vjsf.d.ts",
+        "default": "./src/components/vjs.vue"
       }
     },
-    "./composables/*": {
+    "./utils/build.js": {
       "import": {
-        "types": "./types/composables/*.d.ts",
-        "default": "./src/composables/*"
+        "types": "./types/utils/build.d.ts",
+        "default": "./src/utils/build.js"
       }
     },
-    "./utils": {
+    "./composables/use-field": {
       "import": {
-        "types": "./types/utils/index.d.ts",
-        "default": "./src/utils/index.js"
-      }
-    },
-    "./utils/*": {
-      "import": {
-        "types": "./types/utils/*.d.ts",
-        "default": "./src/utils/*"
+        "types": "./types/composables/use-field.d.ts",
+        "default": "./src/composables/use-field.js"
       }
     },
     "./styles/*": {

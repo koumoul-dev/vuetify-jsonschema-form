@@ -1,9 +1,8 @@
 <script>
 import { VAutocomplete } from 'vuetify/components/VAutocomplete'
 import { useDefaults } from 'vuetify'
-import { defineComponent, computed, h } from 'vue'
-import { getSelectProps, getSelectSlots } from '../../utils/index.js'
-import useGetItems from '../../composables/use-get-items.js'
+import { defineComponent, computed, h, toRef } from 'vue'
+import useSelectField from '../../composables/use-select-field.js'
 
 export default defineComponent({
   props: {
@@ -21,21 +20,22 @@ export default defineComponent({
   setup (props) {
     useDefaults({}, 'VjsfAutocomplete')
 
-    const getItems = useGetItems(props)
+    const { getItems, inputProps, selectProps, compSlots, selectSlots, localData } = useSelectField(toRef(props, 'modelValue'), props.statefulLayout)
 
     const fieldProps = computed(() => {
-      const fieldProps = getSelectProps(props.modelValue, props.statefulLayout)
+      const fieldProps = { ...inputProps.value, ...selectProps.value }
       fieldProps.noFilter = true
       fieldProps['onUpdate:search'] = (/** @type string */searchValue) => {
         getItems.search.value = searchValue
       }
       fieldProps.items = getItems.items.value
       fieldProps.loading = getItems.loading.value
+      fieldProps.modelValue = localData.value
       return fieldProps
     })
 
     // @ts-ignore
-    return () => h(VAutocomplete, fieldProps.value, getSelectSlots(props.modelValue, props.statefulLayout, getItems))
+    return () => h(VAutocomplete, fieldProps.value, { ...compSlots.value, ...selectSlots.value })
   }
 })
 

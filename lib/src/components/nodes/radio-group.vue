@@ -2,8 +2,8 @@
 import { VRadio } from 'vuetify/components/VRadio'
 import { VRadioGroup } from 'vuetify/components/VRadioGroup'
 import { VSkeletonLoader } from 'vuetify/components/VSkeletonLoader'
-import { defineComponent, h, computed } from 'vue'
-import { getInputProps, getCompSlots } from '../../utils/index.js'
+import { defineComponent, h, computed, toRef } from 'vue'
+import useField from '../../composables/use-field.js'
 import useGetItems from '../../composables/use-get-items.js'
 import { useDefaults } from 'vuetify'
 
@@ -23,15 +23,18 @@ export default defineComponent({
   setup (props) {
     useDefaults({}, 'VjsfRadioGroup')
 
-    const getItems = useGetItems(props)
+    const nodeRef = toRef(props, 'modelValue')
+    const getItems = useGetItems(nodeRef, props.statefulLayout)
+    const { inputProps, compSlots, localData } = useField(nodeRef, props.statefulLayout)
 
     const fieldProps = computed(() => {
-      const fieldProps = getInputProps(props.modelValue, props.statefulLayout)
+      const fieldProps = { ...inputProps.value }
+      fieldProps.modelValue = localData.value
       return fieldProps
     })
 
     const fieldSlots = computed(() => {
-      const slots = getCompSlots(props.modelValue, props.statefulLayout)
+      const slots = { ...compSlots.value }
       /** @type {import('vue').VNode[]} */
       const children = []
       if (getItems.loading.value) {

@@ -4,8 +4,8 @@ import { VInput } from 'vuetify/components/VInput'
 import { VLabel } from 'vuetify/components/VLabel'
 import { VCheckbox } from 'vuetify/components/VCheckbox'
 import { VSwitch } from 'vuetify/components/VSwitch'
-import { defineComponent, h, computed } from 'vue'
-import { getInputProps, getCompSlots } from '../../utils/index.js'
+import { defineComponent, h, computed, toRef } from 'vue'
+import useField from '../../composables/use-field.js'
 import useGetItems from '../../composables/use-get-items.js'
 
 export default defineComponent({
@@ -26,17 +26,19 @@ export default defineComponent({
     }
   },
   setup (props) {
-    const getItems = useGetItems(props)
+    const nodeRef = toRef(props, 'modelValue')
+    const getItems = useGetItems(nodeRef, props.statefulLayout)
+    const { inputProps, compSlots, localData, layout } = useField(nodeRef, props.statefulLayout, { bindData: false })
 
     const fieldProps = computed(() => {
-      const fieldProps = getInputProps(props.modelValue, props.statefulLayout)
+      const fieldProps = { ...inputProps.value }
       fieldProps.class.push('v-radio-group') // reuse some styles from radio-group
       fieldProps.class.push('vjsf-selection-group')
       return fieldProps
     })
 
     const fieldSlots = computed(() => {
-      const slots = getCompSlots(props.modelValue, props.statefulLayout)
+      const slots = { ...compSlots.value }
 
       if (!slots.default) {
         slots.default = () => {
@@ -49,10 +51,10 @@ export default defineComponent({
             const checkboxes = []
             for (const item of getItems.items.value) {
               let modelValue = false
-              if (props.modelValue.layout.multiple) {
-                modelValue = props.modelValue.data?.includes(item.value)
+              if (layout.value.multiple) {
+                modelValue = localData.value?.includes(item.value)
               } else {
-                modelValue = props.modelValue.data === item.value
+                modelValue = localData.value === item.value
               }
               checkboxes.push(h(props.type === 'switch' ? VSwitch : VCheckbox, {
                 label: item.title,
@@ -61,7 +63,7 @@ export default defineComponent({
                 modelValue,
                 onClick: () => {
                   let newValue
-                  if (props.modelValue.layout.multiple) {
+                  if (layout.value.multiple) {
                     newValue = props.modelValue.data ? [...props.modelValue.data] : []
                     if (newValue.includes(item.value)) {
                       newValue = newValue.filter((/** @type {any} */v) => v !== item.value)
@@ -88,7 +90,6 @@ export default defineComponent({
       return slots
     })
 
-    // @ts-ignore
     return () => {
       return h(VInput, fieldProps.value, fieldSlots.value)
     }
