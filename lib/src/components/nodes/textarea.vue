@@ -1,7 +1,7 @@
 <script>
-import { defineComponent, h, computed, ref, watch } from 'vue'
+import { defineComponent, h, computed, ref, watch, toRef } from 'vue'
 import { VTextarea } from 'vuetify/components/VTextarea'
-import { getInputProps, getCompSlots } from '../../utils/index.js'
+import useField from '../../composables/use-field.js'
 import { useDefaults } from 'vuetify'
 
 export default defineComponent({
@@ -23,22 +23,25 @@ export default defineComponent({
     /** @type {import('vue').Ref<null | HTMLElement>} */
     const textarea = ref(null)
 
-    const fieldProps = computed(() => {
-      const inputProps = getInputProps(props.modelValue, props.statefulLayout, ['placeholder'])
-      inputProps.ref = textarea
-      if (props.modelValue.options.readOnly && props.modelValue.options.summary) inputProps.rows = 3
-      return inputProps
-    })
-    const fieldSlots = computed(() => getCompSlots(props.modelValue, props.statefulLayout))
+    const { inputProps, modelValue, compSlots, options } = useField(
+      toRef(props, 'modelValue'), props.statefulLayout, { layoutPropsMap: ['placeholder'] }
+    )
 
-    watch(() => props.modelValue.options.readOnly, (readOnly) => {
+    const fullProps = computed(() => {
+      const fullProps = { ...inputProps.value }
+      fullProps.ref = textarea
+      if (options.value.readOnly && options.value.summary) fullProps.rows = 3
+      fullProps.modelValue = modelValue.value
+      return fullProps
+    })
+
+    watch(() => options.value.readOnly, (readOnly) => {
       if (readOnly && textarea.value) {
         textarea.value.scrollTop = 0
       }
     })
 
-    // @ts-ignore
-    return () => h(VTextarea, fieldProps.value, fieldSlots.value)
+    return () => h(VTextarea, fullProps.value, compSlots.value)
   }
 })
 
