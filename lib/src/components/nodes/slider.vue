@@ -20,13 +20,13 @@ export default defineComponent({
   setup (props) {
     useDefaults({}, 'VjsfSlider')
 
-    const { inputProps, modelValue, compSlots } = useField(
+    const { inputProps, localData, compSlots } = useField(
       toRef(props, 'modelValue'), props.statefulLayout, { layoutPropsMap: ['step', 'min', 'max'] }
     )
 
     const fullProps = computed(() => {
       const fullProps = { ...inputProps.value }
-      fullProps.modelValue = modelValue.value
+      fullProps.modelValue = localData.value
       fullProps['onUpdate:modelValue'] = (/** @type string */value) => props.statefulLayout.input(props.modelValue, value && Number(value))
       return fullProps
     })

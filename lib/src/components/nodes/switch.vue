@@ -20,13 +20,13 @@ export default defineComponent({
   setup (props) {
     useDefaults({}, 'VjsfSwitch')
 
-    const { inputProps, modelValue, compSlots } = useField(toRef(props, 'modelValue'), props.statefulLayout)
+    const { inputProps, localData, compSlots } = useField(toRef(props, 'modelValue'), props.statefulLayout)
 
     const fullProps = computed(() => {
       const fullProps = { ...inputProps.value }
       // it is not very common to show an error below checkboxes and switches and without hide-details=auto they take a lot of space
       if (!('hideDetails' in inputProps)) fullProps.hideDetails = 'auto'
-      fullProps.modelValue = modelValue.value
+      fullProps.modelValue = localData.value
       return fullProps
     })
 

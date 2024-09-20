@@ -25,12 +25,12 @@ const vDate = useDate()
 
 const menuOpened = ref(false)
 
-const { compProps, modelValue } = useField(toRef(props, 'modelValue'), props.statefulLayout)
+const { compProps, localData } = useField(toRef(props, 'modelValue'), props.statefulLayout)
 
 const datePickerProps = computed(() => {
   const datePickerProps = { ...compProps.value }
   datePickerProps.hideActions = true
-  if (modelValue.value) datePickerProps.modelValue = new Date(/** @type {string} */(modelValue.value))
+  if (localData.value) datePickerProps.modelValue = new Date(/** @type {string} */(localData.value))
   datePickerProps['onUpdate:modelValue'] = (/** @type {Date} */value) => {
     if (!value) return
     if (props.modelValue.layout.format === 'date-time') {
@@ -44,7 +44,7 @@ const datePickerProps = computed(() => {
 })
 
 const formattedValue = computed(() => {
-  return modelValue.value ? vDate.format(/** @type {string} */(modelValue.value), 'fullDateWithWeekday') : null
+  return localData.value ? vDate.format(/** @type {string} */(localData.value), 'fullDateWithWeekday') : null
 })
 
 </script>

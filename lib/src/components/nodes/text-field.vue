@@ -20,13 +20,13 @@ export default defineComponent({
   setup (props) {
     useDefaults({}, 'VjsfTextField')
 
-    const { inputProps, modelValue, compSlots } = useField(
+    const { inputProps, localData, compSlots } = useField(
       toRef(props, 'modelValue'), props.statefulLayout, { layoutPropsMap: ['placeholder'] }
     )
 
     const fullProps = computed(() => {
       const fullProps = { ...inputProps.value }
-      fullProps.modelValue = modelValue.value
+      fullProps.modelValue = localData.value
       return fullProps
     })
 

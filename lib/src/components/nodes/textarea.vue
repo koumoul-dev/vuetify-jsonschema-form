@@ -23,7 +23,7 @@ export default defineComponent({
     /** @type {import('vue').Ref<null | HTMLElement>} */
     const textarea = ref(null)
 
-    const { inputProps, modelValue, compSlots, options } = useField(
+    const { inputProps, localData, compSlots, options } = useField(
       toRef(props, 'modelValue'), props.statefulLayout, { layoutPropsMap: ['placeholder'] }
     )
 
@@ -31,7 +31,7 @@ export default defineComponent({
       const fullProps = { ...inputProps.value }
       fullProps.ref = textarea
       if (options.value.readOnly && options.value.summary) fullProps.rows = 3
-      fullProps.modelValue = modelValue.value
+      fullProps.modelValue = localData.value
       return fullProps
     })
 

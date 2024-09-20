@@ -20,7 +20,7 @@ export default defineComponent({
   setup (props) {
     useDefaults({}, 'VjsfNumberField')
 
-    const { inputProps, modelValue, compSlots } = useField(
+    const { inputProps, localData, compSlots } = useField(
       toRef(props, 'modelValue'), props.statefulLayout, { layoutPropsMap: ['step', 'min', 'max', 'placeholder'], bindData: false }
     )
 
@@ -28,7 +28,7 @@ export default defineComponent({
       const fullProps = { ...inputProps.value }
       fullProps.type = 'number'
       fullProps['onUpdate:modelValue'] = (/** @type string */value) => props.statefulLayout.input(props.modelValue, value && Number(value))
-      fullProps.modelValue = modelValue.value
+      fullProps.modelValue = localData.value
       return fullProps
     })
 
