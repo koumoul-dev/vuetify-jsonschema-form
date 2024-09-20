@@ -1,8 +1,8 @@
 <script setup>
 import { VMenu } from 'vuetify/components/VMenu'
 import { VTextField } from 'vuetify/components/VTextField'
-import { computed, ref } from 'vue'
-import { getCompProps, getInputProps } from '../../utils/index.js'
+import { computed, ref, toRef } from 'vue'
+import useField from '../../composables/use-field.js'
 
 const props = defineProps({
   modelValue: {
@@ -22,10 +22,14 @@ const props = defineProps({
   }
 })
 
+const { inputProps, skeleton, compProps, data } = useField(
+  toRef(props, 'modelValue'), props.statefulLayout, { isMainComp: false, bindData: false }
+)
+
 const fieldProps = computed(() => {
-  const fieldProps = getInputProps(props.modelValue, props.statefulLayout, [], false)
+  const fieldProps = { ...inputProps.value }
   fieldProps.readonly = true
-  fieldProps.clearable = fieldProps.clearable ?? !props.modelValue.skeleton.required
+  fieldProps.clearable = fieldProps.clearable ?? !skeleton.value.required
   fieldProps['onClick:clear'] = () => {
     props.statefulLayout.input(props.modelValue, null)
   }
@@ -33,7 +37,7 @@ const fieldProps = computed(() => {
 })
 
 const menuProps = computed(() => {
-  const menuProps = getCompProps(props.modelValue)
+  const menuProps = { ...compProps.value }
   menuProps.closeOnContentClick = false
   menuProps.disabled = true
   return menuProps
@@ -48,7 +52,7 @@ const menuOpened = defineModel('menuOpened', { type: Boolean, default: false })
   <v-text-field
     ref="textField"
     v-bind="fieldProps"
-    :model-value="formattedValue ?? modelValue.data"
+    :model-value="formattedValue ?? data"
     @click:control="e => {menuOpened = !menuOpened; e.stopPropagation()}"
   >
     <template #prepend-inner>

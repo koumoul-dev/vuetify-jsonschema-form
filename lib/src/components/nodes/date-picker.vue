@@ -2,8 +2,9 @@
 import TextFieldMenu from '../fragments/text-field-menu.vue'
 import { VDatePicker } from 'vuetify/components/VDatePicker'
 import { useDate, useDefaults } from 'vuetify'
-import { computed, ref } from 'vue'
-import { getCompProps, getDateTimeParts, getDateTimeWithOffset } from '../../utils/index.js'
+import { computed, ref, toRef } from 'vue'
+import { getDateTimeParts, getDateTimeWithOffset } from '../../utils/dates.js'
+import useField from '../../composables/use-field.js'
 
 useDefaults({}, 'VjsfDatePicker')
 
@@ -24,10 +25,12 @@ const vDate = useDate()
 
 const menuOpened = ref(false)
 
+const { compProps, modelValue } = useField(toRef(props, 'modelValue'), props.statefulLayout)
+
 const datePickerProps = computed(() => {
-  const datePickerProps = getCompProps(props.modelValue, true)
+  const datePickerProps = { ...compProps.value }
   datePickerProps.hideActions = true
-  if (props.modelValue.data) datePickerProps.modelValue = new Date(props.modelValue.data)
+  if (modelValue.value) datePickerProps.modelValue = new Date(/** @type {string} */(modelValue.value))
   datePickerProps['onUpdate:modelValue'] = (/** @type {Date} */value) => {
     if (!value) return
     if (props.modelValue.layout.format === 'date-time') {
@@ -39,14 +42,19 @@ const datePickerProps = computed(() => {
   }
   return datePickerProps
 })
+
+const formattedValue = computed(() => {
+  return modelValue.value ? vDate.format(/** @type {string} */(modelValue.value), 'fullDateWithWeekday') : null
+})
+
 </script>
 
 <template>
   <text-field-menu
     v-model:menu-opened="menuOpened"
-    :model-value="modelValue"
+    :model-value="props.modelValue"
     :stateful-layout="statefulLayout"
-    :formatted-value="modelValue.data && vDate.format(modelValue.data, 'fullDateWithWeekday')"
+    :formatted-value="formattedValue"
   >
     <v-date-picker v-bind="datePickerProps" />
   </text-field-menu>

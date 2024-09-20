@@ -1,7 +1,7 @@
 <script>
-import { defineComponent, h, computed } from 'vue'
+import { defineComponent, h, computed, toRef } from 'vue'
 import { VTextField } from 'vuetify/components/VTextField'
-import { getInputProps, getCompSlots } from '../../utils/index.js'
+import useField from '../../composables/use-field.js'
 import { useDefaults } from 'vuetify'
 
 export default defineComponent({
@@ -20,16 +20,19 @@ export default defineComponent({
   setup (props) {
     useDefaults({}, 'VjsfNumberField')
 
-    const fieldProps = computed(() => {
-      const fieldProps = getInputProps(props.modelValue, props.statefulLayout, ['step', 'min', 'max', 'placeholder'])
-      fieldProps.type = 'number'
-      fieldProps['onUpdate:modelValue'] = (/** @type string */value) => props.statefulLayout.input(props.modelValue, value && Number(value))
-      return fieldProps
-    })
-    const fieldSlots = computed(() => getCompSlots(props.modelValue, props.statefulLayout))
+    const { inputProps, modelValue, compSlots } = useField(
+      toRef(props, 'modelValue'), props.statefulLayout, { layoutPropsMap: ['step', 'min', 'max', 'placeholder'], bindData: false }
+    )
 
-    // @ts-ignore
-    return () => h(VTextField, fieldProps.value, fieldSlots.value)
+    const fullProps = computed(() => {
+      const fullProps = { ...inputProps.value }
+      fullProps.type = 'number'
+      fullProps['onUpdate:modelValue'] = (/** @type string */value) => props.statefulLayout.input(props.modelValue, value && Number(value))
+      fullProps.modelValue = modelValue.value
+      return fullProps
+    })
+
+    return () => h(VTextField, fullProps.value, compSlots.value)
   }
 })
 

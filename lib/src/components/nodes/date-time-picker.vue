@@ -6,8 +6,9 @@ import { VTabs, VTab, VTabsWindow, VTabsWindowItem } from 'vuetify/components/VT
 import { VIcon } from 'vuetify/components/VIcon'
 import { VSheet } from 'vuetify/components/VSheet'
 import { useDate, useDefaults } from 'vuetify'
-import { computed, ref, watch } from 'vue'
-import { getCompProps, getDateTimeParts, getDateTimeWithOffset, getShortTime } from '../../utils/index.js'
+import { computed, ref, watch, toRef } from 'vue'
+import { getDateTimeParts, getDateTimeWithOffset, getShortTime } from '../../utils/dates.js'
+import useField from '../../composables/use-field.js'
 
 useDefaults({}, 'VjsfDatePicker')
 
@@ -30,8 +31,10 @@ const tab = ref('date')
 const menuOpened = ref(false)
 watch(menuOpened, () => { tab.value = 'date' })
 
+const { compProps } = useField(toRef(props, 'modelValue'), props.statefulLayout)
+
 const datePickerProps = computed(() => {
-  const datePickerProps = getCompProps(props.modelValue, false)
+  const datePickerProps = { ...compProps.value }
   datePickerProps.hideActions = true
   if (props.modelValue.data) datePickerProps.modelValue = new Date(props.modelValue.data)
   datePickerProps['onUpdate:modelValue'] = (/** @type {Date} */value) => {
@@ -50,7 +53,7 @@ const datePickerProps = computed(() => {
 })
 
 const timePickerProps = computed(() => {
-  const timePickerProps = getCompProps(props.modelValue, false)
+  const timePickerProps = { ...compProps.value }
   timePickerProps['ampm-in-title'] = true
   if (props.modelValue.data) timePickerProps.modelValue = getShortTime(props.modelValue.data.slice(11))
   timePickerProps['onUpdate:modelValue'] = (/** @type {string} */value) => {
