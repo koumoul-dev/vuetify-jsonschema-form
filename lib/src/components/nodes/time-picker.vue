@@ -4,7 +4,7 @@ import { VTimePicker } from 'vuetify/labs/VTimePicker'
 import { useDate, useDefaults } from 'vuetify'
 import { computed, toRef } from 'vue'
 import { getShortTime, getLongTime } from '../../utils/dates.js'
-import useField from '../../composables/use-field.js'
+import useNode from '../../composables/use-node.js'
 
 useDefaults({}, 'VjsfDatePicker')
 
@@ -23,7 +23,7 @@ const props = defineProps({
 
 const vDate = useDate()
 
-const { compProps, localData } = useField(toRef(props, 'modelValue'), props.statefulLayout)
+const { compProps, localData } = useNode(toRef(props, 'modelValue'), props.statefulLayout)
 
 const timePickerProps = computed(() => {
   const timePickerProps = { ...compProps.value }

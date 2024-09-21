@@ -4,7 +4,7 @@ import { VDatePicker } from 'vuetify/components/VDatePicker'
 import { useDate, useDefaults } from 'vuetify'
 import { computed, ref, toRef } from 'vue'
 import { getDateTimeParts, getDateTimeWithOffset } from '../../utils/dates.js'
-import useField from '../../composables/use-field.js'
+import useNode from '../../composables/use-node.js'
 
 useDefaults({}, 'VjsfDatePicker')
 
@@ -25,7 +25,7 @@ const vDate = useDate()
 
 const menuOpened = ref(false)
 
-const { compProps, localData } = useField(toRef(props, 'modelValue'), props.statefulLayout)
+const { compProps, localData } = useNode(toRef(props, 'modelValue'), props.statefulLayout)
 
 const datePickerProps = computed(() => {
   const datePickerProps = { ...compProps.value }

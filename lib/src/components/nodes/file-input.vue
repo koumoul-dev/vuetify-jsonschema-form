@@ -1,7 +1,7 @@
 <script>
-import { defineComponent, h, computed } from 'vue'
+import { defineComponent, h, computed, toRef } from 'vue'
 import { VFileInput } from 'vuetify/components/VFileInput'
-import { getInputProps, getCompSlots } from '../../utils/index.js'
+import useNode from '../../composables/use-node.js'
 import { useDefaults } from 'vuetify'
 
 export default defineComponent({
@@ -20,20 +20,19 @@ export default defineComponent({
   setup (props) {
     useDefaults({}, 'VjsfFileInput')
 
+    const { inputProps, localData, compSlots } = useNode(
+      toRef(props, 'modelValue'), props.statefulLayout, { layoutPropsMap: ['placeholder', 'accept', 'multiple'] }
+    )
+
     const fieldProps = computed(() => {
-      const fieldProps = getInputProps(props.modelValue, props.statefulLayout, ['placeholder', 'accept'])
-      if (props.modelValue.layout.multiple) {
-        fieldProps.multiple = true
-      } else {
-        fieldProps.modelValue = props.modelValue.data ? [props.modelValue.data] : props.modelValue.data
-        fieldProps['onUpdate:modelValue'] = (/** @type string */value) => props.statefulLayout.input(props.modelValue, Array.isArray(value) ? value[0] : value)
-      }
+      const fieldProps = { ...inputProps.value }
+      fieldProps['onUpdate:modelValue'] = (/** @type string */value) => props.statefulLayout.input(props.modelValue, Array.isArray(value) ? value[0] : value)
+      fieldProps.modelValue = localData.value
       return fieldProps
     })
-    const fieldSlots = computed(() => getCompSlots(props.modelValue, props.statefulLayout))
 
     // @ts-ignore
-    return () => h(VFileInput, fieldProps.value, fieldSlots.value)
+    return () => h(VFileInput, fieldProps.value, compSlots.value)
   }
 })
 

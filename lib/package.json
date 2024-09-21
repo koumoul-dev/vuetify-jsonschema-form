@@ -41,10 +41,10 @@
         "default": "./src/utils/build.js"
       }
     },
-    "./composables/use-field": {
+    "./composables/use-node": {
       "import": {
-        "types": "./types/composables/use-field.d.ts",
-        "default": "./src/composables/use-field.js"
+        "types": "./types/composables/use-node.d.ts",
+        "default": "./src/composables/use-node.js"
       }
     },
     "./styles/*": {

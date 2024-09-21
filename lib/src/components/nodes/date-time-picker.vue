@@ -8,7 +8,7 @@ import { VSheet } from 'vuetify/components/VSheet'
 import { useDate, useDefaults } from 'vuetify'
 import { computed, ref, watch, toRef } from 'vue'
 import { getDateTimeParts, getDateTimeWithOffset, getShortTime } from '../../utils/dates.js'
-import useField from '../../composables/use-field.js'
+import useNode from '../../composables/use-node.js'
 
 useDefaults({}, 'VjsfDatePicker')
 
@@ -31,7 +31,7 @@ const tab = ref('date')
 const menuOpened = ref(false)
 watch(menuOpened, () => { tab.value = 'date' })
 
-const { compProps, localData } = useField(toRef(props, 'modelValue'), props.statefulLayout)
+const { compProps, localData } = useNode(toRef(props, 'modelValue'), props.statefulLayout)
 
 const datePickerProps = computed(() => {
   const datePickerProps = { ...compProps.value }

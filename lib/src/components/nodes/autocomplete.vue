@@ -2,7 +2,7 @@
 import { VAutocomplete } from 'vuetify/components/VAutocomplete'
 import { useDefaults } from 'vuetify'
 import { defineComponent, computed, h, toRef } from 'vue'
-import useSelectField from '../../composables/use-select-field.js'
+import useSelectNode from '../../composables/use-select-node.js'
 
 export default defineComponent({
   props: {
@@ -20,10 +20,10 @@ export default defineComponent({
   setup (props) {
     useDefaults({}, 'VjsfAutocomplete')
 
-    const { getItems, inputProps, selectProps, compSlots, selectSlots, localData } = useSelectField(toRef(props, 'modelValue'), props.statefulLayout)
+    const { getItems, selectProps, selectSlots, localData } = useSelectNode(toRef(props, 'modelValue'), props.statefulLayout)
 
     const fieldProps = computed(() => {
-      const fieldProps = { ...inputProps.value, ...selectProps.value }
+      const fieldProps = { ...selectProps.value }
       fieldProps.noFilter = true
       fieldProps['onUpdate:search'] = (/** @type string */searchValue) => {
         getItems.search.value = searchValue
@@ -35,7 +35,7 @@ export default defineComponent({
     })
 
     // @ts-ignore
-    return () => h(VAutocomplete, fieldProps.value, { ...compSlots.value, ...selectSlots.value })
+    return () => h(VAutocomplete, fieldProps.value, selectSlots.value)
   }
 })
 

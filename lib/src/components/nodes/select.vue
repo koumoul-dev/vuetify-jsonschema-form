@@ -1,7 +1,7 @@
 <script>
 import { VSelect } from 'vuetify/components/VSelect'
 import { defineComponent, h, computed, toRef } from 'vue'
-import useSelectField from '../../composables/use-select-field.js'
+import useSelectNode from '../../composables/use-select-node.js'
 
 import { useDefaults } from 'vuetify'
 
@@ -21,17 +21,17 @@ export default defineComponent({
   setup (props) {
     useDefaults({}, 'VjsfSelect')
 
-    const { getItems, inputProps, selectProps, compSlots, selectSlots } = useSelectField(toRef(props, 'modelValue'), props.statefulLayout)
+    const { getItems, selectProps, selectSlots } = useSelectNode(toRef(props, 'modelValue'), props.statefulLayout)
 
     const fieldProps = computed(() => {
-      const fieldProps = { ...inputProps.value, ...selectProps.value }
+      const fieldProps = { ...selectProps.value }
       fieldProps.loading = getItems.loading.value
       fieldProps.items = getItems.items.value
       return fieldProps
     })
 
     // @ts-ignore
-    return () => h(VSelect, fieldProps.value, { ...compSlots.value, ...selectSlots.value })
+    return () => h(VSelect, fieldProps.value, selectSlots.value)
   }
 })
 

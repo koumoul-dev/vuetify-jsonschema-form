@@ -5,7 +5,7 @@ import { VLabel } from 'vuetify/components/VLabel'
 import { VCheckbox } from 'vuetify/components/VCheckbox'
 import { VSwitch } from 'vuetify/components/VSwitch'
 import { defineComponent, h, computed, toRef } from 'vue'
-import useField from '../../composables/use-field.js'
+import useField from '../../composables/use-node.js'
 import useGetItems from '../../composables/use-get-items.js'
 
 export default defineComponent({

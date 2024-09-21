@@ -3,7 +3,7 @@ import { VRadio } from 'vuetify/components/VRadio'
 import { VRadioGroup } from 'vuetify/components/VRadioGroup'
 import { VSkeletonLoader } from 'vuetify/components/VSkeletonLoader'
 import { defineComponent, h, computed, toRef } from 'vue'
-import useField from '../../composables/use-field.js'
+import useNode from '../../composables/use-node.js'
 import useGetItems from '../../composables/use-get-items.js'
 import { useDefaults } from 'vuetify'
 
@@ -25,7 +25,7 @@ export default defineComponent({
 
     const nodeRef = toRef(props, 'modelValue')
     const getItems = useGetItems(nodeRef, props.statefulLayout)
-    const { inputProps, compSlots, localData } = useField(nodeRef, props.statefulLayout)
+    const { inputProps, compSlots, localData } = useNode(nodeRef, props.statefulLayout)
 
     const fieldProps = computed(() => {
       const fieldProps = { ...inputProps.value }

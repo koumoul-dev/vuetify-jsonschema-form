@@ -3,7 +3,7 @@ import { defineComponent, h, computed, onMounted, ref, onUnmounted, watch, toRef
 import { useTheme } from 'vuetify'
 import { VInput, VLabel } from 'vuetify/components'
 import { marked } from 'marked'
-import useField from '@koumoul/vjsf/composables/use-field'
+import useNode from '@koumoul/vjsf/composables/use-node'
 import 'easymde/dist/easymde.min.css'
 
 /** @typedef {{easyMDEOptions: Record<string, any> | undefined}} VjsfPluginMarkdownOptions */
@@ -26,7 +26,7 @@ export default defineComponent({
     /** @type {import('vue').Ref<null | HTMLElement>} */
     const element = ref(null)
 
-    const { inputProps, compSlots, localData } = useField(toRef(props.modelValue), props.statefulLayout)
+    const { inputProps, compSlots, localData } = useNode(toRef(props.modelValue), props.statefulLayout)
 
     const renderedValue = computed(() => {
       return localData.value && marked.parse(localData.value)

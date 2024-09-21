@@ -2,7 +2,7 @@
 import TextFieldMenu from '../fragments/text-field-menu.vue'
 import { VColorPicker } from 'vuetify/components/VColorPicker'
 import { computed, toRef } from 'vue'
-import useField from '../../composables/use-field.js'
+import useNode from '../../composables/use-node.js'
 import { useDefaults } from 'vuetify'
 
 useDefaults({}, 'VjsfColorPicker')
@@ -20,7 +20,7 @@ const props = defineProps({
   }
 })
 
-const { compProps, localData } = useField(toRef(props, 'modelValue'), props.statefulLayout)
+const { compProps, localData } = useNode(toRef(props, 'modelValue'), props.statefulLayout)
 
 const colorPickerProps = computed(() => {
   const colorPickerProps = { ...compProps.value }

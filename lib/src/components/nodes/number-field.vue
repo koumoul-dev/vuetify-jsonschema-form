@@ -1,7 +1,7 @@
 <script>
 import { defineComponent, h, computed, toRef } from 'vue'
 import { VTextField } from 'vuetify/components/VTextField'
-import useField from '../../composables/use-field.js'
+import useNode from '../../composables/use-node.js'
 import { useDefaults } from 'vuetify'
 
 export default defineComponent({
@@ -20,7 +20,7 @@ export default defineComponent({
   setup (props) {
     useDefaults({}, 'VjsfNumberField')
 
-    const { inputProps, localData, compSlots } = useField(
+    const { inputProps, localData, compSlots } = useNode(
       toRef(props, 'modelValue'), props.statefulLayout, { layoutPropsMap: ['step', 'min', 'max', 'placeholder'], bindData: false }
     )
 

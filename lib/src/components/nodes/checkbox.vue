@@ -1,7 +1,7 @@
 <script>
 import { defineComponent, h, computed, toRef } from 'vue'
 import { VCheckbox } from 'vuetify/components/VCheckbox'
-import useField from '../../composables/use-field.js'
+import useNode from '../../composables/use-node.js'
 import { useDefaults } from 'vuetify'
 
 export default defineComponent({
@@ -20,7 +20,7 @@ export default defineComponent({
   setup (props) {
     useDefaults({}, 'VjsfCheckbox')
 
-    const { inputProps, localData, compSlots } = useField(toRef(props, 'modelValue'), props.statefulLayout)
+    const { inputProps, localData, compSlots } = useNode(toRef(props, 'modelValue'), props.statefulLayout)
 
     const fullProps = computed(() => {
       const fullProps = { ...inputProps.value }

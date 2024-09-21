@@ -2,7 +2,7 @@
 import { VMenu } from 'vuetify/components/VMenu'
 import { VTextField } from 'vuetify/components/VTextField'
 import { computed, ref, toRef } from 'vue'
-import useField from '../../composables/use-field.js'
+import useField from '../../composables/use-node.js'
 
 const props = defineProps({
   modelValue: {

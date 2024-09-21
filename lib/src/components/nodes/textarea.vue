@@ -1,7 +1,7 @@
 <script>
 import { defineComponent, h, computed, ref, watch, toRef } from 'vue'
 import { VTextarea } from 'vuetify/components/VTextarea'
-import useField from '../../composables/use-field.js'
+import useNode from '../../composables/use-node.js'
 import { useDefaults } from 'vuetify'
 
 export default defineComponent({
@@ -23,14 +23,16 @@ export default defineComponent({
     /** @type {import('vue').Ref<null | HTMLElement>} */
     const textarea = ref(null)
 
-    const { inputProps, localData, compSlots, options } = useField(
+    const { inputProps, localData, compSlots, options } = useNode(
       toRef(props, 'modelValue'), props.statefulLayout, { layoutPropsMap: ['placeholder'] }
     )
+
+    const rows = computed(() => options.value.readOnly && options.value.summary ? 3 : undefined)
 
     const fullProps = computed(() => {
       const fullProps = { ...inputProps.value }
       fullProps.ref = textarea
-      if (options.value.readOnly && options.value.summary) fullProps.rows = 3
+      fullProps.rows = rows.value
       fullProps.modelValue = localData.value
       return fullProps
     })
