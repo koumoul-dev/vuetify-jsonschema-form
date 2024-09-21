@@ -1,4 +1,5 @@
 <script setup>
+import { toRef } from 'vue'
 import { VExpansionPanels, VExpansionPanel, VExpansionPanelTitle, VExpansionPanelText } from 'vuetify/components/VExpansionPanel'
 import { VContainer, VRow } from 'vuetify/components/VGrid'
 import { VIcon } from 'vuetify/components/VIcon'
@@ -6,12 +7,12 @@ import { isSection } from '@json-layout/core'
 import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'
 import ChildSubtitle from '../fragments/child-subtitle.vue'
-import { getCompProps } from '../../utils/index.js'
+import useNode from '../../composables/use-node.js'
 import { useDefaults } from 'vuetify'
 
 useDefaults({}, 'VjsfExpansionPanels')
 
-defineProps({
+const props = defineProps({
   modelValue: {
     /** @type import('vue').PropType<import('../../types.js').VjsfExpansionPanelsNode> */
     type: Object,
@@ -24,11 +25,13 @@ defineProps({
   }
 })
 
+const { compProps } = useNode(toRef(props, 'modelValue'), props.statefulLayout)
+
 </script>
 
 <template>
   <section-header :node="modelValue" />
-  <v-expansion-panels v-bind="getCompProps(modelValue, true)">
+  <v-expansion-panels v-bind="compProps">
     <v-expansion-panel
       v-for="(child, i) of modelValue.children"
       :key="child.key"

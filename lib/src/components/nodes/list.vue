@@ -12,12 +12,13 @@ import { VMenu } from 'vuetify/components/VMenu'
 import { VForm } from 'vuetify/components/VForm'
 import { isSection, clone, getRegexp } from '@json-layout/core'
 import Node from '../node.vue'
-import { moveDataItem } from '../../utils/index.js'
+import { moveDataItem } from '../../utils/arrays.js'
 import useDnd from '../../composables/use-dnd.js'
 import useCompDefaults from '../../composables/use-comp-defaults.js'
 
 useDefaults({}, 'VjsfList')
 const vSheetProps = useCompDefaults('VjsfList-VSheet', { border: true })
+const theme = useTheme()
 
 const props = defineProps({
   modelValue: {
@@ -32,27 +33,32 @@ const props = defineProps({
   }
 })
 
-const theme = useTheme()
+// we access vjsfNode properties through computeds so that the parts without mutations do not trigger reactivity
+// this is to leverage the immutability provided by immer in json-layout
+const options = computed(() => props.modelValue.options)
+const layout = computed(() => props.modelValue.layout)
+const children = computed(() => props.modelValue.children)
 
 /* use composable for drag and drop */
 const { activeDnd, sortableArray, draggable, hovered, dragging, itemBind, handleBind } = useDnd(props.modelValue.children, () => {
-  const newData = props.modelValue.layout.indexed
+  const newData = layout.value.indexed
     ? sortableArray.value.reduce((a, child) => { a[child.key] = child.data; return a }, /** @type {Record<string, any>} */({}))
     : sortableArray.value.map((child) => child.data)
-  console.log(newData)
   props.statefulLayout.input(props.modelValue, newData)
 })
-watch(() => props.modelValue.children, (array) => { sortableArray.value = array })
+watch(children, (array) => { sortableArray.value = array })
 
 /* manage hovered and edited items */
+// const editedItem = computed(() => activatedItems.value[fullKey.value])
 const editedItem = computed(() => {
   return props.statefulLayout.activatedItems[props.modelValue.fullKey]
 })
+
 const menuOpened = ref(-1)
 const activeItem = computed(() => {
   if (
-    props.modelValue.layout.listActions.includes('edit') &&
-    props.modelValue.layout.listEditMode === 'inline-single' &&
+    layout.value.listActions.includes('edit') &&
+    layout.value.listEditMode === 'inline-single' &&
     editedItem.value !== undefined
   ) {
     return editedItem.value
@@ -63,14 +69,14 @@ const activeItem = computed(() => {
 })
 
 const buttonDensity = computed(() => {
-  if (props.modelValue.options.density === 'default') return 'comfortable'
-  return props.modelValue.options.density
+  if (options.value.density === 'default') return 'comfortable'
+  return options.value.density
 })
 
 const pushEmptyItem = () => {
   const newData = (props.modelValue.data ?? []).concat([undefined])
   props.statefulLayout.input(props.modelValue, newData)
-  if (props.modelValue.layout.listEditMode === 'inline-single') {
+  if (layout.value.listEditMode === 'inline-single') {
     props.statefulLayout.activateItem(props.modelValue, newData.length - 1)
   }
 }
@@ -84,7 +90,7 @@ const pushEmptyIndexedItem = () => {
   if (!newKeyForm.value.isValid) return
   const newData = { ...(props.modelValue.data ?? {}), [newKey.value]: null }
   props.statefulLayout.input(props.modelValue, newData)
-  if (props.modelValue.layout.listEditMode === 'inline-single') {
+  if (layout.value.listEditMode === 'inline-single') {
     props.statefulLayout.activateItem(props.modelValue, Object.keys(newData).length - 1)
   }
   newKey.value = ''
@@ -95,7 +101,7 @@ const pushEmptyIndexedItem = () => {
  * @param {number} childIndex
  */
 const deleteItem = (childIndex) => {
-  if (props.modelValue.layout.indexed) {
+  if (layout.value.indexed) {
     const oldData = /** @type {Record<string, any>} */(props.modelValue.data)
     const keys = Object.keys(props.modelValue.data)
     /** @type {Record<string, any>} */
@@ -119,7 +125,7 @@ const deleteItem = (childIndex) => {
 const duplicateItem = (child, childIndex) => {
   const newData = [...props.modelValue.data.slice(0, childIndex), clone(child.data), ...props.modelValue.data.slice(childIndex)]
   props.statefulLayout.input(props.modelValue, newData)
-  if (props.modelValue.layout.listEditMode === 'inline-single') {
+  if (layout.value.listEditMode === 'inline-single') {
     props.statefulLayout.activateItem(props.modelValue, childIndex + 1)
   }
   menuOpened.value = -1
@@ -128,7 +134,7 @@ const duplicateItem = (child, childIndex) => {
 const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').StateNode} */child, /** @type {number} */childIndex) => {
   if (editedItem.value === childIndex) return theme.current.value.colors.primary
   if (child.validated && (child.error || child.childError)) return theme.current.value.colors.error
-  if (props.modelValue.options.readOnly) return 'transparent'
+  if (options.value.readOnly) return 'transparent'
   if (activeItem.value === childIndex) return theme.current.value.colors.primary
   return 'transparent'
 })
@@ -143,7 +149,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
       </v-list-subheader>
       <template
         v-for="(child, childIndex) of sortableArray"
-        :key="props.modelValue.children.findIndex(c => c === child)"
+        :key="children.findIndex(c => c === child)"
       >
         <v-list-item
           v-bind="itemBind(childIndex)"
