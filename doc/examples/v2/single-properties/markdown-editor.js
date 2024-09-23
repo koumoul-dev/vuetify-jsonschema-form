@@ -42,7 +42,7 @@ const model = {
 
 const options = {
   editMode: 'inline',
-  plugins: {
+  pluginsOptions: {
     markdown: {
       easyMDEOptions: { minHeight: '300px', maxHeight: '300px' }
     }

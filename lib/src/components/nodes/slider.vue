@@ -1,37 +1,37 @@
-<script setup>
+<script>
 import { VSlider } from 'vuetify/components/VSlider'
-import { computed } from 'vue'
-import { getInputProps } from '../../utils/index.js'
+import { defineComponent, computed, toRef, h } from 'vue'
+import useNode from '../../composables/use-node.js'
 import { useDefaults } from 'vuetify'
 
-useDefaults({}, 'VjsfSlider')
-
-const props = defineProps({
-  modelValue: {
-    /** @type import('vue').PropType<import('../../types.js').VjsfSliderNode> */
-    type: Object,
-    required: true
+export default defineComponent({
+  props: {
+    modelValue: {
+      /** @type import('vue').PropType<import('../../types.js').VjsfSliderNode> */
+      type: Object,
+      required: true
+    },
+    statefulLayout: {
+      /** @type import('vue').PropType<import('../../types.js').VjsfStatefulLayout> */
+      type: Object,
+      required: true
+    }
   },
-  statefulLayout: {
-    /** @type import('vue').PropType<import('../../types.js').VjsfStatefulLayout> */
-    type: Object,
-    required: true
+  setup (props) {
+    useDefaults({}, 'VjsfSlider')
+
+    const { inputProps, localData, compSlots } = useNode(
+      toRef(props, 'modelValue'), props.statefulLayout, { layoutPropsMap: ['step', 'min', 'max'] }
+    )
+
+    const fullProps = computed(() => {
+      const fullProps = { ...inputProps.value }
+      fullProps.modelValue = localData.value
+      fullProps['onUpdate:modelValue'] = (/** @type string */value) => props.statefulLayout.input(props.modelValue, value && Number(value))
+      return fullProps
+    })
+
+    return () => h(VSlider, fullProps.value, compSlots.value)
   }
 })
-
-const fieldProps = computed(() => {
-  const fieldProps = getInputProps(props.modelValue, props.statefulLayout)
-  if ('step' in props.modelValue.layout) fieldProps.step = props.modelValue.layout.step
-  fieldProps.min = props.modelValue.layout.min
-  fieldProps.max = props.modelValue.layout.max
-  return fieldProps
-})
 </script>
-
-<template>
-  <v-slider
-    type="number"
-    v-bind="fieldProps"
-    @update:model-value="value => statefulLayout.input(modelValue, value && Number(value))"
-  />
-</template>

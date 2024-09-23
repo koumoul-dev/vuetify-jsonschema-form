@@ -2,8 +2,9 @@
 import TextFieldMenu from '../fragments/text-field-menu.vue'
 import { VTimePicker } from 'vuetify/labs/VTimePicker'
 import { useDate, useDefaults } from 'vuetify'
-import { computed } from 'vue'
-import { getCompProps, getShortTime, getLongTime } from '../../utils/index.js'
+import { computed, toRef } from 'vue'
+import { getShortTime, getLongTime } from '../../utils/dates.js'
+import useNode from '../../composables/use-node.js'
 
 useDefaults({}, 'VjsfDatePicker')
 
@@ -22,23 +23,25 @@ const props = defineProps({
 
 const vDate = useDate()
 
+const { compProps, localData } = useNode(toRef(props, 'modelValue'), props.statefulLayout)
+
 const timePickerProps = computed(() => {
-  const timePickerProps = getCompProps(props.modelValue, true)
+  const timePickerProps = { ...compProps.value }
   timePickerProps['ampm-in-title'] = true
-  if (props.modelValue.data) timePickerProps.modelValue = getShortTime(props.modelValue.data)
+  if (localData.value) timePickerProps.modelValue = getShortTime(localData.value)
   return timePickerProps
 })
 </script>
 
 <template>
   <text-field-menu
-    :model-value="modelValue"
+    :model-value="props.modelValue"
     :stateful-layout="statefulLayout"
     :formatted-value="timePickerProps.modelValue && vDate.format('2010-04-13T' + timePickerProps.modelValue, 'fullTime')"
   >
     <v-time-picker
       v-bind="timePickerProps"
-      @update:model-value="value => {statefulLayout.input(modelValue, value && getLongTime(value))}"
+      @update:model-value="value => {statefulLayout.input(props.modelValue, value && getLongTime(value))}"
     />
   </text-field-menu>
 </template>

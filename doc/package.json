@@ -20,7 +20,7 @@
     "diff": "^5.1.0",
     "ejs": "^3.1.9",
     "markdown-it": "^13.0.2",
-    "nuxt": "^3.12.4",
+    "nuxt": "^3.13.2",
     "prismjs": "^1.29.0",
     "vite-plugin-vuetify": "^2.0.3",
     "vue-prism-editor": "^2.0.0-alpha.2",

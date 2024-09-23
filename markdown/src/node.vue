@@ -1,9 +1,9 @@
 <script>
-import { defineComponent, h, computed, onMounted, ref, onUnmounted, watch } from 'vue'
+import { defineComponent, h, computed, onMounted, ref, onUnmounted, watch, toRef } from 'vue'
 import { useTheme } from 'vuetify'
 import { VInput, VLabel } from 'vuetify/components'
 import { marked } from 'marked'
-import { getInputProps, getCompSlots } from '@koumoul/vjsf/utils'
+import useNode from '@koumoul/vjsf/composables/use-node'
 import 'easymde/dist/easymde.min.css'
 
 /** @typedef {{easyMDEOptions: Record<string, any> | undefined}} VjsfPluginMarkdownOptions */
@@ -26,16 +26,17 @@ export default defineComponent({
     /** @type {import('vue').Ref<null | HTMLElement>} */
     const element = ref(null)
 
+    const { inputProps, compSlots, localData } = useNode(toRef(props.modelValue), props.statefulLayout)
+
     const renderedValue = computed(() => {
-      return props.modelValue.data && marked.parse(props.modelValue.data)
+      return localData.value && marked.parse(localData.value)
     })
 
-    const fieldProps = computed(() => getInputProps(props.modelValue, props.statefulLayout))
     const fieldSlots = computed(() => {
-      const fieldSlots = getCompSlots(props.modelValue, props.statefulLayout)
+      const fieldSlots = { ...compSlots.value }
       fieldSlots.default = () => {
         const children = [
-          h(VLabel, { text: fieldProps.value.label }),
+          h(VLabel, { text: inputProps.value.label }),
           h('textarea', { ref: element })
         ]
         if (props.modelValue.options.summary) {
@@ -212,9 +213,9 @@ export default defineComponent({
     })
 
     // update data from outside
-    watch(() => props.modelValue, () => {
-      if (easymde && (easymde.value() !== props.modelValue.data ?? '')) {
-        easymde.value(props.modelValue.data ?? '')
+    watch(() => localData, () => {
+      if (easymde && (easymde.value() !== localData.value ?? '')) {
+        easymde.value(localData.value ?? '')
       }
     })
 
@@ -237,7 +238,7 @@ export default defineComponent({
 
     return () => [
       h('style', { innerHTML: darkStyle.value }),
-      h(VInput, fieldProps.value, fieldSlots.value)
+      h(VInput, inputProps.value, fieldSlots.value)
     ]
   }
 })

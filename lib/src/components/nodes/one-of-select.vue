@@ -1,10 +1,10 @@
 <script setup>
 import { VRow, VCol } from 'vuetify/components/VGrid'
 import { VSelect } from 'vuetify/components/VSelect'
-import { ref, watch, computed, h } from 'vue'
+import { ref, watch, computed, toRef } from 'vue'
 import { isSection } from '@json-layout/core'
 import { isCompObject } from '@json-layout/vocabulary'
-import { getInputProps } from '../../utils/index.js'
+import useNode from '../../composables/use-node.js'
 import Node from '../node.vue'
 import { useDefaults } from 'vuetify'
 
@@ -23,12 +23,16 @@ const props = defineProps({
   }
 })
 
+const { inputProps, localData, skeleton, children } = useNode(
+  toRef(props, 'modelValue'), props.statefulLayout, { bindData: false }
+)
+
 /** @type import('vue').Ref<string | undefined> */
 const activeChildTree = ref(undefined)
-watch(() => props.modelValue, () => {
+watch(() => children.value?.[0]?.key, () => {
   if (props.modelValue.children?.length === 1) {
     if (typeof props.modelValue.children[0].key === 'number') {
-      activeChildTree.value = props.modelValue.skeleton.childrenTrees?.[props.modelValue.children[0].key]
+      activeChildTree.value = skeleton.value.childrenTrees?.[props.modelValue.children[0].key]
     }
   } else {
     activeChildTree.value = undefined
@@ -36,19 +40,18 @@ watch(() => props.modelValue, () => {
 }, { immediate: true })
 
 const onChange = (/** @type {string} */childTree) => {
-  if (!props.modelValue.skeleton.childrenTrees) return
-  props.statefulLayout.activateItem(props.modelValue, props.modelValue.skeleton.childrenTrees.indexOf(childTree))
+  if (!skeleton.value.childrenTrees) return
+  props.statefulLayout.activateItem(props.modelValue, skeleton.value.childrenTrees.indexOf(childTree))
 }
 
 const fieldProps = computed(() => {
-  const fieldProps = getInputProps(props.modelValue, props.statefulLayout)
-  fieldProps.modelValue = activeChildTree.value
+  const fieldProps = { ...inputProps.value }
   fieldProps['onUpdate:modelValue'] = onChange
   const items = []
-  for (const childTreePointer of props.modelValue.skeleton.childrenTrees || []) {
+  for (const childTreePointer of skeleton.value.childrenTrees || []) {
     const childTree = props.statefulLayout.compiledLayout.skeletonTrees[childTreePointer]
     const childLayout = props.statefulLayout.compiledLayout.normalizedLayouts[childTree.root]
-    if (!isCompObject(childLayout) || !childLayout.if || !!props.statefulLayout.evalNodeExpression(props.modelValue, childLayout.if, props.modelValue.data)) {
+    if (!isCompObject(childLayout) || !childLayout.if || !!props.statefulLayout.evalNodeExpression(props.modelValue, childLayout.if, localData.value)) {
       items.push(childTree)
     }
   }
@@ -64,6 +67,7 @@ const fieldProps = computed(() => {
     <v-col v-if="modelValue.skeleton.childrenTrees">
       <v-select
         v-bind="fieldProps"
+        :model-value="activeChildTree"
       />
     </v-col>
     <template v-if="modelValue.children?.[0]">
