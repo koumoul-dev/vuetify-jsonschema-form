@@ -239,54 +239,52 @@
     <v-divider />
 
     <v-container fluid>
-      <v-lazy :min-height="120">
-        <div :style="`width: ${wrapperWidth}%`">
-          <v-form
-            ref="form"
-            v-model="valid"
-          >
-            <v-defaults-provider :defaults="example.defaultProps || {}">
-              <slot
-                name="vjsf"
-                :model-value="data"
+      <div :style="`width: ${wrapperWidth}%`">
+        <v-form
+          ref="form"
+          v-model="valid"
+        >
+          <v-defaults-provider :defaults="example.defaultProps || {}">
+            <slot
+              name="vjsf"
+              :model-value="data"
+              :options="options"
+              :update-state="updateState"
+              :update-model-value="modelValue => data = modelValue"
+            >
+              <vjsf
+                v-model="data"
+                :schema="schema"
                 :options="options"
-                :update-state="updateState"
-                :update-model-value="modelValue => data = modelValue"
+                @update:state="updateState"
               >
-                <vjsf
-                  v-model="data"
-                  :schema="schema"
-                  :options="options"
-                  @update:state="updateState"
-                >
-                  <template #custom-textarea="{node, statefulLayout}">
-                    <textarea
-                      :value="node.data"
-                      style="border: 1px solid red;"
-                      placeholder="A custom textarea"
-                      @input="event => statefulLayout.input(node, event.target.value)"
-                    />
-                  </template>
-                  <template #custom-message="{node}">
-                    This message is defined in a slot (key={{ node.key }})
-                  </template>
-                </vjsf>
-              </slot>
-            </v-defaults-provider>
-            <v-row class="ma-0">
-              <v-spacer />
-              <v-btn
-                :color="validateColor"
-                flat
-                class="ma-2"
-                @click="$refs.form.validate()"
-              >
-                Validate
-              </v-btn>
-            </v-row>
-          </v-form>
-        </div>
-      </v-lazy>
+                <template #custom-textarea="{node, statefulLayout}">
+                  <textarea
+                    :value="node.data"
+                    style="border: 1px solid red;"
+                    placeholder="A custom textarea"
+                    @input="event => statefulLayout.input(node, event.target.value)"
+                  />
+                </template>
+                <template #custom-message="{node}">
+                  This message is defined in a slot (key={{ node.key }})
+                </template>
+              </vjsf>
+            </slot>
+          </v-defaults-provider>
+          <v-row class="ma-0">
+            <v-spacer />
+            <v-btn
+              :color="validateColor"
+              flat
+              class="ma-2"
+              @click="$refs.form.validate()"
+            >
+              Validate
+            </v-btn>
+          </v-row>
+        </v-form>
+      </div>
     </v-container>
   </v-sheet>
 </template>

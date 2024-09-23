@@ -12,8 +12,8 @@
     "compile-examples": "node scripts/compile-examples.mjs"
   },
   "dependencies": {
-    "@koumoul/vjsf": "3.0.0-beta.45",
-    "@koumoul/vjsf-markdown": "0.2.1",
+    "@koumoul/vjsf": "3.0.0-beta.46",
+    "@koumoul/vjsf-markdown": "0.2.3",
     "@mdi/font": "^7.2.96",
     "ajv-formats": "^2.1.1",
     "ajv-i18n": "^4.2.0",
