@@ -70,7 +70,7 @@
     "vuetify": "^3.6.13"
   },
   "dependencies": {
-    "@json-layout/core": "0.32.0",
+    "@json-layout/core": "0.32.1",
     "@vueuse/core": "^10.5.0",
     "debug": "^4.3.4",
     "ejs": "^3.1.9"

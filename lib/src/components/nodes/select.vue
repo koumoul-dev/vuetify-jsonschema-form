@@ -21,12 +21,13 @@ export default defineComponent({
   setup (props) {
     useDefaults({}, 'VjsfSelect')
 
-    const { getItems, selectProps, selectSlots } = useSelectNode(toRef(props, 'modelValue'), props.statefulLayout)
+    const { getItems, selectProps, selectSlots, localData } = useSelectNode(toRef(props, 'modelValue'), props.statefulLayout)
 
     const fieldProps = computed(() => {
       const fieldProps = { ...selectProps.value }
       fieldProps.loading = getItems.loading.value
       fieldProps.items = getItems.items.value
+      fieldProps.modelValue = localData.value
       return fieldProps
     })
 

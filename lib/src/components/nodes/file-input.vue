@@ -26,13 +26,15 @@ export default defineComponent({
 
     const fieldProps = computed(() => {
       const fieldProps = { ...inputProps.value }
-      fieldProps['onUpdate:modelValue'] = (/** @type string */value) => props.statefulLayout.input(props.modelValue, Array.isArray(value) ? value[0] : value)
-      fieldProps.modelValue = localData.value
+      if (fieldProps.multiple) console.error('File input doesn\'t support multiple inputs yet')
+      fieldProps['onUpdate:modelValue'] = (/** @type {File} */value) => {
+        props.statefulLayout.input(props.modelValue, value)
+      }
       return fieldProps
     })
 
     // @ts-ignore
-    return () => h(VFileInput, fieldProps.value, compSlots.value)
+    return () => h(VFileInput, { ...fieldProps.value, modelValue: localData.value }, compSlots.value)
   }
 })
 
