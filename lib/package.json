@@ -29,22 +29,22 @@
         "default": "./src/types.js"
       }
     },
-    "./components/vjsf.vue": {
+    "./components/*": {
       "import": {
-        "types": "./types/components/vjsf.d.ts",
-        "default": "./src/components/vjs.vue"
+        "types": "./types/components/*.d.ts",
+        "default": "./src/components/*"
       }
     },
-    "./utils/build.js": {
+    "./utils/*.js": {
       "import": {
-        "types": "./types/utils/build.d.ts",
-        "default": "./src/utils/build.js"
+        "types": "./types/utils/*.d.ts",
+        "default": "./src/utils/*.js"
       }
     },
-    "./composables/use-node": {
+    "./composables/*.js": {
       "import": {
-        "types": "./types/composables/use-node.d.ts",
-        "default": "./src/composables/use-node.js"
+        "types": "./types/composables/*.d.ts",
+        "default": "./src/composables/*.js"
       }
     },
     "./styles/*": {
