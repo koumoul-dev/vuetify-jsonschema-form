@@ -3,7 +3,7 @@ import { defineComponent, h, computed, onMounted, ref, onUnmounted, watch, toRef
 import { useTheme } from 'vuetify'
 import { VInput, VLabel } from 'vuetify/components'
 import { marked } from 'marked'
-import useNode from '@koumoul/vjsf/composables/use-node'
+import useNode from '@koumoul/vjsf/composables/use-node.js'
 import 'easymde/dist/easymde.min.css'
 
 /** @typedef {{easyMDEOptions: Record<string, any> | undefined}} VjsfPluginMarkdownOptions */

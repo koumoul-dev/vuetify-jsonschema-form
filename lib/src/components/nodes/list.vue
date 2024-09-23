@@ -297,7 +297,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
               variant="outlined"
               :placeholder="modelValue.messages.addItem"
               hide-details
-              :rules="[v => !modelValue.children.some(c => c.key === v), v => !v || modelValue.layout.indexed?.some(pattern => v.match(getRegexp(pattern)))]"
+              :rules="[(/** @type {string} */v) => !modelValue.children.some(c => c.key === v), v => !v || !!modelValue.layout.indexed?.some(pattern => v.match(getRegexp(pattern)))]"
               @keypress.enter="pushEmptyIndexedItem"
             >
               <template #append>
