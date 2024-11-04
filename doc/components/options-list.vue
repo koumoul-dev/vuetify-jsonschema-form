@@ -13,7 +13,7 @@
             <strong>{{ option.key }}</strong> <span v-if="option.default !== undefined">(default={{ option.default }})</span>
           </v-list-item-title>
           <v-list-item-subtitle>
-            {{ option.description }}
+            <div v-html="option.description" />
           </v-list-item-subtitle>
           <v-list-item-subtitle
             v-if="option.values"
