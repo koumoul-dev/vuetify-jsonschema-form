@@ -1,12 +1,12 @@
 {
   "name": "@koumoul/vjsf",
-  "version": "3.0.0-beta.46",
+  "version": "3.0.0-beta.47",
   "description": "Generate forms for the vuetify UI library (vuejs) based on annotated JSON schemas.",
   "scripts": {
     "test": "vitest",
     "build": "vue-tsc",
     "watch:build": "vue-tsc --watch",
-    "prepublishOnly": "cp ../README.md README.md && cp ../LICENSE LICENSE"
+    "prepublishOnly": "npm run build && cp ../README.md README.md && cp ../LICENSE LICENSE"
   },
   "author": "Alban Mouton <alban.mouton@gmail.com>",
   "license": "MIT",
@@ -70,7 +70,7 @@
     "vuetify": "^3.6.13"
   },
   "dependencies": {
-    "@json-layout/core": "0.33.0",
+    "@json-layout/core": "0.33.1",
     "@vueuse/core": "^10.5.0",
     "debug": "^4.3.4",
     "ejs": "^3.1.9"

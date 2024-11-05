@@ -70,8 +70,10 @@ npm -w lib version preminor --preid=beta # use prerelease instead of preminor to
 npm -w lib publish --tag=next
 ```
 
-To publish the latest documentation after a release:
+To publish the latest documentation after a release, first update doc/package.json, then:
 
 ```
+rm -rf doc/node_modules
+npm -w doc install
 npm run publish:latest
 ```

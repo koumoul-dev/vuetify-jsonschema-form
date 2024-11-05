@@ -10,3 +10,5 @@ node_modules
 .idea/
 /lib/README.md
 /lib/LICENSE
+/markdown/README.md
+/markdown/LICENSE
