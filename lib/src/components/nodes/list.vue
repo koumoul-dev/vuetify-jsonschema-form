@@ -182,7 +182,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                   style="visibility:hidden"
                   variant="text"
                   :density="buttonDensity"
-                  :icon="statefulLayout.options.iconset.edit"
+                  :icon="statefulLayout.options.icons.edit"
                 />
               </v-list-item-action>
               <template v-else>
@@ -192,7 +192,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                   <v-btn
                     v-if="editedItem !== childIndex"
                     :title="modelValue.messages.edit"
-                    :icon="statefulLayout.options.iconset.edit"
+                    :icon="statefulLayout.options.icons.edit"
                     variant="text"
                     color="primary"
                     :density="buttonDensity"
@@ -201,7 +201,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                   <v-btn
                     v-else
                     :title="modelValue.messages.close"
-                    :icon="statefulLayout.options.iconset.edit"
+                    :icon="statefulLayout.options.icons.edit"
                     variant="flat"
                     color="primary"
                     :density="buttonDensity"
@@ -213,7 +213,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                 >
                   <v-btn
                     :title="modelValue.messages.sort"
-                    :icon="statefulLayout.options.iconset.sort"
+                    :icon="statefulLayout.options.icons.sort"
                     variant="plain"
                     :density="buttonDensity"
                     v-bind="handleBind(childIndex)"
@@ -229,7 +229,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                     <template #activator="{props: activatorProps}">
                       <v-btn
                         v-bind="activatorProps"
-                        :icon="statefulLayout.options.iconset.menu"
+                        :icon="statefulLayout.options.icons.menu"
                         variant="plain"
                         slim
                         :density="buttonDensity"
@@ -242,7 +242,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                         @click="deleteItem(childIndex)"
                       >
                         <template #prepend>
-                          <v-icon :icon="statefulLayout.options.iconset.delete" />
+                          <v-icon :icon="statefulLayout.options.icons.delete" />
                         </template>
                         {{ modelValue.messages.delete }}
                       </v-list-item>
@@ -251,7 +251,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                         @click="duplicateItem(child, childIndex)"
                       >
                         <template #prepend>
-                          <v-icon :icon="statefulLayout.options.iconset.duplicate" />
+                          <v-icon :icon="statefulLayout.options.icons.duplicate" />
                         </template>
                         {{ modelValue.messages.duplicate }}
                       </v-list-item>
@@ -260,7 +260,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                         @click="statefulLayout.input(modelValue, moveDataItem(modelValue.data, childIndex, childIndex - 1))"
                       >
                         <template #prepend>
-                          <v-icon :icon="statefulLayout.options.iconset.sortUp" />
+                          <v-icon :icon="statefulLayout.options.icons.sortUp" />
                         </template>
                         {{ modelValue.messages.up }}
                       </v-list-item>
@@ -269,7 +269,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                         @click="statefulLayout.input(modelValue, moveDataItem(modelValue.data, childIndex, childIndex + 1))"
                       >
                         <template #prepend>
-                          <v-icon :icon="statefulLayout.options.iconset.sortDown" />
+                          <v-icon :icon="statefulLayout.options.icons.sortDown" />
                         </template>
                         {{ modelValue.messages.down }}
                       </v-list-item>
@@ -304,7 +304,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                 <v-icon
                   color="primary"
                   size="large"
-                  :icon="statefulLayout.options.iconset.add"
+                  :icon="statefulLayout.options.icons.add"
                   @click="pushEmptyIndexedItem"
                 />
               </template>

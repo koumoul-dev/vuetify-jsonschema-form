@@ -11,7 +11,7 @@
     <v-btn
       color="info"
       :class="`vjsf-help-message-toggle vjsf-help-message-toggle-${node.options.density}`"
-      :icon="show ? node.options.iconset.close : node.options.iconset.infoSymbol"
+      :icon="show ? node.options.icons.close : node.options.icons.infoSymbol"
       :border="0"
       :elevation="show ? 0 : 2"
       density="compact"

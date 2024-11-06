@@ -48,7 +48,7 @@ const tab = ref(0)
           <v-icon
             v-if="child.validated && (child.error || child.childError)"
             color="error"
-            :icon="statefulLayout.options.iconset.alert"
+            :icon="statefulLayout.options.icons.alert"
           />
           {{ child.layout.title ?? child.layout.label }}
         </v-tab>

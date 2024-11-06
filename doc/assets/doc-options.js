@@ -1,5 +1,5 @@
 import { runtimeOptions as jlRuntimeOptions, compileOptions as jlCompileOptions } from '@json-layout/core/utils/doc-options'
-// import { defaultOptions } from '@koumoul/vjsf/components/options'
+import { defaultIcons } from '@koumoul/vjsf'
 
 /** @type {import('@json-layout/core/utils/doc-options').DocOptions} */
 export const compileOptions = [
@@ -10,9 +10,9 @@ export const compileOptions = [
 export const runtimeOptions = [
   ...jlRuntimeOptions,
   {
-    key: 'iconset',
-    description: `Overwrite the icons used in Vjsf components.
-    
-By default @koumoul/vjsf/iconsets/mdi is used, you can replace it with @koumoul/vjsf/iconsets/mdi-svg if the mdi icon font is not loaded.`
+    key: 'icons',
+    description: 'The icons used in Vjsf components. You can overwrite only the keys you want to change.',
+    default: {},
+    values: defaultIcons
   }
 ]

@@ -9,21 +9,26 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@koumoul/vjsf": "^3.0.0-beta.10",
-    "@koumoul/vjsf-markdown": "^0.1.1",
-    "@mdi/font": "7.0.96",
+    "@koumoul/vjsf": "^3.0.0-beta.49",
+    "@koumoul/vjsf-markdown": "^0.2.4",
+    "@mdi/font": "7.4.47",
+    "@mdi/js": "^7.4.47",
     "roboto-fontface": "*",
-    "vue": "^3.4.19",
-    "vuetify": "^3.5.4"
+    "vue": "^3.5.12",
+    "vuetify": "^3.7.4"
   },
   "devDependencies": {
     "@babel/types": "^7.21.4",
     "@types/node": "^18.15.0",
-    "@vitejs/plugin-vue": "^5.0.4",
-    "typescript": "^5.3.3",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "typescript": "^5.6.3",
     "unplugin-fonts": "^1.1.1",
-    "vite": "^5.1.4",
-    "vite-plugin-vuetify": "^2.0.1",
+    "vite": "^5.4.10",
+    "vite-plugin-vuetify": "^2.0.4",
     "vue-tsc": "^1.8.27"
+  },
+  "relativeDependencies": {
+    "@koumoul/vjsf": "../../lib",
+    "@koumoul/vjsf-markdown": "../../markdown"
   }
 }

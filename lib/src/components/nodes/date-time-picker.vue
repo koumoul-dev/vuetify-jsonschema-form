@@ -78,13 +78,13 @@ const timePickerProps = computed(() => {
         align-tabs="center"
       >
         <v-tab value="date">
-          <v-icon :icon="statefulLayout.options.iconset.calendar" />
+          <v-icon :icon="statefulLayout.options.icons.calendar" />
         </v-tab>
         <v-tab
           value="time"
           :disabled="!modelValue.data"
         >
-          <v-icon :icon="statefulLayout.options.iconset.clock" />
+          <v-icon :icon="statefulLayout.options.icons.clock" />
         </v-tab>
       </v-tabs>
       <v-tabs-window v-model="tab">

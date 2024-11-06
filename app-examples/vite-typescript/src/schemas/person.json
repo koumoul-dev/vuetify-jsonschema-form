@@ -15,6 +15,26 @@
       "title": "Birthday",
       "format": "date"
     },
+    "hobbies": {
+      "type": "array",
+      "title": "Hobbies",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "weight": {
+            "type": "integer",
+            "title": "Weight",
+            "min": "0",
+            "max": "5",
+            "layout": "slider"
+          }
+        }
+      }
+    },
     "presentation": {
       "type": "string",
       "title": "Presentation",

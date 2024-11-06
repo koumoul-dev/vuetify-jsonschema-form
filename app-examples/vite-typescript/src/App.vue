@@ -10,7 +10,7 @@
               <vjsf
                 v-model="person1"
                 :schema="personSchema"
-                :options="{...options, nodeComponents: {markdown: VjsfNodeMarkdown}}"
+                :options="runtimeOptions"
               />
             </v-form>
           </v-col>
@@ -34,10 +34,12 @@
 import { ref } from 'vue'
 import personSchema from './schemas/person.json'
 import Vjsf from '@koumoul/vjsf'
-import VjsfNodeMarkdown from '@koumoul/vjsf-markdown'
+import VjsfMarkdown from '@koumoul/vjsf-markdown'
 import VjsfPerson from './components/compiled/vjsf-person.vue'
 
 const person1 = ref<any>(null)
 const person2 = ref<any>(null)
 const options = {}
+const runtimeOptions = {...options, plugins: [VjsfMarkdown]}
 </script>
+

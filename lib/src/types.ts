@@ -39,7 +39,7 @@ export type Plugin = {
   nodeComponent: Component
 }
 
-export type VjsfIconSet = {
+export type VjsfIcons = {
   add: string
   alert: string
   calendar: string
@@ -63,7 +63,7 @@ export type VjsfStatefulLayoutOptions = Partial<StatefulLayoutOptions> & {
   nodeComponents: Record<string, Component>,
   plugins: Plugin[],
   pluginsOptions: Record<string, unknown>,
-  iconset: VjsfIconSet
+  icons: VjsfIcons
 }
 
 export type VjsfCompileOptions = Partial<CompileOptions> & {

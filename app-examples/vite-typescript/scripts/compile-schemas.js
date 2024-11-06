@@ -12,6 +12,6 @@ for (const file of await readdir('./src/schemas')) {
   const parsedFile = path.parse(file)
   if (parsedFile.ext !== '.json') continue
   const schema = JSON.parse(await readFile('./src/schemas/' + file))
-  const code = compile(schema, {})
+  const code = await compile(schema, {})
   await writeFile('./src/components/compiled/vjsf-' + parsedFile.name + '.vue', code)
 }
