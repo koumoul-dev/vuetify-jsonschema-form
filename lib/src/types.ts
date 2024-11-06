@@ -1,6 +1,6 @@
-import { Component } from 'vue'
+import type { Component, Slots } from 'vue'
 
-import { ComponentInfo } from '@json-layout/vocabulary'
+import type { ComponentInfo } from '@json-layout/vocabulary'
 
 import {
   StatefulLayout,
@@ -39,26 +39,42 @@ export type Plugin = {
   nodeComponent: Component
 }
 
+export type VjsfIconSet = {
+  add: string
+  alert: string
+  calendar: string
+  clock: string
+  close: string
+  delete: string
+  duplicate: string
+  edit: string
+  infoSymbol: string
+  menu: string
+  sort: string
+  sortUp: string
+  sortDown: string
+}
+
 // these options used to contain many possibilities to override props in various components
 // this was unmaintainable and has been removed, customization of components should be done via slots
 // and defaults providers
-export type VjsfStatefulLayoutOptions = StatefulLayoutOptions & {
-  vjsfSlots: Record<string, () => unknown>,
+export type VjsfStatefulLayoutOptions = Partial<StatefulLayoutOptions> & {
+  vjsfSlots: Slots,
   nodeComponents: Record<string, Component>,
   plugins: Plugin[],
-  pluginsOptions: Record<string, unknown>
+  pluginsOptions: Record<string, unknown>,
+  iconset: VjsfIconSet
 }
 
-export type VjsfCompileOptions = CompileOptions & {
+export type VjsfCompileOptions = Partial<CompileOptions> & {
   pluginsImports: string[]
 }
+export type PartialVjsfCompileOptions = Partial<VjsfCompileOptions>
 
-export type VjsfOptions = VjsfCompileOptions & VjsfStatefulLayoutOptions
+export type VjsfOptions = PartialVjsfCompileOptions & VjsfStatefulLayoutOptions
+export type PartialVjsfOptions = Partial<Omit<VjsfOptions, 'width' | 'vjsfSlots' | 'onData' | 'onUpdate' | 'onAutofocus'>>
 
 export type VjsfStatefulLayout = Omit<StatefulLayout, 'options'> & {options: VjsfStatefulLayoutOptions}
-
-export type PartialVjsfCompileOptions = Partial<VjsfCompileOptions>
-export type PartialVjsfOptions = Partial<Omit<VjsfOptions, 'width' | 'vjsfSlots' | 'onData' | 'onUpdate' | 'onAutofocus'>>
 
 export type VjsfNode = Omit<StateNode, 'options'> & {options: VjsfOptions}
 export type VjsfTabsNode = Omit<TabsNode, 'options'> & {options: VjsfOptions}

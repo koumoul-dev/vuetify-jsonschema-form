@@ -182,7 +182,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                   style="visibility:hidden"
                   variant="text"
                   :density="buttonDensity"
-                  icon="mdi-pencil"
+                  :icon="statefulLayout.options.iconset.edit"
                 />
               </v-list-item-action>
               <template v-else>
@@ -192,7 +192,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                   <v-btn
                     v-if="editedItem !== childIndex"
                     :title="modelValue.messages.edit"
-                    icon="mdi-pencil"
+                    :icon="statefulLayout.options.iconset.edit"
                     variant="text"
                     color="primary"
                     :density="buttonDensity"
@@ -201,7 +201,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                   <v-btn
                     v-else
                     :title="modelValue.messages.close"
-                    icon="mdi-close"
+                    :icon="statefulLayout.options.iconset.edit"
                     variant="flat"
                     color="primary"
                     :density="buttonDensity"
@@ -213,7 +213,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                 >
                   <v-btn
                     :title="modelValue.messages.sort"
-                    icon="mdi-arrow-up-down"
+                    :icon="statefulLayout.options.iconset.sort"
                     variant="plain"
                     :density="buttonDensity"
                     v-bind="handleBind(childIndex)"
@@ -229,7 +229,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                     <template #activator="{props: activatorProps}">
                       <v-btn
                         v-bind="activatorProps"
-                        icon="mdi-dots-vertical"
+                        :icon="statefulLayout.options.iconset.menu"
                         variant="plain"
                         slim
                         :density="buttonDensity"
@@ -242,7 +242,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                         @click="deleteItem(childIndex)"
                       >
                         <template #prepend>
-                          <v-icon icon="mdi-delete" />
+                          <v-icon :icon="statefulLayout.options.iconset.delete" />
                         </template>
                         {{ modelValue.messages.delete }}
                       </v-list-item>
@@ -251,7 +251,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                         @click="duplicateItem(child, childIndex)"
                       >
                         <template #prepend>
-                          <v-icon icon="mdi-content-duplicate" />
+                          <v-icon :icon="statefulLayout.options.iconset.duplicate" />
                         </template>
                         {{ modelValue.messages.duplicate }}
                       </v-list-item>
@@ -260,7 +260,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                         @click="statefulLayout.input(modelValue, moveDataItem(modelValue.data, childIndex, childIndex - 1))"
                       >
                         <template #prepend>
-                          <v-icon icon="mdi-arrow-up" />
+                          <v-icon :icon="statefulLayout.options.iconset.sortUp" />
                         </template>
                         {{ modelValue.messages.up }}
                       </v-list-item>
@@ -269,7 +269,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                         @click="statefulLayout.input(modelValue, moveDataItem(modelValue.data, childIndex, childIndex + 1))"
                       >
                         <template #prepend>
-                          <v-icon icon="mdi-arrow-down" />
+                          <v-icon :icon="statefulLayout.options.iconset.sortDown" />
                         </template>
                         {{ modelValue.messages.down }}
                       </v-list-item>
@@ -304,10 +304,9 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                 <v-icon
                   color="primary"
                   size="large"
+                  :icon="statefulLayout.options.iconset.add"
                   @click="pushEmptyIndexedItem"
-                >
-                  mdi-plus
-                </v-icon>
+                />
               </template>
             </v-text-field>
           </v-form>

@@ -47,6 +47,12 @@
         "default": "./src/composables/*.js"
       }
     },
+    "./iconsets/*.js": {
+      "import": {
+        "types": "./types/iconsets/*.d.ts",
+        "default": "./src/iconsets/*.js"
+      }
+    },
     "./styles/*": {
       "import": {
         "default": "./src/styles/*"

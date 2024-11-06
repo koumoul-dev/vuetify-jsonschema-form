@@ -11,7 +11,7 @@
     <v-btn
       color="info"
       :class="`vjsf-help-message-toggle vjsf-help-message-toggle-${node.options.density}`"
-      :icon="show ? 'mdi-close' : 'mdi-information-symbol'"
+      :icon="show ? node.options.iconset.close : node.options.iconset.infoSymbol"
       :border="0"
       :elevation="show ? 0 : 2"
       density="compact"

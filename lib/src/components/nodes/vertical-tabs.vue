@@ -1,10 +1,10 @@
 <script setup>
 import { isSection } from '@json-layout/core'
-import { VTabs, VTab} from 'vuetify/components/VTabs'
+import { VTabs, VTab } from 'vuetify/components/VTabs'
 import { VContainer, VRow } from 'vuetify/components/VGrid'
 import { VIcon } from 'vuetify/components/VIcon'
 import { VSheet } from 'vuetify/components/VSheet'
-import { VWindow, VWindowItem  } from 'vuetify/components/VWindow'
+import { VWindow, VWindowItem } from 'vuetify/components/VWindow'
 import { ref } from 'vue'
 import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'
@@ -48,9 +48,8 @@ const tab = ref(0)
           <v-icon
             v-if="child.validated && (child.error || child.childError)"
             color="error"
-          >
-            mdi-alert
-          </v-icon>
+            :icon="statefulLayout.options.iconset.alert"
+          />
           {{ child.layout.title ?? child.layout.label }}
         </v-tab>
       </v-tabs>
