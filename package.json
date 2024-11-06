@@ -44,5 +44,10 @@
     "@json-layout/examples": "../json-layout/examples/",
     "@json-layout/core": "../json-layout/core/",
     "@json-layout/vocabulary": "../json-layout/vocabulary/"
+  },
+  "overrides": {
+    "easymde": {
+      "marked": "^14.1.3"
+    }
   }
 }
