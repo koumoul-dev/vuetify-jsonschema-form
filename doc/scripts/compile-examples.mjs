@@ -2,7 +2,7 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import { mkdirSync, writeFileSync, rmSync, readFileSync } from 'fs'
 import ejs from 'ejs'
-import { compile } from '@koumoul/vjsf-compiler'
+import compile from '@koumoul/vjsf-compiler'
 import examples from '../examples/index.js'
 import slotCodes from '../examples/slot-codes.js'
 

@@ -42,7 +42,7 @@
     <p>In the build script:</p>
     <code-block>
       <pre>
-import { compile } from '@koumoul/vjsf-compiler'
+import compile from '@koumoul/vjsf-compiler'
 const code = compile(schema, options)
 await writeFile('./components/compiled/my-vjsf.vue', code)</pre>
     </code-block>

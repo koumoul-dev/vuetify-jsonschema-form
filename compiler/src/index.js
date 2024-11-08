@@ -35,7 +35,7 @@ function listComps (comps, layout) {
 
 /**
  * @param {object} schema
- * @param {import('../../lib/src/types.js').PartialVjsfCompileOptions} [options]
+ * @param {import('./types.js').PartialVjsfCompilerOptions} [options]
  * @param {string} [baseImport]
  * @returns {Promise<string>}
  */
@@ -78,3 +78,5 @@ export async function compile (schema, options = {}, baseImport = '@koumoul/vjsf
   const code = ejs.render(template, { compiledLayoutCode, compImports, baseImport, pluginsComponents })
   return code
 }
+
+export default compile
