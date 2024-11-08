@@ -1,7 +1,7 @@
 {
   "description": "The monorepo for vjsf lib, docs, examples, etc.",
   "scripts": {
-    "build": "npm -w lib run build && npm -w markdown run build && npm -w doc run build:master",
+    "build": "npm -w lib run build && npm -w compiler run build && npm -w markdown run build && npm -w doc run build:master",
     "test": "npm -w lib run test",
     "lint": "eslint --ext .js,.ts,.vue .",
     "lint-fix": "eslint --fix --ext .js,.ts,.vue .",
@@ -38,6 +38,7 @@
   "workspaces": [
     "doc",
     "lib",
+    "compiler",
     "markdown"
   ],
   "relativeDependencies": {

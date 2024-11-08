@@ -4,11 +4,11 @@ export const defaultOptions = {
 
 /**
  *
- * @param {import("../types.js").PartialVjsfCompileOptions} options
+ * @param {import("../../lib/src/types.js").PartialVjsfCompileOptions} options
  * @returns
  */
 export const getFullOptions = (options) => {
-  /** @type {import('../types.js').VjsfCompileOptions} */
+  /** @type {import('../../lib/src/types.js').VjsfCompileOptions} */
   const fullOptions = { ...defaultOptions, ...options }
   return fullOptions
 }

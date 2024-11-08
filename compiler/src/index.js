@@ -35,7 +35,7 @@ function listComps (comps, layout) {
 
 /**
  * @param {object} schema
- * @param {import('../types.js').PartialVjsfCompileOptions} [options]
+ * @param {import('../../lib/src/types.js').PartialVjsfCompileOptions} [options]
  * @param {string} [baseImport]
  * @returns {Promise<string>}
  */

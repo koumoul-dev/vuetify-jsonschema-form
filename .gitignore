@@ -1,7 +1,6 @@
 node_modules
 /lib/types
 /lib/coverage
-/markdown/types
 /doc/dist
 /doc/.nuxt
 /doc/.output
@@ -12,3 +11,5 @@ node_modules
 /lib/LICENSE
 /markdown/README.md
 /markdown/LICENSE
+/markdown/types
+/compiler/types

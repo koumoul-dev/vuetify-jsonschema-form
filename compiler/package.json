@@ -1,0 +1,34 @@
+{
+  "name": "@koumoul/vjsf-compiler",
+  "version": "0.0.0",
+  "description": "Pre-compile components for @koumoul/vjsf.",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build && cp ../README.md README.md && cp ../LICENSE LICENSE"
+  },
+  "author": "Alban Mouton <alban.mouton@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "types",
+    "src",
+    "LICENSE"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./types/index.d.ts",
+        "default": "./src/index.js"
+      }
+    }
+  },
+  "dependencies": {
+    "@json-layout/core": "0.33.2",
+    "debug": "^4.3.4",
+    "ejs": "^3.1.9"
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.8",
+    "@types/ejs": "^3.1.2"
+  }
+}

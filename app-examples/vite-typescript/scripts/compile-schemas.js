@@ -1,6 +1,6 @@
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
-import { compile } from '@koumoul/vjsf/compile'
+import { compile } from '@koumoul/vjsf-compiler'
 
 try {
   await mkdir('./src/components/compiled')

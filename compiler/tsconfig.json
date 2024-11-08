@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "nodenext",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationMap": true,
+    "strict": true,
+    "jsx": "preserve",
+    "useDefineForClassFields": true,
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true,
+    "allowJs": true,
+    "checkJs": true,
+    "outDir": "types"
+  },
+  "include": ["src/**/*.js", "src/**/*.ts", "src/**/*.d.ts"],
+  "exclude": []
+}
