@@ -1,5 +1,6 @@
 export const defaultOptions = {
-  pluginsImports: ['@koumoul/vjsf-markdown']
+  // pluginsImports: ['@koumoul/vjsf-markdown']
+  pluginsImports: []
 }
 
 /**
