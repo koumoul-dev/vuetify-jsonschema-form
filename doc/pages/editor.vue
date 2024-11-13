@@ -21,8 +21,7 @@
             <v-btn
               v-for="tabItem in codeTabs"
               :key="tabItem.value"
-              class="text-none font-weight-bold"
-              size="small"
+              class="text-none font-weight-bold ml-2"
               :variant="codeTab === tabItem.value ? 'flat' : 'text'"
               :active="codeTab === tabItem.value"
               :color="codeTab === tabItem.value ? 'primary' : ''"
@@ -47,6 +46,8 @@
               />
             </v-btn>-->
           </v-toolbar>
+
+          <v-divider />
 
           <v-window v-model="codeTab">
             <v-window-item value="schema">
@@ -128,7 +129,7 @@
 <script setup>
 import { ref, reactive, computed, watch, onMounted, onUnmounted, markRaw } from 'vue'
 import { watchDebounced, useWindowSize } from '@vueuse/core'
-import { VContainer, VRow, VCol, VSpacer, VForm, VBtn, VAlert, VWindow, VWindowItem, VToolbar, VIcon } from 'vuetify/components'
+import { VContainer, VRow, VCol, VSpacer, VForm, VBtn, VAlert, VWindow, VWindowItem, VToolbar, VIcon, VDivider } from 'vuetify/components'
 import yaml from 'yaml'
 import { Vjsf, defaultOptions } from '@koumoul/vjsf'
 import VjsfMarkdown from '@koumoul/vjsf-markdown'

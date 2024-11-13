@@ -2,8 +2,7 @@
 <template>
   <v-sheet
     class="my-6"
-    border
-    rounded
+    border="sm"
     color="transparent"
   >
     <v-toolbar
@@ -13,8 +12,7 @@
       <v-btn
         v-for="tabItem in tabs"
         :key="tabItem.value"
-        class="text-none font-weight-bold"
-        size="small"
+        class="text-none font-weight-bold ml-2"
         :variant="tab === tabItem.value ? 'flat' : 'text'"
         :active="tab === tabItem.value"
         :color="tab === tabItem.value ? 'primary' : ''"
@@ -45,190 +43,190 @@
       />
     </v-toolbar>
 
+    <v-divider />
+
+    <v-window
+      v-if="tab"
+      v-model="tab"
+      style="height: 600px;overflow-y: auto;"
+    >
+      <v-window-item
+        value="schemaV2"
+        class="ma-3"
+      >
+        <code-block>
+          <pre>{{ JSON.stringify(example.schema, null, 2) }}</pre>
+        </code-block>
+      </v-window-item>
+
+      <v-window-item
+        value="schema"
+        class="ma-3"
+      >
+        <code-block>
+          <pre>{{ JSON.stringify(schema, null, 2) }}</pre>
+        </code-block>
+      </v-window-item>
+
+      <v-window-item
+        value="model"
+        class="ma-3 fill-height"
+      >
+        <code-block v-if="data !== null && data !== undefined">
+          <pre>{{ JSON.stringify(data, null, 2) }}</pre>
+        </code-block>
+      </v-window-item>
+
+      <v-window-item
+        value="slots"
+        class="ma-3"
+      >
+        <code-block
+          v-for="key of example.codeSlots"
+          :key="key"
+        >
+          <pre>{{ slotCodes[key] }}</pre>
+        </code-block>
+      </v-window-item>
+
+      <v-window-item
+        value="defaultProps"
+        class="ma-3"
+      >
+        <code-block>
+          <pre>{{ JSON.stringify(example.defaultProps, null, 2) }}</pre>
+        </code-block>
+      </v-window-item>
+
+      <v-window-item
+        value="options"
+        class="ma-3"
+        style="height: 600px"
+      >
+        <v-row style="height:600px;">
+          <v-col>
+            <v-defaults-provider :defaults="{global: {density: 'compact', color: 'primary', hideDetails: true}}">
+              <v-switch
+                v-model="options.readOnly"
+                label="readOnly"
+              />
+
+              <v-switch
+                v-model="options.summary"
+                label="summary"
+              />
+
+              <v-switch
+                v-model="options.autofocus"
+                label="autofocus"
+              />
+
+              <v-select
+                v-model="options.density"
+                style="max-width:300px;"
+                :items="['default', 'comfortable', 'compact']"
+              />
+
+              <v-switch
+                v-model="options.indent"
+                label="indent"
+              />
+
+              <v-select
+                v-model="options.titleDepth"
+                label="titleDepth"
+                style="max-width:300px;"
+                :items="[1, 2, 3, 4, 5, 6]"
+              />
+
+              <v-select
+                v-model="options.validateOn"
+                label="validateOn"
+                style="max-width:300px;"
+                :items="['input', 'blur', 'submit']"
+              />
+
+              <v-select
+                v-model="options.initialValidation"
+                label="initialValidation"
+                style="max-width:300px;"
+                :items="['never', 'withData', 'always']"
+              />
+
+              <v-select
+                v-model="options.updateOn"
+                label="updateOn"
+                style="max-width:300px;"
+                :items="['input', 'blur']"
+              />
+
+              <v-select
+                v-model="options.defaultOn"
+                label="defaultOn"
+                style="max-width:300px;"
+                :items="['never', 'missing', 'empty']"
+              />
+
+              <v-select
+                v-model="options.removeAdditional"
+                label="removeAdditional"
+                style="max-width:300px;"
+                :items="['unknown', 'error', 'none']"
+              />
+
+              <v-select
+                v-model="options.readOnlyPropertiesMode"
+                label="readOnlyPropertiesMode"
+                style="max-width:300px;"
+                :items="['remove', 'hide', 'show']"
+              />
+
+              <v-select
+                v-model="options.locale"
+                label="locale"
+                style="max-width:300px;"
+                :items="['en', 'fr', 'nl']"
+              />
+
+              <v-slider
+                v-model="wrapperWidth"
+                :min="0"
+                :max="100"
+                :step="1"
+                label="container width"
+                style="max-width:600px;"
+              >
+                <template #append>
+                  {{ wrapperWidth }} %
+                </template>
+              </v-slider>
+            </v-defaults-provider>
+            <div
+              v-if="display"
+              class="text-caption ml-2"
+            >
+              width={{ display.width }}px, display={{ display.name }}
+            </div>
+          </v-col>
+          <v-divider vertical />
+          <v-col style="height:600px;overflow-y: auto;">
+            <div class="text-subtitle">
+              Options filled with default values:
+            </div>
+            <code-block>
+              <pre>{{ JSON.stringify(filledOptions, null, 2) }}</pre>
+            </code-block>
+          </v-col>
+        </v-row>
+      </v-window-item>
+    </v-window>
+
+    <v-divider />
+
     <v-theme-provider
       :theme="theme"
       with-background
     >
-      <v-divider />
-
-      <v-window
-        v-if="tab"
-        v-model="tab"
-        style="height: 600px;overflow-y: auto;"
-      >
-        <v-window-item
-          value="schemaV2"
-          class="ma-3"
-        >
-          <code-block>
-            <pre>{{ JSON.stringify(example.schema, null, 2) }}</pre>
-          </code-block>
-        </v-window-item>
-
-        <v-window-item
-          value="schema"
-          class="ma-3"
-        >
-          <code-block>
-            <pre>{{ JSON.stringify(schema, null, 2) }}</pre>
-          </code-block>
-        </v-window-item>
-
-        <v-window-item
-          value="model"
-          class="ma-3 fill-height"
-        >
-          <code-block v-if="data !== null && data !== undefined">
-            <pre>{{ JSON.stringify(data, null, 2) }}</pre>
-          </code-block>
-        </v-window-item>
-
-        <v-window-item
-          value="slots"
-          class="ma-3"
-        >
-          <code-block
-            v-for="key of example.codeSlots"
-            :key="key"
-          >
-            <pre>{{ slotCodes[key] }}</pre>
-          </code-block>
-        </v-window-item>
-
-        <v-window-item
-          value="defaultProps"
-          class="ma-3"
-        >
-          <code-block>
-            <pre>{{ JSON.stringify(example.defaultProps, null, 2) }}</pre>
-          </code-block>
-        </v-window-item>
-
-        <v-window-item
-          value="options"
-          class="ma-3"
-          style="height: 600px"
-        >
-          <v-row style="height:600px;">
-            <v-col>
-              <v-defaults-provider :defaults="{global: {density: 'compact', color: 'primary', hideDetails: true}}">
-                <v-switch
-                  v-model="options.readOnly"
-                  label="readOnly"
-                />
-
-                <v-switch
-                  v-model="options.summary"
-                  label="summary"
-                />
-
-                <v-switch
-                  v-model="options.autofocus"
-                  label="autofocus"
-                />
-
-                <v-select
-                  v-model="options.density"
-                  style="max-width:300px;"
-                  :items="['default', 'comfortable', 'compact']"
-                />
-
-                <v-switch
-                  v-model="options.indent"
-                  label="indent"
-                />
-
-                <v-select
-                  v-model="options.titleDepth"
-                  label="titleDepth"
-                  style="max-width:300px;"
-                  :items="[1, 2, 3, 4, 5, 6]"
-                />
-
-                <v-select
-                  v-model="options.validateOn"
-                  label="validateOn"
-                  style="max-width:300px;"
-                  :items="['input', 'blur', 'submit']"
-                />
-
-                <v-select
-                  v-model="options.initialValidation"
-                  label="initialValidation"
-                  style="max-width:300px;"
-                  :items="['never', 'withData', 'always']"
-                />
-
-                <v-select
-                  v-model="options.updateOn"
-                  label="updateOn"
-                  style="max-width:300px;"
-                  :items="['input', 'blur']"
-                />
-
-                <v-select
-                  v-model="options.defaultOn"
-                  label="defaultOn"
-                  style="max-width:300px;"
-                  :items="['never', 'missing', 'empty']"
-                />
-
-                <v-select
-                  v-model="options.removeAdditional"
-                  label="removeAdditional"
-                  style="max-width:300px;"
-                  :items="['unknown', 'error', 'none']"
-                />
-
-                <v-select
-                  v-model="options.readOnlyPropertiesMode"
-                  label="readOnlyPropertiesMode"
-                  style="max-width:300px;"
-                  :items="['remove', 'hide', 'show']"
-                />
-
-                <v-select
-                  v-model="options.locale"
-                  label="locale"
-                  style="max-width:300px;"
-                  :items="['en', 'fr', 'nl']"
-                />
-
-                <v-slider
-                  v-model="wrapperWidth"
-                  :min="0"
-                  :max="100"
-                  :step="1"
-                  label="container width"
-                  style="max-width:600px;"
-                >
-                  <template #append>
-                    {{ wrapperWidth }} %
-                  </template>
-                </v-slider>
-              </v-defaults-provider>
-              <div
-                v-if="display"
-                class="text-caption ml-2"
-              >
-                width={{ display.width }}px, display={{ display.name }}
-              </div>
-            </v-col>
-            <v-divider vertical />
-            <v-col style="height:600px;overflow-y: auto;">
-              <div class="text-subtitle">
-                Options filled with default values:
-              </div>
-              <code-block>
-                <pre>{{ JSON.stringify(filledOptions, null, 2) }}</pre>
-              </code-block>
-            </v-col>
-          </v-row>
-        </v-window-item>
-      </v-window>
-
-      <v-divider />
-
       <v-container fluid>
         <div :style="`width: ${wrapperWidth}%`">
           <v-form

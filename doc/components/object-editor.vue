@@ -8,7 +8,6 @@
       density="compact"
       variant="elevated"
       elevation="1"
-      theme="light"
       style="position:absolute;top:0;right:0;z-index:200;height:24px;"
     >
       <v-btn
@@ -36,7 +35,7 @@
     <prism-editor
       v-model="code"
       class="vjsf-code-editor py-2"
-      style="min-height:200px"
+      :style="`min-height:200px; background-color: ${$vuetify.theme.current.colors.background}`"
       :highlight="highlighter"
       line-numbers
       :readonly="readonly"

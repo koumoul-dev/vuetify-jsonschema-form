@@ -91,7 +91,7 @@
     <!--<v-app-bar app :color="$vuetify.display.smAndDown ? 'white' : 'transparent'" dense flat>-->
     <v-app-bar
       app
-      :color="theme.global.name.value === 'dark' ? '#121212' : '#FFFFFF'"
+      color="surface"
       scroll-behavior="elevate"
     >
       <v-app-bar-nav-icon

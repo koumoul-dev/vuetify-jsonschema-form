@@ -24,8 +24,12 @@ export default defineNuxtPlugin((nuxtApp) => {
         dark: {
           dark: true,
           colors: {
-            surface: '#000000',
-            primary: colors.cyan.lighten5
+            background: '#212121',
+            // surface: '#000000',
+            primary: colors.cyan.accent2
+          },
+          variables: {
+            'border-opacity': 0.5
           }
         }
       }

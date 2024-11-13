@@ -30,7 +30,6 @@ const html = computed(() => {
 
 <style>
 .code-block {
-  background-color: white;
   padding: 8px;
   border-radius: 4px;
 }
