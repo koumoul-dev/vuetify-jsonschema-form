@@ -14,7 +14,10 @@
           class="pa-0"
           :style="`max-height: ${height - 8}px;overflow-y: auto;`"
         >
-          <v-toolbar density="compact">
+          <v-toolbar
+            density="compact"
+            color="surface"
+          >
             <v-btn
               v-for="tabItem in codeTabs"
               :key="tabItem.value"
@@ -28,6 +31,21 @@
               {{ tabItem.title }}
             </v-btn>
             <v-spacer />
+            <!--<v-btn
+              icon
+              color="primary"
+              class="mr-2"
+              @click="toggleTheme"
+            >
+              <v-icon
+                v-if="theme === 'light'"
+                icon="mdi-weather-night"
+              />
+              <v-icon
+                v-else
+                icon="mdi-weather-sunny"
+              />
+            </v-btn>-->
           </v-toolbar>
 
           <v-window v-model="codeTab">
@@ -61,42 +79,47 @@
         </v-alert>
       </v-col>
       <v-col>
-        <div :style="`max-height: ${height - 8}px;overflow-y: auto;`">
-          <v-form
-            v-if="vjsfParams"
-            ref="form"
-            v-model="valid"
-            class="mr-4"
+        <v-container :style="`max-height: ${height - 8}px;overflow-y: auto;`">
+          <v-theme-provider
+            :theme="'light'"
+            with-background
           >
-            <vjsf
-              v-model="data"
-              v-bind="vjsfParams"
+            <v-form
+              v-if="vjsfParams"
+              ref="form"
+              v-model="valid"
+              class="mr-4"
             >
-              <template #custom-textarea="{node, statefulLayout}">
-                <textarea
-                  :value="node.data"
-                  style="border: 1px solid red;"
-                  placeholder="A custom textarea"
-                  @input="event => statefulLayout.input(node, event.target.value)"
-                />
-              </template>
-              <template #custom-message="{node}">
-                This message is defined in a slot (key={{ node.key }})
-              </template>
-            </vjsf>
-            <v-row class="ma-0">
-              <v-spacer />
-              <v-btn
-                :color="validateColor"
-                flat
-                class="ma-2"
-                @click="form?.validate()"
+              <vjsf
+                v-model="data"
+                v-bind="vjsfParams"
               >
-                Validate
-              </v-btn>
-            </v-row>
-          </v-form>
-        </div>
+                <template #custom-textarea="{node, statefulLayout}">
+                  <textarea
+                    :value="node.data"
+                    style="border: 1px solid red;"
+                    placeholder="A custom textarea"
+                    @input="event => statefulLayout.input(node, event.target.value)"
+                  />
+                </template>
+                <template #custom-message="{node}">
+                  This message is defined in a slot (key={{ node.key }})
+                </template>
+              </vjsf>
+              <v-row class="ma-0">
+                <v-spacer />
+                <v-btn
+                  :color="validateColor"
+                  flat
+                  class="ma-2"
+                  @click="form?.validate()"
+                >
+                  Validate
+                </v-btn>
+              </v-row>
+            </v-form>
+          </v-theme-provider>
+        </v-container>
       </v-col>
     </v-row>
   </v-container>
@@ -105,7 +128,7 @@
 <script setup>
 import { ref, reactive, computed, watch, onMounted, onUnmounted, markRaw } from 'vue'
 import { watchDebounced, useWindowSize } from '@vueuse/core'
-import { VContainer, VRow, VCol, VSpacer, VForm, VBtn, VAlert, VWindow, VWindowItem, VToolbar } from 'vuetify/components'
+import { VContainer, VRow, VCol, VSpacer, VForm, VBtn, VAlert, VWindow, VWindowItem, VToolbar, VIcon } from 'vuetify/components'
 import yaml from 'yaml'
 import { Vjsf, defaultOptions } from '@koumoul/vjsf'
 import VjsfMarkdown from '@koumoul/vjsf-markdown'
@@ -117,6 +140,7 @@ const schema = ref(null)
 /** @type import('vue').Ref<any | null> */
 const options = ref(null)
 const data = ref(null)
+const theme = ref('light')
 
 onMounted(() => {
   const editorStateStr = window.localStorage.getItem('vjsf-editor-state')
@@ -195,6 +219,10 @@ const validateColor = computed(() => {
   if (valid.value === true) return 'success'
   return 'default'
 })
+
+const toggleTheme = () => {
+  theme.value = theme.value === 'light' ? 'dark' : 'light'
+}
 
 useHead({
   title: 'VJSF - Editor'

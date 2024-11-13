@@ -91,7 +91,6 @@
     <!--<v-app-bar app :color="$vuetify.display.smAndDown ? 'white' : 'transparent'" dense flat>-->
     <v-app-bar
       app
-      density="comfortable"
       :color="theme.global.name.value === 'dark' ? '#121212' : '#FFFFFF'"
       scroll-behavior="elevate"
     >
@@ -107,20 +106,6 @@
         :to-links="true"
       />-->
       <v-spacer />
-      <v-btn
-        icon
-        color="primary"
-        @click="toggleTheme"
-      >
-        <v-icon
-          v-if="theme.global.name.value === 'light'"
-          icon="mdi-weather-night"
-        />
-        <v-icon
-          v-else
-          icon="mdi-weather-sunny"
-        />
-      </v-btn>
       <v-btn
         href="https://github.com/sponsors/koumoul-dev"
         variant="outlined"

@@ -26,6 +26,7 @@
         flat
         title="open compiled version"
         :to="`/compiled/${examplesCategory.id}/${example.id}`"
+        class="ml-1"
       />
     </h1>
     <v-alert
