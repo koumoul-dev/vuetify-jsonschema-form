@@ -6,6 +6,11 @@ import { aliases, mdi } from 'vuetify/iconsets/mdi'
 export default defineNuxtPlugin((nuxtApp) => {
   const vuetify = createVuetify({
     ssr: true,
+    defaults: {
+      global: {
+        density: 'comfortable'
+      }
+    },
     theme: {
       themes: {
         light: {

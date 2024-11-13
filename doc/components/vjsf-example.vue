@@ -88,134 +88,102 @@
       >
         <v-row style="height:600px;">
           <v-col>
-            <v-switch
-              v-model="options.readOnly"
-              label="readOnly"
-              color="primary"
-              hide-details
-              density="compact"
-            />
+            <v-defaults-provider :defaults="{global: {density: 'compact', color: 'primary', hideDetails: true}}">
+              <v-switch
+                v-model="options.readOnly"
+                label="readOnly"
+              />
 
-            <v-switch
-              v-model="options.summary"
-              label="summary"
-              color="primary"
-              hide-details
-              density="compact"
-            />
+              <v-switch
+                v-model="options.summary"
+                label="summary"
+              />
 
-            <v-switch
-              v-model="options.autofocus"
-              label="autofocus"
-              color="primary"
-              hide-details
-              density="compact"
-            />
+              <v-switch
+                v-model="options.autofocus"
+                label="autofocus"
+              />
 
-            <v-select
-              v-model="options.density"
-              density="compact"
-              hide-details
-              label="density"
-              style="max-width:300px;"
-              :items="['default', 'comfortable', 'compact']"
-            />
+              <v-select
+                v-model="options.density"
+                style="max-width:300px;"
+                :items="['default', 'comfortable', 'compact']"
+              />
 
-            <v-switch
-              v-model="options.indent"
-              label="indent"
-              color="primary"
-              hide-details
-              density="compact"
-            />
+              <v-switch
+                v-model="options.indent"
+                label="indent"
+              />
 
-            <v-select
-              v-model="options.titleDepth"
-              density="compact"
-              hide-details
-              label="titleDepth"
-              style="max-width:300px;"
-              :items="[1, 2, 3, 4, 5, 6]"
-            />
+              <v-select
+                v-model="options.titleDepth"
+                label="titleDepth"
+                style="max-width:300px;"
+                :items="[1, 2, 3, 4, 5, 6]"
+              />
 
-            <v-select
-              v-model="options.validateOn"
-              density="compact"
-              hide-details
-              label="validateOn"
-              style="max-width:300px;"
-              :items="['input', 'blur', 'submit']"
-            />
+              <v-select
+                v-model="options.validateOn"
+                label="validateOn"
+                style="max-width:300px;"
+                :items="['input', 'blur', 'submit']"
+              />
 
-            <v-select
-              v-model="options.initialValidation"
-              density="compact"
-              hide-details
-              label="initialValidation"
-              style="max-width:300px;"
-              :items="['never', 'withData', 'always']"
-            />
+              <v-select
+                v-model="options.initialValidation"
+                label="initialValidation"
+                style="max-width:300px;"
+                :items="['never', 'withData', 'always']"
+              />
 
-            <v-select
-              v-model="options.updateOn"
-              density="compact"
-              hide-details
-              label="updateOn"
-              style="max-width:300px;"
-              :items="['input', 'blur']"
-            />
+              <v-select
+                v-model="options.updateOn"
+                label="updateOn"
+                style="max-width:300px;"
+                :items="['input', 'blur']"
+              />
 
-            <v-select
-              v-model="options.defaultOn"
-              density="compact"
-              hide-details
-              label="defaultOn"
-              style="max-width:300px;"
-              :items="['never', 'missing', 'empty']"
-            />
+              <v-select
+                v-model="options.defaultOn"
+                label="defaultOn"
+                style="max-width:300px;"
+                :items="['never', 'missing', 'empty']"
+              />
 
-            <v-select
-              v-model="options.removeAdditional"
-              density="compact"
-              hide-details
-              label="removeAdditional"
-              style="max-width:300px;"
-              :items="['unknown', 'error', 'none']"
-            />
+              <v-select
+                v-model="options.removeAdditional"
+                label="removeAdditional"
+                style="max-width:300px;"
+                :items="['unknown', 'error', 'none']"
+              />
 
-            <v-select
-              v-model="options.readOnlyPropertiesMode"
-              density="compact"
-              hide-details
-              label="readOnlyPropertiesMode"
-              style="max-width:300px;"
-              :items="['remove', 'hide', 'show']"
-            />
+              <v-select
+                v-model="options.readOnlyPropertiesMode"
+                label="readOnlyPropertiesMode"
+                style="max-width:300px;"
+                :items="['remove', 'hide', 'show']"
+              />
 
-            <v-select
-              v-model="options.locale"
-              density="compact"
-              hide-details
-              label="locale"
-              style="max-width:300px;"
-              :items="['en', 'fr', 'nl']"
-            />
+              <v-select
+                v-model="options.locale"
+                label="locale"
+                style="max-width:300px;"
+                :items="['en', 'fr', 'nl']"
+              />
 
-            <v-slider
-              v-model="wrapperWidth"
-              :min="0"
-              :max="100"
-              :step="1"
-              color="primary"
-              label="container width"
-              style="max-width:600px;"
-              hide-details
-              density="compact"
-            >
-              <template #append>
-                {{ wrapperWidth }} %
-              </template>
-            </v-slider>
+              <v-slider
+                v-model="wrapperWidth"
+                :min="0"
+                :max="100"
+                :step="1"
+                label="container width"
+                style="max-width:600px;"
+              >
+                <template #append>
+                  {{ wrapperWidth }} %
+                </template>
+              </v-slider>
+            </v-defaults-provider>
             <div
               v-if="display"
               class="text-caption ml-2"
@@ -318,7 +286,7 @@ export default {
     options: {
       readOnly: false,
       summary: false,
-      density: 'default',
+      density: 'comfortable',
       indent: false,
       titleDepth: 2,
       validateOn: 'input',
