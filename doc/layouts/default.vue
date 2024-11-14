@@ -46,19 +46,24 @@
             Configuration
           </v-list-item-title>
         </v-list-item>
-        <v-list-item to="/expressions">
-          <v-list-item-title>
-            Expressions
-          </v-list-item-title>
-        </v-list-item>
         <v-list-item to="/editor">
           <v-list-item-title>
             Editor
           </v-list-item-title>
         </v-list-item>
+        <v-list-item to="/components">
+          <v-list-item-title>
+            Components
+          </v-list-item-title>
+        </v-list-item>
         <v-list-item to="/plugins">
           <v-list-item-title>
             Plugins
+          </v-list-item-title>
+        </v-list-item>
+        <v-list-item to="/expressions">
+          <v-list-item-title>
+            Expressions
           </v-list-item-title>
         </v-list-item>
       </v-list>

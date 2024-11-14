@@ -19,7 +19,7 @@
       Based on <a
         href="https://vuejs.org/"
         class="text-primary text-decoration-none font-weight-medium"
-      >Vue.js</a> / <a
+      >Vue</a> / <a
         href="https://vuetifyjs.com/"
         class="text-primary text-decoration-none font-weight-medium"
       >Vuetify</a> / <a
