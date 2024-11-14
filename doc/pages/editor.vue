@@ -53,12 +53,14 @@
             <v-window-item value="schema">
               <object-editor
                 v-model="schema"
+                default-language="yaml"
                 @update:parse-error="err => setParseError('schema', err)"
               />
             </v-window-item>
             <v-window-item value="options">
               <object-editor
                 v-model="options"
+                default-language="yaml"
                 @update:parse-error="err => setParseError('options', err)"
               />
             </v-window-item>

@@ -60,13 +60,17 @@ const props = defineProps({
   readonly: {
     type: Boolean,
     default: false
+  },
+  defaultLanguage: {
+    type: String,
+    default: 'json'
   }
 })
 
 const emits = defineEmits(['update:modelValue', 'update:parseError'])
 
 const insideValue = ref({})
-const language = ref('json')
+const language = ref(props.defaultLanguage)
 const code = ref('{}')
 
 /**
