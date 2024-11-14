@@ -93,7 +93,7 @@
               v-if="vjsfParams"
               ref="form"
               v-model="valid"
-              class="mx-3"
+              class="mx-3 mt-3"
             >
               <vjsf
                 v-model="data"
