@@ -3,11 +3,13 @@
   <v-sheet
     class="my-6"
     border="sm"
+    rounded
     color="transparent"
   >
     <v-toolbar
       density="compact"
       color="surface"
+      rounded
     >
       <v-btn
         v-for="tabItem in tabs"
@@ -221,13 +223,14 @@
       </v-window-item>
     </v-window>
 
-    <v-divider />
-
     <v-theme-provider
       :theme="theme"
       with-background
+      class="rounded-b"
     >
-      <v-container fluid>
+      <v-container
+        fluid
+      >
         <div :style="`width: ${wrapperWidth}%`">
           <v-form
             ref="form"

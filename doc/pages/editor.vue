@@ -30,7 +30,7 @@
               {{ tabItem.title }}
             </v-btn>
             <v-spacer />
-            <!--<v-btn
+            <v-btn
               icon
               color="primary"
               class="mr-2"
@@ -44,7 +44,7 @@
                 v-else
                 icon="mdi-weather-sunny"
               />
-            </v-btn>-->
+            </v-btn>
           </v-toolbar>
 
           <v-divider />
@@ -79,17 +79,21 @@
           </v-alert>
         </v-alert>
       </v-col>
-      <v-col>
-        <v-container :style="`max-height: ${height - 8}px;overflow-y: auto;`">
+      <v-col class="pr-3">
+        <v-sheet
+          :style="`max-height: ${height - 8}px;overflow-y: auto;`"
+          rounded
+          border="sm"
+        >
           <v-theme-provider
-            :theme="'light'"
+            :theme="theme"
             with-background
           >
             <v-form
               v-if="vjsfParams"
               ref="form"
               v-model="valid"
-              class="mr-4"
+              class="mx-3"
             >
               <vjsf
                 v-model="data"
@@ -112,7 +116,7 @@
                 <v-btn
                   :color="validateColor"
                   flat
-                  class="ma-2"
+                  class="my-2"
                   @click="form?.validate()"
                 >
                   Validate
@@ -120,7 +124,7 @@
               </v-row>
             </v-form>
           </v-theme-provider>
-        </v-container>
+        </v-sheet>
       </v-col>
     </v-row>
   </v-container>
@@ -129,7 +133,7 @@
 <script setup>
 import { ref, reactive, computed, watch, onMounted, onUnmounted, markRaw } from 'vue'
 import { watchDebounced, useWindowSize } from '@vueuse/core'
-import { VContainer, VRow, VCol, VSpacer, VForm, VBtn, VAlert, VWindow, VWindowItem, VToolbar, VIcon, VDivider } from 'vuetify/components'
+import { VContainer, VRow, VCol, VSpacer, VForm, VBtn, VAlert, VWindow, VWindowItem, VToolbar, VIcon, VDivider, VThemeProvider, VSheet } from 'vuetify/components'
 import yaml from 'yaml'
 import { Vjsf, defaultOptions } from '@koumoul/vjsf'
 import VjsfMarkdown from '@koumoul/vjsf-markdown'
