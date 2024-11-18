@@ -12,7 +12,7 @@
     "compile-examples": "node scripts/compile-examples.mjs"
   },
   "dependencies": {
-    "@koumoul/vjsf": "3.0.0",
+    "@koumoul/vjsf": "3.0.1",
     "@koumoul/vjsf-compiler": "0.2.2",
     "@koumoul/vjsf-markdown": "0.3.1",
     "@mdi/font": "^7.2.96",
