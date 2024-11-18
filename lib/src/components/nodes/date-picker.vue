@@ -1,5 +1,6 @@
 <script setup>
 import TextFieldMenu from '../fragments/text-field-menu.vue'
+import { VIcon } from 'vuetify/components/VIcon'
 import { VDatePicker } from 'vuetify/components/VDatePicker'
 import { useDate, useDefaults } from 'vuetify'
 import { computed, ref, toRef } from 'vue'
@@ -56,6 +57,9 @@ const formattedValue = computed(() => {
     :stateful-layout="statefulLayout"
     :formatted-value="formattedValue"
   >
+    <template #prepend-inner>
+      <v-icon :icon="statefulLayout.options.icons.calendar" />
+    </template>
     <v-date-picker v-bind="datePickerProps" />
   </text-field-menu>
 </template>

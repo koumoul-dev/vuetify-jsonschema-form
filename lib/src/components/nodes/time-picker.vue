@@ -1,6 +1,7 @@
 <script setup>
 import TextFieldMenu from '../fragments/text-field-menu.vue'
 import { VTimePicker } from 'vuetify/labs/VTimePicker'
+import { VIcon } from 'vuetify/components/VIcon'
 import { useDate, useDefaults } from 'vuetify'
 import { computed, toRef } from 'vue'
 import { getShortTime, getLongTime } from '../../utils/dates.js'
@@ -39,6 +40,9 @@ const timePickerProps = computed(() => {
     :stateful-layout="statefulLayout"
     :formatted-value="timePickerProps.modelValue && vDate.format('2010-04-13T' + timePickerProps.modelValue, 'fullTime')"
   >
+    <template #prepend-inner>
+      <v-icon :icon="statefulLayout.options.icons.clock" />
+    </template>
     <v-time-picker
       v-bind="timePickerProps"
       @update:model-value="value => {statefulLayout.input(props.modelValue, value && getLongTime(value))}"
