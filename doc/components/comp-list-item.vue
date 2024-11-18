@@ -23,7 +23,7 @@
 </template>
 
 <script setup>
-import { VCard, VList, VListItem, VListItemTitle, VListItemSubtitle, VDivider } from 'vuetify/components'
+import { VListItem, VListItemTitle, VListItemSubtitle } from 'vuetify/components'
 import { computed } from 'vue'
 
 const { comp } = defineProps({
