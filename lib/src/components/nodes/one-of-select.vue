@@ -64,7 +64,10 @@ const fieldProps = computed(() => {
 
 <template>
   <v-row>
-    <v-col v-if="modelValue.skeleton.childrenTrees">
+    <v-col
+      v-if="modelValue.skeleton.childrenTrees"
+      cols="12"
+    >
       <v-select
         v-bind="fieldProps"
         :model-value="activeChildTree"
