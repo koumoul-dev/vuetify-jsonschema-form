@@ -11,6 +11,9 @@
 .vjsf-input--readonly.v-input--disabled .v-select__menu-icon {
   display: none;
 }
+.vjsf-input--readonly.v-input--disabled .v-autocomplete__menu-icon {
+  display: none;
+}
 .vjsf-input--readonly.v-input--disabled .v-field__clearable {
   display: none;
 }
