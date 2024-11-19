@@ -27,6 +27,8 @@
       <li><b>context</b> - shortcut for "options.context".</li>
       <li><b>display</b> - the display object used to manage responsive layouts.</li>
       <li><b>layout</b> - normalized layout information of the current component.</li>
+      <li><b>readOnly</b> - shortcut for "options.readOnly".</li>
+      <li><b>summary</b> - shortcut for "options.summary".</li>
     </ul>
 
     Content of the display parameter:
