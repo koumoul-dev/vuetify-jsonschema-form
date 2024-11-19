@@ -8,3 +8,9 @@
 .vjsf-input--readonly.v-input--disabled .v-input__prepend {
   opacity: inherit;
 }
+.vjsf-input--readonly.v-input--disabled .v-select__menu-icon {
+  display: none;
+}
+.vjsf-input--readonly.v-input--disabled .v-field__clearable {
+  display: none;
+}

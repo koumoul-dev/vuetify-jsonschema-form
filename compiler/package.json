@@ -1,6 +1,6 @@
 {
   "name": "@koumoul/vjsf-compiler",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Pre-compile components for @koumoul/vjsf.",
   "scripts": {
     "build": "tsc",
