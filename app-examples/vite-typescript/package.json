@@ -29,6 +29,6 @@
   },
   "relativeDependencies": {
     "@koumoul/vjsf": "../../lib",
-    "@koumoul/vjsf-markdown": "../../markdown"
+    "@koumoul/vjsf-markdown": "../../plugins/markdown"
   }
 }

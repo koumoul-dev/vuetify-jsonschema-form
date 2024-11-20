@@ -9,7 +9,7 @@ node_modules
 .idea/
 /lib/README.md
 /lib/LICENSE
-/markdown/README.md
-/markdown/LICENSE
-/markdown/types
+/plugins/*/LICENSE
+/compiler/LICENSE
+/plugins/*/types
 /compiler/types
