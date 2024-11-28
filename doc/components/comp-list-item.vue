@@ -44,7 +44,6 @@ const compCharacteristics = computed(() => {
   if (comp.multipleCompat) characteristics.push('array compatible')
   if (comp.focusable) characteristics.push('focusable')
   if (comp.emitsBlur) characteristics.push('emits blur event')
-  if (comp.emitsBlur) characteristics.push('emits blur event')
   if (comp.shouldDebounce) characteristics.push('can be debounced')
   return characteristics
 })

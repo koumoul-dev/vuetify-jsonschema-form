@@ -59,7 +59,7 @@ const vjsfOptions = {
 }</pre>
     </code-block>
 
-    <p>Please note that this plugins uses <a href="https://github.com/Ionaru/easy-markdown-editor">EasyMDE</a> which is a CommonJS dependency. You might need to declare it to your build system. For example with Vite:</p>
+    <p>This plugins uses <a href="https://github.com/Ionaru/easy-markdown-editor">EasyMDE</a> which is a CommonJS dependency. You might need to declare it to your build system. For example with Vite:</p>
     <code-block>
       <pre>
 optimizeDeps: {

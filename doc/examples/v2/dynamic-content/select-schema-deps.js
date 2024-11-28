@@ -8,7 +8,7 @@ const description = `Using expressions in fromData it is possible to mix informa
 
 This example illustrates this by reusing the oneOf list of values from a property in another while also filtering this oneOf using the current value of the first property. This creates a select based on the selected values of another select that also uses the proper titles.
 
-Please note that this example requires the \`evalMethod=evalExpr\` or \`evalMethod=newFunction\` option. See the [Expressions documentation](configuration#expressions).`
+This example requires the \`evalMethod=evalExpr\` or \`evalMethod=newFunction\` option. See the [Expressions documentation](configuration#expressions).`
 
 const schema = {
   type: 'object',
