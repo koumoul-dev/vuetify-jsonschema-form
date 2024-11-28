@@ -2,6 +2,7 @@
 import TextFieldMenu from '../fragments/text-field-menu.vue'
 import { VDatePicker } from 'vuetify/components/VDatePicker'
 import { VTimePicker } from 'vuetify/labs/VTimePicker'
+import { VDefaultsProvider } from 'vuetify/components/VDefaultsProvider'
 import { VTabs, VTab, VTabsWindow, VTabsWindowItem } from 'vuetify/components/VTabs'
 import { VIcon } from 'vuetify/components/VIcon'
 import { VSheet } from 'vuetify/components/VSheet'
@@ -95,7 +96,9 @@ const timePickerProps = computed(() => {
           <v-date-picker v-bind="datePickerProps" />
         </v-tabs-window-item>
         <v-tabs-window-item value="time">
-          <v-time-picker v-bind="timePickerProps" />
+          <v-defaults-provider :defaults="{global: { density: 'default' }}">
+            <v-time-picker v-bind="timePickerProps" />
+          </v-defaults-provider>
         </v-tabs-window-item>
       </v-tabs-window>
     </v-sheet>
