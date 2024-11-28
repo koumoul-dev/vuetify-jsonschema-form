@@ -28,7 +28,12 @@ export default defineComponent({
     const fieldProps = computed(() => {
       const fieldProps = { ...inputProps.value }
       fieldProps.returnObject = false
-      if (options.value.readOnly) fieldProps.menuProps = { modelValue: false }
+      if (options.value.readOnly) {
+        fieldProps.menuProps = { modelValue: false }
+      } else {
+        // vuetify zIndex stacking is buggy (for example https://github.com/vuetifyjs/vuetify/issues/16251)
+        fieldProps.menuProps = { zIndex: 3000 }
+      }
       if (getItems.hasItems.value) {
         fieldProps.items = getItems.items.value
         fieldProps.loading = getItems.loading.value

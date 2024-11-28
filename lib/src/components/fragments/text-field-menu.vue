@@ -37,10 +37,12 @@ const fieldProps = computed(() => {
 })
 
 const menuProps = computed(() => {
-  const menuProps = { ...compProps.value }
-  menuProps.closeOnContentClick = false
-  menuProps.disabled = true
-  return menuProps
+  return {
+    ...compProps.value,
+    zIndex: 3000, // vuetify zIndex stacking is buggy (for example https://github.com/vuetifyjs/vuetify/issues/16251)
+    closeOnContentClick: false,
+    disabled: true
+  }
 })
 
 const textField = ref(null)
