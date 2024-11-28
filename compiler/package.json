@@ -4,7 +4,7 @@
   "description": "Pre-compile components for @koumoul/vjsf.",
   "scripts": {
     "build": "tsc",
-    "prepublishOnly": "npm run build && cp ../README.md README.md && cp ../LICENSE LICENSE"
+    "prepublishOnly": "npm run build && cp ../LICENSE LICENSE"
   },
   "author": "Alban Mouton <alban.mouton@gmail.com>",
   "license": "MIT",
@@ -23,11 +23,12 @@
     }
   },
   "dependencies": {
-    "@json-layout/core": "~1.0.2",
+    "@json-layout/core": "~1.1.0",
     "debug": "^4.3.4",
     "ejs": "^3.1.9"
   },
   "devDependencies": {
+    "@koumoul/vjsf-markdown": "^0.3.1",
     "@types/debug": "^4.1.8",
     "@types/ejs": "^3.1.2"
   }

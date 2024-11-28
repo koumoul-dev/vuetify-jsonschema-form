@@ -2,7 +2,7 @@
 const example = {
   title: 'Code slots',
   id: 'code',
-  description: 'TODO',
+  description: 'The `component` slot should provide the name of a slot given to Vjsf using the Vue.js slot mechanism.',
   schema: {
     type: 'object',
     properties: {

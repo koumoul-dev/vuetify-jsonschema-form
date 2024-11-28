@@ -1,6 +1,6 @@
 <script>
 import { defineComponent, h, computed, onMounted, ref, onUnmounted, watch, toRef } from 'vue'
-import { useTheme } from 'vuetify'
+import { useTheme, useDefaults } from 'vuetify'
 import { VInput, VLabel } from 'vuetify/components'
 import { marked } from 'marked'
 import useNode from '@koumoul/vjsf/composables/use-node.js'
@@ -28,6 +28,8 @@ export default defineComponent({
     }
   },
   setup (props, { expose }) {
+    useDefaults({}, 'VjsfMarkdown')
+
     /** @type {import('vue').Ref<null | HTMLElement>} */
     const element = ref(null)
 

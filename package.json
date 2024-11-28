@@ -36,7 +36,8 @@
     "doc",
     "lib",
     "compiler",
-    "plugins/markdown"
+    "plugins/markdown",
+    "plugins/img-cropper"
   ],
   "relativeDependencies": {
     "@json-layout/examples": "../json-layout/examples/",

@@ -285,6 +285,7 @@
 <script>
 import Vjsf from '@koumoul/vjsf'
 import VjsfMarkdown from '@koumoul/vjsf-markdown'
+import VjsfImgCropper from '@koumoul/vjsf-img-cropper'
 import { v2compat } from '@koumoul/vjsf/compat/v2'
 import { VIcon, VContainer, VRow, VCol, VSpacer, VForm, VBtn, VDivider, VSelect, VSwitch, VToolbar, VSheet, VWindow, VSlider, VWindowItem, VLazy, VDefaultsProvider, VThemeProvider, VTextField } from 'vuetify/components'
 import slotCodes from '../examples/slot-codes.js'
@@ -323,7 +324,7 @@ export default {
       autofocus: false,
       readOnlyPropertiesMode: 'show',
       locale: 'en',
-      plugins: [VjsfMarkdown]
+      plugins: [VjsfMarkdown, VjsfImgCropper]
     },
     /** @type import('@json-layout/core').StatefulLayoutOptions | null */
     filledOptions: null,

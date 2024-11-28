@@ -1,7 +1,9 @@
-import { examples } from '@json-layout/examples'
+import { examples as jlExamples } from '@json-layout/examples'
 import vuetifyExamples from './vuetify/index.js'
 import { examples as v2ExampleGroups } from './v2/index.js'
 import { additionalExamples, overwrites } from './merged/index.js'
+
+const examples = JSON.parse(JSON.stringify(jlExamples))
 
 for (const exampleCategory of examples) {
   if (additionalExamples[exampleCategory.id]) {
