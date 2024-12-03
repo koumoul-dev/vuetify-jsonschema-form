@@ -1,6 +1,6 @@
 <template>
   <v-container
-    v-if="schema && options && data !== undefined"
+    v-if="options && data !== undefined"
     fluid
     class="pa-0"
   >
@@ -100,6 +100,8 @@
               <vjsf
                 v-model="data"
                 v-bind="vjsfParams"
+                @update:state="onUpdateState"
+                @update:model-value="onUpdateModelValue"
               >
                 <template #custom-textarea="{node, statefulLayout}">
                   <textarea
@@ -133,7 +135,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, watch, onMounted, onUnmounted, markRaw } from 'vue'
+import { ref, reactive, computed, watch, onMounted, onUnmounted } from 'vue'
 import { watchDebounced, useWindowSize } from '@vueuse/core'
 import { VContainer, VRow, VCol, VSpacer, VForm, VBtn, VAlert, VWindow, VWindowItem, VToolbar, VIcon, VDivider, VThemeProvider, VSheet } from 'vuetify/components'
 import yaml from 'yaml'
@@ -230,6 +232,16 @@ const validateColor = computed(() => {
 const toggleTheme = () => {
   theme.value = theme.value === 'light' ? 'dark' : 'light'
 }
+
+const onUpdateModelValue = (/** @type {any} */data) => {
+  // console.log('onUpdateModelValue', data, valid.value)
+}
+const onUpdateState = (/** @type {any} */data) => {
+  // console.log('onUpdateState', data, valid.value)
+}
+watch(valid, () => {
+  // console.log('watch valid', valid.value)
+})
 
 useHead({
   title: 'VJSF - Editor'
