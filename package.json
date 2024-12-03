@@ -22,6 +22,9 @@
   "homepage": "https://github.com/koumoul-dev/vuetify-jsonschema-form#readme",
   "devDependencies": {
     "@commitlint/config-conventional": "^17.7.0",
+    "@json-layout/core": "*",
+    "@json-layout/examples": "*",
+    "@json-layout/vocabulary": "*",
     "@koumoul/gh-pages-multi": "^0.7.2",
     "commitlint": "^17.7.2",
     "eslint": "^8.56.0",
