@@ -1,1 +1,0 @@
-import{t as r,D as o,A as t,z as s,E as a,aC as p}from"./CMel-GEs.js";import{V as l,a as n}from"./RjoBW8Ia.js";import"./J1gRtUF2.js";import"./Bhaynmh2.js";import"./Cn9gP2vk.js";import"./CdGraH0o.js";const h={__name:"void",setup(i){return(e,m)=>(r(),o(a(n),null,{default:t(()=>[s(a(l),null,{default:t(()=>[p(e.$slots,"default")]),_:3})]),_:3}))}};export{h as default};
