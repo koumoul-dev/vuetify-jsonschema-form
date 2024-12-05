@@ -9,8 +9,8 @@ const examplesGroup = {
     sections,
     sectionsExpansionPanels,
     sectionsTab,
-    sectionsStepper
-  ]
+    sectionsStepper,
+  ],
 }
 
 export default examplesGroup

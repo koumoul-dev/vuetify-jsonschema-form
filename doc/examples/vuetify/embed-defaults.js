@@ -8,17 +8,17 @@ const example = {
     layout: {
       defaults: {
         VTextField: {
-          variant: 'outlined'
-        }
-      }
+          variant: 'outlined',
+        },
+      },
     },
     properties: {
       str1: {
         type: 'string',
-        title: 'A text field with a variant defined by the defaults provider'
-      }
-    }
-  }
+        title: 'A text field with a variant defined by the defaults provider',
+      },
+    },
+  },
 }
 
 export default example

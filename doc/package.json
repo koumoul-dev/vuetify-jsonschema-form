@@ -7,6 +7,8 @@
     "dev": "nuxt dev --port 3133",
     "start": "nuxt build && nuxt start",
     "analyze": "nuxt analyze",
+    "lint": "eslint .",
+    "lint-fix": "eslint --fix .",
     "build:master": "rm -rf pages/compiled && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/master/ nuxt generate",
     "build:latest": "rm -rf pages/compiled && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/latest/ nuxt generate",
     "compile-examples": "node scripts/compile-examples.mjs"
@@ -32,6 +34,7 @@
   "author": "Alban Mouton <alban.mouton@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@nuxt/eslint": "^0.7.3",
     "@types/ejs": "^3.1.2",
     "@types/prismjs": "^1.26.1",
     "vite-plugin-dependency-watcher": "^0.5.0"

@@ -15,42 +15,17 @@ const packageNames = ['@json-layout/core', '@json-layout/vocabulary', '@json-lay
 const packagePaths = packageNames.map(name => path.resolve(process.cwd(), '../node_modules', name))
 
 export default defineNuxtConfig({
-  ssr: false,
-  css: ['vuetify/styles'],
-
-  vite: {
-    vue: {
-      template: {
-        transformAssetUrls
-      }
-    },
-    optimizeDeps: {
-      include: commonjsDeps
-    },
-    plugins: [
-      // @ts-ignore
-      dependencyWatcher(packagePaths, packageNames)
-    ]
-  },
-
-  hooks: {
-    async 'nitro:config' (config) {
-      for (const examplesCategory of examples) {
-        config.prerender?.routes?.push(`/${examplesCategory.id}`)
-        for (const example of examplesCategory.examples) {
-          config.prerender?.routes?.push(`/${examplesCategory.id}/${example.id}`)
-        }
-      }
-    }
-  },
 
   modules: [
     // '@nuxtjs/sitemap'
     // @ts-ignore
-    (_, nuxt) => nuxt.hooks.hook('vite:extendConfig', config => {
+    (_, nuxt) => nuxt.hooks.hook('vite:extendConfig', (config) => {
       // we disable autoImport because we want to be warned of missing imports in vjsf
       config.plugins.push(vuetify({ autoImport: false }))
-    })
+    }),
+    ['@nuxt/eslint', {
+      config: { stylistic: true },
+    }],
   ],
 
   plugins: [
@@ -58,6 +33,7 @@ export default defineNuxtConfig({
     // { src: '~/plugins/mask.js', ssr: false },
     // { src: '~/plugins/tiptap-vuetify.js', ssr: false }
   ],
+  ssr: false,
 
   // sitemap: {
   //   hostname: targetURL.origin
@@ -73,23 +49,44 @@ export default defineNuxtConfig({
     }
   }, */
   app: {
-    baseURL: targetURL.pathname
+    baseURL: targetURL.pathname,
+    head: {
+      title: 'VJSF - Documentation',
+      meta: [
+        { name: 'description', content: 'VJSF - Documentation' },
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: targetURL.pathname + 'favicon.ico' },
+      ],
+    },
   },
+  css: ['vuetify/styles'],
 
-  meta: {
-    title: 'VJSF - Documentation',
-    meta: [
-      { name: 'description', content: 'VJSF - Documentation' }
+  compatibilityDate: '2024-07-22',
+
+  vite: {
+    vue: {
+      template: {
+        transformAssetUrls,
+      },
+    },
+    optimizeDeps: {
+      include: commonjsDeps,
+    },
+    plugins: [
+      // @ts-ignore
+      dependencyWatcher(packagePaths, packageNames),
     ],
-    link: [{
-      rel: 'stylesheet',
-      href: 'https://cdn.jsdelivr.net/npm/@koumoul/data-fair-search-widget@0/dist/search-widget.css'
-    }],
-    script: [{
-      src: 'https://cdn.jsdelivr.net/npm/@koumoul/data-fair-search-widget@0.1.7/dist/search-widget.js',
-      async: true
-    }]
   },
 
-  compatibilityDate: '2024-07-22'
+  hooks: {
+    async 'nitro:config'(config) {
+      for (const examplesCategory of examples) {
+        config.prerender?.routes?.push(`/${examplesCategory.id}`)
+        for (const example of examplesCategory.examples) {
+          config.prerender?.routes?.push(`/${examplesCategory.id}/${example.id}`)
+        }
+      }
+    },
+  },
 })

@@ -16,30 +16,30 @@ const schema = {
       description: 'I\'m a description shown as a paragraph on top of section',
       type: 'object',
       properties: {
-        stringProp1: { type: 'string', title: 'I\'m a property in section 1' }
-      }
+        stringProp1: { type: 'string', title: 'I\'m a property in section 1' },
+      },
     },
     objectSection2: {
       title: 'I\'m another section',
       type: 'object',
       properties: {
-        stringProp2: { type: 'string', title: 'I\'m a property in section 2' }
+        stringProp2: { type: 'string', title: 'I\'m a property in section 2' },
       },
       allOf: [{
-        title: 'I\'m a subsection',
+        'title': 'I\'m a subsection',
         'x-cols': 6,
-        properties: {
-          stringProp3: { type: 'string', title: 'I\'m a property in subsection 2.1' }
-        }
+        'properties': {
+          stringProp3: { type: 'string', title: 'I\'m a property in subsection 2.1' },
+        },
       }, {
-        title: 'I\'m another subsection',
+        'title': 'I\'m another subsection',
         'x-cols': 6,
-        properties: {
-          stringProp4: { type: 'string', title: 'I\'m a property in subsection 2.2' }
-        }
-      }]
-    }
-  }
+        'properties': {
+          stringProp4: { type: 'string', title: 'I\'m a property in subsection 2.2' },
+        },
+      }],
+    },
+  },
 }
 
 const model = {}

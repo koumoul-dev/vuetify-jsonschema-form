@@ -41,6 +41,7 @@
 </template>
 
 <script setup>
+/* eslint-disable */
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 import { VContainer, VRow, VCol, VForm } from 'vuetify/components'
@@ -74,7 +75,8 @@ watch([schema, options], () => {
   try {
     compiledLayout = compile(schema.value, { defaultOptions, ...options.value })
     validationErrors.value = compiledLayout.validationErrors
-  } catch (/** @type any */err) {
+  }
+  catch (/** @type any */err) {
     validationErrors.value = { '': [err.message] }
   }
 
@@ -120,13 +122,15 @@ const applyPatch = async (patch, index) => {
       incIndex++
     }
     return incIndex
-  } else if (patch.removed) {
+  }
+  else if (patch.removed) {
     for (let charIndex = index + patch.value.length; charIndex > index; charIndex--) {
       schemaCode.value = schemaCode.value.slice(0, charIndex - 1) + schemaCode.value.slice(charIndex)
       await sleepRange(ranges.removeChar)
     }
     return -patch.value.length
-  } else {
+  }
+  else {
     return patch.value.length
   }
 }
@@ -148,7 +152,8 @@ const loop = async () => {
 watch(schemaCode, () => {
   try {
     schema.value = yaml.parse(schemaCode.value)
-  } catch (err) {}
+  }
+  catch (err) {}
 })
 
 loop()

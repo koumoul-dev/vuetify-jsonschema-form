@@ -11,21 +11,21 @@ const example = {
         title: 'A text field with custom props and slots and using v-defaults-provider tu set variant',
         layout: {
           props: {
-            appendIcon: 'mdi-heart'
+            appendIcon: 'mdi-heart',
           },
           slots: {
-            details: 'custom-message'
-          }
-        }
-      }
-    }
+            details: 'custom-message',
+          },
+        },
+      },
+    },
   },
   codeSlots: ['custom-message'],
   defaultProps: {
     VTextField: {
-      variant: 'outlined'
-    }
-  }
+      variant: 'outlined',
+    },
+  },
 }
 
 export default example

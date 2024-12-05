@@ -4,7 +4,7 @@ import path from 'path'
 import ejs from 'ejs'
 import { compile as compileLayout } from '@json-layout/core'
 import { serialize as serializeCompiledLayout } from '@json-layout/core/src/compile/serialize'
-import { childIsCompObject, isCompObject, isSwitchStruct } from '@json-layout/vocabulary'
+import { childIsCompositeCompObject, isCompObject, isSwitchStruct } from '@json-layout/vocabulary'
 import { getFullOptions } from './options.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -21,7 +21,7 @@ function listComps (comps, layout) {
     comps.add(layout.comp)
     if (layout.children) {
       for (const child of /** @type {import('@json-layout/vocabulary').Children} */(layout.children)) {
-        if (childIsCompObject(child)) {
+        if (childIsCompositeCompObject(child)) {
           listComps(comps, child)
         }
       }

@@ -12,61 +12,61 @@ const schema = {
   type: 'object',
   properties: {
     tabs: {
-      type: 'object',
-      title: 'Tabs with required fields',
+      'type': 'object',
+      'title': 'Tabs with required fields',
       'x-display': 'tabs',
-      properties: {
+      'properties': {
         section1: {
           type: 'object',
           title: 'Section 1',
           required: ['requiredStringProp1'],
           properties: {
-            requiredStringProp1: { type: 'string', title: 'I\'m a required string with min/max length', minLength: 10, maxLength: 100 }
-          }
+            requiredStringProp1: { type: 'string', title: 'I\'m a required string with min/max length', minLength: 10, maxLength: 100 },
+          },
         },
         section2: {
           type: 'object',
           title: 'Section 2',
           required: ['requiredStringProp2'],
           properties: {
-            requiredStringProp2: { type: 'string', title: 'I\'m another required string' }
-          }
-        }
-      }
+            requiredStringProp2: { type: 'string', title: 'I\'m another required string' },
+          },
+        },
+      },
     },
     panels: {
-      type: 'object',
-      title: 'Panels with required fields',
+      'type': 'object',
+      'title': 'Panels with required fields',
       'x-display': 'expansion-panels',
-      allOf: [{
+      'allOf': [{
         type: 'object',
         title: 'Section 1',
         required: ['requiredStringProp1'],
         properties: {
-          requiredStringProp1: { type: 'string', title: 'I\'m a required string' }
-        }
+          requiredStringProp1: { type: 'string', title: 'I\'m a required string' },
+        },
       },
       {
         type: 'object',
         title: 'Section 2',
         required: ['requiredStringProp2'],
         properties: {
-          requiredStringProp2: { type: 'string', title: 'I\'m a required string with min/max length', minLength: 10, maxLength: 100 }
-        }
-      }]
-    }
-  }
+          requiredStringProp2: { type: 'string', title: 'I\'m a required string with min/max length', minLength: 10, maxLength: 100 },
+        },
+      }],
+    },
+  },
 }
 
 const model = {
   tabs: {
     section1: {
-      requiredStringProp1: 'abc'
-    }
+      requiredStringProp1: 'abc',
+    },
   },
   panels: {
-    requiredStringProp2: 'abc'
-  }
+    requiredStringProp2: 'abc',
+  },
 }
 
 export default { id, title, description, schema, model }

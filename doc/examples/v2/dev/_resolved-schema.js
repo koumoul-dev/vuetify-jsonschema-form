@@ -8,12 +8,12 @@ const schema = {
   type: 'object',
   properties: {
     stringProp: { type: 'string', title: 'I\'m a string', description: 'This description is used as a help message.' },
-    refProp1: { $ref: '#/definitions/prop' }
+    refProp1: { $ref: '#/definitions/prop' },
     // refProp2: { $ref: '#/definitions/missingProp' }
   },
   definitions: {
-    prop: { type: 'string', title: 'I\'m a prop resolved from a $ref' }
-  }
+    prop: { type: 'string', title: 'I\'m a prop resolved from a $ref' },
+  },
 }
 
 const model = {}

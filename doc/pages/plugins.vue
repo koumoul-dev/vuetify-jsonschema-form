@@ -76,6 +76,6 @@ import { VContainer } from 'vuetify/components'
 const title = 'Plugins'
 
 useHead({
-  title: 'VJSF - ' + title
+  title: 'VJSF - ' + title,
 })
 </script>

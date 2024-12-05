@@ -14,33 +14,33 @@ const schema = {
     {
       properties: {
         booleanConditionProp: {
-          type: 'boolean',
+          'type': 'boolean',
           'x-display': 'switch',
-          title: 'I\'m a boolean used to toggle the content below'
-        }
+          'title': 'I\'m a boolean used to toggle the content below',
+        },
       },
       if: {
         required: ['booleanConditionProp'],
         properties: {
-          booleanConditionProp: { const: true }
-        }
+          booleanConditionProp: { const: true },
+        },
       },
       then: {
         properties: {
           stringProp1: {
             type: 'string',
-            title: 'I\'m a string available if the boolean switch is true'
-          }
-        }
+            title: 'I\'m a string available if the boolean switch is true',
+          },
+        },
       },
       else: {
         properties: {
           stringProp2: {
             type: 'string',
-            title: 'I\'m another string available if the boolean switch is false'
-          }
-        }
-      }
+            title: 'I\'m another string available if the boolean switch is false',
+          },
+        },
+      },
     },
     {
       properties: {
@@ -48,30 +48,30 @@ const schema = {
           type: 'integer',
           minimum: 0,
           maximum: 120,
-          title: 'I\'m a number whose value is used to toggle content below'
-        }
+          title: 'I\'m a number whose value is used to toggle content below',
+        },
       },
       if: {
         required: ['numberCondition'],
         properties: {
-          numberCondition: { minimum: 0, maximum: 18 }
-        }
+          numberCondition: { minimum: 0, maximum: 18 },
+        },
       },
       then: {
         properties: {
           stringProp3: {
             type: 'string',
-            title: 'I\'m a string available if the number condition is less than 18'
-          }
-        }
-      }
-    }
-  ]
+            title: 'I\'m a string available if the number condition is less than 18',
+          },
+        },
+      },
+    },
+  ],
 }
 
 const model = {
   booleanConditionProp: true,
-  numberCondition: 10
+  numberCondition: 10,
 }
 
 const options = {}

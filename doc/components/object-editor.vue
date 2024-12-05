@@ -55,16 +55,16 @@ Prism.manual = true
 const props = defineProps({
   modelValue: {
     type: [Object, String, Number, Boolean, Array],
-    required: true
+    required: true,
   },
   readonly: {
     type: Boolean,
-    default: false
+    default: false,
   },
   defaultLanguage: {
     type: String,
-    default: 'json'
-  }
+    default: 'json',
+  },
 })
 
 const emits = defineEmits(['update:modelValue', 'update:parseError'])
@@ -98,7 +98,8 @@ const updateCode = (/** @type string */code) => {
     insideValue.value = parse(code)
     emits('update:modelValue', insideValue.value)
     emits('update:parseError', null)
-  } catch (/** @type any */err) {
+  }
+  catch (/** @type any */err) {
     emits('update:parseError', err.message)
   }
 }
@@ -114,7 +115,6 @@ watch(() => props.modelValue, () => {
 const highlighter = (/** @type string */code) => {
   return Prism.highlight(code, Prism.languages[language.value], language.value)
 }
-
 </script>
 
 <style>
@@ -122,5 +122,4 @@ const highlighter = (/** @type string */code) => {
 .prism-editor__textarea:focus {
   outline: none;
 }
-
 </style>

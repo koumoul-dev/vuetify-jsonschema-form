@@ -7,8 +7,8 @@ const examplesGroup = {
   examples: [
     defaultValues,
     nullable,
-    readOnly
-  ]
+    readOnly,
+  ],
 }
 
 export default examplesGroup

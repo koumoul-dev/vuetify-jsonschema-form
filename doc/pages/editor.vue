@@ -103,7 +103,7 @@
                 @update:state="onUpdateState"
                 @update:model-value="onUpdateModelValue"
               >
-                <template #custom-textarea="{node, statefulLayout}">
+                <template #custom-textarea="{ node, statefulLayout }">
                   <textarea
                     :value="node.data"
                     style="border: 1px solid red;"
@@ -111,8 +111,8 @@
                     @input="event => statefulLayout.input(node, event.target.value)"
                   />
                 </template>
-                <template #custom-message="{node}">
-                  This message is defined in a slot (key={{ node.key }})
+                <template #custom-message="{ node }">
+                  This message is defined in a slot (key={{ node.key }}, data={{ node.data }})
                 </template>
               </vjsf>
               <v-row class="ma-0">
@@ -158,7 +158,8 @@ onMounted(() => {
     schema.value = editorState.schema
     options.value = editorState.options ?? {}
     data.value = editorState.data ?? {}
-  } else {
+  }
+  else {
     schema.value = firstExample.schema
     options.value = firstExample.options ?? {}
     data.value = firstExample.data ?? {}
@@ -167,7 +168,7 @@ onMounted(() => {
     window.localStorage.setItem('vjsf-editor-state', JSON.stringify({
       schema: schema.value,
       options: options.value,
-      data: data.value
+      data: data.value,
     }))
   }, { debounce: 500, immediate: true })
 })
@@ -175,7 +176,7 @@ onMounted(() => {
 const codeTabs = [
   { value: 'schema', title: 'Schema' },
   { value: 'options', title: 'Options' },
-  { value: 'data', title: 'Data' }
+  { value: 'data', title: 'Data' },
 ]
 const codeTab = ref('schema')
 
@@ -192,10 +193,11 @@ watch([schema, options], () => {
     compiledLayout = compile(schema.value, {
       ...defaultOptions,
       ...options.value,
-      components: { [VjsfMarkdown.info.name]: VjsfMarkdown.info }
+      components: { [VjsfMarkdown.info.name]: VjsfMarkdown.info },
     })
     validationErrors.value = compiledLayout.validationErrors
-  } catch (/** @type any */err) {
+  }
+  catch (/** @type any */err) {
     validationErrors.value = { '': [err.message] }
   }
 
@@ -212,6 +214,7 @@ const parseErrors = reactive({})
  */
 const setParseError = (key, err) => {
   if (err) parseErrors[key] = err
+  // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
   else delete parseErrors[key]
 }
 
@@ -233,18 +236,18 @@ const toggleTheme = () => {
   theme.value = theme.value === 'light' ? 'dark' : 'light'
 }
 
-const onUpdateModelValue = (/** @type {any} */data) => {
-  // console.log('onUpdateModelValue', data, valid.value)
-}
-const onUpdateState = (/** @type {any} */data) => {
-  // console.log('onUpdateState', data, valid.value)
-}
-watch(valid, () => {
-  // console.log('watch valid', valid.value)
-})
+// const onUpdateModelValue = (/** @type {any} */data) => {
+//   console.log('onUpdateModelValue', data, valid.value)
+// }
+// const onUpdateState = (/** @type {any} */data) => {
+//   console.log('onUpdateState', data, valid.value)
+// }
+// watch(valid, () => {
+//   console.log('watch valid', valid.value)
+// })
 
 useHead({
-  title: 'VJSF - Editor'
+  title: 'VJSF - Editor',
 })
 
 // hide scrollbar in this specific page

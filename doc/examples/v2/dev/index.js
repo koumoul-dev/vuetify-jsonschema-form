@@ -42,8 +42,8 @@ const examplesGroup = {
     ArrayRichExpression,
     ArrayOneOfTitle,
     ReadonlyOptions,
-    StringDefault
-  ]
+    StringDefault,
+  ],
 }
 
 export default examplesGroup

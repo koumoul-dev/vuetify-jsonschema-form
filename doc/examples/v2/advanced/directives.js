@@ -7,8 +7,8 @@ const description = 'You can use the `x-directives` annotation to instantiate Vu
 const schema = {
   type: 'object',
   properties: {
-    stringWithMask: { type: 'string', title: 'I\'m a string with a mask ####-##', 'x-directives': [{ name: 'mask', value: '####-##' }] }
-  }
+    stringWithMask: { 'type': 'string', 'title': 'I\'m a string with a mask ####-##', 'x-directives': [{ name: 'mask', value: '####-##' }] },
+  },
 }
 
 const model = {}

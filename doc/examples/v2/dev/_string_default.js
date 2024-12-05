@@ -9,17 +9,17 @@ const schema = {
   properties: {
     stringEmpty: {
       type: 'string',
-      default: 'Default value 1'
+      default: 'Default value 1',
     },
     stringUndefined: {
       type: 'string',
-      default: 'Default value 2'
-    }
-  }
+      default: 'Default value 2',
+    },
+  },
 }
 
 const model = {
-  stringEmpty: ''
+  stringEmpty: '',
 }
 
 const options = {}

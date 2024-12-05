@@ -9,17 +9,17 @@ The messages will often be less intuitive than when they are created by vjsf its
 This functionality requires a [JSON schema validator](configuration#validator).`
 
 const schema = {
-  type: 'object',
-  required: ['stringPropWithFormats'],
+  'type': 'object',
+  'required': ['stringPropWithFormats'],
   'x-display': 'tabs',
-  properties: {
+  'properties': {
     stringPropWithFormats: {
-      title: 'I\'m a string with combined validation rules',
+      'title': 'I\'m a string with combined validation rules',
       'x-options': { useAjv: true },
-      anyOf: [
+      'anyOf': [
         { format: 'email', type: 'string' },
-        { format: 'uri', type: 'string' }
-      ]
+        { format: 'uri', type: 'string' },
+      ],
     },
     invalidSection: {
       type: 'object',
@@ -27,17 +27,17 @@ const schema = {
       description: 'This section has a required property that is not actually defined in the schema, it can never be valid.',
       required: ['stringProp1', 'stringProp2'],
       properties: {
-        stringProp2: { type: 'string', title: 'I\'m a required string prop' }
-      }
-    }
-  }
+        stringProp2: { type: 'string', title: 'I\'m a required string prop' },
+      },
+    },
+  },
 }
 
 const model = {}
 
 const options = {
   useValidator: true,
-  locale: 'en'
+  locale: 'en',
 }
 
 export default { id, title, description, schema, model, options }

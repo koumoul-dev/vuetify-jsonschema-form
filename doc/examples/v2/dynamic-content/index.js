@@ -15,8 +15,8 @@ const examplesGroup = {
     selectDeps,
     selectContextDeps,
     selectRelativeDeps,
-    selectSchemaDeps
-  ]
+    selectSchemaDeps,
+  ],
 }
 
 export default examplesGroup

@@ -13,25 +13,25 @@ const schema = {
     title: 'I\'m a sub-schema',
     properties: {
       type: { type: 'string', const: 'subSchema1' },
-      stringProp1: { type: 'string', title: 'I\'m a property in sub-schema 1' }
-    }
+      stringProp1: { type: 'string', title: 'I\'m a property in sub-schema 1' },
+    },
   }, {
     type: 'object',
     title: 'I\'m another sub-schema',
     allOf: [
       {
         title: 'a allOf section in sub-schema',
-        properties: { stringProp2: { type: 'string', title: 'I\'m a property in sub-schema 2' } }
+        properties: { stringProp2: { type: 'string', title: 'I\'m a property in sub-schema 2' } },
       },
       {
         title: 'another allOf section in sub-schema',
-        properties: { stringProp3: { type: 'string', title: 'I\'m another property in sub-schema 2' } }
-      }
+        properties: { stringProp3: { type: 'string', title: 'I\'m another property in sub-schema 2' } },
+      },
     ],
     properties: {
-      type: { type: 'string', const: 'subSchema2' }
-    }
-  }]
+      type: { type: 'string', const: 'subSchema2' },
+    },
+  }],
 
 }
 

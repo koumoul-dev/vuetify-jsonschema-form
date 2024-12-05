@@ -8,8 +8,8 @@ export default defineNuxtPlugin((nuxtApp) => {
     ssr: true,
     defaults: {
       global: {
-        density: 'comfortable'
-      }
+        density: 'comfortable',
+      },
     },
     theme: {
       defaultTheme: 'dark',
@@ -18,29 +18,29 @@ export default defineNuxtPlugin((nuxtApp) => {
           dark: false,
           colors: {
             primary: colors.cyan.darken1,
-            accent: colors.cyan.accent3
-          }
+            accent: colors.cyan.accent3,
+          },
         },
         dark: {
           dark: true,
           colors: {
             background: '#212121',
             // surface: '#000000',
-            primary: colors.cyan.accent2
+            primary: colors.cyan.accent2,
           },
           variables: {
-            'border-opacity': 0.5
-          }
-        }
-      }
+            'border-opacity': 0.5,
+          },
+        },
+      },
     },
     icons: {
       defaultSet: 'mdi',
       aliases,
       sets: {
-        mdi
-      }
-    }
+        mdi,
+      },
+    },
   })
   nuxtApp.vueApp.use(vuetify)
 })

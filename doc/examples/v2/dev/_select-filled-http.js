@@ -10,34 +10,34 @@ const schema = {
   type: 'object',
   properties: {
     selectAjaxString: {
-      type: 'string',
-      title: 'I\'m a string selected from results of an HTTP request',
+      'type': 'string',
+      'title': 'I\'m a string selected from results of an HTTP request',
       'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&select=title&owner={context.owner.type}:{context.owner.id}',
       'x-itemsProp': 'results',
       'x-itemTitle': 'title',
-      'x-itemKey': 'id'
+      'x-itemKey': 'id',
     },
     selectAjaxStringUnknown: {
-      type: 'string',
-      title: 'I\'m a string selected from results of an HTTP request with prefilled unknown value',
+      'type': 'string',
+      'title': 'I\'m a string selected from results of an HTTP request with prefilled unknown value',
       'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&select=title&owner={context.owner.type}:{context.owner.id}&q={q}',
       'x-itemsProp': 'results',
       'x-itemTitle': 'title',
-      'x-itemKey': 'id'
+      'x-itemKey': 'id',
     },
     selectAjaxObject: {
-      type: 'object',
-      title: 'I\'m an object selected from results of an HTTP request',
+      'type': 'object',
+      'title': 'I\'m an object selected from results of an HTTP request',
       'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&select=title,schema&owner={context.owner.type}:{context.owner.id}',
       'x-itemsProp': 'results',
       'x-itemTitle': 'title',
       'x-itemKey': 'href',
-      properties: {
+      'properties': {
         href: { type: 'string' },
-        title: { type: 'string' }
-      }
-    }
-  }
+        title: { type: 'string' },
+      },
+    },
+  },
 }
 
 const model = {
@@ -45,8 +45,8 @@ const model = {
   selectAjaxStringUnknown: 'unknown value',
   selectAjaxObject: {
     href: 'https://koumoul.com/data-fair/api/v1/datasets/tour_1_resultats_par_pays_240417',
-    title: "Présidentielles 2017 - Votes des français à l'étranger - 1er tour"
-  }
+    title: 'Présidentielles 2017 - Votes des français à l\'étranger - 1er tour',
+  },
 }
 
 const options = { context: { owner: { type: 'organization', id: '5a5dc47163ebd4a6f438589b' } } }
@@ -57,7 +57,7 @@ const httpMocks = {
   'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&select=title,schema&owner=organization:5a5dc47163ebd4a6f438589b': { results: [] },
   'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&select=title&size=100&owner=organization:5a5dc47163ebd4a6f438589b': { results: [] },
   'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&select=title&owner=organization:5a5dc47163ebd4a6f438589b&q=': { results: [] },
-  'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&select=title&owner=organization:5a5dc47163ebd4a6f438589b&q=unknown%20value': { results: [] }
+  'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&select=title&owner=organization:5a5dc47163ebd4a6f438589b&q=unknown%20value': { results: [] },
 
 }
 

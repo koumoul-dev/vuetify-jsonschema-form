@@ -13,37 +13,37 @@ const schema = {
         type: 'object',
         properties: {
           stringPropBasic: { type: 'string' },
-          stringPropHidden: { type: 'string', 'x-options': { hideInArrayItem: true } },
-          stringPropHiddenLabel: { type: 'string', 'x-options': { hideReadOnlyLabels: true } },
-          stringPropHiddenEmpty: { type: 'string', 'x-options': { hideReadOnlyEmpty: true } },
-          stringPropHiddenTooltip: { type: 'string', 'x-options': { hideReadOnlyTooltips: true }, description: 'A tooltip' },
-          stringPropHiddenProps: { type: 'string', 'x-options': { readOnlyFieldProps: { label: 'Readonly label' } } }
-        }
-      }
+          stringPropHidden: { 'type': 'string', 'x-options': { hideInArrayItem: true } },
+          stringPropHiddenLabel: { 'type': 'string', 'x-options': { hideReadOnlyLabels: true } },
+          stringPropHiddenEmpty: { 'type': 'string', 'x-options': { hideReadOnlyEmpty: true } },
+          stringPropHiddenTooltip: { 'type': 'string', 'x-options': { hideReadOnlyTooltips: true }, 'description': 'A tooltip' },
+          stringPropHiddenProps: { 'type': 'string', 'x-options': { readOnlyFieldProps: { label: 'Readonly label' } } },
+        },
+      },
     },
     array2: {
-      type: 'array',
+      'type': 'array',
       'x-options': { hideReadOnly: true },
-      items: {
+      'items': {
         type: 'object',
         properties: {
           stringPropBasic: { type: 'string' },
-          stringPropRO: { type: 'string', readOnly: true }
-        }
-      }
+          stringPropRO: { type: 'string', readOnly: true },
+        },
+      },
     },
     array3: {
-      type: 'array',
+      'type': 'array',
       'x-options': { deleteReadOnly: true },
-      items: {
+      'items': {
         type: 'object',
         properties: {
           stringPropBasic: { type: 'string' },
-          stringPropRO: { type: 'string', readOnly: true }
-        }
-      }
-    }
-  }
+          stringPropRO: { type: 'string', readOnly: true },
+        },
+      },
+    },
+  },
 }
 
 const model = {
@@ -51,23 +51,23 @@ const model = {
     stringPropBasic: 'val 1',
     stringPropHidden: 'val 1',
     stringPropHiddenLabel: 'val with hidden label',
-    stringPropHiddenEmpty: 'val 1'
+    stringPropHiddenEmpty: 'val 1',
   }, {
     stringPropBasic: 'val 2',
     stringPropHidden: 'val 2',
-    stringPropHiddenLabel: 'val 2'
+    stringPropHiddenLabel: 'val 2',
   }],
   array2: [{
     stringPropBasic: 'val 1',
-    stringPropRO: 'val 1'
+    stringPropRO: 'val 1',
   }],
   array3: [{
     stringPropBasic: 'val 1',
-    stringPropRO: 'val 1'
-  }]
+    stringPropRO: 'val 1',
+  }],
 }
 const options = {
-  editMode: 'inline'
+  editMode: 'inline',
 }
 
 /* const test = (wrapper) => {

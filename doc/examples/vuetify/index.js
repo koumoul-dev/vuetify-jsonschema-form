@@ -11,7 +11,7 @@ const vuetifyExamples = {
 These features are tied to implementation details and small breaking changes may occur even in minor versions.
 
 Many things are not covered yet, feel free to discuss additions in github issues.`,
-  examples: [propsSlots, extraDefaults]
+  examples: [propsSlots, extraDefaults],
 }
 
 export default vuetifyExamples

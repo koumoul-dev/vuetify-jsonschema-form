@@ -28,12 +28,12 @@ import yaml from 'yaml'
 const props = defineProps({
   name: {
     type: String,
-    required: true
+    required: true,
   },
   schema: {
     type: Object,
-    required: true
-  }
+    required: true,
+  },
 })
 
 const show = ref(false)
@@ -55,7 +55,7 @@ const refsStrings = [
   ['$ref: "#/$defs/child-ref"', 'Child reference'],
   ['$ref: "#/$defs/child-composite"', 'Child info'],
   ['$ref: "#/$defs/select-items"', 'Select items'],
-  ['$ref: "#/$defs/get-items"', 'Get select items']
+  ['$ref: "#/$defs/get-items"', 'Get select items'],
 ]
 /** @type {[RegExp, string][]} */
 const replacementRegexps = refsStrings.map(r => ([new RegExp('(\\s*)' + escapeRegExp(r[0]), 'g'), ' ' + r[1]]))

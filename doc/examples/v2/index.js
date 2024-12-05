@@ -15,7 +15,7 @@ const examples = [
   validation,
   miscJsonSchema,
   advanced,
-  dev
+  dev,
 ]
 
 const defaultTemplate = '<vjsf v-model="model" :schema="schema" :options="options" @input="logEvent(\'input\', $event)" @change="logEvent(\'change\', $event)" @input-child="logEvent(\'input-child\', $event)" @change-child="logEvent(\'change-child\', $event)" />'

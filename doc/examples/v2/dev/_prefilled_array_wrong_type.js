@@ -8,30 +8,30 @@ const schema = {
   type: 'object',
   properties: {
     colors: {
-      title: 'Couleurs et ordre',
-      type: 'array',
+      'title': 'Couleurs et ordre',
+      'type': 'array',
       'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets/sitadel-logements/values_agg?field=RES_PRINCIP_OU_SECOND',
       'x-display': 'list',
       'x-itemTitle': 'value',
       'x-itemKey': 'value',
       'x-itemsProp': 'aggs',
-      items: {
+      'items': {
         type: 'object',
         properties: {
           value: {
-            type: 'string',
-            'x-display': 'hidden'
+            'type': 'string',
+            'x-display': 'hidden',
           },
           color: {
-            type: 'string',
-            format: 'hexcolor',
-            default: '#828282',
-            'x-display': 'color-picker'
-          }
-        }
-      }
-    }
-  }
+            'type': 'string',
+            'format': 'hexcolor',
+            'default': '#828282',
+            'x-display': 'color-picker',
+          },
+        },
+      },
+    },
+  },
 }
 
 const model = {}
@@ -49,20 +49,20 @@ const httpMocks = {
       {
         total: 576903,
         value: 1,
-        results: []
+        results: [],
       },
       {
         total: 59692,
         value: 3,
-        results: []
+        results: [],
       },
       {
         total: 23262,
         value: 2,
-        results: []
-      }
-    ]
-  }
+        results: [],
+      },
+    ],
+  },
 }
 
 /* const test = async (wrapper, modelWrapper, events) => {

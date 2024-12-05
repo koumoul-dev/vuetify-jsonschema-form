@@ -8,11 +8,11 @@ const example = {
     properties: {
       str1: {
         type: 'string',
-        title: 'A text field with outlined variant'
+        title: 'A text field with outlined variant',
       },
       nb1: {
         type: 'number',
-        title: 'A number field with underlined variant'
+        title: 'A number field with underlined variant',
       },
       obj1: {
         type: 'object',
@@ -20,29 +20,29 @@ const example = {
         layout: 'tabs',
         properties: {
           str1: { type: 'string' },
-          str2: { type: 'string' }
-        }
-      }
-    }
+          str2: { type: 'string' },
+        },
+      },
+    },
   },
   defaultProps: {
-    VjsfTextField: {
+    'VjsfTextField': {
       VTextField: {
-        variant: 'outlined'
-      }
+        variant: 'outlined',
+      },
     },
-    VjsfNumberField: {
+    'VjsfNumberField': {
       VTextField: {
-        variant: 'underlined'
-      }
+        variant: 'underlined',
+      },
     },
     'VjsfTabs-VSheet': {
       border: false,
       elevation: 4,
       color: 'primary',
-      rounded: true
-    }
-  }
+      rounded: true,
+    },
+  },
 }
 
 export default example

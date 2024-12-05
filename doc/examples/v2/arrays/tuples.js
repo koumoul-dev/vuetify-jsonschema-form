@@ -16,8 +16,8 @@ const schema = {
       title: 'I\'m a tuple of 2 numbers',
       items: [
         { type: 'number', title: 'I\'m a number', default: 0 },
-        { type: 'number', title: 'I\'m another number', default: 0 }
-      ]
+        { type: 'number', title: 'I\'m another number', default: 0 },
+      ],
     },
     stringTupleProp: {
       type: 'array',
@@ -25,10 +25,10 @@ const schema = {
       minItems: 1,
       items: [
         { type: 'string', title: 'I\'m a required string' },
-        { type: 'string', title: 'I\'m a string' }
-      ]
-    }
-  }
+        { type: 'string', title: 'I\'m a string' },
+      ],
+    },
+  },
 }
 
 const model = {}

@@ -8,32 +8,32 @@ const schema = {
   type: 'object',
   properties: {
     stringEnum: {
-      type: 'string',
-      title: 'I\'m a string with an enum and x-display=radio',
-      description: 'This description is used as a help message.',
-      enum: ['value 1', 'value 2'],
-      'x-display': 'radio'
+      'type': 'string',
+      'title': 'I\'m a string with an enum and x-display=radio',
+      'description': 'This description is used as a help message.',
+      'enum': ['value 1', 'value 2'],
+      'x-display': 'radio',
     },
     stringsArrayEnum: {
-      type: 'array',
-      title: 'I\'m an array with an enum and x-display=checkbox',
-      description: 'This description is used as a help message.',
-      items: { type: 'string', enum: ['value 1', 'value 2'] },
-      minItems: 1,
-      'x-display': 'checkbox'
+      'type': 'array',
+      'title': 'I\'m an array with an enum and x-display=checkbox',
+      'description': 'This description is used as a help message.',
+      'items': { type: 'string', enum: ['value 1', 'value 2'] },
+      'minItems': 1,
+      'x-display': 'checkbox',
     },
     stringArrayOneOf: {
-      type: 'array',
-      title: 'I\'m an array with a oneOf and x-display=switch',
-      items: { type: 'string', oneOf: [{ const: 'value1', title: 'Value 1' }, { const: 'value2', title: 'Value 2' }] },
-      'x-display': 'switch'
-    }
+      'type': 'array',
+      'title': 'I\'m an array with a oneOf and x-display=switch',
+      'items': { type: 'string', oneOf: [{ const: 'value1', title: 'Value 1' }, { const: 'value2', title: 'Value 2' }] },
+      'x-display': 'switch',
+    },
   },
-  required: ['stringEnum']
+  required: ['stringEnum'],
 }
 
 const model = {
-  stringsArrayEnum: ['value 1']
+  stringsArrayEnum: ['value 1'],
 }
 
 export default { id, title, description, schema, model }

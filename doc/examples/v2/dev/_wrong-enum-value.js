@@ -18,13 +18,13 @@ const schema = {
             key: { type: 'string', const: 'key' },
             string1: {
               type: 'string',
-              enum: ['ok1', 'ok2']
-            }
-          }
-        }]
-      }
-    }
-  }
+              enum: ['ok1', 'ok2'],
+            },
+          },
+        }],
+      },
+    },
+  },
 }
 
 const model = { array1: [{ key: 'key', string1: 'ok1' }, { key: 'key', string1: 'ko' }] }

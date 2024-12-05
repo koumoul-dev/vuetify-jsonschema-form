@@ -8,21 +8,21 @@ const schema = {
   type: 'object',
   properties: {
     iconOneOf: {
-      title: 'I\'m a select with icon codes and titles in a oneOf',
-      type: 'string',
+      'title': 'I\'m a select with icon codes and titles in a oneOf',
+      'type': 'string',
       'x-display': 'icon',
       'x-itemIcon': 'icon',
-      readOnly: true,
-      oneOf: [
+      'readOnly': true,
+      'oneOf': [
         { const: 'alarm', title: 'Alarm', icon: 'mdi-alarm' },
-        { const: 'alarm-plus', title: 'Alarm plus', icon: 'mdi-alarm-plus' }
-      ]
-    }
-  }
+        { const: 'alarm-plus', title: 'Alarm plus', icon: 'mdi-alarm-plus' },
+      ],
+    },
+  },
 }
 
 const model = {
-  iconOneOf: 'alarm'
+  iconOneOf: 'alarm',
 }
 
 export default { id, title, description, schema, model }

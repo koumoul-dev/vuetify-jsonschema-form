@@ -50,7 +50,7 @@ const nodeClasses = computed(() => {
   return classes
 })
 
-if (props.modelValue.layout.comp !== 'none' && !props.statefulLayout.options.nodeComponents[props.modelValue.layout.comp]) {
+if (props.modelValue.layout.comp !== 'none' && !props.modelValue.slots?.component && !props.statefulLayout.options.nodeComponents[props.modelValue.layout.comp]) {
   console.error(`vjsf: missing component to render vjsf node "${props.modelValue.layout.comp}", maybe you forgot to register a component from a plugin ?`)
 }
 
@@ -64,9 +64,9 @@ if (props.modelValue.layout.comp !== 'none' && !props.statefulLayout.options.nod
       :class="nodeClasses"
     >
       <node-slot
-        v-if="modelValue.layout.slots?.before"
+        v-if="modelValue.slots?.before"
         key="before"
-        :layout-slot="modelValue.layout.slots?.before"
+        :layout-slot="modelValue.slots?.before"
         :node="modelValue"
         :stateful-layout="statefulLayout"
         :class="beforeAfterClasses[modelValue.options.density]"
@@ -77,9 +77,9 @@ if (props.modelValue.layout.comp !== 'none' && !props.statefulLayout.options.nod
         :node="modelValue"
       />
       <node-slot
-        v-if="modelValue.layout.slots?.component"
+        v-if="modelValue.slots?.component"
         key="component"
-        :layout-slot="modelValue.layout.slots?.component"
+        :layout-slot="modelValue.slots?.component"
         :node="modelValue"
         :stateful-layout="statefulLayout"
       />
@@ -91,9 +91,9 @@ if (props.modelValue.layout.comp !== 'none' && !props.statefulLayout.options.nod
       />
 
       <node-slot
-        v-if="modelValue.layout.slots?.after"
+        v-if="modelValue.slots?.after"
         key="after"
-        :layout-slot="modelValue.layout.slots?.after"
+        :layout-slot="modelValue.slots?.after"
         :node="modelValue"
         :stateful-layout="statefulLayout"
         :class="beforeAfterClasses[modelValue.options.density]"

@@ -19,45 +19,45 @@ const schema = {
     dateProp: {
       type: 'string',
       title: { $ref: '#/i18n/~$locale~/datePropTitle' },
-      format: 'date'
+      format: 'date',
     },
     selectAjaxWithQuery: {
-      type: 'object',
-      title: { $ref: '#/i18n/~$locale~/selectAjaxWithQueryTitle' },
+      'type': 'object',
+      'title': { $ref: '#/i18n/~$locale~/selectAjaxWithQueryTitle' },
       'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&select=title&q={q}&owner=user:notARealUser',
       'x-itemsProp': 'results',
       'x-itemTitle': 'title',
       'x-itemKey': 'href',
-      properties: {
+      'properties': {
         href: { type: 'string' },
-        title: { type: 'string' }
-      }
-    }
+        title: { type: 'string' },
+      },
+    },
   },
   i18n: {
     en: {
       datePropTitle: 'I`m a date without FR title',
-      selectAjaxWithQueryTitle: 'I`m a search field'
+      selectAjaxWithQueryTitle: 'I`m a search field',
     },
     fr: {
-      selectAjaxWithQueryTitle: 'Je suis un champ de recherche'
-    }
-  }
+      selectAjaxWithQueryTitle: 'Je suis un champ de recherche',
+    },
+  },
 }
 
 const model = {
-  dateProp: '2012-12-31'
+  dateProp: '2012-12-31',
 }
 
 const options = {
   locale: 'fr',
   formats: {
-    date: (date, locale) => new Date(date).toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })
-  }
+    date: (date, locale) => new Date(date).toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' }),
+  },
 }
 
 const httpMocks = {
-  'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&select=title&q=&owner=user:notARealUser': { results: [] }
+  'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&select=title&q=&owner=user:notARealUser': { results: [] },
 }
 
 export default { id, title, description, schema, model, options, httpMocks }

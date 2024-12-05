@@ -33,6 +33,6 @@ import { compileOptions, runtimeOptions } from '~/assets/doc-options'
 const title = 'Configuration'
 
 useHead({
-  title: 'VJSF - ' + title
+  title: 'VJSF - ' + title,
 })
 </script>

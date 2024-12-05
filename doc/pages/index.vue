@@ -31,14 +31,14 @@
       >JSON Layout</a>.
     </p>
 
-    <!--<iframe
+    <!-- <iframe
       width="560"
       height="463"
       sandbox="allow-same-origin allow-scripts allow-popups"
       src="https://videos.koumoul.com/videos/embed/29d12ba2-f694-4659-8027-e9386692d8b5?title=0&warningTitle=0&peertubeLink=0&autoplay=1"
       frameborder="0"
       allowfullscreen
-    />-->
+    /> -->
   </v-container>
 </template>
 
@@ -46,7 +46,7 @@
 import { VContainer } from 'vuetify/components'
 
 useHead({
-  title: 'VJSF'
+  title: 'VJSF',
 })
 </script>
 

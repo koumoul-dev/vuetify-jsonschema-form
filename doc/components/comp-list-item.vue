@@ -30,8 +30,8 @@ const { comp } = defineProps({
   comp: {
     /** @type {import('vue').PropType<import('@json-layout/vocabulary').ComponentInfo>} */
     type: Object,
-    required: true
-  }
+    required: true,
+  },
 })
 
 const compCharacteristics = computed(() => {

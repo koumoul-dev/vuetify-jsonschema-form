@@ -36,7 +36,7 @@ import { VContainer } from 'vuetify/components'
 const title = 'v2 to v3'
 
 useHead({
-  title: 'VJSF - ' + title
+  title: 'VJSF - ' + title,
 })
 </script>
 

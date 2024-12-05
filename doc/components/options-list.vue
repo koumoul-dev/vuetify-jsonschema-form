@@ -37,11 +37,12 @@
 
 <script setup>
 import { VCard, VList, VListItem, VListItemTitle, VListItemSubtitle, VDivider } from 'vuetify/components'
+
 defineProps({
   options: {
     /** @type {import('vue').PropType<import('@json-layout/core/utils/doc-options').DocOptions>} */
     type: Array,
-    required: true
-  }
+    required: true,
+  },
 })
 </script>

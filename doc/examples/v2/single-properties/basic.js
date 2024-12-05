@@ -8,15 +8,15 @@ const schema = {
   type: 'object',
   properties: {
     stringProp: { type: 'string', title: 'I\'m a string', description: 'This description is used as a help message.' },
-    stringTextareaProp: { type: 'string', title: 'I\'m a string in a textarea', 'x-display': 'textarea' },
+    stringTextareaProp: { 'type': 'string', 'title': 'I\'m a string in a textarea', 'x-display': 'textarea' },
     numberProp: { type: 'number', title: 'I\'m a number' },
     integerProp: { type: 'integer', title: 'I\'m an integer' },
-    integerSliderProp: { type: 'integer', title: 'I\'m an integer in a slider', 'x-display': 'slider', minimum: 0, maximum: 5 },
+    integerSliderProp: { 'type': 'integer', 'title': 'I\'m an integer in a slider', 'x-display': 'slider', 'minimum': 0, 'maximum': 5 },
     booleanProp: { type: 'boolean', title: 'I\'m a boolean', description: 'This description is used as a help message.' },
-    booleanSwitchProp: { type: 'boolean', title: 'I\'m a boolean with switch display', 'x-display': 'switch', description: 'This description is used as a help message.' },
+    booleanSwitchProp: { 'type': 'boolean', 'title': 'I\'m a boolean with switch display', 'x-display': 'switch', 'description': 'This description is used as a help message.' },
     stringArrayProp: { type: 'array', title: 'I\'m an array of strings', items: { type: 'string' } },
-    integerArrayProp: { type: 'array', title: 'I\'m an array of integers', items: { type: 'integer' } }
-  }
+    integerArrayProp: { type: 'array', title: 'I\'m an array of integers', items: { type: 'integer' } },
+  },
 }
 
 const model = {
@@ -24,7 +24,7 @@ const model = {
   numberProp: 10.1,
   integerProp: 10,
   booleanProp: true,
-  stringArrayProp: ['item 1', 'item 2']
+  stringArrayProp: ['item 1', 'item 2'],
 }
 
 /* const test = (wrapper) => {

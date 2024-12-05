@@ -12,49 +12,49 @@ const schema = {
   type: 'object',
   properties: {
     activeProp: {
-      type: 'string',
-      title: 'I\'m a property rendered if the context contains a truthy value',
-      'x-if': 'context.showActive'
+      'type': 'string',
+      'title': 'I\'m a property rendered if the context contains a truthy value',
+      'x-if': 'context.showActive',
     },
-    inactiveProp: { type: 'string', 'x-if': 'context.showInactive' },
+    inactiveProp: { 'type': 'string', 'x-if': 'context.showInactive' },
     conditionProp: { type: 'string', title: 'I\'m a string whose content is used to evaluate an expression' },
     conditionalProp: {
-      type: 'string',
-      title: 'I\'m here if previous prop is equal to "hello"',
+      'type': 'string',
+      'title': 'I\'m here if previous prop is equal to "hello"',
       'x-if': 'parent.value.conditionProp  == \'hello\'',
-      'x-options': { evalMethod: 'evalExpr' }
-    }
+      'x-options': { evalMethod: 'evalExpr' },
+    },
   },
   oneOf: [{
     'x-if': 'context.showActive',
-    title: 'Active choice 1',
-    properties: {
-      type: { type: 'string', const: 'activeChoice1', title: 'I\'m a choice limited by expressions in a oneOf' }
-    }
+    'title': 'Active choice 1',
+    'properties': {
+      type: { type: 'string', const: 'activeChoice1', title: 'I\'m a choice limited by expressions in a oneOf' },
+    },
   }, {
     'x-if': 'context.showActive',
-    title: 'Active choice 2',
-    properties: {
-      type: { type: 'string', const: 'activeChoice2' }
-    }
+    'title': 'Active choice 2',
+    'properties': {
+      type: { type: 'string', const: 'activeChoice2' },
+    },
   }, {
     'x-if': 'context.showInactive',
-    title: 'Inactive choice',
-    properties: {
-      type: { type: 'string', const: 'inactiveChoice' }
-    }
-  }]
+    'title': 'Inactive choice',
+    'properties': {
+      type: { type: 'string', const: 'inactiveChoice' },
+    },
+  }],
 }
 
 const model = {
-  conditionProp: 'hello'
+  conditionProp: 'hello',
 }
 
 const options = {
   context: {
     showActive: true,
-    showInactive: false
-  }
+    showInactive: false,
+  },
 }
 
 export default { id, title, description, schema, model, options }

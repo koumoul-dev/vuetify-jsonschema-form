@@ -21,8 +21,8 @@ const examplesGroup = {
     combobox,
     selectionControls,
     files,
-    markdownEditor
-  ]
+    markdownEditor,
+  ],
 }
 
 export default examplesGroup

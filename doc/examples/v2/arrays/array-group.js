@@ -8,49 +8,49 @@ const schema = {
   type: 'object',
   properties: {
     arrayProp1: {
-      type: 'array',
-      title: 'Array 1',
+      'type': 'array',
+      'title': 'Array 1',
       'x-cols': 6,
       'x-class': 'px-1',
       'x-itemTitle': 'stringProp',
       'x-arrayGroup': 'array-group1',
-      items: {
+      'items': {
         type: 'object',
         properties: {
           stringProp: {
             type: 'string',
-            title: 'String prop'
-          }
-        }
-      }
+            title: 'String prop',
+          },
+        },
+      },
     },
     arrayProp2: {
-      type: 'array',
-      title: 'Array 2',
+      'type': 'array',
+      'title': 'Array 2',
       'x-cols': 6,
       'x-class': 'px-1',
       'x-itemTitle': 'stringProp',
       'x-arrayGroup': 'array-group1',
-      items: {
+      'items': {
         type: 'object',
         properties: {
           stringProp: {
             type: 'string',
-            title: 'String prop'
-          }
-        }
-      }
-    }
-  }
+            title: 'String prop',
+          },
+        },
+      },
+    },
+  },
 }
 
 const model = {
   arrayProp1: [{ stringProp: 'hello' }, { stringProp: 'hello again' }],
-  arrayProp2: [{ stringProp: 'hello array 2' }]
+  arrayProp2: [{ stringProp: 'hello array 2' }],
 }
 
 const options = {
-  editMode: 'inline'
+  editMode: 'inline',
 }
 
 export default { id, title, description, schema, model, options }

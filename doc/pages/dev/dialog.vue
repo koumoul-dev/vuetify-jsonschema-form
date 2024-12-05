@@ -23,7 +23,7 @@
       </v-card>
     </v-dialog>
 
-    <!--<v-form>
+    <!-- <v-form>
       <vjsf
         v-model="model"
         :schema="schema"
@@ -53,19 +53,19 @@ const schema = {
         type: 'object',
         properties: {
           string1: {
-            type: 'string'
+            type: 'string',
           },
           string2: {
-            type: 'string'
-          }
-        }
-      }
-    }
-  }
+            type: 'string',
+          },
+        },
+      },
+    },
+  },
 }
 
 useHead({
-  title: 'VJSF - ' + title
+  title: 'VJSF - ' + title,
 })
 </script>
 

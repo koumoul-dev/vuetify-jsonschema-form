@@ -9,11 +9,11 @@ const example = {
       img1: {
         title: 'Load an image',
         type: 'object',
-        layout: 'img-cropper'
-      }
-    }
+        layout: 'img-cropper',
+      },
+    },
   },
-  warning: 'This component requires the @koumoul/vjsf-img-cropper plugin.'
+  warning: 'This component requires the @koumoul/vjsf-img-cropper plugin.',
 }
 
 export default example

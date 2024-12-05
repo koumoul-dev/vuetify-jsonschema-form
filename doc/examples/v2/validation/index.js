@@ -7,8 +7,8 @@ const examplesGroup = {
   examples: [
     validationBasic,
     validationSections,
-    validationExternal
-  ]
+    validationExternal,
+  ],
 }
 
 export default examplesGroup

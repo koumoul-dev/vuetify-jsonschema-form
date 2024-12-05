@@ -25,7 +25,10 @@ defineProps({
 <template>
   <v-card :title="modelValue.layout.title ?? ''">
     <v-container fluid>
-      <section-header :node="modelValue" hide-title />
+      <section-header
+        :node="modelValue"
+        hide-title
+      />
       <v-row :dense="modelValue.options?.density === 'compact' || modelValue.options?.density === 'comfortable'">
         <node
           v-for="child of modelValue.children"

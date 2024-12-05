@@ -1,15 +1,15 @@
 export default [
-`
+  `
 type: object
 `,
-`
+  `
 type: object
 properties:
   firstName:
     type: string
     title: First name
 `,
-`
+  `
 type: object
 properties:
   firstName:
@@ -19,7 +19,7 @@ properties:
     type: string
     title: Last name
 `,
-`
+  `
 type: object
 properties:
   firstName:
@@ -33,7 +33,7 @@ properties:
     layout:
       cols: 6
 `,
-`
+  `
 type: object
 required:
   - firstName
@@ -50,7 +50,7 @@ properties:
     layout:
       cols: 6
 `,
-`
+  `
 type: object
 properties:
   firstName:
@@ -67,5 +67,5 @@ properties:
     type: string
     title: Bio
     layout: markdown
-`
+`,
 ]

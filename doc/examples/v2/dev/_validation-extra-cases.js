@@ -9,15 +9,15 @@ const schema = {
   required: ['color1'],
   properties: {
     color1: {
-      title: 'I\'m a required color with initial value',
-      type: 'string',
-      'x-display': 'color-picker'
-    }
-  }
+      'title': 'I\'m a required color with initial value',
+      'type': 'string',
+      'x-display': 'color-picker',
+    },
+  },
 }
 
 const model = {
-  color1: '#00bcd4'
+  color1: '#00bcd4',
 }
 
 export default { id, title, description, schema, model }

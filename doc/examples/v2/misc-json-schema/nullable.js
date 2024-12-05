@@ -11,8 +11,8 @@ const schema = {
   properties: {
     stringProp: { type: ['string', 'null'], title: 'I\'m a nullable string' },
     dateProp: { type: ['string', 'null'], title: 'I\'m a clearable date', format: 'date' },
-    selectProp: { type: ['string', 'null'], title: 'I\'m a clearable string from an enum', enum: ['value 1', 'value 2', null] }
-  }
+    selectProp: { type: ['string', 'null'], title: 'I\'m a clearable string from an enum', enum: ['value 1', 'value 2', null] },
+  },
 }
 
 const model = {}

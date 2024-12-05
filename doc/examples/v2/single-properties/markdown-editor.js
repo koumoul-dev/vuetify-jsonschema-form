@@ -18,35 +18,35 @@ const schema = {
   type: 'object',
   properties: {
     objectArrayProp: {
-      type: 'array',
-      title: 'I\'m an array of objects',
+      'type': 'array',
+      'title': 'I\'m an array of objects',
       'x-itemTitle': 'titleProp',
-      items: {
+      'items': {
         type: 'object',
         required: ['titleProp'],
         properties: {
           titleProp: { type: 'string', title: 'I\'m a required string used as title' },
-          markdownProp: { type: 'string', 'x-display': 'markdown', title: 'I\'m a markdown string' }
-        }
-      }
-    }
-  }
+          markdownProp: { 'type': 'string', 'x-display': 'markdown', 'title': 'I\'m a markdown string' },
+        },
+      },
+    },
+  },
 }
 
 const model = {
   objectArrayProp: [{
     titleProp: 'This object has a markdown property',
-    markdownProp: 'This content is written in *Markdown* in a [dedicated editor](https://github.com/Ionaru/easy-markdown-editor).'
-  }]
+    markdownProp: 'This content is written in *Markdown* in a [dedicated editor](https://github.com/Ionaru/easy-markdown-editor).',
+  }],
 }
 
 const options = {
   editMode: 'inline',
   pluginsOptions: {
     markdown: {
-      easyMDEOptions: { minHeight: '300px', maxHeight: '300px' }
-    }
-  }
+      easyMDEOptions: { minHeight: '300px', maxHeight: '300px' },
+    },
+  },
 }
 
 export default { id, title, description, schema, model, options }

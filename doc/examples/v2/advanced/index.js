@@ -13,8 +13,8 @@ const examplesGroup = {
     slots,
     slotsWrappers,
     directives,
-    localization
-  ]
+    localization,
+  ],
 }
 
 export default examplesGroup

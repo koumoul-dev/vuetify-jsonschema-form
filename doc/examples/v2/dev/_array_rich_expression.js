@@ -12,24 +12,24 @@ const schema = {
     arrayProp: {
       type: 'array',
       items: {
-        type: 'string', enum: ['Hello', 'World']
-      }
+        type: 'string', enum: ['Hello', 'World'],
+      },
     },
     conditionnalProp: {
-      type: 'string',
-      title: 'I\'m here if  Hello is in arrayProp',
-      'x-if': '\'Hello\' in root.arrayProp'
-    }
-  }
+      'type': 'string',
+      'title': 'I\'m here if  Hello is in arrayProp',
+      'x-if': '\'Hello\' in root.arrayProp',
+    },
+  },
 }
 
 const model = {
-  arrayProp: ['Hello']
+  arrayProp: ['Hello'],
 }
 
 const options = {
   evalMethod: 'evalExpr',
-  editMode: 'inline'
+  editMode: 'inline',
 }
 
 /* const test = (wrapper) => {

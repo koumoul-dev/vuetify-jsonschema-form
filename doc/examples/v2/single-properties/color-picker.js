@@ -13,8 +13,8 @@ const schema = {
   type: 'object',
   properties: {
     colorProp: { type: 'string', title: 'I\'m a color', format: 'hexcolor', description: 'This description is used as a help message.' },
-    colorProp2: { type: 'string', title: 'I\'m a color with a swatches based picker', format: 'hexcolor', 'x-props': { showSwatches: true, hideCanvas: true, hideInputs: true, hideModeSwitch: true } }
-  }
+    colorProp2: { 'type': 'string', 'title': 'I\'m a color with a swatches based picker', 'format': 'hexcolor', 'x-props': { showSwatches: true, hideCanvas: true, hideInputs: true, hideModeSwitch: true } },
+  },
 }
 
 const model = {}

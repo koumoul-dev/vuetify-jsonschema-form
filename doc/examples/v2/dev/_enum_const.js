@@ -9,9 +9,9 @@ const schema = {
   properties: {
     enumConst: {
       type: 'string',
-      enum: ['value']
-    }
-  }
+      enum: ['value'],
+    },
+  },
 }
 
 const model = {}

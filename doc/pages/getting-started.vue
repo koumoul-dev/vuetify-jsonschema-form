@@ -90,6 +90,6 @@ import { VContainer, VAlert } from 'vuetify/components'
 const title = 'Getting started'
 
 useHead({
-  title: 'VJSF - ' + title
+  title: 'VJSF - ' + title,
 })
 </script>

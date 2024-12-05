@@ -7,16 +7,16 @@
 </template>
 
 <script setup>
-import Prism from '../assets/prism.js'
 import { useSlots, computed } from 'vue'
+import Prism from '../assets/prism.js'
 
 Prism.manual = true
 
 const props = defineProps({
   language: {
     type: String,
-    default: 'javascript'
-  }
+    default: 'javascript',
+  },
 })
 
 const slots = useSlots()

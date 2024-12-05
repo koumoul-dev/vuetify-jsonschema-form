@@ -14,11 +14,11 @@ const schema = {
         type: 'object',
         required: ['stringProp'],
         properties: {
-          stringProp: { type: 'string', title: 'I\'m a required string' }
-        }
-      }
-    }
-  }
+          stringProp: { type: 'string', title: 'I\'m a required string' },
+        },
+      },
+    },
+  },
 }
 
 const model = {
@@ -26,7 +26,7 @@ const model = {
 }
 
 const options = {
-  editMode: 'inline'
+  editMode: 'inline',
 }
 
 export default { id, title, description, schema, model, options }

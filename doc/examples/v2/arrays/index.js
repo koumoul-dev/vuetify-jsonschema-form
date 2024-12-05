@@ -11,8 +11,8 @@ const examplesGroup = {
     editableArrayInline,
     prefilledArrays,
     tuples,
-    arrayGroup
-  ]
+    arrayGroup,
+  ],
 }
 
 export default examplesGroup

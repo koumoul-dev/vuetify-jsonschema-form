@@ -22,8 +22,7 @@ defineProps({
   components: {
     /** @type {import('vue').PropType<import('@json-layout/vocabulary').ComponentInfo[]>} */
     type: Array,
-    required: true
-  }
+    required: true,
+  },
 })
-
 </script>

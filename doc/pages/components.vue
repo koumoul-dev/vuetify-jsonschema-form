@@ -77,15 +77,15 @@
 <script setup>
 import { VContainer, VAlert } from 'vuetify/components'
 import { standardComponents, normalizedLayoutSchema } from '@json-layout/vocabulary'
-import pack from '../../package.json'
 import markdown from '@koumoul/vjsf-markdown'
+// import pack from '../../package.json'
 
 const title = 'Components'
 
 useHead({
-  title: 'VJSF - ' + title
+  title: 'VJSF - ' + title,
 })
 
-const vocabVersion = pack.devDependencies['@json-layout/vocabulary']
+// const vocabVersion = pack.devDependencies['@json-layout/vocabulary']
 const pluginComponents = [markdown.info]
 </script>

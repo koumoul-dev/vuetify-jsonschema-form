@@ -18,7 +18,7 @@
         v-for="(section, i) in sections"
         :key="i"
         :style="itemStyle(!!activeSection && activeSection.id === section.id)"
-        :to="{hash: `#${section.id}`}"
+        :to="{ hash: `#${section.id}` }"
         :active="false"
       >
         <v-list-item-title>
@@ -32,6 +32,7 @@
 <script>
 import { VNavigationDrawer, VList, VListItem, VListItemTitle, VListSubheader } from 'vuetify/components'
 import { Scroll } from 'vuetify/directives'
+import { useGoTo } from 'vuetify'
 
 export default {
   components: { VNavigationDrawer, VList, VListItem, VListItemTitle, VListSubheader },
@@ -40,8 +41,11 @@ export default {
     sections: {
       /** @type import('vue').PropType<{id: string, title: string}[]> */
       type: Array,
-      default: () => ([])
-    }
+      default: () => ([]),
+    },
+  },
+  setup() {
+    return { vGoTo: useGoTo() }
   },
   data: () => ({
     /** @type { number[] } */
@@ -51,40 +55,40 @@ export default {
     /** @type {{id: string, title: string} | null} */
     activeSection: null,
     /** @type {number | null} */
-    activeIndex: null
+    activeIndex: null,
   }),
   computed: {
-    toc () {
+    toc() {
       return this.sections.map(s => ({ ...s, hash: `#${s.id}` })).reverse()
-    }
+    },
   },
-  mounted () {
+  mounted() {
     this.onScroll()
   },
   methods: {
-    itemStyle (/** @type {boolean} */active) {
+    itemStyle(/** @type {boolean} */active) {
       return `border-left: 2px solid ${active ? this.$vuetify.theme.themes.light.colors.primary : 'transparent'};`
     },
-    goTo (/** @type {string} */id) {
+    goTo(/** @type {string} */id) {
       const e = document.getElementById(id)
       if (!e) return null
-      // @ts-ignore
-      this.$vuetify.goTo(e.offsetTop + 20)
+      // @ts-expect-ignore
+      this.vGoTo(e.offsetTop + 20)
     },
     // inspired by https://github.com/vuetifyjs/vuetify/blob/34a37a06fd49e4c70f47b17e46eaa56716250283/packages/docs/src/layouts/default/Toc.vue#L126
-    setOffsets () {
-      // @ts-ignore
-      this.offsets = this.toc.map(t => {
+    setOffsets() {
+      // @ts-expect-ignore
+      this.offsets = this.toc.map((t) => {
         const e = document.getElementById(t.id)
         if (!e) return null
         return e.offsetTop
       }).filter(o => o !== null)
     },
-    async findActiveIndex () {
+    async findActiveIndex() {
       const currentOffset = (
-        window.pageYOffset ||
-          document.documentElement.offsetTop ||
-          0
+        window.pageYOffset
+        || document.documentElement.offsetTop
+        || 0
       )
 
       // if (this.offsets.length !== this.toc.length) this.setOffsets()
@@ -98,11 +102,11 @@ export default {
       this.activeIndex = this.toc.length - (index + 1)
       this.activeSection = this.toc[index]
     },
-    onScroll () {
+    onScroll() {
       if (this.timeout) clearTimeout(this.timeout)
       this.timeout = setTimeout(this.findActiveIndex, 17)
-    }
-  }
+    },
+  },
 }
 </script>
 

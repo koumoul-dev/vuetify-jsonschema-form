@@ -22,29 +22,29 @@ const schema = {
           { const: 'value1', title: 'Value 1' },
           { const: 'value2', title: 'Value 2' },
           { const: 'value3', title: 'Value 3' },
-          { const: 'value4', title: 'Value 4' }
-        ]
-      }
-    }
+          { const: 'value4', title: 'Value 4' },
+        ],
+      },
+    },
   },
   dependencies: {
     selectStringOneOf: {
       properties: {
         selectStringDep: {
-          title: 'I\'m an an array of string from a dependency to other property values and schema',
-          type: 'array',
-          items: {
-            type: 'string'
+          'title': 'I\'m an an array of string from a dependency to other property values and schema',
+          'type': 'array',
+          'items': {
+            type: 'string',
           },
           'x-fromData': 'filterOneOfItem(item) = indexOf(item.const, parent.value.selectStringOneOf) != -1; filter(filterOneOfItem, parent.schema.properties.selectStringOneOf.items.oneOf)',
           // another fromData value if evalMethod was newFunction
           // 'x-fromData': 'parent.schema.properties.selectStringOneOf.items.oneOf.filter(function(item){return parent.value.selectStringOneOf.indexOf(item.const) !== -1})',
           'x-itemTitle': 'title',
-          'x-itemKey': 'const'
-        }
-      }
-    }
-  }
+          'x-itemKey': 'const',
+        },
+      },
+    },
+  },
 }
 
 const model = {}

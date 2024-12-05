@@ -93,7 +93,7 @@
         </v-footer>
       </template>
     </v-navigation-drawer>
-    <!--<v-app-bar app :color="$vuetify.display.smAndDown ? 'white' : 'transparent'" dense flat>-->
+    <!-- <v-app-bar app :color="$vuetify.display.smAndDown ? 'white' : 'transparent'" dense flat> -->
     <v-app-bar
       app
       color="surface"
@@ -103,13 +103,13 @@
         v-if="temporary"
         @click.stop="drawer = !drawer"
       />
-      <!--<search-widget
+      <!-- <search-widget
         df-url="https://koumoul.com/data-fair"
         dataset-id="vjsf-doc"
         :menu-props="{'nudge-left': $vuetify.display.smAndDown ? 20 : 0}"
         :replace-url="{'https://koumoul-dev.github.io/vuetify-jsonschema-form/latest': ''}"
         :to-links="true"
-      />-->
+      /> -->
       <v-spacer />
       <v-btn
         href="https://github.com/sponsors/koumoul-dev"
@@ -128,7 +128,7 @@
         </template>
         Sponsor
       </v-btn>
-      <!--<v-btn
+      <!-- <v-btn
         fab
         small
         href="https://gitter.im/koumoul-dev/vjsf"
@@ -137,7 +137,7 @@
         title="chat on gitter"
       >
         <v-icon>mdi-chat</v-icon>
-      </v-btn>-->
+      </v-btn> -->
       <v-btn
         icon
         href="https://github.com/koumoul-dev/vuetify-jsonschema-form"
@@ -171,15 +171,8 @@ onMounted(() => {
   if (storedTheme) theme.global.name.value = storedTheme
 })
 
-const toggleTheme = () => {
-  if (theme.global.name.value === 'dark') theme.global.name.value = 'light'
-  else theme.global.name.value = 'dark'
-  localStorage.setItem('theme', theme.global.name.value)
-}
-
 const drawer = ref(false)
 
-// eslint-disable-next-line no-undef
 const route = useRoute()
 const temporary = computed(() => ['categoryId-id', 'editor'].includes(/** @type string */(route.name)) || /** @type string */(route.name).startsWith('compiled-') || display.smAndDown.value)
 

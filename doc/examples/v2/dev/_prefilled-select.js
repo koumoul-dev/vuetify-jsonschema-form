@@ -15,22 +15,22 @@ const schema = {
         oneOf: [
           {
             const: 'value1',
-            title: 'Value 1'
+            title: 'Value 1',
           },
           {
             const: 'value2',
-            title: 'Value 2'
-          }
-        ]
-      }
-    }
-  }
+            title: 'Value 2',
+          },
+        ],
+      },
+    },
+  },
 }
 
 const options = {}
 
 const model = {
-  arrayOneOf: ['value1']
+  arrayOneOf: ['value1'],
 }
 
 export default { id, title, description, schema, model, options }

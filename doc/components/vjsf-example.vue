@@ -107,7 +107,7 @@
       >
         <v-row style="height:600px;">
           <v-col>
-            <v-defaults-provider :defaults="{global: {density: 'compact', color: 'primary', hideDetails: true}}">
+            <v-defaults-provider :defaults="{ global: { density: 'compact', color: 'primary', hideDetails: true } }">
               <v-switch
                 v-model="options.readOnly"
                 label="readOnly"
@@ -250,7 +250,7 @@
                   :options="options"
                   @update:state="updateState"
                 >
-                  <template #custom-textarea="{node, statefulLayout}">
+                  <template #custom-textarea="{ node, statefulLayout }">
                     <textarea
                       :value="node.data"
                       style="border: 1px solid red;"
@@ -258,8 +258,8 @@
                       @input="event => statefulLayout.input(node, event.target.value)"
                     />
                   </template>
-                  <template #custom-message="{node}">
-                    This message is defined in a slot (key={{ node.key }})
+                  <template #custom-message="{ node }">
+                    This message is defined in a slot (key={{ node.key }}, data={{ node.data }})
                   </template>
                 </vjsf>
               </slot>
@@ -287,18 +287,18 @@ import Vjsf from '@koumoul/vjsf'
 import VjsfMarkdown from '@koumoul/vjsf-markdown'
 import VjsfImgCropper from '@koumoul/vjsf-img-cropper'
 import { v2compat } from '@koumoul/vjsf/compat/v2'
-import { VIcon, VContainer, VRow, VCol, VSpacer, VForm, VBtn, VDivider, VSelect, VSwitch, VToolbar, VSheet, VWindow, VSlider, VWindowItem, VLazy, VDefaultsProvider, VThemeProvider, VTextField } from 'vuetify/components'
+import { VIcon, VContainer, VRow, VCol, VSpacer, VForm, VBtn, VDivider, VSelect, VSwitch, VToolbar, VSheet, VWindow, VSlider, VWindowItem, VDefaultsProvider, VThemeProvider } from 'vuetify/components'
 import slotCodes from '../examples/slot-codes.js'
 
 export default {
-  components: { Vjsf, VIcon, VContainer, VRow, VCol, VSpacer, VForm, VBtn, VDivider, VSelect, VSwitch, VToolbar, VSheet, VWindow, VSlider, VWindowItem, VLazy, VDefaultsProvider, VThemeProvider, VTextField },
+  components: { Vjsf, VIcon, VContainer, VRow, VCol, VSpacer, VForm, VBtn, VDivider, VSelect, VSwitch, VToolbar, VSheet, VWindow, VSlider, VWindowItem, VDefaultsProvider, VThemeProvider },
   props: {
     example: {
       /** @type import('vue').PropType<import('../examples/types.js').VJSFExample> */
       type: Object,
-      required: true
+      required: true,
     },
-    v2: { type: Boolean, default: false }
+    v2: { type: Boolean, default: false },
   },
   data: () => ({
     /** @type unknown */
@@ -324,17 +324,17 @@ export default {
       autofocus: false,
       readOnlyPropertiesMode: 'show',
       locale: 'en',
-      plugins: [VjsfMarkdown, VjsfImgCropper]
+      plugins: [VjsfMarkdown, VjsfImgCropper],
     },
     /** @type import('@json-layout/core').StatefulLayoutOptions | null */
     filledOptions: null,
     wrapperWidth: 100,
     slotCodes,
     valid: null,
-    theme: 'light'
+    theme: 'light',
   }),
   computed: {
-    tabs () {
+    tabs() {
       const tabs = []
       if (this.v2) tabs.push({ value: 'schemaV2', title: 'Schema V2' })
       tabs.push({ value: 'schema', title: 'Schema' })
@@ -348,28 +348,28 @@ export default {
       tabs.push({ value: 'options', title: 'Options' })
       return tabs
     },
-    schema () {
+    schema() {
       if (this.v2) return v2compat(this.example.schema)
       return this.example.schema
     },
-    changeOption (/** @type string  */key) {
+    changeOption(/** @type string  */key) {
       return (/** @type any */value) => {
         this.options = { ...this.options, [key]: value }
       }
     },
-    validateColor () {
+    validateColor() {
       // cf https://vuetifyjs.com/en/components/forms/#validation-state
       if (this.valid === false) return 'error'
       if (this.valid === true) return 'success'
       return 'default'
-    }
+    },
   },
-  created () {
+  created() {
     if (this.example.options) Object.assign(this.options, this.example.options)
     if (this.example.data) this.data = JSON.parse(JSON.stringify(this.example.data))
   },
   methods: {
-    updateState (/** @type import('@json-layout/core').StatefulLayout */newState) {
+    updateState(/** @type import('@json-layout/core').StatefulLayout */newState) {
       this.stateTree = newState.stateTree
       this.display = newState.display
       this.filledOptions = { ...newState.options }
@@ -378,21 +378,21 @@ export default {
       delete this.filledOptions.components
       delete this.filledOptions.plugins
     },
-    editExample () {
+    editExample() {
       /** @type {any} */
       const editOptions = { ...this.options }
       delete editOptions.plugins
       localStorage.setItem('vjsf-editor-state', JSON.stringify({
         schema: this.schema,
         options: editOptions,
-        data: this.data
+        data: this.data,
       }))
       this.$router.push('/editor')
     },
-    toggleTheme () {
+    toggleTheme() {
       this.theme = this.theme === 'light' ? 'dark' : 'light'
-    }
-  }
+    },
+  },
 }
 </script>
 

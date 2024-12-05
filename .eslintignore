@@ -1,8 +1,0 @@
-node_modules
-/lib/types
-/doc/pages/compiled
-/doc/components/compiled
-/doc/dist
-/doc/.output
-/doc/.nuxt
-app-examples

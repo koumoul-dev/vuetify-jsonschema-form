@@ -14,15 +14,15 @@ const schema = {
     title: 'I\'m a sub-schema',
     properties: {
       schemaKey: { type: 'string', const: 'subSchema1' },
-      stringProp1: { type: 'string', title: 'I\'m a property in sub-schema 1' }
-    }
+      stringProp1: { type: 'string', title: 'I\'m a property in sub-schema 1' },
+    },
   }, {
     title: 'I\'m another sub-schema',
     properties: {
       schemaKey: { type: 'string', const: 'subSchema2' },
-      stringProp2: { type: 'string', title: 'I\'m a property in sub-schema 2' }
-    }
-  }]
+      stringProp2: { type: 'string', title: 'I\'m a property in sub-schema 2' },
+    },
+  }],
 }
 
 const model = {}
