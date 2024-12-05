@@ -259,7 +259,7 @@
                     />
                   </template>
                   <template #custom-message="{node}">
-                    This message is defined in a slot (key={{ node.key }})
+                    This message is defined in a slot (key={{ node.key }}, data={{ node.data }})
                   </template>
                 </vjsf>
               </slot>

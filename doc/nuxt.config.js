@@ -18,6 +18,12 @@ export default defineNuxtConfig({
   ssr: false,
   css: ['vuetify/styles'],
 
+  app: {
+    header: {
+      link: [{ rel: 'icon', type: 'image/x-icon', href: targetURL.pathname + 'favicon.ico' }]
+    }
+  },
+
   vite: {
     vue: {
       template: {

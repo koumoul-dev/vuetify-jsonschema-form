@@ -11,7 +11,7 @@ const codes = {
   </template>`,
   'custom-message': `
   <template #custom-message="{node, statefulLayout}">
-    This message is defined in a slot (key={{ node.key }})
+    This message is defined in a slot (key={{ node.key }}, data={{ node.data }})
   </template>`
 }
 

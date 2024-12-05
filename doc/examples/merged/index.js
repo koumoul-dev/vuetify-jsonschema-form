@@ -1,11 +1,10 @@
 // merge some info into the JSON layout standard examples
 
-import codeSlots from './code-slots.js'
 // import imgCropper from './img-cropper.js'
 
 /** @type {Record<string, import("@json-layout/examples").JSONLayoutExample[]>} */
 export const additionalExamples = {
-  slots: [codeSlots]
+  // slots: [codeSlots]
   // files: [imgCropper]
 }
 

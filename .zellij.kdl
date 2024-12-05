@@ -26,6 +26,7 @@ layout {
       }
     }
     pane size=2 borderless=true {
-        plugin location="zellij:status-bar"
+      command "bash"
+        args "-ic" "echo -n -e \"Doc dev server available at \\e[1;96mhttp://localhost:3133\\033[0m\""
     }
 }
