@@ -224,6 +224,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                 >
                   <v-menu
                     location="bottom end"
+                    z-index="3000"
                     @update:model-value="value => {menuOpened = value ? childIndex : -1}"
                   >
                     <template #activator="{props: activatorProps}">
