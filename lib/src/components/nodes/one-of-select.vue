@@ -47,6 +47,10 @@ const onChange = (/** @type {string} */childTree) => {
 const fieldProps = computed(() => {
   const fieldProps = { ...inputProps.value }
   fieldProps['onUpdate:modelValue'] = onChange
+  if (!props.modelValue.options.readOnly) {
+    // vuetify zIndex stacking is buggy (for example https://github.com/vuetifyjs/vuetify/issues/16251)
+    fieldProps.menuProps = { zIndex: 3000 }
+  }
   const items = []
   for (const childTreePointer of skeleton.value.childrenTrees || []) {
     const childTree = props.statefulLayout.compiledLayout.skeletonTrees[childTreePointer]
