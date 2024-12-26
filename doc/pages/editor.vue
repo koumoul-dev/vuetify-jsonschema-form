@@ -111,8 +111,8 @@
                     @input="event => statefulLayout.input(node, event.target.value)"
                   />
                 </template>
-                <template #custom-message="{ node }">
-                  This message is defined in a slot (key={{ node.key }}, data={{ node.data }})
+                <template #custom-message="{ node, prop1 }">
+                  This message is defined in a slot (key={{ node.key }}, data={{ node.data }}, additional prop={{ prop1 }})
                 </template>
               </vjsf>
               <v-row class="ma-0">

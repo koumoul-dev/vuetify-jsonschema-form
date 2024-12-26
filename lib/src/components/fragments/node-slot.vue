@@ -40,7 +40,12 @@ export default {
       if (!this.statefulLayout.options.vjsfSlots[this.layoutSlot.name]) {
         console.error(`vjsf: layout references a code slot "${this.layoutSlot.name}" that was not provided.`)
       } else {
-        return h(renderTag, this.statefulLayout.options.vjsfSlots[this.layoutSlot.name]({ node: this.node, statefulLayout: this.statefulLayout }))
+        const slotContext = {
+          node: this.node,
+          statefulLayout: this.statefulLayout
+        }
+        if (this.layoutSlot.props) Object.assign(slotContext, this.layoutSlot.props)
+        return h(renderTag, this.statefulLayout.options.vjsfSlots[this.layoutSlot.name](slotContext))
       }
     }
     return null
