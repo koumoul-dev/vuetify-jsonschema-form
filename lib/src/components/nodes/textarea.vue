@@ -24,15 +24,15 @@ export default defineComponent({
     const textarea = ref(null)
 
     const { inputProps, localData, compSlots, options } = useNode(
-      toRef(props, 'modelValue'), props.statefulLayout, { layoutPropsMap: ['placeholder'] }
+      toRef(props, 'modelValue'), props.statefulLayout, { layoutPropsMap: ['placeholder', 'rows'] }
     )
 
-    const rows = computed(() => options.value.readOnly && options.value.summary ? 3 : undefined)
+    const defaultRows = computed(() => options.value.readOnly && options.value.summary ? 3 : undefined)
 
     const fullProps = computed(() => {
       const fullProps = { ...inputProps.value }
       fullProps.ref = textarea
-      fullProps.rows = rows.value
+      fullProps.rows = fullProps.rows ?? defaultRows.value
       fullProps.modelValue = localData.value
       return fullProps
     })

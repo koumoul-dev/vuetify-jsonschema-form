@@ -100,8 +100,6 @@
               <vjsf
                 v-model="data"
                 v-bind="vjsfParams"
-                @update:state="onUpdateState"
-                @update:model-value="onUpdateModelValue"
               >
                 <template #custom-textarea="{ node, statefulLayout }">
                   <textarea
