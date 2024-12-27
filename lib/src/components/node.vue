@@ -1,10 +1,13 @@
 <script setup>
-import { computed } from 'vue'
+import Debug from 'debug'
+import { computed, onRenderTriggered } from 'vue'
 import { useTheme, useDefaults } from 'vuetify'
 import { VCol } from 'vuetify/components/VGrid'
 import { VDefaultsProvider } from 'vuetify/components/VDefaultsProvider'
 import NodeSlot from './fragments/node-slot.vue'
 import HelpMessage from './fragments/help-message.vue'
+
+const debugRender = Debug('vjsf:render')
 
 useDefaults({}, 'VjsfNode')
 
@@ -29,6 +32,13 @@ const beforeAfterClasses = {
 }
 
 const theme = useTheme()
+
+if (debugRender.enabled) {
+  debugRender('setup node', props.modelValue.fullKey, props.modelValue.layout.comp)
+  onRenderTriggered(() => {
+    debugRender('render node', props.modelValue.fullKey, props.modelValue.layout.comp)
+  })
+}
 
 const indent = computed(() => {
   if (props.modelValue.parentFullKey === null) return 0
