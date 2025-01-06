@@ -57,6 +57,7 @@ const nodeClasses = computed(() => {
   if (props.modelValue.options.summary) classes += ' vjsf-summary'
   if (theme.current.value.dark) classes += ' vjsf-dark'
   if (indent.value) classes += ' ml-' + indent.value
+  if (props.modelValue.layout.help && !props.modelValue.options.summary) classes += ' vjsf-has-help'
   return classes
 })
 

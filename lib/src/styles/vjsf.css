@@ -17,3 +17,9 @@
 .vjsf-input--readonly.v-input--disabled .v-field__clearable {
   display: none;
 }
+.vjsf-node.vjsf-has-help {
+  padding-right: 28px!important;
+}
+.vjsf-node.vjsf-density-default.vjsf-has-help {
+  padding-right: 32px!important;
+}
