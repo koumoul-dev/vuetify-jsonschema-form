@@ -16,6 +16,10 @@ defineProps({
     /** @type import('vue').PropType<import('@json-layout/vocabulary').SelectItem> */
     type: Object,
     required: true
+  },
+  avatarProps: {
+    type: Object,
+    required: true
   }
 })
 
@@ -26,6 +30,7 @@ defineProps({
     <v-select-item-icon
       v-if="item.icon"
       :icon="item.icon"
+      :avatar-props="avatarProps"
     />
     {{ item.title ?? item.key ?? item.value }}
     <span

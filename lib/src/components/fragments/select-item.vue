@@ -18,6 +18,10 @@ defineProps({
     /** @type import('vue').PropType<import('@json-layout/vocabulary').SelectItem> */
     type: Object,
     required: true
+  },
+  avatarProps: {
+    type: Object,
+    required: true
   }
 })
 </script>
@@ -38,6 +42,7 @@ defineProps({
       <v-select-item-icon
         v-if="item.icon"
         :icon="item.icon"
+        :avatar-props="avatarProps"
       />
     </template>
   </v-list-item>

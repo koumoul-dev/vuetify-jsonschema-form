@@ -3,6 +3,7 @@ import { VAutocomplete } from 'vuetify/components/VAutocomplete'
 import { useDefaults } from 'vuetify'
 import { defineComponent, computed, h, toRef } from 'vue'
 import useSelectNode from '../../composables/use-select-node.js'
+import useCompDefaults from '../../composables/use-comp-defaults.js'
 
 export default defineComponent({
   props: {
@@ -19,8 +20,9 @@ export default defineComponent({
   },
   setup (props) {
     useDefaults({}, 'VjsfAutocomplete')
+    const avatarProps = useCompDefaults('VjsfSelectItem-VAvatar', { rounded: false, size: 'small' })
 
-    const { getItems, selectProps, selectSlots, localData } = useSelectNode(toRef(props, 'modelValue'), props.statefulLayout)
+    const { getItems, selectProps, selectSlots, localData } = useSelectNode(toRef(props, 'modelValue'), props.statefulLayout, avatarProps.value)
 
     const fieldProps = computed(() => {
       const fieldProps = { ...selectProps.value }

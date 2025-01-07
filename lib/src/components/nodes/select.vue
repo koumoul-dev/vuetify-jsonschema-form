@@ -1,9 +1,9 @@
 <script>
 import { VSelect } from 'vuetify/components/VSelect'
 import { defineComponent, h, computed, toRef } from 'vue'
-import useSelectNode from '../../composables/use-select-node.js'
-
 import { useDefaults } from 'vuetify'
+import useSelectNode from '../../composables/use-select-node.js'
+import useCompDefaults from '../../composables/use-comp-defaults.js'
 
 export default defineComponent({
   props: {
@@ -20,8 +20,9 @@ export default defineComponent({
   },
   setup (props) {
     useDefaults({}, 'VjsfSelect')
+    const avatarProps = useCompDefaults('VjsfSelectItem-VAvatar', { rounded: false, size: 'small' })
 
-    const { getItems, selectProps, selectSlots, localData } = useSelectNode(toRef(props, 'modelValue'), props.statefulLayout)
+    const { getItems, selectProps, selectSlots, localData } = useSelectNode(toRef(props, 'modelValue'), props.statefulLayout, avatarProps.value)
 
     const fieldProps = computed(() => {
       const fieldProps = { ...selectProps.value }
