@@ -3,6 +3,7 @@
 
 import { defineComponent, h, computed } from 'vue'
 import { VIcon } from 'vuetify/components/VIcon'
+import { VAvatar, VImg } from "vuetify/components";
 
 export default defineComponent({
   props: {
@@ -16,7 +17,9 @@ export default defineComponent({
     const isSVG = computed(() => props.icon.startsWith('<?xml') || props.icon.startsWith('<svg'))
     return () => {
       if (isUrl.value) {
-        return h('img', { src: props.icon, style: 'height:100%;width:100%;' })
+        return h(VAvatar, {size: 'x-small', 'rounded': false}, [
+          h(VImg, { src: props.icon, cover: true }),
+        ]);
       } else if (isSVG.value) {
         return h('div', { innerHTML: props.icon.replace('<svg ', '<svg class="v-icon__svg" '), class: 'v-icon' })
       } else {
