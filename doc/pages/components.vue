@@ -21,7 +21,7 @@
     <p class="mb-2">
       The json schema provided to Vjsf can be enriched using the <code>layout keyword</code>.
       This keyword is formally defined <a href="https://github.com/json-layout/json-layout/blob/main/vocabulary/src/normalized-layout/schema.json">here</a>.
-      It is automatically normalized for mor efficient processing, the normalized version is defined <a href="https://github.com/json-layout/json-layout/blob/main/vocabulary/src/normalized-layout/schema.json">here</a>.
+      It is automatically normalized for more efficient processing, the normalized version is defined <a href="https://github.com/json-layout/json-layout/blob/main/vocabulary/src/normalized-layout/schema.json">here</a>.
     </p>
 
     <p class="mb-2">

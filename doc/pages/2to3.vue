@@ -12,7 +12,7 @@
     <ul>
       <li>migrate to vue 3 and vuetify 3</li>
       <li>rethink the annotations vocabulary and the options for more power and clarity</li>
-      <li>losen the coupling between schema structure and presentation while preserving simplicity</li>
+      <li>loosen the coupling between schema structure and presentation while preserving simplicity</li>
       <li>implement a saner reactivity model and hopefully see gains in performance and stability</li>
       <li>fully validate the data (using Ajv) and offer a stronger guarantee that a valid form means a valid output data</li>
       <li>extract all the core logic into a separate project (<a href="https://github.com/json-layout/json-layout">JSON Layout</a>) to pave the way for implementations in other UI frameworks</li>

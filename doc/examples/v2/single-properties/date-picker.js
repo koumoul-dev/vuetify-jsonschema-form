@@ -6,7 +6,7 @@ const warning = 'The "date-time" format is not supported yet.'
 
 const description = `The formats relative to dates are managed using the date and time pickers from Vuetify.
 
-The formatting and the pickers are heavily dependant on the \`locale\` option. To customize the formatting you can look at the \`Formatting functions\` section in the configuration documentation.
+The formatting and the pickers are heavily dependent on the \`locale\` option. To customize the formatting you can look at the \`Formatting functions\` section in the configuration documentation.
 
 You can define props for the underlying components using the timePickerProps and datePickerProps options.
 
