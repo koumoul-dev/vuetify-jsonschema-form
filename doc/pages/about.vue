@@ -29,7 +29,7 @@
       <li><b>completeness</b> - the main JSON schemas semantics should be covered as well as the most common use-cases for forms in Web applications</li>
       <li><b>extensibility</b> - more specific use cases should also be supported through the use of lower level tools like slots, custom styles, etc.</li>
       <li><b>validity</b> - the output of the form should be valid against the provided schema</li>
-      <li><b>homogeneity</b> - the look and feel should be consistent accross all form functionalities and inside your application as a whole</li>
+      <li><b>homogeneity</b> - the look and feel should be consistent across all form functionalities and inside your application as a whole</li>
     </ul>
     <p>
       While trying to strike this balance we made some debatable choices that you should be aware of:
