@@ -1,6 +1,6 @@
 [codespell]
 # Ref: https://github.com/codespell-project/codespell#using-a-config-file
-skip = .git,*.svg,package-lock.json,*.css,.codespellrc,options.js
+skip = .git,*.svg,package-lock.json,*.css,.codespellrc,options.js,vjsf-person.vue
 check-hidden = true
 # Ignore lines which have non-english characters
 ignore-regex = .*[éà].*
