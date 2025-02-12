@@ -49,7 +49,7 @@ const { activeDnd, sortableArray, draggable, hovered, dragging, itemBind, handle
 })
 watch(children, (array) => { sortableArray.value = array })
 const dragPrepared = ref(-1)
-const prepareDrad = (/** @type {number} */index) => {
+const prepareDrag = (/** @type {number} */index) => {
   dragPrepared.value = index
   menuOpened.value = -1
 }
@@ -124,6 +124,7 @@ const deleteItem = (childIndex) => {
 
   menuOpened.value = -1
 }
+const preparedDelete = ref(false)
 
 /**
  * @param {import('@json-layout/core').StateNode} child
@@ -223,6 +224,9 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                 <v-menu
                   location="bottom end"
                   z-index="3000"
+                  :density="modelValue.options.density"
+                  :close-on-content-click="false"
+                  :model-value="menuOpened === childIndex"
                   @update:model-value="value => {menuOpened = value ? childIndex : -1}"
                 >
                   <template #activator="{props: activatorProps}">
@@ -234,9 +238,10 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                       :density="buttonDensity"
                     />
                   </template>
-                  <v-list>
+                  <v-list :density="modelValue.options.density">
                     <v-list-item
                       v-if="modelValue.layout.listActions.includes('edit') && modelValue.layout.listEditMode === 'inline-single'"
+                      :density="modelValue.options.density"
                       base-color="primary"
                       @click="statefulLayout.activateItem(modelValue, childIndex)"
                     >
@@ -256,7 +261,8 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                     </v-list-item>
                     <v-list-item
                       v-if="modelValue.layout.listActions.includes('sort') && activeDnd"
-                      @click="prepareDrad(childIndex)"
+                      :disabled="modelValue.data.length === 1"
+                      @click="prepareDrag(childIndex)"
                     >
                       <template #prepend>
                         <v-icon :icon="statefulLayout.options.icons.sort" />
@@ -265,7 +271,8 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                     </v-list-item>
                     <v-list-item
                       v-if="modelValue.layout.listActions.includes('sort')"
-                      @click="statefulLayout.input(modelValue, moveDataItem(modelValue.data, childIndex, childIndex - 1))"
+                      :disabled="childIndex === 0"
+                      @click="statefulLayout.input(modelValue, moveDataItem(modelValue.data, childIndex, childIndex - 1)); menuOpened = -1"
                     >
                       <template #prepend>
                         <v-icon :icon="statefulLayout.options.icons.sortUp" />
@@ -274,7 +281,8 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                     </v-list-item>
                     <v-list-item
                       v-if="modelValue.layout.listActions.includes('sort')"
-                      @click="statefulLayout.input(modelValue, moveDataItem(modelValue.data, childIndex, childIndex + 1))"
+                      :disabled="childIndex === modelValue.data.length - 1"
+                      @click="statefulLayout.input(modelValue, moveDataItem(modelValue.data, childIndex, childIndex + 1)); menuOpened = -1"
                     >
                       <template #prepend>
                         <v-icon :icon="statefulLayout.options.icons.sortDown" />
@@ -284,12 +292,22 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                     <v-list-item
                       v-if="modelValue.layout.listActions.includes('delete')"
                       base-color="warning"
-                      @click="deleteItem(childIndex)"
+                      @click="preparedDelete = true"
                     >
                       <template #prepend>
                         <v-icon :icon="statefulLayout.options.icons.delete" />
                       </template>
                       {{ modelValue.messages.delete }}
+                    </v-list-item>
+                    <v-list-item v-if="preparedDelete">
+                      <v-spacer />
+                      <v-btn
+                        color="warning"
+                        class="float-right ma-1"
+                        @click="deleteItem(childIndex)"
+                      >
+                        {{ modelValue.messages.confirm }}
+                      </v-btn>
                     </v-list-item>
                   </v-list>
                 </v-menu>
