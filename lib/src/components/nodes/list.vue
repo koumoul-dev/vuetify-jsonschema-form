@@ -61,6 +61,11 @@ const editedItem = computed(() => {
 })
 
 const menuOpened = ref(-1)
+const toggleMenu = (/** @type {number} */childIndex, /** @type {boolean} */value) => {
+  menuOpened.value = value ? childIndex : -1
+  preparedDelete.value = false
+}
+
 const activeItem = computed(() => {
   if (
     layout.value.listActions.includes('edit') &&
@@ -227,7 +232,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                   :density="modelValue.options.density"
                   :close-on-content-click="false"
                   :model-value="menuOpened === childIndex"
-                  @update:model-value="value => {menuOpened = value ? childIndex : -1}"
+                  @update:model-value="value => toggleMenu(childIndex, value)"
                 >
                   <template #activator="{props: activatorProps}">
                     <v-btn
