@@ -72,7 +72,7 @@
   },
   "dependencies": {
     "@json-layout/core": "~1.4.3",
-    "@vueuse/core": "^10.5.0",
+    "@vueuse/core": "^12.5.0",
     "debug": "^4.3.4"
   },
   "devDependencies": {
