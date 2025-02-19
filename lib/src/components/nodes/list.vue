@@ -248,7 +248,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                       v-if="modelValue.layout.listActions.includes('edit') && modelValue.layout.listEditMode === 'inline-single'"
                       :density="modelValue.options.density"
                       base-color="primary"
-                      @click="statefulLayout.activateItem(modelValue, childIndex)"
+                      @click="statefulLayout.activateItem(modelValue, childIndex); menuOpened = -1"
                     >
                       <template #prepend>
                         <v-icon :icon="statefulLayout.options.icons.edit" />
