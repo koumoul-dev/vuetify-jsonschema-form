@@ -18,6 +18,7 @@
     "@koumoul/vjsf-compiler": "*",
     "@koumoul/vjsf-markdown": "*",
     "@mdi/font": "^7.2.96",
+    "@vueuse/core": "^12.7.0",
     "ajv-formats": "^2.1.1",
     "ajv-i18n": "^4.2.0",
     "diff": "^5.1.0",

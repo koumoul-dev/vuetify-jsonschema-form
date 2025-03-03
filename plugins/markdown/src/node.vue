@@ -33,7 +33,7 @@ export default defineComponent({
     /** @type {import('vue').Ref<null | HTMLElement>} */
     const element = ref(null)
 
-    const { inputProps, compSlots, localData } = useNode(toRef(props.modelValue), props.statefulLayout)
+    const { inputProps, compSlots, localData } = useNode(toRef(props, 'modelValue'), props.statefulLayout)
 
     const renderedValue = computed(() => {
       return localData.value && marked.parse(localData.value)

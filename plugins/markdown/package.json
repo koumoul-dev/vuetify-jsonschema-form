@@ -37,7 +37,7 @@
     }
   },
   "peerDependencies": {
-    "@koumoul/vjsf": "3.3.3",
+    "@koumoul/vjsf": "^3.10.2",
     "vue": "^3.4.2",
     "vuetify": "^3.6.8"
   },
