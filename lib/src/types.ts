@@ -72,7 +72,7 @@ export type VjsfCompileOptions = Partial<CompileOptions> & {
 export type PartialVjsfCompileOptions = Partial<VjsfCompileOptions>
 
 export type VjsfOptions = PartialVjsfCompileOptions & VjsfStatefulLayoutOptions
-export type PartialVjsfOptions = Partial<Omit<VjsfOptions, 'width' | 'vjsfSlots' | 'onData' | 'onUpdate' | 'onAutofocus'>>
+export type PartialVjsfOptions = PartialVjsfCompileOptions & Partial<Omit<VjsfStatefulLayoutOptions, 'width' | 'vjsfSlots' | 'onData' | 'onUpdate' | 'onAutofocus'>>
 export type FullVjsfNodeOptions = Required<VjsfOptions>
 
 export type VjsfStatefulLayout = Omit<StatefulLayout, 'options'> & {options: VjsfStatefulLayoutOptions}
