@@ -6,7 +6,7 @@
     "test": "vitest",
     "build": "vue-tsc",
     "watch:build": "vue-tsc --watch",
-    "prepublishOnly": "npm run build && cp ../LICENSE LICENSE"
+    "prepublishOnly": "npm run build && cp ../../LICENSE LICENSE"
   },
   "author": "Alban Mouton <alban.mouton@gmail.com>",
   "license": "MIT",
