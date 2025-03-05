@@ -29,6 +29,23 @@ describe('schema compatibility function', () => {
     assert.ok(compileLayout(schema))
   })
 
+  it('should transform a expression with number indexing', () => {
+    const schema = v2compat({
+      type: 'object',
+      properties: {
+        objectContext: {
+          type: 'object',
+          title: 'I\'m an object with values from the context',
+          'x-fromData': 'context.array.0.objectItems'
+        }
+      }
+    })
+    assert.equal(schema.properties.objectContext.layout.comp, 'select')
+    assert.ok(schema.properties.objectContext.layout.getItems)
+    assert.equal(schema.properties.objectContext.layout.getItems.expr, 'context.array[0].objectItems')
+    assert.ok(compileLayout(schema))
+  })
+
   it('should transform an actual example from data-fair processing', () => {
     const schema = v2compat({
       type: 'object',
