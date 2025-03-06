@@ -71,8 +71,8 @@
     "vuetify": "^3.6.13"
   },
   "dependencies": {
-    "@json-layout/core": "~1.5.2",
-    "@json-layout/vocabulary": "~1.5.1",
+    "@json-layout/core": "~1.6.0",
+    "@json-layout/vocabulary": "~2.0.0",
     "@vueuse/core": "^12.5.0",
     "debug": "^4.3.4"
   },

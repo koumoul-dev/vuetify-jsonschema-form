@@ -9,21 +9,29 @@
     >
       <template #activator="{ props }">
         <v-btn
-          color="info"
+          :color="node.layout.warning ? 'warning' : 'info'"
           :class="`vjsf-help-message-toggle`"
-          :icon="node.options.icons.infoSymbol"
+          :icon="node.layout.warning ? node.options.icons.alert : node.options.icons.infoSymbol"
           density="compact"
-          variant="flat"
+          :variant="node.layout.warning ? 'text' : 'flat'"
           :size="node.options.density === 'default' ? 28 : 24"
           :title="show ? '' : node.messages.showHelp"
           v-bind="props"
         />
       </template>
       <v-alert
-        color="info"
+        :color="node.layout.warning ? 'warning' : 'info'"
         :density="node.options.density"
       >
-        <div v-html="node.layout.help" />
+        <p
+          v-if="node.layout.warning"
+          class="mb-2"
+          v-html="node.layout.warning"
+        />
+        <div
+          v-if="node.layout.help"
+          v-html="node.layout.help"
+        />
       </v-alert>
     </v-menu>
   </div>

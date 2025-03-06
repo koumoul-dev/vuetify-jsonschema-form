@@ -51,13 +51,17 @@ const indent = computed(() => {
   return 6
 })
 
+const showHelp = computed(() => {
+  return (props.modelValue.layout.help || props.modelValue.layout.warning) && !props.modelValue.options.summary
+})
+
 const nodeClasses = computed(() => {
   let classes = `vjsf-node vjsf-node-${props.modelValue.layout.comp} vjsf-density-${props.modelValue.options.density}`
   if (props.modelValue.options.readOnly) classes += ' vjsf-readonly'
   if (props.modelValue.options.summary) classes += ' vjsf-summary'
   if (theme.current.value.dark) classes += ' vjsf-dark'
   if (indent.value) classes += ' ml-' + indent.value
-  if (props.modelValue.layout.help && !props.modelValue.options.summary) classes += ' vjsf-has-help'
+  if (showHelp.value) classes += ' vjsf-has-help'
   return classes
 })
 
@@ -84,7 +88,7 @@ if (props.modelValue.layout.comp !== 'none' && !props.modelValue.slots?.componen
       />
 
       <help-message
-        v-if="modelValue.layout.help && !modelValue.options.summary"
+        v-if="showHelp"
         :node="modelValue"
       />
       <node-slot
