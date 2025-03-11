@@ -59,7 +59,6 @@ const timePickerProps = computed(() => {
   if (localData.value) timePickerProps.modelValue = getShortTime(localData.value.slice(11))
   timePickerProps['onUpdate:modelValue'] = (/** @type {string} */value) => {
     if (!localData.value) return
-    console.log('set time', value, localData.value.slice(0, 10), localData.value.slice(15))
     props.statefulLayout.input(props.modelValue, localData.value.slice(0, 11) + value + localData.value.slice(16))
   }
   return timePickerProps
