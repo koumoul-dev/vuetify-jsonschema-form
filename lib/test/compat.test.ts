@@ -46,6 +46,17 @@ describe('schema compatibility function', () => {
     assert.ok(compileLayout(schema))
   })
 
+  it('should transform an URL expression with number indexing', () => {
+    const schema = v2compat({
+      title: 'Champ de libellé',
+      type: 'object',
+      'x-fromUrl': '{datasets.0.href}/schema',
+      'x-itemTitle': 'label',
+      'x-itemKey': 'key'
+    })
+    assert.equal(schema.layout.getItems.url.expr, '${rootData.datasets[0].href}/schema')
+  })
+
   it('should transform an actual example from data-fair processing', () => {
     const schema = v2compat({
       type: 'object',
