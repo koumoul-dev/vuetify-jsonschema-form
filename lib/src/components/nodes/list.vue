@@ -1,10 +1,10 @@
 <script setup>
 import { watch, computed, ref } from 'vue'
 import { useDefaults, useTheme } from 'vuetify'
-import { VList, VListItem, VListItemAction, VListItemTitle, VListSubheader } from 'vuetify/components/VList'
-import { VRow } from 'vuetify/components/VGrid'
+import { VList, VListItem, VListItemAction, VListItemTitle, VListItemSubtitle, VListSubheader } from 'vuetify/components/VList'
+import { VRow, VSpacer } from 'vuetify/components/VGrid'
 import { VTextField } from 'vuetify/components/VTextField'
-import { VSheet } from 'vuetify/components/VSheet'
+import { VCard } from 'vuetify/components/VCard'
 import { VDivider } from 'vuetify/components/VDivider'
 import { VIcon } from 'vuetify/components/VIcon'
 import { VBtn } from 'vuetify/components/VBtn'
@@ -17,7 +17,7 @@ import useDnd from '../../composables/use-dnd.js'
 import useCompDefaults from '../../composables/use-comp-defaults.js'
 
 useDefaults({}, 'VjsfList')
-const vSheetProps = useCompDefaults('VjsfList-VSheet', { border: true })
+const vCardProps = useCompDefaults('VjsfList-VCard', { border: true, flat: true, tile: true })
 const theme = useTheme()
 
 const props = defineProps({
@@ -83,6 +83,17 @@ const activeItem = computed(() => {
 const buttonDensity = computed(() => {
   if (options.value.density === 'default') return 'comfortable'
   return options.value.density
+})
+
+const itemTitles = computed(() => {
+  const expr = props.modelValue.layout.itemTitle
+  if (!expr) return null
+  return sortableArray.value.map((child) => props.statefulLayout.evalNodeExpression(props.modelValue, expr, child.data))
+})
+const itemSubtitles = computed(() => {
+  const expr = props.modelValue.layout.itemSubtitle
+  if (!expr) return null
+  return sortableArray.value.map((child) => props.statefulLayout.evalNodeExpression(props.modelValue, expr, child.data))
 })
 
 const pushEmptyItem = () => {
@@ -156,7 +167,10 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
 </script>
 
 <template>
-  <v-sheet v-bind="vSheetProps">
+  <v-card
+    v-bind="vCardProps"
+    :loading="modelValue.loading"
+  >
     <v-list class="py-0">
       <v-list-subheader v-if="modelValue.layout.title">
         {{ modelValue.layout.title }}
@@ -173,11 +187,23 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
           class="pa-1 vjsf-list-item"
         >
           <v-list-item-title
-            v-if="modelValue.layout.indexed"
+            v-if="itemTitles?.[childIndex]"
+            class="pl-4 pt-2"
+          >
+            {{ itemTitles?.[childIndex] }}
+          </v-list-item-title>
+          <v-list-item-title
+            v-else-if="modelValue.layout.indexed"
             class="pl-4 pt-2"
           >
             {{ child.key }}
           </v-list-item-title>
+          <v-list-item-subtitle
+            v-if="itemSubtitles?.[childIndex]"
+            class="pl-4 pt-2"
+          >
+            {{ itemSubtitles?.[childIndex] }}
+          </v-list-item-subtitle>
           <v-row class="ma-0">
             <node
               v-for="grandChild of isSection(child) ? child.children : [child]"
@@ -197,6 +223,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                   variant="text"
                   :density="buttonDensity"
                   :icon="statefulLayout.options.icons.edit"
+                  :disabled="modelValue.loading"
                 />
               </v-list-item-action>
               <v-list-item-action
@@ -208,6 +235,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                   variant="flat"
                   color="primary"
                   :density="buttonDensity"
+                  :disabled="modelValue.loading"
                   @click="statefulLayout.deactivateItem(modelValue)"
                 />
               </v-list-item-action>
@@ -220,6 +248,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                   variant="flat"
                   color="primary"
                   :density="buttonDensity"
+                  :disabled="modelValue.loading"
                   v-bind="handleBind(childIndex)"
                 />
               </v-list-item-action>
@@ -240,6 +269,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                       :icon="statefulLayout.options.icons.menu"
                       variant="plain"
                       slim
+                      :disabled="modelValue.loading"
                       :density="buttonDensity"
                     />
                   </template>
@@ -361,7 +391,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
         </template>
       </v-list-item>
     </v-list>
-  </v-sheet>
+  </v-card>
 </template>
 
 <style>

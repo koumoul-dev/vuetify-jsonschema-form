@@ -14,7 +14,7 @@ const schema = {
     filledArray: {
       'type': 'array',
       'title': 'I\'m an array filled by HTTP request',
-      'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&size=4&select=href,title&owner={context.owner.type}:{context.owner.id}',
+      'x-fromUrl': 'https://koumoul.com/data-fair/api/v1/datasets?status=finalized&size=10&select=href,title&owner={context.owner.type}:{context.owner.id}',
       'x-itemsProp': 'results',
       'x-itemTitle': 'title',
       'x-itemKey': 'href',
