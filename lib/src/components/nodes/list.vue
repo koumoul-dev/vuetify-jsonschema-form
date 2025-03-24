@@ -111,7 +111,7 @@ const pushEmptyIndexedItem = () => {
   if (!newKey.value) return
   if (!newKeyForm.value) return
   if (!newKeyForm.value.isValid) return
-  const newData = { ...(props.modelValue.data ?? {}), [newKey.value]: null }
+  const newData = { ...(props.modelValue.data ?? {}), [newKey.value]: undefined }
   props.statefulLayout.input(props.modelValue, newData)
   if (layout.value.listEditMode === 'inline-single') {
     props.statefulLayout.activateItem(props.modelValue, Object.keys(newData).length - 1)
