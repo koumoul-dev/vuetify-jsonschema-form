@@ -10,6 +10,12 @@ export default defineNuxtPlugin((nuxtApp) => {
       global: {
         density: 'comfortable',
       },
+      /*
+      VjsfTextField: {
+        VTextField: { variant: 'outlined' },
+      },
+      VTimePicker: { format: '24hr' },
+      */
     },
     theme: {
       defaultTheme: 'dark',

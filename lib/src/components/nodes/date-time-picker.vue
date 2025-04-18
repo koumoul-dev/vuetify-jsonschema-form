@@ -10,8 +10,10 @@ import { useDate, useDefaults } from 'vuetify'
 import { computed, ref, watch, toRef } from 'vue'
 import { getDateTimeParts, getDateTimeWithOffset, getShortTime } from '../../utils/dates.js'
 import useNode from '../../composables/use-node.js'
+import useCompDefaults from '../../composables/use-comp-defaults.js'
 
 useDefaults({}, 'VjsfDatePicker')
+const timePickerDefaults = useCompDefaults('VTimePicker')
 
 const props = defineProps({
   modelValue: {
@@ -54,8 +56,8 @@ const datePickerProps = computed(() => {
 })
 
 const timePickerProps = computed(() => {
-  const timePickerProps = { ...compProps.value }
-  timePickerProps['ampm-in-title'] = true
+  const timePickerProps = { ...timePickerDefaults.value, ...compProps.value }
+  if (timePickerProps.format !== '24hr') timePickerProps['ampm-in-title'] = true
   if (localData.value) timePickerProps.modelValue = getShortTime(localData.value.slice(11))
   timePickerProps['onUpdate:modelValue'] = (/** @type {string} */value) => {
     if (!localData.value) return
