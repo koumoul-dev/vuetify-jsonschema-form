@@ -2,6 +2,8 @@ const id = 'sections-expansion-panels'
 
 const title = 'Sections as expansion panels'
 
+const warning = 'The "rootDisplay" option is not supported in vjsf v3.'
+
 const description = `Use the \`x-display="expansion-panels"\` annotation to display sections as panels. You can also use the \`rootDisplay\` option to display root sections as panels regardless of the content of the schema.
 
 You can use the \`x-props\`annotation to configure the rendering of a specific set of expansion panels and the \`expansionPanelsProps\` option to configure default rendering of any set of tabs.`
@@ -33,4 +35,4 @@ const model = {}
 
 const options = { rootDisplay: 'expansion-panels' }
 
-export default { id, title, description, schema, model, options }
+export default { id, title, warning, description, schema, model, options }

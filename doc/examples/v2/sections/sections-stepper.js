@@ -2,6 +2,8 @@ const id = 'sections-stepper'
 
 const title = 'Sections as stepper'
 
+const warning = 'The "rootDisplay" option is not supported in vjsf v3.'
+
 const description = `Use the \`x-display="stepper"\` or \`x-display="vertical-stepper"\` annotation to display sections as a stepper. You can also use the \`rootDisplay\` option to display root sections as a stepper regardless of the content of the schema.
 
 You can use the \`x-props\`annotation or the \`stepperProps\` / \`verticalStepperProps\` options to configure rendering.`
@@ -59,4 +61,4 @@ const schema = {
 
 const model = {}
 
-export default { id, title, description, schema, model }
+export default { id, title, warning, description, schema, model }
