@@ -44,7 +44,7 @@ export default defineComponent({
         fieldProps.chips = true
         fieldProps.closableChips = true
       }
-      fieldProps['onUpdate:modelValue'] = (/** @type string[] */value) => props.statefulLayout.input(props.modelValue, value && value.map(Number))
+      fieldProps['onUpdate:modelValue'] = (/** @type string[] */value) => props.statefulLayout.input(props.modelValue, value && (Array.isArray(value) ? value.map(Number) : Number(value)))
       return fieldProps
     })
 
