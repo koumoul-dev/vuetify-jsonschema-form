@@ -2,9 +2,9 @@
 import TextFieldMenu from '../fragments/text-field-menu.vue'
 import { VIcon } from 'vuetify/components/VIcon'
 import { VDatePicker } from 'vuetify/components/VDatePicker'
-import { useDate, useDefaults } from 'vuetify'
-import { computed, ref, toRef } from 'vue'
-import { getDateTimeParts, getDateTimeWithOffset } from '../../utils/dates.js'
+import { useDefaults } from 'vuetify'
+import { computed, ref, toRef, watch } from 'vue'
+import { getDateTimeParts, getDateTimeWithOffset, localeKeyboardFormat } from '../../utils/dates.js'
 import useNode from '../../composables/use-node.js'
 
 useDefaults({}, 'VjsfDatePicker')
@@ -22,40 +22,57 @@ const props = defineProps({
   }
 })
 
-const vDate = useDate()
-
 const menuOpened = ref(false)
 
 const { compProps, localData } = useNode(toRef(props, 'modelValue'), props.statefulLayout)
 
+const updateValue = (/** @type {Date | null} */value) => {
+  if (!value) return
+  const isoValue = props.modelValue.layout.format === 'date-time'
+    ? getDateTimeWithOffset(value)
+    : getDateTimeParts(/** @type Date */(/** @type unknown */(value)))[0]
+  if (isoValue !== localData.value) {
+    props.statefulLayout.input(props.modelValue, isoValue)
+    menuOpened.value = false
+  }
+}
+
 const datePickerProps = computed(() => {
+  /** @type Record<String, any> */
   const datePickerProps = { ...compProps.value }
   datePickerProps.hideActions = true
   if (localData.value) datePickerProps.modelValue = new Date(/** @type {string} */(localData.value))
   datePickerProps['onUpdate:modelValue'] = (/** @type {Date} */value) => {
-    if (!value) return
-    if (props.modelValue.layout.format === 'date-time') {
-      props.statefulLayout.input(props.modelValue, getDateTimeWithOffset(value))
-    } else {
-      props.statefulLayout.input(props.modelValue, getDateTimeParts(/** @type Date */(/** @type unknown */(value)))[0])
-    }
-    menuOpened.value = false
+    updateValue(value)
   }
   return datePickerProps
 })
 
-const formattedValue = computed(() => {
-  return localData.value ? vDate.format(/** @type {string} */(localData.value), 'fullDateWithWeekday') : null
-})
+/** @type {import('vue').Ref<string | null>} */
+const formattedValue = ref('')
+const setFormattedValue = () => {
+  formattedValue.value = localData.value ? localeKeyboardFormat(props.modelValue.options.locale).format(new Date(localData.value)) : null
+}
+watch(localData, setFormattedValue, { immediate: true })
+const updateFormattedValue = () => {
+  if (formattedValue.value) {
+    const newValue = localeKeyboardFormat(props.modelValue.options.locale).parse(formattedValue.value)
+    if (!newValue) setFormattedValue()
+    else updateValue(newValue)
+  }
+}
 
 </script>
 
 <template>
   <text-field-menu
     v-model:menu-opened="menuOpened"
+    v-model:formatted-value="formattedValue"
     :model-value="props.modelValue"
     :stateful-layout="statefulLayout"
-    :formatted-value="formattedValue"
+    :readonly="false"
+    :placeholder="props.modelValue.messages.keyboardDate"
+    @blur="updateFormattedValue"
   >
     <template #prepend-inner>
       <v-icon :icon="statefulLayout.options.icons.calendar" />

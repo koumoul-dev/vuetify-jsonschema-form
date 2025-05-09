@@ -5,6 +5,9 @@ import { aliases, mdi } from 'vuetify/iconsets/mdi'
 
 export default defineNuxtPlugin((nuxtApp) => {
   const vuetify = createVuetify({
+    locale: {
+      // locale: 'fr',
+    },
     ssr: true,
     defaults: {
       global: {

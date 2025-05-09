@@ -15,12 +15,19 @@ const props = defineProps({
     type: Object,
     required: true
   },
-  formattedValue: {
+  readonly: {
+    /** @type import('vue').PropType<boolean> */
+    type: Boolean,
+    default: true
+  },
+  placeholder: {
     /** @type import('vue').PropType<string | null> */
     type: String,
     default: null
   }
 })
+
+const emits = defineEmits(['blur'])
 
 const { inputProps, skeleton, compProps, data } = useField(
   toRef(props, 'modelValue'), props.statefulLayout, { isMainComp: false, bindData: false }
@@ -28,11 +35,12 @@ const { inputProps, skeleton, compProps, data } = useField(
 
 const fieldProps = computed(() => {
   const fieldProps = { ...inputProps.value }
-  fieldProps.readonly = true
   fieldProps.clearable = fieldProps.clearable ?? !skeleton.value.required
+  if (props.placeholder) fieldProps.placeholder = props.placeholder
   fieldProps['onClick:clear'] = () => {
     props.statefulLayout.input(props.modelValue, null)
   }
+  fieldProps.readonly = props.readonly
   return fieldProps
 })
 
@@ -47,6 +55,7 @@ const menuProps = computed(() => {
 
 const textField = ref(null)
 const menuOpened = defineModel('menuOpened', { type: Boolean, default: false })
+const formattedValue = defineModel('formattedValue', { type: String, default: null })
 
 </script>
 
@@ -56,6 +65,8 @@ const menuOpened = defineModel('menuOpened', { type: Boolean, default: false })
     v-bind="fieldProps"
     :model-value="formattedValue ?? data"
     @click:control="e => {menuOpened = !menuOpened; e.stopPropagation()}"
+    @update:model-value="v => formattedValue = v"
+    @blur="emits('blur')"
   >
     <template #prepend-inner>
       <slot name="prepend-inner" />
