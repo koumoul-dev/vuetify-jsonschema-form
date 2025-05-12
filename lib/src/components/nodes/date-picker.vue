@@ -4,8 +4,11 @@ import { VIcon } from 'vuetify/components/VIcon'
 import { VDatePicker } from 'vuetify/components/VDatePicker'
 import { useDefaults } from 'vuetify'
 import { computed, ref, toRef, watch } from 'vue'
+import Debug from 'debug'
 import { getDateTimeParts, getDateTimeWithOffset, localeKeyboardFormat } from '../../utils/dates.js'
 import useNode from '../../composables/use-node.js'
+
+const debug = Debug('vjsf:date-picker')
 
 useDefaults({}, 'VjsfDatePicker')
 
@@ -28,10 +31,12 @@ const { compProps, localData } = useNode(toRef(props, 'modelValue'), props.state
 
 const updateValue = (/** @type {Date | null} */value) => {
   if (!value) return
+
   const isoValue = props.modelValue.layout.format === 'date-time'
     ? getDateTimeWithOffset(value)
     : getDateTimeParts(/** @type Date */(/** @type unknown */(value)))[0]
   if (isoValue !== localData.value) {
+    debug(`apply normalized iso value ${value.toLocaleString()} -> ${isoValue}`)
     props.statefulLayout.input(props.modelValue, isoValue)
     menuOpened.value = false
   }
@@ -57,6 +62,7 @@ watch(localData, setFormattedValue, { immediate: true })
 const updateFormattedValue = () => {
   if (formattedValue.value) {
     const newValue = localeKeyboardFormat(props.modelValue.options.locale).parse(formattedValue.value)
+    debug(`parsed user input as date ${formattedValue.value} -> ${newValue?.toLocaleString()}`)
     if (!newValue) setFormattedValue()
     else updateValue(newValue)
   }
