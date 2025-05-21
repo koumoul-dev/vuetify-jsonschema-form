@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue'
-import { isSection } from '@json-layout/core'
+import { isSection } from '@json-layout/core/state'
 
 const { modelValue } = defineProps({
   modelValue: {

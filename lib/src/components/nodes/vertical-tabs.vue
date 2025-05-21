@@ -1,5 +1,5 @@
 <script setup>
-import { isSection } from '@json-layout/core'
+import { isSection } from '@json-layout/core/state'
 import { VTabs, VTab } from 'vuetify/components/VTabs'
 import { VContainer, VRow } from 'vuetify/components/VGrid'
 import { VIcon } from 'vuetify/components/VIcon'

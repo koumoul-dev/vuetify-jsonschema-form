@@ -76,7 +76,8 @@
 
 <script setup>
 import { VContainer, VAlert } from 'vuetify/components'
-import { standardComponents, normalizedLayoutSchema } from '@json-layout/vocabulary'
+import { standardComponents } from '@json-layout/vocabulary'
+import { normalizedLayoutSchema } from '@json-layout/vocabulary/normalize'
 import markdown from '@koumoul/vjsf-markdown'
 // import pack from '../../package.json'
 

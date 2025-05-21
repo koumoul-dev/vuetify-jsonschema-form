@@ -2,7 +2,7 @@
 import { VRow, VCol } from 'vuetify/components/VGrid'
 import { VSelect } from 'vuetify/components/VSelect'
 import { ref, watch, computed, toRef } from 'vue'
-import { isSection } from '@json-layout/core'
+import { isSection } from '@json-layout/core/state'
 import { isCompObject } from '@json-layout/vocabulary'
 import useNode from '../../composables/use-node.js'
 import Node from '../node.vue'

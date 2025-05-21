@@ -4,7 +4,7 @@ import { VStepper, VStepperHeader, VStepperItem, VStepperWindow, VStepperWindowI
 import { VContainer, VRow, VSpacer } from 'vuetify/components/VGrid'
 import { VBtn } from 'vuetify/components/VBtn'
 import { VDivider } from 'vuetify/components/VDivider'
-import { isSection } from '@json-layout/core'
+import { isSection } from '@json-layout/core/state'
 import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'
 import ChildSubtitle from '../fragments/child-subtitle.vue'

@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 
-import { compile } from '@json-layout/core'
+import { compile, produceCompileOptions } from '@json-layout/core/compile'
 import Tree from './tree.vue'
 import { useVjsf, emits } from '../composables/use-vjsf.js'
 import '../styles/vjsf.css'
@@ -93,6 +93,7 @@ const { el, statefulLayout, stateTree } = useVjsf(
   nodeComponents,
   emit,
   compile,
+  produceCompileOptions,
   computed(() => props.precompiledLayout)
 )
 
