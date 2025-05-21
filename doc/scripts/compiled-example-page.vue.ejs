@@ -2,6 +2,8 @@
 import { VContainer, VBtn } from 'vuetify/components'
 
 const exampleObject = <%- JSON.stringify(example) %>
+
+useHead({ title: exampleObject.title, meta: [{ 'http-equiv': 'Content-Security-Policy', 'content': 'default-src \'self\'; img-src \'self\' data:' }] })
 </script>
 
 <template>
