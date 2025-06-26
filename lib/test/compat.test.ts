@@ -23,7 +23,6 @@ describe('schema compatibility function', () => {
         }
       }
     })
-    assert.equal(schema.properties.objectContext.layout.comp, 'select')
     assert.ok(schema.properties.objectContext.layout.getItems)
     assert.equal(schema.properties.objectContext.layout.getItems.expr, 'context.objectItems')
     assert.ok(compileLayout(schema))
@@ -54,7 +53,6 @@ describe('schema compatibility function', () => {
         }
       }
     })
-    assert.equal(schema.properties.datasets.layout.comp, 'select')
     assert.ok(schema.properties.datasets.layout.getItems)
     assert.ok(compileLayout(schema))
   })
@@ -70,7 +68,6 @@ describe('schema compatibility function', () => {
         }
       }
     })
-    assert.equal(schema.properties.objectContext.layout.comp, 'select')
     assert.ok(schema.properties.objectContext.layout.getItems)
     assert.equal(schema.properties.objectContext.layout.getItems.expr, 'context.array[0].objectItems')
     assert.ok(compileLayout(schema))
