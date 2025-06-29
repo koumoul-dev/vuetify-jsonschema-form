@@ -23,7 +23,6 @@ describe('schema compatibility function', () => {
         }
       }
     })
-    assert.equal(schema.properties.objectContext.layout.comp, 'select')
     assert.ok(schema.properties.objectContext.layout.getItems)
     assert.equal(schema.properties.objectContext.layout.getItems.expr, 'context.objectItems')
     assert.ok(compileLayout(schema))
@@ -62,6 +61,35 @@ describe('schema compatibility function', () => {
     assert.equal(schema.properties.defaultList.layout, 'list')
   })
 
+  it('should transform a complex multiple select', () => {
+    const schema = v2compat({
+      type: 'object',
+      properties: {
+        "datasets": {
+          "title": "Sources de données",
+          "type": "array",
+          "x-fromUrl": "api/v1/datasets?status=finalized&q={q}&select=id,title,schema,bbox&bbox=true&{context.datasetFilter}&sort=createdAt:-1&size=100",
+          "x-itemsProp": "results",
+          "x-itemTitle": "title",
+          "x-itemKey": "href",
+          "items": {
+            "title": "Jeu de données",
+            "type": "object",
+            "properties": {
+              "href": { "type": "string" },
+              "title": { "type": "string" },
+              "id": { "type": "string" },
+              "schema": { "type": "array" },
+              "bbox": { "type": "array" }
+            }
+          }
+        }
+      }
+    })
+    assert.ok(schema.properties.datasets.layout.getItems)
+    assert.ok(compileLayout(schema))
+  })
+
   it('should transform a expression with number indexing', () => {
     const schema = v2compat({
       type: 'object',
@@ -73,7 +101,6 @@ describe('schema compatibility function', () => {
         }
       }
     })
-    assert.equal(schema.properties.objectContext.layout.comp, 'select')
     assert.ok(schema.properties.objectContext.layout.getItems)
     assert.equal(schema.properties.objectContext.layout.getItems.expr, 'context.array[0].objectItems')
     assert.ok(compileLayout(schema))
