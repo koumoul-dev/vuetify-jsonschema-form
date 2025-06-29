@@ -28,6 +28,39 @@ describe('schema compatibility function', () => {
     assert.ok(compileLayout(schema))
   })
 
+  it('should transform array with x-display to custom layout component', () => {
+    const inputSchema = {
+      type: 'object',
+      properties: {
+        customComponent: {
+          type: 'array',
+          'x-display': 'custom-component',
+          items: {
+            type: 'object',
+            properties: {
+              column_1: { type: 'string', title: 'Column 1' },
+              column_2: { type: 'array', title: 'Column 2' },
+            }
+          }
+        },
+        defaultList: {
+          type: 'array',
+          items: {
+            type: 'object',
+            properties: {
+              column_1: { type: 'string', title: 'Column 1' },
+              column_2: { type: 'array', title: 'Column 2' },
+            }
+          }
+        },
+      }
+    }
+
+    const schema = v2compat(inputSchema)
+    assert.equal(schema.properties.customComponent.layout, 'custom-component')
+    assert.equal(schema.properties.defaultList.layout, 'list')
+  })
+
   it('should transform a complex multiple select', () => {
     const schema = v2compat({
       type: 'object',
