@@ -23,7 +23,7 @@
     }
   },
   "dependencies": {
-    "@json-layout/core": "~1.10.10",
+    "@json-layout/core": "~1.10.11",
     "@json-layout/vocabulary": "~2.3.0",
     "debug": "^4.3.4",
     "ejs": "^3.1.9"
