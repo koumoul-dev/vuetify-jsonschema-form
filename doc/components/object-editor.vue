@@ -48,6 +48,7 @@
 import { ref, watch } from 'vue'
 import { VSheet, VBtn, VBtnGroup, VIcon } from 'vuetify/components'
 import yaml from 'yaml'
+import JSON5 from 'json5'
 import Prism, { PrismEditor } from '../assets/prism.js'
 
 Prism.manual = true
@@ -79,7 +80,7 @@ const code = ref('{}')
  */
 const parse = (code, lang) => {
   lang = lang ?? language.value
-  return lang === 'yaml' ? yaml.parse(code) : JSON.parse(code)
+  return lang === 'yaml' ? yaml.parse(code) : JSON5.parse(code)
 }
 /**
  * @param {object} value
