@@ -29,7 +29,8 @@ export default defineComponent({
     const fullProps = computed(() => {
       const fullProps = { ...inputProps.value }
       fullProps.modelValue = localData.value
-      console.log('FULL PROPS', fullProps)
+      if (fullProps.precision === undefined) fullProps.precision = null
+
       return fullProps
     })
 
