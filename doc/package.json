@@ -30,7 +30,7 @@
     "prismjs": "^1.29.0",
     "vite-plugin-vuetify": "^2.0.4",
     "vue-prism-editor": "^2.0.0-alpha.2",
-    "vuetify": "^3.8.4",
+    "vuetify": "^3.8.12",
     "yaml": "^2.3.3"
   },
   "author": "Alban Mouton <alban.mouton@gmail.com>",

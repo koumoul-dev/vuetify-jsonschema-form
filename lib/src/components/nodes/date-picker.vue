@@ -7,10 +7,12 @@ import { computed, ref, toRef, watch } from 'vue'
 import Debug from 'debug'
 import { getDateTimeParts, getDateTimeWithOffset, localeKeyboardFormat } from '../../utils/dates.js'
 import useNode from '../../composables/use-node.js'
+import useCompDefaults from '../../composables/use-comp-defaults.js'
 
 const debug = Debug('vjsf:date-picker')
 
 useDefaults({}, 'VjsfDatePicker')
+const datePickerDefaults = useCompDefaults('VDatePicker', { hideHeader: true })
 
 const props = defineProps({
   modelValue: {
@@ -44,7 +46,7 @@ const updateValue = (/** @type {Date | null} */value) => {
 
 const datePickerProps = computed(() => {
   /** @type Record<String, any> */
-  const datePickerProps = { ...compProps.value }
+  const datePickerProps = { ...datePickerDefaults.value, ...compProps.value }
   datePickerProps.hideActions = true
   if (localData.value) datePickerProps.modelValue = new Date(/** @type {string} */(localData.value))
   datePickerProps['onUpdate:modelValue'] = (/** @type {Date} */value) => {

@@ -1,8 +1,9 @@
 <script setup>
 import TextFieldMenu from '../fragments/text-field-menu.vue'
-import { VTimePicker } from 'vuetify/labs/VTimePicker'
+import { VTimePicker } from 'vuetify/components/VTimePicker'
 import { VIcon } from 'vuetify/components/VIcon'
 import { VDefaultsProvider } from 'vuetify/components/VDefaultsProvider'
+import { VSheet } from 'vuetify/components/VSheet'
 import { useDate, useDefaults } from 'vuetify'
 import { computed, toRef } from 'vue'
 import { getShortTime, getLongTime } from '../../utils/dates.js'
@@ -10,7 +11,7 @@ import useNode from '../../composables/use-node.js'
 import useCompDefaults from '../../composables/use-comp-defaults.js'
 
 useDefaults({}, 'VjsfTimePicker')
-const timePickerDefaults = useCompDefaults('VTimePicker')
+const timePickerDefaults = useCompDefaults('VTimePicker', { title: '' })
 
 const props = defineProps({
   modelValue: {
@@ -46,11 +47,13 @@ const timePickerProps = computed(() => {
     <template #prepend-inner>
       <v-icon :icon="statefulLayout.options.icons.clock" />
     </template>
-    <v-defaults-provider :defaults="{global: { density: 'default' }}">
-      <v-time-picker
-        v-bind="timePickerProps"
-        @update:model-value="value => {statefulLayout.input(props.modelValue, value && getLongTime(value))}"
-      />
-    </v-defaults-provider>
+    <v-sheet style="width: 328px">
+      <v-defaults-provider :defaults="{global: { density: 'default' }}">
+        <v-time-picker
+          v-bind="timePickerProps"
+          @update:model-value="value => {statefulLayout.input(props.modelValue, value && getLongTime(value))}"
+        />
+      </v-defaults-provider>
+    </v-sheet>
   </text-field-menu>
 </template>

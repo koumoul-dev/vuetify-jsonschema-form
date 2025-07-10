@@ -1,6 +1,6 @@
 <script>
-import { defineComponent, h, computed, toRef } from 'vue'
-import { VTextField } from 'vuetify/components/VTextField'
+import { defineComponent, h, computed, toRef, watch } from 'vue'
+import { VNumberInput } from 'vuetify/components/VNumberInput'
 import useNode from '../../composables/use-node.js'
 import { useDefaults } from 'vuetify'
 
@@ -21,18 +21,19 @@ export default defineComponent({
     useDefaults({}, 'VjsfNumberField')
 
     const { inputProps, localData, compSlots } = useNode(
-      toRef(props, 'modelValue'), props.statefulLayout, { layoutPropsMap: ['step', 'min', 'max', 'placeholder'], bindData: false }
+      toRef(props, 'modelValue'), props.statefulLayout, { layoutPropsMap: ['step', 'min', 'max', 'precision', 'placeholder'] }
     )
+
+    watch(localData, () => console.log('data', localData))
 
     const fullProps = computed(() => {
       const fullProps = { ...inputProps.value }
-      fullProps.type = 'number'
-      fullProps['onUpdate:modelValue'] = (/** @type string */value) => props.statefulLayout.input(props.modelValue, value ? Number(value) : undefined)
       fullProps.modelValue = localData.value
+      console.log('FULL PROPS', fullProps)
       return fullProps
     })
 
-    return () => h(VTextField, fullProps.value, compSlots.value)
+    return () => h(VNumberInput, fullProps.value, compSlots.value)
   }
 })
 

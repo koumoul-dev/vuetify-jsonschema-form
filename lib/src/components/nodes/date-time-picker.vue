@@ -1,7 +1,7 @@
 <script setup>
 import TextFieldMenu from '../fragments/text-field-menu.vue'
 import { VDatePicker } from 'vuetify/components/VDatePicker'
-import { VTimePicker } from 'vuetify/labs/VTimePicker'
+import { VTimePicker } from 'vuetify/components/VTimePicker'
 import { VDefaultsProvider } from 'vuetify/components/VDefaultsProvider'
 import { VTabs, VTab, VTabsWindow, VTabsWindowItem } from 'vuetify/components/VTabs'
 import { VIcon } from 'vuetify/components/VIcon'
@@ -13,7 +13,8 @@ import useNode from '../../composables/use-node.js'
 import useCompDefaults from '../../composables/use-comp-defaults.js'
 
 useDefaults({}, 'VjsfDatePicker')
-const timePickerDefaults = useCompDefaults('VTimePicker')
+const datePickerDefaults = useCompDefaults('VDatePicker', { hideHeader: true })
+const timePickerDefaults = useCompDefaults('VTimePicker', { title: '' })
 
 const props = defineProps({
   modelValue: {
@@ -37,7 +38,7 @@ watch(menuOpened, () => { tab.value = 'date' })
 const { compProps, localData } = useNode(toRef(props, 'modelValue'), props.statefulLayout)
 
 const datePickerProps = computed(() => {
-  const datePickerProps = { ...compProps.value }
+  const datePickerProps = { ...datePickerDefaults.value, ...compProps.value }
   datePickerProps.hideActions = true
   if (localData.value) datePickerProps.modelValue = new Date(localData.value)
   datePickerProps['onUpdate:modelValue'] = (/** @type {Date} */value) => {
