@@ -1,0 +1,1 @@
+import{a9 as s,o as t,N as e,as as n}from"./C6oot-ao.js";function i(){const o=s(!1);return t(()=>{window.requestAnimationFrame(()=>{o.value=!0})}),{ssrBootStyles:e(()=>o.value?void 0:{transition:"none !important"}),isBooted:n(o)}}export{i as u};
