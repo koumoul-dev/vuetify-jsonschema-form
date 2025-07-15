@@ -1,1 +1,0 @@
-import{D as r,v as o,A as t,z as s,E as a,Q as p}from"./C6oot-ao.js";import{V as l,a as n}from"./BO21tXAP.js";import"./D7Dj7Sqs.js";import"./AdTaxDaw.js";import"./CUDRSwm5.js";import"./BRI2uptm.js";const h={__name:"void",setup(i){return(e,m)=>(o(),r(a(n),null,{default:t(()=>[s(a(l),null,{default:t(()=>[p(e.$slots,"default")]),_:3})]),_:3}))}};export{h as default};
