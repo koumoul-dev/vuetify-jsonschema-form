@@ -1,5 +1,5 @@
 <script>
-import { defineComponent, h, computed, toRef, watch } from 'vue'
+import { defineComponent, h, computed, toRef } from 'vue'
 import { VNumberInput } from 'vuetify/components/VNumberInput'
 import useNode from '../../composables/use-node.js'
 import { useDefaults } from 'vuetify'
@@ -23,8 +23,6 @@ export default defineComponent({
     const { inputProps, localData, compSlots } = useNode(
       toRef(props, 'modelValue'), props.statefulLayout, { layoutPropsMap: ['step', 'min', 'max', 'precision', 'placeholder'] }
     )
-
-    watch(localData, () => console.log('data', localData))
 
     const fullProps = computed(() => {
       const fullProps = { ...inputProps.value }
