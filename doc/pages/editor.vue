@@ -87,45 +87,52 @@
           rounded
           border="sm"
         >
-          <v-theme-provider
-            :theme="theme"
-            with-background
-          >
-            <v-form
-              v-if="vjsfParams"
-              ref="form"
-              v-model="valid"
-              class="mx-3 mt-3"
+          <NuxtErrorBoundary>
+            <template #error="{ error }">
+              <v-alert type="error">
+                {{ error }}
+              </v-alert>
+            </template>
+            <v-theme-provider
+              :theme="theme"
+              with-background
             >
-              <vjsf
-                v-model="data"
-                v-bind="vjsfParams"
+              <v-form
+                v-if="vjsfParams"
+                ref="form"
+                v-model="valid"
+                class="mx-3 mt-3"
               >
-                <template #custom-textarea="{ node, statefulLayout }">
-                  <textarea
-                    :value="node.data"
-                    style="border: 1px solid red;"
-                    placeholder="A custom textarea"
-                    @input="event => statefulLayout.input(node, event.target.value)"
-                  />
-                </template>
-                <template #custom-message="{ node, prop1 }">
-                  This message is defined in a slot (key={{ node.key }}, data={{ node.data }}, additional prop={{ prop1 }})
-                </template>
-              </vjsf>
-              <v-row class="ma-0">
-                <v-spacer />
-                <v-btn
-                  :color="validateColor"
-                  flat
-                  class="my-2"
-                  @click="form?.validate()"
+                <vjsf
+                  v-model="data"
+                  v-bind="vjsfParams"
                 >
-                  Validate
-                </v-btn>
-              </v-row>
-            </v-form>
-          </v-theme-provider>
+                  <template #custom-textarea="{ node, statefulLayout }">
+                    <textarea
+                      :value="node.data"
+                      style="border: 1px solid red;"
+                      placeholder="A custom textarea"
+                      @input="event => statefulLayout.input(node, event.target.value)"
+                    />
+                  </template>
+                  <template #custom-message="{ node, prop1 }">
+                    This message is defined in a slot (key={{ node.key }}, data={{ node.data }}, additional prop={{ prop1 }})
+                  </template>
+                </vjsf>
+                <v-row class="ma-0">
+                  <v-spacer />
+                  <v-btn
+                    :color="validateColor"
+                    flat
+                    class="my-2"
+                    @click="form?.validate()"
+                  >
+                    Validate
+                  </v-btn>
+                </v-row>
+              </v-form>
+            </v-theme-provider>
+          </NuxtErrorBoundary>
         </v-sheet>
       </v-col>
     </v-row>

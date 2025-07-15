@@ -148,7 +148,8 @@ const preparedDelete = ref(false)
  * @param {number} childIndex
  */
 const duplicateItem = (child, childIndex) => {
-  const newData = [...props.modelValue.data.slice(0, childIndex), clone(child.data), ...props.modelValue.data.slice(childIndex)]
+  const newItem = props.modelValue.layout.itemCopy ? props.statefulLayout.evalNodeExpression(props.modelValue, props.modelValue.layout.itemCopy, clone(child.data)) : clone(child.data)
+  const newData = [...props.modelValue.data.slice(0, childIndex + 1), newItem, ...props.modelValue.data.slice(childIndex + 1)]
   props.statefulLayout.input(props.modelValue, newData)
   if (layout.value.listEditMode === 'inline-single') {
     props.statefulLayout.activateItem(props.modelValue, childIndex + 1)
