@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@json-layout/core": "~1.12.1",
-    "@json-layout/vocabulary": "~2.5.0",
+    "@json-layout/vocabulary": "~2.6.0",
     "debug": "^4.3.4",
     "ejs": "^3.1.9"
   },
