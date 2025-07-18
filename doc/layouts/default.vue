@@ -168,7 +168,7 @@ const display = useDisplay()
 
 onMounted(() => {
   const storedTheme = window.localStorage.getItem('theme')
-  if (storedTheme) theme.global.name.value = storedTheme
+  if (storedTheme) theme.change(storedTheme)
 })
 
 const drawer = ref(false)

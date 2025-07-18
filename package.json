@@ -23,7 +23,7 @@
   "homepage": "https://github.com/koumoul-dev/vuetify-jsonschema-form#readme",
   "devDependencies": {
     "@commitlint/config-conventional": "^17.7.0",
-    "@json-layout/core": "~1.12.4",
+    "@json-layout/core": "~1.12.5",
     "@json-layout/examples": "*",
     "@json-layout/vocabulary": "~2.6.0",
     "@koumoul/gh-pages-multi": "^0.7.2",
@@ -43,7 +43,7 @@
     "plugins/markdown",
     "plugins/img-cropper"
   ],
-  "relativeDependenciesSKIP": {
+  "relativeDependencies": {
     "@json-layout/examples": "../json-layout/examples/",
     "@json-layout/core": "../json-layout/core/",
     "@json-layout/vocabulary": "../json-layout/vocabulary/"
