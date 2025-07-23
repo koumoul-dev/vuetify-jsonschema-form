@@ -28,12 +28,12 @@ const props = defineProps({
   minWidth: {
     /** @type import('vue').PropType<string> */
     type: String,
-    default: '326px',
+    default: '328px',
   },
   maxWidth: {
     /** @type import('vue').PropType<string> */
     type: String,
-    default: '326px',
+    default: '328px',
   },
 })
 
