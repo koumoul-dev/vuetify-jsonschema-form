@@ -27,11 +27,19 @@ const colorPickerProps = computed(() => {
   colorPickerProps.modelValue = localData.value
   return colorPickerProps
 })
+
+const menuProps = computed(() => {
+  return {
+    minWidth: '300px',
+    maxWidth: '300px',
+  }
+})
 </script>
 
 <template>
   <text-field-menu
     :model-value="modelValue"
+    v-bind="menuProps"
     :stateful-layout="statefulLayout"
     :formatted-value="modelValue.data"
   >

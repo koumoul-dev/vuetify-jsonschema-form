@@ -47,7 +47,7 @@ const timePickerProps = computed(() => {
     <template #prepend-inner>
       <v-icon :icon="statefulLayout.options.icons.clock" />
     </template>
-    <v-sheet style="width: 328px">
+    <v-sheet>
       <v-defaults-provider :defaults="{global: { density: 'default' }}">
         <v-time-picker
           v-bind="timePickerProps"

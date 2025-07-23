@@ -78,7 +78,7 @@ const timePickerProps = computed(() => {
     <template #prepend-inner>
       <v-icon :icon="statefulLayout.options.icons.calendar" />
     </template>
-    <v-sheet style="width: 328px">
+    <v-sheet>
       <v-tabs
         v-model="tab"
         align-tabs="center"
