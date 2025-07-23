@@ -24,7 +24,17 @@ const props = defineProps({
     /** @type import('vue').PropType<string | null> */
     type: String,
     default: null
-  }
+  },
+  minWidth: {
+    /** @type import('vue').PropType<string> */
+    type: String,
+    default: '326px',
+  },
+  maxWidth: {
+    /** @type import('vue').PropType<string> */
+    type: String,
+    default: '326px',
+  },
 })
 
 const emits = defineEmits(['blur'])
@@ -47,6 +57,8 @@ const fieldProps = computed(() => {
 const menuProps = computed(() => {
   return {
     ...compProps.value,
+    minWidth: props.minWidth,
+    maxWidth: props.maxWidth,
     zIndex: 3000, // vuetify zIndex stacking is buggy (for example https://github.com/vuetifyjs/vuetify/issues/16251)
     closeOnContentClick: false,
     disabled: true
