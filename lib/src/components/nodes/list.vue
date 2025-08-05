@@ -16,6 +16,7 @@ import Node from '../node.vue'
 import { moveDataItem } from '../../utils/arrays.js'
 import useDnd from '../../composables/use-dnd.js'
 import useCompDefaults from '../../composables/use-comp-defaults.js'
+import useClipboard from '../../composables/use-clipboard.js'
 
 useDefaults({}, 'VjsfList')
 const vCardProps = useCompDefaults('VjsfList-VCard', { border: true, flat: true, tile: true })
@@ -155,6 +156,30 @@ const duplicateItem = (child, childIndex) => {
     props.statefulLayout.activateItem(props.modelValue, childIndex + 1)
   }
   menuOpened.value = -1
+}
+
+const clipboard = useClipboard(() => props.modelValue.layout.clipboardKey ?? props.modelValue.fullKey)
+
+/**
+ * @param {import('@json-layout/core').StateNode} child
+ */
+const copyItem = (child) => {
+  clipboard.value = child.data
+  menuOpened.value = -1
+}
+
+/**
+ * @param {import('@json-layout/core').StateNode} child
+ */
+const pasteItem = (child) => {
+  const copiedItem = clipboard.value
+  if (copiedItem === null) throw new Error('attempt to paste but clipboard is empty')
+  const newItem = props.modelValue.layout.itemCopy ? props.statefulLayout.evalNodeExpression(props.modelValue, props.modelValue.layout.itemCopy, clone(copiedItem)) : clone(copiedItem)
+  const newData = [...(props.modelValue.data ?? []), newItem]
+  props.statefulLayout.input(props.modelValue, newData)
+  if (layout.value.listEditMode === 'inline-single') {
+    props.statefulLayout.activateItem(props.modelValue, newData.length - 1)
+  }
 }
 
 const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').StateNode} */child, /** @type {number} */childIndex) => {
@@ -297,6 +322,15 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                       {{ modelValue.messages.duplicate }}
                     </v-list-item>
                     <v-list-item
+                      v-if="modelValue.layout.listActions.includes('copy')"
+                      @click="copyItem(child)"
+                    >
+                      <template #prepend>
+                        <v-icon :icon="statefulLayout.options.icons.copy" />
+                      </template>
+                      {{ modelValue.messages.copy }}
+                    </v-list-item>
+                    <v-list-item
                       v-if="modelValue.layout.listActions.includes('sort') && activeDnd"
                       :disabled="modelValue.data.length === 1"
                       @click="prepareDrag(childIndex)"
@@ -355,11 +389,12 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
         <v-divider v-if="childIndex < modelValue.children.length - 1" />
       </template>
       <v-list-item
-        v-if="!modelValue.options.readOnly && modelValue.layout.listActions.includes('add')"
+        v-if="!modelValue.options.readOnly && (modelValue.layout.listActions.includes('add') || modelValue.layout.listActions.includes('paste'))"
         class="py-2"
       >
         <template v-if="modelValue.layout.indexed">
           <v-form
+            v-if="modelValue.layout.listActions.includes('add')"
             ref="newKeyForm"
             style="max-width: 250px;"
             @submit.prevent
@@ -385,10 +420,21 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
         </template>
         <template v-else>
           <v-btn
+            v-if="modelValue.layout.listActions.includes('add')"
             color="primary"
+            :prepend-icon="statefulLayout.options.icons.add"
+            class="mr-2"
             @click="pushEmptyItem"
           >
             {{ modelValue.messages.addItem }}
+          </v-btn>
+          <v-btn
+            v-if="modelValue.layout.listActions.includes('paste') && clipboard !== null"
+            color="primary"
+            :prepend-icon="statefulLayout.options.icons.paste"
+            @click="pasteItem"
+          >
+            {{ modelValue.messages.paste }}
           </v-btn>
         </template>
       </v-list-item>
