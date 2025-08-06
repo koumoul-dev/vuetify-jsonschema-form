@@ -51,6 +51,7 @@ const refsStrings = [
   ['$ref: "#/$defs/state-node-props-lib"', 'Vuetify props'],
   ['$ref: "#/$defs/state-node-slots-lib"', 'Vuetify slots'],
   ['$ref: "#/$defs/slot"', 'Slot'],
+  ['$ref: "#/$defs/composite-slot"', 'Composite slot'],
   ['$ref: "#/$defs/children"', 'Children'],
   ['$ref: "#/$defs/child-ref"', 'Child reference'],
   ['$ref: "#/$defs/child-composite"', 'Child info'],

@@ -98,6 +98,13 @@ if (props.modelValue.layout.comp !== 'none' && !props.modelValue.slots?.componen
         :node="modelValue"
         :stateful-layout="statefulLayout"
       />
+      <node-slot
+        v-else-if="modelValue.slots?.compositeComponent"
+        key="compositeComponent"
+        :layout-slot="modelValue.slots?.compositeComponent"
+        :node="modelValue"
+        :stateful-layout="statefulLayout"
+      />
       <component
         :is="props.statefulLayout.options.nodeComponents[modelValue.layout.comp]"
         v-else
