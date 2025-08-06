@@ -57,6 +57,8 @@ export async function compile (schema, options = {}, baseImport = '@koumoul/vjsf
     listComps(comps, layout)
   }
   comps.delete('none')
+  comps.delete('slot')
+  comps.delete('composite-slot')
 
   /** @type {Record<string, any>} */
   const pluginsComponents = {}
