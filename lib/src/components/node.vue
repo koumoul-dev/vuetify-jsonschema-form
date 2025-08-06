@@ -65,7 +65,7 @@ const nodeClasses = computed(() => {
   return classes
 })
 
-if (props.modelValue.layout.comp !== 'none' && !props.modelValue.slots?.component && !props.statefulLayout.options.nodeComponents[props.modelValue.layout.comp]) {
+if (props.modelValue.layout.comp !== 'none' && !props.modelValue.slots?.component && !props.modelValue.slots?.compositeComponent && !props.statefulLayout.options.nodeComponents[props.modelValue.layout.comp]) {
   console.error(`vjsf: missing component to render vjsf node "${props.modelValue.layout.comp}", maybe you forgot to register a component from a plugin ?`)
 }
 
