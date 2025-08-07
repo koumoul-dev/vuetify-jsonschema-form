@@ -3,6 +3,7 @@ import { VMenu } from 'vuetify/components/VMenu'
 import { VTextField } from 'vuetify/components/VTextField'
 import { computed, ref, toRef } from 'vue'
 import useField from '../../composables/use-node.js'
+import useZIndexStack from '../../composables/use-z-index-stack.js'
 
 const props = defineProps({
   modelValue: {
@@ -54,12 +55,14 @@ const fieldProps = computed(() => {
   return fieldProps
 })
 
+const zIndex = useZIndexStack(() => props.modelValue.fullKey)
+
 const menuProps = computed(() => {
   return {
     ...compProps.value,
     minWidth: props.minWidth,
     maxWidth: props.maxWidth,
-    zIndex: 3000, // vuetify zIndex stacking is buggy (for example https://github.com/vuetifyjs/vuetify/issues/16251)
+    zIndex: zIndex.value,
     closeOnContentClick: false,
     disabled: true
   }

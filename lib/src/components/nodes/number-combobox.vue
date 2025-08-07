@@ -3,6 +3,7 @@ import { defineComponent, h, computed, toRef } from 'vue'
 import { VCombobox } from 'vuetify/components/VCombobox'
 import useNode from '../../composables/use-node.js'
 import useGetItems from '../../composables/use-get-items.js'
+import useZIndexStack from '../../composables/use-z-index-stack.js'
 import { useDefaults } from 'vuetify'
 
 export default defineComponent({
@@ -24,6 +25,7 @@ export default defineComponent({
     const nodeRef = toRef(props, 'modelValue')
     const getItems = useGetItems(nodeRef, props.statefulLayout)
     const { inputProps, compSlots, localData, layout, options } = useNode(nodeRef, props.statefulLayout, { bindData: false, layoutPropsMap: ['step', 'min', 'max'] })
+    const zIndex = useZIndexStack(() => props.modelValue.fullKey)
 
     const fieldProps = computed(() => {
       const fieldProps = { ...inputProps.value }
@@ -32,8 +34,7 @@ export default defineComponent({
       if (options.value.readOnly) {
         fieldProps.menuProps = { modelValue: false }
       } else {
-        // vuetify zIndex stacking is buggy (for example https://github.com/vuetifyjs/vuetify/issues/16251)
-        fieldProps.menuProps = { zIndex: 3000 }
+        fieldProps.menuProps = { zIndex: zIndex.value }
       }
       if (getItems.hasItems.value) {
         fieldProps.items = getItems.items.value

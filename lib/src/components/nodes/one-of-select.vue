@@ -5,6 +5,7 @@ import { ref, watch, computed, toRef } from 'vue'
 import { isSection } from '@json-layout/core/state'
 import { isCompObject } from '@json-layout/vocabulary'
 import useNode from '../../composables/use-node.js'
+import useZIndexStack from '../../composables/use-z-index-stack.js'
 import Node from '../node.vue'
 import { useDefaults } from 'vuetify'
 
@@ -26,6 +27,7 @@ const props = defineProps({
 const { inputProps, localData, skeleton, children } = useNode(
   toRef(props, 'modelValue'), props.statefulLayout, { bindData: false }
 )
+const zIndex = useZIndexStack(() => props.modelValue.fullKey)
 
 /** @type import('vue').Ref<string | undefined> */
 const activeChildTree = ref(undefined)
@@ -48,8 +50,7 @@ const fieldProps = computed(() => {
   const fieldProps = { ...inputProps.value }
   fieldProps['onUpdate:modelValue'] = onChange
   if (!props.modelValue.options.readOnly) {
-    // vuetify zIndex stacking is buggy (for example https://github.com/vuetifyjs/vuetify/issues/16251)
-    fieldProps.menuProps = { zIndex: 3000 }
+    fieldProps.menuProps = { zIndex: zIndex.value }
   }
   const items = []
   for (const childTreePointer of skeleton.value.childrenTrees || []) {

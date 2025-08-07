@@ -20,6 +20,7 @@ import { moveDataItem } from '../../utils/arrays.js'
 import useDnd from '../../composables/use-dnd.js'
 import useCompDefaults from '../../composables/use-comp-defaults.js'
 import useClipboard from '../../composables/use-clipboard.js'
+import useZIndexStack from '../../composables/use-z-index-stack.js'
 
 useDefaults({}, 'VjsfList')
 const vCardProps = useCompDefaults('VjsfList-VCard', { border: true, flat: true, tile: true })
@@ -67,6 +68,8 @@ const prepareDrag = (/** @type {number} */index) => {
   dragPrepared.value = index
   menuOpened.value = -1
 }
+
+const zIndex = useZIndexStack(() => props.modelValue.fullKey)
 
 /* manage hovered and edited items */
 // const editedItem = computed(() => activatedItems.value[fullKey.value])
@@ -296,7 +299,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
               >
                 <v-menu
                   location="bottom end"
-                  z-index="3000"
+                  :z-index="zIndex"
                   :density="modelValue.options.density"
                   :close-on-content-click="false"
                   :model-value="menuOpened === childIndex"
@@ -317,7 +320,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                       <v-menu
                         v-if="layout.listEditMode === 'menu'"
                         location="start"
-                        z-index="3000"
+                        :z-index="zIndex"
                         :density="modelValue.options.density"
                         :model-value="editedItem !== undefined"
                         :close-on-content-click="false"
