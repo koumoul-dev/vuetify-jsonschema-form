@@ -9,7 +9,10 @@ import { VDivider } from 'vuetify/components/VDivider'
 import { VIcon } from 'vuetify/components/VIcon'
 import { VBtn } from 'vuetify/components/VBtn'
 import { VMenu } from 'vuetify/components/VMenu'
+import { VDialog } from 'vuetify/components/VDialog'
+import { VToolbar } from 'vuetify/components/VToolbar'
 import { VForm } from 'vuetify/components/VForm'
+import { VSheet } from 'vuetify/components/VSheet'
 import { isSection, getRegexp } from '@json-layout/core/state'
 import { clone } from '@json-layout/core/utils/clone'
 import Node from '../node.vue'
@@ -20,6 +23,8 @@ import useClipboard from '../../composables/use-clipboard.js'
 
 useDefaults({}, 'VjsfList')
 const vCardProps = useCompDefaults('VjsfList-VCard', { border: true, flat: true, tile: true })
+const vEditDialogProps = useCompDefaults('VjsfList-Edit-VDialog', { width: 500 })
+const vEditMenuProps = useCompDefaults('VjsfList-Edit-VMenu', { width: 500 })
 const theme = useTheme()
 
 const props = defineProps({
@@ -41,15 +46,22 @@ const options = computed(() => props.modelValue.options)
 const layout = computed(() => props.modelValue.layout)
 const children = computed(() => props.modelValue.children)
 
+const getRenderChildren = () => {
+  if (layout.value.listEditMode === 'dialog' || layout.value.listEditMode === 'menu') {
+    return children.value.filter(c => c.options.summary)
+  }
+  return children.value
+}
+
 /* use composable for drag and drop */
-const { activeDnd, sortableArray, draggable, hovered, dragging, itemBind, handleBind } = useDnd(props.modelValue.children, () => {
+const { activeDnd, sortableArray, draggable, hovered, dragging, itemBind, handleBind } = useDnd(getRenderChildren(), () => {
   const newData = layout.value.indexed
     ? sortableArray.value.reduce((a, child) => { a[child.key] = child.data; return a }, /** @type {Record<string, any>} */({}))
     : sortableArray.value.map((child) => child.data)
   props.statefulLayout.input(props.modelValue, newData)
   dragPrepared.value = -1
 })
-watch(children, (array) => { sortableArray.value = array })
+watch(children, () => { sortableArray.value = getRenderChildren() })
 const dragPrepared = ref(-1)
 const prepareDrag = (/** @type {number} */index) => {
   dragPrepared.value = index
@@ -71,7 +83,7 @@ const toggleMenu = (/** @type {number} */childIndex, /** @type {boolean} */value
 const activeItem = computed(() => {
   if (
     layout.value.listActions.includes('edit') &&
-    layout.value.listEditMode === 'inline-single' &&
+    layout.value.listEditMode !== 'inline' &&
     editedItem.value !== undefined
   ) {
     return editedItem.value
@@ -280,7 +292,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                 />
               </v-list-item-action>
               <v-list-item-action
-                v-else-if="editedItem === undefined && modelValue.layout.listActions.length"
+                v-else-if="(editedItem === undefined || modelValue.layout.listEditMode === 'menu') && modelValue.layout.listActions.length"
               >
                 <v-menu
                   location="bottom end"
@@ -301,17 +313,53 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                     />
                   </template>
                   <v-list :density="modelValue.options.density">
-                    <v-list-item
-                      v-if="modelValue.layout.listActions.includes('edit') && modelValue.layout.listEditMode === 'inline-single'"
-                      :density="modelValue.options.density"
-                      base-color="primary"
-                      @click="statefulLayout.activateItem(modelValue, childIndex); menuOpened = -1"
-                    >
-                      <template #prepend>
-                        <v-icon :icon="statefulLayout.options.icons.edit" />
-                      </template>
-                      {{ modelValue.messages.edit }}
-                    </v-list-item>
+                    <template v-if="modelValue.layout.listActions.includes('edit') && modelValue.layout.listEditMode !== 'inline'">
+                      <v-menu
+                        v-if="layout.listEditMode === 'menu'"
+                        location="start"
+                        z-index="3000"
+                        :density="modelValue.options.density"
+                        :model-value="editedItem !== undefined"
+                        :close-on-content-click="false"
+                        v-bind="vEditMenuProps"
+                        @update:model-value="value => value || statefulLayout.deactivateItem(modelValue)"
+                      >
+                        <template #activator="{props}">
+                          <v-list-item
+                            :density="modelValue.options.density"
+                            base-color="primary"
+                            v-bind="props"
+                            @click="statefulLayout.activateItem(modelValue, childIndex);"
+                          >
+                            <template #prepend>
+                              <v-icon :icon="statefulLayout.options.icons.edit" />
+                            </template>
+                            {{ modelValue.messages.edit }}
+                          </v-list-item>
+                        </template>
+                        <v-sheet>
+                          <v-row class="ma-0">
+                            <node
+                              v-for="grandChild of isSection(children[children.length - 1]) ? children[children.length - 1].children : [children[children.length - 1]]"
+                              :key="grandChild.fullKey"
+                              :model-value="/** @type import('../../types.js').VjsfNode */(grandChild)"
+                              :stateful-layout="statefulLayout"
+                            />
+                          </v-row>
+                        </v-sheet>
+                      </v-menu>
+                      <v-list-item
+                        v-else
+                        :density="modelValue.options.density"
+                        base-color="primary"
+                        @click="statefulLayout.activateItem(modelValue, childIndex); menuOpened = -1"
+                      >
+                        <template #prepend>
+                          <v-icon :icon="statefulLayout.options.icons.edit" />
+                        </template>
+                        {{ modelValue.messages.edit }}
+                      </v-list-item>
+                    </template>
                     <v-list-item
                       v-if="modelValue.layout.listActions.includes('duplicate')"
                       @click="duplicateItem(child, childIndex)"
@@ -438,6 +486,34 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
           </v-btn>
         </template>
       </v-list-item>
+
+      <v-dialog
+        v-if="layout.listEditMode === 'dialog'"
+        :model-value="editedItem !== undefined"
+        v-bind="vEditDialogProps"
+      >
+        <v-sheet>
+          <v-toolbar density="compact">
+            <v-spacer />
+            <v-btn
+              :title="modelValue.messages.close"
+              :icon="statefulLayout.options.icons.close"
+              variant="flat"
+              density="comfortable"
+              :disabled="modelValue.loading"
+              @click="statefulLayout.deactivateItem(modelValue)"
+            />
+          </v-toolbar>
+          <v-row class="ma-0">
+            <node
+              v-for="grandChild of isSection(children[children.length - 1]) ? children[children.length - 1].children : [children[children.length - 1]]"
+              :key="grandChild.fullKey"
+              :model-value="/** @type import('../../types.js').VjsfNode */(grandChild)"
+              :stateful-layout="statefulLayout"
+            />
+          </v-row>
+        </v-sheet>
+      </v-dialog>
     </v-list>
   </v-card>
 </template>
