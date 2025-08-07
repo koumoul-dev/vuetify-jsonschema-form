@@ -20,13 +20,17 @@ defineProps({
   avatarProps: {
     type: Object,
     required: true
+  },
+  cssPrefix: {
+    type: String,
+    required: true
   }
 })
 
 </script>
 
 <template>
-  <span class="v-select__selection-text">
+  <span :class="cssPrefix + '__selection-text'">
     <v-select-item-icon
       v-if="typeof item.icon === 'string'"
       :icon="item.icon"
@@ -35,7 +39,7 @@ defineProps({
     {{ item.title ?? item.key ?? item.value }}
     <span
       v-if="multiple && !last"
-      class="v-select__selection-comma"
+      :class="cssPrefix + '__selection-comma'"
     >,</span>
   </span>
 </template>

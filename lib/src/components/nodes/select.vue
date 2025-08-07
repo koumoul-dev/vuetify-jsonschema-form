@@ -22,7 +22,7 @@ export default defineComponent({
     useDefaults({}, 'VjsfSelect')
     const avatarProps = useCompDefaults('VjsfSelectItem-VAvatar', { rounded: false, size: 'small' })
 
-    const { getItems, selectProps, selectSlots, localData } = useSelectNode(toRef(props, 'modelValue'), props.statefulLayout, avatarProps.value)
+    const { getItems, selectProps, selectSlots, localData } = useSelectNode(toRef(props, 'modelValue'), props.statefulLayout, avatarProps.value, 'v-select')
 
     const fieldProps = computed(() => {
       const fieldProps = { ...selectProps.value }
