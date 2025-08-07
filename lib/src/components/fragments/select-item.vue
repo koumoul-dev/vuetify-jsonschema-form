@@ -40,7 +40,7 @@ defineProps({
         :model-value="isSelected"
       />
       <v-select-item-icon
-        v-if="item.icon"
+        v-if="typeof item.icon === 'string'"
         :icon="item.icon"
         :avatar-props="avatarProps"
       />

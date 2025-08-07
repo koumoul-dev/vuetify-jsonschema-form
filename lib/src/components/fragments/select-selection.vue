@@ -28,7 +28,7 @@ defineProps({
 <template>
   <span class="v-select__selection-text">
     <v-select-item-icon
-      v-if="item.icon"
+      v-if="typeof item.icon === 'string'"
       :icon="item.icon"
       :avatar-props="avatarProps"
     />
