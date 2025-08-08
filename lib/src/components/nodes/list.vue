@@ -24,7 +24,7 @@ import useZIndexStack from '../../composables/use-z-index-stack.js'
 
 useDefaults({}, 'VjsfList')
 const vCardProps = useCompDefaults('VjsfList-VCard', { border: true, flat: true, tile: true })
-const vEditDialogProps = useCompDefaults('VjsfList-Edit-VDialog', { width: 500 })
+const vEditDialogProps = useCompDefaults('VjsfList-Edit-VDialog', { width: 500, persistent: true })
 const vEditMenuProps = useCompDefaults('VjsfList-Edit-VMenu', { width: 500 })
 const theme = useTheme()
 
