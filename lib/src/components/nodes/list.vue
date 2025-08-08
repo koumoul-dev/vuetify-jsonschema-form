@@ -116,7 +116,7 @@ const itemSubtitles = computed(() => {
 const pushEmptyItem = () => {
   const newData = (props.modelValue.data ?? []).concat([undefined])
   props.statefulLayout.input(props.modelValue, newData)
-  if (layout.value.listEditMode === 'inline-single') {
+  if (layout.value.listEditMode === 'inline-single' || layout.value.listEditMode === 'dialog') {
     props.statefulLayout.activateItem(props.modelValue, newData.length - 1)
   }
 }
@@ -496,7 +496,10 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
         v-bind="vEditDialogProps"
       >
         <v-sheet>
-          <v-toolbar density="compact">
+          <v-toolbar
+            density="compact"
+            color="surface"
+          >
             <v-spacer />
             <v-btn
               :title="modelValue.messages.close"
