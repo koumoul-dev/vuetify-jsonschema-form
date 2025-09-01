@@ -17,6 +17,9 @@
 .vjsf-input--readonly.v-input--disabled .v-field__clearable {
   display: none;
 }
+.vjsf-input--readonly.v-input--disabled.v-number-input .v-field__append-inner {
+  display: none;
+}
 .vjsf-node.vjsf-has-help {
   padding-right: 28px!important;
 }
