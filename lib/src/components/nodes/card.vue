@@ -23,7 +23,7 @@ defineProps({
 </script>
 
 <template>
-  <v-card :title="modelValue.layout.title ?? ''">
+  <v-card :title="modelValue.layout.title || undefined">
     <v-container fluid>
       <section-header
         :node="modelValue"
