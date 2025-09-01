@@ -45,6 +45,7 @@ describe('schema compatibility function', () => {
         },
         defaultList: {
           type: 'array',
+          'x-itemTitle': 'column_1',
           items: {
             type: 'object',
             properties: {
@@ -58,7 +59,7 @@ describe('schema compatibility function', () => {
 
     const schema = v2compat(inputSchema)
     assert.equal(schema.properties.customComponent.layout, 'custom-component')
-    assert.equal(schema.properties.defaultList.layout, 'list')
+    assert.equal(schema.properties.defaultList.layout.itemTitle, 'data["column_1"]')
   })
 
   it('should transform a complex multiple select', () => {
