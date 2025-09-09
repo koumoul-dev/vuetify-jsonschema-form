@@ -67,6 +67,17 @@ optimizeDeps: {
 }
 </pre>
     </code-block>
+
+    <h2 class="text-h4 my-6">
+      Writing a custom plugin
+    </h2>
+
+    <p>
+      A plugin is the recommended way to extend the capabilities of Vjsf with custom components.
+      The alternative way of simply using the <code>component</code> slot is very limited.
+    </p>
+
+    <p>You will have to provide a combination of a Vue component with standard <code>props</code> and some metadata to guide the integration of this component in the form. For the time being, the most efficient way to go about it is to have a look at <a href="https://github.com/koumoul-dev/vuetify-jsonschema-form/tree/master/plugins/markdown/src">the markdown plugin source code</a>.</p>
   </v-container>
 </template>
 

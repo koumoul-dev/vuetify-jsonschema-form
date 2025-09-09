@@ -17,4 +17,9 @@ export const overwrites = {
       warning: 'This component requires the @koumoul/vjsf-markdown plugin.',
     },
   },
+  slots: {
+    code: {
+      warning: 'At this time using the slot system to write a custom input component is very limiting. You may want to consider writing a custom plugin instead.',
+    },
+  },
 }
