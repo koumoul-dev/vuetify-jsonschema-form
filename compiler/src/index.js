@@ -50,7 +50,7 @@ export async function compile (schema, options = {}, baseImport = '@koumoul/vjsf
     pluginsImportsByName[componentInfo.name] = pluginImport
   }
   const compiledLayout = compileLayout(schema, fullOptions)
-  const compiledLayoutCode = serializeCompiledLayout(compiledLayout)
+  const compiledLayoutCode = await serializeCompiledLayout(compiledLayout)
   /** @type Set<string> */
   const comps = new Set([])
   for (const layout of Object.values(compiledLayout.normalizedLayouts)) {
