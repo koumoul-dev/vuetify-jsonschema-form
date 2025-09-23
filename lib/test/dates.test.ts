@@ -3,15 +3,34 @@ import * as dates from '../src/utils/dates'
 
 describe('date utils', () => {
   it('should separate date and time in a date object', () => {
-    assert.deepEqual(dates.getDateTimeParts(new Date('2020-04-03T21:07:43+02:00')), ['2020-04-03', '21:07'])
+	const date = new Date(2020, 3, 3, 21, 7, 43) 
+    assert.deepEqual(dates.getDateTimeParts(date), ['2020-04-03', '21:07'])
   })
 
   it('should apply separate date and time and get a date object', () => {
-    assert.equal(dates.getDateTime(['2020-04-03', '21:07']), '2020-04-03T21:07:00+02:00')
+
+	const expectedDate = new Date(2020, 3, 3, 21, 7, 0)
+    const expected = dates.getDateTimeWithOffset(expectedDate)
+    const result = dates.getDateTime(['2020-04-03', '21:07'])
+    assert.equal(result, expected)
   })
 
-  it('should apply current timezone offset to a UTC date', () => {
-    assert.equal(dates.getDateTimeWithOffset(new Date('2020-04-03T19:07:43.152Z')), '2020-04-03T21:07:43+02:00')
+  it('should convert UTC time to local time with offset', () => {
+    const utcDate = new Date('2020-04-03T19:07:43.152Z')
+    const result = dates.getDateTimeWithOffset(utcDate)
+  
+    // Calculate what we expect based on current timezone
+    const expectedHours = utcDate.getHours() // This will be local time
+    const expectedMinutes = utcDate.getMinutes()
+    const offsetMinutes = utcDate.getTimezoneOffset()
+    const offsetHours = Math.abs(Math.floor(offsetMinutes / 60))
+    const offsetMins = Math.abs(offsetMinutes % 60)
+    const offsetSign = offsetMinutes < 0 ? '+' : '-'
+    const offsetStr = `${offsetSign}${offsetHours.toString().padStart(2, '0')}:${offsetMins.toString().padStart(2, '0')}`
+  
+    const expected = `2020-04-03T${expectedHours.toString().padStart(2, '0')}:${expectedMinutes.toString().padStart(2, '0')}:43${offsetStr}`
+  
+    assert.equal(result, expected)
   })
 
   it('should manage keyboard date formatting', () => {

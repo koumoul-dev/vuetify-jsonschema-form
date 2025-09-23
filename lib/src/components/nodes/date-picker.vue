@@ -5,7 +5,7 @@ import { VDatePicker } from 'vuetify/components/VDatePicker'
 import { useDefaults } from 'vuetify'
 import { computed, ref, toRef, watch } from 'vue'
 import Debug from 'debug'
-import { getDateTimeParts, getDateTimeWithOffset, localeKeyboardFormat } from '../../utils/dates.js'
+import { getDateTimeWithOffset, localeKeyboardFormat } from '../../utils/dates.js'
 import useNode from '../../composables/use-node.js'
 import useCompDefaults from '../../composables/use-comp-defaults.js'
 
@@ -34,9 +34,16 @@ const { compProps, localData } = useNode(toRef(props, 'modelValue'), props.state
 const updateValue = (/** @type {Date | null} */value) => {
   if (!value) return
 
-  const isoValue = props.modelValue.layout.format === 'date-time'
-    ? getDateTimeWithOffset(value)
-    : getDateTimeParts(/** @type Date */(/** @type unknown */(value)))[0]
+  let isoValue
+  if (props.modelValue.layout.format === 'date-time') {
+    isoValue = getDateTimeWithOffset(value)
+  } else {
+    // For date-only, ensure we get the date in local timezone
+    const year = value.getFullYear()
+    const month = (value.getMonth() + 1).toString().padStart(2, '0')
+    const day = value.getDate().toString().padStart(2, '0')
+    isoValue = `${year}-${month}-${day}`
+  }
   if (isoValue !== localData.value) {
     debug(`apply normalized iso value ${value.toLocaleString()} -> ${isoValue}`)
     props.statefulLayout.input(props.modelValue, isoValue)
@@ -48,7 +55,16 @@ const datePickerProps = computed(() => {
   /** @type Record<String, any> */
   const datePickerProps = { ...datePickerDefaults.value, ...compProps.value }
   datePickerProps.hideActions = true
-  if (localData.value) datePickerProps.modelValue = new Date(/** @type {string} */(localData.value))
+  if (localData.value) {
+    if (props.modelValue.layout.format === 'date-time') {
+      datePickerProps.modelValue = new Date(localData.value)
+    } else {
+      // For date-only, create date in local timezone to avoid offset issues
+      const dateStr = localData.value.split('T')[0] // Get just the date part
+      const [year, month, day] = dateStr.split('-').map(Number)
+      datePickerProps.modelValue = new Date(year, month - 1, day) // Month is 0-indexed
+    }
+  }
   datePickerProps['onUpdate:modelValue'] = (/** @type {Date} */value) => {
     updateValue(value)
   }
@@ -58,8 +74,22 @@ const datePickerProps = computed(() => {
 /** @type {import('vue').Ref<string | null>} */
 const formattedValue = ref('')
 const setFormattedValue = () => {
-  formattedValue.value = localData.value ? localeKeyboardFormat(props.modelValue.options.locale).format(new Date(localData.value)) : null
+  if (localData.value) {
+    let date
+    if (props.modelValue.layout.format === 'date-time') {
+      date = new Date(localData.value)
+    } else {
+      // For date-only, parse without timezone conversion
+      const dateStr = localData.value.split('T')[0]
+      const [year, month, day] = dateStr.split('-').map(Number)
+      date = new Date(year, month - 1, day)
+    }
+    formattedValue.value = localeKeyboardFormat(props.modelValue.options.locale).format(date)
+  } else {
+    formattedValue.value = null
+  }
 }
+
 watch(localData, setFormattedValue, { immediate: true })
 const updateFormattedValue = () => {
   if (formattedValue.value) {
