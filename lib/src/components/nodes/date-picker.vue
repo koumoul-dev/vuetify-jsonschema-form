@@ -43,17 +43,18 @@ const updateValue = (/** @type {Date | null} */value) => {
   }
 }
 
+const localDateTime = computed(() => {
+  if (!localData.value) return null
+  return props.modelValue.layout.format === 'date-time'
+    ? new Date(/** @type {string} */(localData.value))
+    : new Date(getDateTime([localData.value, '00:00:00']))
+})
+
 const datePickerProps = computed(() => {
   /** @type Record<String, any> */
   const datePickerProps = { ...datePickerDefaults.value, ...compProps.value }
   datePickerProps.hideActions = true
-  if (localData.value) {
-    if (props.modelValue.layout.format === 'date-time') {
-      datePickerProps.modelValue = new Date(/** @type {string} */(localData.value))
-    } else {
-      datePickerProps.modelValue = getDateTime([localData.value, '00:00:00'])
-    }
-  }
+  if (localDateTime.value) datePickerProps.modelValue = localDateTime.value
   datePickerProps['onUpdate:modelValue'] = (/** @type {Date} */value) => {
     updateValue(value)
   }
@@ -63,9 +64,13 @@ const datePickerProps = computed(() => {
 /** @type {import('vue').Ref<string | null>} */
 const formattedValue = ref('')
 const setFormattedValue = () => {
-  formattedValue.value = localData.value ? localeKeyboardFormat(props.modelValue.options.locale).format(new Date(localData.value)) : null
+  if (localDateTime.value) {
+    formattedValue.value = localeKeyboardFormat(props.modelValue.options.locale).format(localDateTime.value)
+  } else {
+    formattedValue.value = null
+  }
 }
-watch(localData, setFormattedValue, { immediate: true })
+watch(localDateTime, setFormattedValue, { immediate: true })
 const updateFormattedValue = () => {
   if (formattedValue.value) {
     const newValue = localeKeyboardFormat(props.modelValue.options.locale).parse(formattedValue.value)
