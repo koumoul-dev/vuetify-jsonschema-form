@@ -5,7 +5,7 @@ import { VDatePicker } from 'vuetify/components/VDatePicker'
 import { useDefaults } from 'vuetify'
 import { computed, ref, toRef, watch } from 'vue'
 import Debug from 'debug'
-import { getDateTimeParts, getDateTimeWithOffset, localeKeyboardFormat } from '../../utils/dates.js'
+import { getDateTime, getDateTimeParts, getDateTimeWithOffset, localeKeyboardFormat } from '../../utils/dates.js'
 import useNode from '../../composables/use-node.js'
 import useCompDefaults from '../../composables/use-comp-defaults.js'
 
@@ -33,7 +33,6 @@ const { compProps, localData } = useNode(toRef(props, 'modelValue'), props.state
 
 const updateValue = (/** @type {Date | null} */value) => {
   if (!value) return
-
   const isoValue = props.modelValue.layout.format === 'date-time'
     ? getDateTimeWithOffset(value)
     : getDateTimeParts(/** @type Date */(/** @type unknown */(value)))[0]
@@ -48,7 +47,13 @@ const datePickerProps = computed(() => {
   /** @type Record<String, any> */
   const datePickerProps = { ...datePickerDefaults.value, ...compProps.value }
   datePickerProps.hideActions = true
-  if (localData.value) datePickerProps.modelValue = new Date(/** @type {string} */(localData.value))
+  if (localData.value) {
+    if (props.modelValue.layout.format === 'date-time') {
+      datePickerProps.modelValue = new Date(/** @type {string} */(localData.value))
+    } else {
+      datePickerProps.modelValue = getDateTime([localData.value, '00:00:00'])
+    }
+  }
   datePickerProps['onUpdate:modelValue'] = (/** @type {Date} */value) => {
     updateValue(value)
   }

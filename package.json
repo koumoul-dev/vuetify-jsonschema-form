@@ -2,7 +2,7 @@
   "description": "The monorepo for vjsf lib, docs, examples, etc.",
   "scripts": {
     "build": "npm -w lib run build && npm -w compiler run build && npm -w plugins/markdown run build && npm -w doc run build:master",
-    "test": "npm -w lib run test",
+    "test": "npm -w lib run test-tz1 && npm -w lib run test-tz2",
     "lint": "eslint . && npm -w doc run lint",
     "lint-fix": "eslint --fix . && npm -w doc run lint-fix",
     "dev-zellij": "zellij --layout .zellij.kdl",

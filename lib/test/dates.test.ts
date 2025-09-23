@@ -1,17 +1,44 @@
-import { describe, it, assert } from 'vitest'
+import { describe, it, assert, beforeEach, afterEach, vi } from 'vitest'
 import * as dates from '../src/utils/dates'
+
+const paris = 'Europe/Paris'
+const saoPaulo = 'America/Sao_Paulo'
 
 describe('date utils', () => {
   it('should separate date and time in a date object', () => {
-    assert.deepEqual(dates.getDateTimeParts(new Date('2020-04-03T21:07:43+02:00')), ['2020-04-03', '21:07'])
+    if (process.env.TZ === paris) {
+      assert.deepEqual(dates.getDateTimeParts(new Date('2020-04-03T21:07:43+02:00')), ['2020-04-03', '21:07'])
+    }
+    if (process.env.TZ === saoPaulo) {
+      assert.deepEqual(dates.getDateTimeParts(new Date('2020-04-03T03:00:00.000Z')), ['2020-04-03', '00:00'])
+    }
+  })
+
+  it('should extract only date part of start of day dates', () => {
+    if (process.env.TZ === paris) {
+      assert.deepEqual(dates.getDateTimeParts(new Date('2020-04-03T00:00:00')), ['2020-04-03', '00:00'])
+    }
+    if (process.env.TZ === saoPaulo) {
+      assert.deepEqual(dates.getDateTimeParts(new Date('2020-04-03T00:00:00')), ['2020-04-03', '00:00'])
+    }
   })
 
   it('should apply separate date and time and get a date object', () => {
-    assert.equal(dates.getDateTime(['2020-04-03', '21:07']), '2020-04-03T21:07:00+02:00')
+    if (process.env.TZ === paris) {
+      assert.equal(dates.getDateTime(['2020-04-03', '21:07']), '2020-04-03T21:07:00+02:00')
+    }
+    if (process.env.TZ === saoPaulo) {
+      assert.equal(dates.getDateTime(['2020-04-03', '21:07']), '2020-04-03T21:07:00-03:00')
+    }
   })
 
   it('should apply current timezone offset to a UTC date', () => {
-    assert.equal(dates.getDateTimeWithOffset(new Date('2020-04-03T19:07:43.152Z')), '2020-04-03T21:07:43+02:00')
+    if (process.env.TZ === paris) {
+      assert.equal(dates.getDateTimeWithOffset(new Date('2020-04-03T19:07:43.152Z')), '2020-04-03T21:07:43+02:00')
+    }
+    if (process.env.TZ === saoPaulo) {
+      assert.equal(dates.getDateTimeWithOffset(new Date('2020-04-03T19:07:43.152Z')), '2020-04-03T16:07:43-03:00')
+    }
   })
 
   it('should manage keyboard date formatting', () => {
