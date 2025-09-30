@@ -55,14 +55,14 @@ const fieldProps = computed(() => {
   return fieldProps
 })
 
-const zIndex = useZIndexStack(() => props.modelValue.fullKey)
+const zIndex = useZIndexStack(props.modelValue.fullKey)
 
 const menuProps = computed(() => {
   return {
     ...compProps.value,
     minWidth: props.minWidth,
     maxWidth: props.maxWidth,
-    zIndex: zIndex.value,
+    zIndex,
     closeOnContentClick: false,
     disabled: true
   }

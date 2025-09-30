@@ -70,7 +70,7 @@ const prepareDrag = (/** @type {number} */index) => {
   menuOpened.value = -1
 }
 
-const zIndex = useZIndexStack(() => props.modelValue.fullKey)
+const zIndex = useZIndexStack(props.modelValue.fullKey)
 
 /* manage hovered and edited items */
 // const editedItem = computed(() => activatedItems.value[fullKey.value])
@@ -495,6 +495,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
         v-if="layout.listEditMode === 'dialog'"
         :model-value="editedItem !== undefined"
         v-bind="vEditDialogProps"
+        :z-index="zIndex"
       >
         <v-sheet v-bind="vEditDialogVSheetProps">
           <v-toolbar

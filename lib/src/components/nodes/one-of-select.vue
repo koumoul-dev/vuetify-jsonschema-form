@@ -27,7 +27,7 @@ const props = defineProps({
 const { inputProps, localData, skeleton, children } = useNode(
   toRef(props, 'modelValue'), props.statefulLayout, { bindData: false }
 )
-const zIndex = useZIndexStack(() => props.modelValue.fullKey)
+const zIndex = useZIndexStack(props.modelValue.fullKey)
 
 /** @type import('vue').Ref<string | undefined> */
 const activeChildTree = ref(undefined)
@@ -50,7 +50,7 @@ const fieldProps = computed(() => {
   const fieldProps = { ...inputProps.value }
   fieldProps['onUpdate:modelValue'] = onChange
   if (!props.modelValue.options.readOnly) {
-    fieldProps.menuProps = { zIndex: zIndex.value }
+    fieldProps.menuProps = { zIndex }
   }
   const items = []
   for (const childTreePointer of skeleton.value.childrenTrees || []) {

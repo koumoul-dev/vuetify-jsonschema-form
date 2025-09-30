@@ -25,7 +25,7 @@ export default defineComponent({
     const nodeRef = toRef(props, 'modelValue')
     const getItems = useGetItems(nodeRef, props.statefulLayout)
     const { inputProps, compSlots, localData, layout, options } = useNode(nodeRef, props.statefulLayout, { bindData: false, layoutPropsMap: ['step', 'min', 'max'] })
-    const zIndex = useZIndexStack(() => props.modelValue.fullKey)
+    const zIndex = useZIndexStack(props.modelValue.fullKey)
 
     const fieldProps = computed(() => {
       const fieldProps = { ...inputProps.value }
@@ -34,7 +34,7 @@ export default defineComponent({
       if (options.value.readOnly) {
         fieldProps.menuProps = { modelValue: false }
       } else {
-        fieldProps.menuProps = { zIndex: zIndex.value }
+        fieldProps.menuProps = { zIndex }
       }
       if (getItems.hasItems.value) {
         fieldProps.items = getItems.items.value

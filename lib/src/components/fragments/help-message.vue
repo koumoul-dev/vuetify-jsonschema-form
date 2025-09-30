@@ -5,6 +5,7 @@
       :class="`vjsf-help-message-tooltip vjsf-help-message-tooltip-${node.options.density}`"
       location="top end"
       offset="4"
+      :z-index="zIndex"
       :close-on-content-click="false"
     >
       <template #activator="{ props }">
@@ -42,14 +43,17 @@ import { VAlert } from 'vuetify/components/VAlert'
 import { VMenu } from 'vuetify/components/VMenu'
 import { VBtn } from 'vuetify/components/VBtn'
 import { ref } from 'vue'
+import useZIndexStack from '../../composables/use-z-index-stack.js'
 
-defineProps({
+const props = defineProps({
   node: {
     /** @type import('vue').PropType<import('../../types.js').VjsfNode> */
     type: Object,
     required: true
   }
 })
+
+const zIndex = useZIndexStack(props.node.fullKey)
 
 const show = ref(false)
 </script>
