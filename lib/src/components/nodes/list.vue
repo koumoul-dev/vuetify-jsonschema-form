@@ -25,6 +25,7 @@ import useZIndexStack from '../../composables/use-z-index-stack.js'
 useDefaults({}, 'VjsfList')
 const vCardProps = useCompDefaults('VjsfList-VCard', { border: true, flat: true, tile: true })
 const vEditDialogProps = useCompDefaults('VjsfList-Edit-VDialog', { width: 500, persistent: true })
+const vEditDialogVSheetProps = useCompDefaults('VjsfList-Edit-VDialog-VSheet', {})
 const vEditMenuProps = useCompDefaults('VjsfList-Edit-VMenu', { width: 500 })
 const theme = useTheme()
 
@@ -495,7 +496,7 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
         :model-value="editedItem !== undefined"
         v-bind="vEditDialogProps"
       >
-        <v-sheet>
+        <v-sheet v-bind="vEditDialogVSheetProps">
           <v-toolbar
             density="compact"
             color="surface"
