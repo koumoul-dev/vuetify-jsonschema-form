@@ -462,7 +462,7 @@ const indexedListRules = computed(() => {
               :list-node="modelValue"
               :stateful-layout="statefulLayout"
               :rules="indexedListRules"
-              @update:model-value="(/** @type {string} */value) => { newKey = value; pushEmptyIndexedItem() }"
+              @update:model-value="pushEmptyIndexedItem"
             />
             <v-text-field
               v-else
