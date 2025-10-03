@@ -1,6 +1,6 @@
 <script>
 import { VSelect } from 'vuetify/components/VSelect'
-import { defineComponent, h, computed, toRef, watch } from 'vue'
+import { defineComponent, h, computed, toRef } from 'vue'
 import { useDefaults } from 'vuetify'
 import useSelectNode from '../../composables/use-select-node.js'
 import useCompDefaults from '../../composables/use-comp-defaults.js'
@@ -31,8 +31,6 @@ export default defineComponent({
       fieldProps.modelValue = localData.value
       return fieldProps
     })
-
-    watch(() => fieldProps.value.items, () => console.log(fieldProps.value.items))
 
     // @ts-ignore
     return () => h(VSelect, fieldProps.value, selectSlots.value)
