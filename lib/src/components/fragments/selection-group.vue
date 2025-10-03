@@ -56,7 +56,7 @@ export default defineComponent({
               } else {
                 modelValue = localData.value === item.value
               }
-              checkboxes.push(h(props.type === 'switch' ? VSwitch : VCheckbox, {
+              checkboxes.push(h(/** @type {import('vue').Component} */(props.type === 'switch' ? VSwitch : VCheckbox), {
                 label: item.title,
                 hideDetails: true,
                 key: item.key,
