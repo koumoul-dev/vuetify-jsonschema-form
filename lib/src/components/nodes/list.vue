@@ -13,6 +13,7 @@ import { VDialog } from 'vuetify/components/VDialog'
 import { VToolbar } from 'vuetify/components/VToolbar'
 import { VForm } from 'vuetify/components/VForm'
 import { VSheet } from 'vuetify/components/VSheet'
+import ListSelectKey from '../fragments/list-select-key.vue'
 import { isSection, getRegexp } from '@json-layout/core/state'
 import { clone } from '@json-layout/core/utils/clone'
 import Node from '../node.vue'
@@ -207,6 +208,10 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
   return 'transparent'
 })
 
+const indexedListRules = computed(() => {
+  return [(/** @type {string} */v) => !props.modelValue.children.some(c => c.key === v), (/** @type {string} */v) => !v || !!props.modelValue.layout.indexed?.some(pattern => v.match(getRegexp(pattern)))]
+})
+
 </script>
 
 <template>
@@ -328,11 +333,11 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
                         v-bind="vEditMenuProps"
                         @update:model-value="value => value || statefulLayout.deactivateItem(modelValue)"
                       >
-                        <template #activator="{props}">
+                        <template #activator="{props: listItemProps}">
                           <v-list-item
                             :density="modelValue.options.density"
                             base-color="primary"
-                            v-bind="props"
+                            v-bind="listItemProps"
                             @click="statefulLayout.activateItem(modelValue, childIndex);"
                           >
                             <template #prepend>
@@ -451,12 +456,21 @@ const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').S
             style="max-width: 250px;"
             @submit.prevent
           >
+            <list-select-key
+              v-if="modelValue.layout.getItems ?? modelValue.layout.items"
+              v-model="newKey"
+              :list-node="modelValue"
+              :stateful-layout="statefulLayout"
+              :rules="indexedListRules"
+              @update:model-value="(/** @type {string} */value) => { newKey = value; pushEmptyIndexedItem() }"
+            />
             <v-text-field
+              v-else
               v-model="newKey"
               variant="outlined"
               :placeholder="modelValue.messages.addItem"
               hide-details
-              :rules="[(/** @type {string} */v) => !modelValue.children.some(c => c.key === v), v => !v || !!modelValue.layout.indexed?.some(pattern => v.match(getRegexp(pattern)))]"
+              :rules="indexedListRules"
               @keypress.enter="pushEmptyIndexedItem"
             >
               <template #append>
