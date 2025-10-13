@@ -1,4 +1,5 @@
 <script>
+import { VAutocomplete } from 'vuetify/components/VAutocomplete'
 import { VSelect } from 'vuetify/components/VSelect'
 import { defineComponent, h, computed, toRef } from 'vue'
 import { useDefaults } from 'vuetify'
@@ -60,7 +61,7 @@ export default defineComponent({
     })
 
     // @ts-ignore
-    return () => h(VSelect, fieldProps.value, fieldSlots.value)
+    return () => h(getItems.items.value.length > 20 ? VAutocomplete : VSelect, fieldProps.value, fieldSlots.value)
   }
 })
 
