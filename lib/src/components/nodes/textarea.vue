@@ -54,4 +54,8 @@ export default defineComponent({
   overflow: hidden;
   mask-image: linear-gradient(180deg, #000 66%, transparent 90%);
 }
+
+.vjsf-readonly textarea {
+  pointer-events: auto;
+}
 </style>
