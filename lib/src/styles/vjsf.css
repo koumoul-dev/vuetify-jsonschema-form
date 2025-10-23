@@ -26,6 +26,12 @@
 .vjsf-node.vjsf-density-default.vjsf-has-help {
   padding-right: 42px!important;
 }
-.vjsf-help-message-tooltip p:not(:last-child) {
-  margin-bottom: 16px;
+.vjsf-help-message-tooltip p:not(:last-child), .vjsf-help-message-tooltip ul:not(:last-child), .vjsf-help-message-tooltip ol:not(:last-child) {
+  padding-bottom: 8px;
+}
+.vjsf-help-message-tooltip p:not(:first-child) {
+  padding-top: 8px;
+}
+.vjsf-help-message-tooltip ul, .vjsf-help-message-tooltip ol {
+  padding-left: 24px;
 }
