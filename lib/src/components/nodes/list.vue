@@ -115,12 +115,18 @@ const itemSubtitles = computed(() => {
   return sortableArray.value.map((child) => props.statefulLayout.evalNodeExpression(props.modelValue, expr, child.data))
 })
 
+const activateOrFocus = (/** @type number | string */childKey) => {
+  if (layout.value.listEditMode === 'inline-single' || layout.value.listEditMode === 'dialog') {
+    props.statefulLayout.activateItem(props.modelValue, childKey)
+  } else {
+    props.statefulLayout.focusNode(props.modelValue.fullKey + '/' + childKey)
+  }
+}
+
 const pushEmptyItem = () => {
   const newData = (props.modelValue.data ?? []).concat([undefined])
   props.statefulLayout.input(props.modelValue, newData)
-  if (layout.value.listEditMode === 'inline-single' || layout.value.listEditMode === 'dialog') {
-    props.statefulLayout.activateItem(props.modelValue, newData.length - 1)
-  }
+  activateOrFocus(newData.length - 1)
 }
 
 const newKey = ref('')
@@ -132,9 +138,7 @@ const pushEmptyIndexedItem = () => {
   if (!newKeyForm.value.isValid) return
   const newData = { ...(props.modelValue.data ?? {}), [newKey.value]: undefined }
   props.statefulLayout.input(props.modelValue, newData)
-  if (layout.value.listEditMode === 'inline-single') {
-    props.statefulLayout.activateItem(props.modelValue, Object.keys(newData).length - 1)
-  }
+  activateOrFocus(newKey.value)
   newKey.value = ''
   newKeyForm.value?.reset()
 }
@@ -169,9 +173,7 @@ const duplicateItem = (child, childIndex) => {
   const newItem = props.modelValue.layout.itemCopy ? props.statefulLayout.evalNodeExpression(props.modelValue, props.modelValue.layout.itemCopy, clone(child.data)) : clone(child.data)
   const newData = [...props.modelValue.data.slice(0, childIndex + 1), newItem, ...props.modelValue.data.slice(childIndex + 1)]
   props.statefulLayout.input(props.modelValue, newData)
-  if (layout.value.listEditMode === 'inline-single') {
-    props.statefulLayout.activateItem(props.modelValue, childIndex + 1)
-  }
+  activateOrFocus(childIndex + 1)
   menuOpened.value = -1
 }
 
@@ -194,9 +196,7 @@ const pasteItem = (child) => {
   const newItem = props.modelValue.layout.itemCopy ? props.statefulLayout.evalNodeExpression(props.modelValue, props.modelValue.layout.itemCopy, clone(copiedItem)) : clone(copiedItem)
   const newData = [...(props.modelValue.data ?? []), newItem]
   props.statefulLayout.input(props.modelValue, newData)
-  if (layout.value.listEditMode === 'inline-single') {
-    props.statefulLayout.activateItem(props.modelValue, newData.length - 1)
-  }
+  activateOrFocus(newData.length - 1)
 }
 
 const itemBorderColor = computed(() => (/** @type {import('@json-layout/core').StateNode} */child, /** @type {number} */childIndex) => {

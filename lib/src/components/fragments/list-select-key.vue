@@ -32,24 +32,31 @@ export default defineComponent({
   emits: ['update:modelValue'],
   setup (props, { emit }) {
     useDefaults({}, 'VjsfListSelectKey')
-    const vSelectProps = useCompDefaults('VjsfSelectItem-VSelect', { variant: 'outlined', class: 'mt-2' })
+    const vSelectProps = useCompDefaults('VjsfIndexedList-VSelect', { variant: 'outlined', class: 'mt-2' })
     const avatarProps = useCompDefaults('VjsfSelectItem-VAvatar', { rounded: false, size: 'small' })
 
     // @ts-ignore
     const { getItems, selectProps, selectSlots } = useSelectNode(toRef(props, 'listNode'), props.statefulLayout, avatarProps.value, 'v-select')
 
+    const fixedSelectProps = computed(() => {
+      const fixedSelectProps = { ...selectProps.value }
+      delete fixedSelectProps.hint
+      fixedSelectProps.label = props.listNode.messages.addItem
+      return fixedSelectProps
+    })
+
     const fieldProps = computed(() => {
-      const fieldProps = mergePropsLevels([vSelectProps.value, selectProps.value])
-      fieldProps.label = props.listNode.messages.addItem
+      const fieldProps = mergePropsLevels([vSelectProps.value, fixedSelectProps.value])
       fieldProps.loading = getItems.loading.value
       fieldProps.items = getItems.items.value
       delete fieldProps.clearable
       delete fieldProps['onBlur']
       fieldProps.rules = props.rules
       fieldProps.active = false
-      fieldProps.modelValue = props.modelValue
+      if (props.modelValue) fieldProps.modelValue = props.modelValue
+      else delete fieldProps.modelValue
       fieldProps['onUpdate:modelValue'] = (/** @type string */value) => {
-        emit('update:modelValue', value)
+        if (value) emit('update:modelValue', value)
       }
       return fieldProps
     })
