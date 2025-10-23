@@ -66,6 +66,7 @@ export type VjsfStatefulLayoutOptions = Partial<StatefulLayoutOptions> & {
   plugins: Plugin[],
   pluginsOptions: Record<string, unknown>,
   icons: VjsfIcons
+  confirmDeleteItem: boolean
 }
 
 export type VjsfCompileOptions = Partial<CompileOptions> & {

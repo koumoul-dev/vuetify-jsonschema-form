@@ -15,4 +15,9 @@ export const runtimeOptions = [
     default: {},
     values: defaultIcons,
   },
+  {
+    key: 'confirmDeleteItem',
+    description: 'If active the action to delete an item in a list is protected by a small confirmation step.',
+    default: true,
+  },
 ]

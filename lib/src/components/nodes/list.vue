@@ -146,6 +146,17 @@ const pushEmptyIndexedItem = () => {
 /**
  * @param {number} childIndex
  */
+const clickDeleteItem = (childIndex) => {
+  if (options.value.confirmDeleteItem) {
+    preparedDelete.value = true
+  } else {
+    deleteItem(childIndex)
+  }
+}
+
+/**
+ * @param {number} childIndex
+ */
 const deleteItem = (childIndex) => {
   if (layout.value.indexed) {
     const oldData = /** @type {Record<string, any>} */(props.modelValue.data)
@@ -270,7 +281,7 @@ const indexedListRules = computed(() => {
                   style="visibility:hidden"
                   variant="text"
                   :density="buttonDensity"
-                  :icon="statefulLayout.options.icons.edit"
+                  :icon="options.icons.edit"
                   :disabled="modelValue.loading"
                 />
               </v-list-item-action>
@@ -279,7 +290,7 @@ const indexedListRules = computed(() => {
               >
                 <v-btn
                   :title="modelValue.messages.close"
-                  :icon="statefulLayout.options.icons.edit"
+                  :icon="options.icons.edit"
                   variant="flat"
                   color="primary"
                   :density="buttonDensity"
@@ -292,7 +303,7 @@ const indexedListRules = computed(() => {
               >
                 <v-btn
                   :title="modelValue.messages.sort"
-                  :icon="statefulLayout.options.icons.sort"
+                  :icon="options.icons.sort"
                   variant="flat"
                   color="primary"
                   :density="buttonDensity"
@@ -314,7 +325,7 @@ const indexedListRules = computed(() => {
                   <template #activator="{props: activatorProps}">
                     <v-btn
                       v-bind="activatorProps"
-                      :icon="statefulLayout.options.icons.menu"
+                      :icon="options.icons.menu"
                       variant="plain"
                       slim
                       :disabled="modelValue.loading"
@@ -341,7 +352,7 @@ const indexedListRules = computed(() => {
                             @click="statefulLayout.activateItem(modelValue, childIndex);"
                           >
                             <template #prepend>
-                              <v-icon :icon="statefulLayout.options.icons.edit" />
+                              <v-icon :icon="options.icons.edit" />
                             </template>
                             {{ modelValue.messages.edit }}
                           </v-list-item>
@@ -364,7 +375,7 @@ const indexedListRules = computed(() => {
                         @click="statefulLayout.activateItem(modelValue, childIndex); menuOpened = -1"
                       >
                         <template #prepend>
-                          <v-icon :icon="statefulLayout.options.icons.edit" />
+                          <v-icon :icon="options.icons.edit" />
                         </template>
                         {{ modelValue.messages.edit }}
                       </v-list-item>
@@ -374,7 +385,7 @@ const indexedListRules = computed(() => {
                       @click="duplicateItem(child, childIndex)"
                     >
                       <template #prepend>
-                        <v-icon :icon="statefulLayout.options.icons.duplicate" />
+                        <v-icon :icon="options.icons.duplicate" />
                       </template>
                       {{ modelValue.messages.duplicate }}
                     </v-list-item>
@@ -383,7 +394,7 @@ const indexedListRules = computed(() => {
                       @click="copyItem(child)"
                     >
                       <template #prepend>
-                        <v-icon :icon="statefulLayout.options.icons.copy" />
+                        <v-icon :icon="options.icons.copy" />
                       </template>
                       {{ modelValue.messages.copy }}
                     </v-list-item>
@@ -393,7 +404,7 @@ const indexedListRules = computed(() => {
                       @click="prepareDrag(childIndex)"
                     >
                       <template #prepend>
-                        <v-icon :icon="statefulLayout.options.icons.sort" />
+                        <v-icon :icon="options.icons.sort" />
                       </template>
                       {{ modelValue.messages.sort }}
                     </v-list-item>
@@ -403,7 +414,7 @@ const indexedListRules = computed(() => {
                       @click="statefulLayout.input(modelValue, moveDataItem(modelValue.data, childIndex, childIndex - 1)); menuOpened = -1"
                     >
                       <template #prepend>
-                        <v-icon :icon="statefulLayout.options.icons.sortUp" />
+                        <v-icon :icon="options.icons.sortUp" />
                       </template>
                       {{ modelValue.messages.up }}
                     </v-list-item>
@@ -413,17 +424,17 @@ const indexedListRules = computed(() => {
                       @click="statefulLayout.input(modelValue, moveDataItem(modelValue.data, childIndex, childIndex + 1)); menuOpened = -1"
                     >
                       <template #prepend>
-                        <v-icon :icon="statefulLayout.options.icons.sortDown" />
+                        <v-icon :icon="options.icons.sortDown" />
                       </template>
                       {{ modelValue.messages.down }}
                     </v-list-item>
                     <v-list-item
                       v-if="modelValue.layout.listActions.includes('delete')"
                       base-color="warning"
-                      @click="preparedDelete = true"
+                      @click="clickDeleteItem(childIndex)"
                     >
                       <template #prepend>
-                        <v-icon :icon="statefulLayout.options.icons.delete" />
+                        <v-icon :icon="options.icons.delete" />
                       </template>
                       {{ modelValue.messages.delete }}
                     </v-list-item>
@@ -477,7 +488,7 @@ const indexedListRules = computed(() => {
                 <v-icon
                   color="primary"
                   size="large"
-                  :icon="statefulLayout.options.icons.add"
+                  :icon="options.icons.add"
                   @click="pushEmptyIndexedItem"
                 />
               </template>
@@ -488,7 +499,7 @@ const indexedListRules = computed(() => {
           <v-btn
             v-if="modelValue.layout.listActions.includes('add')"
             color="primary"
-            :prepend-icon="statefulLayout.options.icons.add"
+            :prepend-icon="options.icons.add"
             class="mr-2"
             @click="pushEmptyItem"
           >
@@ -497,7 +508,7 @@ const indexedListRules = computed(() => {
           <v-btn
             v-if="modelValue.layout.listActions.includes('paste') && clipboard !== null"
             color="primary"
-            :prepend-icon="statefulLayout.options.icons.paste"
+            :prepend-icon="options.icons.paste"
             @click="pasteItem"
           >
             {{ modelValue.messages.paste }}
@@ -519,7 +530,7 @@ const indexedListRules = computed(() => {
             <v-spacer />
             <v-btn
               :title="modelValue.messages.close"
-              :icon="statefulLayout.options.icons.close"
+              :icon="options.icons.close"
               variant="flat"
               density="comfortable"
               :disabled="modelValue.loading"
