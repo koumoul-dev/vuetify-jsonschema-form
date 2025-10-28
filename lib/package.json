@@ -73,7 +73,7 @@
   },
   "dependencies": {
     "@json-layout/core": "~2.2.1",
-    "@json-layout/vocabulary": "~2.9.0",
+    "@json-layout/vocabulary": "~2.9.3",
     "@vueuse/core": "^12.5.0",
     "debug": "^4.3.4"
   },

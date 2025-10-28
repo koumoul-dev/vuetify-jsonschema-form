@@ -27,7 +27,11 @@ export default defineComponent({
     const fullProps = computed(() => {
       const fullProps = { ...inputProps.value }
       fullProps.modelValue = localData.value
-      fullProps['onUpdate:modelValue'] = (/** @type string */value) => props.statefulLayout.input(props.modelValue, value && Number(value))
+      fullProps['onUpdate:modelValue'] = (/** @type string */value) => {
+        const newData = value && Number(value)
+        localData.value = newData
+        props.statefulLayout.input(props.modelValue, newData)
+      }
       return fullProps
     })
 
