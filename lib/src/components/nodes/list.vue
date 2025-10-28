@@ -521,6 +521,7 @@ const indexedListRules = computed(() => {
         :model-value="editedItem !== undefined"
         v-bind="vEditDialogProps"
         :z-index="zIndex"
+        class="vjsf-list-dialog"
       >
         <v-sheet v-bind="vEditDialogVSheetProps">
           <v-toolbar
