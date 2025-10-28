@@ -223,6 +223,9 @@ const indexedListRules = computed(() => {
   return [(/** @type {string} */v) => !props.modelValue.children.some(c => c.key === v), (/** @type {string} */v) => !v || !!props.modelValue.layout.indexed?.some(pattern => v.match(getRegexp(pattern)))]
 })
 
+const toggleDialog = (/** @type {boolean} */value) => {
+  if (!value) props.statefulLayout.deactivateItem(props.modelValue)
+}
 </script>
 
 <template>
@@ -522,31 +525,35 @@ const indexedListRules = computed(() => {
         v-bind="vEditDialogProps"
         :z-index="zIndex"
         class="vjsf-list-dialog"
+        @update:model-value="toggleDialog"
       >
-        <v-sheet v-bind="vEditDialogVSheetProps">
-          <v-toolbar
-            density="compact"
-            color="surface"
-          >
-            <v-spacer />
-            <v-btn
-              :title="modelValue.messages.close"
-              :icon="options.icons.close"
-              variant="flat"
-              density="comfortable"
-              :disabled="modelValue.loading"
-              @click="statefulLayout.deactivateItem(modelValue)"
-            />
-          </v-toolbar>
-          <v-row class="ma-0">
-            <node
-              v-for="grandChild of isSection(children[children.length - 1]) ? children[children.length - 1].children : [children[children.length - 1]]"
-              :key="grandChild.fullKey"
-              :model-value="/** @type import('../../types.js').VjsfNode */(grandChild)"
-              :stateful-layout="statefulLayout"
-            />
-          </v-row>
-        </v-sheet>
+        <template #default="{ isActive }">
+          <v-sheet v-bind="vEditDialogVSheetProps">
+            <v-toolbar
+              density="compact"
+              color="surface"
+              class="vjsf-list-dialog-toolbar"
+            >
+              <v-spacer />
+              <v-btn
+                :title="modelValue.messages.close"
+                :icon="options.icons.close"
+                variant="flat"
+                density="comfortable"
+                :disabled="modelValue.loading"
+                @click="isActive.value = false"
+              />
+            </v-toolbar>
+            <v-row class="ma-0">
+              <node
+                v-for="grandChild of isSection(children[children.length - 1]) ? children[children.length - 1].children : [children[children.length - 1]]"
+                :key="grandChild.fullKey"
+                :model-value="/** @type import('../../types.js').VjsfNode */(grandChild)"
+                :stateful-layout="statefulLayout"
+              />
+            </v-row>
+          </v-sheet>
+        </template>
       </v-dialog>
     </v-list>
   </v-card>
