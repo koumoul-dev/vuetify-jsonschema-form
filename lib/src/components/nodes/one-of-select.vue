@@ -3,13 +3,17 @@ import { VRow, VCol } from 'vuetify/components/VGrid'
 import { VSelect } from 'vuetify/components/VSelect'
 import { ref, watch, computed, toRef } from 'vue'
 import { isSection } from '@json-layout/core/state'
-import { isCompObject } from '@json-layout/vocabulary'
+import { isCompObject, isOneOfItemHeader, isOneOfItemChild } from '@json-layout/vocabulary'
 import useNode from '../../composables/use-node.js'
 import useZIndexStack from '../../composables/use-z-index-stack.js'
 import Node from '../node.vue'
 import { useDefaults } from 'vuetify'
+import { VListSubheader, VListItem } from 'vuetify/components/VList'
+import VSelectItemIcon from '../fragments/select-item-icon.vue'
+import useCompDefaults from '../../composables/use-comp-defaults.js'
 
 useDefaults({}, 'VjsfOneOfSelect')
+const avatarProps = useCompDefaults('VjsfOneOfSelect-VAvatar', { rounded: false, size: 'small' })
 
 const props = defineProps({
   modelValue: {
@@ -53,16 +57,22 @@ const fieldProps = computed(() => {
     fieldProps.menuProps = { zIndex }
   }
   const items = []
-  for (const childTreePointer of skeleton.value.childrenTrees || []) {
-    const childTree = props.statefulLayout.compiledLayout.skeletonTrees[childTreePointer]
-    const childLayout = props.statefulLayout.compiledLayout.normalizedLayouts[childTree.root]
-    if (!isCompObject(childLayout) || !childLayout.if || !!props.statefulLayout.evalNodeExpression(props.modelValue, childLayout.if, localData.value)) {
-      items.push(childTree)
+  for (const oneOfItem of props.modelValue.layout.oneOfItems) {
+    if (isOneOfItemHeader(oneOfItem)) {
+      items.push(oneOfItem)
+    } else if (isOneOfItemChild(oneOfItem)) {
+      const childTreePointer = (skeleton.value.childrenTrees || [])[oneOfItem.key]
+      const childTree = props.statefulLayout.compiledLayout.skeletonTrees[childTreePointer]
+      const childLayout = props.statefulLayout.compiledLayout.normalizedLayouts[childTree.root]
+      if (!isCompObject(childLayout) || !childLayout.if || !!props.statefulLayout.evalNodeExpression(props.modelValue, childLayout.if, localData.value)) {
+        items.push({ ...oneOfItem, value: childTree })
+      }
     }
   }
   fieldProps.items = items
-  fieldProps.itemTitle = 'title'
-  fieldProps.itemValue = (/** @type {import('@json-layout/core').SkeletonTree} */childTree) => childTree.root
+  fieldProps.itemValue = (/** @type {{value: import('@json-layout/core').SkeletonTree}} */item) => {
+    return item.value?.root
+  }
   return fieldProps
 })
 </script>
@@ -76,7 +86,33 @@ const fieldProps = computed(() => {
       <v-select
         v-bind="fieldProps"
         :model-value="activeChildTree"
-      />
+      >
+        <template #item="context">
+          <v-list-subheader v-if="context.item.raw.header">
+            <v-select-item-icon
+              v-if="typeof context.item.raw.icon === 'string'"
+              :icon="context.item.raw.icon"
+              :avatar-props="avatarProps"
+            />
+            {{ context.item.raw.title }}
+          </v-list-subheader>
+          <v-list-item
+            v-else
+            v-bind="context.props"
+          >
+            <template
+              v-if="context.item.raw.icon"
+              #prepend
+            >
+              <v-select-item-icon
+                v-if="typeof context.item.raw.icon === 'string'"
+                :icon="context.item.raw.icon"
+                :avatar-props="avatarProps"
+              />
+            </template>
+          </v-list-item>
+        </template>
+      </v-select>
     </v-col>
     <template v-if="modelValue.children?.[0]">
       <node
