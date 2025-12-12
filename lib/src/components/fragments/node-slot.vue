@@ -21,6 +21,11 @@ export default {
       type: Object,
       required: true
     },
+    initialContext: {
+      /** @type import('vue').PropType<Record<string, any>> */
+      type: Object,
+      default: () => {}
+    },
     tag: {
       /** @type import('vue').PropType<string> */
       type: String,
@@ -41,10 +46,11 @@ export default {
         console.error(`vjsf: layout references a code slot "${this.layoutSlot.name}" that was not provided.`)
       } else {
         const slotContext = {
+          ...this.initialContext,
+          ...this.layoutSlot.props,
           node: this.node,
           statefulLayout: this.statefulLayout
         }
-        if (this.layoutSlot.props) Object.assign(slotContext, this.layoutSlot.props)
         return h(renderTag, this.statefulLayout.options.vjsfSlots[this.layoutSlot.name](slotContext))
       }
     }
