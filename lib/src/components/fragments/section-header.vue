@@ -32,7 +32,7 @@ const titleClass = computed(() => {
 <template>
   <div
     v-if="(node.layout.title && !hideTitle) || node.layout.subtitle || (node.error && node.validated)"
-    :class="`mb-${titleDepthBase - node.options.titleDepth} mt-${titleDepthBase - node.options.titleDepth}`"
+    :class="`mb-${titleDepthBase - node.options.titleDepth} mt-${hideTitle ? 0 : (titleDepthBase - node.options.titleDepth)}`"
   >
     <component
       :is="`h${node.options.titleDepth}`"
@@ -43,7 +43,7 @@ const titleClass = computed(() => {
     </component>
     <p
       v-if="node.layout.subtitle"
-      :class="`text-subtitle mt-${titleDepthBase - node.options.titleDepth}`"
+      :class="`text-subtitle mt-${hideTitle ? 0 : (titleDepthBase - node.options.titleDepth)}`"
       v-html="node.layout.subtitle"
     />
     <v-alert
