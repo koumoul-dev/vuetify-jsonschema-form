@@ -31,7 +31,7 @@ const { modelValue, statefulLayout } = defineProps({
 const nodeProps = computed(() => {
   return {
     ...modelValue.props,
-    directory: 'vertical'
+    direction: /** @type {'vertical'} */ ('vertical')
   }
 })
 
