@@ -25,6 +25,10 @@ const props = defineProps({
   }
 })
 
+const nodeProps = computed(() => {
+  return props.modelValue.props
+})
+
 const step = ref(0)
 
 const firstErrorIndex = computed(() => {
@@ -41,7 +45,10 @@ const goNext = () => {
 
 <template>
   <section-header :node="modelValue" />
-  <v-stepper v-model="step">
+  <v-stepper
+    v-model="step"
+    v-bind="nodeProps"
+  >
     <v-stepper-header>
       <template
         v-for="(child, i) of modelValue.children"

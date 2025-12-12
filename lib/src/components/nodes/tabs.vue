@@ -5,7 +5,7 @@ import { VIcon } from 'vuetify/components/VIcon'
 import { VSheet } from 'vuetify/components/VSheet'
 import { VWindow, VWindowItem } from 'vuetify/components/VWindow'
 import { useDefaults } from 'vuetify'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { isSection } from '@json-layout/core/state'
 import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'
@@ -15,7 +15,7 @@ import useCompDefaults from '../../composables/use-comp-defaults.js'
 useDefaults({}, 'VjsfTabs')
 const vSheetProps = useCompDefaults('VjsfTabs-VSheet', { border: true })
 
-defineProps({
+const { modelValue, statefulLayout } = defineProps({
   modelValue: {
     /** @type import('vue').PropType<import('../../types.js').VjsfTabsNode> */
     type: Object,
@@ -28,6 +28,13 @@ defineProps({
   }
 })
 
+const nodeProps = computed(() => {
+  return {
+    ...modelValue.props,
+    directory: 'horizontal'
+  }
+})
+
 const tab = ref(0)
 </script>
 
@@ -36,7 +43,7 @@ const tab = ref(0)
   <v-sheet v-bind="vSheetProps">
     <v-tabs
       v-model="tab"
-      direction="horizontal"
+      v-bind="nodeProps"
     >
       <v-tab
         v-for="(child, i) of modelValue.children"

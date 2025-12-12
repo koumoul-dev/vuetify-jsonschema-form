@@ -3,11 +3,12 @@ import { VCard } from 'vuetify/components/VCard'
 import { VContainer, VRow } from 'vuetify/components/VGrid'
 import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'
+import { computed } from 'vue'
 import { useDefaults } from 'vuetify'
 
 useDefaults({}, 'VjsfCard')
 
-defineProps({
+const { modelValue, statefulLayout } = defineProps({
   modelValue: {
     /** @type import('vue').PropType<import('../../types.js').VjsfCardNode> */
     type: Object,
@@ -20,10 +21,17 @@ defineProps({
   }
 })
 
+const nodeProps = computed(() => {
+  return {
+    title: modelValue.layout.title || undefined,
+    ...modelValue.props,
+  }
+})
+
 </script>
 
 <template>
-  <v-card :title="modelValue.layout.title || undefined">
+  <v-card v-bind="nodeProps">
     <v-container fluid>
       <section-header
         :node="modelValue"

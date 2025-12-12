@@ -5,7 +5,7 @@ import { VContainer, VRow } from 'vuetify/components/VGrid'
 import { VIcon } from 'vuetify/components/VIcon'
 import { VSheet } from 'vuetify/components/VSheet'
 import { VWindow, VWindowItem } from 'vuetify/components/VWindow'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'
 import ChildSubtitle from '../fragments/child-subtitle.vue'
@@ -15,7 +15,7 @@ import useCompDefaults from '../../composables/use-comp-defaults.js'
 useDefaults({}, 'VjsfVerticalTabs')
 const vSheetProps = useCompDefaults('VjsfVerticalTabs-VSheet', { border: true })
 
-defineProps({
+const { modelValue, statefulLayout } = defineProps({
   modelValue: {
     /** @type import('vue').PropType<import('../../types.js').VjsfVerticalTabsNode> */
     type: Object,
@@ -28,6 +28,13 @@ defineProps({
   }
 })
 
+const nodeProps = computed(() => {
+  return {
+    ...modelValue.props,
+    directory: 'vertical'
+  }
+})
+
 const tab = ref(0)
 </script>
 
@@ -37,7 +44,7 @@ const tab = ref(0)
     <div class="d-flex flex-row">
       <v-tabs
         v-model="tab"
-        direction="vertical"
+        v-bind="nodeProps"
       >
         <v-tab
           v-for="(child, i) of modelValue.children"
