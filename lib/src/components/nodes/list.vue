@@ -25,6 +25,7 @@ import useZIndexStack from '../../composables/use-z-index-stack.js'
 
 useDefaults({}, 'VjsfList')
 const vCardProps = useCompDefaults('VjsfList-VCard', { border: true, flat: true, tile: true })
+const vListProps = useCompDefaults('VjsfList-VList', { class: 'py-0' })
 const vEditDialogProps = useCompDefaults('VjsfList-Edit-VDialog', { width: 500, persistent: true })
 const vEditDialogVSheetProps = useCompDefaults('VjsfList-Edit-VDialog-VSheet', {})
 const vEditMenuProps = useCompDefaults('VjsfList-Edit-VMenu', { width: 500 })
@@ -233,7 +234,7 @@ const toggleDialog = (/** @type {boolean} */value) => {
     v-bind="vCardProps"
     :loading="modelValue.loading"
   >
-    <v-list class="py-0">
+    <v-list v-bind="vListProps">
       <v-list-subheader v-if="modelValue.layout.title">
         {{ modelValue.layout.title }}
       </v-list-subheader>
