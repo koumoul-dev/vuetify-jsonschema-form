@@ -26,6 +26,7 @@ import useZIndexStack from '../../composables/use-z-index-stack.js'
 useDefaults({}, 'VjsfList')
 const vCardProps = useCompDefaults('VjsfList-VCard', { border: true, flat: true, tile: true })
 const vListProps = useCompDefaults('VjsfList-VList', { class: 'py-0' })
+const vListItemProps = useCompDefaults('VjsfList-VListItem', { variant: 'flat', class: 'pa-1' })
 const vEditDialogProps = useCompDefaults('VjsfList-Edit-VDialog', { width: 500, persistent: true })
 const vEditDialogVSheetProps = useCompDefaults('VjsfList-Edit-VDialog-VSheet', {})
 const vEditMenuProps = useCompDefaults('VjsfList-Edit-VMenu', { width: 500 })
@@ -243,11 +244,10 @@ const toggleDialog = (/** @type {boolean} */value) => {
         :key="children.findIndex(c => c === child)"
       >
         <v-list-item
-          v-bind="itemBind(childIndex)"
+          v-bind="itemBind(childIndex, vListItemProps)"
           :draggable="draggable === childIndex"
-          variant="flat"
           :style="`border: 1px solid ${itemBorderColor(child, childIndex)}`"
-          class="pa-1 vjsf-list-item"
+          class="vjsf-list-item"
         >
           <v-list-item-title
             v-if="itemTitles?.[childIndex]"
