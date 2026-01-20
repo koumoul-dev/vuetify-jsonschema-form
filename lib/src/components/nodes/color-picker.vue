@@ -41,7 +41,7 @@ const menuProps = computed(() => {
     :model-value="modelValue"
     v-bind="menuProps"
     :stateful-layout="statefulLayout"
-    :formatted-value="modelValue.data"
+    :formatted-value="modelValue.data ?? undefined"
   >
     <template
       v-if="modelValue.data"

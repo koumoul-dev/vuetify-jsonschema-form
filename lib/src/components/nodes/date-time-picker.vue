@@ -73,7 +73,7 @@ const timePickerProps = computed(() => {
     v-model:menu-opened="menuOpened"
     :model-value="modelValue"
     :stateful-layout="statefulLayout"
-    :formatted-value="modelValue.data && vDate.format(modelValue.data, 'fullDateTime')"
+    :formatted-value="modelValue.data ? vDate.format(modelValue.data, 'fullDateTime') : undefined"
   >
     <template #prepend-inner>
       <v-icon :icon="statefulLayout.options.icons.calendar" />

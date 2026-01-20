@@ -61,13 +61,13 @@ const datePickerProps = computed(() => {
   return datePickerProps
 })
 
-/** @type {import('vue').Ref<string | null>} */
-const formattedValue = ref('')
+/** @type {import('vue').Ref<string | undefined>} */
+const formattedValue = ref()
 const setFormattedValue = () => {
   if (localDateTime.value) {
     formattedValue.value = localeKeyboardFormat(props.modelValue.options.locale).format(localDateTime.value)
   } else {
-    formattedValue.value = null
+    formattedValue.value = undefined
   }
 }
 watch(localDateTime, setFormattedValue, { immediate: true })
