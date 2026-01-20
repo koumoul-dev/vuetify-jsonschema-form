@@ -27,9 +27,9 @@ useDefaults({}, 'VjsfList')
 const vCardProps = useCompDefaults('VjsfList-VCard', { border: true, flat: true, tile: true })
 const vListProps = useCompDefaults('VjsfList-VList', { class: 'py-0' })
 const vListItemProps = useCompDefaults('VjsfList-VListItem', { variant: 'flat', class: 'pa-1' })
-const vEditDialogProps = useCompDefaults('VjsfList-Edit-VDialog', { width: 500, persistent: true })
+const vEditDialogProps = useCompDefaults('VjsfList-Edit-VDialog', { persistent: true })
 const vEditDialogVSheetProps = useCompDefaults('VjsfList-Edit-VDialog-VSheet', {})
-const vEditMenuProps = useCompDefaults('VjsfList-Edit-VMenu', { width: 500 })
+const vEditMenuProps = useCompDefaults('VjsfList-Edit-VMenu', {})
 const theme = useTheme()
 
 const props = defineProps({
@@ -346,6 +346,7 @@ const toggleDialog = (/** @type {boolean} */value) => {
                         :model-value="editedItem !== undefined"
                         :close-on-content-click="false"
                         v-bind="vEditMenuProps"
+                        :width="modelValue.options.listMenuWidth"
                         @update:model-value="value => value || statefulLayout.deactivateItem(modelValue)"
                       >
                         <template #activator="{props: listItemProps}">
@@ -524,6 +525,7 @@ const toggleDialog = (/** @type {boolean} */value) => {
         v-if="layout.listEditMode === 'dialog'"
         :model-value="editedItem !== undefined"
         v-bind="vEditDialogProps"
+        :width="options.listDialogWidth"
         :z-index="zIndex"
         class="vjsf-list-dialog"
         @update:model-value="toggleDialog"
@@ -567,8 +569,5 @@ const toggleDialog = (/** @type {boolean} */value) => {
 }
 .vjsf-list-item .v-list-item__content {
   padding-right: 4px;
-}
-.vjsf-list-item-actions-wrapper {
-  /*margin: -4px;*/
 }
 </style>
