@@ -239,7 +239,7 @@ export default defineComponent({
     })
 
     // update data from outside
-    watch(() => localData, () => {
+    watch(localData, () => {
       if (easymde && (easymde.value() !== (localData.value ?? ''))) {
         easymde.value(localData.value ?? '')
       }
