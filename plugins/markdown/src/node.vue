@@ -23,6 +23,7 @@ export default defineComponent({
     const { inputProps, localData } = useNode(toRef(props, 'modelValue'), props.statefulLayout)
     const pluginOptions = /** @type {import('./types.js').VjsfPluginMarkdownOptions | undefined} */(props.modelValue.options.pluginsOptions.markdown)
 
+    // @ts-ignore
     return () => h(VjsfMarkdownEditor, {
       modelValue: localData.value,
       label: inputProps.value.label,
@@ -35,7 +36,7 @@ export default defineComponent({
       icons: pluginOptions?.icons,
       cspNonce: pluginOptions?.cspNonce,
       onBlur: () => props.statefulLayout.blur(props.modelValue),
-      'onUpdate:modelValue': (value) => props.statefulLayout.input(props.modelValue, value)
+      'onUpdate:modelValue': (/** @type {string} */value) => props.statefulLayout.input(props.modelValue, value)
     })
   }
 })
