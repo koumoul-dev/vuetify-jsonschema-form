@@ -287,6 +287,7 @@ export default defineComponent({
 
     return () => [
       h('style', { innerHTML: darkStyle.value }),
+      // @ts-ignore
       h(VInput, props.inputProps, fieldSlots.value)
     ]
   }
