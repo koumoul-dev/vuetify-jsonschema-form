@@ -3,8 +3,11 @@ import { defineComponent, h, computed, onMounted, ref, onUnmounted, watch } from
 import { useDefaults, useTheme } from 'vuetify'
 import { VInput, VLabel } from 'vuetify/components'
 import { marked } from 'marked'
+import debugModule from 'debug'
 import i18n from './i18n/index.js'
 import 'easymde/dist/easymde.min.css'
+
+const debug = debugModule('vjsf-markdown')
 
 const iconSvg = (/** @type {string} */svgPath) => {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="${svgPath}" /></svg>`
@@ -93,6 +96,7 @@ export default defineComponent({
     const initEasyMDE = async () => {
       if (props.readOnly) return
       if (!element.value) throw new Error('component was not mounted for markdown editor')
+      debug('initEasyMDE')
 
       const EasyMDE = (await import('easymde')).default
 
@@ -268,13 +272,15 @@ export default defineComponent({
     // update data from outside
     watch(() => props.modelValue, () => {
       if (easymde && (easymde.value() !== (props.modelValue ?? ''))) {
+        debug('data was updated from outside, apply to easymde')
         easymde.value(props.modelValue ?? '')
       }
     })
 
     // update easymde config from outside
     watch(() => [props.readOnly, props.messages, props.locale, props.easyMdeOptions], (newValues, oldValues) => {
-      if (newValues[0] !== oldValues[0] || newValues[1] !== oldValues[1] || newValues[2] !== oldValues[2] || newValues[3] !== oldValues[3]) {
+      if (JSON.stringify(newValues) !== JSON.stringify(oldValues)) {
+        debug('easymde config was updated from outside, reinit easymde')
         initEasyMDE()
       }
     })
