@@ -27,7 +27,7 @@ export default defineComponent({
     messages: {
       /** @type {import('vue').PropType<Partial<import('./i18n/types.js').VjsfMarkdownMessages>>} */
       type: Object,
-      required: true
+      default: () => ({})
     },
     locale: {
       type: String,
