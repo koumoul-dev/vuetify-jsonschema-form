@@ -79,7 +79,7 @@ export default defineComponent({
         } else {
           children.push(h('textarea', { ref: element }))
         }
-        return h('div', { class: 'vjsf-node-markdown-content' }, children)
+        return h('div', { class: 'vjsf-markdown-content' }, children)
       }
       return fieldSlots
     })
@@ -286,12 +286,20 @@ export default defineComponent({
       }
     }) */
 
+    const inputProps = computed(() => {
+      const inputProps = { ...props.inputProps }
+      if (inputProps.class && typeof inputProps.class === 'string') inputProps.class += ' vjsf-markdown-input'
+      else if (Array.isArray(inputProps.class)) inputProps.class.push('vjsf-markdown-input')
+      else inputProps.class = 'vjsf-markdown-input'
+      return inputProps
+    })
+
     const theme = useTheme()
     const darkStyle = computed(() => getDarkStyle(theme))
     return () => [
       h('style', { innerHTML: darkStyle.value, nonce: props.cspNonce || undefined }),
       // @ts-ignore
-      h(VInput, props.inputProps, fieldSlots.value)
+      h(VInput, inputProps.value, fieldSlots.value)
     ]
   }
 })
@@ -299,58 +307,58 @@ export default defineComponent({
 const getDarkStyle = (/** @type {import('vuetify').ThemeInstance} */theme) => {
   // Inspired by https://github.com/Ionaru/easy-markdown-editor/issues/131#issuecomment-1738202589
   return `
-.vjsf-node-markdown.vjsf-dark .EasyMDEContainer .CodeMirror {
+.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .CodeMirror {
     color: white;
     border-color: ${theme.current.value.variables['border-color']};
     background-color: ${theme.current.value.colors.surface};
 }
-.vjsf-node-markdown.vjsf-dark .EasyMDEContainer .cm-s-easymde .CodeMirror-cursor {
+.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .cm-s-easymde .CodeMirror-cursor {
     border-color: white;
 }
-.vjsf-node-markdown.vjsf-dark .CodeMirror-cursor {
+.vjsf-markdown-input.v-theme--dark .CodeMirror-cursor {
     border-left:1px solid white;
     border-right:none;width:0;
 }
-.vjsf-node-markdown.vjsf-dark .EasyMDEContainer .editor-toolbar > * {
+.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .editor-toolbar > * {
     border-color: ${theme.current.value.colors.surface};
 }
-.vjsf-node-markdown.vjsf-dark .editor-toolbar {
+.vjsf-markdown-input.v-theme--dark .editor-toolbar {
     border-top: 1px solid ${theme.current.value.variables['border-color']};
     border-left: 1px solid ${theme.current.value.variables['border-color']};
     border-right: 1px solid ${theme.current.value.variables['border-color']};
 }
-.vjsf-node-markdown.vjsf-dark .editor-toolbar i.separator {
+.vjsf-markdown-input.v-theme--dark .editor-toolbar i.separator {
     border-left: 1px solid ${theme.current.value.variables['border-color']};
     border-right: 1px solid ${theme.current.value.variables['border-color']};
 }
-.vjsf-node-markdown.vjsf-dark .EasyMDEContainer .editor-toolbar > .active, .editor-toolbar > button:hover, .editor-preview pre, .cm-s-easymde .cm-comment {
+.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .editor-toolbar > .active, .editor-toolbar > button:hover, .editor-preview pre, .cm-s-easymde .cm-comment {
     background-color: ${theme.current.value.colors.surface};
 }
-.vjsf-node-markdown.vjsf-dark .EasyMDEContainer .CodeMirror-fullscreen {
+.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .CodeMirror-fullscreen {
     background: ${theme.current.value.colors.surface};
 }
-.vjsf-node-markdown.vjsf-dark .editor-toolbar.fullscreen {
+.vjsf-markdown-input.v-theme--dark .editor-toolbar.fullscreen {
     background: ${theme.current.value.colors.surface};
 }
-.vjsf-node-markdown.vjsf-dark .editor-preview {
+.vjsf-markdown-input.v-theme--dark .editor-preview {
     background: ${theme.current.value.colors.surface};
 }
-.vjsf-node-markdown.vjsf-dark .editor-preview-side {
+.vjsf-markdown-input.v-theme--dark .editor-preview-side {
     border-color: ${theme.current.value.variables['border-color']};
 }
-.vjsf-node-markdown.vjsf-dark .CodeMirror-selected {
+.vjsf-markdown-input.v-theme--dark .CodeMirror-selected {
     background: ${theme.current.value.colors.secondary};
 }
-.vjsf-node-markdown.vjsf-dark .CodeMirror-focused .CodeMirror-selected {
+.vjsf-markdown-input.v-theme--dark .CodeMirror-focused .CodeMirror-selected {
     background: ${theme.current.value.colors.secondary};
 }
-.vjsf-node-markdown.vjsf-dark .CodeMirror-line::selection,.CodeMirror-line>span::selection,.CodeMirror-line>span>span::selection {
+.vjsf-markdown-input.v-theme--dark .CodeMirror-line::selection,.CodeMirror-line>span::selection,.CodeMirror-line>span>span::selection {
     background:${theme.current.value.colors.secondary}
 }
-.vjsf-node-markdown.vjsf-dark .CodeMirror-line::-moz-selection,.CodeMirror-line>span::-moz-selection,.CodeMirror-line>span>span::-moz-selection {
+.vjsf-markdown-input.v-theme--dark .CodeMirror-line::-moz-selection,.CodeMirror-line>span::-moz-selection,.CodeMirror-line>span>span::-moz-selection {
     background:${theme.current.value.colors.secondary}
 }
-.vjsf-node-markdown.vjsf-dark .EasyMDEContainer .CodeMirror-focused .CodeMirror-selected {
+.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .CodeMirror-focused .CodeMirror-selected {
     background: ${theme.current.value.colors.secondary}
 }
   `
@@ -359,42 +367,46 @@ const getDarkStyle = (/** @type {import('vuetify').ThemeInstance} */theme) => {
 </script>
 
 <style>
-.vjsf-node-markdown .vjsf-node-markdown-content {
+.vjsf-markdown-input .vjsf-markdown-content {
   width: 100%;
 }
 
 /* adjust icons placements */
-.vjsf-node-markdown .editor-toolbar button svg {
+.vjsf-markdown-input .editor-toolbar button svg {
   padding-top: 6px;
 }
 
 /* adjust to density */
-.vjsf-node-markdown .v-input--density-compact .editor-toolbar {
+.vjsf-markdown-input.v-input--density-compact .editor-toolbar {
   padding: 0;
 }
-.vjsf-node-markdown .v-input--density-comfortable .editor-toolbar {
+.vjsf-markdown-input.v-input--density-comfortable .editor-toolbar {
   padding: 4px;
 }
-.vjsf-node-markdown .v-input--density-compact .CodeMirror-wrap {
+.vjsf-markdown-input.v-input--density-compact .CodeMirror-wrap {
   padding-top: 2px;
   padding-bottom: 2px;
 }
-.vjsf-node-markdown .v-input--density-comfortable .CodeMirror-wrap {
+.vjsf-markdown-input.v-input--density-comfortable .CodeMirror-wrap {
   padding-top: 6px;
   padding-bottom: 6px;
 }
 
 /* adjust to readOnly/summary mode */
-.vjsf-node-markdown.vjsf-readonly .EasyMDEContainer .CodeMirror  {
+.vjsf-markdown-input.vjsf-readonly .EasyMDEContainer .CodeMirror  {
   border-width: 0;
   padding: 0;
 }
-.vjsf-node-markdown.vjsf-summary .vjsf-node-markdown-content  {
+.vjsf-markdown-input.vjsf-summary .vjsf-markdown-content  {
   height: 96px;
   overflow: hidden;
   mask-image: linear-gradient(180deg, #000 66%, transparent 90%);
 }
-.vjsf-node-markdown.vjsf-readonly .vjsf-node-markdown-content textarea {
+.vjsf-markdown-input.vjsf-readonly .vjsf-markdown-content textarea {
   display: none;
+}
+
+.vjsf-markdown-input .editor-toolbar i.separator {
+  height: 20px;
 }
 </style>
