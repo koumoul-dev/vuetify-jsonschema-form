@@ -16,5 +16,6 @@ export type VjsfMarkdownIcons = {
 
 export type VjsfPluginMarkdownOptions = {
   easyMDEOptions?: Record<string, any>, 
-  icons?: Partial<VjsfMarkdownIcons>
+  icons?: Partial<VjsfMarkdownIcons>,
+  cspNonce?: string
 }

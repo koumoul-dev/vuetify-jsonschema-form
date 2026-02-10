@@ -51,6 +51,10 @@ export default defineComponent({
       /** @type {import('vue').PropType<Partial<import('./types.js').VjsfMarkdownIcons>>} */
       type: Object,
       default: () => ({})
+    },
+    cspNonce: {
+      type: String,
+      default: undefined
     }
   },
   emits: ['update:modelValue', 'blur'],
@@ -286,7 +290,7 @@ export default defineComponent({
     const darkStyle = computed(() => getDarkStyle(theme))
 
     return () => [
-      h('style', { innerHTML: darkStyle.value }),
+      h('style', { innerHTML: darkStyle.value, nonce: props.cspNonce }),
       // @ts-ignore
       h(VInput, props.inputProps, fieldSlots.value)
     ]
