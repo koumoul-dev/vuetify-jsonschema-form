@@ -54,7 +54,7 @@ export default defineComponent({
     },
     cspNonce: {
       type: String,
-      default: undefined
+      default: ''
     }
   },
   emits: ['update:modelValue', 'blur'],
@@ -288,9 +288,8 @@ export default defineComponent({
 
     const theme = useTheme()
     const darkStyle = computed(() => getDarkStyle(theme))
-
     return () => [
-      h('style', { innerHTML: darkStyle.value, nonce: props.cspNonce }),
+      h('style', { innerHTML: darkStyle.value, nonce: props.cspNonce || undefined }),
       // @ts-ignore
       h(VInput, props.inputProps, fieldSlots.value)
     ]
