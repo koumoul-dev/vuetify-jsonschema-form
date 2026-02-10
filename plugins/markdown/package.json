@@ -32,13 +32,13 @@
     "./node.vue": {
       "import": {
         "default": "./src/node.vue",
-        "types": "./types/node.d.ts"
+        "types": "./types/node.vue.d.ts"
       }
     },
     "./editor.vue": {
       "import": {
         "default": "./src/editor.vue",
-        "types": "./types/editor.d.ts"
+        "types": "./types/editor.vue.d.ts"
       }
     }
   },
