@@ -31,7 +31,7 @@ export default defineComponent({
       locale: props.modelValue.options.locale ?? 'en',
       inputProps: inputProps.value ?? {},
       autofocus: props.modelValue.autofocus ?? false,
-      easyMDEOptions: pluginOptions?.easyMDEOptions ?? {},
+      easyMdeOptions: pluginOptions?.easyMDEOptions ?? {},
       icons: pluginOptions?.icons ?? {},
       cspNonce: pluginOptions?.cspNonce ?? '',
       onBlur: () => props.statefulLayout.blur(props.modelValue),

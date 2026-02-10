@@ -42,7 +42,7 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
-    easyMDEOptions: {
+    easyMdeOptions: {
       /** @type {import('vue').PropType<Record<string, any>>} */
       type: Object,
       default: () => ({})
@@ -231,7 +231,7 @@ export default defineComponent({
           title: messages.value.mdeGuide,
           noDisable: true
         }],
-        ...props.easyMDEOptions
+        ...props.easyMdeOptions
       }
 
       if (easymde) easymde.toTextArea()
@@ -273,7 +273,7 @@ export default defineComponent({
     })
 
     // update easymde config from outside
-    watch(() => [props.readOnly, props.messages, props.locale, props.easyMDEOptions], (newValues, oldValues) => {
+    watch(() => [props.readOnly, props.messages, props.locale, props.easyMdeOptions], (newValues, oldValues) => {
       if (newValues[0] !== oldValues[0] || newValues[1] !== oldValues[1] || newValues[2] !== oldValues[2] || newValues[3] !== oldValues[3]) {
         initEasyMDE()
       }
