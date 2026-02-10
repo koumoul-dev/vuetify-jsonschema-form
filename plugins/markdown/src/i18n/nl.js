@@ -1,0 +1,22 @@
+/** @type {import('./types.js').VjsfMarkdownMessages} */
+export default {
+  mdeLink1: '[Link titel',
+  mdeLink2: '](link url)',
+  mdeImg1: '![](',
+  mdeImg2: 'afbeelding url)',
+  mdeTable1: '',
+  mdeTable2: '\n\n| Kolom 1  | Kolom 2  | Kolom 3  |\n| -------- | -------- | -------- |\n| Tekst    | Tekst    | Tekst    |\n\n',
+  bold: 'Vet',
+  italic: 'Cursief',
+  heading: 'Titel',
+  quote: 'Citaat',
+  unorderedList: 'Ongeordende lijst',
+  orderedList: 'Geordende lijst',
+  createLink: 'Maak een koppeling',
+  insertImage: 'Afbeelding invoegen',
+  createTable: 'Tabel aanmaken',
+  preview: 'Voorbeeld',
+  mdeGuide: 'Documentatie over syntaxis',
+  undo: 'Ongedaan maken',
+  redo: 'Opnieuw',
+}

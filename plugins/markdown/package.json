@@ -34,6 +34,12 @@
         "default": "./src/node.vue",
         "types": "./types/node.d.ts"
       }
+    },
+    "./editor.vue": {
+      "import": {
+        "default": "./src/editor.vue",
+        "types": "./types/editor.d.ts"
+      }
     }
   },
   "peerDependencies": {
