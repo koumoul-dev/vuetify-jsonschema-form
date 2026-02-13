@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@koumoul/vjsf": "^3.0.0-beta.49",
+    "@koumoul/vjsf": "^3.26.0",
     "@koumoul/vjsf-markdown": "^0.2.4",
     "@mdi/font": "7.4.47",
     "@mdi/js": "^7.4.47",
