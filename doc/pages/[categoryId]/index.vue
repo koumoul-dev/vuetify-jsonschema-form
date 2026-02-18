@@ -55,9 +55,9 @@ const examplesCategory = computed(() => examples.find(e => e.id === route.params
 
 const title = computed(() => 'VJSF - ' + (examplesCategory.value?.title || 'Unknown category'))
 
-const meta = computed(() => examplesCategory.value?.id.startsWith('_')
+const meta = computed(() => (examplesCategory.value?.id.startsWith('_') || examplesCategory.value?.id === 'v2-compat')
   ? [{ name: 'robots', content: 'noindex, nofollow' }]
-  : [{ name: 'keywords', content: 'Examples' }])
+  : [{ name: 'keywords', content: 'Examples' }, { name: 'description', content: examplesCategory.value?.description }])
 
 useHead({ title, meta })
 </script>
