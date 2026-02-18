@@ -1,1 +1,387 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>VJSF - Documentation</title><link rel="stylesheet" href="/vuetify-jsonschema-form/master/_nuxt/entry.CCcQBZIw.css" crossorigin><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/D-LOyt65.js"><script type="module" src="/vuetify-jsonschema-form/master/_nuxt/D-LOyt65.js" crossorigin></script><meta name="description" content="VJSF - Documentation"><link rel="icon" type="image/x-icon" href="/vuetify-jsonschema-form/master/favicon.ico"><script id="unhead:payload" type="application/json">{"title":"VJSF - Documentation"}</script></head><body><div id="__nuxt"></div><div id="teleports"></div><script>window.__NUXT__={};window.__NUXT__.config={public:{},app:{baseURL:"/vuetify-jsonschema-form/master/",buildId:"86787918-fde0-4efa-927d-002d2dc1beee",buildAssetsDir:"/_nuxt/",cdnURL:""}}</script><script type="application/json" data-nuxt-data="nuxt-app" data-ssr="false" id="__NUXT_DATA__">[{"prerenderedAt":1,"serverRendered":2},1768903724062,false]</script></body></html>
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>VJSF - Slots</title><style id="vuetify-theme-stylesheet">:root {
+      color-scheme: dark;
+    }
+    :root {
+      --v-theme-background: 33,33,33;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 33,33,33;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 204,191,214;
+      --v-theme-surface-bright-overlay-multiplier: 2;
+      --v-theme-surface-light: 66,66,66;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 200,200,200;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 0,0,0;
+      --v-theme-primary: 24,255,255;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 39,124,193;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 84,182,178;
+      --v-theme-secondary-overlay-multiplier: 2;
+      --v-theme-secondary-darken-1: 72,169,166;
+      --v-theme-secondary-darken-1-overlay-multiplier: 2;
+      --v-theme-error: 207,102,121;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 2;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 2;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 2;
+      --v-theme-on-background: 255,255,255;
+      --v-theme-on-surface: 255,255,255;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 255,255,255;
+      --v-theme-on-primary: 0,0,0;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 255, 255, 255;
+      --v-border-opacity: 0.5;
+      --v-high-emphasis-opacity: 1;
+      --v-medium-emphasis-opacity: 0.7;
+      --v-disabled-opacity: 0.5;
+      --v-idle-opacity: 0.1;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.16;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 66, 66, 66;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 52, 52, 52;
+      --v-theme-on-code: 204, 204, 204;
+    }
+    .v-theme--light {
+      color-scheme: normal;
+      --v-theme-background: 255,255,255;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 255,255,255;
+      --v-theme-surface-bright-overlay-multiplier: 1;
+      --v-theme-surface-light: 238,238,238;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 0,172,193;
+      --v-theme-primary-overlay-multiplier: 1;
+      --v-theme-primary-darken-1: 31,85,146;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 72,169,166;
+      --v-theme-secondary-overlay-multiplier: 1;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 1;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-accent: 0,229,255;
+      --v-theme-accent-overlay-multiplier: 1;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 0,0,0;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-theme-on-accent: 0,0,0;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 238, 238, 238;
+      --v-theme-on-kbd: 0, 0, 0;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .v-theme--dark {
+      color-scheme: dark;
+      --v-theme-background: 33,33,33;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 33,33,33;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 204,191,214;
+      --v-theme-surface-bright-overlay-multiplier: 2;
+      --v-theme-surface-light: 66,66,66;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 200,200,200;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 0,0,0;
+      --v-theme-primary: 24,255,255;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 39,124,193;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 84,182,178;
+      --v-theme-secondary-overlay-multiplier: 2;
+      --v-theme-secondary-darken-1: 72,169,166;
+      --v-theme-secondary-darken-1-overlay-multiplier: 2;
+      --v-theme-error: 207,102,121;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 2;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 2;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 2;
+      --v-theme-on-background: 255,255,255;
+      --v-theme-on-surface: 255,255,255;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 255,255,255;
+      --v-theme-on-primary: 0,0,0;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 255, 255, 255;
+      --v-border-opacity: 0.5;
+      --v-high-emphasis-opacity: 1;
+      --v-medium-emphasis-opacity: 0.7;
+      --v-disabled-opacity: 0.5;
+      --v-idle-opacity: 0.1;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.16;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 66, 66, 66;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 52, 52, 52;
+      --v-theme-on-code: 204, 204, 204;
+    }
+    .bg-background {
+      --v-theme-overlay-multiplier: var(--v-theme-background-overlay-multiplier);
+      background-color: rgb(var(--v-theme-background)) !important;
+      color: rgb(var(--v-theme-on-background)) !important;
+    }
+    .bg-surface {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface)) !important;
+      color: rgb(var(--v-theme-on-surface)) !important;
+    }
+    .bg-surface-bright {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-bright-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface-bright)) !important;
+      color: rgb(var(--v-theme-on-surface-bright)) !important;
+    }
+    .bg-surface-light {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-light-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface-light)) !important;
+      color: rgb(var(--v-theme-on-surface-light)) !important;
+    }
+    .bg-surface-variant {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-variant-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface-variant)) !important;
+      color: rgb(var(--v-theme-on-surface-variant)) !important;
+    }
+    .bg-primary {
+      --v-theme-overlay-multiplier: var(--v-theme-primary-overlay-multiplier);
+      background-color: rgb(var(--v-theme-primary)) !important;
+      color: rgb(var(--v-theme-on-primary)) !important;
+    }
+    .bg-primary-darken-1 {
+      --v-theme-overlay-multiplier: var(--v-theme-primary-darken-1-overlay-multiplier);
+      background-color: rgb(var(--v-theme-primary-darken-1)) !important;
+      color: rgb(var(--v-theme-on-primary-darken-1)) !important;
+    }
+    .bg-secondary {
+      --v-theme-overlay-multiplier: var(--v-theme-secondary-overlay-multiplier);
+      background-color: rgb(var(--v-theme-secondary)) !important;
+      color: rgb(var(--v-theme-on-secondary)) !important;
+    }
+    .bg-secondary-darken-1 {
+      --v-theme-overlay-multiplier: var(--v-theme-secondary-darken-1-overlay-multiplier);
+      background-color: rgb(var(--v-theme-secondary-darken-1)) !important;
+      color: rgb(var(--v-theme-on-secondary-darken-1)) !important;
+    }
+    .bg-error {
+      --v-theme-overlay-multiplier: var(--v-theme-error-overlay-multiplier);
+      background-color: rgb(var(--v-theme-error)) !important;
+      color: rgb(var(--v-theme-on-error)) !important;
+    }
+    .bg-info {
+      --v-theme-overlay-multiplier: var(--v-theme-info-overlay-multiplier);
+      background-color: rgb(var(--v-theme-info)) !important;
+      color: rgb(var(--v-theme-on-info)) !important;
+    }
+    .bg-success {
+      --v-theme-overlay-multiplier: var(--v-theme-success-overlay-multiplier);
+      background-color: rgb(var(--v-theme-success)) !important;
+      color: rgb(var(--v-theme-on-success)) !important;
+    }
+    .bg-warning {
+      --v-theme-overlay-multiplier: var(--v-theme-warning-overlay-multiplier);
+      background-color: rgb(var(--v-theme-warning)) !important;
+      color: rgb(var(--v-theme-on-warning)) !important;
+    }
+    .bg-accent {
+      --v-theme-overlay-multiplier: var(--v-theme-accent-overlay-multiplier);
+      background-color: rgb(var(--v-theme-accent)) !important;
+      color: rgb(var(--v-theme-on-accent)) !important;
+    }
+    .text-background {
+      color: rgb(var(--v-theme-background)) !important;
+    }
+    .border-background {
+      --v-border-color: var(--v-theme-background);
+    }
+    .text-surface {
+      color: rgb(var(--v-theme-surface)) !important;
+    }
+    .border-surface {
+      --v-border-color: var(--v-theme-surface);
+    }
+    .text-surface-bright {
+      color: rgb(var(--v-theme-surface-bright)) !important;
+    }
+    .border-surface-bright {
+      --v-border-color: var(--v-theme-surface-bright);
+    }
+    .text-surface-light {
+      color: rgb(var(--v-theme-surface-light)) !important;
+    }
+    .border-surface-light {
+      --v-border-color: var(--v-theme-surface-light);
+    }
+    .text-surface-variant {
+      color: rgb(var(--v-theme-surface-variant)) !important;
+    }
+    .border-surface-variant {
+      --v-border-color: var(--v-theme-surface-variant);
+    }
+    .on-surface-variant {
+      color: rgb(var(--v-theme-on-surface-variant)) !important;
+    }
+    .text-primary {
+      color: rgb(var(--v-theme-primary)) !important;
+    }
+    .border-primary {
+      --v-border-color: var(--v-theme-primary);
+    }
+    .text-primary-darken-1 {
+      color: rgb(var(--v-theme-primary-darken-1)) !important;
+    }
+    .border-primary-darken-1 {
+      --v-border-color: var(--v-theme-primary-darken-1);
+    }
+    .text-secondary {
+      color: rgb(var(--v-theme-secondary)) !important;
+    }
+    .border-secondary {
+      --v-border-color: var(--v-theme-secondary);
+    }
+    .text-secondary-darken-1 {
+      color: rgb(var(--v-theme-secondary-darken-1)) !important;
+    }
+    .border-secondary-darken-1 {
+      --v-border-color: var(--v-theme-secondary-darken-1);
+    }
+    .text-error {
+      color: rgb(var(--v-theme-error)) !important;
+    }
+    .border-error {
+      --v-border-color: var(--v-theme-error);
+    }
+    .text-info {
+      color: rgb(var(--v-theme-info)) !important;
+    }
+    .border-info {
+      --v-border-color: var(--v-theme-info);
+    }
+    .text-success {
+      color: rgb(var(--v-theme-success)) !important;
+    }
+    .border-success {
+      --v-border-color: var(--v-theme-success);
+    }
+    .text-warning {
+      color: rgb(var(--v-theme-warning)) !important;
+    }
+    .border-warning {
+      --v-border-color: var(--v-theme-warning);
+    }
+    .text-accent {
+      color: rgb(var(--v-theme-accent)) !important;
+    }
+    .border-accent {
+      --v-border-color: var(--v-theme-accent);
+    }
+    .on-background {
+      color: rgb(var(--v-theme-on-background)) !important;
+    }
+    .on-surface {
+      color: rgb(var(--v-theme-on-surface)) !important;
+    }
+    .on-surface-bright {
+      color: rgb(var(--v-theme-on-surface-bright)) !important;
+    }
+    .on-surface-light {
+      color: rgb(var(--v-theme-on-surface-light)) !important;
+    }
+    .on-primary {
+      color: rgb(var(--v-theme-on-primary)) !important;
+    }
+    .on-primary-darken-1 {
+      color: rgb(var(--v-theme-on-primary-darken-1)) !important;
+    }
+    .on-secondary {
+      color: rgb(var(--v-theme-on-secondary)) !important;
+    }
+    .on-secondary-darken-1 {
+      color: rgb(var(--v-theme-on-secondary-darken-1)) !important;
+    }
+    .on-error {
+      color: rgb(var(--v-theme-on-error)) !important;
+    }
+    .on-info {
+      color: rgb(var(--v-theme-on-info)) !important;
+    }
+    .on-success {
+      color: rgb(var(--v-theme-on-success)) !important;
+    }
+    .on-warning {
+      color: rgb(var(--v-theme-on-warning)) !important;
+    }
+    .on-accent {
+      color: rgb(var(--v-theme-on-accent)) !important;
+    }
+</style><style>.doc-content-page p{margin-bottom:16px}.doc-content-page .code-block{margin-bottom:24px;margin-top:8px}.doc-content-page ul{margin-bottom:16px;margin-left:28px}</style><style>#examples-panels .v-expansion-panel{background-color:transparent}#examples-panels .v-expansion-panel-content__wrap{padding-left:8px;padding-right:8px}</style><style>a.anchor{display:block;position:relative;top:-60px;visibility:hidden}</style><style>.markdown-block p:not(:last-child),.markdown-block pre:not(:last-child){margin-bottom:20px}.markdown-block ul{margin-bottom:16px;margin-left:28px}</style><style>.vjsf-input--readonly.v-input--disabled.v-text-field .v-field--disabled input{pointer-events:auto}.vjsf-input--readonly.v-input--disabled .v-field--disabled,.vjsf-input--readonly.v-input--disabled .v-input__append,.vjsf-input--readonly.v-input--disabled .v-input__details,.vjsf-input--readonly.v-input--disabled .v-input__prepend{opacity:inherit}.vjsf-input--readonly.v-input--disabled .v-autocomplete__menu-icon,.vjsf-input--readonly.v-input--disabled .v-field__clearable,.vjsf-input--readonly.v-input--disabled .v-select__menu-icon,.vjsf-input--readonly.v-input--disabled.v-number-input .v-field__append-inner{display:none}.vjsf-node.vjsf-has-help{padding-right:30px!important}.vjsf-node.vjsf-density-default.vjsf-has-help{padding-right:42px!important}.vjsf-help-message-tooltip ol:not(:last-child),.vjsf-help-message-tooltip p:not(:last-child),.vjsf-help-message-tooltip ul:not(:last-child){padding-bottom:8px}.vjsf-help-message-tooltip p:not(:first-child){padding-top:8px}.vjsf-help-message-tooltip ol,.vjsf-help-message-tooltip ul{padding-left:24px}</style><link rel="stylesheet" href="/vuetify-jsonschema-form/master/_nuxt/entry.BH9chyra.css" crossorigin><link rel="stylesheet" href="/vuetify-jsonschema-form/master/_nuxt/position.D4cjhIay.css" crossorigin><link rel="stylesheet" href="/vuetify-jsonschema-form/master/_nuxt/VSpacer.wByvoxJS.css" crossorigin><link rel="stylesheet" href="/vuetify-jsonschema-form/master/_nuxt/VGrid.7zN8MVSi.css" crossorigin><link rel="stylesheet" href="/vuetify-jsonschema-form/master/_nuxt/VList.pkT43AbU.css" crossorigin><link rel="stylesheet" href="/vuetify-jsonschema-form/master/_nuxt/VBtn.Btmlpa2_.css" crossorigin><link rel="stylesheet" href="/vuetify-jsonschema-form/master/_nuxt/VMain.CIHyq0hg.css" crossorigin><link rel="stylesheet" href="/vuetify-jsonschema-form/master/_nuxt/VNavigationDrawer.l3H33LUS.css" crossorigin><link rel="stylesheet" href="/vuetify-jsonschema-form/master/_nuxt/vjsf-example.B8BK7fh8.css" crossorigin><link rel="stylesheet" href="/vuetify-jsonschema-form/master/_nuxt/code-block.DyWbGGHP.css" crossorigin><link rel="stylesheet" href="/vuetify-jsonschema-form/master/_nuxt/prismeditor.CSSDBaWI.css" crossorigin><link rel="stylesheet" href="/vuetify-jsonschema-form/master/_nuxt/vjsf.BfcoN9NZ.css" crossorigin><link rel="stylesheet" href="/vuetify-jsonschema-form/master/_nuxt/vjsf.CKlpo5u9.css" crossorigin><link rel="stylesheet" href="/vuetify-jsonschema-form/master/_nuxt/browser.50z-qNLo.css" crossorigin><link rel="stylesheet" href="/vuetify-jsonschema-form/master/_nuxt/use-node.rqrwtjxT.css" crossorigin><link rel="stylesheet" href="/vuetify-jsonschema-form/master/_nuxt/VAlert.Cx5u1eEf.css" crossorigin><link rel="stylesheet" href="/vuetify-jsonschema-form/master/_nuxt/index.DnqL3sjB.css" crossorigin><link rel="stylesheet" href="/vuetify-jsonschema-form/master/_nuxt/VThemeProvider.endbex0h.css" crossorigin><link rel="preload" as="fetch" crossorigin="anonymous" href="/vuetify-jsonschema-form/master/slots/_payload.json?f943a0f9-679d-47e4-887a-91bd1e0ec5d9"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/DsS7GkYL.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/DQh3sun3.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/CmBf41jB.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/ClpYiNR-.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/CnpsmG1v.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/BPRndu0s.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/DfzyklRF.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/CWqPksDS.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/DMWiLR82.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/B_9JI1j1.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/DEVhtb5C.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/BgC938Xb.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/tJ3KQCZp.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/BBp80X-n.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/fu6Ynvog.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/CYAGF689.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/DaF-pQcE.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/CE1G-McA.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/DFni9mO4.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/ru7cxZPH.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/FukZ5C-e.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/CCW3IUj1.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/ea0XYoMO.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/Vy0rHg6X.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/DQabtpOW.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/BXHemgto.js"><link rel="modulepreload" as="script" crossorigin href="/vuetify-jsonschema-form/master/_nuxt/BSQRfE2r.js"><link rel="preload" as="fetch" fetchpriority="low" crossorigin="anonymous" href="/vuetify-jsonschema-form/master/_nuxt/builds/meta/f943a0f9-679d-47e4-887a-91bd1e0ec5d9.json"><script type="module" src="/vuetify-jsonschema-form/master/_nuxt/DsS7GkYL.js" crossorigin></script><meta name="description" content="VJSF - Documentation"><link rel="icon" type="image/x-icon" href="/vuetify-jsonschema-form/master/favicon.ico"></head><body><div id="__nuxt"><div><div class="v-application v-theme--dark v-layout v-layout--full-height v-locale--is-ltr" style=""><div class="v-application__wrap"><!--[--><!--[--><nav class="v-navigation-drawer v-navigation-drawer--left v-navigation-drawer--temporary v-theme--dark v-navigation-drawer--mobile main-drawer" style="left:0;z-index:1004;transform:translateX(-256px);position:fixed;transition:none !important;" inert app><!----><!----><div class="v-navigation-drawer__content"><!--[--><div class="v-list v-theme--dark bg-transparent v-list--density-comfortable v-list--one-line py-0" style="" tabindex="0" role="list"><!--[--><a href="/vuetify-jsonschema-form/master/" tabindex="-2" class="v-list-item v-list-item--link v-theme--dark v-list-item--density-comfortable v-list-item--one-line rounded-0 v-list-item--variant-text text-primary py-2" style="" role="link"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator><!----><!----><!--[--><div class="v-list-item-title text-h6 font-weight-bold" style=""> VJSF </div><div class="v-list-item-subtitle font-weight-bold" style="">3.26.1</div><!--]--></div><!----></a><!--]--></div><div class="v-list v-theme--dark bg-transparent v-list--density-comfortable v-list--one-line pt-0" style="" tabindex="0" role="list"><!--[--><a href="/vuetify-jsonschema-form/master/about" tabindex="-2" class="v-list-item v-list-item--link v-theme--dark v-list-item--density-comfortable v-list-item--one-line rounded-0 v-list-item--variant-text" style="" role="link"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator><!----><!----><!--[--><div class="v-list-item-title" style=""> About </div><!--]--></div><!----></a><a href="/vuetify-jsonschema-form/master/getting-started" tabindex="-2" class="v-list-item v-list-item--link v-theme--dark v-list-item--density-comfortable v-list-item--one-line rounded-0 v-list-item--variant-text" style="" role="link"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator><!----><!----><!--[--><div class="v-list-item-title" style=""> Getting started </div><!--]--></div><!----></a><a href="/vuetify-jsonschema-form/master/2to3" tabindex="-2" class="v-list-item v-list-item--link v-theme--dark v-list-item--density-comfortable v-list-item--one-line rounded-0 v-list-item--variant-text" style="" role="link"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator><!----><!----><!--[--><div class="v-list-item-title" style=""> 2.x to 3.x </div><!--]--></div><!----></a><a href="/vuetify-jsonschema-form/master/configuration" tabindex="-2" class="v-list-item v-list-item--link v-theme--dark v-list-item--density-comfortable v-list-item--one-line rounded-0 v-list-item--variant-text" style="" role="link"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator><!----><!----><!--[--><div class="v-list-item-title" style=""> Configuration </div><!--]--></div><!----></a><a href="/vuetify-jsonschema-form/master/editor" tabindex="-2" class="v-list-item v-list-item--link v-theme--dark v-list-item--density-comfortable v-list-item--one-line rounded-0 v-list-item--variant-text" style="" role="link"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator><!----><!----><!--[--><div class="v-list-item-title" style=""> Editor </div><!--]--></div><!----></a><a href="/vuetify-jsonschema-form/master/components" tabindex="-2" class="v-list-item v-list-item--link v-theme--dark v-list-item--density-comfortable v-list-item--one-line rounded-0 v-list-item--variant-text" style="" role="link"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator><!----><!----><!--[--><div class="v-list-item-title" style=""> Components </div><!--]--></div><!----></a><a href="/vuetify-jsonschema-form/master/plugins" tabindex="-2" class="v-list-item v-list-item--link v-theme--dark v-list-item--density-comfortable v-list-item--one-line rounded-0 v-list-item--variant-text" style="" role="link"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator><!----><!----><!--[--><div class="v-list-item-title" style=""> Plugins </div><!--]--></div><!----></a><a href="/vuetify-jsonschema-form/master/expressions" tabindex="-2" class="v-list-item v-list-item--link v-theme--dark v-list-item--density-comfortable v-list-item--one-line rounded-0 v-list-item--variant-text" style="" role="link"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator><!----><!----><!--[--><div class="v-list-item-title" style=""> Expressions </div><!--]--></div><!----></a><!--]--></div><div class="v-list v-list--nav v-theme--dark bg-transparent v-list--density-compact v-list--one-line" style="" tabindex="0" role="list"><!--[--><div class="v-list-subheader" style=""><div class="v-list-subheader__text"><!--[-->Examples<!--]--></div></div><!--[--><a href="/vuetify-jsonschema-form/master/simple-properties" tabindex="-2" class="v-list-item v-list-item--link v-list-item--nav v-theme--dark v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text mb-0" style="" role="link"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator><!----><!----><!--[--><div class="v-list-item-title" style="">Simple properties</div><!--]--></div><!----></a><a href="/vuetify-jsonschema-form/master/formats" tabindex="-2" class="v-list-item v-list-item--link v-list-item--nav v-theme--dark v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text mb-0" style="" role="link"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator><!----><!----><!--[--><div class="v-list-item-title" style="">Formats</div><!--]--></div><!----></a><a href="/vuetify-jsonschema-form/master/selection" tabindex="-2" class="v-list-item v-list-item--link v-list-item--nav v-theme--dark v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text mb-0" style="" role="link"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator><!----><!----><!--[--><div class="v-list-item-title" style="">Selection controls</div><!--]--></div><!----></a><a href="/vuetify-jsonschema-form/master/files" tabindex="-2" class="v-list-item v-list-item--link v-list-item--nav v-theme--dark v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text mb-0" style="" role="link"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator><!----><!----><!--[--><div class="v-list-item-title" style="">Files</div><!--]--></div><!----></a><a href="/vuetify-jsonschema-form/master/lists" tabindex="-2" class="v-list-item v-list-item--link v-list-item--nav v-theme--dark v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text mb-0" style="" role="link"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator><!----><!----><!--[--><div class="v-list-item-title" style="">Lists</div><!--]--></div><!----></a><a href="/vuetify-jsonschema-form/master/composite" tabindex="-2" class="v-list-item v-list-item--link v-list-item--nav v-theme--dark v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text mb-0" style="" role="link"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator><!----><!----><!--[--><div class="v-list-item-title" style="">Composite components</div><!--]--></div><!----></a><a href="/vuetify-jsonschema-form/master/responsive" tabindex="-2" class="v-list-item v-list-item--link v-list-item--nav v-theme--dark v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text mb-0" style="" role="link"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator><!----><!----><!--[--><div class="v-list-item-title" style="">Responsive grid</div><!--]--></div><!----></a><a href="/vuetify-jsonschema-form/master/density" tabindex="-2" class="v-list-item v-list-item--link v-list-item--nav v-theme--dark v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text mb-0" style="" role="link"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator><!----><!----><!--[--><div class="v-list-item-title" style="">Density</div><!--]--></div><!----></a><a href="/vuetify-jsonschema-form/master/slots" aria-current="page" tabindex="-2" class="v-list-item v-list-item--active v-list-item--link v-list-item--nav v-theme--dark v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text mb-0" style="" role="link"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator><!----><!----><!--[--><div class="v-list-item-title" style="">Slots</div><!--]--></div><!----></a><a href="/vuetify-jsonschema-form/master/combine" tabindex="-2" class="v-list-item v-list-item--link v-list-item--nav v-theme--dark v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text mb-0" style="" role="link"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator><!----><!----><!--[--><div class="v-list-item-title" style="">Combinations</div><!--]--></div><!----></a><a href="/vuetify-jsonschema-form/master/validation" tabindex="-2" class="v-list-item v-list-item--link v-list-item--nav v-theme--dark v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text mb-0" style="" role="link"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator><!----><!----><!--[--><div class="v-list-item-title" style="">Validation</div><!--]--></div><!----></a><a href="/vuetify-jsonschema-form/master/i18n" tabindex="-2" class="v-list-item v-list-item--link v-list-item--nav v-theme--dark v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text mb-0" style="" role="link"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator><!----><!----><!--[--><div class="v-list-item-title" style="">Internationalization</div><!--]--></div><!----></a><a href="/vuetify-jsonschema-form/master/_dev" tabindex="-2" class="v-list-item v-list-item--link v-list-item--nav v-theme--dark v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text mb-0" style="" role="link"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator><!----><!----><!--[--><div class="v-list-item-title" style="">Development</div><!--]--></div><!----></a><a href="/vuetify-jsonschema-form/master/vuetify" tabindex="-2" class="v-list-item v-list-item--link v-list-item--nav v-theme--dark v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text mb-0" style="" role="link"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator><!----><!----><!--[--><div class="v-list-item-title" style="">Vuetify integration</div><!--]--></div><!----></a><a href="/vuetify-jsonschema-form/master/v2-compat" tabindex="-2" class="v-list-item v-list-item--link v-list-item--nav v-theme--dark v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text mb-0" style="" role="link"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator><!----><!----><!--[--><div class="v-list-item-title" style="">VJSF 2 compatibility</div><!--]--></div><!----></a><!--]--><!--]--></div><!--]--></div><div class="v-navigation-drawer__append"><!--[--><footer class="v-footer v-theme--dark" style="height:auto;"><div class="v-spacer" style=""></div><span class="text-caption">Maintained by <a href="https://koumoul.com" class="text-primary text-decoration-none font-weight-medium">Koumoul</a></span></footer><!--]--></div></nav><!----><!--]--><header class="v-toolbar v-toolbar--collapse-start v-toolbar--flat v-toolbar--density-comfortable bg-surface v-theme--dark v-locale--is-ltr v-app-bar" style="top:0;z-index:1004;transform:translateY(0%);position:fixed;transition:none !important;" app><!----><!--[--><div class="v-toolbar__content" style="height:56px;"><!----><!----><!--[--><button type="button" class="v-btn v-btn--icon v-theme--dark v-btn--density-comfortable v-btn--size-default v-btn--variant-text v-app-bar-nav-icon" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><i class="mdi-menu mdi v-icon notranslate v-theme--dark v-icon--size-default" style="" aria-hidden="true"></i></span><!----><!----></button><div class="v-spacer" style=""></div><a href="https://github.com/sponsors/koumoul-dev" class="v-btn v-theme--dark text-primary v-btn--density-comfortable v-btn--rounded v-btn--size-default v-btn--variant-outlined mx-2" style="text-transform:none;"><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><span class="v-btn__prepend"><!--[--><i class="mdi-heart mdi v-icon notranslate v-theme--dark v-icon--size-large text-pink-accent-3" style="" aria-hidden="true"></i><!--]--></span><span class="v-btn__content" data-no-activator><!--[--><!--[--> Sponsor <!--]--><!--]--></span><!----><!----></a><a href="https://github.com/koumoul-dev/vuetify-jsonschema-form" class="v-btn v-btn--icon v-theme--dark text-white v-btn--density-compact v-btn--size-x-large v-btn--variant-text" style="" title="repository on github"><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><!--[--><!--[--><i class="mdi-github mdi v-icon notranslate v-theme--dark v-icon--size-default" style="" aria-hidden="true"></i><!--]--><!--]--></span><!----><!----></a><!--]--><!----></div><!--]--><!--[--><!----><!--]--></header><main class="v-main" style="--v-layout-left:0px;--v-layout-right:0px;--v-layout-top:0px;--v-layout-bottom:0px;transition:none !important;"><!--[--><!--[--><div class="v-container v-locale--is-ltr" style=""><h1 class="text-h3 mb-6">Slots</h1><div class="markdown-block"><p>Some additional content can be injected in various places of the components tree using <code>slots</code>.</p>
+<p>A slot can contain markdown content, simple textual content or reference some injected code by a name.</p>
+<p>A slot is defined as an object with a single property, for example <code>{&quot;text&quot;: &quot;a text slot&quot;}</code>,  <code>{&quot;markdown&quot;: &quot;a **markdown** slot&quot;}</code> or  <code>{&quot;name&quot;: &quot;named-code-slot&quot;}</code>.</p>
+</div><!--[--><!--[--><a id="standard" class="anchor"></a><h2 class="text-h4 mt-8 mb-3">Standard slots <a href="/vuetify-jsonschema-form/master/slots/standard" class="v-btn v-btn--flat v-btn--icon v-theme--dark v-btn--density-comfortable v-btn--size-default v-btn--variant-elevated" style="" title="open example in fullscreen"><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><i class="mdi-fullscreen mdi v-icon notranslate v-theme--dark v-icon--size-default" style="" aria-hidden="true"></i></span><!----><!----></a></h2><!----><div class="markdown-block"><p>Standard slots shared accross all node types are <code>before</code>, <code>after</code> and <code>component</code>.</p>
+<p>The <code>before</code>, <code>after</code> slots are by default interpreted as containing some markdown code.
+Meaning that <code>{&quot;before&quot;: &quot;A **markdown** slot&quot;}</code> is equivalent to <code>{&quot;before&quot;: {&quot;markdown&quot;: &quot;A **markdown** slot&quot;}}</code>.</p>
+</div><div class="v-sheet v-theme--dark bg-transparent border-sm v-sheet--rounded my-6" style=""><header class="v-toolbar v-toolbar--collapse-start v-toolbar--density-compact bg-surface v-toolbar--rounded v-theme--dark v-locale--is-ltr" style=""><!----><!--[--><div class="v-toolbar__content" style="height:48px;"><!----><!----><!--[--><!--[--><button type="button" class="v-btn v-theme--dark v-btn--density-comfortable v-btn--size-default v-btn--variant-text text-none font-weight-bold ml-2" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><!--[--><!--[-->Schema<!--]--><!--]--></span><!----><!----></button><button type="button" class="v-btn v-theme--dark v-btn--density-comfortable v-btn--size-default v-btn--variant-text text-none font-weight-bold ml-2" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><!--[--><!--[-->Data<!--]--><!--]--></span><!----><!----></button><button type="button" class="v-btn v-theme--dark v-btn--density-comfortable v-btn--size-default v-btn--variant-text text-none font-weight-bold ml-2" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><!--[--><!--[-->Options<!--]--><!--]--></span><!----><!----></button><!--]--><div class="v-spacer" style=""></div><button type="button" class="v-btn v-btn--icon v-theme--dark text-primary v-btn--density-comfortable v-btn--size-default v-btn--variant-text mr-2" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><!--[--><!--[--><i class="mdi-weather-night mdi v-icon notranslate v-theme--dark v-icon--size-default" style="" aria-hidden="true"></i><!--]--><!--]--></span><!----><!----></button><button type="button" class="v-btn v-btn--icon v-theme--dark text-primary v-btn--density-comfortable v-btn--size-default v-btn--variant-text" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><i class="mdi-pencil mdi v-icon notranslate v-theme--dark v-icon--size-default" style="" aria-hidden="true"></i></span><!----><!----></button><!--]--><!----></div><!--]--><!--[--><!----><!--]--></header><hr class="v-divider v-theme--dark" style="border-style:solid;" aria-orientation="horizontal" role="separator"><!----><div class="v-theme-provider v-theme--light rounded-b" style=""><!--[--><div class="v-container v-container--fluid v-locale--is-ltr" style=""><div style="width: 100%"><form class="v-form" style="" novalidate><!--[--><!--[--><!--[--><div class="vjsf"><!----></div><!--]--><!--]--><div class="v-row ma-0" style=""><div class="v-spacer" style=""></div><button type="button" class="v-btn v-btn--flat v-theme--light bg-default v-btn--density-comfortable v-btn--size-default v-btn--variant-elevated mt-2" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><!--[--><!--[--> Validate <!--]--><!--]--></span><!----><!----></button></div><!--]--></form></div></div><!--]--></div></div><!--]--><!--[--><a id="code" class="anchor"></a><h2 class="text-h4 mt-8 mb-3">Code slots <a href="/vuetify-jsonschema-form/master/slots/code" class="v-btn v-btn--flat v-btn--icon v-theme--dark v-btn--density-comfortable v-btn--size-default v-btn--variant-elevated" style="" title="open example in fullscreen"><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><i class="mdi-fullscreen mdi v-icon notranslate v-theme--dark v-icon--size-default" style="" aria-hidden="true"></i></span><!----><!----></a></h2><div class="v-alert v-theme--dark text-warning v-alert--density-comfortable v-alert--variant-outlined mb-4" style="" role="alert"><!--[--><!----><span class="v-alert__underlay"></span><!--]--><!----><div class="v-alert__prepend"><i class="mdi-alert-circle mdi v-icon notranslate v-theme--dark v-icon--size-default" style="" aria-hidden="true" density="comfortable"></i></div><div class="v-alert__content"><!----><!----><!--[--><div class="markdown-block"><p>At this time using the slot system to write a custom input component is very limiting. You may want to consider writing a custom plugin instead.</p>
+</div><!--]--></div><!----><!----></div><div class="markdown-block"><p>The <code>component</code> slot should provide the name of a slot given to Vjsf using the Vue.js slot mechanism.</p>
+<p>The <code>component</code> slot is by default interpreted as containing a named code slot.
+Meaning that <code>{&quot;component&quot;: &quot;named-code-slot&quot;}</code> is equivalent to <code>{&quot;component&quot;: {&quot;name&quot;: &quot;named-code-slot&quot;}}</code>.</p>
+</div><div class="v-sheet v-theme--dark bg-transparent border-sm v-sheet--rounded my-6" style=""><header class="v-toolbar v-toolbar--collapse-start v-toolbar--density-compact bg-surface v-toolbar--rounded v-theme--dark v-locale--is-ltr" style=""><!----><!--[--><div class="v-toolbar__content" style="height:48px;"><!----><!----><!--[--><!--[--><button type="button" class="v-btn v-theme--dark v-btn--density-comfortable v-btn--size-default v-btn--variant-text text-none font-weight-bold ml-2" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><!--[--><!--[-->Schema<!--]--><!--]--></span><!----><!----></button><button type="button" class="v-btn v-theme--dark v-btn--density-comfortable v-btn--size-default v-btn--variant-text text-none font-weight-bold ml-2" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><!--[--><!--[-->Data<!--]--><!--]--></span><!----><!----></button><button type="button" class="v-btn v-theme--dark v-btn--density-comfortable v-btn--size-default v-btn--variant-text text-none font-weight-bold ml-2" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><!--[--><!--[-->Slots<!--]--><!--]--></span><!----><!----></button><button type="button" class="v-btn v-theme--dark v-btn--density-comfortable v-btn--size-default v-btn--variant-text text-none font-weight-bold ml-2" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><!--[--><!--[-->Options<!--]--><!--]--></span><!----><!----></button><!--]--><div class="v-spacer" style=""></div><button type="button" class="v-btn v-btn--icon v-theme--dark text-primary v-btn--density-comfortable v-btn--size-default v-btn--variant-text mr-2" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><!--[--><!--[--><i class="mdi-weather-night mdi v-icon notranslate v-theme--dark v-icon--size-default" style="" aria-hidden="true"></i><!--]--><!--]--></span><!----><!----></button><button type="button" class="v-btn v-btn--icon v-theme--dark text-primary v-btn--density-comfortable v-btn--size-default v-btn--variant-text" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><i class="mdi-pencil mdi v-icon notranslate v-theme--dark v-icon--size-default" style="" aria-hidden="true"></i></span><!----><!----></button><!--]--><!----></div><!--]--><!--[--><!----><!--]--></header><hr class="v-divider v-theme--dark" style="border-style:solid;" aria-orientation="horizontal" role="separator"><!----><div class="v-theme-provider v-theme--light rounded-b" style=""><!--[--><div class="v-container v-container--fluid v-locale--is-ltr" style=""><div style="width: 100%"><form class="v-form" style="" novalidate><!--[--><!--[--><!--[--><div class="vjsf"><!----></div><!--]--><!--]--><div class="v-row ma-0" style=""><div class="v-spacer" style=""></div><button type="button" class="v-btn v-btn--flat v-theme--light bg-default v-btn--density-comfortable v-btn--size-default v-btn--variant-elevated mt-2" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><!--[--><!--[--> Validate <!--]--><!--]--></span><!----><!----></button></div><!--]--></form></div></div><!--]--></div></div><!--]--><!--[--><a id="layout" class="anchor"></a><h2 class="text-h4 mt-8 mb-3">Layout children slots <a href="/vuetify-jsonschema-form/master/slots/layout" class="v-btn v-btn--flat v-btn--icon v-theme--dark v-btn--density-comfortable v-btn--size-default v-btn--variant-elevated" style="" title="open example in fullscreen"><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><i class="mdi-fullscreen mdi v-icon notranslate v-theme--dark v-icon--size-default" style="" aria-hidden="true"></i></span><!----><!----></a></h2><!----><div class="markdown-block"><p>Slots can also be defined in the children definitions of a composite layout.</p>
+</div><div class="v-sheet v-theme--dark bg-transparent border-sm v-sheet--rounded my-6" style=""><header class="v-toolbar v-toolbar--collapse-start v-toolbar--density-compact bg-surface v-toolbar--rounded v-theme--dark v-locale--is-ltr" style=""><!----><!--[--><div class="v-toolbar__content" style="height:48px;"><!----><!----><!--[--><!--[--><button type="button" class="v-btn v-theme--dark v-btn--density-comfortable v-btn--size-default v-btn--variant-text text-none font-weight-bold ml-2" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><!--[--><!--[-->Schema<!--]--><!--]--></span><!----><!----></button><button type="button" class="v-btn v-theme--dark v-btn--density-comfortable v-btn--size-default v-btn--variant-text text-none font-weight-bold ml-2" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><!--[--><!--[-->Data<!--]--><!--]--></span><!----><!----></button><button type="button" class="v-btn v-theme--dark v-btn--density-comfortable v-btn--size-default v-btn--variant-text text-none font-weight-bold ml-2" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><!--[--><!--[-->Slots<!--]--><!--]--></span><!----><!----></button><button type="button" class="v-btn v-theme--dark v-btn--density-comfortable v-btn--size-default v-btn--variant-text text-none font-weight-bold ml-2" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><!--[--><!--[-->Options<!--]--><!--]--></span><!----><!----></button><!--]--><div class="v-spacer" style=""></div><button type="button" class="v-btn v-btn--icon v-theme--dark text-primary v-btn--density-comfortable v-btn--size-default v-btn--variant-text mr-2" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><!--[--><!--[--><i class="mdi-weather-night mdi v-icon notranslate v-theme--dark v-icon--size-default" style="" aria-hidden="true"></i><!--]--><!--]--></span><!----><!----></button><button type="button" class="v-btn v-btn--icon v-theme--dark text-primary v-btn--density-comfortable v-btn--size-default v-btn--variant-text" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><i class="mdi-pencil mdi v-icon notranslate v-theme--dark v-icon--size-default" style="" aria-hidden="true"></i></span><!----><!----></button><!--]--><!----></div><!--]--><!--[--><!----><!--]--></header><hr class="v-divider v-theme--dark" style="border-style:solid;" aria-orientation="horizontal" role="separator"><!----><div class="v-theme-provider v-theme--light rounded-b" style=""><!--[--><div class="v-container v-container--fluid v-locale--is-ltr" style=""><div style="width: 100%"><form class="v-form" style="" novalidate><!--[--><!--[--><!--[--><div class="vjsf"><!----></div><!--]--><!--]--><div class="v-row ma-0" style=""><div class="v-spacer" style=""></div><button type="button" class="v-btn v-btn--flat v-theme--light bg-default v-btn--density-comfortable v-btn--size-default v-btn--variant-elevated mt-2" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><!--[--><!--[--> Validate <!--]--><!--]--></span><!----><!----></button></div><!--]--></form></div></div><!--]--></div></div><!--]--><!--]--><!----></div><!--]--><!--]--></main><!--]--></div></div></div></div><div id="teleports"></div><script>window.__NUXT__={};window.__NUXT__.config={public:{},app:{baseURL:"/vuetify-jsonschema-form/master/",buildId:"f943a0f9-679d-47e4-887a-91bd1e0ec5d9",buildAssetsDir:"/_nuxt/",cdnURL:""}}</script><script type="application/json" data-nuxt-data="nuxt-app" data-ssr="true" id="__NUXT_DATA__" data-src="/vuetify-jsonschema-form/master/slots/_payload.json?f943a0f9-679d-47e4-887a-91bd1e0ec5d9">[{"state":1,"once":11,"_errors":12,"serverRendered":14,"path":15,"prerenderedAt":16},["Reactive",2],{"$ssite-config":3},{"_priority":4,"description":8,"env":9,"name":8,"url":10},{"name":5,"env":6,"description":7,"url":5},-3,-15,-10,"VJSF - Documentation","production","https://koumoul-dev.github.io/vuetify-jsonschema-form/master/",["Set"],["ShallowReactive",13],{},true,"/slots",1771407510527]</script></body></html>
