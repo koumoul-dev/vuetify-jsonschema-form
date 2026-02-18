@@ -103,13 +103,7 @@
         v-if="temporary"
         @click.stop="drawer = !drawer"
       />
-      <!-- <search-widget
-        df-url="https://koumoul.com/data-fair"
-        dataset-id="vjsf-doc"
-        :menu-props="{'nudge-left': $vuetify.display.smAndDown ? 20 : 0}"
-        :replace-url="{'https://koumoul-dev.github.io/vuetify-jsonschema-form/latest': ''}"
-        :to-links="true"
-      /> -->
+      <df-search />
       <v-spacer />
       <v-btn
         href="https://github.com/sponsors/koumoul-dev"

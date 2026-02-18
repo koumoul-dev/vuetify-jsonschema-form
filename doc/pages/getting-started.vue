@@ -91,5 +91,6 @@ const title = 'Getting started'
 
 useHead({
   title: 'VJSF - ' + title,
+  meta: [{ name: 'description', content: 'Install VJSF and start using it in your projects' }],
 })
 </script>

@@ -1,31 +1,26 @@
 // https://www.the-koi.com/projects/how-to-set-up-a-project-with-nuxt3-and-vuetify3-with-a-quick-overview/
 import path from 'path'
-import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 import { defineNuxtConfig } from 'nuxt/config'
 import dependencyWatcher from 'vite-plugin-dependency-watcher' // cf https://github.com/vitejs/vite/issues/4533
 import { commonjsDeps } from '@koumoul/vjsf/utils/build.js'
+import colors from 'vuetify/lib/util/colors.js'
 import examples from './examples/index.js'
-
-// import colors from 'vuetify/lib/util/colors'
-// import path from 'path'
 
 const targetURL = new URL(process.env.TARGET || 'http://localhost:3133/')
 
 const packageNames = ['@json-layout/core', '@json-layout/vocabulary', '@json-layout/examples', '@koumoul/vjsf']
 const packagePaths = packageNames.map(name => path.resolve(process.cwd(), '../node_modules', name))
 
+const isDev = process.env.NODE_ENV === 'development'
+
 export default defineNuxtConfig({
 
   modules: [
-    // '@nuxtjs/sitemap'
-    // @ts-ignore
-    (_, nuxt) => nuxt.hooks.hook('vite:extendConfig', (config) => {
-      // we disable autoImport because we want to be warned of missing imports in vjsf
-      config.plugins.push(vuetify({ autoImport: false }))
-    }),
+    '@nuxtjs/sitemap',
     ['@nuxt/eslint', {
       config: { stylistic: true },
     }],
+    'vuetify-nuxt-module',
   ],
 
   plugins: [
@@ -33,21 +28,8 @@ export default defineNuxtConfig({
     // { src: '~/plugins/mask.js', ssr: false },
     // { src: '~/plugins/tiptap-vuetify.js', ssr: false }
   ],
-  ssr: false,
+  ssr: !isDev,
 
-  // sitemap: {
-  //   hostname: targetURL.origin
-  // },
-  /* vuetify: {
-    theme: {
-      themes: {
-        light: {
-          primary: colors.cyan.base,
-          accent: colors.cyan.accent3
-        }
-      }
-    }
-  }, */
   app: {
     baseURL: targetURL.pathname,
     head: {
@@ -62,14 +44,19 @@ export default defineNuxtConfig({
   },
   css: ['vuetify/styles'],
 
+  site: {
+    name: 'VJSF - Documentation',
+    url: targetURL.origin,
+  },
+
+  // cf https://vuetifyjs.com/en/getting-started/installation/#using-nuxt-3
+  build: {
+    transpile: ['vuetify'],
+  },
+
   compatibilityDate: '2024-07-22',
 
   vite: {
-    vue: {
-      template: {
-        transformAssetUrls,
-      },
-    },
     optimizeDeps: {
       include: commonjsDeps,
     },
@@ -87,6 +74,41 @@ export default defineNuxtConfig({
           config.prerender?.routes?.push(`/${examplesCategory.id}/${example.id}`)
         }
       }
+    },
+  },
+
+  vuetify: {
+    vuetifyOptions: {
+      directives: true,
+      icons: { defaultSet: 'mdi' },
+      defaults: {
+        global: {
+          density: 'comfortable',
+        },
+      },
+      theme: {
+        defaultTheme: 'dark',
+        themes: {
+          light: {
+            dark: false,
+            colors: {
+              primary: colors.cyan.darken1,
+              accent: colors.cyan.accent3,
+            },
+          },
+          dark: {
+            dark: true,
+            colors: {
+              background: '#212121',
+              // surface: '#000000',
+              primary: colors.cyan.accent2,
+            },
+            variables: {
+              'border-opacity': 0.5,
+            },
+          },
+        },
+      },
     },
   },
 })

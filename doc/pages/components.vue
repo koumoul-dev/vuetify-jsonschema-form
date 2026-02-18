@@ -85,6 +85,7 @@ const title = 'Components'
 
 useHead({
   title: 'VJSF - ' + title,
+  meta: [{ name: 'description', content: 'Description of the various components supported by VJSF and their options.' }],
 })
 
 // const vocabVersion = pack.devDependencies['@json-layout/vocabulary']

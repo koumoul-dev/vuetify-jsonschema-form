@@ -37,6 +37,7 @@ const title = 'v2 to v3'
 
 useHead({
   title: 'VJSF - ' + title,
+  meta: [{ name: 'description', content: 'Instructions on how to migrate from VJSF v2 to v3.' }],
 })
 </script>
 

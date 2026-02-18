@@ -119,5 +119,6 @@ const title = 'Expressions'
 
 useHead({
   title: 'VJSF - ' + title,
+  meta: [{ name: 'description', content: 'Description of the expressions that can be embedded in JSON schemas for use by VJSF' }],
 })
 </script>

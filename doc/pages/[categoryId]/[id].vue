@@ -58,5 +58,5 @@ const example = computed(() => examplesCategory.value?.examples.find(e => e.id =
 
 const title = computed(() => 'VJSF - ' + (example.value?.title || 'Unknown example'))
 
-useHead({ title })
+useHead({ title, meta: [{ name: 'keywords', content: 'Example' }] })
 </script>

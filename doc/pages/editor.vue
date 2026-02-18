@@ -253,6 +253,7 @@ const toggleTheme = () => {
 
 useHead({
   title: 'VJSF - Editor',
+  meta: [{ name: 'description', content: 'An online editor to write and test VJSF with custom JSON schemas and configurations.' }],
 })
 
 // hide scrollbar in this specific page

@@ -103,7 +103,6 @@ const ranges = { lineBreak: [100, 200], addChar: [40, 120], removeChar: [20, 60]
  * @returns {Promise<number>}
  */
 const applyPatch = async (patch, index) => {
-  console.log('apply patch', patch)
 
   if (patch.added) {
     let incIndex = 0
@@ -159,7 +158,7 @@ watch(schemaCode, () => {
 loop()
 
 definePageMeta({ layout: 'void' })
-useHead({ title: 'VJSF - Player' })
+useHead({ title: 'VJSF - Player', meta: [    { name: 'robots', content: 'noindex, nofollow' }  ] })
 
 // hide scrollbar in this specific page
 onMounted(() => {

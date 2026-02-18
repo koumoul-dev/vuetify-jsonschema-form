@@ -66,6 +66,7 @@ const schema = {
 
 useHead({
   title: 'VJSF - ' + title,
+  meta: [{ name: 'robots', content: 'noindex, nofollow' }],
 })
 </script>
 

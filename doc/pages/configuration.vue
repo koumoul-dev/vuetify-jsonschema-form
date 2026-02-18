@@ -34,5 +34,6 @@ const title = 'Configuration'
 
 useHead({
   title: 'VJSF - ' + title,
+  meta: [{ name: 'description', content: 'All the configuration options for VJSF' }],
 })
 </script>

@@ -88,5 +88,6 @@ const title = 'Plugins'
 
 useHead({
   title: 'VJSF - ' + title,
+  meta: [{ name: 'description', content: 'The plugin system of VJSF for powerful extensibility' }],
 })
 </script>
