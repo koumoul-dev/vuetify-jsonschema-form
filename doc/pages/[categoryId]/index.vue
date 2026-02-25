@@ -57,7 +57,7 @@ const title = computed(() => 'VJSF - ' + (examplesCategory.value?.title || 'Unkn
 
 const meta = computed(() => (examplesCategory.value?.id.startsWith('_') || examplesCategory.value?.id === 'v2-compat')
   ? [{ name: 'robots', content: 'noindex, nofollow' }]
-  : [{ name: 'keywords', content: 'Examples' }, { name: 'description', content: examplesCategory.value?.description }])
+  : [{ name: 'keywords', content: 'examples' }, { name: 'description', content: examplesCategory.value?.description }])
 
 useHead({ title, meta })
 </script>

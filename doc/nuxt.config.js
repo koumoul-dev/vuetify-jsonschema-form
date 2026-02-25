@@ -48,6 +48,11 @@ export default defineNuxtConfig({
     name: 'VJSF - Documentation',
     url: targetURL.origin,
   },
+  runtimeConfig: {
+    public: {
+      targetURL: targetURL.href,
+    },
+  },
 
   // cf https://vuetifyjs.com/en/getting-started/installation/#using-nuxt-3
   build: {

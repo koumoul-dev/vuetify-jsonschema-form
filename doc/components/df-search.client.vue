@@ -47,7 +47,7 @@
             <v-list-item
               v-for="line in lines"
               :key="line._id"
-              :href="line.url"
+              v-bind="line.props"
             >
               <v-list-item-title class="text-primary">
                 <v-chip
@@ -102,11 +102,13 @@
 import { ref, computed } from 'vue'
 import { VMenu, VTextField, VList, VListItem, VListItemTitle, VChip } from 'vuetify/components'
 
-const props = defineProps({
-  dfUrl: { type: String, default: 'https://staging-koumoul.com/data-fair' },
-  datasetId: { type: String, default: '50dhg5ozin8klujew0zh-kxk' },
-  textKey: { type: String, default: null },
-})
+const config = useRuntimeConfig()
+
+const dfUrl = 'https://koumoul.com/data-fair'
+const targetName = new URL(config.public.targetURL).pathname.split('/').filter(Boolean).pop() as 'master' | 'latest'
+const datasetIds = { master: 'ckolp9tjj0nbzrqzredv3652', latest: '4rtf7y-f0awedj0cqmvp7-nx' }
+const datasetId = datasetIds[targetName] ?? datasetIds.latest
+
 const menu = ref(false)
 const search = ref('')
 const initialSize = 4
@@ -121,7 +123,7 @@ const linesQuery = computed(() => ({
   select: 'title,description,url,tags',
   arrays: true,
 }))
-const linesFetch = useFetch<{ results: any[], total: number }>(`${props.dfUrl}/api/v1/datasets/${props.datasetId}/lines`, { query: linesQuery, immediate: false, watch: false })
+const linesFetch = useFetch<{ results: any[], total: number }>(`${dfUrl}/api/v1/datasets/${datasetId}/lines`, { query: linesQuery, immediate: false, watch: false })
 watch(search, () => {
   if (search.value.length > 2) {
     linesFetch.refresh()
@@ -134,9 +136,15 @@ const lines = computed(() => {
     const line = {
       _id: result._id,
       title: result.title,
-      url: result.url,
       text: result._highlight?.['_file.content']?.join('... ').replace(/class="highlighted"/, 'class="text-primary"') || result.description,
       tags: result.tags,
+      props: {} as Record<string, string>,
+    }
+    if (result.url.startsWith(config.public.targetURL)) {
+      line.props.to = result.url.replace(config.public.targetURL, '/')
+    }
+    else {
+      line.props.href = result.url
     }
     return line
   })
