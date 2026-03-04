@@ -13,3 +13,4 @@ node_modules
 /compiler/LICENSE
 /plugins/*/types
 /compiler/types
+.env

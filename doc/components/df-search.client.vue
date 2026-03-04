@@ -48,6 +48,7 @@
               v-for="line in lines"
               :key="line._id"
               v-bind="line.props"
+              @click="menu = false"
             >
               <v-list-item-title class="text-primary">
                 <v-chip

@@ -6,8 +6,8 @@
     "lint": "eslint . && npm -w doc run lint",
     "lint-fix": "eslint --fix . && npm -w doc run lint-fix",
     "dev-zellij": "zellij --layout .zellij.kdl",
-    "publish:master": "npm -w doc run build:master && gh-pages-multi deploy -v -s doc/.output/public -t master",
-    "publish:latest": "npm -w doc run build:latest && gh-pages-multi deploy -v -s doc/.output/public -t latest",
+    "publish:master": "npm -w doc run build:master && gh-pages-multi deploy -v -s doc/.output/public -t master && dotenv -- sh -c 'sleep 30 &&curl -X POST \"$MASTER_WEBHOOK\"'",
+    "publish:latest": "npm -w doc run build:latest && gh-pages-multi deploy -v -s doc/.output/public -t latest && dotenv -- sh -c 'sleep 30 &&curl -X POST \"$LATEST_WEBHOOK\"'",
     "prepare": "husky && npx relative-deps"
   },
   "repository": {
@@ -29,6 +29,7 @@
     "@koumoul/gh-pages-multi": "^0.7.2",
     "commitlint": "^17.7.2",
     "deep-object-diff": "^1.1.9",
+    "dotenv-cli": "^11.0.0",
     "eslint": "^9.17.0",
     "eslint-plugin-vue": "^9.32.0",
     "husky": "^9.1.7",
