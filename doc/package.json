@@ -9,8 +9,7 @@
     "analyze": "nuxt analyze",
     "lint": "eslint .",
     "lint-fix": "eslint --fix .",
-    "build:master": "rm -rf pages/compiled && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/master/ nuxt generate",
-    "build:latest": "rm -rf pages/compiled && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/latest/ nuxt generate",
+    "build:3x": "rm -rf pages/compiled && TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/3.x/ nuxt generate",
     "compile-examples": "node scripts/compile-examples.mjs"
   },
   "dependencies": {
