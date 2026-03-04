@@ -1,0 +1,1 @@
+import{o as s,s as t,b_ as e,Y as n}from"./BCMl23rY.js";function i(){const o=t(!1);return s(()=>{window.requestAnimationFrame(()=>{o.value=!0})}),{ssrBootStyles:n(()=>o.value?void 0:{transition:"none !important"}),isBooted:e(o)}}export{i as u};
