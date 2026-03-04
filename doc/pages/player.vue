@@ -4,7 +4,7 @@
     fluid
     class="pa-0"
   >
-    <v-row dense>
+    <v-row>
       <v-col
         class="ma-0"
       >

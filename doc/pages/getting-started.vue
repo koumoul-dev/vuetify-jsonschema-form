@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
   <v-container class="doc-content-page">
-    <h1 class="text-h2 mb-8">
+    <h1 class="text-display-medium mb-8">
       {{ title }}
     </h1>
 
@@ -16,7 +16,7 @@
     <p>Install from npm:</p>
     <code-block>npm install @koumoul/vjsf</code-block>
 
-    <h2 class="text-h4 mb-6">
+    <h2 class="text-headline-large mb-6">
       Compile at runtime
     </h2>
     <p>This is the simplest way to use VJSF. If you work with static schemas you might want to look into compiling at build time instead.</p>
@@ -34,7 +34,7 @@
 &lt;/template&gt;</pre>
     </code-block>
 
-    <h2 class="text-h4 mb-6">
+    <h2 class="text-headline-large mb-6">
       Compile at build time
     </h2>
     <p>This is a more advanced way of using VJSF. All pre-processing that can be done prior to execution is done at build time, this includes compiling validation functions, compiling expression functions, normalizing the layout keywords and building a skeleton tree of the components that will be used to render the form.</p>
@@ -61,7 +61,7 @@ await writeFile('./components/compiled/my-vjsf.vue', code)</pre>
 &lt;/template&gt;</pre>
     </code-block>
 
-    <h2 class="text-h4 mb-6">
+    <h2 class="text-headline-large mb-6">
       CommonJS dependencies
     </h2>
     <p>Unfortunately some of the dependencies used by vjsf are published in the CommonJS format. This breaks homogeneity with the otherwise ESM modules of this library. You might need to inform your build system, for example with Vite:</p>

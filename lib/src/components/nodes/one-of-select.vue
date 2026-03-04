@@ -88,25 +88,25 @@ const fieldProps = computed(() => {
         :model-value="activeChildTree"
       >
         <template #item="context">
-          <v-list-subheader v-if="context.item.raw.header">
+          <v-list-subheader v-if="context.internalItem.raw.header">
             <v-select-item-icon
-              v-if="typeof context.item.raw.icon === 'string'"
-              :icon="context.item.raw.icon"
+              v-if="typeof context.internalItem.raw.icon === 'string'"
+              :icon="context.internalItem.raw.icon"
               :avatar-props="avatarProps"
             />
-            {{ context.item.raw.title }}
+            {{ context.internalItem.raw.title }}
           </v-list-subheader>
           <v-list-item
             v-else
             v-bind="context.props"
           >
             <template
-              v-if="context.item.raw.icon"
+              v-if="context.internalItem.raw.icon"
               #prepend
             >
               <v-select-item-icon
-                v-if="typeof context.item.raw.icon === 'string'"
-                :icon="context.item.raw.icon"
+                v-if="typeof context.internalItem.raw.icon === 'string'"
+                :icon="context.internalItem.raw.icon"
                 :avatar-props="avatarProps"
               />
             </template>

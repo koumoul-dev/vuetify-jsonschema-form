@@ -37,7 +37,7 @@ const nodeProps = computed(() => {
         :node="modelValue"
         hide-title
       />
-      <v-row :dense="modelValue.options?.density === 'compact' || modelValue.options?.density === 'comfortable'">
+      <v-row>
         <node
           v-for="child of modelValue.children"
           :key="child.fullKey"

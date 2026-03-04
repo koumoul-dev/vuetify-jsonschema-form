@@ -20,7 +20,7 @@ const titleDepthBase = computed(() => {
   return 8
 })
 
-const classes = ['text-h1', 'text-h2', 'text-h3', 'text-h4', 'text-h5', 'text-h6', 'text-subtitle-1', 'text-subtitle-2']
+const classes = ['text-display-large', 'text-display-medium', 'text-display-small', 'text-headline-large', 'text-headline-medium', 'text-headline-small', 'text-body-large', 'text-body-large']
 const titleClass = computed(() => {
   const index = props.node.options.titleDepth
   if (props.node.options.density === 'compact') return classes[index + 2]

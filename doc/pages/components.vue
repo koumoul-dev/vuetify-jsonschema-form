@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
   <v-container>
-    <h1 class="text-h2 mb-8">
+    <h1 class="text-display-medium mb-8">
       {{ title }}
     </h1>
 
@@ -14,7 +14,7 @@
       For a more intuitive approach please explore the examples.
     </v-alert>
 
-    <h2 class="text-h4 mb-6">
+    <h2 class="text-headline-large mb-6">
       Vocabulary
     </h2>
 
@@ -29,7 +29,7 @@
       The <code>layout keyword</code> content varies depending on the component.
     </p>
 
-    <h2 class="text-h4 mb-6">
+    <h2 class="text-headline-large mb-6">
       Common component properties
     </h2>
 
@@ -62,12 +62,12 @@
       name="array compatible component properties"
     />
 
-    <h2 class="text-h4 my-6">
+    <h2 class="text-headline-large my-6">
       Standard components
     </h2>
     <comp-list :components="standardComponents" />
 
-    <h2 class="text-h4 my-6">
+    <h2 class="text-headline-large my-6">
       Plugin components
     </h2>
     <comp-list :components="pluginComponents" />

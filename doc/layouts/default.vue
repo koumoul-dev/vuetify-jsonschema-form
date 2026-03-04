@@ -13,7 +13,7 @@
           to="/"
           class="text-primary py-2"
         >
-          <v-list-item-title class="text-h6 font-weight-bold">
+          <v-list-item-title class="text-headline-small font-weight-bold">
             VJSF
           </v-list-item-title>
           <v-list-item-subtitle class="font-weight-bold">
@@ -39,6 +39,11 @@
         <v-list-item to="/2to3">
           <v-list-item-title>
             2.x to 3.x
+          </v-list-item-title>
+        </v-list-item>
+        <v-list-item to="/3to4">
+          <v-list-item-title>
+            3.x to 4.x
           </v-list-item-title>
         </v-list-item>
         <v-list-item to="/configuration">

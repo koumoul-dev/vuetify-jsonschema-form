@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
   <v-container v-if="examplesCategory">
-    <h1 class="text-h3 mb-6">
+    <h1 class="text-display-small mb-6">
       {{ examplesCategory.title }}
     </h1>
     <markdown-block :content="examplesCategory.description" />
@@ -13,7 +13,7 @@
         :id="example.id"
         class="anchor"
       />
-      <h2 class="text-h4 mt-8 mb-3">
+      <h2 class="text-headline-large mt-8 mb-3">
         {{ example.title }}
         <v-btn
           icon="mdi-fullscreen"

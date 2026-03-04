@@ -1,13 +1,13 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
   <v-container class="doc-content-page">
-    <h1 class="text-h2 mb-8">
+    <h1 class="text-display-medium mb-8">
       {{ title }}
     </h1>
 
     <p>All components that are quite light and that mostly use Vuetify components are included directly into vjsf. But other components that use more specific dependencies are externalized into plugins.</p>
 
-    <h2 class="text-h4 my-6">
+    <h2 class="text-headline-large my-6">
       Using a plugin
     </h2>
 
@@ -37,7 +37,7 @@ const options = {
 </pre>
     </code-block>
 
-    <h2 class="text-h4 my-6">
+    <h2 class="text-headline-large my-6">
       Known plugins
     </h2>
 
@@ -68,7 +68,7 @@ optimizeDeps: {
 </pre>
     </code-block>
 
-    <h2 class="text-h4 my-6">
+    <h2 class="text-headline-large my-6">
       Writing a custom plugin
     </h2>
 

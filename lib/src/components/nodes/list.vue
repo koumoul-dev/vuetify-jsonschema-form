@@ -267,7 +267,7 @@ const toggleDialog = (/** @type {boolean} */value) => {
           >
             {{ itemSubtitles?.[childIndex] }}
           </v-list-item-subtitle>
-          <v-row class="ma-0">
+          <v-row class="pa-3">
             <node
               v-for="grandChild of isSection(child) ? child.children : [child]"
               :key="grandChild.fullKey"
@@ -363,7 +363,7 @@ const toggleDialog = (/** @type {boolean} */value) => {
                           </v-list-item>
                         </template>
                         <v-sheet>
-                          <v-row class="ma-0">
+                          <v-row class="pa-3">
                             <node
                               v-for="grandChild of isSection(children[children.length - 1]) ? children[children.length - 1].children : [children[children.length - 1]]"
                               :key="grandChild.fullKey"
@@ -547,7 +547,7 @@ const toggleDialog = (/** @type {boolean} */value) => {
                 @click="isActive.value = false"
               />
             </v-toolbar>
-            <v-row class="ma-0">
+            <v-row class="pa-3">
               <node
                 v-for="grandChild of isSection(children[children.length - 1]) ? children[children.length - 1].children : [children[children.length - 1]]"
                 :key="grandChild.fullKey"
@@ -569,5 +569,9 @@ const toggleDialog = (/** @type {boolean} */value) => {
 }
 .vjsf-list-item .v-list-item__content {
   padding-right: 4px;
+}
+.vjsf-list-item-actions-wrapper .v-list-item-action--end {
+  margin-inline-start: 0;
+  margin-inline-end: 0;
 }
 </style>

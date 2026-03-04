@@ -71,7 +71,7 @@ const tab = ref(0)
         >
           <v-container fluid>
             <child-subtitle :model-value="child" />
-            <v-row :dense="modelValue.options?.density === 'compact' || modelValue.options?.density === 'comfortable'">
+            <v-row>
               <node
                 v-for="grandChild of isSection(child) ? child.children : [child]"
                 :key="grandChild.fullKey"

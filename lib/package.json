@@ -69,7 +69,7 @@
   },
   "peerDependencies": {
     "vue": "^3.4.3",
-    "vuetify": "^3.8.12"
+    "vuetify": "^4.0.0"
   },
   "dependencies": {
     "@json-layout/core": "~2.4.0",

@@ -1,10 +1,10 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
   <v-container>
-    <h1 class="text-h2 mb-8">
+    <h1 class="text-display-medium mb-8">
       {{ title }}
     </h1>
-    <h2 class="text-h4 mb-6">
+    <h2 class="text-headline-large mb-6">
       Compile options
     </h2>
 
@@ -14,7 +14,7 @@
 
     <options-list :options="compileOptions" />
 
-    <h2 class="text-h4 my-6">
+    <h2 class="text-headline-large my-6">
       Runtime options
     </h2>
 

@@ -4,7 +4,7 @@
     fluid
     class="pa-0"
   >
-    <v-row dense>
+    <v-row>
       <v-col
         class="ml-2"
       >
@@ -86,6 +86,7 @@
           :style="`max-height: ${height - 8}px;overflow-y: auto;`"
           rounded
           border="sm"
+          :color="fullTheme.themes.value[theme].colors.surface"
         >
           <NuxtErrorBoundary>
             <template #error="{ error }">
@@ -149,7 +150,9 @@ import VjsfMarkdown from '@koumoul/vjsf-markdown'
 import { compile } from '@json-layout/core'
 import examples from '~/examples/'
 
-const firstExample = examples[0].examples[0]
+const fullTheme = useTheme()
+
+const firstExample = /** @type { import("../examples/types.js").VJSFExample } */(examples[0]?.examples[0])
 const schema = ref(null)
 /** @type import('vue').Ref<any | null> */
 const options = ref(null)

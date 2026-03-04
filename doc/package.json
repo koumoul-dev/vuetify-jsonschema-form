@@ -30,7 +30,7 @@
     "prism-themes": "^1.9.0",
     "prismjs": "^1.29.0",
     "vue-prism-editor": "^2.0.0-alpha.2",
-    "vuetify": "^3.11.7",
+    "vuetify": "^4.0.0",
     "vuetify-nuxt-module": "^0.19.5",
     "yaml": "^2.3.3"
   },

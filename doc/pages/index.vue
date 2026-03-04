@@ -3,7 +3,7 @@
     fluid
     class="text-center index-container"
   >
-    <h1 class="text-h1 my-4 text-primary font-weight-bold">
+    <h1 class="text-display-large my-4 text-primary font-weight-bold">
       VJSF
     </h1>
 

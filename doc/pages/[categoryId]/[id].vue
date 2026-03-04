@@ -12,7 +12,7 @@
     v-else
     fluid
   >
-    <h1 class="text-h3 mb-3">
+    <h1 class="text-display-small mb-3">
       {{ example.title }}
       <v-btn
         icon="mdi-reply"

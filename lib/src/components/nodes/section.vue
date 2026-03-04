@@ -23,7 +23,7 @@ defineProps({
 
 <template>
   <section-header :node="modelValue" />
-  <v-row :dense="modelValue.options?.density === 'compact' || modelValue.options?.density === 'comfortable'">
+  <v-row>
     <node
       v-for="child of modelValue.children"
       :key="child.fullKey"

@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
   <v-container class="doc-content-page">
-    <h1 class="text-h2 mb-8">
+    <h1 class="text-display-medium mb-8">
       {{ title }}
     </h1>
 
@@ -17,7 +17,7 @@
 
     <p>There are 3 types of expressions supported for the time being : "js-fn", "js-eval" and "js-tpl". All of them are compiled to Javascript functions that accept the same parameters.</p>
 
-    <h2 class="text-h4 mt-8 mb-6">
+    <h2 class="text-headline-large mt-8 mb-6">
       Parameters
     </h2>
 
@@ -55,7 +55,7 @@
 }</pre>
     </code-block>
 
-    <h2 class="text-h4 mt-8 mb-6">
+    <h2 class="text-headline-large mt-8 mb-6">
       Pure/impure expressions
     </h2>
 
@@ -76,7 +76,7 @@
       <li><b>parent</b> - wrapper to access data from the parent node (use parent.data or go higher in the hierarchy with parent.parent).</li>
     </ul>
 
-    <h2 class="text-h4 mt-8 mb-6">
+    <h2 class="text-headline-large mt-8 mb-6">
       Type <code>js-eval</code>
     </h2>
 
@@ -88,7 +88,7 @@
 
     <p>This is the default type when the expected result of the expression is a boolean or a complex object (like the <code>if</code> property).</p>
 
-    <h2 class="text-h4 mt-8 mb-6">
+    <h2 class="text-headline-large mt-8 mb-6">
       Type <code>js-tpl</code>
     </h2>
 
@@ -100,7 +100,7 @@
 
     <p>This is the default type when the expected result of the expression is a string (like the <code>url</code> property in a <code>fetch</code> instruction).</p>
 
-    <h2 class="text-h4 mt-8 mb-6">
+    <h2 class="text-headline-large mt-8 mb-6">
       Type <code>js-fn</code>
     </h2>
 

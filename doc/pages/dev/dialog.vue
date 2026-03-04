@@ -1,6 +1,6 @@
 <template>
   <v-container class="doc-content-page">
-    <h1 class="text-h2 mb-8">
+    <h1 class="text-display-medium mb-8">
       {{ title }}
     </h1>
     <v-dialog width="auto">
