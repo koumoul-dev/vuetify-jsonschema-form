@@ -8,6 +8,14 @@
         "-y",
         "@vuetify/mcp"
       ]
+    },
+    "webmcp-local-relay": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@mcp-b/webmcp-local-relay@latest"
+      ]
     }
   }
 }

@@ -17,6 +17,8 @@
     "@koumoul/vjsf": "*",
     "@koumoul/vjsf-compiler": "*",
     "@koumoul/vjsf-markdown": "*",
+    "@mcp-b/global": "^2.2.0",
+    "@mcp-b/webmcp-local-relay": "^2.2.0",
     "@mdi/font": "^7.2.96",
     "@nuxtjs/sitemap": "^7.6.0",
     "@vueuse/core": "^12.7.0",
@@ -32,7 +34,8 @@
     "vue-prism-editor": "^2.0.0-alpha.2",
     "vuetify": "^4.0.0",
     "vuetify-nuxt-module": "^0.19.5",
-    "yaml": "^2.3.3"
+    "yaml": "^2.3.3",
+    "zod-to-json-schema": "^3.25.1"
   },
   "author": "Alban Mouton <alban.mouton@gmail.com>",
   "license": "MIT",

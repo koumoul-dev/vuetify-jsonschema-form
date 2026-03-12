@@ -159,8 +159,27 @@
 import { watch, ref, computed, onMounted } from 'vue'
 import { useTheme, useDisplay } from 'vuetify'
 import { VApp, VMain, VAppBar, VAppBarNavIcon, VBtn, VIcon, VNavigationDrawer, VList, VListItem, VListItemTitle, VListItemSubtitle, VListSubheader, VSpacer, VFooter } from 'vuetify/components'
+import '@mcp-b/global'
 import examples from '~/examples/'
 import { version } from '~/../lib/package.json'
+
+console.log('GLOBAL MCP ?')
+
+navigator.modelContext.registerTool({
+  name: 'add_todo',
+  description: 'Add a new todo item',
+  inputSchema: {
+    type: 'object',
+    properties: {
+      title: { type: 'string', description: 'Todo title' },
+    },
+    required: ['title'],
+  },
+  execute: async (args) => {
+    const todo = { id: Date.now(), ...args }
+    return { content: [{ type: 'text', text: JSON.stringify(todo) }] }
+  },
+})
 
 const theme = useTheme()
 const display = useDisplay()

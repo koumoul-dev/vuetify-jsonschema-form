@@ -40,6 +40,9 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/x-icon', href: targetURL.pathname + 'favicon.ico' },
       ],
+      script: [
+        { src: targetURL.pathname + 'webmcp-local-relay/embed.js' },
+      ],
     },
   },
   css: ['vuetify/styles'],

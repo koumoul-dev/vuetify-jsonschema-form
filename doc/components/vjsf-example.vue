@@ -244,10 +244,12 @@
                 :update-state="updateState"
                 :update-model-value="modelValue => data = modelValue"
               >
-                <vjsf
+                <vjsf-webmcp
                   v-model="data"
                   :schema="schema"
                   :options="options"
+                  :prefix-name="example.id + '_'"
+                  :data-title="example.title"
                   @update:state="updateState"
                 >
                   <template #custom-textarea="{ node, statefulLayout }">
@@ -261,7 +263,7 @@
                   <template #custom-message="{ node, prop1 }">
                     This message is defined in a slot (key={{ node.key }}, data={{ node.data }}, additional prop={{ prop1 }})
                   </template>
-                </vjsf>
+                </vjsf-webmcp>
               </slot>
             </v-defaults-provider>
             <v-row class="ma-0">
@@ -283,7 +285,7 @@
 </template>
 
 <script>
-import Vjsf from '@koumoul/vjsf'
+import VjsfWebmcp from '@koumoul/vjsf/components/vjsf-webmcp.vue'
 import VjsfMarkdown from '@koumoul/vjsf-markdown'
 import VjsfImgCropper from '@koumoul/vjsf-img-cropper'
 import { v2compat } from '@koumoul/vjsf/compat/v2'
@@ -291,7 +293,7 @@ import { VIcon, VContainer, VRow, VCol, VSpacer, VForm, VBtn, VDivider, VSelect,
 import slotCodes from '../examples/slot-codes.js'
 
 export default {
-  components: { Vjsf, VIcon, VContainer, VRow, VCol, VSpacer, VForm, VBtn, VDivider, VSelect, VSwitch, VToolbar, VSheet, VWindow, VSlider, VWindowItem, VDefaultsProvider, VThemeProvider },
+  components: { VjsfWebmcp, VIcon, VContainer, VRow, VCol, VSpacer, VForm, VBtn, VDivider, VSelect, VSwitch, VToolbar, VSheet, VWindow, VSlider, VWindowItem, VDefaultsProvider, VThemeProvider },
   props: {
     example: {
       /** @type import('vue').PropType<import('../examples/types.js').VJSFExample> */

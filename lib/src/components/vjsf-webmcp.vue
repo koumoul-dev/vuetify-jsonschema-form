@@ -1,7 +1,8 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, shallowRef, watch } from 'vue'
 
 import { compile, produceCompileOptions } from '@json-layout/core/compile'
+import { WebMCP } from '@json-layout/core/webmcp'
 import Tree from './tree.vue'
 import { useVjsf, emits } from '../composables/use-vjsf.js'
 import '../styles/vjsf.css'
@@ -25,6 +26,14 @@ const props = defineProps({
     /** @type import('vue').PropType<import('../types.js').PartialVjsfOptions | null> */
     type: Object,
     default: null
+  },
+  prefixName: {
+    type: String,
+    default: null
+  },
+  dataTitle: {
+    type: String,
+    default: null
   }
 })
 
@@ -40,6 +49,19 @@ const { el, statefulLayout, stateTree } = useVjsf(
   produceCompileOptions,
   computed(() => props.precompiledLayout)
 )
+
+/** @type import('vue').ShallowRef<WebMCP | null> */
+const webMCP = shallowRef(null)
+watch(statefulLayout, () => {
+  if (webMCP.value) webMCP.value.unregisterTools()
+  if (statefulLayout.value) {
+    webMCP.value = new WebMCP(
+      /** @type {import('@json-layout/core').StatefulLayout} */(/** @type {unknown} */(statefulLayout.value)),
+      { prefixName: props.prefixName, dataTitle: props.dataTitle }
+    )
+    webMCP.value.registerTools()
+  }
+}, { immediate: true })
 
 </script>
 
