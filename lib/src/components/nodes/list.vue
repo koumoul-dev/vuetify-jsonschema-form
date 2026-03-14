@@ -241,7 +241,7 @@ const toggleDialog = (/** @type {boolean} */value) => {
       </v-list-subheader>
       <template
         v-for="(child, childIndex) of sortableArray"
-        :key="children.findIndex(c => c === child)"
+        :key="child.fullKey"
       >
         <v-list-item
           v-bind="itemBind(childIndex, vListItemProps)"
