@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci --ignore-scripts
+
+      - run: npm run lint
+
+      - run: npm -w lib run build
+
+      - run: npm -w compiler run build
+
+      - name: Test (Europe/Paris)
+        run: npm -w lib run test-tz1
+
+      - name: Test (America/Sao_Paulo)
+        run: npm -w lib run test-tz2

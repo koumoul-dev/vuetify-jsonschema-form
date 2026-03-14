@@ -1,5 +1,5 @@
 <script>
-import { defineComponent, h, toRef, watch, computed } from 'vue'
+import { defineComponent, h, toRef, computed } from 'vue'
 import { VColorInput } from 'vuetify/labs/VColorInput'
 import useNode from '../../composables/use-node.js'
 import { useDefaults } from 'vuetify'
@@ -29,8 +29,6 @@ export default defineComponent({
     const colorInputProps = computed(() => ({
       ...vColorInputDefaults.value, ...inputProps.value, modelValue: localData.value
     }))
-    watch(colorInputProps, () => console.log('colorInputProps', colorInputProps.value), { immediate: true })
-
     return () => h(VColorInput, colorInputProps.value, compSlots.value)
   }
 })

@@ -41,7 +41,7 @@ npx -w doc relative-deps add ../../json-layout/examples/
 
 ## Tests
 
-the test suite is written with [Jest](https://jestjs.io/).
+the test suite is written with [Vitest](https://vitest.dev/).
 
 Run the test suite:
 
