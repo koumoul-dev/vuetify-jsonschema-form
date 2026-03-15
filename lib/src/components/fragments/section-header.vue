@@ -22,7 +22,7 @@ const titleDepthBase = computed(() => {
 
 const classes = ['text-display-large', 'text-display-medium', 'text-display-small', 'text-headline-large', 'text-headline-medium', 'text-headline-small', 'text-body-large', 'text-body-large']
 const titleClass = computed(() => {
-  const index = props.node.options.titleDepth
+  const index = props.node.titleDepth
   if (props.node.options.density === 'compact') return classes[index + 2]
   if (props.node.options.density === 'comfortable') return classes[index + 1]
   return classes[index]
@@ -32,10 +32,10 @@ const titleClass = computed(() => {
 <template>
   <div
     v-if="(node.layout.title && !hideTitle) || node.layout.subtitle || (node.error && node.validated)"
-    :class="`mb-${titleDepthBase - node.options.titleDepth} mt-${hideTitle ? 0 : (titleDepthBase - node.options.titleDepth)}`"
+    :class="`mb-${titleDepthBase - node.titleDepth} mt-${hideTitle ? 0 : (titleDepthBase - node.titleDepth)}`"
   >
     <component
-      :is="`h${node.options.titleDepth}`"
+      :is="`h${node.titleDepth}`"
       v-if="node.layout.title && !hideTitle"
       :class="`${titleClass}`"
     >
@@ -43,13 +43,13 @@ const titleClass = computed(() => {
     </component>
     <p
       v-if="node.layout.subtitle"
-      :class="`text-subtitle mt-${hideTitle ? 0 : (titleDepthBase - node.options.titleDepth)}`"
+      :class="`text-subtitle mt-${hideTitle ? 0 : (titleDepthBase - node.titleDepth)}`"
       v-html="node.layout.subtitle"
     />
     <v-alert
       v-if="node.error && node.validated"
       type="error"
-      :class="`mt-${titleDepthBase - node.options.titleDepth}`"
+      :class="`mt-${titleDepthBase - node.titleDepth}`"
     >
       {{ node.error }}
     </v-alert>

@@ -1,6 +1,6 @@
 <script setup>
 import Debug from 'debug'
-import { computed, onRenderTriggered } from 'vue'
+import { computed, onRenderTriggered, onUpdated } from 'vue'
 import { useTheme, useDefaults } from 'vuetify'
 import { VCol } from 'vuetify/components/VGrid'
 import { VDefaultsProvider } from 'vuetify/components/VDefaultsProvider'
@@ -37,6 +37,16 @@ if (debugRender.enabled) {
   debugRender('setup node', props.modelValue.fullKey, props.modelValue.layout.comp)
   onRenderTriggered(() => {
     debugRender('render node', props.modelValue.fullKey, props.modelValue.layout.comp)
+  })
+}
+
+// dev/test render counting: track how many times each node re-renders
+if (props.statefulLayout._renderCounts) {
+  const renderCounts = props.statefulLayout._renderCounts
+  const fullKey = props.modelValue.fullKey
+  renderCounts.set(fullKey, (renderCounts.get(fullKey) ?? 0))
+  onUpdated(() => {
+    renderCounts.set(fullKey, (renderCounts.get(fullKey) ?? 0) + 1)
   })
 }
 
