@@ -27,11 +27,7 @@ export default defineComponent({
     const getItems = useGetItems(nodeRef, props.statefulLayout)
     const { inputProps, compSlots, localData } = useNode(nodeRef, props.statefulLayout)
 
-    const fieldProps = computed(() => {
-      const fieldProps = { ...inputProps.value }
-      fieldProps.modelValue = localData.value
-      return fieldProps
-    })
+    const fieldProps = computed(() => ({ ...inputProps.value, modelValue: localData.value }))
 
     const fieldSlots = computed(() => {
       const slots = { ...compSlots.value }

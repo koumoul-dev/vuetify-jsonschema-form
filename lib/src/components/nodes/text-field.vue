@@ -1,5 +1,5 @@
 <script>
-import { defineComponent, h, toRef } from 'vue'
+import { defineComponent, h, toRef, computed } from 'vue'
 import { VTextField } from 'vuetify/components/VTextField'
 import useNode from '../../composables/use-node.js'
 import { useDefaults } from 'vuetify'
@@ -24,7 +24,9 @@ export default defineComponent({
       toRef(props, 'modelValue'), props.statefulLayout, { layoutPropsMap: ['placeholder'] }
     )
 
-    return () => h(VTextField, { ...inputProps.value, modelValue: localData.value }, compSlots.value)
+    const fullProps = computed(() => ({ ...inputProps.value, modelValue: localData.value }))
+
+    return () => h(VTextField, fullProps.value, compSlots.value)
   }
 })
 

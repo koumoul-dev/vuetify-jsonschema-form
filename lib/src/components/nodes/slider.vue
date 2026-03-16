@@ -24,16 +24,17 @@ export default defineComponent({
       toRef(props, 'modelValue'), props.statefulLayout, { layoutPropsMap: ['step', 'min', 'max'] }
     )
 
-    const fullProps = computed(() => {
-      const fullProps = { ...inputProps.value }
-      fullProps.modelValue = localData.value
-      fullProps['onUpdate:modelValue'] = (/** @type string */value) => {
+    const fieldProps = computed(() => {
+      const fieldProps = { ...inputProps.value }
+      fieldProps['onUpdate:modelValue'] = (/** @type string */value) => {
         const newData = value && Number(value)
         localData.value = newData
         props.statefulLayout.input(props.modelValue, newData)
       }
-      return fullProps
+      return fieldProps
     })
+
+    const fullProps = computed(() => ({ ...fieldProps.value, modelValue: localData.value }))
 
     return () => h(VSlider, fullProps.value, compSlots.value)
   }

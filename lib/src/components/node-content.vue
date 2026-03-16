@@ -50,6 +50,8 @@ if (props.statefulLayout._renderCounts) {
   })
 }
 
+const densityDefaults = computed(() => ({ global: { density: props.modelValue.options.density } }))
+
 const indent = computed(() => {
   if (props.modelValue.parentFullKey === null) return 0
   if (!props.modelValue.options.indent) return 0
@@ -82,7 +84,7 @@ if (props.modelValue.layout.comp !== 'none' && !props.modelValue.slots?.componen
 </script>
 
 <template>
-  <v-defaults-provider :defaults="{global: { density: props.modelValue.options.density }}">
+  <v-defaults-provider :defaults="densityDefaults">
     <v-col
       v-if="modelValue.layout.comp !== 'none'"
       :cols="modelValue.cols"

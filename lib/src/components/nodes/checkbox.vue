@@ -22,13 +22,14 @@ export default defineComponent({
 
     const { inputProps, localData, compSlots } = useNode(toRef(props, 'modelValue'), props.statefulLayout)
 
-    const fullProps = computed(() => {
-      const fullProps = { ...inputProps.value }
+    const fieldProps = computed(() => {
+      const fieldProps = { ...inputProps.value }
       // it is not very common to show an error below checkboxes and switches and without hide-details=auto they take a lot of space
-      if (!('hideDetails' in inputProps)) fullProps.hideDetails = 'auto'
-      fullProps.modelValue = localData.value
-      return fullProps
+      if (!('hideDetails' in inputProps)) fieldProps.hideDetails = 'auto'
+      return fieldProps
     })
+
+    const fullProps = computed(() => ({ ...fieldProps.value, modelValue: localData.value }))
 
     return () => h(VCheckbox, fullProps.value, compSlots.value)
   }

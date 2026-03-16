@@ -47,8 +47,10 @@ export default defineComponent({
       return fieldProps
     })
 
+    const fullProps = computed(() => ({ ...fieldProps.value, modelValue: localData.value }))
+
     // @ts-ignore
-    return () => h(VCombobox, { ...fieldProps.value, modelValue: localData.value }, compSlots.value)
+    return () => h(VCombobox, fullProps.value, compSlots.value)
   }
 })
 

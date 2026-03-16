@@ -29,13 +29,14 @@ export default defineComponent({
 
     const defaultRows = computed(() => options.value.readOnly && options.value.summary ? 3 : undefined)
 
-    const fullProps = computed(() => {
-      const fullProps = { ...inputProps.value }
-      fullProps.ref = textarea
-      fullProps.rows = fullProps.rows ?? defaultRows.value
-      fullProps.modelValue = localData.value
-      return fullProps
+    const fieldProps = computed(() => {
+      const fieldProps = { ...inputProps.value }
+      fieldProps.ref = textarea
+      fieldProps.rows = fieldProps.rows ?? defaultRows.value
+      return fieldProps
     })
+
+    const fullProps = computed(() => ({ ...fieldProps.value, modelValue: localData.value }))
 
     watch(() => options.value.readOnly, (readOnly) => {
       if (readOnly && textarea.value) {

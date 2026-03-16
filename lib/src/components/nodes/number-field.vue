@@ -24,13 +24,13 @@ export default defineComponent({
       toRef(props, 'modelValue'), props.statefulLayout, { layoutPropsMap: ['step', 'min', 'max', 'precision', 'placeholder'] }
     )
 
-    const fullProps = computed(() => {
-      const fullProps = { ...inputProps.value }
-      fullProps.modelValue = localData.value
-      if (fullProps.precision === undefined) fullProps.precision = null
-
-      return fullProps
+    const fieldProps = computed(() => {
+      const fieldProps = { ...inputProps.value }
+      if (fieldProps.precision === undefined) fieldProps.precision = null
+      return fieldProps
     })
+
+    const fullProps = computed(() => ({ ...fieldProps.value, modelValue: localData.value }))
 
     return () => h(VNumberInput, fullProps.value, compSlots.value)
   }

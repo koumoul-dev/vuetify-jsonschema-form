@@ -26,9 +26,11 @@ export default defineComponent({
       toRef(props, 'modelValue'), props.statefulLayout, { layoutPropsMap: ['placeholder'] }
     )
 
-    const colorInputProps = computed(() => ({
-      ...vColorInputDefaults.value, ...inputProps.value, modelValue: localData.value
+    const fieldProps = computed(() => ({
+      ...vColorInputDefaults.value, ...inputProps.value
     }))
+
+    const colorInputProps = computed(() => ({ ...fieldProps.value, modelValue: localData.value }))
     return () => h(VColorInput, colorInputProps.value, compSlots.value)
   }
 })

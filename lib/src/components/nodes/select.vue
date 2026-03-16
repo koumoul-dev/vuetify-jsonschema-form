@@ -28,12 +28,13 @@ export default defineComponent({
       const fieldProps = { ...selectProps.value }
       fieldProps.loading = getItems.loading.value
       fieldProps.items = getItems.items.value
-      fieldProps.modelValue = localData.value
       return fieldProps
     })
 
+    const fullProps = computed(() => ({ ...fieldProps.value, modelValue: localData.value }))
+
     // @ts-ignore
-    return () => h(VSelect, fieldProps.value, selectSlots.value)
+    return () => h(VSelect, fullProps.value, selectSlots.value)
   }
 })
 

@@ -32,12 +32,13 @@ export default defineComponent({
       }
       fieldProps.items = getItems.items.value
       fieldProps.loading = getItems.loading.value
-      fieldProps.modelValue = localData.value
       return fieldProps
     })
 
+    const fullProps = computed(() => ({ ...fieldProps.value, modelValue: localData.value }))
+
     // @ts-ignore
-    return () => h(VAutocomplete, fieldProps.value, selectSlots.value)
+    return () => h(VAutocomplete, fullProps.value, selectSlots.value)
   }
 })
 

@@ -26,6 +26,8 @@ const props = defineProps({
   }
 })
 
+const defaultDensityDefaults = { global: { density: 'default' } }
+
 const vDate = useDate()
 
 const { compProps, localData } = useNode(toRef(props, 'modelValue'), props.statefulLayout)
@@ -48,7 +50,7 @@ const timePickerProps = computed(() => {
       <v-icon :icon="statefulLayout.options.icons.clock" />
     </template>
     <v-sheet>
-      <v-defaults-provider :defaults="{global: { density: 'default' }}">
+      <v-defaults-provider :defaults="defaultDensityDefaults">
         <v-time-picker
           v-bind="timePickerProps"
           @update:model-value="value => {statefulLayout.input(props.modelValue, value && getLongTime(value))}"

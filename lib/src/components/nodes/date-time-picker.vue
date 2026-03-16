@@ -29,6 +29,8 @@ const props = defineProps({
   }
 })
 
+const defaultDensityDefaults = { global: { density: 'default' } }
+
 const vDate = useDate()
 
 const tab = ref('date')
@@ -98,7 +100,7 @@ const timePickerProps = computed(() => {
           <v-date-picker v-bind="datePickerProps" />
         </v-tabs-window-item>
         <v-tabs-window-item value="time">
-          <v-defaults-provider :defaults="{global: { density: 'default' }}">
+          <v-defaults-provider :defaults="defaultDensityDefaults">
             <v-time-picker v-bind="timePickerProps" />
           </v-defaults-provider>
         </v-tabs-window-item>
