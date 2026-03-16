@@ -329,7 +329,7 @@ export default {
       plugins: [VjsfMarkdown, VjsfImgCropper],
     },
     /** @type import('@json-layout/core').StatefulLayoutOptions | null */
-    filledOptions: null,
+    latestOptions: null,
     wrapperWidth: 100,
     slotCodes,
     valid: null,
@@ -359,6 +359,15 @@ export default {
         this.options = { ...this.options, [key]: value }
       }
     },
+    filledOptions() {
+      if (!this.latestOptions) return null
+      const opts = { ...this.latestOptions }
+      delete opts.vjsfSlots
+      delete opts.nodeComponents
+      delete opts.components
+      delete opts.plugins
+      return opts
+    },
     validateColor() {
       // cf https://vuetifyjs.com/en/components/forms/#validation-state
       if (this.valid === false) return 'error'
@@ -374,11 +383,7 @@ export default {
     updateState(/** @type import('@json-layout/core').StatefulLayout */newState) {
       this.stateTree = newState.stateTree
       this.display = newState.display
-      this.filledOptions = { ...newState.options }
-      delete this.filledOptions.vjsfSlots
-      delete this.filledOptions.nodeComponents
-      delete this.filledOptions.components
-      delete this.filledOptions.plugins
+      this.latestOptions = newState.options
     },
     editExample() {
       /** @type {any} */

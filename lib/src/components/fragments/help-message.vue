@@ -45,7 +45,7 @@ import { VBtn } from 'vuetify/components/VBtn'
 import { ref } from 'vue'
 import useZIndexStack from '../../composables/use-z-index-stack.js'
 
-const props = defineProps({
+const { node } = defineProps({
   node: {
     /** @type import('vue').PropType<import('../../types.js').VjsfNode> */
     type: Object,
@@ -53,7 +53,7 @@ const props = defineProps({
   }
 })
 
-const zIndex = useZIndexStack(props.node.fullKey)
+const zIndex = useZIndexStack(node.fullKey)
 
 const show = ref(false)
 </script>
