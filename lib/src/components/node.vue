@@ -17,11 +17,12 @@ export default defineComponent({
     }
   },
   setup (props) {
-    /** @type {any} */
+    /** @type import('../types.js').VjsfNode | null */
     let prevModelValue = null
-    /** @type {any} */
+    /** @type import('vue').VNode | null */
     let cachedVNode = null
 
+    // this component acts as a simple wrapper that prevents re-rendering of unchanged immutable node
     return () => {
       if (props.modelValue === prevModelValue && cachedVNode) {
         return cachedVNode
