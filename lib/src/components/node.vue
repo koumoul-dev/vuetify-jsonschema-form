@@ -17,7 +17,9 @@ export default defineComponent({
     }
   },
   setup (props) {
+    /** @type {any} */
     let prevModelValue = null
+    /** @type {any} */
     let cachedVNode = null
 
     return () => {

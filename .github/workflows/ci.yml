@@ -18,6 +18,8 @@ jobs:
 
       - run: npm ci --ignore-scripts
 
+      - run: npm -w doc exec nuxi prepare
+
       - run: npm run lint
 
       - run: npm -w lib run build

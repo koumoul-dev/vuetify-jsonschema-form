@@ -8,7 +8,7 @@ import { VIcon } from 'vuetify/components/VIcon'
 import { VSheet } from 'vuetify/components/VSheet'
 import { useDate, useDefaults } from 'vuetify'
 import { computed, ref, watch, toRef } from 'vue'
-import { getDateTimeParts, getDateTimeWithOffset, getShortTime } from '../../utils/dates.js'
+import { getDateTime, getDateTimeParts, getDateTimeWithOffset, getShortTime } from '../../utils/dates.js'
 import useNode from '../../composables/use-node.js'
 import useCompDefaults from '../../composables/use-comp-defaults.js'
 
@@ -49,7 +49,8 @@ const datePickerProps = computed(() => {
     if (localData.value) {
       // replace date part of current value
       const datePart = value && getDateTimeParts(/** @type Date */(/** @type unknown */(value)))[0]
-      props.statefulLayout.input(props.modelValue, datePart + localData.value.slice(10))
+      const timePart = getShortTime(localData.value.slice(11))
+      props.statefulLayout.input(props.modelValue, getDateTime([datePart, timePart]))
     } else {
       props.statefulLayout.input(props.modelValue, getDateTimeWithOffset(value))
     }
