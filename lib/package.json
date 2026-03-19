@@ -25,6 +25,12 @@
         "default": "./src/index.js"
       }
     },
+    "./webmcp": {
+      "import": {
+        "types": "./types/webmcp.d.ts",
+        "default": "./src/webmcp.js"
+      }
+    },
     "./types.js": {
       "import": {
         "types": "./types/types.d.ts",

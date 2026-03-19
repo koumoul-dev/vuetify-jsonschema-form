@@ -163,8 +163,6 @@ import '@mcp-b/global'
 import examples from '~/examples/'
 import { version } from '~/../lib/package.json'
 
-console.log('GLOBAL MCP ?')
-
 navigator.modelContext.registerTool({
   name: 'add_todo',
   description: 'Add a new todo item',
