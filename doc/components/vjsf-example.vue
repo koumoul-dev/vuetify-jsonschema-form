@@ -241,16 +241,14 @@
                 name="vjsf"
                 :model-value="data"
                 :options="options"
-                :update-state="updateState"
+                :update-state="onStateUpdate"
                 :update-model-value="modelValue => data = modelValue"
               >
-                <vjsf-webmcp
+                <vjsf
                   v-model="data"
                   :schema="schema"
                   :options="options"
-                  :prefix-name="example.id + '_'"
-                  :data-title="example.title"
-                  @update:state="updateState"
+                  @update:state="onStateUpdate"
                 >
                   <template #custom-textarea="{ node, statefulLayout }">
                     <textarea
@@ -263,7 +261,7 @@
                   <template #custom-message="{ node, prop1 }">
                     This message is defined in a slot (key={{ node.key }}, data={{ node.data }}, additional prop={{ prop1 }})
                   </template>
-                </vjsf-webmcp>
+                </vjsf>
               </slot>
             </v-defaults-provider>
             <v-row class="ma-0">
@@ -285,7 +283,9 @@
 </template>
 
 <script>
-import VjsfWebmcp from '@koumoul/vjsf/components/vjsf-webmcp.vue'
+import { computed } from 'vue'
+import Vjsf from '@koumoul/vjsf'
+import { useWebMCP } from '@koumoul/vjsf/composables/use-webmcp.js'
 import VjsfMarkdown from '@koumoul/vjsf-markdown'
 import VjsfImgCropper from '@koumoul/vjsf-img-cropper'
 import { v2compat } from '@koumoul/vjsf/compat/v2'
@@ -293,7 +293,7 @@ import { VIcon, VContainer, VRow, VCol, VSpacer, VForm, VBtn, VDivider, VSelect,
 import slotCodes from '../examples/slot-codes.js'
 
 export default {
-  components: { VjsfWebmcp, VIcon, VContainer, VRow, VCol, VSpacer, VForm, VBtn, VDivider, VSelect, VSwitch, VToolbar, VSheet, VWindow, VSlider, VWindowItem, VDefaultsProvider, VThemeProvider },
+  components: { Vjsf, VIcon, VContainer, VRow, VCol, VSpacer, VForm, VBtn, VDivider, VSelect, VSwitch, VToolbar, VSheet, VWindow, VSlider, VWindowItem, VDefaultsProvider, VThemeProvider },
   props: {
     example: {
       /** @type import('vue').PropType<import('../examples/types.js').VJSFExample> */
@@ -301,6 +301,14 @@ export default {
       required: true,
     },
     v2: { type: Boolean, default: false },
+  },
+  setup(props) {
+    const { onStateUpdate: onWebMCPStateUpdate } = useWebMCP({
+      prefixName: computed(() => props.example.id + '_'),
+      dataTitle: computed(() => props.example.title),
+      schema: computed(() => props.example.schema),
+    })
+    return { onWebMCPStateUpdate }
   },
   data: () => ({
     /** @type unknown */
@@ -380,10 +388,11 @@ export default {
     if (this.example.data) this.data = JSON.parse(JSON.stringify(this.example.data))
   },
   methods: {
-    updateState(/** @type import('@json-layout/core').StatefulLayout */newState) {
+    onStateUpdate(/** @type import('@json-layout/core').StatefulLayout */newState) {
       this.stateTree = newState.stateTree
       this.display = newState.display
       this.latestOptions = newState.options
+      this.onWebMCPStateUpdate(newState)
     },
     editExample() {
       /** @type {any} */
