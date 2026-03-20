@@ -17,13 +17,13 @@ export default defineComponent({
     }
   },
   setup (props) {
-    const isUrl = computed(() => props.icon.startsWith('http://') || props.icon.startsWith('https://'))
+    const isUrl = computed(() => props.icon.startsWith('http://') || props.icon.startsWith('https://') || props.icon.startsWith('/'))
     const isSVG = computed(() => props.icon.startsWith('<?xml') || props.icon.startsWith('<svg'))
     return () => {
       if (isUrl.value) {
         return h(VAvatar, props.avatarProps, () => h(VImg, { src: props.icon }))
       } else if (isSVG.value) {
-        return h('div', { innerHTML: props.icon.replace('<svg ', '<svg class="v-icon__svg" '), class: 'v-icon' })
+        return h('div', { innerHTML: props.icon.replace('<svg ', '<svg class="v-icon__svg" '), class: 'v-icon v-icon--size-default' })
       } else {
         return h(VIcon, null, () => props.icon)
       }

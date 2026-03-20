@@ -20,7 +20,7 @@ export default defineComponent({
   },
   setup (props) {
     useDefaults({}, 'VjsfAutocomplete')
-    const avatarProps = useCompDefaults('VjsfSelectItem-VAvatar', { rounded: false, size: 'small' })
+    const avatarProps = useCompDefaults('VjsfSelectItem-VAvatar', { rounded: false, size: 'small', color: 'transparent' })
 
     const { getItems, selectProps, selectSlots, localData } = useSelectNode(toRef(props, 'modelValue'), props.statefulLayout, avatarProps.value, 'v-autocomplete')
 

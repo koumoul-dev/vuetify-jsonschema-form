@@ -39,3 +39,9 @@ export default defineComponent({
   }
 })
 </script>
+
+<style>
+.vjsf-node-slider .v-slider {
+  padding-right: 8px;
+}
+</style>
