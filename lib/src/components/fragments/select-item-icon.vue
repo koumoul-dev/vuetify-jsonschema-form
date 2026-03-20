@@ -21,7 +21,7 @@ export default defineComponent({
     const isSVG = computed(() => props.icon.startsWith('<?xml') || props.icon.startsWith('<svg'))
     return () => {
       if (isUrl.value) {
-        return h(VAvatar, { color: 'transparent', ...props.avatarProps }, () => h(VImg, { src: props.icon }))
+        return h(VAvatar, props.avatarProps, () => h(VImg, { src: props.icon }))
       } else if (isSVG.value) {
         return h('div', { innerHTML: props.icon.replace('<svg ', '<svg class="v-icon__svg" '), class: 'v-icon' })
       } else {

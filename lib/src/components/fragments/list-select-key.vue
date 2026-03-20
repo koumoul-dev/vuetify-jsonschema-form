@@ -33,7 +33,7 @@ export default defineComponent({
   setup (props, { emit }) {
     useDefaults({}, 'VjsfListSelectKey')
     const vSelectProps = useCompDefaults('VjsfIndexedList-VSelect', { variant: 'outlined', class: 'mt-2' })
-    const avatarProps = useCompDefaults('VjsfSelectItem-VAvatar', { rounded: false, size: 'small' })
+    const avatarProps = useCompDefaults('VjsfSelectItem-VAvatar', { rounded: false, size: 'small', color: 'transparent' })
 
     // @ts-ignore
     const { getItems, selectProps, selectSlots } = useSelectNode(toRef(props, 'listNode'), props.statefulLayout, avatarProps.value, 'v-select')
