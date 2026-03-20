@@ -20,6 +20,9 @@
 .vjsf-input--readonly.v-input--disabled.v-number-input .v-field__append-inner {
   display: none;
 }
+.vjsf-node .v-slider {
+  padding-right: 8px;
+}
 .vjsf-node.vjsf-has-help {
   padding-right: 30px!important;
 }
