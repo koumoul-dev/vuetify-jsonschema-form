@@ -34,6 +34,10 @@ const props = defineProps({
   dataTitle: {
     type: String,
     default: null
+  },
+  subAgent: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -57,7 +61,7 @@ watch(statefulLayout, () => {
   if (statefulLayout.value) {
     webMCP.value = new WebMCP(
       /** @type {import('@json-layout/core').StatefulLayout} */(/** @type {unknown} */(statefulLayout.value)),
-      { prefixName: props.prefixName, dataTitle: props.dataTitle, schema: props.schema }
+      { prefixName: props.prefixName, dataTitle: props.dataTitle, schema: props.schema, includeSubAgent: props.subAgent }
     )
     webMCP.value.registerTools()
   }
