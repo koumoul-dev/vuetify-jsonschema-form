@@ -34,7 +34,7 @@
     "vue-prism-editor": "^2.0.0-alpha.2",
     "vuetify": "^4.0.0",
     "vuetify-nuxt-module": "^0.19.5",
-    "yaml": "^2.3.3",
+    "yaml": "^2.8.3",
     "zod-to-json-schema": "^3.25.1"
   },
   "author": "Alban Mouton <alban.mouton@gmail.com>",
