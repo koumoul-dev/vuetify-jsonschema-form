@@ -49,7 +49,8 @@ watch(() => children.value?.[0]?.key, () => {
 
 const onChange = (/** @type {string | null} */childTree) => {
   if (!skeleton.value.childrenTrees) return
-  props.statefulLayout.activateItem(props.modelValue, skeleton.value.childrenTrees.indexOf(childTree))
+  const index = childTree == null ? -1 : skeleton.value.childrenTrees.indexOf(childTree)
+  props.statefulLayout.activateItem(props.modelValue, index)
 }
 
 const fieldProps = computed(() => {
