@@ -1,6 +1,7 @@
 <script setup>
 import { VRow, VCol } from 'vuetify/components/VGrid'
 import { VSelect } from 'vuetify/components/VSelect'
+import { VAutocomplete } from 'vuetify/components/VAutocomplete'
 import { ref, watch, computed, toRef } from 'vue'
 import { isSection } from '@json-layout/core/state'
 import { isCompObject, isOneOfItemHeader, isOneOfItemChild } from '@json-layout/vocabulary'
@@ -32,6 +33,7 @@ const { inputProps, localData, skeleton, children } = useNode(
   toRef(props, 'modelValue'), props.statefulLayout, { bindData: false }
 )
 const zIndex = useZIndexStack(props.modelValue.fullKey)
+const isAutocomplete = computed(() => !!props.modelValue.layout.autocomplete)
 
 /** @type import('vue').Ref<string | undefined> */
 const activeChildTree = ref(undefined)
@@ -45,7 +47,7 @@ watch(() => children.value?.[0]?.key, () => {
   }
 }, { immediate: true })
 
-const onChange = (/** @type {string} */childTree) => {
+const onChange = (/** @type {string | null} */childTree) => {
   if (!skeleton.value.childrenTrees) return
   props.statefulLayout.activateItem(props.modelValue, skeleton.value.childrenTrees.indexOf(childTree))
 }
@@ -83,7 +85,8 @@ const fieldProps = computed(() => {
       v-if="modelValue.skeleton.childrenTrees"
       cols="12"
     >
-      <v-select
+      <component
+        :is="isAutocomplete ? VAutocomplete : VSelect"
         v-bind="fieldProps"
         :model-value="activeChildTree"
       >
@@ -112,7 +115,7 @@ const fieldProps = computed(() => {
             </template>
           </v-list-item>
         </template>
-      </v-select>
+      </component>
     </v-col>
     <template v-if="modelValue.children?.[0]">
       <node
