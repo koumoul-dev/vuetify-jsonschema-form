@@ -163,21 +163,23 @@ import '@mcp-b/global'
 import examples from '~/examples/'
 import { version } from '~/../lib/package.json'
 
-navigator.modelContext.registerTool({
-  name: 'add_todo',
-  description: 'Add a new todo item',
-  inputSchema: {
-    type: 'object',
-    properties: {
-      title: { type: 'string', description: 'Todo title' },
+if (typeof navigator !== 'undefined' && navigator.modelContext) {
+  navigator.modelContext.registerTool({
+    name: 'add_todo',
+    description: 'Add a new todo item',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        title: { type: 'string', description: 'Todo title' },
+      },
+      required: ['title'],
     },
-    required: ['title'],
-  },
-  execute: async (args) => {
-    const todo = { id: Date.now(), ...args }
-    return { content: [{ type: 'text', text: JSON.stringify(todo) }] }
-  },
-})
+    execute: async (args) => {
+      const todo = { id: Date.now(), ...args }
+      return { content: [{ type: 'text', text: JSON.stringify(todo) }] }
+    },
+  })
+}
 
 const theme = useTheme()
 const display = useDisplay()
