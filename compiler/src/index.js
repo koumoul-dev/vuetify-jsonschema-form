@@ -77,7 +77,7 @@ export async function compile (schema, options = {}, baseImport = '@koumoul/vjsf
     }
   })
 
-  const code = ejs.render(template, { compiledLayoutCode, compImports, baseImport, pluginsComponents })
+  const code = ejs.render(template, { compiledLayoutCode, compImports, baseImport, pluginsComponents, webmcp: !!fullOptions.webmcp })
   return code
 }
 
