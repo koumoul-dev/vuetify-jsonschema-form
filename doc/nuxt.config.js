@@ -66,7 +66,22 @@ export default defineNuxtConfig({
 
   vite: {
     optimizeDeps: {
-      include: commonjsDeps,
+      include: [
+        ...commonjsDeps,
+        'marked',
+        'easymde',
+        '@mcp-b/global',
+        '@vue/devtools-core',
+        '@vue/devtools-kit',
+        'prismjs', // CJS
+        'prismjs/components/prism-javascript', // CJS
+        'prismjs/components/prism-bash', // CJS
+        'prismjs/components/prism-json', // CJS
+        'prismjs/components/prism-yaml', // CJS
+        'vue-prism-editor',
+        'immer',
+        '@vueuse/core',
+      ],
     },
     plugins: [
       // @ts-ignore
