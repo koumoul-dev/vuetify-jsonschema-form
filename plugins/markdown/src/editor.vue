@@ -1,5 +1,5 @@
 <script>
-import { defineComponent, h, computed, onMounted, ref, onUnmounted, watch } from 'vue'
+import { defineComponent, h, computed, onMounted, onBeforeUnmount, ref, onUnmounted, watch } from 'vue'
 import { useDefaults, useTheme } from 'vuetify'
 import { VInput, VLabel } from 'vuetify/components'
 import { marked } from 'marked'
@@ -92,6 +92,8 @@ export default defineComponent({
 
     /** @type {EasyMDE | null} */
     let easymde = null
+
+    let changed = false
 
     const initEasyMDE = async () => {
       if (props.readOnly) return
@@ -242,7 +244,7 @@ export default defineComponent({
       // @ts-ignore
       easymde = new EasyMDE(config)
 
-      let changed = false
+      changed = false
       easymde.codemirror.on('change', () => {
         changed = true
         if (easymde) emit('update:modelValue', easymde.value())
@@ -264,6 +266,21 @@ export default defineComponent({
     }
 
     onMounted(initEasyMDE)
+
+    // flush pending changes synchronously before unmount: if the component is torn down
+    // while the 500ms blur timeout is still pending (e.g. user closes the dialog right
+    // after typing), emit('blur') would never reach the parent and updateOn='blur' setups
+    // would drop the input.
+    onBeforeUnmount(() => {
+      if (blurTimeout) {
+        clearTimeout(blurTimeout)
+        blurTimeout = null
+      }
+      if (changed) {
+        emit('blur')
+        changed = false
+      }
+    })
 
     onUnmounted(() => {
       if (easymde) easymde.toTextArea()
