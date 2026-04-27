@@ -106,6 +106,14 @@ const buttonDensity = computed(() => {
   return options.value.density
 })
 
+const menuActions = computed(() => {
+  return layout.value.listActions.filter(a => {
+    if (a === 'add' || a === 'paste') return false
+    if (a === 'edit' && layout.value.listEditMode === 'inline') return false
+    return true
+  })
+})
+
 const itemTitles = computed(() => {
   const expr = props.modelValue.layout.itemTitle
   if (!expr) return null
@@ -276,7 +284,7 @@ const toggleDialog = (/** @type {boolean} */value) => {
             />
           </v-row>
           <template
-            v-if="!modelValue.options.readOnly && modelValue.layout.listActions.length"
+            v-if="!modelValue.options.readOnly && menuActions.length"
             #append
           >
             <div class="vjsf-list-item-actions-wrapper">
@@ -316,7 +324,7 @@ const toggleDialog = (/** @type {boolean} */value) => {
                 />
               </v-list-item-action>
               <v-list-item-action
-                v-else-if="(editedItem === undefined || modelValue.layout.listEditMode === 'menu') && modelValue.layout.listActions.length"
+                v-else-if="(editedItem === undefined || modelValue.layout.listEditMode === 'menu') && menuActions.length"
               >
                 <v-menu
                   location="bottom end"
