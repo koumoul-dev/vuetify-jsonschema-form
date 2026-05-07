@@ -78,8 +78,8 @@
     "vuetify": "^4.0.0"
   },
   "dependencies": {
-    "@json-layout/core": "~2.8.0",
-    "@json-layout/vocabulary": "~2.13.0",
+    "@json-layout/core": "~2.8.1",
+    "@json-layout/vocabulary": "~2.13.1",
     "@vueuse/core": "^12.5.0",
     "debug": "^4.3.4"
   },

@@ -198,6 +198,16 @@ const duplicateItem = (child, childIndex) => {
   menuOpened.value = -1
 }
 
+/**
+ * @param {number} childIndex
+ */
+const insertAfterItem = (childIndex) => {
+  const newData = [...props.modelValue.data.slice(0, childIndex + 1), undefined, ...props.modelValue.data.slice(childIndex + 1)]
+  props.statefulLayout.input(props.modelValue, newData)
+  activateOrFocus(childIndex + 1)
+  menuOpened.value = -1
+}
+
 const clipboard = useClipboard(() => props.modelValue.layout.clipboardKey ?? props.modelValue.fullKey)
 
 /**
@@ -401,6 +411,15 @@ const toggleDialog = (/** @type {boolean} */value) => {
                         <v-icon :icon="options.icons.duplicate" />
                       </template>
                       {{ modelValue.messages.duplicate }}
+                    </v-list-item>
+                    <v-list-item
+                      v-if="modelValue.layout.listActions.includes('insertAfter')"
+                      @click="insertAfterItem(childIndex)"
+                    >
+                      <template #prepend>
+                        <v-icon :icon="options.icons.insertAfter" />
+                      </template>
+                      {{ modelValue.messages.insertAfter }}
                     </v-list-item>
                     <v-list-item
                       v-if="modelValue.layout.listActions.includes('copy')"

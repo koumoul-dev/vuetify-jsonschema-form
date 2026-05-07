@@ -81,6 +81,8 @@ export default defineNuxtConfig({
         'vue-prism-editor',
         'immer',
         '@vueuse/core',
+        'yaml',
+        'json5',
       ],
     },
     plugins: [

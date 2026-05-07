@@ -47,6 +47,7 @@ export type VjsfIcons = {
   close: string
   delete: string
   duplicate: string
+  insertAfter: string
   copy: string
   paste: string
   edit: string
