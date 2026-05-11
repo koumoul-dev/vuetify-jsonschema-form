@@ -1,5 +1,5 @@
 <script setup>
-import { computed, shallowRef, watch } from 'vue'
+import { computed, shallowRef, watch, onScopeDispose } from 'vue'
 
 import { compile, produceCompileOptions } from '@json-layout/core/compile'
 import { WebMCP } from '@json-layout/core/webmcp'
@@ -66,6 +66,12 @@ watch(statefulLayout, () => {
     webMCP.value.registerTools()
   }
 }, { immediate: true })
+
+// always unregister our tools when the component is torn down, otherwise a later
+// instance mounted with the same prefixName would fail to register them again
+onScopeDispose(() => {
+  if (webMCP.value) webMCP.value.unregisterTools()
+})
 
 </script>
 
