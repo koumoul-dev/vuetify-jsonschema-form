@@ -116,6 +116,14 @@ const fieldProps = computed(() => {
             </template>
           </v-list-item>
         </template>
+        <template #selection="{ item, internalItem }">
+          <v-select-item-icon
+            v-if="item && typeof item.icon === 'string'"
+            :icon="item.icon"
+            :avatar-props="avatarProps"
+          />
+          {{ internalItem.title }}
+        </template>
       </component>
     </v-col>
     <template v-if="modelValue.children?.[0]">
