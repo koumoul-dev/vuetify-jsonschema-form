@@ -28,7 +28,7 @@
     "ejs": "^3.1.9",
     "json5": "^2.2.3",
     "marked": "^15.0.12",
-    "nuxt": "^4.2.2",
+    "nuxt": "^4.4.6",
     "prism-themes": "^1.9.0",
     "prismjs": "^1.29.0",
     "vue-prism-editor": "^2.0.0-alpha.2",
