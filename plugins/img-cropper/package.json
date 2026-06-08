@@ -1,6 +1,6 @@
 {
   "name": "@koumoul/vjsf-img-cropper",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A plugin to add image cropping capability to vjsf.",
   "scripts": {
     "test": "vitest",
