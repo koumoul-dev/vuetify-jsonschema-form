@@ -1,6 +1,6 @@
 <script>
 import { defineComponent, h, toRef, computed } from 'vue'
-import { VColorInput } from 'vuetify/labs/VColorInput'
+import { VColorInput } from 'vuetify/components/VColorInput'
 import useNode from '../../composables/use-node.js'
 import { useDefaults } from 'vuetify'
 import useCompDefaults from '../../composables/use-comp-defaults.js'

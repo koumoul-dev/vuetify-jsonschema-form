@@ -39,7 +39,7 @@
   "peerDependencies": {
     "@koumoul/vjsf": "^4.0.0",
     "vue": "^3.4.2",
-    "vuetify": "^4.0.0"
+    "vuetify": "^4.1.0"
   },
   "devDependencies": {
     "@koumoul/vjsf": ">=3.3.3",
