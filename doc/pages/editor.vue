@@ -194,12 +194,16 @@ const height = computed(() => windowHeight.value - 56)
 const validationErrors = ref({})
 /** @type import('vue').Ref<any | null> */
 const vjsfParams = ref(null)
+// xI18n is opt-in in the library, but we enable it by default in the online editor
+// for convenience (it can still be disabled with `xI18n: false` in the options)
+const editorDefaultOptions = { xI18n: true }
 watch([schema, options], () => {
   if (!options.value || !schema.value) return
   let compiledLayout
   try {
     compiledLayout = compile(schema.value, {
       ...defaultOptions,
+      ...editorDefaultOptions,
       ...options.value,
       components: { [VjsfMarkdown.info.name]: VjsfMarkdown.info },
     })
@@ -210,7 +214,7 @@ watch([schema, options], () => {
   }
 
   if (!Object.keys(validationErrors.value).length) {
-    vjsfParams.value = { options: { ...options.value, plugins: [VjsfMarkdown] }, schema: schema.value }
+    vjsfParams.value = { options: { ...editorDefaultOptions, ...options.value, plugins: [VjsfMarkdown] }, schema: schema.value }
   }
 }, { immediate: true })
 
