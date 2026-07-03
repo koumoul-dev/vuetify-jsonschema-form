@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vuetify from 'vite-plugin-vuetify'
 import Markdown from 'unplugin-vue-markdown/vite'
+import VueRouter from 'unplugin-vue-router/vite'
 import anchor from 'markdown-it-anchor'
 import attrs from 'markdown-it-attrs'
 
@@ -11,6 +12,11 @@ const base = process.env.TARGET ? new URL(process.env.TARGET).pathname : '/'
 export default defineConfig({
   base,
   plugins: [
+    // Must come before `vue()`/`Markdown()`: it only *discovers* `.vue`/`.md`
+    // files under `src/pages` as routes (generating `vue-router/auto-routes`
+    // + `typed-router.d.ts`); it does not transform file content, so it does
+    // not fight with `Markdown()` over ownership of `.md`.
+    VueRouter({ extensions: ['.vue', '.md'], dirs: ['src/pages'] }),
     vue({ include: [/\.vue$/, /\.md$/] }),
     Markdown({
       exposeFrontmatter: true,
@@ -29,5 +35,11 @@ export default defineConfig({
   ssr: {
     // Vuetify ships untranspiled ESM; keep it in the SSR bundle.
     noExternal: ['vuetify'],
+  },
+  ssgOptions: {
+    includedRoutes (paths) {
+      // Pre-render every static route (no dynamic :params in this site yet).
+      return paths.filter(p => !p.includes(':'))
+    },
   },
 })

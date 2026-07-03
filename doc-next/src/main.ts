@@ -3,13 +3,10 @@ import '@fontsource/nunito/700.css'
 import '@fontsource/nunito/800.css'
 import './styles.css'
 import { ViteSSG } from 'vite-ssg'
+import { routes } from 'vue-router/auto-routes'
 import App from './App.vue'
 import { createVuetify } from './plugins/vuetify'
 import ClientProbe from './components/ClientProbe.vue'
-
-const routes = [
-  { path: '/', component: () => import('./pages/index.md') },
-]
 
 // Note: `ClientOnly` is not registered here — `ViteSSG()` registers it as a
 // global component automatically (its `registerComponents` option defaults

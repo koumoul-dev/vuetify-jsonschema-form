@@ -23,6 +23,7 @@
     "markdown-it-attrs": "^5.0.0",
     "sass-embedded": "^1.80.0",
     "unplugin-vue-markdown": "^32.0.0",
+    "unplugin-vue-router": "^0.19.2",
     "vite": "^6.0.0",
     "vite-plugin-vuetify": "^2.1.0",
     "vite-ssg": "^28.0.0",

@@ -8,6 +8,7 @@ node_modules
 /doc/pages/compiled
 /doc-next/dist
 /doc-next/.vite-ssg-temp
+/doc-next/typed-router.d.ts
 .idea/
 /lib/README.md
 /lib/LICENSE
