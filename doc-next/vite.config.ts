@@ -83,6 +83,9 @@ export default defineConfig({
     noExternal: ['vuetify'],
   },
   ssgOptions: {
+    // 'nested' emits dist/about/index.html (not dist/about.html) so routes
+    // resolve cleanly on static hosts without extension rewriting.
+    dirStyle: 'nested',
     includedRoutes (paths) {
       // Pre-render every static route (no dynamic :params in this site yet).
       return paths.filter(p => !p.includes(':'))

@@ -1,6 +1,8 @@
 ---
 title: VJSF
-description: Vuetify JSON Schema Form
+description: Vuetify JSON Schema Form — beautiful forms from JSON Schema
+nav:
+  order: 0
 ---
 
 # VJSF
@@ -8,12 +10,6 @@ description: Vuetify JSON Schema Form
 Easily create beautiful forms that output valid data, straight from an
 annotated **JSON Schema**.
 
-## Why VJSF
-
-Built on Vuetify and JSON Layout, VJSF turns a schema into a live form.
-
-## Live area
-
-<ClientOnly>
-  <ClientProbe />
-</ClientOnly>
+Based on [Vue](https://vuejs.org/), [Vuetify](https://vuetifyjs.com/),
+[JSON Schema](https://json-schema.org/) and
+[JSON Layout](https://github.com/json-layout/json-layout).
