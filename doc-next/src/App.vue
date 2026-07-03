@@ -9,7 +9,10 @@
     </ClientOnly>
 
     <v-main>
-      <v-container>
+      <!-- Full-bleed routes (the playground) manage their own width/height
+      and scroll internally; everything else gets the centered container. -->
+      <router-view v-if="isFullBleed" />
+      <v-container v-else>
         <router-view />
       </v-container>
     </v-main>
@@ -42,6 +45,10 @@ const route = computed(() => (
   instance?.appContext.config.globalProperties.$route as RouteLocationNormalizedLoaded | undefined
 ))
 const routePath = computed(() => route.value?.path ?? '/')
+
+// Routes that fill the whole main area (no centered container, no page
+// scroll) — just the playground for now.
+const isFullBleed = computed(() => routePath.value === '/editor')
 
 // Matches `scroll-margin-top` on headings in styles.css.
 const SCROLL_OFFSET = 80

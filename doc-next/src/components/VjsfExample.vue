@@ -32,7 +32,7 @@ type LegacyExample = Example & { model?: unknown }
 // `defaultOn: 'empty'` (the library default, see @json-layout/core/src/state/options.js)
 // already synthesizes the right empty value per the schema's actual root type.
 const data = ref(structuredClone(props.example.data ?? (props.example as LegacyExample).model ?? null))
-const theme = ref<'light' | 'dark'>('dark')
+const theme = ref<'light' | 'dark'>('light')
 const tab = ref('schema')
 
 const layout = shallowRef<CompiledLayout | null>(null)
