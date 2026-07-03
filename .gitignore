@@ -6,6 +6,8 @@ node_modules
 /doc/.output
 /doc/components/compiled
 /doc/pages/compiled
+/doc-next/dist
+/doc-next/.vite-ssg-temp
 .idea/
 /lib/README.md
 /lib/LICENSE
@@ -14,3 +16,7 @@ node_modules
 /plugins/*/types
 /compiler/types
 .env
+
+# local-only: internal design/plan docs (kept on the feat-doc-rebuild branch)
+design/
+.superpowers/

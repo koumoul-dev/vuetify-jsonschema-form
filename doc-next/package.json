@@ -1,0 +1,31 @@
+{
+  "name": "@koumoul/vjsf-doc-next",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 3134",
+    "build": "vite-ssg build",
+    "preview": "vite preview --port 3134",
+    "test": "vitest run",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@fontsource/nunito": "^5.2.7",
+    "@mdi/font": "^7.4.47",
+    "vue": "^3.5.0",
+    "vue-router": "^4.4.0",
+    "vuetify": "^4.1.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.0",
+    "markdown-it-anchor": "^9.2.0",
+    "markdown-it-attrs": "^5.0.0",
+    "sass-embedded": "^1.80.0",
+    "unplugin-vue-markdown": "^32.0.0",
+    "vite": "^6.0.0",
+    "vite-plugin-vuetify": "^2.1.0",
+    "vite-ssg": "^28.0.0",
+    "vitest": "^2.1.0"
+  }
+}

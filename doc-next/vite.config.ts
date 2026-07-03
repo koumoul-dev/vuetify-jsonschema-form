@@ -1,0 +1,33 @@
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import vuetify from 'vite-plugin-vuetify'
+import Markdown from 'unplugin-vue-markdown/vite'
+import anchor from 'markdown-it-anchor'
+import attrs from 'markdown-it-attrs'
+
+// Base path for GitHub Pages versioned subpaths (wired fully in the deploy phase).
+const base = process.env.TARGET ? new URL(process.env.TARGET).pathname : '/'
+
+export default defineConfig({
+  base,
+  plugins: [
+    vue({ include: [/\.vue$/, /\.md$/] }),
+    Markdown({
+      exposeFrontmatter: true,
+      markdownItSetup (md) {
+        md.use(anchor, { permalink: anchor.permalink.headerLink() })
+        md.use(attrs)
+      },
+    }),
+    // `styles` is left at its default (`true`): vite-plugin-vuetify@2.1.3's
+    // `styles: { configFile: false }` shape from the brief crashes (it calls
+    // `path.isAbsolute(false)`, expecting a config file path string). We have
+    // no custom Sass config, so the default (no style-pipeline plugin, plain
+    // `import 'vuetify/styles'` in src/plugins/vuetify.ts) is correct anyway.
+    vuetify({ autoImport: true }),
+  ],
+  ssr: {
+    // Vuetify ships untranspiled ESM; keep it in the SSR bundle.
+    noExternal: ['vuetify'],
+  },
+})

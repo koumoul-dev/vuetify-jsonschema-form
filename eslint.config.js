@@ -2,7 +2,7 @@ import pluginVue from 'eslint-plugin-vue'
 import neostandard from 'neostandard'
 
 export default [
-  { ignores: ['node_modules/', 'doc/', '**/*.ts', 'app-examples/', 'plugins/img-cropper/'] },
+  { ignores: ['node_modules/', 'doc/', 'doc-next/', '**/*.ts', 'app-examples/', 'plugins/img-cropper/'] },
   ...neostandard({ ts: true }),
   ...pluginVue.configs['flat/recommended'],
   {

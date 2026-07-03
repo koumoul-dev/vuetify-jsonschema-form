@@ -1,0 +1,5 @@
+:root {
+  --v-font-body: 'Nunito', sans-serif;
+  --v-font-heading: 'Nunito', sans-serif;
+}
+html, body, .v-application { font-family: 'Nunito', sans-serif; }
