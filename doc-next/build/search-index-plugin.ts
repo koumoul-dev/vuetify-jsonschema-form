@@ -1,5 +1,6 @@
 import fg from 'fast-glob'
-import { toSearchDoc } from './search-doc'
+import { toSearchDoc, exampleToSearchDoc } from './search-doc'
+import { getExamples } from '../src/examples'
 
 export function searchIndexPlugin (pagesDir: string) {
   const fileName = 'search-index.json'
@@ -10,7 +11,9 @@ export function searchIndexPlugin (pagesDir: string) {
       .filter(f => !/\/_[^/]*\.md$/.test(f)) // skip underscore-prefixed
       .sort()
     const docs = files.map((f, i) => toSearchDoc(f, i, pagesDir))
-    return JSON.stringify(docs)
+    let runningId = docs.length
+    const exampleDocs = getExamples().flatMap(c => c.examples.map(e => exampleToSearchDoc(e, c.id, runningId++)))
+    return JSON.stringify(docs.concat(exampleDocs))
   }
 
   return {

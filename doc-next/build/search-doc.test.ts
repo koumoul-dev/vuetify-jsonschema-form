@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { extractHeadings, stripMarkdown } from './search-doc'
+import { extractHeadings, stripMarkdown, exampleToSearchDoc } from './search-doc'
 
 describe('extractHeadings', () => {
   it('pulls h2/h3 text, ignoring h1 and code fences', () => {
@@ -16,5 +16,18 @@ describe('stripMarkdown', () => {
     expect(out).not.toContain('```')
     expect(out).not.toContain('const a = 1')
     expect(out).not.toContain('#')
+  })
+})
+
+describe('exampleToSearchDoc', () => {
+  it('maps an example to a SearchDocument with category + route', () => {
+    const doc = exampleToSearchDoc(
+      { id: 'string', title: 'Strings', description: 'A **text** field', schema: {} } as any,
+      'simple-properties', 500)
+    expect(doc.path).toBe('/simple-properties/string')
+    expect(doc.category).toBe('simple-properties')
+    expect(doc.title).toBe('Strings')
+    expect(doc.content).toContain('A text field') // markdown stripped
+    expect(doc.content).not.toContain('**')
   })
 })

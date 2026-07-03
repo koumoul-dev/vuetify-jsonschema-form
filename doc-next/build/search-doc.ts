@@ -39,6 +39,17 @@ function routeFromRel (rel: string): string {
   return r === '/index' || r === '/' ? '/' : r
 }
 
+export function exampleToSearchDoc (ex: { id: string, title: string, description?: string, schema: unknown }, categoryId: string, id: number): SearchDocument {
+  return {
+    id: `ex-${id}`,
+    title: ex.title,
+    category: categoryId,
+    path: `/${categoryId}/${ex.id}`,
+    headings: [],
+    content: stripMarkdown(ex.description ?? '').slice(0, 5000),
+  }
+}
+
 export function toSearchDoc (file: string, id: number, pagesDir: string): SearchDocument {
   const rel = relative(pagesDir, file)
   const raw = readFileSync(file, 'utf8')
