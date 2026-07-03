@@ -2,7 +2,7 @@ export interface Example {
   id: string
   title: string
   description?: string
-  schema: unknown
+  schema: Record<string, any>
   data?: unknown
   options?: unknown
   warning?: string

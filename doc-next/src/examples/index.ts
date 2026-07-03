@@ -1,9 +1,6 @@
 import { examples as jlExamples } from '@json-layout/examples'
-// @ts-expect-error untyped local data module
 import vuetifyExamples from './vuetify/index.js'
-// @ts-expect-error untyped local data module
 import { examples as v2ExampleGroups } from './v2/index.js'
-// @ts-expect-error untyped local data module
 import { additionalExamples, overwrites } from './merged/index.js'
 import type { Category, Example } from './types'
 

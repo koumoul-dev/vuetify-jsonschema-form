@@ -8,7 +8,8 @@
     "build": "vite-ssg build",
     "preview": "vite preview --port 3134",
     "test": "vitest run",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "check-types": "vue-tsc"
   },
   "dependencies": {
     "@fontsource/nunito": "^5.2.7",
@@ -30,17 +31,20 @@
   },
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",
+    "@types/node": "^25.0.0",
     "@vitejs/plugin-vue": "^5.2.0",
     "fast-glob": "^3.3.3",
     "gray-matter": "^4.0.3",
     "markdown-it-anchor": "^9.2.0",
     "markdown-it-attrs": "^5.0.0",
     "sass-embedded": "^1.80.0",
+    "typescript": "^5.7.0",
     "unplugin-vue-markdown": "^32.0.0",
     "unplugin-vue-router": "^0.19.2",
     "vite": "^6.0.0",
     "vite-plugin-vuetify": "^2.1.0",
     "vite-ssg": "^28.0.0",
-    "vitest": "^2.1.0"
+    "vitest": "^2.1.0",
+    "vue-tsc": "^3.0.1"
   }
 }

@@ -1,8 +1,6 @@
 import { compile, produceCompileOptions } from '@json-layout/core/compile'
 import { serialize } from '@json-layout/core/src/compile/serialize'
-// @ts-expect-error no published types for the plugin's info.js entrypoint
 import markdownInfo from '@koumoul/vjsf-markdown/info.js'
-// @ts-expect-error no published types for the plugin's info.js entrypoint
 import imgCropperInfo from '@koumoul/vjsf-img-cropper/info.js'
 import { v2compat } from '@koumoul/vjsf/compat/v2'
 import { getExamples } from '../src/examples/index'
@@ -81,7 +79,7 @@ async function compileExampleSource (key: string): Promise<string> {
       : {}
     const compileOptions = produceCompileOptions({}, {
       ...exampleOptions,
-      components: { ...pluginComponents, ...(exampleOptions.components as object | undefined) },
+      components: { ...pluginComponents, ...(exampleOptions.components as object | undefined) } as any,
     })
     const compiled = compile(schema, compileOptions)
     const errorPointers = Object.keys(compiled.validationErrors)

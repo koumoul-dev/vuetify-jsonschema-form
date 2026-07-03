@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+
+    /* Bundler mode (Vite) */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "preserve",
+    "resolveJsonModule": true,
+
+    /* `vite/client` types cover import.meta.env and .vue/.svg imports; `node`
+       covers vite.config.ts and the build/ scripts (node:fs, process, ...). */
+    "types": ["vite/client", "node"],
+
+    /* .js example/plugin data modules are imported but not type-checked. */
+    "allowJs": true,
+    "checkJs": false,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": [
+    "*.d.ts",
+    "vite.config.ts",
+    "src/**/*.ts",
+    "src/**/*.vue",
+    "build/**/*.ts"
+  ],
+  "exclude": ["node_modules", "dist", ".vite-ssg-temp"]
+}
