@@ -24,7 +24,8 @@ describe('exampleToSearchDoc', () => {
     const doc = exampleToSearchDoc(
       { id: 'string', title: 'Strings', description: 'A **text** field', schema: {} } as any,
       'simple-properties', 500)
-    expect(doc.path).toBe('/simple-properties/string')
+    expect(doc.path).toBe('/simple-properties#string')
+    expect(doc.id).toBe('ex-500')
     expect(doc.category).toBe('simple-properties')
     expect(doc.title).toBe('Strings')
     expect(doc.content).toContain('A text field') // markdown stripped

@@ -44,7 +44,7 @@ export function exampleToSearchDoc (ex: { id: string, title: string, description
     id: `ex-${id}`,
     title: ex.title,
     category: categoryId,
-    path: `/${categoryId}/${ex.id}`,
+    path: `/${categoryId}#${ex.id}`,
     headings: [],
     content: stripMarkdown(ex.description ?? '').slice(0, 5000),
   }
