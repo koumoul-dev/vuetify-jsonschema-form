@@ -12,12 +12,17 @@
   },
   "dependencies": {
     "@fontsource/nunito": "^5.2.7",
+    "@json-layout/core": "^2.8.1",
+    "@koumoul/vjsf": "^4.5.3",
     "@mdi/font": "^7.4.47",
     "@vueuse/core": "^12.8.2",
+    "immer": "^10.2.0",
+    "json5": "^2.2.3",
     "minisearch": "^7.2.0",
     "vue": "^3.5.0",
     "vue-router": "^4.4.0",
-    "vuetify": "^4.1.0"
+    "vuetify": "^4.1.0",
+    "yaml": "^2.9.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.0",

@@ -84,6 +84,25 @@ export default defineConfig({
     // Vuetify ships untranspiled ESM; keep it in the SSR bundle.
     noExternal: ['vuetify'],
   },
+  optimizeDeps: {
+    // VJSF's dependency chain (via @json-layout/core) pulls in AJV and a
+    // handful of packages that ship as CommonJS; pre-bundling them avoids
+    // Vite dev-server "does not provide an export named ..." interop errors
+    // the first time the sandbox entry (editor-sandbox.html) is loaded.
+    include: [
+      'ajv', 'ajv/dist/2019.js', 'ajv-formats', 'ajv-formats/dist/formats.js',
+      'ajv-i18n', 'ajv-errors', 'debug', 'fast-deep-equal',
+      'immer', 'yaml', 'json5',
+    ],
+  },
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(dirname(fileURLToPath(import.meta.url)), 'index.html'),
+        sandbox: resolve(dirname(fileURLToPath(import.meta.url)), 'editor-sandbox.html'),
+      },
+    },
+  },
   ssgOptions: {
     // 'nested' emits dist/about/index.html (not dist/about.html) so routes
     // resolve cleanly on static hosts without extension rewriting.
