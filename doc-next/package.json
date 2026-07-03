@@ -28,6 +28,7 @@
     "@mdi/font": "^7.4.47",
     "@unhead/vue": "^2.1.2",
     "@vueuse/core": "^12.8.2",
+    "best-effort-json-parser": "^1.5.1",
     "codemirror": "^6.0.2",
     "codemirror-json-schema": "^0.8.1",
     "codemirror-json5": "^1.0.3",

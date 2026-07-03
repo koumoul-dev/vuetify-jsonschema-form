@@ -14,7 +14,15 @@ import YAML from 'yaml'
 import { stateExtensions, handleRefresh, updateSchema } from 'codemirror-json-schema'
 import { json5SchemaLinter, json5SchemaHover, json5Completion } from 'codemirror-json-schema/json5'
 import { yamlSchemaLinter, yamlSchemaHover, yamlCompletion } from 'codemirror-json-schema/yaml'
+import { disableErrorLogging } from 'best-effort-json-parser'
 import { parseCode, formatCode, type CodeLanguage } from '../editor/code'
+
+// codemirror-json-schema's json/json5 support parses through
+// best-effort-json-parser, which defaults to logging every transiently-
+// invalid buffer to console.error (e.g. while the user is mid-keystroke).
+// Real diagnostics for the user come from the CM linters below, not this
+// logger, so silence it globally once at module load.
+disableErrorLogging()
 
 const props = defineProps<{
   modelValue: unknown
@@ -43,7 +51,7 @@ let lastEmitted = JSON.stringify(props.modelValue)
 // doc, exactly what Diagnostic wants).
 function yamlParseLinter () {
   return (v: EditorView): Diagnostic[] => YAML.parseDocument(v.state.doc.toString()).errors.map(e => ({
-    from: e.pos[0], to: e.pos[1], severity: 'error' as const, message: e.message,
+    from: e.pos?.[0] ?? 0, to: e.pos?.[1] ?? 0, severity: 'error' as const, message: e.message,
   }))
 }
 
