@@ -13,6 +13,7 @@
   "dependencies": {
     "@fontsource/nunito": "^5.2.7",
     "@mdi/font": "^7.4.47",
+    "@vueuse/core": "^12.8.2",
     "minisearch": "^7.2.0",
     "vue": "^3.5.0",
     "vue-router": "^4.4.0",

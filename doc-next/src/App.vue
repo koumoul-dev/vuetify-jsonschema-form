@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useNav } from './nav/use-nav'
+import DocSearch from './components/DocSearch.vue'
 const drawer = ref(true)
 const nav = useNav()
 // Base-safe logo URL: `import.meta.env.BASE_URL` carries the configured base
@@ -18,6 +19,9 @@ const logoSrc = `${import.meta.env.BASE_URL}vjsf-full-white.svg`
       <router-link to="/" class="d-flex align-center px-2">
         <img :src="logoSrc" alt="VJSF" height="28" />
       </router-link>
+      <ClientOnly>
+        <DocSearch />
+      </ClientOnly>
       <v-spacer />
       <v-btn
         icon="mdi-github"
