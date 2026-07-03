@@ -10,6 +10,7 @@ import anchor from 'markdown-it-anchor'
 import attrs from 'markdown-it-attrs'
 import fg from 'fast-glob'
 import matter from 'gray-matter'
+import { searchIndexPlugin } from './build/search-index-plugin'
 
 // Base path for GitHub Pages versioned subpaths (wired fully in the deploy phase).
 const base = process.env.TARGET ? new URL(process.env.TARGET).pathname : '/'
@@ -71,6 +72,7 @@ export default defineConfig({
       },
     }),
     navData(),
+    searchIndexPlugin(pagesDir),
     // `styles` is left at its default (`true`): vite-plugin-vuetify@2.1.3's
     // `styles: { configFile: false }` shape from the brief crashes (it calls
     // `path.isAbsolute(false)`, expecting a config file path string). We have
