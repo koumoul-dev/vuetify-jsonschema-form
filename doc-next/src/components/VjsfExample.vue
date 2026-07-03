@@ -5,6 +5,7 @@ import type { CompiledLayout } from '@json-layout/core'
 import Vjsf from '@koumoul/vjsf'
 import VjsfMarkdown from '@koumoul/vjsf-markdown'
 import VjsfImgCropper from '@koumoul/vjsf-img-cropper'
+import { v2compat } from '@koumoul/vjsf/compat/v2'
 import { loadLayout } from 'virtual:example-layouts'
 import CodeBlock from './CodeBlock.vue'
 import type { Example } from '../examples/types'
@@ -76,10 +77,21 @@ const renderOptions = computed(() => ({
 const instance = getCurrentInstance()
 
 function edit () {
+  // The /editor page runs its OWN runtime compile() with no v2compat step, so for the
+  // v2-compat category we must store the *converted* v3 schema -- storing the raw
+  // VJSF-2 schema (x-display/x-fromData/etc.) would make the editor render a degraded
+  // form, unlike the widget above which renders from the build-precompiled layout that
+  // already applied v2compat(). Gated on the same `v2-compat` discriminator that
+  // build/examples-layouts-plugin.ts uses, converted via the same
+  // `@koumoul/vjsf/compat/v2` specifier; matches the old doc/components/vjsf-example.vue,
+  // which stored `this.schema` (the v2compat-converted schema) in editExample().
+  const schema = props.categoryId === 'v2-compat'
+    ? v2compat(props.example.schema as object)
+    : props.example.schema
   const options = { ...(props.example.options ?? {}) }
   delete (options as Record<string, unknown>).plugins
   localStorage.setItem('vjsf-editor-state', JSON.stringify({
-    schema: props.example.schema, options, data: data.value, theme: theme.value,
+    schema, options, data: data.value, theme: theme.value,
   }))
   const router = instance?.appContext.config.globalProperties.$router as Router | undefined
   router?.push('/editor')
