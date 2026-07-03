@@ -13,12 +13,16 @@ const state = useStorage('vjsf-editor-state', {
   options: {} as Record<string, unknown>,
   data: {} as unknown,
   theme: 'dark' as 'light' | 'dark',
-})
+}, undefined, { mergeDefaults: true })
 
 const schema = ref(state.value.schema)
 const options = ref(state.value.options)
 const data = ref(state.value.data)
-const theme = ref(state.value.theme)
+// Falls back to 'dark' for any missing/invalid stored value (e.g. a partial
+// object seeded by Plan 05's "edit example" link) instead of becoming
+// `undefined`, which would make every render message fail the
+// `isRenderMessage` guard in the sandbox and silently blank the preview.
+const theme = ref<'light' | 'dark'>(state.value.theme === 'light' ? 'light' : 'dark')
 const parseErrors = ref<Record<string, string | null>>({})
 const validationErrors = ref<Record<string, string[]>>({})
 

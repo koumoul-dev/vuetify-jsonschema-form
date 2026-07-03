@@ -47,9 +47,15 @@ window.addEventListener('message', (e: MessageEvent) => {
     if (schemaOptionsJson !== lastSchemaOptionsJson) {
       lastSchemaOptionsJson = schemaOptionsJson
       schemaVersion++
+      // Only reassign when the content actually changed: every postMessage
+      // delivers a fresh clone, so reassigning unconditionally would give
+      // `schema`/`options` a new reference (and force a VJSF
+      // compile()+StatefulLayout rebuild via the `:key` bump below) on
+      // every theme toggle or data-tab edit, not just on real schema/option
+      // edits.
+      schema.value = e.data.schema
+      options.value = e.data.options
     }
-    schema.value = e.data.schema
-    options.value = e.data.options
     model.value = e.data.data
     vuetify.theme.change(e.data.theme)
   } catch (err) {

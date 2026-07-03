@@ -29,6 +29,16 @@ const text = ref(stringify(props.modelValue))
 let lastEmitted = JSON.stringify(props.modelValue)
 
 const apply = useDebounceFn(() => {
+  // Empty/whitespace input parses to `undefined` (YAML) or throws (JSON5),
+  // either of which would be rejected by the sandbox's `isRenderMessage`
+  // guard and leave the preview frozen on the last valid form. Treat it as
+  // an empty object instead, so clearing the editor yields an empty form.
+  if (!text.value.trim()) {
+    lastEmitted = JSON.stringify({})
+    emit('update:modelValue', {})
+    emit('update:parseError', null)
+    return
+  }
   try {
     const parsed = parse(text.value)
     lastEmitted = JSON.stringify(parsed)
