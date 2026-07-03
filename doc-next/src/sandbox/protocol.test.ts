@@ -10,6 +10,13 @@ describe('isRenderMessage', () => {
     expect(isRenderMessage({ type: 'render', schema: {}, options: {}, data: {}, theme: 'blue' })).toBe(false)
     expect(isRenderMessage(null)).toBe(false)
   })
+  it('rejects arrays masquerading as object fields', () => {
+    expect(isRenderMessage({ type: 'render', schema: {}, options: [], data: {}, theme: 'dark' })).toBe(false)
+    expect(isSandboxMessage({ type: 'validation', errors: ['x'] })).toBe(false)
+  })
+  it('rejects a render message with the schema field entirely absent', () => {
+    expect(isRenderMessage({ type: 'render', options: {}, data: {}, theme: 'dark' })).toBe(false)
+  })
 })
 
 describe('isSandboxMessage', () => {
