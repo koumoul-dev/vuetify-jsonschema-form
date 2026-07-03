@@ -7,7 +7,6 @@ export function createVuetify () {
   return _createVuetify({
     ssr: true,
     icons: { defaultSet: 'mdi' },
-    defaults: { global: { density: 'comfortable' } },
     theme: vuetifyTheme,
   })
 }

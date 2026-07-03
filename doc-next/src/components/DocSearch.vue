@@ -1,21 +1,24 @@
 <template>
-  <!-- Trigger: a v-btn styled like a search field, opens the dialog on click.
-  v-hotkey renders the platform-aware shortcut (⌘K on mac, Ctrl+K elsewhere). -->
+  <!-- Trigger: a compact medium-emphasis text button (Vuetify docs style) — a
+  magnify icon, the "Search" label, and the platform-aware shortcut in a single
+  bordered chip. Collapses to a bare magnify icon on xs. -->
   <v-btn
-    class="doc-search-trigger"
-    prepend-icon="mdi-magnify"
-    text="Search"
-    variant="tonal"
+    class="doc-search-trigger text-none"
+    color="medium-emphasis"
+    :icon="xs"
+    :prepend-icon="xs ? undefined : 'mdi-magnify'"
+    variant="text"
     @click="open"
   >
-    <template #append>
-      <v-hotkey
-        display-mode="text"
-        keys="cmd+k"
-        platform="auto"
-        variant="text"
-      />
-    </template>
+    <!-- Render the icon ourselves rather than via the string `icon` prop: with a
+    default slot present, v-btn would otherwise show the (empty) slot instead. -->
+    <v-icon v-if="xs" icon="mdi-magnify" />
+    <span v-else class="d-inline-flex align-center">
+      Search
+      <span class="doc-search-trigger__kbd ms-2 px-2 py-1 border rounded text-disabled text-body-small">
+        {{ shortcut }}
+      </span>
+    </span>
   </v-btn>
 
   <v-dialog
@@ -74,15 +77,22 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, nextTick, getCurrentInstance } from 'vue'
+import { ref, computed, watch, nextTick, getCurrentInstance } from 'vue'
+import { useDisplay } from 'vuetify'
 import type { Router } from 'vue-router'
 import { useDebounceFn, useEventListener } from '@vueuse/core'
 import { useSearch } from '../search/use-search'
 
 // Backend is the existing local minisearch index (offline, no Algolia) — only
-// the UI changes: a search-field-styled trigger in the app bar that opens a
-// modal dialog (Vuetify / VitePress local-search style), with keyboard nav.
+// the UI changes: a compact search trigger in the app bar that opens a modal
+// dialog (Vuetify / VitePress local-search style), with keyboard nav.
 const { query, results, run } = useSearch()
+
+// Platform-aware shortcut label shown in the trigger chip. This component only
+// renders on the client (wrapped in <ClientOnly>), so `platform` is resolved,
+// not the SSR fallback.
+const { xs, platform } = useDisplay()
+const shortcut = computed(() => (platform.value.mac ? '⌘K' : 'Ctrl+K'))
 
 const dialog = ref(false)
 const failed = ref(false)
@@ -155,18 +165,17 @@ function onKeydown (e: KeyboardEvent) {
 </script>
 
 <style scoped>
-/* v-btn styled to read as a search field (Vuetify / VitePress docs style).
-   variant="tonal" already provides the subtle background + hover. */
+/* Compact text-button trigger (Vuetify docs style). Left-align the label + chip
+   next to the leading magnify icon; keep the font at natural weight/case. */
 .doc-search-trigger {
-  min-width: 220px;
-  margin: 0 8px;
+  margin-inline-start: 4px;
   font-weight: 400;
   letter-spacing: normal;
-  text-transform: none;
-  color: rgba(var(--v-theme-on-surface), 0.6);
 }
-@media (max-width: 600px) {
-  .doc-search-trigger { min-width: 0; }
+/* The shortcut chip: a quiet bordered box that reads as one unit ("Ctrl+K"). */
+.doc-search-trigger__kbd {
+  line-height: 1;
+  white-space: nowrap;
 }
 </style>
 

@@ -1,77 +1,8 @@
 <template>
   <v-app>
-    <v-app-bar border="b" flat>
-      <router-link class="d-flex align-center px-2" to="/">
-        <img alt="VJSF" height="28" :src="logoSrc" />
-      </router-link>
-      <!-- Hamburger only on small screens (hidden lg+ via CSS, not v-if, to
-      keep SSR/hydration markup stable), placed to the right of the logo. -->
-      <v-app-bar-nav-icon class="d-lg-none" @click="drawer = !drawer" />
-      <ClientOnly>
-        <DocSearch />
-      </ClientOnly>
-      <v-spacer />
+    <AppBar v-model:drawer="drawer" />
 
-      <v-btn
-        prepend-icon="mdi-pencil"
-        label="Playground"
-        to="/editor"
-      />
-      <v-divider class="mx-2" inset vertical />
-      <v-btn
-        class="d-none d-md-inline-flex mr-2"
-        color="primary"
-        href="https://github.com/sponsors/koumoul-dev"
-        rel="noopener"
-        target="_blank"
-        variant="outlined"
-        rounded
-      >
-        <template #prepend>
-          <v-icon color="pink-accent-3" icon="mdi-heart" />
-        </template>
-        Sponsor
-      </v-btn>
-      <v-btn
-        href="https://github.com/koumoul-dev/vuetify-jsonschema-form"
-        icon="mdi-github"
-        rel="noopener"
-        target="_blank"
-      />
-    </v-app-bar>
-
-    <v-navigation-drawer
-      v-model="drawer"
-      :permanent="lgAndUp"
-      :temporary="!lgAndUp"
-    >
-      <v-list nav>
-        <template v-for="(item, i) in nav" :key="item.to">
-          <v-list-subheader v-if="item.section && item.section !== nav[i - 1]?.section">
-            {{ item.section }}
-          </v-list-subheader>
-          <v-list-item :title="item.title" :to="item.to" />
-        </template>
-      </v-list>
-
-      <template #append>
-        <div class="d-flex align-center justify-center ga-4 pa-3 text-caption text-medium-emphasis">
-          <a
-            v-if="commitHash"
-            class="d-inline-flex align-center text-decoration-none text-medium-emphasis"
-            rel="noopener"
-            target="_blank"
-            title="Source commit"
-            :href="commitUrl"
-          >
-            <v-icon class="mr-1" icon="mdi-source-commit" size="small" />{{ commitHash }}
-          </a>
-          <span class="d-inline-flex align-center" title="VJSF version">
-            <v-icon class="mr-1" icon="mdi-tag-outline" size="small" />{{ appVersion }}
-          </span>
-        </div>
-      </template>
-    </v-navigation-drawer>
+    <AppDrawer v-model="drawer" />
 
     <ClientOnly>
       <PageToc :page-key="routePath" />
@@ -89,12 +20,9 @@
 import { ref, computed, watch, onMounted, nextTick, getCurrentInstance } from 'vue'
 import { useDisplay } from 'vuetify'
 import type { RouteLocationNormalizedLoaded } from 'vue-router'
-import { useNav } from './nav/use-nav'
-import DocSearch from './components/DocSearch.vue'
+import AppBar from './components/AppBar.vue'
+import AppDrawer from './components/AppDrawer.vue'
 import PageToc from './components/PageToc.vue'
-import { appVersion, commitHash, commitUrl } from './build-info'
-
-const nav = useNav()
 
 // Left nav is permanent on large screens (same lg breakpoint as the right-hand
 // TOC) and collapses to a temporary overlay toggled by the app-bar hamburger
@@ -103,13 +31,6 @@ const nav = useNav()
 const { lgAndUp } = useDisplay()
 const drawer = ref(true)
 watch(lgAndUp, v => { drawer.value = v }, { immediate: true })
-
-// Base-safe logo URL: `import.meta.env.BASE_URL` carries the configured base
-// (with trailing slash) so this also resolves under the versioned subpath
-// base used at deploy time. Computed here (not inline in the template)
-// because the Vue template expression parser rejects `import.meta` — it
-// parses expressions with sourceType "script", not "module".
-const logoSrc = `${import.meta.env.BASE_URL}vjsf-title-white.svg`
 
 // Route is read off global properties (not `useRoute()`) for the same reason
 // as [category].vue / DocSearch.vue: this workspace has two coexisting
