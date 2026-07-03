@@ -22,6 +22,11 @@ jobs:
 
       - run: npm run lint
 
+      - name: doc-next tests + static build
+        run: |
+          npm -w doc-next run test
+          npm -w doc-next run build
+
       - run: npm -w lib run build
 
       - run: npm -w compiler run build
