@@ -3,3 +3,34 @@
   --v-font-heading: 'Nunito', sans-serif;
 }
 html, body, .v-application { font-family: 'Nunito', sans-serif; }
+
+/* Anchored headings scroll clear of the fixed app bar. Both native `#hash`
+   jumps and `scrollIntoView()` (used for deep-links / TOC clicks) honor
+   scroll-margin-top. Keep the value in sync with SCROLL_OFFSET in
+   components/PageToc.vue. */
+.v-main :is(h1, h2, h3, h4, h5, h6)[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Hover-reveal "#" permalink to the left of section headings (Vuetify-docs
+   style). markdown-it-anchor renders it for markdown pages; [category].vue
+   renders the same markup for example headings. Clicking it just sets the
+   URL hash (native anchor), so the deep link is copyable from the address
+   bar. */
+.v-main :is(h1, h2, h3, h4, h5, h6):has(> .header-anchor) {
+  position: relative;
+}
+.header-anchor {
+  position: absolute;
+  left: -1.1em;
+  font-weight: 400;
+  text-decoration: none;
+  color: rgb(var(--v-theme-primary));
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.v-main :is(h1, h2, h3, h4, h5, h6):hover > .header-anchor,
+.header-anchor:hover,
+.header-anchor:focus-visible {
+  opacity: 1;
+}

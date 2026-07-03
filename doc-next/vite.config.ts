@@ -1,4 +1,6 @@
 import { readFileSync } from 'node:fs'
+import { execFileSync } from 'node:child_process'
+import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve, relative } from 'node:path'
 import { defineConfig, type HmrContext } from 'vite'
@@ -16,6 +18,16 @@ import { getExamples } from './src/examples/index'
 
 // Base path for GitHub Pages versioned subpaths (wired fully in the deploy phase).
 const base = process.env.TARGET ? new URL(process.env.TARGET).pathname : '/'
+
+// Build-time app metadata surfaced in the nav-drawer footer (see
+// src/build-info.ts). The version is the published library version; the commit
+// hash is best-effort (blank when built outside a git checkout).
+const requireJson = createRequire(import.meta.url)
+const appVersion = requireJson('../lib/package.json').version as string
+let commitHash = ''
+try {
+  commitHash = execFileSync('git', ['rev-parse', '--short', 'HEAD'], { encoding: 'utf8' }).trim()
+} catch { /* not a git checkout — leave blank */ }
 
 const pagesDir = resolve(dirname(fileURLToPath(import.meta.url)), 'src/pages')
 
@@ -59,18 +71,39 @@ function navData () {
 
 export default defineConfig({
   base,
+  define: {
+    __APP_VERSION__: JSON.stringify(appVersion),
+    __COMMIT_HASH__: JSON.stringify(commitHash),
+  },
   plugins: [
     // Must come before `vue()`/`Markdown()`: it only *discovers* `.vue`/`.md`
     // files under `src/pages` as routes (generating `vue-router/auto-routes`
     // + `typed-router.d.ts`); it does not transform file content, so it does
     // not fight with `Markdown()` over ownership of `.md`.
-    VueRouter({ extensions: ['.vue', '.md'], dirs: ['src/pages'] }),
+    // `dirs` isn't in unplugin-vue-router's typed Options (it happens to match
+    // the default `src/pages`); cast to keep it explicit without a type error.
+    VueRouter({ extensions: ['.vue', '.md'], dirs: ['src/pages'] } as Parameters<typeof VueRouter>[0]),
     vue({ include: [/\.vue$/, /\.md$/] }),
     Markdown({
       exposeFrontmatter: true,
       markdownItSetup (md) {
-        md.use(anchor, { permalink: anchor.permalink.headerLink() })
-        md.use(attrs)
+        // `level: 2` skips the page-title h1 (only h2+ get an id + the
+        // hover "#" permalink, matching the Vuetify docs). `placement:
+        // 'before'` renders the "#" to the left of the heading text; it is
+        // hidden until hover via `.header-anchor` styles in src/styles.css.
+        // Cast to any: markdown-it-anchor/-attrs are typed against
+        // @types/markdown-it, structurally incompatible with the markdown-exit
+        // MarkdownIt that unplugin-vue-markdown passes here.
+        const mit = md as any
+        mit.use(anchor, {
+          level: 2,
+          permalink: anchor.permalink.linkInsideHeader({
+            symbol: '#',
+            placement: 'before',
+            ariaHidden: true,
+          }),
+        })
+        mit.use(attrs)
       },
     }),
     navData(),
@@ -125,7 +158,7 @@ export default defineConfig({
     // 'nested' emits dist/about/index.html (not dist/about.html) so routes
     // resolve cleanly on static hosts without extension rewriting.
     dirStyle: 'nested',
-    includedRoutes (paths) {
+    includedRoutes (paths: string[]) {
       // Pre-render every static route, plus one concrete instance of the
       // dynamic `src/pages/[category].vue` route (`/:category`) per example
       // category. `paths` only ever contains the literal `:category`
@@ -133,7 +166,7 @@ export default defineConfig({
       // so those concrete paths must be injected here explicitly or the
       // category pages would only ever render client-side (SPA-only, no
       // pre-rendered HTML).
-      const staticPaths = paths.filter(p => !p.includes(':'))
+      const staticPaths = paths.filter((p: string) => !p.includes(':'))
       const categoryPaths = getExamples().map(category => '/' + category.id)
       return [...staticPaths, ...categoryPaths]
     },
