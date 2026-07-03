@@ -80,6 +80,21 @@ export default defineConfig({
     // `import 'vuetify/styles'` in src/plugins/vuetify.ts) is correct anyway.
     vuetify({ autoImport: true }),
   ],
+  server: {
+    // `editor-sandbox.html` is embedded in a `sandbox="allow-scripts"`
+    // iframe (deliberately WITHOUT `allow-same-origin`), so it runs with an
+    // opaque ("null") origin. Its `<script type="module">` tags are
+    // therefore fetched in CORS mode with an `Origin: null` header; Vite's
+    // default dev-server CORS policy only reflects same-host origins, which
+    // never matches "null", so the sandbox's own scripts fail to load with
+    // ERR_FAILED unless CORS is opened up. `cors: true` (browserify `cors`
+    // defaults) answers every request with `Access-Control-Allow-Origin: *`,
+    // which is required to satisfy an opaque-origin fetch. Production
+    // hosting (GitHub Pages) already sends this header on every response, so
+    // this only changes local dev/preview behavior. `preview.cors` inherits
+    // this same setting.
+    cors: true,
+  },
   ssr: {
     // Vuetify ships untranspiled ESM; keep it in the SSR bundle.
     noExternal: ['vuetify'],
