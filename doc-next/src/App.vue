@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useNav } from './nav/use-nav'
 const drawer = ref(true)
+const nav = useNav()
 // Base-safe logo URL: `import.meta.env.BASE_URL` carries the configured base
 // (with trailing slash) so this also resolves under the versioned subpath
 // base used at deploy time. Computed here (not inline in the template)
@@ -27,7 +29,12 @@ const logoSrc = `${import.meta.env.BASE_URL}vjsf-full-white.svg`
 
     <v-navigation-drawer v-model="drawer">
       <v-list nav>
-        <v-list-item title="Home" to="/" prepend-icon="mdi-home" />
+        <v-list-item
+          v-for="item in nav"
+          :key="item.to"
+          :title="item.title"
+          :to="item.to"
+        />
       </v-list>
     </v-navigation-drawer>
 
