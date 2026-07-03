@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve, relative } from 'node:path'
-import { defineConfig } from 'vite'
+import { defineConfig, type HmrContext } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vuetify from 'vite-plugin-vuetify'
 import Markdown from 'unplugin-vue-markdown/vite'
@@ -37,10 +37,18 @@ function navData () {
       return `export default ${JSON.stringify(entries)}`
     },
     // rebuild nav when a page's frontmatter changes in dev
-    handleHotUpdate (ctx: any) {
+    handleHotUpdate (ctx: HmrContext) {
       if (ctx.file.startsWith(pagesDir) && ctx.file.endsWith('.md')) {
         const mod = ctx.server.moduleGraph.getModuleById('\0virtual:nav-data')
-        if (mod) ctx.server.moduleGraph.invalidateModule(mod)
+        if (mod) {
+          ctx.server.moduleGraph.invalidateModule(mod)
+          // Return the invalidated virtual module (plus the file's own
+          // affected modules) so Vite pushes an HMR update to the client;
+          // invalidating alone marks it stale server-side but never tells
+          // the browser to re-fetch (Vite's documented handleHotUpdate
+          // return contract).
+          return [mod, ...ctx.modules]
+        }
       }
     },
   }
