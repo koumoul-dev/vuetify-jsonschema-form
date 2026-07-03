@@ -12,6 +12,7 @@ import fg from 'fast-glob'
 import matter from 'gray-matter'
 import { searchIndexPlugin } from './build/search-index-plugin'
 import { examplesLayoutsPlugin } from './build/examples-layouts-plugin'
+import { getExamples } from './src/examples/index'
 
 // Base path for GitHub Pages versioned subpaths (wired fully in the deploy phase).
 const base = process.env.TARGET ? new URL(process.env.TARGET).pathname : '/'
@@ -125,8 +126,16 @@ export default defineConfig({
     // resolve cleanly on static hosts without extension rewriting.
     dirStyle: 'nested',
     includedRoutes (paths) {
-      // Pre-render every static route (no dynamic :params in this site yet).
-      return paths.filter(p => !p.includes(':'))
+      // Pre-render every static route, plus one concrete instance of the
+      // dynamic `src/pages/[category].vue` route (`/:category`) per example
+      // category. `paths` only ever contains the literal `:category`
+      // placeholder (vite-ssg never expands dynamic segments on its own),
+      // so those concrete paths must be injected here explicitly or the
+      // category pages would only ever render client-side (SPA-only, no
+      // pre-rendered HTML).
+      const staticPaths = paths.filter(p => !p.includes(':'))
+      const categoryPaths = getExamples().map(category => '/' + category.id)
+      return [...staticPaths, ...categoryPaths]
     },
   },
 })

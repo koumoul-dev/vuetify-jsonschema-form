@@ -33,12 +33,12 @@ const logoSrc = `${import.meta.env.BASE_URL}vjsf-full-white.svg`
 
     <v-navigation-drawer v-model="drawer">
       <v-list nav>
-        <v-list-item
-          v-for="item in nav"
-          :key="item.to"
-          :title="item.title"
-          :to="item.to"
-        />
+        <template v-for="(item, i) in nav" :key="item.to">
+          <v-list-subheader v-if="item.section && item.section !== nav[i - 1]?.section">
+            {{ item.section }}
+          </v-list-subheader>
+          <v-list-item :title="item.title" :to="item.to" />
+        </template>
       </v-list>
     </v-navigation-drawer>
 

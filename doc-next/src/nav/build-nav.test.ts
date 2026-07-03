@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { buildNav } from './build-nav'
+import { buildNav, sortNav } from './build-nav'
 
 describe('buildNav', () => {
   it('derives title/route from frontmatter+path and sorts by order then title', () => {
@@ -27,5 +27,23 @@ describe('buildNav', () => {
       { path: '/src/pages/index.md', frontmatter: { title: 'Home', nav: { order: 0 } } },
     ])
     expect(nav.map(n => n.title)).toEqual(['Home', 'Data types'])
+  })
+})
+
+describe('sortNav', () => {
+  it('sorts by order then title, used to merge nav lists built from separate sources', () => {
+    const merged = sortNav([
+      { title: 'Getting started', to: '/getting-started', order: 2 },
+      { title: 'Simple properties', to: '/simple-properties', order: 10, section: 'Examples' },
+      { title: 'Home', to: '/', order: 0 },
+    ])
+    expect(merged.map(n => n.to)).toEqual(['/', '/getting-started', '/simple-properties'])
+  })
+
+  it('does not mutate the input array', () => {
+    const input = [{ title: 'B', to: '/b', order: 1 }, { title: 'A', to: '/a', order: 0 }]
+    const copy = [...input]
+    sortNav(input)
+    expect(input).toEqual(copy)
   })
 })
