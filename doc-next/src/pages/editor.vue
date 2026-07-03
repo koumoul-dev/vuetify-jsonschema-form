@@ -5,14 +5,18 @@ import { useStorage } from '@vueuse/core'
 // not import it here.
 import CodeEditor from '../components/CodeEditor.vue'
 import EditorSandbox from '../components/EditorSandbox.vue'
+import type { CodeLanguage } from '../editor/code'
+
+type TabKey = 'schema' | 'options' | 'data'
 
 // Reused verbatim by the examples' "edit in playground" link, which seeds
-// this same localStorage key before navigating to /editor.
+// this same localStorage key (without `languages` — mergeDefaults fills it).
 const state = useStorage('vjsf-editor-state', {
   schema: { type: 'object', properties: { name: { type: 'string', title: 'Name' } } } as unknown,
   options: {} as Record<string, unknown>,
   data: {} as unknown,
   theme: 'light' as 'light' | 'dark',
+  languages: { schema: 'yaml', options: 'yaml', data: 'json' } as Record<TabKey, CodeLanguage>,
 }, undefined, { mergeDefaults: true })
 
 const schema = ref(state.value.schema)
@@ -24,19 +28,29 @@ const data = ref(state.value.data)
 // render message fail the `isRenderMessage` guard in the sandbox and
 // silently blank the preview.
 const theme = ref<'light' | 'dark'>(state.value.theme === 'dark' ? 'dark' : 'light')
-const parseErrors = ref<Record<string, string | null>>({})
+const languages = ref<Record<TabKey, CodeLanguage>>({
+  schema: state.value.languages?.schema === 'json' ? 'json' : 'yaml',
+  options: state.value.languages?.options === 'json' ? 'json' : 'yaml',
+  data: state.value.languages?.data === 'yaml' ? 'yaml' : 'json',
+})
 const validationErrors = ref<Record<string, string[]>>({})
 
-watch([schema, options, data, theme], () => {
-  state.value = { schema: schema.value, options: options.value, data: data.value, theme: theme.value }
+watch([schema, options, data, theme, languages], () => {
+  state.value = { schema: schema.value, options: options.value, data: data.value, theme: theme.value, languages: languages.value }
 }, { deep: true })
 
-const tab = ref<'schema' | 'options' | 'data'>('schema')
+const tab = ref<TabKey>('schema')
 
-const errorLines = computed(() => [
-  ...Object.entries(parseErrors.value).filter(([, e]) => e).map(([k, e]) => `${k}: ${e}`),
-  ...Object.entries(validationErrors.value).map(([k, msgs]) => `${k || 'form'}: ${msgs.join(', ')}`),
-])
+const schemaEditor = ref<InstanceType<typeof CodeEditor> | null>(null)
+const optionsEditor = ref<InstanceType<typeof CodeEditor> | null>(null)
+const dataEditor = ref<InstanceType<typeof CodeEditor> | null>(null)
+const activeEditor = computed(() => ({ schema: schemaEditor, options: optionsEditor, data: dataEditor })[tab.value].value)
+
+// Iframe-reported errors (compile/runtime/validation) are the only ones left
+// down here — parse and schema-validation errors are inline in the editor.
+const errorLines = computed(() =>
+  Object.entries(validationErrors.value).map(([k, msgs]) => `${k || 'form'}: ${msgs.join(', ')}`),
+)
 </script>
 
 <template>
@@ -52,8 +66,24 @@ const errorLines = computed(() => [
                 <v-tab value="data">Data</v-tab>
               </v-tabs>
               <v-spacer />
-              <!-- Task 2 adds the JSON/YAML toggle + Format button here.
-              A future iteration will also host a locale switch. -->
+              <!-- A future iteration will also host a locale switch here. -->
+              <v-btn-toggle
+                v-model="languages[tab]"
+                density="compact"
+                variant="outlined"
+                mandatory
+                class="mr-2"
+              >
+                <v-btn value="json" size="small" class="text-none">JSON</v-btn>
+                <v-btn value="yaml" size="small" class="text-none">YAML</v-btn>
+              </v-btn-toggle>
+              <v-btn
+                size="small"
+                variant="text"
+                icon="mdi-format-align-left"
+                title="Format"
+                @click="activeEditor?.format()"
+              />
               <v-btn
                 size="small"
                 variant="text"
@@ -63,15 +93,15 @@ const errorLines = computed(() => [
               />
             </v-toolbar>
             <v-divider />
-            <v-window v-model="tab" class="editor-window flex-grow-1 overflow-y-auto">
+            <v-window v-model="tab" class="editor-window flex-grow-1">
               <v-window-item value="schema">
-                <CodeEditor v-model="schema" language="yaml" @update:parse-error="e => parseErrors.schema = e" />
+                <CodeEditor ref="schemaEditor" v-model="schema" v-model:language="languages.schema" />
               </v-window-item>
               <v-window-item value="options">
-                <CodeEditor v-model="options" language="yaml" @update:parse-error="e => parseErrors.options = e" />
+                <CodeEditor ref="optionsEditor" v-model="options" v-model:language="languages.options" />
               </v-window-item>
               <v-window-item value="data">
-                <CodeEditor v-model="data" language="json" @update:parse-error="e => parseErrors.data = e" />
+                <CodeEditor ref="dataEditor" v-model="data" v-model:language="languages.data" />
               </v-window-item>
             </v-window>
             <!-- `flex-grow-0`: v-alert defaults to a flex item that grows to
