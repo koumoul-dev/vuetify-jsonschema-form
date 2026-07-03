@@ -1,11 +1,23 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed, defineAsyncComponent, ref, watch } from 'vue'
 import { useStorage } from '@vueuse/core'
 // `ClientOnly` is auto-registered globally by ViteSSG (see src/main.ts) — do
 // not import it here.
-import CodeEditor from '../components/CodeEditor.vue'
 import EditorSandbox from '../components/EditorSandbox.vue'
+import type CodeEditorType from '../components/CodeEditor.vue'
 import type { CodeLanguage } from '../editor/code'
+import { vjsfMetaSchema } from '../editor/vjsf-meta-schema'
+
+// Lazy: CodeEditor.vue pulls in `codemirror-json-schema`, whose published
+// `dist/index.js` has internal imports missing file extensions (an upstream
+// packaging bug) — plain Node ESM resolution (used by vite-ssg's prerender
+// step) throws `ERR_MODULE_NOT_FOUND` on it. This page is entirely wrapped
+// in `<ClientOnly>` (see template), whose slot is never invoked during SSR,
+// so a static top-level import would still eagerly pull the module into the
+// SSR bundle and evaluation would still explode; a `defineAsyncComponent`
+// loader is only invoked when Vue actually renders the component, which
+// never happens server-side, so the broken module is never touched there.
+const CodeEditor = defineAsyncComponent(() => import('../components/CodeEditor.vue'))
 
 type TabKey = 'schema' | 'options' | 'data'
 
@@ -35,15 +47,24 @@ const languages = ref<Record<TabKey, CodeLanguage>>({
 })
 const validationErrors = ref<Record<string, string[]>>({})
 
+// The Data tab is completed/validated by whatever schema the user is
+// currently editing — only when it's a plain object (a schema mid-edit can
+// transiently be an array/scalar).
+const dataSchema = computed(() => (
+  schema.value && typeof schema.value === 'object' && !Array.isArray(schema.value)
+    ? schema.value as Record<string, unknown>
+    : undefined
+))
+
 watch([schema, options, data, theme, languages], () => {
   state.value = { schema: schema.value, options: options.value, data: data.value, theme: theme.value, languages: languages.value }
 }, { deep: true })
 
 const tab = ref<TabKey>('schema')
 
-const schemaEditor = ref<InstanceType<typeof CodeEditor> | null>(null)
-const optionsEditor = ref<InstanceType<typeof CodeEditor> | null>(null)
-const dataEditor = ref<InstanceType<typeof CodeEditor> | null>(null)
+const schemaEditor = ref<InstanceType<typeof CodeEditorType> | null>(null)
+const optionsEditor = ref<InstanceType<typeof CodeEditorType> | null>(null)
+const dataEditor = ref<InstanceType<typeof CodeEditorType> | null>(null)
 const activeEditor = computed(() => ({ schema: schemaEditor, options: optionsEditor, data: dataEditor })[tab.value].value)
 
 // Iframe-reported errors (compile/runtime/validation) are the only ones left
@@ -95,13 +116,13 @@ const errorLines = computed(() =>
             <v-divider />
             <v-window v-model="tab" class="editor-window flex-grow-1">
               <v-window-item value="schema">
-                <CodeEditor ref="schemaEditor" v-model="schema" v-model:language="languages.schema" />
+                <CodeEditor ref="schemaEditor" v-model="schema" v-model:language="languages.schema" :schema="vjsfMetaSchema" />
               </v-window-item>
               <v-window-item value="options">
                 <CodeEditor ref="optionsEditor" v-model="options" v-model:language="languages.options" />
               </v-window-item>
               <v-window-item value="data">
-                <CodeEditor ref="dataEditor" v-model="data" v-model:language="languages.data" />
+                <CodeEditor ref="dataEditor" v-model="data" v-model:language="languages.data" :schema="dataSchema" />
               </v-window-item>
             </v-window>
             <!-- `flex-grow-0`: v-alert defaults to a flex item that grows to

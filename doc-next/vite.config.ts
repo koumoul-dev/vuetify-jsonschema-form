@@ -69,6 +69,30 @@ function navData () {
   }
 }
 
+// The playground's Schema tab autocompletes/validates against the vjsf
+// meta-schema (draft-07 + the `layout` keyword). The layout-keyword schema
+// lives in @json-layout/vocabulary, whose exports map only exposes
+// src/index.js — so resolve that entry and read the schema file sitting next
+// to it from disk at build time.
+function layoutKeywordSchema () {
+  const virtualId = 'virtual:layout-keyword-schema'
+  const resolvedId = '\0' + virtualId
+  return {
+    name: 'doc-next-layout-keyword-schema',
+    resolveId (id: string) { if (id === virtualId) return resolvedId },
+    load (id: string) {
+      if (id !== resolvedId) return
+      // `@json-layout/vocabulary`'s exports map only declares an `import`
+      // condition (no `require`), so `requireJson.resolve` (Node's CJS
+      // resolver) throws `ERR_PACKAGE_PATH_NOT_EXPORTED`. `import.meta.resolve`
+      // is the ESM-aware resolver and honors that `import` condition.
+      const indexPath = fileURLToPath(import.meta.resolve('@json-layout/vocabulary'))
+      const schemaPath = resolve(dirname(indexPath), 'layout-keyword/schema.json')
+      return `export default ${readFileSync(schemaPath, 'utf8')}`
+    },
+  }
+}
+
 export default defineConfig({
   base,
   define: {
@@ -107,6 +131,7 @@ export default defineConfig({
       },
     }),
     navData(),
+    layoutKeywordSchema(),
     searchIndexPlugin(pagesDir),
     examplesLayoutsPlugin(),
     // `styles` is left at its default (`true`): vite-plugin-vuetify@2.1.3's

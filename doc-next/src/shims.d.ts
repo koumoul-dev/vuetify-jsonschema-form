@@ -7,6 +7,12 @@ declare module 'virtual:example-layouts' {
   export function loadLayout (key: string): Promise<CompiledLayout | null>
 }
 
+// Emitted by the `layoutKeywordSchema()` plugin in vite.config.ts.
+declare module 'virtual:layout-keyword-schema' {
+  const schema: Record<string, any>
+  export default schema
+}
+
 // typed-router.d.ts declares RouteNamedMap for this module but not its runtime
 // `routes` value export; this merges the missing export in.
 declare module 'vue-router/auto-routes' {
