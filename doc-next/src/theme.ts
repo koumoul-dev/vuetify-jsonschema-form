@@ -8,16 +8,13 @@ export const BRAND = {
   grey: '#424242',
   darkBg: '#22303a',
   // Current primary: keep the existing cyan for now (D11).
-  primary: colors.cyan.accent2 as string,
+  primary: colors.cyan.accent2,
+  accent: colors.cyan.accent3,
 }
 
 export const vuetifyTheme = {
   defaultTheme: 'dark',
   themes: {
-    light: {
-      dark: false,
-      colors: { primary: BRAND.primary, accent: colors.cyan.accent3 as string },
-    },
     dark: {
       dark: true,
       colors: { background: '#212121', primary: BRAND.primary },
