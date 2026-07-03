@@ -40,10 +40,14 @@ const data = ref(state.value.data)
 // render message fail the `isRenderMessage` guard in the sandbox and
 // silently blank the preview.
 const theme = ref<'light' | 'dark'>(state.value.theme === 'dark' ? 'dark' : 'light')
+// Same guarded-fallback idea as `theme` above: stored values may be missing
+// or partial, so anything unrecognized falls back to the tab's default.
+const asLanguage = (v: unknown, fallback: CodeLanguage): CodeLanguage =>
+  (v === 'json' || v === 'js' || v === 'yaml') ? v : fallback
 const languages = ref<Record<TabKey, CodeLanguage>>({
-  schema: state.value.languages?.schema === 'json' ? 'json' : 'yaml',
-  options: state.value.languages?.options === 'json' ? 'json' : 'yaml',
-  data: state.value.languages?.data === 'yaml' ? 'yaml' : 'json',
+  schema: asLanguage(state.value.languages?.schema, 'yaml'),
+  options: asLanguage(state.value.languages?.options, 'yaml'),
+  data: asLanguage(state.value.languages?.data, 'json'),
 })
 const validationErrors = ref<Record<string, string[]>>({})
 
@@ -96,6 +100,7 @@ const errorLines = computed(() =>
                 class="mr-2"
               >
                 <v-btn value="json" size="small" class="text-none">JSON</v-btn>
+                <v-btn value="js" size="small" class="text-none">JS</v-btn>
                 <v-btn value="yaml" size="small" class="text-none">YAML</v-btn>
               </v-btn-toggle>
               <v-btn

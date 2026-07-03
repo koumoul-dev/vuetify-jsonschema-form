@@ -11,6 +11,10 @@ describe('parseCode', () => {
   it('parses YAML', () => {
     expect(parseCode('a: 1\nb: x', 'yaml')).toEqual({ a: 1, b: 'x' })
   })
+  it('parses both JS-style and strict JSON in js mode', () => {
+    expect(parseCode("{ a: 1, b: 'x' }", 'js')).toEqual({ a: 1, b: 'x' })
+    expect(parseCode('{"a": 1}', 'js')).toEqual({ a: 1 })
+  })
   it('returns {} for blank input in both modes', () => {
     expect(parseCode('', 'json')).toEqual({})
     expect(parseCode('  \n', 'yaml')).toEqual({})
@@ -34,6 +38,17 @@ describe('formatCode', () => {
     expect(parseCode(yamlText, 'yaml')).toEqual(value)
     const jsonText = formatCode(parseCode(yamlText, 'yaml'), 'json')
     expect(parseCode(jsonText, 'json')).toEqual(value)
+  })
+  it('formats JS-style (unquoted keys, single quotes) in js mode', () => {
+    expect(formatCode({ a: 1, b: 'x' }, 'js')).toBe("{\n  a: 1,\n  b: 'x',\n}")
+    // non-identifier keys stay quoted
+    expect(formatCode({ 'd-e': 2 }, 'js')).toBe("{\n  'd-e': 2,\n}")
+  })
+  it('round-trips json -> js -> json', () => {
+    const value = { type: 'object', properties: { name: { type: 'string' } } }
+    const jsText = formatCode(value, 'js')
+    expect(parseCode(jsText, 'js')).toEqual(value)
+    expect(parseCode(formatCode(parseCode(jsText, 'js'), 'json'), 'json')).toEqual(value)
   })
   it('stringifies undefined/null without throwing', () => {
     expect(formatCode(null, 'json')).toBe('null')
