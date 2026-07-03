@@ -11,6 +11,7 @@ async function ensureIndex () {
     loading = fetch(`${import.meta.env.BASE_URL}search-index.json`)
       .then(r => r.json() as Promise<SearchDocument[]>)
       .then(docs => { searcher = createSearcher(docs) })
+      .catch(err => { loading = null; throw err })
   }
   await loading
 }

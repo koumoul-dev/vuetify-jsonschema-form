@@ -13,9 +13,16 @@ describe('createSearcher', () => {
     expect(results[0].category).not.toBe('v2-compat')
   })
 
-  it('surfaces v2-compat docs when the query mentions v2/compat', () => {
-    const results = createSearcher(docs).search('v2 date')
-    expect(results.some(r => r.category === 'v2-compat')).toBe(true)
+  it('lifts the v2-compat score when the query mentions v2/compat (D14)', () => {
+    const s = createSearcher(docs)
+    const base = s.search('date').find(r => r.category === 'v2-compat')
+    const lifted = s.search('compat date').find(r => r.category === 'v2-compat')
+    expect(base).toBeDefined()
+    expect(lifted).toBeDefined()
+    // Same 'date' match, but 'compat' in the query triggers the D14 up-weight
+    // (0.2 -> 1.5), so the v2-compat doc must score strictly higher. This fails
+    // if boostDocument is deleted (constant 1) or inverted.
+    expect(lifted!.score).toBeGreaterThan(base!.score)
   })
 
   it('returns [] for an empty query', () => {
