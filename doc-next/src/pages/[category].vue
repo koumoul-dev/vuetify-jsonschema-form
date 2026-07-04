@@ -35,7 +35,11 @@
         {{ example.warning }}
       </v-alert>
       <MarkdownInline class="mb-2" :content="example.description" />
-      <VjsfExample :category-id="category.id" :example="example" />
+      <VjsfExample
+        :example="example"
+        :layout-key="`${category.id}/${example.id}`"
+        :v2compat="category.id === 'v2-compat'"
+      />
     </template>
   </v-container>
 

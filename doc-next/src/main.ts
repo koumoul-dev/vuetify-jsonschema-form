@@ -6,6 +6,7 @@ import { ViteSSG } from 'vite-ssg'
 import { routes } from 'vue-router/auto-routes'
 import App from './App.vue'
 import { createVuetify } from './plugins/vuetify'
+import VjsfDemo from './components/VjsfDemo.vue'
 
 // Note: `ClientOnly` is not registered here — `ViteSSG()` registers it as a
 // global component automatically (its `registerComponents` option defaults
@@ -13,4 +14,7 @@ import { createVuetify } from './plugins/vuetify'
 // entry point for manual (re-)registration.
 export const createApp = ViteSSG(App, { routes }, ({ app }) => {
   app.use(createVuetify())
+  // Registered globally so markdown pages (compiled by unplugin-vue-markdown)
+  // can use `<VjsfDemo demo="collection-id/demo-id" />` with no imports.
+  app.component('VjsfDemo', VjsfDemo)
 })

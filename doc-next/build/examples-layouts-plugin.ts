@@ -4,7 +4,8 @@ import markdownInfo from '@koumoul/vjsf-markdown/info.js'
 import imgCropperInfo from '@koumoul/vjsf-img-cropper/info.js'
 import { v2compat } from '@koumoul/vjsf/compat/v2'
 import { getExamples } from '../src/examples/index'
-import type { Category, Example } from '../src/examples/types'
+import { getDemoCollections } from '../src/demos/index'
+import type { Example } from '../src/examples/types'
 
 // compile() only needs a ComponentInfo (name + capability flags) for any component
 // referenced by an example's schema (via the `layout`/`x-display` keyword) -- it never
@@ -39,25 +40,33 @@ const RESOLVED_MANIFEST_ID = '\0' + MANIFEST_ID
 const LAYOUT_PREFIX = 'virtual:example-layout:'
 const RESOLVED_LAYOUT_PREFIX = '\0' + LAYOUT_PREFIX
 
+interface Collection { id: string, v2compat: boolean, examples: Example[] }
+
+function allCollections (): Collection[] {
+  const legacy = getExamples().map(c => ({ id: c.id, v2compat: c.id === 'v2-compat', examples: c.examples }))
+  const demos = getDemoCollections().map(c => ({ id: c.id, v2compat: !!c.v2compat, examples: c.demos }))
+  return [...legacy, ...demos]
+}
+
 function allKeys (): string[] {
   const keys: string[] = []
-  for (const category of getExamples()) {
-    for (const example of category.examples) {
-      keys.push(`${category.id}/${example.id}`)
+  for (const collection of allCollections()) {
+    for (const example of collection.examples) {
+      keys.push(`${collection.id}/${example.id}`)
     }
   }
   return keys
 }
 
-function findExample (key: string): { category: Category, example: Example } {
+function findExample (key: string): { collection: Collection, example: Example } {
   const slash = key.indexOf('/')
-  const categoryId = key.slice(0, slash)
+  const collectionId = key.slice(0, slash)
   const exampleId = key.slice(slash + 1)
-  const category = getExamples().find(c => c.id === categoryId)
-  if (!category) throw new Error(`unknown example category "${categoryId}" (key "${key}")`)
-  const example = category.examples.find(e => e.id === exampleId)
-  if (!example) throw new Error(`unknown example "${exampleId}" in category "${categoryId}" (key "${key}")`)
-  return { category, example }
+  const collection = allCollections().find(c => c.id === collectionId)
+  if (!collection) throw new Error(`unknown example collection "${collectionId}" (key "${key}")`)
+  const example = collection.examples.find(e => e.id === exampleId)
+  if (!example) throw new Error(`unknown example "${exampleId}" in collection "${collectionId}" (key "${key}")`)
+  return { collection, example }
 }
 
 /**
@@ -69,9 +78,9 @@ function findExample (key: string): { category: Category, example: Example } {
  * otherwise let a broken layout ship silently.
  */
 async function compileExampleSource (key: string): Promise<string> {
-  const { category, example } = findExample(key)
+  const { collection, example } = findExample(key)
   try {
-    const schema = category.id === 'v2-compat'
+    const schema = collection.v2compat
       ? v2compat(example.schema as object)
       : example.schema as object
     const exampleOptions: Record<string, any> = (example.options && typeof example.options === 'object')
@@ -85,7 +94,7 @@ async function compileExampleSource (key: string): Promise<string> {
     const errorPointers = Object.keys(compiled.validationErrors)
     if (errorPointers.length) {
       const message = `unresolved layout validation errors at ${errorPointers.join(', ')}: ${JSON.stringify(compiled.validationErrors)}`
-      if (category.id === 'v2-compat') {
+      if (collection.v2compat) {
         // The v2-compat category is explicitly documented as "not 100% compatible":
         // some legacy x-display combinations (e.g. x-display:icon combined with a
         // oneOf, which v2compat() does not translate) have no v3 equivalent, so

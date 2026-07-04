@@ -10,7 +10,7 @@ import { loadLayout } from 'virtual:example-layouts'
 import CodeBlock from './CodeBlock.vue'
 import type { Example } from '../examples/types'
 
-const props = defineProps<{ example: Example, categoryId: string }>()
+const props = defineProps<{ example: Example, layoutKey: string, v2compat?: boolean }>()
 
 // v2-compat examples carry a legacy `model` field (ported verbatim from the old
 // VJSF-2 doc source, e.g. examples/v2/arrays/editable-array.js: `export default { id,
@@ -46,7 +46,7 @@ const layoutReady = ref(false)
 // is ever reused across examples (e.g. a future non-keyed v-for) -- `key` from the watch
 // source is captured per in-flight request and compared once the promise resolves.
 let latestKey = ''
-watch(() => `${props.categoryId}/${props.example.id}`, async (key) => {
+watch(() => props.layoutKey, async (key) => {
   latestKey = key
   layoutReady.value = false
   layout.value = null
@@ -85,7 +85,7 @@ function edit () {
   // build/examples-layouts-plugin.ts uses, converted via the same
   // `@koumoul/vjsf/compat/v2` specifier; matches the old doc/components/vjsf-example.vue,
   // which stored `this.schema` (the v2compat-converted schema) in editExample().
-  const schema = props.categoryId === 'v2-compat'
+  const schema = props.v2compat
     ? v2compat(props.example.schema as object)
     : props.example.schema
   const options = { ...(props.example.options ?? {}) }
