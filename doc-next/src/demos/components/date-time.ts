@@ -44,6 +44,8 @@ const collection: DemoCollection = {
             type: 'string',
             format: 'date',
             title: 'Book a slot (1 to 10 July 2026)',
+            formatMinimum: '2026-07-01',
+            formatMaximum: '2026-07-10',
             layout: {
               comp: 'date-picker',
               props: { min: '2026-07-01', max: '2026-07-10' },
@@ -51,6 +53,8 @@ const collection: DemoCollection = {
           },
         },
       },
+      data: { slot: '2026-07-15' },
+      options: { initialValidation: 'always' },
     },
   ],
 }

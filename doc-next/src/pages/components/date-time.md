@@ -30,9 +30,10 @@ The stored value is a plain date, e.g. `"2026-07-04"`.
 
 ## format: date-time
 
-Renders a `date-time-picker`: a read-only input that opens a dialog
-combining the calendar with a clock, one after the other, for `en` this
-corresponds to the `keyboardDateTime` message:
+Renders a `date-time-picker`: a read-only input (no keyboard entry) that
+opens a dialog combining the calendar with a clock, one after the other.
+The field displays the selected value formatted by Vuetify's date
+adapter (its `fullDateTime` format):
 
 <VjsfDemo demo="demo-date-time/date-time" />
 
@@ -56,9 +57,46 @@ dialog:
 
 ## Restricting the range
 
-All three components accept `min`/`max` through `layout.props`, using the
-same string format as the field itself. Out-of-range days (or times) are
-disabled in the picker rather than merely rejected after the fact:
+Use `formatMinimum`/`formatMaximum` to constrain the value itself:
+
+```json
+{
+  "type": "string",
+  "format": "date",
+  "formatMinimum": "2026-07-01",
+  "formatMaximum": "2026-07-10"
+}
+```
+
+This is the schema-idiomatic way to do it and validates the data no
+matter where the value comes from (typed entry, a pasted value, or data
+loaded from elsewhere) — not only through the picker. Its current
+limitation: the calendar itself does not grey out out-of-range days for
+this constraint alone, unlike `number`/`integer` fields (whose
+`layout: slider` UI does read `minimum`/`maximum`). An out-of-range day
+can still be picked; it only surfaces a validation error afterwards.
+
+To also constrain the picker UI, pass `min`/`max` through `layout.props`,
+using the same string format as the field itself:
+
+```json
+{
+  "layout": {
+    "comp": "date-picker",
+    "props": { "min": "2026-07-01", "max": "2026-07-10" }
+  }
+}
+```
+
+`layout.props` only affects the calendar/clock display — it disables
+out-of-range days in the UI but does not validate anything by itself, so
+a value set outside that range some other way is not rejected.
+
+For a complete result, combine both with matching values: the calendar
+greys out out-of-range days, and the value is also validated regardless
+of how it got there. The demo below seeds an out-of-range value
+(`"2026-07-15"`) to show the validation error immediately, alongside the
+disabled days once the calendar is opened:
 
 <VjsfDemo demo="demo-date-time/min-max" />
 
@@ -67,6 +105,8 @@ disabled in the picker rather than merely rejected after the fact:
   "type": "string",
   "format": "date",
   "title": "Book a slot (1 to 10 July 2026)",
+  "formatMinimum": "2026-07-01",
+  "formatMaximum": "2026-07-10",
   "layout": {
     "comp": "date-picker",
     "props": { "min": "2026-07-01", "max": "2026-07-10" }
@@ -76,10 +116,10 @@ disabled in the picker rather than merely rejected after the fact:
 
 ## Related options
 
-- [`keyboardDate`, `keyboardDateTime`](/behavior/i18n#overridable-messages) —
-  the messages controlling each locale's keyboard-entry format; see
-  [internationalization](/behavior/i18n) for the full list and how to
-  override them.
+- [`keyboardDate`](/behavior/i18n#overridable-messages) — the message
+  used as the `date-picker`'s placeholder (its keyboard-entry format);
+  see [internationalization](/behavior/i18n) for the full message
+  catalogue and how to override it.
 - [`useTitle`, `useDescription`, `useDefault`](/behavior/options) — the
   same annotation surfacing described on the
   [text field](/components/text-field#hints-and-labels) page applies to
