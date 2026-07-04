@@ -11,8 +11,12 @@ import textField from './components/text-field'
 import number from './components/number'
 import boolean from './components/boolean'
 import dateTime from './components/date-time'
+import color from './components/color'
+import file from './components/file'
+import select from './components/select'
+import selectionGroups from './components/selection-groups'
 
-const collections: DemoCollection[] = [home, gettingStarted, validation, expressions, dynamicData, i18n, slots, textField, number, boolean, dateTime]
+const collections: DemoCollection[] = [home, gettingStarted, validation, expressions, dynamicData, i18n, slots, textField, number, boolean, dateTime, color, file, select, selectionGroups]
 
 export function getDemoCollections (): DemoCollection[] { return collections }
 
