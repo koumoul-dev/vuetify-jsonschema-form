@@ -8,6 +8,7 @@ import App from './App.vue'
 import { createVuetify } from './plugins/vuetify'
 import VjsfDemo from './components/VjsfDemo.vue'
 import OptionsList from './components/OptionsList.vue'
+import I18nMessages from './components/I18nMessages.vue'
 
 // Note: `ClientOnly` is not registered here — `ViteSSG()` registers it as a
 // global component automatically (its `registerComponents` option defaults
@@ -21,4 +22,6 @@ export const createApp = ViteSSG(App, { routes }, ({ app }) => {
   // Same rationale: the options.md page uses `<OptionsList type="compile" />`
   // / `<OptionsList type="runtime" />` without an import.
   app.component('OptionsList', OptionsList)
+  // Same rationale: the i18n.md page uses `<I18nMessages />` without an import.
+  app.component('I18nMessages', I18nMessages)
 })

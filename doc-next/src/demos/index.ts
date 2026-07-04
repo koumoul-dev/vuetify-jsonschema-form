@@ -3,8 +3,12 @@ import type { DemoCollection } from './types'
 import home from './introduction/home'
 import gettingStarted from './introduction/getting-started'
 import validation from './behavior/validation'
+import expressions from './behavior/expressions'
+import dynamicData from './behavior/dynamic-data'
+import i18n from './behavior/i18n'
+import slots from './behavior/slots'
 
-const collections: DemoCollection[] = [home, gettingStarted, validation]
+const collections: DemoCollection[] = [home, gettingStarted, validation, expressions, dynamicData, i18n, slots]
 
 export function getDemoCollections (): DemoCollection[] { return collections }
 
