@@ -21,8 +21,10 @@ import grid from './components/grid'
 import combinedSchemas from './components/combined-schemas'
 import lists from './components/lists'
 import listActions from './components/list-actions'
+import markdown from './plugins/markdown'
+import imgCropper from './plugins/img-cropper'
 
-const collections: DemoCollection[] = [home, gettingStarted, validation, expressions, dynamicData, i18n, slots, textField, number, boolean, dateTime, color, file, select, selectionGroups, sections, tabsStepperPanels, grid, combinedSchemas, lists, listActions]
+const collections: DemoCollection[] = [home, gettingStarted, validation, expressions, dynamicData, i18n, slots, textField, number, boolean, dateTime, color, file, select, selectionGroups, sections, tabsStepperPanels, grid, combinedSchemas, lists, listActions, markdown, imgCropper]
 
 export function getDemoCollections (): DemoCollection[] { return collections }
 
