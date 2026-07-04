@@ -11,22 +11,14 @@ import OptionsList from './components/OptionsList.vue'
 import I18nMessages from './components/I18nMessages.vue'
 import CopyAnchor from './components/CopyAnchor.vue'
 
-// Note: `ClientOnly` is not registered here — `ViteSSG()` registers it as a
-// global component automatically (its `registerComponents` option defaults
-// to `true`), and `vite-ssg@28` does not export `ClientOnly` from its public
-// entry point for manual (re-)registration.
+// `ClientOnly` is not registered here — ViteSSG() registers it globally itself.
 export const createApp = ViteSSG(App, { routes }, ({ app }) => {
   app.use(createVuetify())
   // Registered globally so markdown pages (compiled by unplugin-vue-markdown)
-  // can use `<VjsfDemo demo="collection-id/demo-id" />` with no imports.
+  // can use them without imports. CopyAnchor is injected into every heading
+  // by the markdown-it-anchor permalink in vite.config.ts.
   app.component('VjsfDemo', VjsfDemo)
-  // Same rationale: the options.md page uses `<OptionsList type="compile" />`
-  // / `<OptionsList type="runtime" />` without an import.
   app.component('OptionsList', OptionsList)
-  // Same rationale: the i18n.md page uses `<I18nMessages />` without an import.
   app.component('I18nMessages', I18nMessages)
-  // Injected into every markdown heading by the custom markdown-it-anchor
-  // permalink (vite.config.ts) as `<CopyAnchor id="slug" />`; registered
-  // globally so that compiled markup resolves it with no per-page import.
   app.component('CopyAnchor', CopyAnchor)
 })

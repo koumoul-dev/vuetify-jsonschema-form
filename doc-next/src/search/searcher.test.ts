@@ -7,19 +7,19 @@ const docs = [
 ]
 
 describe('createSearcher', () => {
-  it('ranks a normal match above a v2-compat match (D14 down-weight)', () => {
+  it('ranks a normal match above a v2-compat match (down-weight)', () => {
     const results = createSearcher(docs).search('date')
     expect(results.length).toBeGreaterThan(0)
     expect(results[0].category).not.toBe('demo-v2-properties')
   })
 
-  it('lifts the v2-compat score when the query mentions v2/compat (D14)', () => {
+  it('lifts the v2-compat score when the query mentions v2/compat', () => {
     const s = createSearcher(docs)
     const base = s.search('date').find(r => r.category === 'demo-v2-properties')
     const lifted = s.search('compat date').find(r => r.category === 'demo-v2-properties')
     expect(base).toBeDefined()
     expect(lifted).toBeDefined()
-    // Same 'date' match, but 'compat' in the query triggers the D14 up-weight
+    // Same 'date' match, but 'compat' in the query triggers the up-weight
     // (0.2 -> 1.5), so the v2-compat doc must score strictly higher. This fails
     // if boostDocument is deleted (constant 1) or inverted.
     expect(lifted!.score).toBeGreaterThan(base!.score)

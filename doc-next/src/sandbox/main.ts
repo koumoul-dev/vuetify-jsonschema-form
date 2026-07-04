@@ -1,10 +1,7 @@
-// Message-driven entry point for the VJSF-live sandbox (Plan 04, Task 3).
-// This file is only ever loaded via editor-sandbox.html inside a
-// `sandbox="allow-scripts"` iframe (deliberately WITHOUT `allow-same-origin`,
-// giving it an opaque origin) — it never talks to the parent page except
-// through postMessage, and the parent never has direct DOM/JS access to it.
-// It renders whatever schema/options/data/theme the parent sends via a
-// `render` message and reports back render/update/validation/error state.
+// Entry point for the VJSF live-preview sandbox, loaded via editor-sandbox.html
+// inside a `sandbox="allow-scripts"` iframe (no `allow-same-origin`, so an
+// opaque origin): it only talks to the parent through postMessage — renders
+// what a `render` message carries and reports update/validation/error state.
 import 'vuetify/styles'
 import { createApp, h, shallowRef } from 'vue'
 import { createVuetify } from 'vuetify'
@@ -13,43 +10,24 @@ import Vjsf from '@koumoul/vjsf'
 import { vuetifyTheme } from '../theme'
 import { isRenderMessage, isValidateMessage, type SandboxToParent } from './protocol'
 
-// Same theme definitions as the parent doc app (see plugins/vuetify.ts):
-// the editor page renders themed surfaces (the Validate bar) directly
-// against this iframe's background, so the two sides must resolve e.g.
-// 'dark' to the exact same colors. The defaultTheme in there is irrelevant:
-// every render message carries the theme to display (`theme.change` below).
+// Same theme definitions as the parent doc app, so both sides resolve e.g.
+// 'dark' to the same colors; every render message carries the theme to display.
 const vuetify = createVuetify({ theme: vuetifyTheme })
 const schema = shallowRef<unknown>(null)
 const options = shallowRef<Record<string, unknown>>({})
 const model = shallowRef<unknown>({})
-// Bumped whenever schema/options content actually changes (see the message
-// handler below) and used as Vjsf's `:key`. This forces Vue to fully
-// unmount/remount Vjsf — instead of feeding it an in-place schema swap —
-// whenever the live editor sends a new schema. VJSF's own "schema changed
-// while mounted, then a sibling field is edited" code path
-// (lib/src/composables/use-vjsf.js `watch(compiledLayout, ...)` interacting
-// with the later `watch(modelValue, ...)`) was found (empirically, via
-// browser reproduction) to silently drop freshly-added optional properties
-// from the rendered tree the moment any *other* field's value next changes
-// — e.g. add an `age` property to the schema, then type into `name`, and
-// the `age` field vanishes even though schema/model are both still correct
-// going into Vjsf's props. A full remount sidesteps that hot-swap path
-// entirely: each schema edit gets a fresh `StatefulLayout` built straight
-// from the current schema + current data, which is also arguably the more
-// intuitive behavior for a schema *editor* (a structural change is a new
-// form; a data edit in the live preview is not).
+// Used as Vjsf's `:key`, bumped when schema/options content actually changes:
+// VJSF's in-place schema hot-swap silently drops freshly-added properties
+// (see BUGS.md), so each schema edit remounts a fresh form instead.
 let schemaVersion = 0
 let lastSchemaOptionsJson: string | null = null
 
 function post (msg: SandboxToParent) { parent.postMessage(msg, '*') }
 
 window.addEventListener('message', (e: MessageEvent) => {
-  // Only ever trust messages from the embedding parent window, and only
-  // once they pass the Task-2 structural guard.
+  // only trust messages from the embedding parent window
   if (e.source !== parent) return
-  // Sent by the editor's Validate button (it lives in the parent page, the
-  // form it validates lives here): flips VJSF's nodes to their validated
-  // state so validateOn: 'submit' errors actually display.
+  // The editor's Validate button lives in the parent; the form lives here.
   if (isValidateMessage(e.data)) {
     formEl?.validate()
     return
@@ -60,12 +38,8 @@ window.addEventListener('message', (e: MessageEvent) => {
     if (schemaOptionsJson !== lastSchemaOptionsJson) {
       lastSchemaOptionsJson = schemaOptionsJson
       schemaVersion++
-      // Only reassign when the content actually changed: every postMessage
-      // delivers a fresh clone, so reassigning unconditionally would give
-      // `schema`/`options` a new reference (and force a VJSF
-      // compile()+StatefulLayout rebuild via the `:key` bump below) on
-      // every theme toggle or data-tab edit, not just on real schema/option
-      // edits.
+      // Every postMessage delivers a fresh clone: reassigning unconditionally
+      // would force a full remount on every theme toggle or data-tab edit.
       schema.value = e.data.schema
       options.value = e.data.options
     }
@@ -76,9 +50,7 @@ window.addEventListener('message', (e: MessageEvent) => {
   }
 })
 
-// Function-style template ref on the VForm, so the validate message handler
-// can call its validate() without going through `this.$refs` typing
-// contortions.
+// ref on the VForm, for the validate message handler
 let formEl: InstanceType<typeof VForm> | null = null
 
 const app = createApp({
@@ -94,13 +66,9 @@ const app = createApp({
       modelValue: model.value,
       options: options.value,
       'onUpdate:modelValue': (v: unknown) => { model.value = v; post({ type: 'update', data: v }) },
-      // VJSF has no dedicated "validation" event: it emits `update:state`
-      // with its internal StatefulLayout on every state change, which
-      // exposes the current error messages via the `.errors` getter (the
-      // same getter it uses internally to report validation state to a
-      // wrapping VForm). There is no per-field path in that getter, so all
-      // messages are reported together under a single `form` key to fit the
-      // `Record<string, string[]>` shape from protocol.ts.
+      // VJSF has no dedicated validation event: `update:state` exposes the
+      // current error messages via `.errors`, without per-field paths — so
+      // everything is reported under a single `form` key.
       'onUpdate:state': (state: { errors: string[] }) => {
         post({ type: 'validation', errors: state.errors.length ? { form: state.errors } : {} })
       },
@@ -108,11 +76,8 @@ const app = createApp({
   },
 })
 
-// `compile()` (schema -> layout) and Vjsf's internal watchers run outside of
-// the try/catch above (they're deferred to Vue's reactivity flush), so a
-// malformed schema throws asynchronously from inside the component tree.
-// Vue routes that to the app-level errorHandler instead of leaving it
-// unhandled.
+// compile() and Vjsf's watchers run in Vue's reactivity flush, so a malformed
+// schema throws asynchronously — Vue routes that to the app-level errorHandler.
 app.config.errorHandler = (err) => {
   post({ type: 'error', message: err instanceof Error ? err.message : String(err) })
 }

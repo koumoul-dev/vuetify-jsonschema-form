@@ -15,12 +15,10 @@ import matter from 'gray-matter'
 import { searchIndexPlugin } from './build/search-index-plugin'
 import { examplesLayoutsPlugin } from './build/examples-layouts-plugin'
 
-// Base path for GitHub Pages versioned subpaths (wired fully in the deploy phase).
+// Base path for GitHub Pages versioned subpaths.
 const base = process.env.TARGET ? new URL(process.env.TARGET).pathname : '/'
 
-// Build-time app metadata surfaced in the nav-drawer footer (see
-// src/build-info.ts). The version is the published library version; the commit
-// hash is best-effort (blank when built outside a git checkout).
+// Build-time metadata shown in the nav-drawer footer (src/build-info.ts).
 const requireJson = createRequire(import.meta.url)
 const appVersion = requireJson('../lib/package.json').version as string
 let commitHash = ''
@@ -30,11 +28,9 @@ try {
 
 const pagesDir = resolve(dirname(fileURLToPath(import.meta.url)), 'src/pages')
 
-// Generates nav data at build time by reading each page's frontmatter
-// directly from disk (never importing the page modules). This avoids the
-// Rollup `MISSING_EXPORT` error that a `import.meta.glob(..., { import: 'nav' })`
-// approach hits in production builds when a page has no `nav:` frontmatter
-// key (see doc-next/src/nav/use-nav.ts).
+// Exposes each page's frontmatter as `virtual:nav-data`, read directly from
+// disk: importing the page modules instead would hit Rollup MISSING_EXPORT
+// errors for pages without a `nav:` frontmatter key.
 function navData () {
   const virtualId = 'virtual:nav-data'
   const resolvedId = '\0' + virtualId
@@ -56,11 +52,7 @@ function navData () {
         const mod = ctx.server.moduleGraph.getModuleById('\0virtual:nav-data')
         if (mod) {
           ctx.server.moduleGraph.invalidateModule(mod)
-          // Return the invalidated virtual module (plus the file's own
-          // affected modules) so Vite pushes an HMR update to the client;
-          // invalidating alone marks it stale server-side but never tells
-          // the browser to re-fetch (Vite's documented handleHotUpdate
-          // return contract).
+          // returning the module is what pushes the HMR update to the client
           return [mod, ...ctx.modules]
         }
       }
@@ -70,9 +62,8 @@ function navData () {
 
 // The playground's Schema tab autocompletes/validates against the vjsf
 // meta-schema (draft-07 + the `layout` keyword). The layout-keyword schema
-// lives in @json-layout/vocabulary, whose exports map only exposes
-// src/index.js — so resolve that entry and read the schema file sitting next
-// to it from disk at build time.
+// file is not exposed by @json-layout/vocabulary's exports map, so read it
+// from disk next to the package's resolved entry.
 function layoutKeywordSchema () {
   const virtualId = 'virtual:layout-keyword-schema'
   const resolvedId = '\0' + virtualId
@@ -81,10 +72,7 @@ function layoutKeywordSchema () {
     resolveId (id: string) { if (id === virtualId) return resolvedId },
     load (id: string) {
       if (id !== resolvedId) return
-      // `@json-layout/vocabulary`'s exports map only declares an `import`
-      // condition (no `require`), so `requireJson.resolve` (Node's CJS
-      // resolver) throws `ERR_PACKAGE_PATH_NOT_EXPORTED`. `import.meta.resolve`
-      // is the ESM-aware resolver and honors that `import` condition.
+      // import.meta.resolve honors the package's ESM-only exports map (CJS resolve throws)
       const indexPath = fileURLToPath(import.meta.resolve('@json-layout/vocabulary'))
       const schemaPath = resolve(dirname(indexPath), 'layout-keyword/schema.json')
       return `export default ${readFileSync(schemaPath, 'utf8')}`
@@ -99,24 +87,14 @@ export default defineConfig({
     __COMMIT_HASH__: JSON.stringify(commitHash),
   },
   plugins: [
-    // Must come before `vue()`/`Markdown()`: it only *discovers* `.vue`/`.md`
-    // files under `src/pages` as routes (generating `vue-router/auto-routes`
-    // + `typed-router.d.ts`); it does not transform file content, so it does
-    // not fight with `Markdown()` over ownership of `.md`.
-    // `dirs` isn't in unplugin-vue-router's typed Options (it happens to match
-    // the default `src/pages`); cast to keep it explicit without a type error.
+    // Discovers .vue/.md files under src/pages as routes (before vue()/Markdown(),
+    // which own the content transforms).
     VueRouter({ extensions: ['.vue', '.md'], dirs: ['src/pages'] } as Parameters<typeof VueRouter>[0]),
     vue({ include: [/\.vue$/, /\.md$/] }),
     Markdown({
       exposeFrontmatter: true,
-      // Wires each page's frontmatter (`title`/`description`) into the
-      // document `<head>` via @unhead/vue's `useHead()` (already installed by
-      // vite-ssg, see main.ts) instead of shipping the static `<title>VJSF</title>`
-      // from index.html on every page. `headEnabled` turns on the plugin's
-      // built-in frontmatter -> head mapping (which already derives a
-      // `<meta name="description">` from `frontmatter.description`, plus
-      // og:/twitter: tags from `title`/`description`); `frontmatterPreprocess`
-      // only adds the ` - VJSF` suffix on top of that default mapping's title.
+      // Maps each page's frontmatter (title/description) into the document
+      // <head> via @unhead/vue; the preprocess only adds the ' - VJSF' suffix.
       headEnabled: true,
       frontmatterPreprocess (frontmatter, options, _id, defaultHeadProcess) {
         const head = defaultHeadProcess(frontmatter, options) ?? {}
@@ -124,25 +102,14 @@ export default defineConfig({
         return { head, frontmatter }
       },
       markdownItSetup (md) {
-        // `level: 2` skips the page-title h1 (only h2+ get an id + the
-        // hover copy-link button, matching the Vuetify docs). markdown-it-anchor
-        // sets the heading `id` on its own; the custom `permalink` below appends
-        // `<CopyAnchor id="slug" />` *after* the heading text. Because
-        // unplugin-vue-markdown compiles the rendered markdown as a Vue
-        // template, that tag resolves to the globally-registered CopyAnchor
-        // component (src/main.ts) — a real `v-btn` that copies the section deep
-        // link on click. The button is hidden until hover via `.page-anchor-btn`
-        // styles in src/styles.css.
-        // Cast to any: markdown-it-anchor/-attrs are typed against
-        // @types/markdown-it, structurally incompatible with the markdown-exit
-        // MarkdownIt that unplugin-vue-markdown passes here.
+        // h2+ headings get an id (markdown-it-anchor) plus a hover copy-link
+        // button: the custom permalink appends a <CopyAnchor> tag that compiles
+        // to the globally-registered component (src/main.ts).
         const mit = md as any
         mit.use(anchor, {
           level: 2,
-          // Custom permalink: `slug` is the heading id, `state.tokens[idx + 1]`
-          // is the heading's inline token — push an html_inline child so the
-          // component tag survives verbatim into the compiled template.
           permalink (slug: string, _opts: unknown, state: any, idx: number) {
+            // push an html_inline child so the tag survives into the compiled template
             const token = new state.Token('html_inline', '', 0)
             token.content = `<CopyAnchor id="${slug}"></CopyAnchor>`
             state.tokens[idx + 1].children.push(token)
@@ -155,26 +122,13 @@ export default defineConfig({
     layoutKeywordSchema(),
     searchIndexPlugin(pagesDir),
     examplesLayoutsPlugin(),
-    // `styles` is left at its default (`true`): vite-plugin-vuetify@2.1.3's
-    // `styles: { configFile: false }` shape from the brief crashes (it calls
-    // `path.isAbsolute(false)`, expecting a config file path string). We have
-    // no custom Sass config, so the default (no style-pipeline plugin, plain
-    // `import 'vuetify/styles'` in src/plugins/vuetify.ts) is correct anyway.
     vuetify({ autoImport: true }),
   ],
   server: {
-    // `editor-sandbox.html` is embedded in a `sandbox="allow-scripts"`
-    // iframe (deliberately WITHOUT `allow-same-origin`), so it runs with an
-    // opaque ("null") origin. Its `<script type="module">` tags are
-    // therefore fetched in CORS mode with an `Origin: null` header; Vite's
-    // default dev-server CORS policy only reflects same-host origins, which
-    // never matches "null", so the sandbox's own scripts fail to load with
-    // ERR_FAILED unless CORS is opened up. `cors: true` (browserify `cors`
-    // defaults) answers every request with `Access-Control-Allow-Origin: *`,
-    // which is required to satisfy an opaque-origin fetch. Production
-    // hosting (GitHub Pages) already sends this header on every response, so
-    // this only changes local dev/preview behavior. `preview.cors` inherits
-    // this same setting.
+    // editor-sandbox.html runs in a sandboxed iframe without allow-same-origin,
+    // so its module scripts are fetched with an opaque ("null") origin and the
+    // dev server must answer those CORS requests. GitHub Pages already sends
+    // Access-Control-Allow-Origin: * in production.
     cors: true,
   },
   ssr: {
@@ -182,10 +136,8 @@ export default defineConfig({
     noExternal: ['vuetify'],
   },
   optimizeDeps: {
-    // VJSF's dependency chain (via @json-layout/core) pulls in AJV and a
-    // handful of packages that ship as CommonJS; pre-bundling them avoids
-    // Vite dev-server "does not provide an export named ..." interop errors
-    // the first time the sandbox entry (editor-sandbox.html) is loaded.
+    // CommonJS deps in VJSF's chain (via @json-layout/core); pre-bundling them
+    // avoids dev-server ESM interop errors when the sandbox entry loads.
     include: [
       'ajv', 'ajv/dist/2019.js', 'ajv-formats', 'ajv-formats/dist/formats.js',
       'ajv-i18n', 'ajv-errors', 'debug', 'fast-deep-equal',
@@ -201,20 +153,13 @@ export default defineConfig({
     },
   },
   ssgOptions: {
-    // 'nested' emits dist/about/index.html (not dist/about.html) so routes
-    // resolve cleanly on static hosts without extension rewriting.
+    // 'nested' emits dist/about/index.html so routes resolve on static hosts
+    // without extension rewriting.
     dirStyle: 'nested',
     includedRoutes (paths: string[]) {
-      // Directories directly under src/pages that only group child pages (e.g.
-      // src/pages/behavior/*.md) but have no index.md of their own still get an
-      // auto-generated, componentless parent route from unplugin-vue-router
-      // purely to host those children. vite-ssg's default route-to-path
-      // flattening includes every route record's own path regardless of
-      // whether it has a component, so that parent's bare path (`/behavior`)
-      // ends up prerendered too, as a blank page (nothing for App.vue's
-      // `<router-view>` to render there). Drop any path that exactly matches
-      // one of these page-less group directories, plus any leftover `:param`
-      // placeholder paths.
+      // Page-less group directories (e.g. /behavior with no index.md) get an
+      // auto-generated componentless parent route that vite-ssg would prerender
+      // as a blank page — drop those paths, plus any ':param' placeholders.
       const groupDirs = fg.sync('*', { cwd: pagesDir, onlyDirectories: true })
         .filter(dir => !fg.sync('index.md', { cwd: resolve(pagesDir, dir) }).length)
       return paths.filter((p: string) => !p.includes(':') && !groupDirs.includes(p.replace(/^\//, '')))

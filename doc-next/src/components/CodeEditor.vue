@@ -17,11 +17,8 @@ import { yamlSchemaLinter, yamlSchemaHover, yamlCompletion } from 'codemirror-js
 import { disableErrorLogging } from 'best-effort-json-parser'
 import { parseCode, formatCode, type CodeLanguage } from '../editor/code'
 
-// codemirror-json-schema's json/json5 support parses through
-// best-effort-json-parser, which defaults to logging every transiently-
-// invalid buffer to console.error (e.g. while the user is mid-keystroke).
-// Real diagnostics for the user come from the CM linters below, not this
-// logger, so silence it globally once at module load.
+// best-effort-json-parser logs every transiently-invalid buffer to
+// console.error; real diagnostics come from the CM linters below.
 disableErrorLogging()
 
 const props = defineProps<{
@@ -37,18 +34,13 @@ const language = defineModel<CodeLanguage>('language', { required: true })
 const host = ref<HTMLElement | null>(null)
 let view: EditorView | null = null
 
-// Tracks the *content* (not reference) of the value we last emitted.
-// `props.modelValue` never comes back `===` what we just sent: a parent
-// `ref()` re-wraps assigned objects in a reactive Proxy, and a value that
-// made a round trip through EditorSandbox's postMessage protocol gets
-// structurally cloned. Comparing serialized content is what actually tells
-// us "this is just our own edit echoing back" vs. "something else changed
-// this value" (e.g. typing in the live form).
+// Content (not reference) of the last emitted value: `props.modelValue` never
+// comes back `===` (reactive proxy re-wrap, postMessage clone), so comparing
+// serialized content is what recognizes our own edit echoing back.
 let lastEmitted = JSON.stringify(props.modelValue)
 
-// @codemirror/lang-yaml has no parse linter (unlike codemirror-json5), so
-// build one from the yaml package's own error positions (offsets into the
-// doc, exactly what Diagnostic wants).
+// @codemirror/lang-yaml has no parse linter; build one from the yaml
+// package's own error positions.
 function yamlParseLinter () {
   return (v: EditorView): Diagnostic[] => YAML.parseDocument(v.state.doc.toString()).errors.map(e => ({
     from: e.pos?.[0] ?? 0, to: e.pos?.[1] ?? 0, severity: 'error' as const, message: e.message,
@@ -107,9 +99,8 @@ function createState (doc: string, lang: CodeLanguage): EditorState {
       keymap.of([...defaultKeymap, ...historyKeymap, ...completionKeymap, indentWithTab]),
       oneDark,
       ...languageExtensions(lang),
-      // json5Schema()/yamlSchema() bundles are not used so the language and
-      // schema parts stay independently swappable; stateExtensions is the
-      // shared schema StateField both linter+completion read.
+      // stateExtensions is the shared schema StateField both linter and
+      // completion read.
       stateExtensions(rawSchema() as never),
       EditorView.updateListener.of(u => { if (u.docChanged) apply() }),
     ],
@@ -129,11 +120,9 @@ onMounted(() => {
 })
 onBeforeUnmount(() => { view?.destroy(); view = null })
 
-// Language toggle: convert the buffer. If the buffer is currently invalid,
-// fall back to the last valid value instead of losing the content to a
-// parse error. Full state re-creation (rather than a Compartment) keeps the
-// per-language linter/completion/hover sets consistent in one place; the
-// toggle is a rare user action, the cost is irrelevant.
+// Language toggle: convert the buffer, falling back to the last valid value
+// if it doesn't parse. Full state re-creation keeps the per-language
+// linter/completion/hover sets consistent in one place.
 watch(language, (lang, prevLang) => {
   if (!view) return
   let value: unknown
@@ -145,10 +134,9 @@ watch(language, (lang, prevLang) => {
   view.setState(createState(formatCode(value, lang), lang))
 })
 
-// Keep the buffer in sync with modelValue changes that originate elsewhere
-// (e.g. typing in the live form echoes into the Data tab) — but skip
-// re-formatting our own just-emitted value, or every keystroke would bounce
-// back through formatting and reset the cursor out from under the user.
+// Sync the buffer with modelValue changes that originate elsewhere, but skip
+// our own just-emitted value — reformatting on every keystroke would reset
+// the cursor out from under the user.
 watch(() => props.modelValue, (v) => {
   const json = JSON.stringify(v)
   if (json === lastEmitted) return

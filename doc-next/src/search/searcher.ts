@@ -26,8 +26,8 @@ export function createSearcher (docs: SearchDocument[]) {
         fuzzy: 0.2,
         prefix: true,
         boostDocument: (_id, _term, doc: any) => {
-          // D14: the v2-compat demo collections (doc-next/src/demos/migration/v2-compat.ts's
-          // demo-v2-* ids) are low-weight by default, lifted when explicitly sought.
+          // The v2-compat demo collections (demo-v2-* ids from src/demos/migration/v2-compat.ts)
+          // are low-weight by default, lifted when explicitly sought.
           if (typeof doc?.category === 'string' && doc.category.startsWith('demo-v2')) return v2Query ? 1.5 : 0.2
           return 1
         },

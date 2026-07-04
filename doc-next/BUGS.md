@@ -8,3 +8,8 @@ Found while writing the doc-next documentation (2026-07-04 navigation & content 
 4. **`img-cropper` plugin is WIP** — `@koumoul/vjsf-img-cropper` is currently a plain file picker; its `node.vue` imports `vue-cropperjs` but never renders or opens a crop UI (`menuOpened` is never toggled). Documented on `/plugins/img-cropper` as observed behavior, not as a cropping feature.
 5. **`file-input` limitations** — the `file-input` component (`lib/src/components/nodes/file-input.vue`) does not support `type: "array"` with multiple files (logs "File input doesn't support multiple inputs yet" and only keeps one file). Also, its value is the raw `File` object: it serializes to `{}` and fails a `type: "string"` schema check rather than encoding to a data URL or a `{name, size}` shape. Documented as-is on `/components/file`.
 6. **`@koumoul/vjsf` hot-swap bug** — found while building the playground (live sandboxed editor): swapping the `schema`/`options` props of a mounted `<Vjsf>` in place silently drops freshly-added props instead of picking them up. Worked around in the playground with a `:key`-based remount (`src/pages/editor.vue`); the underlying lib behavior should be fixed so consumers don't need to force a remount.
+
+## Doc follow-ups
+
+- Improve heading anchor handling.
+- On a `v-select` with mdi icons: handling of headers with icon, avatar, etc.

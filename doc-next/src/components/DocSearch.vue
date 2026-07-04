@@ -83,14 +83,12 @@ import type { Router } from 'vue-router'
 import { useDebounceFn, useEventListener } from '@vueuse/core'
 import { useSearch } from '../search/use-search'
 
-// Backend is the existing local minisearch index (offline, no Algolia) — only
-// the UI changes: a compact search trigger in the app bar that opens a modal
-// dialog (Vuetify / VitePress local-search style), with keyboard nav.
+// Local minisearch index (offline, no Algolia); modal-dialog UI with
+// keyboard nav, VitePress local-search style.
 const { query, results, run } = useSearch()
 
-// Platform-aware shortcut label shown in the trigger chip. This component only
-// renders on the client (wrapped in <ClientOnly>), so `platform` is resolved,
-// not the SSR fallback.
+// Platform-aware shortcut label; this component only renders on the client
+// (wrapped in <ClientOnly>), so `platform` is resolved.
 const { xs, platform } = useDisplay()
 const shortcut = computed(() => (platform.value.mac ? '⌘K' : 'Ctrl+K'))
 
@@ -99,10 +97,9 @@ const failed = ref(false)
 const activeIndex = ref(0)
 const fieldRef = ref<{ focus?: () => void } | null>(null)
 
-// Router is read off global properties (not `useRouter()`): this workspace has
+// Router read off global properties (not `useRouter()`): the workspace has
 // two coexisting vue-router copies, and a bare import resolves to the nested
-// one, whose injection key doesn't match the router vite-ssg installed. Used
-// only for keyboard (Enter) navigation; mouse clicks use `:to` on the items.
+// one, whose injection key doesn't match the router vite-ssg installed.
 const router = getCurrentInstance()?.appContext.config.globalProperties.$router as Router | undefined
 
 async function safeRun () {
@@ -110,8 +107,7 @@ async function safeRun () {
     failed.value = false
     await run()
   } catch {
-    // search-index.json fetch failed (not generated, offline) — show the
-    // failure state rather than letting the rejection bubble up.
+    // search-index.json fetch failed (not generated, offline)
     failed.value = true
   }
   activeIndex.value = 0

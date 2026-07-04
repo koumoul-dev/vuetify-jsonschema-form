@@ -1,9 +1,6 @@
-// Ports the old doc's `doc/assets/doc-options.js`: re-export the generic
-// options catalogue from `@json-layout/core` and append the vjsf-specific
-// options (the ones only meaningful once JSON Layout is wrapped by Vjsf's
-// Vue component). Defaults below are taken from `lib/src/options.js`
-// (`defaultOptions`, `defaultIcons`) and `lib/src/types.ts`
-// (`VjsfStatefulLayoutOptions`).
+// Re-exports the generic options catalogue from `@json-layout/core` and
+// appends the vjsf-specific options (defaults taken from lib/src/options.js
+// and lib/src/types.ts).
 import { runtimeOptions as jlRuntimeOptions, compileOptions as jlCompileOptions } from '@json-layout/core/utils/doc-options'
 import { defaultIcons } from '@koumoul/vjsf'
 import type { DocOptions } from '@json-layout/core/utils/doc-options'
@@ -12,10 +9,8 @@ export const compileOptions: DocOptions = [
   ...jlCompileOptions,
 ]
 
-// `@json-layout/core`'s doc-options data names these two entries
-// `listDialogOptions`/`listMenuOptions`, but the actual runtime option keys (see
-// @json-layout/core's state/options.js and lib.md) are `listDialogWidth`/
-// `listMenuWidth` -- an upstream doc-options naming bug, fix pending in json-layout.
+// `@json-layout/core`'s doc-options data misnames these two entries; the real
+// runtime keys are listDialogWidth/listMenuWidth (upstream bug, see BUGS.md).
 const RENAMED_KEYS: Record<string, string> = {
   listDialogOptions: 'listDialogWidth',
   listMenuOptions: 'listMenuWidth',

@@ -6,8 +6,6 @@ export interface Example {
   data?: unknown
   options?: unknown
   warning?: string
-  codeSlots?: string[]
-  defaultProps?: object
 }
 
 export interface DemoCollection {

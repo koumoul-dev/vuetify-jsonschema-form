@@ -13,36 +13,22 @@ import type { Example } from '../demos/types'
 
 const props = defineProps<{ example: Example, layoutKey: string, v2compat?: boolean }>()
 
-// v2-compat examples carry a legacy `model` field (ported verbatim from the old
-// VJSF-2 doc source, e.g. demos/migration/v2/arrays/editable-array.js: `export
-// default { id, title, description, schema, model, options }`) instead of `data`.
-// `Example` (demos/types.ts) only types `data` -- widen locally rather than
-// touching that file.
+// v2-compat examples ported from the old doc carry a legacy `model` field
+// instead of `data`; widen locally rather than touching demos/types.ts.
 type LegacyExample = Example & { model?: unknown }
 
-// `structuredClone` both seeds a plain working copy for the form and guarantees we
-// never mutate the example objects the demo collections hand back by reference
-// (getDemoCollections()/findDemo() return their arrays as shared, non-cloned data).
-//
-// The final fallback is `null`, not `{}`: a handful of examples (e.g. the
-// plugins/markdown demos) have a root schema that isn't `type: object` (there it's a bare
-// `type: string`), so forcing an object default feeds the wrong JS type into that
-// node's own state and its plugin/node component (confirmed via browser check --
-// @koumoul/vjsf-markdown's editor.vue warns "Expected String ... got Object" when
-// seeded with `{}`). `null`/`undefined` is universally safe: VJSF's own
-// `defaultOn: 'empty'` (the library default, see @json-layout/core/src/state/options.js)
-// already synthesizes the right empty value per the schema's actual root type.
+// structuredClone: never mutate the shared example objects. Fallback `null`,
+// not `{}`: some examples have a non-object root schema, and VJSF's own
+// `defaultOn: 'empty'` synthesizes the right empty value per root type.
 const data = ref(structuredClone(props.example.data ?? (props.example as LegacyExample).model ?? null))
 const theme = ref<'light' | 'dark'>('light')
 const tab = ref<'schema' | 'data' | 'options'>('schema')
-// Vuetify-doc-style source pane: collapsed by default, the toolbar's last
-// button expands it.
+// Vuetify-doc-style source pane: collapsed by default.
 const expanded = ref(false)
 
 const copied = ref(false)
 let copiedTimer: ReturnType<typeof setTimeout> | undefined
-// Copies the active tab (works collapsed too, where the active tab is the
-// default one, schema). Same serialization as CodeBlock's display.
+// Copies the active tab; same serialization as CodeBlock's display.
 async function copy () {
   const values = { schema: props.example.schema, data: data.value, options: props.example.options ?? {} }
   await navigator.clipboard.writeText(JSON.stringify(values[tab.value], null, 2))
@@ -52,14 +38,11 @@ async function copy () {
 }
 
 const layout = shallowRef<CompiledLayout | null>(null)
-// Distinguishes "still loading" (layoutReady false) from "resolved, and this example
-// genuinely has no compiled layout" (layoutReady true, layout still null) -- see
-// build/examples-layouts-plugin.ts's KNOWN_INCOMPATIBLE for the current cases.
+// Distinguishes "still loading" from "resolved with no compiled layout"
+// (the KNOWN_INCOMPATIBLE examples of build/examples-layouts-plugin.ts).
 const layoutReady = ref(false)
 
-// Guards against a stale response clobbering a newer one if this component instance
-// is ever reused across examples (e.g. a future non-keyed v-for) -- `key` from the watch
-// source is captured per in-flight request and compared once the promise resolves.
+// guards against a stale response clobbering a newer one
 let latestKey = ''
 watch(() => props.layoutKey, async (key) => {
   latestKey = key
@@ -71,42 +54,26 @@ watch(() => props.layoutKey, async (key) => {
   layoutReady.value = true
 }, { immediate: true })
 
-// Some examples' schemas reference a plugin's node component to actually render (e.g.
-// the plugins/markdown demos need @koumoul/vjsf-markdown's editor). compile() only ever needed
-// each plugin's info.js (see build/examples-layouts-plugin.ts) -- the Vue node
-// component is purely a render-time concern, passed unconditionally for every example
-// exactly like the old doc/components/vjsf-example.vue did.
+// The plugins' Vue node components are a render-time concern (compile() only
+// needed their info.js); passed unconditionally for every example.
 const renderOptions = computed(() => ({
   ...(props.example.options as Record<string, unknown> ?? {}),
   plugins: [VjsfMarkdown, VjsfImgCropper],
 }))
 
-// With validateOn: 'submit' errors only ever show when the form is
-// explicitly validated -- without a button to do that the mode couldn't be
-// exercised at all, so show a bottom-right Validate button like the old doc.
+// With validateOn: 'submit' errors only show on explicit validation — show a
+// bottom-right Validate button like the old doc.
 const form = ref<InstanceType<typeof VForm> | null>(null)
 const showValidate = computed(() => (props.example.options as Record<string, unknown> | undefined)?.validateOn === 'submit')
 
-// `useRouter()` off a bare `import ... from 'vue-router'` would resolve to a
-// *different* installed copy of vue-router than the one vite-ssg actually installs
-// for this app -- this workspace currently has two vue-router majors coexisting (root
-// vs. doc-next's own nested copy), see DocSearch.vue's comment for the full story.
-// Reading `$router` off this component instance's global properties (populated by
-// whichever router the app actually installed, regardless of which package copy this
-// file's own imports would resolve to) sidesteps that mismatch entirely -- it is the
-// Composition-API equivalent of the Options-API original's `this.$router`.
+// Two copies of vue-router coexist in the workspace and a bare `useRouter()`
+// import can resolve to the one the app didn't install — read `$router` off
+// the instance's global properties instead (see DocSearch.vue).
 const instance = getCurrentInstance()
 
 function edit () {
-  // The /editor page runs its OWN runtime compile() with no v2compat step, so for the
-  // v2-compat category we must store the *converted* v3 schema -- storing the raw
-  // VJSF-2 schema (x-display/x-fromData/etc.) would make the editor render a degraded
-  // form, unlike the widget above which renders from the build-precompiled layout that
-  // already applied v2compat(). Gated on the same `collection.v2compat` flag that
-  // build/examples-layouts-plugin.ts uses (passed down here as the `v2compat` prop),
-  // converted via the same
-  // `@koumoul/vjsf/compat/v2` specifier; matches the old doc/components/vjsf-example.vue,
-  // which stored `this.schema` (the v2compat-converted schema) in editExample().
+  // The /editor page runs its own runtime compile() with no v2compat step, so
+  // store the converted v3 schema for v2-compat examples.
   const schema = props.v2compat
     ? v2compat(props.example.schema as object)
     : props.example.schema

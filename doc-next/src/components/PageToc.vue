@@ -27,10 +27,8 @@
 import { ref, watch, onMounted, onUnmounted, nextTick } from 'vue'
 import { useDisplay } from 'vuetify'
 
-// `pageKey` changes on every route (page content) change; App.vue passes the
-// current route path so this component can re-scan the freshly rendered DOM.
-// The component reads the rendered page rather than a build-time TOC so it always
-// reflects exactly what unplugin-vue-markdown rendered for the current page.
+// `pageKey` (the current route path) changes on every page change so the
+// component re-scans the freshly rendered DOM — no build-time TOC to drift.
 const props = defineProps<{ pageKey: string }>()
 
 interface Section { id: string, title: string, level: number }
@@ -103,9 +101,8 @@ function select (id: string) {
   activeId.value = id
 }
 
-// nextTick lets the new page's DOM render; the extra rAF covers pages whose
-// example widgets (VjsfDemo/VjsfExample) mount a frame later (headings exist
-// immediately, but this also refreshes scroll-spy offsets once bodies have laid out).
+// nextTick lets the new page's DOM render; the extra rAF covers example
+// widgets that mount a frame later.
 function rescan () {
   nextTick(() => requestAnimationFrame(scan))
 }

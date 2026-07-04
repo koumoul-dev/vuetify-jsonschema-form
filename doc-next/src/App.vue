@@ -28,48 +28,34 @@ import AppBar from './components/AppBar.vue'
 import AppDrawer from './components/AppDrawer.vue'
 import PageToc from './components/PageToc.vue'
 
-// Left nav is permanent on large screens (same lg breakpoint as the right-hand
-// TOC) and collapses to a temporary overlay toggled by the app-bar hamburger
-// below it, matching the Vuetify docs. Open by default on large, closed on
-// small; the watch keeps that in sync across resizes.
+// Left nav: permanent on large screens, temporary overlay toggled by the
+// app-bar hamburger below that — matching the Vuetify docs.
 const { lgAndUp } = useDisplay()
 const drawer = ref(true)
 watch(lgAndUp, v => { drawer.value = v }, { immediate: true })
 
-// Route is read off global properties (not `useRoute()`) for the same reason
-// as [category].vue / DocSearch.vue: this workspace has two coexisting
-// vue-router copies, and a bare `import { useRoute } from 'vue-router'` here
-// resolves to the nested one, whose injection key doesn't match the router
-// vite-ssg actually installed. `$route` is reactive (get: () => unref(currentRoute)).
+// Route read off global properties, not `useRoute()`: two coexisting
+// vue-router copies in the workspace (see DocSearch.vue). `$route` is reactive.
 const instance = getCurrentInstance()
 const route = computed(() => (
   instance?.appContext.config.globalProperties.$route as RouteLocationNormalizedLoaded | undefined
 ))
 const routePath = computed(() => route.value?.path ?? '/')
 
-// Routes that fill the whole main area (no centered container, no page
-// scroll) — just the playground for now.
+// Routes that fill the whole main area — just the playground for now.
 const isFullBleed = computed(() => routePath.value === '/editor')
 
-// The homepage still scrolls normally (unlike full-bleed routes) but manages
-// its own section widths/containers, so it also skips the global centered
-// v-container.
+// The homepage scrolls normally but manages its own section widths, so it
+// also skips the global centered v-container.
 const isFullWidth = computed(() => routePath.value === '/')
 
 // Matches `scroll-margin-top` on headings in styles.css.
 const SCROLL_OFFSET = 80
 
 // Deep-link support: scroll to the `#hash` section once its content has
-// rendered. vue-router isn't configured with a scrollBehavior, and native
-// in-page "#" clicks are handled by the browser directly (they don't route
-// through here). Re-scroll until the anchor actually sits at the target
-// viewport position and stays there — this must be position-based (not
-// absolute-offset based) because two things move the anchor after the first
-// frame and each must be undone: category pages mount async example widgets
-// that shift content above the anchor, and closing the search dialog restores
-// focus to the app-bar trigger, which scrolls the page back to the top. Stop
-// once the anchor has held its target for a few consecutive checks, or after a
-// ~2s safety cap.
+// rendered, and re-scroll until the anchor holds its target position — async
+// example widgets and the search dialog's focus restore both move the page
+// after the first frame. Stops after a few stable checks or a ~2s cap.
 function scrollToHash () {
   const hash = route.value?.hash
   if (!hash) return

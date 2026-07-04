@@ -19,13 +19,11 @@ async function ensureIndex () {
 export function useSearch () {
   const query = ref('')
   const results = shallowRef<SearchResult[]>([])
-  const ready = ref(false)
 
   async function run () {
     await ensureIndex()
-    ready.value = true
     results.value = searcher ? searcher.search(query.value) : []
   }
 
-  return { query, results, ready, run }
+  return { query, results, run }
 }

@@ -9,13 +9,10 @@ export interface RenderMessage {
 }
 
 // Asks the sandbox to run the wrapping VForm's validate() — sent by the
-// editor's Validate button, which lives in the parent page (pinned at the
-// bottom of the preview column), not inside the iframe.
+// editor's Validate button, which lives in the parent page.
 export interface ValidateMessage {
   type: 'validate'
 }
-
-export type ParentToSandbox = RenderMessage | ValidateMessage
 
 export type SandboxToParent =
   | { type: 'ready' }
