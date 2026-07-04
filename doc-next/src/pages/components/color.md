@@ -55,7 +55,7 @@ the gradient canvas with a fixed palette of swatches:
 }
 ```
 
-## Related options
+## Related
 
 - [`useTitle`, `useDescription`, `useDefault`](/behavior/options) — the
   same annotation surfacing described on the

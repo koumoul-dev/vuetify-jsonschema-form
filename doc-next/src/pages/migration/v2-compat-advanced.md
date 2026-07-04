@@ -96,11 +96,11 @@ for example, to color a broken tab red.
 
 ## External validator
 
-The `useValidator=true` option delegates to an external
-[JSON schema validator](/behavior/options#validator) for cases too
-complex for simple rules (format combinations with `anyOf`/`oneOf`/`allOf`,
-etc.). Messages are less tailored than vjsf's own, but this guards more
-strongly against outputting invalid data.
+In VJSF 2, the `useValidator=true` option opted into delegating to an
+external JSON schema validator for cases too complex for simple rules
+(format combinations with `anyOf`/`oneOf`/`allOf`, etc.). VJSF 4 has no
+such toggle: it always [validates with Ajv](/behavior/validation), so
+this behavior is now the default rather than something to opt into.
 
 <VjsfDemo demo="demo-v2-advanced/validation-external" />
 

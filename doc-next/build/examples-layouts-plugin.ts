@@ -20,20 +20,40 @@ const pluginComponents: Record<string, unknown> = {
   'img-cropper': imgCropperInfo,
 }
 
-// A handful of v2-compat demos exist purely to *document* a VJSF-2 pattern that has
-// no VJSF-3 equivalent (the "V2 compat" migration pages are documented as "not 100%
-// compatible"). `select-schema-deps` is explicit about it: its own `warning` field
-// says "Using eval-expr is not supported in VJSF 3." -- its `x-fromData` uses
-// expr-eval syntax (e.g. `filterOneOfItem(item) = ...`) which v2compat() does not
-// translate to valid JS, so `compile()` throws a SyntaxError from `new Function(...)`
-// while building the expression. This is a genuine, pre-existing content limitation
-// (not a compile-plugin bug), so rather than failing the whole build over one
-// intentionally-unsupported demo, we precompile it to a `null` layout and let the
-// renderer (VjsfExample.vue) show the description/warning without an interactive
-// form for this specific key.
+// Examples that are precompiled to a `null` layout instead of a real one, for two
+// different reasons:
+//
+// - `select-schema-deps` purely *documents* a VJSF-2 pattern that has no VJSF-3
+//   equivalent (the "V2 compat" migration pages are documented as "not 100%
+//   compatible"). Its own `warning` field says "Using eval-expr is not supported in
+//   VJSF 3." -- its `x-fromData` uses expr-eval syntax (e.g.
+//   `filterOneOfItem(item) = ...`) which v2compat() does not translate to valid JS,
+//   so `compile()` throws a SyntaxError from `new Function(...)` while building the
+//   expression. This is a genuine, pre-existing content limitation, not a
+//   compile-plugin bug.
+// - `validation-basic` and `validation-sections` compile and serialize just fine at
+//   build time, but their *generated* validate function throws `func1 is not a
+//   function` the moment it actually runs in the browser (e.g. typing into the
+//   `limitedString` field). The real cause is an upstream interop bug in
+//   @json-layout/core's compile/serialize.js: it rewrites the bare
+//   `require("ajv/dist/runtime/ucs2length")` call to the ESM-imported `ucs2length`
+//   binding, but Ajv's standalone codegen actually emits
+//   `require("ajv/dist/runtime/ucs2length").default(...)` for string
+//   minLength/maxLength validators, so the rewritten call becomes
+//   `ucs2length.default(...)` on a binding that is already the unwrapped function.
+//   Not a v2compat() limitation -- pending a fix upstream in @json-layout/core; the
+//   corresponding `warning` shown to readers is set in
+//   src/demos/migration/v2-compat.ts.
+//
+// Either way, rather than failing the whole build (content limitation) or shipping a
+// demo that throws in the console the moment a reader types into it (upstream bug),
+// we precompile these to a `null` layout and let the renderer (VjsfExample.vue) show
+// the description/warning without an interactive form for these specific keys.
 const KNOWN_INCOMPATIBLE = new Set([
   // doc-next/src/demos/migration/v2-compat.ts's `demo-v2-advanced` collection.
   'demo-v2-advanced/select-schema-deps',
+  'demo-v2-advanced/validation-basic',
+  'demo-v2-advanced/validation-sections',
 ])
 
 const MANIFEST_ID = 'virtual:example-layouts'
@@ -75,8 +95,18 @@ function findExample (key: string): { collection: Collection, example: Example }
  * a normalization error (e.g. an unregistered component name) -- json-layout does not
  * throw in that case by itself, it just records it in `validationErrors`, which would
  * otherwise let a broken layout ship silently.
+ *
+ * `KNOWN_INCOMPATIBLE` keys are checked up front rather than only caught from a thrown
+ * error: `validation-basic`/`validation-sections` compile and serialize without
+ * throwing, their bug only surfaces once the generated validate function actually runs
+ * in the browser, so there is nothing here to catch -- see `KNOWN_INCOMPATIBLE`'s own
+ * comment.
  */
 async function compileExampleSource (key: string): Promise<string> {
+  if (KNOWN_INCOMPATIBLE.has(key)) {
+    console.warn(`[doc-next-example-layouts] ${key}: known-incompatible, precompiling to a null layout`)
+    return 'export const compiledLayout = null\n'
+  }
   const { collection, example } = findExample(key)
   try {
     const schema = collection.v2compat
@@ -94,13 +124,13 @@ async function compileExampleSource (key: string): Promise<string> {
     if (errorPointers.length) {
       const message = `unresolved layout validation errors at ${errorPointers.join(', ')}: ${JSON.stringify(compiled.validationErrors)}`
       if (collection.v2compat) {
-        // The v2-compat category is explicitly documented as "not 100% compatible":
+        // The v2-compat collection is explicitly documented as "not 100% compatible":
         // some legacy x-display combinations (e.g. x-display:icon combined with a
         // oneOf, which v2compat() does not translate) have no v3 equivalent, so
         // json-layout falls back to a default component for that one node instead of
         // throwing. Surface it loudly in the build log without failing the whole
         // build -- this matches today's (runtime) production behaviour for this
-        // category, it is a pre-existing content limitation, not a compile-plugin bug.
+        // collection, it is a pre-existing content limitation, not a compile-plugin bug.
         console.warn(`[doc-next-example-layouts] ${key}: ${message}`)
       } else {
         throw new Error(message)
@@ -109,10 +139,6 @@ async function compileExampleSource (key: string): Promise<string> {
     const code = await serialize(compiled)
     return `${code}\nexport { compiledLayout }\n`
   } catch (err: any) {
-    if (KNOWN_INCOMPATIBLE.has(key)) {
-      console.warn(`[doc-next-example-layouts] ${key}: known-incompatible, precompiling to a null layout (${err.message})`)
-      return 'export const compiledLayout = null\n'
-    }
     throw new Error(`example ${key} failed to compile: ${err.message}`)
   }
 }

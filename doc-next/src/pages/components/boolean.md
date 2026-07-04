@@ -29,7 +29,7 @@ the same underlying `true`/`false` data:
 { "type": "boolean", "title": "Dark mode", "layout": "switch" }
 ```
 
-## Related options
+## Related
 
 - [`useTitle`, `useDescription`, `useDefault`](/behavior/options) — the
   same annotation surfacing described on the

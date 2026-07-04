@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: Using & writing plugins
 description: The VJSF plugin system — using a plugin, and writing your own
 nav:
   order: 1

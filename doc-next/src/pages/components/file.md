@@ -73,7 +73,7 @@ multiple-file support lands.
 For image uploads specifically, with cropping built in, see
 [plugins/img-cropper](/plugins/img-cropper).
 
-## Related options
+## Related
 
 - [`useTitle`, `useDescription`](/behavior/options) — the same
   annotation surfacing described on the

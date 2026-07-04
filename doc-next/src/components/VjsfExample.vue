@@ -23,8 +23,8 @@ type LegacyExample = Example & { model?: unknown }
 // never mutate the example objects the demo collections hand back by reference
 // (getDemoCollections()/findDemo() return their arrays as shared, non-cloned data).
 //
-// The final fallback is `null`, not `{}`: a handful of examples (e.g.
-// formats/markdown) have a root schema that isn't `type: object` (there it's a bare
+// The final fallback is `null`, not `{}`: a handful of examples (e.g. the
+// plugins/markdown demos) have a root schema that isn't `type: object` (there it's a bare
 // `type: string`), so forcing an object default feeds the wrong JS type into that
 // node's own state and its plugin/node component (confirmed via browser check --
 // @koumoul/vjsf-markdown's editor.vue warns "Expected String ... got Object" when
@@ -37,9 +37,8 @@ const tab = ref('schema')
 
 const layout = shallowRef<CompiledLayout | null>(null)
 // Distinguishes "still loading" (layoutReady false) from "resolved, and this example
-// genuinely has no compiled layout" (layoutReady true, layout still null) -- the only
-// current case is v2-compat/select-schema-deps, see
-// build/examples-layouts-plugin.ts's KNOWN_INCOMPATIBLE.
+// genuinely has no compiled layout" (layoutReady true, layout still null) -- see
+// build/examples-layouts-plugin.ts's KNOWN_INCOMPATIBLE for the current cases.
 const layoutReady = ref(false)
 
 // Guards against a stale response clobbering a newer one if this component instance
@@ -57,7 +56,7 @@ watch(() => props.layoutKey, async (key) => {
 }, { immediate: true })
 
 // Some examples' schemas reference a plugin's node component to actually render (e.g.
-// formats/markdown needs @koumoul/vjsf-markdown's editor). compile() only ever needed
+// the plugins/markdown demos need @koumoul/vjsf-markdown's editor). compile() only ever needed
 // each plugin's info.js (see build/examples-layouts-plugin.ts) -- the Vue node
 // component is purely a render-time concern, passed unconditionally for every example
 // exactly like the old doc/components/vjsf-example.vue did.
@@ -81,8 +80,9 @@ function edit () {
   // v2-compat category we must store the *converted* v3 schema -- storing the raw
   // VJSF-2 schema (x-display/x-fromData/etc.) would make the editor render a degraded
   // form, unlike the widget above which renders from the build-precompiled layout that
-  // already applied v2compat(). Gated on the same `v2-compat` discriminator that
-  // build/examples-layouts-plugin.ts uses, converted via the same
+  // already applied v2compat(). Gated on the same `collection.v2compat` flag that
+  // build/examples-layouts-plugin.ts uses (passed down here as the `v2compat` prop),
+  // converted via the same
   // `@koumoul/vjsf/compat/v2` specifier; matches the old doc/components/vjsf-example.vue,
   // which stored `this.schema` (the v2compat-converted schema) in editExample().
   const schema = props.v2compat
@@ -138,8 +138,8 @@ function edit () {
       <v-theme-provider :theme="theme" with-background class="pa-4 rounded-b">
         <v-progress-linear v-if="!layoutReady" indeterminate />
         <v-alert v-else-if="!layout" type="warning" variant="tonal">
-          This example is not supported in VJSF 3.
-          <div v-if="example.warning">{{ example.warning }}</div>
+          <template v-if="example.warning">{{ example.warning }}</template>
+          <template v-else>This example is not supported in VJSF 3.</template>
         </v-alert>
         <v-form v-else>
           <vjsf

@@ -23,6 +23,18 @@ function withoutSkipped (examples: Example[]): Example[] {
   return examples.filter(e => !(e as Example & { skip?: boolean }).skip)
 }
 
+// `validation-basic`/`validation-sections` are precompiled to a `null` layout by
+// build/examples-layouts-plugin.ts's KNOWN_INCOMPATIBLE (an upstream
+// @json-layout/core serializer bug, not a v2compat() limitation -- see that file's
+// comment for the full explanation). Setting `warning` here, at collection-assembly
+// time, gives VjsfExample.vue's null-layout alert an accurate message instead of its
+// generic "not supported in VJSF 3" fallback.
+const UCS2LENGTH_WARNING = 'Temporarily disabled: a serializer bug in @json-layout/core (ucs2length interop) breaks precompiled string minLength/maxLength validation. Will be re-enabled once fixed upstream.'
+const UCS2LENGTH_AFFECTED_IDS = new Set(['validation-basic', 'validation-sections'])
+function withUcs2lengthWarning (examples: Example[]): Example[] {
+  return examples.map(e => UCS2LENGTH_AFFECTED_IDS.has(e.id) ? { ...e, warning: UCS2LENGTH_WARNING } : e)
+}
+
 // Maps the v2 example groups (./v2/*/index.js) onto the three themed
 // "V2 compat" pages -- see doc-next/src/pages/migration/v2-compat-*.md.
 export const demoV2Properties: DemoCollection = {
@@ -46,10 +58,10 @@ export const demoV2Advanced: DemoCollection = {
   id: 'demo-v2-advanced',
   route: '/migration/v2-compat-advanced',
   v2compat: true,
-  demos: withoutSkipped([
+  demos: withUcs2lengthWarning(withoutSkipped([
     ...(dynamicContent as V2ExampleGroup).examples,
     ...(validation as V2ExampleGroup).examples,
     ...(miscJsonSchema as V2ExampleGroup).examples,
     ...(advanced as V2ExampleGroup).examples,
-  ]),
+  ])),
 }

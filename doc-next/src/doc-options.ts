@@ -12,8 +12,19 @@ export const compileOptions: DocOptions = [
   ...jlCompileOptions,
 ]
 
+// `@json-layout/core`'s doc-options data names these two entries
+// `listDialogOptions`/`listMenuOptions`, but the actual runtime option keys (see
+// @json-layout/core's state/options.js and lib.md) are `listDialogWidth`/
+// `listMenuWidth` -- an upstream doc-options naming bug, fix pending in json-layout.
+const RENAMED_KEYS: Record<string, string> = {
+  listDialogOptions: 'listDialogWidth',
+  listMenuOptions: 'listMenuWidth',
+}
+
 export const runtimeOptions: DocOptions = [
-  ...jlRuntimeOptions,
+  ...jlRuntimeOptions.map(option => (option.key in RENAMED_KEYS)
+    ? { ...option, key: RENAMED_KEYS[option.key] }
+    : option),
   {
     key: 'icons',
     description: 'The icons used in Vjsf components. You can overwrite only the keys you want to change.',

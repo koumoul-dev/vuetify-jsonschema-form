@@ -66,7 +66,7 @@ reads `minimum`/`maximum` from the schema for its range:
 }
 ```
 
-## Related options
+## Related
 
 - [`useTitle`, `useDescription`, `useDefault`, `useExamples`](/behavior/options) —
   the same annotation surfacing described on the

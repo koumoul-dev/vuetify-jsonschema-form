@@ -109,6 +109,20 @@ export default defineConfig({
     vue({ include: [/\.vue$/, /\.md$/] }),
     Markdown({
       exposeFrontmatter: true,
+      // Wires each page's frontmatter (`title`/`description`) into the
+      // document `<head>` via @unhead/vue's `useHead()` (already installed by
+      // vite-ssg, see main.ts) instead of shipping the static `<title>VJSF</title>`
+      // from index.html on every page. `headEnabled` turns on the plugin's
+      // built-in frontmatter -> head mapping (which already derives a
+      // `<meta name="description">` from `frontmatter.description`, plus
+      // og:/twitter: tags from `title`/`description`); `frontmatterPreprocess`
+      // only adds the ` - VJSF` suffix on top of that default mapping's title.
+      headEnabled: true,
+      frontmatterPreprocess (frontmatter, options, _id, defaultHeadProcess) {
+        const head = defaultHeadProcess(frontmatter, options) ?? {}
+        if (frontmatter.title) head.title = `${frontmatter.title} - VJSF`
+        return { head, frontmatter }
+      },
       markdownItSetup (md) {
         // `level: 2` skips the page-title h1 (only h2+ get an id + the
         // hover "#" permalink, matching the Vuetify docs). `placement:
@@ -183,10 +197,19 @@ export default defineConfig({
     // resolve cleanly on static hosts without extension rewriting.
     dirStyle: 'nested',
     includedRoutes (paths: string[]) {
-      // Every route is now a static page or a hand-written dynamic-content
-      // page (no more `[category].vue` catch-all), so just drop any
-      // leftover `:param` placeholder paths and pre-render the rest.
-      return paths.filter((p: string) => !p.includes(':'))
+      // Directories directly under src/pages that only group child pages (e.g.
+      // src/pages/behavior/*.md) but have no index.md of their own still get an
+      // auto-generated, componentless parent route from unplugin-vue-router
+      // purely to host those children. vite-ssg's default route-to-path
+      // flattening includes every route record's own path regardless of
+      // whether it has a component, so that parent's bare path (`/behavior`)
+      // ends up prerendered too, as a blank page (nothing for App.vue's
+      // `<router-view>` to render there). Drop any path that exactly matches
+      // one of these page-less group directories, plus any leftover `:param`
+      // placeholder paths.
+      const groupDirs = fg.sync('*', { cwd: pagesDir, onlyDirectories: true })
+        .filter(dir => !fg.sync('index.md', { cwd: resolve(pagesDir, dir) }).length)
+      return paths.filter((p: string) => !p.includes(':') && !groupDirs.includes(p.replace(/^\//, '')))
     },
   },
 })

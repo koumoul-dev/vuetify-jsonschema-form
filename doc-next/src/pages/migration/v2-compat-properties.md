@@ -58,6 +58,10 @@ into an autocomplete.
 
 ## Selects with icons
 
+<v-alert type="warning" variant="outlined" class="mb-4">
+  The "icon" display has no v4 equivalent; that property falls back to a default component below.
+</v-alert>
+
 Icon values can be selected in several ways: by code, by SVG value, or by
 URL. Possible values can come from enums, `oneOf`s, or HTTP requests.
 

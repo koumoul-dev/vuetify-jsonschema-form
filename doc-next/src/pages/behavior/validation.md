@@ -25,6 +25,9 @@ this option:
 <VjsfDemo demo="demo-validation/validate-on-blur" />
 <VjsfDemo demo="demo-validation/validate-on-submit" />
 
+This embedded widget has no submit button, so with `validateOn: "submit"`
+its errors stay hidden here — open it in the playground to trigger them.
+
 ## Initial validation
 
 `initialValidation` complements `validateOn`: it controls whether form

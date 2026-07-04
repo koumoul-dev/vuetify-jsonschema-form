@@ -50,6 +50,10 @@ per-set with `x-props` or by default with the `tabsProps` option.
   The "rootDisplay" option is not supported in vjsf v3.
 </v-alert>
 
+<v-alert type="warning" variant="outlined" class="mb-4">
+  The "vertical-stepper" display has no v4 equivalent; that property falls back to a default component below.
+</v-alert>
+
 The `x-display=stepper` (or `vertical-stepper`) annotation displays
 sections as a stepper, configurable with `x-props`, `stepperProps` or
 `verticalStepperProps`.

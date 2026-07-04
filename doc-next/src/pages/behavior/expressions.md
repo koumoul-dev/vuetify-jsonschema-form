@@ -7,10 +7,12 @@ nav:
 
 # Expressions
 
-> Expressions are pieces of imperative code dispersed in a declarative JSON
-> schema. You must consider schemas interpreted by VJSF as part of the code
-> source of your application: you cannot safely use schemas provided by an
-> untrusted source.
+<v-alert type="warning" variant="outlined" class="mb-4">
+  Expressions are pieces of imperative code dispersed in a declarative JSON
+  schema. You must consider schemas interpreted by VJSF as part of the code
+  source of your application: you cannot safely use schemas provided by an
+  untrusted source.
+</v-alert>
 
 Expressions are used throughout VJSF to provide dynamic functionalities
 like conditional rendering (`layout.if`), computing default data

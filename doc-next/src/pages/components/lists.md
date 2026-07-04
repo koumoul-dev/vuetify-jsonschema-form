@@ -169,7 +169,7 @@ demo above, since the value type is `number`). Its default `listActions`
 differ from a plain array's, though — see [list
 actions](/components/list-actions#context-dependent-defaults).
 
-## Related options
+## Related
 
 - [list actions](/components/list-actions) — the `listActions`
   catalogue: `add`, `edit`, `delete`, `sort`, `duplicate`, `insertAfter`,

@@ -77,7 +77,7 @@ their matching `use*` runtime option (all documented on
   accepting any free-form value — this is why the demo above no longer
   looks like a plain text field.
 
-## Related options
+## Related
 
 - [`useTitle`, `useDescription`, `useDefault`, `useName`, `useExamples`](/behavior/options) —
   how schema annotations surface on every component, not just text fields.

@@ -66,7 +66,7 @@ checkboxes — handy for a group of independent on/off features:
 }
 ```
 
-## Related options
+## Related
 
 - [`useTitle`, `useDescription`](/behavior/options) — the same
   annotation surfacing described on the

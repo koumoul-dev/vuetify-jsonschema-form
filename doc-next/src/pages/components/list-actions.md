@@ -168,12 +168,13 @@ depends on how the list is set up:
   `["add", "edit", "delete", "sort", "duplicate"]`, as shown in the
   defaults demo at the top of this page.
 
-## Related options
+## Related
 
 - [Lists](/components/lists) — `listEditMode`, its own defaulting rule,
   `listMenuWidth`/`listDialogWidth`, tuples, and `patternProperties`.
 - [Internationalization](/behavior/i18n#overriding) — overriding the
-  `addItem`, `edit`, `delete`, `duplicate`, `insertAfter`, `sort`, `up`
-  and `down` messages.
-- [Expressions](/behavior/expressions) — the `itemCopy`, `itemTitle` and
-  `itemSubtitle` expressions.
+  `addItem`, `edit`, `delete`, `duplicate`, `insertAfter`, `sort`, `up`,
+  `down`, `copy` and `paste` messages.
+- [Expressions](/behavior/expressions) — the expression types (`js-eval`,
+  `js-tpl`, `js-fn`) and parameters used by `itemCopy`, `itemTitle` and
+  `itemSubtitle`.

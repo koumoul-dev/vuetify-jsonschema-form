@@ -134,7 +134,7 @@ needed downstream. Note that `returnObjects` only takes effect when
 Picking "Alan" here stores `{ "id": 2, "label": "Alan" }` as the
 property's whole value (hence the schema's `type: "object"`).
 
-## Related options
+## Related
 
 - [`useTitle`, `useDescription`, `useDefault`, `useExamples`](/behavior/options) —
   the annotation surfacing that governs the combobox/examples behavior

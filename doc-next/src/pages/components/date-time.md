@@ -114,7 +114,7 @@ disabled days once the calendar is opened:
 }
 ```
 
-## Related options
+## Related
 
 - [`keyboardDate`](/behavior/i18n#overridable-messages) — the message
   used as the `date-picker`'s placeholder (its keyboard-entry format);
