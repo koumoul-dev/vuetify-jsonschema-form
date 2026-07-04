@@ -8,20 +8,20 @@ import VjsfImgCropper from '@koumoul/vjsf-img-cropper'
 import { v2compat } from '@koumoul/vjsf/compat/v2'
 import { loadLayout } from 'virtual:example-layouts'
 import CodeBlock from './CodeBlock.vue'
-import type { Example } from '../examples/types'
+import type { Example } from '../demos/types'
 
 const props = defineProps<{ example: Example, layoutKey: string, v2compat?: boolean }>()
 
 // v2-compat examples carry a legacy `model` field (ported verbatim from the old
-// VJSF-2 doc source, e.g. examples/v2/arrays/editable-array.js: `export default { id,
-// title, description, schema, model, options }`) instead of `data`. `Example`
-// (Task 1, examples/types.ts) only types `data` -- widen locally rather than touching
-// that file (out of this task's file scope).
+// VJSF-2 doc source, e.g. demos/migration/v2/arrays/editable-array.js: `export
+// default { id, title, description, schema, model, options }`) instead of `data`.
+// `Example` (demos/types.ts) only types `data` -- widen locally rather than
+// touching that file.
 type LegacyExample = Example & { model?: unknown }
 
 // `structuredClone` both seeds a plain working copy for the form and guarantees we
-// never mutate the example objects `getExamples()` hands back by reference (Task 1
-// returns the vuetify/v2 example arrays as shared, non-cloned data).
+// never mutate the example objects the demo collections hand back by reference
+// (getDemoCollections()/findDemo() return their arrays as shared, non-cloned data).
 //
 // The final fallback is `null`, not `{}`: a handful of examples (e.g.
 // formats/markdown) have a root schema that isn't `type: object` (there it's a bare

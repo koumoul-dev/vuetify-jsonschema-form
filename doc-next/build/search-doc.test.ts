@@ -20,13 +20,13 @@ describe('stripMarkdown', () => {
 })
 
 describe('exampleToSearchDoc', () => {
-  it('maps an example to a SearchDocument with category + route', () => {
+  it('maps a demo to a SearchDocument pointing at its collection route', () => {
     const doc = exampleToSearchDoc(
       { id: 'string', title: 'Strings', description: 'A **text** field', schema: {} } as any,
-      'simple-properties', 500)
-    expect(doc.path).toBe('/simple-properties#string')
+      '/components/text-field', 'demo-text-field', 500)
+    expect(doc.path).toBe('/components/text-field')
     expect(doc.id).toBe('ex-500')
-    expect(doc.category).toBe('simple-properties')
+    expect(doc.category).toBe('demo-text-field')
     expect(doc.title).toBe('Strings')
     expect(doc.content).toContain('A text field') // markdown stripped
     expect(doc.content).not.toContain('**')

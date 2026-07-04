@@ -39,12 +39,16 @@ function routeFromRel (rel: string): string {
   return r === '/index' || r === '/' ? '/' : r
 }
 
-export function exampleToSearchDoc (ex: { id: string, title: string, description?: string, schema: unknown }, categoryId: string, id: number): SearchDocument {
+// Demos have no reliable per-demo anchor to deep-link to: they're embedded under
+// markdown headings whose ids come from markdown-it-anchor's heading-text slug
+// (vite.config.ts), not the demo id, so a search hit just links to the demo
+// collection's page (`route`) as a whole rather than a `#fragment` inside it.
+export function exampleToSearchDoc (ex: { id: string, title: string, description?: string, schema: unknown }, route: string, categoryId: string, id: number): SearchDocument {
   return {
     id: `ex-${id}`,
     title: ex.title,
     category: categoryId,
-    path: `/${categoryId}#${ex.id}`,
+    path: route,
     headings: [],
     content: stripMarkdown(ex.description ?? '').slice(0, 5000),
   }

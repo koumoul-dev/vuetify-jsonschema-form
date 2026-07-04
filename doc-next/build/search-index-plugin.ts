@@ -1,6 +1,6 @@
 import fg from 'fast-glob'
 import { toSearchDoc, exampleToSearchDoc } from './search-doc'
-import { getExamples } from '../src/examples'
+import { getDemoCollections } from '../src/demos'
 
 export function searchIndexPlugin (pagesDir: string) {
   const fileName = 'search-index.json'
@@ -12,7 +12,8 @@ export function searchIndexPlugin (pagesDir: string) {
       .sort()
     const docs = files.map((f, i) => toSearchDoc(f, i, pagesDir))
     let runningId = docs.length
-    const exampleDocs = getExamples().flatMap(c => c.examples.map(e => exampleToSearchDoc(e, c.id, runningId++)))
+    const exampleDocs = getDemoCollections()
+      .flatMap(c => c.demos.map(d => exampleToSearchDoc(d, c.route, c.id, runningId++)))
     return JSON.stringify(docs.concat(exampleDocs))
   }
 

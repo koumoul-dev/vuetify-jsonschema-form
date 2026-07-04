@@ -67,6 +67,12 @@ but not declared in the schema:
 | `"error"` (default) | Remove only the additional properties that cause a validation error |
 | `false` (alias `"none"`) | Never remove additional properties |
 
+This demo's schema declares `additionalProperties: false` and is seeded
+with an extra `legacy` property; with `removeAdditional: true` it is
+stripped from the data as soon as the form loads (check the Data tab):
+
+<VjsfDemo demo="demo-validation/remove-additional" />
+
 `readOnlyPropertiesMode` controls how properties marked `readOnly: true`
 in the schema are handled. `show` (the default) renders them
 (non-editable); `hide` removes them from the form but keeps their value

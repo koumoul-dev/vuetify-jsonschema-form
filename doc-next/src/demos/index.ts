@@ -1,5 +1,4 @@
-import type { Example } from '../examples/types'
-import type { DemoCollection } from './types'
+import type { Example, DemoCollection } from './types'
 import home from './introduction/home'
 import gettingStarted from './introduction/getting-started'
 import validation from './behavior/validation'

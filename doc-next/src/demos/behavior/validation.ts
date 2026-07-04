@@ -42,6 +42,22 @@ const collection: DemoCollection = {
       options: { initialValidation: 'always' },
     },
     {
+      id: 'remove-additional',
+      title: 'removeAdditional: true',
+      schema: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          title: { type: 'string', title: 'Title' },
+        },
+      },
+      // Seeded with an extra "legacy" property not declared in the schema:
+      // with removeAdditional: true it is stripped from the model on load,
+      // visible in the Data tab.
+      data: { title: 'Catalog title', legacy: 'stale-value' },
+      options: { removeAdditional: true },
+    },
+    {
       id: 'read-only-modes',
       title: 'readOnlyPropertiesMode: hide',
       schema: {

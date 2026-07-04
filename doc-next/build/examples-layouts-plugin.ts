@@ -3,40 +3,36 @@ import { serialize } from '@json-layout/core/src/compile/serialize'
 import markdownInfo from '@koumoul/vjsf-markdown/info.js'
 import imgCropperInfo from '@koumoul/vjsf-img-cropper/info.js'
 import { v2compat } from '@koumoul/vjsf/compat/v2'
-import { getExamples } from '../src/examples/index'
 import { getDemoCollections } from '../src/demos/index'
-import type { Example } from '../src/examples/types'
+import type { Example } from '../src/demos/types'
 
 // compile() only needs a ComponentInfo (name + capability flags) for any component
 // referenced by an example's schema (via the `layout`/`x-display` keyword) -- it never
 // needs the Vue node component itself, that is only required at render time by the
-// consuming component (VjsfExample.vue, task 3). Some examples reference plugin
-// components (formats/markdown, _dev/remove-additional, v2-compat's markdown-editor,
-// merged/img-cropper) so their info must be registered here or compile() silently
-// falls back to a default/hidden component instead of throwing (see the
-// `validationErrors` check in compileExampleSource below, which turns that silent
-// fallback into a hard build failure).
+// consuming component (VjsfExample.vue). Some demos reference plugin components
+// (plugins/markdown, plugins/img-cropper, the v2-compat markdown-editor demo) so
+// their info must be registered here or compile() silently falls back to a
+// default/hidden component instead of throwing (see the `validationErrors` check in
+// compileExampleSource below, which turns that silent fallback into a hard build
+// failure).
 const pluginComponents: Record<string, unknown> = {
   markdown: markdownInfo,
   'img-cropper': imgCropperInfo,
 }
 
-// A handful of v2-compat examples exist purely to *document* a VJSF-2 pattern that has
-// no VJSF-3 equivalent (the category itself is documented as "not 100% compatible").
-// `select-schema-deps` is explicit about it: its own `warning` field says "Using
-// eval-expr is not supported in VJSF 3." -- its `x-fromData` uses expr-eval syntax
-// (e.g. `filterOneOfItem(item) = ...`) which v2compat() does not translate to valid JS,
-// so `compile()` throws a SyntaxError from `new Function(...)` while building the
-// expression. This is a genuine, pre-existing content limitation (not a compile-plugin
-// bug), so rather than failing the whole build over one intentionally-unsupported demo,
-// we precompile it to a `null` layout and let the renderer (task 3) show the
-// description/warning without an interactive form for these specific keys.
+// A handful of v2-compat demos exist purely to *document* a VJSF-2 pattern that has
+// no VJSF-3 equivalent (the "V2 compat" migration pages are documented as "not 100%
+// compatible"). `select-schema-deps` is explicit about it: its own `warning` field
+// says "Using eval-expr is not supported in VJSF 3." -- its `x-fromData` uses
+// expr-eval syntax (e.g. `filterOneOfItem(item) = ...`) which v2compat() does not
+// translate to valid JS, so `compile()` throws a SyntaxError from `new Function(...)`
+// while building the expression. This is a genuine, pre-existing content limitation
+// (not a compile-plugin bug), so rather than failing the whole build over one
+// intentionally-unsupported demo, we precompile it to a `null` layout and let the
+// renderer (VjsfExample.vue) show the description/warning without an interactive
+// form for this specific key.
 const KNOWN_INCOMPATIBLE = new Set([
-  'v2-compat/select-schema-deps',
-  // Same example, also exposed under its new Task-14 "V2 compat" demo key
-  // (doc-next/src/demos/migration/v2-compat.ts's `demo-v2-advanced`
-  // collection) -- the legacy `v2-compat` category above still exists until
-  // the next task removes it, so both keys need an entry.
+  // doc-next/src/demos/migration/v2-compat.ts's `demo-v2-advanced` collection.
   'demo-v2-advanced/select-schema-deps',
 ])
 
@@ -48,9 +44,7 @@ const RESOLVED_LAYOUT_PREFIX = '\0' + LAYOUT_PREFIX
 interface Collection { id: string, v2compat: boolean, examples: Example[] }
 
 function allCollections (): Collection[] {
-  const legacy = getExamples().map(c => ({ id: c.id, v2compat: c.id === 'v2-compat', examples: c.examples }))
-  const demos = getDemoCollections().map(c => ({ id: c.id, v2compat: !!c.v2compat, examples: c.demos }))
-  return [...legacy, ...demos]
+  return getDemoCollections().map(c => ({ id: c.id, v2compat: !!c.v2compat, examples: c.demos }))
 }
 
 function allKeys (): string[] {
