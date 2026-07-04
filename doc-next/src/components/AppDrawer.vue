@@ -4,13 +4,29 @@
     :permanent="lgAndUp"
     :temporary="!lgAndUp"
   >
-    <v-list nav>
-      <template v-for="(item, i) in items" :key="item.to">
-        <v-list-subheader v-if="item.subsection && item.subsection !== items[i - 1]?.subsection">
-          {{ item.subsection }}
-        </v-list-subheader>
-        <v-list-item :title="item.title" :to="item.to" />
-      </template>
+    <v-list v-model:opened="opened" nav>
+      <v-list-item
+        v-for="item in nav.standalone"
+        :key="item.to"
+        :prepend-icon="item.icon"
+        :title="item.title"
+        :to="item.to"
+      />
+      <v-list-group
+        v-for="group in nav.groups"
+        :key="group.dir"
+        :value="group.dir"
+      >
+        <template #activator="{ props: activatorProps }">
+          <v-list-item v-bind="activatorProps" :prepend-icon="group.icon" :title="group.title" />
+        </template>
+        <template v-for="(item, i) in group.items" :key="item.to">
+          <v-list-subheader v-if="item.subsection && item.subsection !== group.items[i - 1]?.subsection">
+            {{ item.subsection }}
+          </v-list-subheader>
+          <v-list-item :title="item.title" :to="item.to" />
+        </template>
+      </v-list-group>
     </v-list>
 
     <!-- Footer: version + build commit as slim text buttons, mirroring the
@@ -52,17 +68,31 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { ref, computed, watch, getCurrentInstance } from 'vue'
 import { useDisplay } from 'vuetify'
+import type { RouteLocationNormalizedLoaded } from 'vue-router'
 import { useNav } from '../nav/use-nav'
 import { appVersion, commitHash, commitUrl } from '../build-info'
 
 const drawer = defineModel<boolean>({ default: false })
 
 const nav = useNav()
-// TEMPORARY: flattens the grouped Nav back into the old flat list so this
-// component keeps compiling/working during the redesign. Task 2 replaces
-// this whole component with a proper collapsible-group rendering.
-const items = computed(() => [...nav.standalone, ...nav.groups.flatMap(g => g.items)])
 const { lgAndUp } = useDisplay()
+
+// Route is read off global properties (not `useRoute()`) — same reason as
+// App.vue: this workspace has two coexisting vue-router copies, and a bare
+// `import { useRoute } from 'vue-router'` here resolves to the nested one,
+// whose injection key doesn't match the router vite-ssg actually installed.
+const instance = getCurrentInstance()
+const route = computed(() => (
+  instance?.appContext.config.globalProperties.$route as RouteLocationNormalizedLoaded | undefined
+))
+const routePath = computed(() => route.value?.path ?? '/')
+
+// Auto-open the group owning the current route.
+const opened = ref<string[]>([])
+watch(routePath, (path) => {
+  const current = nav.groups.find(g => g.items.some(item => item.to === path))
+  if (current && !opened.value.includes(current.dir)) opened.value = [...opened.value, current.dir]
+}, { immediate: true })
 </script>
