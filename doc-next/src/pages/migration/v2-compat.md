@@ -3,10 +3,10 @@ title: Overview
 description: What the v2compat() function covers, and when to keep using it
 nav:
   order: 10
-  subsection: V2 compat
+  subsection: V2 compatibility
 ---
 
-# V2 compat
+# V2 compatibility
 
 `@koumoul/vjsf/compat/v2` exports a `v2compat()` function that takes a
 VJSF-2 schema (with its `x-display`, `x-fromData`, `x-fromUrl`, etc.

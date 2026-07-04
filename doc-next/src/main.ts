@@ -9,6 +9,7 @@ import { createVuetify } from './plugins/vuetify'
 import VjsfDemo from './components/VjsfDemo.vue'
 import OptionsList from './components/OptionsList.vue'
 import I18nMessages from './components/I18nMessages.vue'
+import CopyAnchor from './components/CopyAnchor.vue'
 
 // Note: `ClientOnly` is not registered here — `ViteSSG()` registers it as a
 // global component automatically (its `registerComponents` option defaults
@@ -24,4 +25,8 @@ export const createApp = ViteSSG(App, { routes }, ({ app }) => {
   app.component('OptionsList', OptionsList)
   // Same rationale: the i18n.md page uses `<I18nMessages />` without an import.
   app.component('I18nMessages', I18nMessages)
+  // Injected into every markdown heading by the custom markdown-it-anchor
+  // permalink (vite.config.ts) as `<CopyAnchor id="slug" />`; registered
+  // globally so that compiled markup resolves it with no per-page import.
+  app.component('CopyAnchor', CopyAnchor)
 })

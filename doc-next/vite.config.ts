@@ -125,20 +125,28 @@ export default defineConfig({
       },
       markdownItSetup (md) {
         // `level: 2` skips the page-title h1 (only h2+ get an id + the
-        // hover "#" permalink, matching the Vuetify docs). `placement:
-        // 'before'` renders the "#" to the left of the heading text; it is
-        // hidden until hover via `.header-anchor` styles in src/styles.css.
+        // hover copy-link button, matching the Vuetify docs). markdown-it-anchor
+        // sets the heading `id` on its own; the custom `permalink` below appends
+        // `<CopyAnchor id="slug" />` *after* the heading text. Because
+        // unplugin-vue-markdown compiles the rendered markdown as a Vue
+        // template, that tag resolves to the globally-registered CopyAnchor
+        // component (src/main.ts) — a real `v-btn` that copies the section deep
+        // link on click. The button is hidden until hover via `.page-anchor-btn`
+        // styles in src/styles.css.
         // Cast to any: markdown-it-anchor/-attrs are typed against
         // @types/markdown-it, structurally incompatible with the markdown-exit
         // MarkdownIt that unplugin-vue-markdown passes here.
         const mit = md as any
         mit.use(anchor, {
           level: 2,
-          permalink: anchor.permalink.linkInsideHeader({
-            symbol: '#',
-            placement: 'before',
-            ariaHidden: true,
-          }),
+          // Custom permalink: `slug` is the heading id, `state.tokens[idx + 1]`
+          // is the heading's inline token — push an html_inline child so the
+          // component tag survives verbatim into the compiled template.
+          permalink (slug: string, _opts: unknown, state: any, idx: number) {
+            const token = new state.Token('html_inline', '', 0)
+            token.content = `<CopyAnchor id="${slug}"></CopyAnchor>`
+            state.tokens[idx + 1].children.push(token)
+          },
         })
         mit.use(attrs)
       },

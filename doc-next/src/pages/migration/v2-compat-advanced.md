@@ -3,7 +3,7 @@ title: Dynamic & advanced
 description: V2-compat demos covering dynamic content, validation, misc json-schema features and advanced integration
 nav:
   order: 13
-  subsection: V2 compat
+  subsection: V2 compatibility
 ---
 
 # Dynamic & advanced

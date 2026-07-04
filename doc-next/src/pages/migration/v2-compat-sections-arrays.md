@@ -3,7 +3,7 @@ title: Sections & arrays
 description: V2-compat demos covering sections, tabs/stepper/expansion-panels and arrays of objects
 nav:
   order: 12
-  subsection: V2 compat
+  subsection: V2 compatibility
 ---
 
 # Sections & arrays

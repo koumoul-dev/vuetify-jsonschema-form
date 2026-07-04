@@ -8,7 +8,7 @@ export const navGroups: NavGroupConfig[] = [
   { dir: 'behavior', title: 'Behavior', icon: 'mdi-cog-outline' },
   { dir: 'components', title: 'Components', icon: 'mdi-view-dashboard-outline' },
   { dir: 'plugins', title: 'Plugins', icon: 'mdi-power-plug-outline' },
-  { dir: 'migration', title: 'Migration & Compat', icon: 'mdi-swap-horizontal' },
+  { dir: 'migration', title: 'Migration & Compatibility', icon: 'mdi-swap-horizontal' },
 ]
 
 // The homepage is src/pages/index.vue (no markdown frontmatter), so its nav

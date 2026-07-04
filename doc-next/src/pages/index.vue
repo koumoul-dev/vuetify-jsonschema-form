@@ -2,8 +2,12 @@
   <div>
     <!-- Hero -->
     <v-container class="text-center py-16 py-md-16">
-      <img alt="VJSF" class="mb-6" height="56" :src="logoSrc" />
-      <h1 class="text-display-small mb-4">VJSF &mdash; Vuetify JSON Schema Form</h1>
+      <!-- The logo image carries the page title: its alt is the h1's accessible
+      name, so the heading stays in the document outline without duplicating
+      the text already drawn in the logo. -->
+      <h1 class="mb-6">
+        <img alt="VJSF &mdash; Vuetify JSON Schema Form" height="80" :src="logoSrc" />
+      </h1>
       <p class="text-headline-small text-medium-emphasis mb-8 mx-auto tagline">
         Easily create beautiful forms that output valid data.
       </p>
@@ -26,18 +30,16 @@
     </v-container>
 
     <!-- Live demo -->
-    <v-container class="py-8 py-md-16">
-      <v-row align="center">
-        <v-col cols="12" md="5">
-          <h2 class="text-headline-large mb-4">See it in action</h2>
-          <p class="text-body-large text-medium-emphasis">
-            One annotated JSON schema in, a complete Vuetify form out &mdash; validation included.
-          </p>
-        </v-col>
-        <v-col cols="12" md="7">
-          <VjsfDemo demo="demo-home/hero" />
-        </v-col>
-      </v-row>
+    <v-container class="pb-8 pb-md-16">
+      <div class="text-center mb-8">
+        <h2 class="text-headline-large mb-4">See it in action</h2>
+        <p class="text-body-large text-medium-emphasis mx-auto tagline">
+          One annotated JSON schema in, a complete Vuetify form out &mdash; validation included.
+        </p>
+      </div>
+      <div class="demo-wrapper mx-auto">
+        <VjsfDemo demo="demo-home/hero" />
+      </div>
     </v-container>
 
     <!-- Selling points -->
@@ -59,39 +61,19 @@
 
     <!-- Footer links -->
     <v-container class="py-8 py-md-16 text-center">
-      <div class="d-flex flex-wrap justify-center ga-6">
-        <a
-          class="text-medium-emphasis text-decoration-none"
-          href="https://github.com/koumoul-dev/vuetify-jsonschema-form"
+      <div class="d-flex flex-wrap justify-center ga-2">
+        <v-btn
+          v-for="link in footerLinks"
+          :key="link.href"
+          class="text-none text-medium-emphasis"
+          :href="link.href"
+          :prepend-icon="link.icon"
           rel="noopener"
           target="_blank"
-        >
-          <v-icon class="mr-1" icon="mdi-github" />GitHub
-        </a>
-        <a
-          class="text-medium-emphasis text-decoration-none"
-          href="https://www.npmjs.com/package/@koumoul/vjsf"
-          rel="noopener"
-          target="_blank"
-        >
-          <v-icon class="mr-1" icon="mdi-npm" />npm
-        </a>
-        <a
-          class="text-medium-emphasis text-decoration-none"
-          href="https://json-layout.github.io"
-          rel="noopener"
-          target="_blank"
-        >
-          <v-icon class="mr-1" icon="mdi-view-dashboard-outline" />JSON Layout
-        </a>
-        <a
-          class="text-medium-emphasis text-decoration-none"
-          href="https://koumoul.com"
-          rel="noopener"
-          target="_blank"
-        >
-          <v-icon class="mr-1" icon="mdi-domain" />Koumoul
-        </a>
+          :text="link.text"
+          :title="link.title"
+          variant="text"
+        />
       </div>
     </v-container>
   </div>
@@ -100,10 +82,10 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
 
-// Base-safe logo URL, same pattern/asset as AppBar.vue (see its comment for
+// Base-safe logo URL, same pattern as AppBar.vue (see its comment for
 // why `import.meta.env.BASE_URL` is used and why it's computed here rather
 // than inlined in the template).
-const logoSrc = `${import.meta.env.BASE_URL}vjsf-title-white.svg`
+const logoSrc = `${import.meta.env.BASE_URL}vjsf-full-white.svg`
 
 const sellingPoints = [
   {
@@ -129,12 +111,39 @@ const sellingPoints = [
   {
     icon: 'mdi-translate',
     title: 'i18n',
-    description: 'Ships with 4 built-in locales, and it is easy to add or override translations.',
+    description: 'Ships with 4 built-in locales — English, French, German and Dutch — and it is easy to add or override translations.',
   },
   {
     icon: 'mdi-rocket-launch-outline',
     title: 'Build-time compilation',
-    description: 'Layouts can be compiled ahead of time, keeping runtime overhead to a minimum.',
+    description: 'Static schemas can be compiled into standalone Vue components at build time, keeping the form compiler and Ajv out of your bundle.',
+  },
+]
+
+const footerLinks = [
+  {
+    text: 'GitHub',
+    icon: 'mdi-github',
+    href: 'https://github.com/koumoul-dev/vuetify-jsonschema-form',
+    title: 'VJSF repository on GitHub',
+  },
+  {
+    text: 'npm',
+    icon: 'mdi-npm',
+    href: 'https://www.npmjs.com/package/@koumoul/vjsf',
+    title: '@koumoul/vjsf package on npm',
+  },
+  {
+    text: 'JSON Layout',
+    icon: 'mdi-view-dashboard-outline',
+    href: 'https://json-layout.github.io',
+    title: 'JSON Layout documentation',
+  },
+  {
+    text: 'Koumoul',
+    icon: 'mdi-domain',
+    href: 'https://koumoul.com',
+    title: 'Koumoul website',
   },
 ]
 
@@ -149,5 +158,9 @@ useHead(() => ({
 <style scoped>
 .tagline {
   max-width: 640px;
+}
+
+.demo-wrapper {
+  max-width: 860px;
 }
 </style>

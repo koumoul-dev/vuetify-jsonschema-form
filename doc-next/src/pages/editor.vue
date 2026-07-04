@@ -8,6 +8,7 @@ import EditorSandbox from '../components/EditorSandbox.vue'
 import type CodeEditorType from '../components/CodeEditor.vue'
 import type { CodeLanguage } from '../editor/code'
 import { vjsfMetaSchema } from '../editor/vjsf-meta-schema'
+import { runtimeOptions } from '../doc-options'
 
 // Lazy: CodeEditor.vue pulls in `codemirror-json-schema`, whose published
 // `dist/index.js` has internal imports missing file extensions (an upstream
@@ -22,11 +23,34 @@ const CodeEditor = defineAsyncComponent(() => import('../components/CodeEditor.v
 
 type TabKey = 'schema' | 'options' | 'data'
 
+// VJSF's own defaults, straight from the documented options catalogue (the
+// same data the Behavior > Options pages render): every scalar runtime
+// default, plus the compile-side `locale`. Object defaults (context,
+// messages, icons...) are skipped — empty-object placeholders would only be
+// noise in the buffer. Seeding them all makes the tweakable knobs
+// discoverable from the Options tab, like the old doc's editor did.
+const vjsfDefaultOptions: Record<string, unknown> = {
+  ...Object.fromEntries(runtimeOptions
+    .filter(o => ['boolean', 'number', 'string'].includes(typeof o.default))
+    .map(o => [o.key, o.default])),
+  locale: 'en',
+}
+// The editor's own layer on top of VJSF's defaults — kept as a separate
+// object so the two stay distinguishable: a fresh playground starts quiet
+// (no errors before any interaction) and with x-i18n-* annotations active.
+const editorOptionsOverrides: Record<string, unknown> = {
+  initialValidation: 'never',
+  xI18n: true,
+}
+
 // Reused verbatim by the examples' "edit in playground" link, which seeds
 // this same localStorage key (without `languages` — mergeDefaults fills it).
+// mergeDefaults is shallow per top-level key, so a stored `options` (an
+// example's own, or a previous visit's) wins wholesale over the seed below —
+// the defaults only ever fill a fresh editor.
 const state = useStorage('vjsf-editor-state', {
   schema: { type: 'object', properties: { name: { type: 'string', title: 'Name' } } } as unknown,
-  options: {} as Record<string, unknown>,
+  options: { ...vjsfDefaultOptions, ...editorOptionsOverrides },
   data: {} as unknown,
   theme: 'light' as 'light' | 'dark',
   languages: { schema: 'yaml', options: 'yaml', data: 'json' } as Record<TabKey, CodeLanguage>,
@@ -87,11 +111,35 @@ const [DefineTabs, Tabs] = createReusableTemplate()
 // permanent nav drawer (lg+) even a wide viewport can leave a narrow pane —
 // so no viewport breakpoint can decide this correctly. We measure the pane's
 // own width instead; below the threshold the controls move to their own row
-// above the tabs (see the toolbar template). ~560px comfortably fits the tabs
-// plus the toggle and the two icon buttons without the tabs scrolling.
+// above the tabs (see the toolbar template). ~600px comfortably fits the tabs
+// plus the toggle and the three icon buttons without the tabs scrolling.
 const editorPane = ref<ComponentPublicInstance | null>(null)
 const { width: paneWidth } = useElementSize(editorPane)
-const controlsStacked = computed(() => paneWidth.value > 0 && paneWidth.value < 560)
+const controlsStacked = computed(() => paneWidth.value > 0 && paneWidth.value < 600)
+
+// VJSF's built-in locales (see @json-layout/core src/i18n). The switch reads
+// and writes `options.locale` — the exact key a user would set by hand — so
+// the Options tab, the stored state and the preview always agree.
+const formLocales = { en: 'English', fr: 'Français', de: 'Deutsch', nl: 'Nederlands' }
+const formLocale = computed(() => {
+  const locale = options.value.locale
+  return typeof locale === 'string' ? locale : 'en'
+})
+// Assign a fresh object rather than mutating in place: CodeEditor watches
+// its modelValue by reference, so an in-place mutation would reach the
+// preview (deep watch in EditorSandbox) but leave the Options tab's buffer
+// showing the old locale.
+function setFormLocale (locale: string) {
+  options.value = { ...options.value, locale }
+}
+
+// With validateOn: 'submit' errors only ever display when the form is
+// explicitly validated — without a button to do that, the mode couldn't be
+// exercised in the playground at all. The button sits pinned at the bottom
+// of the preview column (mirroring the errors alert on the code column) and
+// asks the sandboxed form to validate through the iframe protocol.
+const sandbox = ref<InstanceType<typeof EditorSandbox> | null>(null)
+const submitMode = computed(() => options.value.validateOn === 'submit')
 
 const schemaEditor = ref<InstanceType<typeof CodeEditorType> | null>(null)
 const optionsEditor = ref<InstanceType<typeof CodeEditorType> | null>(null)
@@ -115,7 +163,6 @@ const errorLines = computed(() =>
             own row above them — see the `controlsStacked` note above. -->
             <DefineControls>
               <v-spacer />
-              <!-- A future iteration will also host a locale switch here. -->
               <v-btn-toggle
                 v-model="languages[tab]"
                 density="compact"
@@ -134,6 +181,26 @@ const errorLines = computed(() =>
                 title="Format"
                 @click="activeEditor?.format()"
               />
+              <v-menu>
+                <template #activator="{ props: menuProps }">
+                  <v-btn
+                    v-bind="menuProps"
+                    size="small"
+                    variant="text"
+                    icon="mdi-translate"
+                    :title="`Form locale (options.locale): ${formLocales[formLocale as keyof typeof formLocales] ?? formLocale}`"
+                  />
+                </template>
+                <v-list density="compact">
+                  <v-list-item
+                    v-for="(name, code) in formLocales"
+                    :key="code"
+                    :active="code === formLocale"
+                    :title="name"
+                    @click="setFormLocale(code)"
+                  />
+                </v-list>
+              </v-menu>
               <v-btn
                 size="small"
                 variant="text"
@@ -177,23 +244,26 @@ const errorLines = computed(() =>
                 <CodeEditor ref="dataEditor" v-model="data" v-model:language="languages.data" :schema="dataSchema" />
               </v-window-item>
             </v-window>
-            <!-- `flex-grow-0`: v-alert defaults to a flex item that grows to
-            fill leftover vertical space in this flex column, which would
-            stretch it to a huge empty block instead of its natural height. -->
+            <!-- v-alert's own CSS makes it `flex: 1 1 0%`: in this flex
+            column that either stretches it into a huge empty block or (once
+            grow/shrink are zeroed) collapses it onto its 0% basis, a crushed
+            orange sliver. The .editor-errors rule pins the whole flex
+            shorthand to `0 0 auto` so it always takes its content height. -->
             <v-alert
               v-if="errorLines.length"
               type="warning"
               density="compact"
-              class="ma-2 flex-grow-0"
+              class="ma-2 editor-errors"
             >
               <div v-for="line in errorLines" :key="line">{{ line }}</div>
             </v-alert>
           </v-sheet>
         </v-col>
         <v-col cols="12" md="6" class="pl-md-1 editor-col">
-          <v-sheet border rounded class="pane-frame overflow-hidden">
+          <v-sheet border rounded class="pane-frame overflow-hidden d-flex flex-column">
             <EditorSandbox
-              class="d-block"
+              ref="sandbox"
+              class="d-block preview-frame"
               :schema="schema"
               :options="options"
               :data="data"
@@ -202,6 +272,19 @@ const errorLines = computed(() =>
               @validation="errs => validationErrors = errs"
               @error="msg => validationErrors = { form: [msg] }"
             />
+            <!-- with-background: the bar must look like a seamless extension
+            of the iframe above it, so it takes the same theme (and thus the
+            same background color — the sandbox uses the doc's theme
+            definitions too) as the previewed form. Padding, not margin: the
+            themed background has to run edge to edge. -->
+            <v-theme-provider
+              v-if="submitMode"
+              :theme="theme"
+              with-background
+              class="d-flex justify-end flex-grow-0 pa-2"
+            >
+              <v-btn color="success" density="compact" text="Validate" variant="flat" @click="sandbox?.validate()" />
+            </v-theme-provider>
           </v-sheet>
         </v-col>
       </v-row>
@@ -235,6 +318,20 @@ system (real app-bar height, whatever its density) — no magic number. The
 }
 .pane-frame {
   height: 100%;
+}
+/* Pin to content height: v-alert's own `flex: 1 1 0%` otherwise stretches
+it (grow) or crushes it onto its 0% basis (see the template comment). A
+long error list scrolls instead of pushing the editor out of the pane. */
+.editor-errors {
+  flex: 0 0 auto;
+  max-height: 35%;
+  overflow-y: auto;
+}
+/* The iframe fills whatever the Validate bar (when present) leaves free:
+its own inline height:100% would otherwise overflow the flex column. */
+.preview-frame {
+  flex: 1 1 0;
+  min-height: 0;
 }
 /* v-window inserts a container + item wrappers between the flex column and
 the editor: give the whole chain the pane's height so the active editor can

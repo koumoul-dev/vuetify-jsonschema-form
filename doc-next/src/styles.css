@@ -12,25 +12,17 @@ html, body, .v-application { font-family: 'Nunito', sans-serif; }
   scroll-margin-top: 80px;
 }
 
-/* Hover-reveal "#" permalink to the left of section headings (Vuetify-docs
-   style). markdown-it-anchor renders it for markdown pages; [category].vue
-   renders the same markup for example headings. Clicking it just sets the
-   URL hash (native anchor), so the deep link is copyable from the address
-   bar. */
-.v-main :is(h1, h2, h3, h4, h5, h6):has(> .header-anchor) {
-  position: relative;
-}
-.header-anchor {
-  position: absolute;
-  left: -1.1em;
-  font-weight: 400;
-  text-decoration: none;
-  color: rgb(var(--v-theme-primary));
+/* Hover-reveal copy-link button after each section heading (Vuetify-docs
+   style). The <CopyAnchor> v-btn is injected inline by markdown-it-anchor
+   (vite.config.ts); it stays hidden until the heading is hovered or the button
+   itself is keyboard-focused, then copies the section deep link on click. The
+   reveal is global (not scoped in CopyAnchor) because it keys on the *parent*
+   heading's :hover, and the heading is plain markdown-rendered HTML. */
+.page-anchor-btn {
   opacity: 0;
   transition: opacity 0.2s ease;
 }
-.v-main :is(h1, h2, h3, h4, h5, h6):hover > .header-anchor,
-.header-anchor:hover,
-.header-anchor:focus-visible {
+.v-main :is(h1, h2, h3, h4, h5, h6):hover .page-anchor-btn,
+.page-anchor-btn:focus-visible {
   opacity: 1;
 }

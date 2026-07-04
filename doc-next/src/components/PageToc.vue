@@ -48,10 +48,11 @@ function itemStyle (active: boolean): string {
   return `border-left: 2px solid ${active ? 'rgb(var(--v-theme-primary))' : 'transparent'};`
 }
 
-// Heading text without the leading "#" permalink (a `.header-anchor` child).
+// Heading text without the injected copy-link button (a `.page-anchor-btn`
+// child rendered by CopyAnchor.vue), so its icon glyph never leaks into the TOC.
 function headingTitle (el: Element): string {
   const clone = el.cloneNode(true) as HTMLElement
-  clone.querySelector('.header-anchor')?.remove()
+  clone.querySelector('.page-anchor-btn')?.remove()
   return (clone.textContent ?? '').trim()
 }
 

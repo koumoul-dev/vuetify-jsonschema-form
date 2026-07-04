@@ -10,9 +10,15 @@ import { createApp, h, shallowRef } from 'vue'
 import { createVuetify } from 'vuetify'
 import { VForm } from 'vuetify/components/VForm'
 import Vjsf from '@koumoul/vjsf'
-import { isRenderMessage, type SandboxToParent } from './protocol'
+import { vuetifyTheme } from '../theme'
+import { isRenderMessage, isValidateMessage, type SandboxToParent } from './protocol'
 
-const vuetify = createVuetify()
+// Same theme definitions as the parent doc app (see plugins/vuetify.ts):
+// the editor page renders themed surfaces (the Validate bar) directly
+// against this iframe's background, so the two sides must resolve e.g.
+// 'dark' to the exact same colors. The defaultTheme in there is irrelevant:
+// every render message carries the theme to display (`theme.change` below).
+const vuetify = createVuetify({ theme: vuetifyTheme })
 const schema = shallowRef<unknown>(null)
 const options = shallowRef<Record<string, unknown>>({})
 const model = shallowRef<unknown>({})
@@ -41,6 +47,13 @@ window.addEventListener('message', (e: MessageEvent) => {
   // Only ever trust messages from the embedding parent window, and only
   // once they pass the Task-2 structural guard.
   if (e.source !== parent) return
+  // Sent by the editor's Validate button (it lives in the parent page, the
+  // form it validates lives here): flips VJSF's nodes to their validated
+  // state so validateOn: 'submit' errors actually display.
+  if (isValidateMessage(e.data)) {
+    formEl?.validate()
+    return
+  }
   if (!isRenderMessage(e.data)) return
   try {
     const schemaOptionsJson = JSON.stringify([e.data.schema, e.data.options])
@@ -63,12 +76,19 @@ window.addEventListener('message', (e: MessageEvent) => {
   }
 })
 
+// Function-style template ref on the VForm, so the validate message handler
+// can call its validate() without going through `this.$refs` typing
+// contortions.
+let formEl: InstanceType<typeof VForm> | null = null
+
 const app = createApp({
   render () {
     if (!schema.value) return null
     // Wrapping in <v-form> silences "Vjsf should be wrapped in VForm" and
     // lets Vjsf register/aggregate its own validation state with it.
-    return h(VForm, () => h(Vjsf, {
+    return h(VForm, {
+      ref: (el) => { formEl = el as InstanceType<typeof VForm> | null },
+    }, () => h(Vjsf, {
       key: schemaVersion,
       schema: schema.value as object,
       modelValue: model.value,

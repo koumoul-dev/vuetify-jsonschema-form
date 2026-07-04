@@ -29,7 +29,7 @@ import { v2compat } from '@koumoul/vjsf/compat/v2'
 const v3Schema = v2compat(schema)
 ```
 
-See the [V2 compat](/migration/v2-compat) pages for a full tour of what
+See the [V2 compatibility](/migration/v2-compat) pages for a full tour of what
 this function covers, with live demos ported from the VJSF v2
 documentation:
 

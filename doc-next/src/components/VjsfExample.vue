@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, getCurrentInstance, ref, shallowRef, watch } from 'vue'
 import type { Router } from 'vue-router'
+import type { VForm } from 'vuetify/components/VForm'
 import type { CompiledLayout } from '@json-layout/core'
 import Vjsf from '@koumoul/vjsf'
 import VjsfMarkdown from '@koumoul/vjsf-markdown'
@@ -33,7 +34,22 @@ type LegacyExample = Example & { model?: unknown }
 // already synthesizes the right empty value per the schema's actual root type.
 const data = ref(structuredClone(props.example.data ?? (props.example as LegacyExample).model ?? null))
 const theme = ref<'light' | 'dark'>('light')
-const tab = ref('schema')
+const tab = ref<'schema' | 'data' | 'options'>('schema')
+// Vuetify-doc-style source pane: collapsed by default, the toolbar's last
+// button expands it.
+const expanded = ref(false)
+
+const copied = ref(false)
+let copiedTimer: ReturnType<typeof setTimeout> | undefined
+// Copies the active tab (works collapsed too, where the active tab is the
+// default one, schema). Same serialization as CodeBlock's display.
+async function copy () {
+  const values = { schema: props.example.schema, data: data.value, options: props.example.options ?? {} }
+  await navigator.clipboard.writeText(JSON.stringify(values[tab.value], null, 2))
+  copied.value = true
+  clearTimeout(copiedTimer)
+  copiedTimer = setTimeout(() => { copied.value = false }, 2000)
+}
 
 const layout = shallowRef<CompiledLayout | null>(null)
 // Distinguishes "still loading" (layoutReady false) from "resolved, and this example
@@ -64,6 +80,12 @@ const renderOptions = computed(() => ({
   ...(props.example.options as Record<string, unknown> ?? {}),
   plugins: [VjsfMarkdown, VjsfImgCropper],
 }))
+
+// With validateOn: 'submit' errors only ever show when the form is
+// explicitly validated -- without a button to do that the mode couldn't be
+// exercised at all, so show a bottom-right Validate button like the old doc.
+const form = ref<InstanceType<typeof VForm> | null>(null)
+const showValidate = computed(() => (props.example.options as Record<string, unknown> | undefined)?.validateOn === 'submit')
 
 // `useRouter()` off a bare `import ... from 'vue-router'` would resolve to a
 // *different* installed copy of vue-router than the one vite-ssg actually installs
@@ -102,7 +124,8 @@ function edit () {
   <ClientOnly>
     <v-sheet class="my-4" border rounded color="transparent">
       <v-toolbar density="compact" color="surface" rounded>
-        <v-tabs v-model="tab" density="compact">
+        <!-- The tabs only make sense once the source pane is open. -->
+        <v-tabs v-if="expanded" v-model="tab" density="compact">
           <v-tab value="schema">Schema</v-tab>
           <v-tab value="data">Data</v-tab>
           <v-tab value="options">Options</v-tab>
@@ -116,22 +139,36 @@ function edit () {
         >
           <v-icon :icon="theme === 'dark' ? 'mdi-white-balance-sunny' : 'mdi-weather-night'" />
         </v-btn>
-        <v-btn icon="mdi-pencil" variant="text" title="Edit in playground" @click="edit" />
+        <v-btn icon variant="text" :title="`Copy ${tab}`" @click="copy">
+          <v-icon :icon="copied ? 'mdi-check' : 'mdi-content-copy'" />
+        </v-btn>
+        <v-btn icon="mdi-play" variant="text" title="Open in playground" @click="edit" />
+        <v-btn
+          icon
+          variant="text"
+          :title="expanded ? 'Hide source' : 'View source'"
+          @click="expanded = !expanded"
+        >
+          <v-icon :icon="expanded ? 'mdi-chevron-up' : 'mdi-code-tags'" />
+        </v-btn>
       </v-toolbar>
 
-      <v-divider />
-
-      <v-window v-model="tab" class="pa-3">
-        <v-window-item value="schema">
-          <CodeBlock :value="example.schema" />
-        </v-window-item>
-        <v-window-item value="data">
-          <CodeBlock :value="data" />
-        </v-window-item>
-        <v-window-item value="options">
-          <CodeBlock :value="example.options ?? {}" />
-        </v-window-item>
-      </v-window>
+      <v-expand-transition>
+        <div v-show="expanded">
+          <v-divider />
+          <v-window v-model="tab" class="pa-3 source-window">
+            <v-window-item value="schema">
+              <CodeBlock :value="example.schema" />
+            </v-window-item>
+            <v-window-item value="data">
+              <CodeBlock :value="data" />
+            </v-window-item>
+            <v-window-item value="options">
+              <CodeBlock :value="example.options ?? {}" />
+            </v-window-item>
+          </v-window>
+        </div>
+      </v-expand-transition>
 
       <v-divider />
 
@@ -141,15 +178,27 @@ function edit () {
           <template v-if="example.warning">{{ example.warning }}</template>
           <template v-else>This example is not supported in VJSF 3.</template>
         </v-alert>
-        <v-form v-else>
+        <v-form v-else ref="form">
           <vjsf
             v-model="data"
             :schema="example.schema"
             :precompiled-layout="layout"
             :options="renderOptions"
           />
+          <div v-if="showValidate" class="d-flex justify-end pt-2">
+            <v-btn color="success" density="compact" text="Validate" variant="flat" @click="form?.validate()" />
+          </div>
         </v-form>
       </v-theme-provider>
     </v-sheet>
   </ClientOnly>
 </template>
+
+<style scoped>
+/* The source pane never grows past half the viewport; past that the code
+block scrolls internally (CodeBlock's own `overflow: auto`). :deep()
+because the pre lives inside the child CodeBlock component. */
+.source-window :deep(.code-block) {
+  max-height: 50dvh;
+}
+</style>

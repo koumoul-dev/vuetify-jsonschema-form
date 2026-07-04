@@ -24,7 +24,7 @@ const pluginComponents: Record<string, unknown> = {
 // different reasons:
 //
 // - `select-schema-deps` purely *documents* a VJSF-2 pattern that has no VJSF-3
-//   equivalent (the "V2 compat" migration pages are documented as "not 100%
+//   equivalent (the "V2 compatibility" migration pages are documented as "not 100%
 //   compatible"). Its own `warning` field says "Using eval-expr is not supported in
 //   VJSF 3." -- its `x-fromData` uses expr-eval syntax (e.g.
 //   `filterOneOfItem(item) = ...`) which v2compat() does not translate to valid JS,

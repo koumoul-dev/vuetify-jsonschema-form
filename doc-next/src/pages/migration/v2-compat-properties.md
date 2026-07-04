@@ -3,7 +3,7 @@ title: Properties & selects
 description: V2-compat demos covering basic property types, selects, comboboxes and files
 nav:
   order: 11
-  subsection: V2 compat
+  subsection: V2 compatibility
 ---
 
 # Properties & selects

@@ -11,13 +11,16 @@
         :value="group.dir"
       >
         <template #activator="{ props: activatorProps }">
-          <v-list-item v-bind="activatorProps" :prepend-icon="group.icon" :title="group.title" />
+          <v-list-item v-bind="activatorProps" :prepend-icon="group.icon">{{ group.title }}</v-list-item>
         </template>
         <template v-for="(item, i) in group.items" :key="item.to">
-          <v-list-subheader v-if="item.subsection && item.subsection !== group.items[i - 1]?.subsection">
+          <v-list-subheader
+            v-if="item.subsection && item.subsection !== group.items[i - 1]?.subsection"
+            class="text-uppercase"
+          >
             {{ item.subsection }}
           </v-list-subheader>
-          <v-list-item :title="item.title" :to="item.to" />
+          <v-list-item :title="item.title" :to="item.to" density="compact" />
         </template>
       </v-list-group>
     </v-list>

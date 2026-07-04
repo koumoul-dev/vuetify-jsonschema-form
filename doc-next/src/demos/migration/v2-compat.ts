@@ -36,7 +36,7 @@ function withUcs2lengthWarning (examples: Example[]): Example[] {
 }
 
 // Maps the v2 example groups (./v2/*/index.js) onto the three themed
-// "V2 compat" pages -- see doc-next/src/pages/migration/v2-compat-*.md.
+// "V2 compatibility" pages -- see doc-next/src/pages/migration/v2-compat-*.md.
 export const demoV2Properties: DemoCollection = {
   id: 'demo-v2-properties',
   route: '/migration/v2-compat-properties',

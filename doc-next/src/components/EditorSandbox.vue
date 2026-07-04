@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, watch, onBeforeUnmount, toRaw } from 'vue'
 import { useDebounceFn, useEventListener } from '@vueuse/core'
-import { isSandboxMessage, type RenderMessage } from '../sandbox/protocol'
+import { isSandboxMessage, type RenderMessage, type ValidateMessage } from '../sandbox/protocol'
 
 const props = defineProps<{
   schema: unknown
@@ -52,6 +52,17 @@ function send () {
 }
 
 const debouncedSend = useDebounceFn(send, 200)
+
+// Runs the sandboxed form's VForm.validate() — used by the editor's
+// Validate button (validateOn: 'submit' mode), which lives in the parent
+// page while the form it validates lives in the iframe.
+function validate () {
+  const win = iframeRef.value?.contentWindow
+  if (!win || !ready) return
+  const msg: ValidateMessage = { type: 'validate' }
+  win.postMessage(msg, '*')
+}
+defineExpose({ validate })
 
 useEventListener(window, 'message', (e: MessageEvent) => {
   // Only accept messages that actually come from our own iframe, and only
