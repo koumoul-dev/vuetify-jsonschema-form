@@ -2,7 +2,7 @@
 title: About
 description: What VJSF is, who it's for, and the choices behind its design
 nav:
-  order: 1
+  order: 2
 ---
 
 # About

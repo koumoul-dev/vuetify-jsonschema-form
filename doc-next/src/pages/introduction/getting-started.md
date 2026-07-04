@@ -2,7 +2,7 @@
 title: Getting started
 description: Install VJSF and start using it in your projects
 nav:
-  order: 2
+  order: 1
 ---
 
 # Getting started
