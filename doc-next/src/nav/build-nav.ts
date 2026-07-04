@@ -1,4 +1,4 @@
-import { navGroups, standaloneItems, staticGroupItems } from './nav-config'
+import { navGroups, staticGroupItems } from './nav-config'
 
 export interface NavEntry {
   path: string // glob key, e.g. '/src/pages/getting-started.md'
@@ -26,7 +26,6 @@ export interface NavGroup {
 }
 
 export interface Nav {
-  standalone: (NavItem & { icon: string })[]
   groups: NavGroup[]
 }
 
@@ -69,5 +68,5 @@ export function buildNav (entries: NavEntry[]): Nav {
     // no actual page in it.
     .filter(g => g.items.length > 0)
     .map(g => ({ ...g, items: [...g.items, ...(staticGroupItems[g.dir] ?? [])].sort(byOrder) }))
-  return { standalone: [...standaloneItems], groups }
+  return { groups }
 }

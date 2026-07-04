@@ -16,7 +16,7 @@
 
     <v-btn
       class="text-none"
-      append-icon="mdi-pencil"
+      append-icon="mdi-play"
       text="Playground"
       to="/editor"
       variant="outlined"

@@ -5,13 +5,6 @@
     :temporary="!lgAndUp"
   >
     <v-list v-model:opened="opened" nav>
-      <v-list-item
-        v-for="item in nav.standalone"
-        :key="item.to"
-        :prepend-icon="item.icon"
-        :title="item.title"
-        :to="item.to"
-      />
       <v-list-group
         v-for="group in nav.groups"
         :key="group.dir"

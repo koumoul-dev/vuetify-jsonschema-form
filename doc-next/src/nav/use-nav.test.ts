@@ -16,9 +16,4 @@ describe('useNav', () => {
     const introduction = nav.groups.find(g => g.dir === 'introduction')
     expect(introduction?.items.map(i => i.to)).toEqual(['/', '/introduction/getting-started'])
   })
-
-  it('exposes standalone items including the playground', () => {
-    const nav = useNav()
-    expect(nav.standalone.map(i => i.to)).toContain('/editor')
-  })
 })

@@ -11,11 +11,6 @@ export const navGroups: NavGroupConfig[] = [
   { dir: 'migration', title: 'Migration & Compat', icon: 'mdi-swap-horizontal' },
 ]
 
-// Items rendered above the groups, outside any of them.
-export const standaloneItems = [
-  { title: 'Playground', to: '/editor', icon: 'mdi-play', order: 0 },
-]
-
 // The homepage is src/pages/index.vue (no markdown frontmatter), so its nav
 // entry is declared statically; it sorts first inside Introduction.
 export const staticGroupItems: Record<string, { title: string, to: string, order: number }[]> = {

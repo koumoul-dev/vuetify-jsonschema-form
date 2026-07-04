@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed, defineAsyncComponent, ref, watch } from 'vue'
-import { useStorage } from '@vueuse/core'
+import { computed, defineAsyncComponent, ref, watch, type ComponentPublicInstance } from 'vue'
+import { createReusableTemplate, useElementSize, useStorage } from '@vueuse/core'
+import { useDisplay } from 'vuetify'
 // `ClientOnly` is auto-registered globally by ViteSSG (see src/main.ts) — do
 // not import it here.
 import EditorSandbox from '../components/EditorSandbox.vue'
@@ -66,6 +67,32 @@ watch([schema, options, data, theme, languages], () => {
 
 const tab = ref<TabKey>('schema')
 
+// `mdAndUp` is Vuetify 4's `md` breakpoint (840px) — the exact width at which
+// the `md="6"` cols stop stacking and sit side by side. Driving the fill-the-
+// viewport layout off it (rather than a hardcoded CSS media query) keeps the
+// height behaviour locked to the column layout instead of drifting from it —
+// which is what caused the half-height panes: the CSS breakpoint still used
+// Vuetify 3's old 960px value. Safe because this whole page is `<ClientOnly>`,
+// so `useDisplay` always has the real client width (no SSR default).
+const { mdAndUp } = useDisplay()
+
+// `createReusableTemplate` lets us author the tabs and the controls (language
+// toggle + action buttons) once and place them either inline on one toolbar
+// row or on two — see `controlsStacked` below.
+const [DefineControls, Controls] = createReusableTemplate()
+const [DefineTabs, Tabs] = createReusableTemplate()
+
+// The controls fit inline next to the tabs only when the pane is wide enough.
+// In the two-column layout each pane is ~half the viewport, and with the
+// permanent nav drawer (lg+) even a wide viewport can leave a narrow pane —
+// so no viewport breakpoint can decide this correctly. We measure the pane's
+// own width instead; below the threshold the controls move to their own row
+// above the tabs (see the toolbar template). ~560px comfortably fits the tabs
+// plus the toggle and the two icon buttons without the tabs scrolling.
+const editorPane = ref<ComponentPublicInstance | null>(null)
+const { width: paneWidth } = useElementSize(editorPane)
+const controlsStacked = computed(() => paneWidth.value > 0 && paneWidth.value < 560)
+
 const schemaEditor = ref<InstanceType<typeof CodeEditorType> | null>(null)
 const optionsEditor = ref<InstanceType<typeof CodeEditorType> | null>(null)
 const dataEditor = ref<InstanceType<typeof CodeEditorType> | null>(null)
@@ -80,16 +107,13 @@ const errorLines = computed(() =>
 
 <template>
   <ClientOnly>
-    <div class="editor-page pa-2">
+    <div class="editor-page pa-2" :class="{ 'editor-page--fill': mdAndUp }">
       <v-row no-gutters class="flex-grow-1" style="min-height: 0">
         <v-col cols="12" md="6" class="pb-2 pb-md-0 pr-md-1 editor-col">
-          <v-sheet border rounded class="pane-frame d-flex flex-column">
-            <v-toolbar density="compact" color="surface" class="flex-grow-0 rounded-t">
-              <v-tabs v-model="tab" density="compact">
-                <v-tab value="schema">Schema</v-tab>
-                <v-tab value="options">Options</v-tab>
-                <v-tab value="data">Data</v-tab>
-              </v-tabs>
+          <v-sheet ref="editorPane" border rounded class="pane-frame d-flex flex-column">
+            <!-- Authored once, placed either inline next to the tabs or on its
+            own row above them — see the `controlsStacked` note above. -->
+            <DefineControls>
               <v-spacer />
               <!-- A future iteration will also host a locale switch here. -->
               <v-btn-toggle
@@ -117,6 +141,29 @@ const errorLines = computed(() =>
                 :title="theme === 'dark' ? 'Switch to light preview' : 'Switch to dark preview'"
                 @click="theme = theme === 'dark' ? 'light' : 'dark'"
               />
+            </DefineControls>
+            <DefineTabs>
+              <v-tabs v-model="tab" density="compact">
+                <v-tab value="schema">Schema</v-tab>
+                <v-tab value="options">Options</v-tab>
+                <v-tab value="data">Data</v-tab>
+              </v-tabs>
+            </DefineTabs>
+            <!-- When the pane is too narrow to fit the controls inline next to
+            the tabs, the controls take the main toolbar row and the tabs drop
+            to the extension row below — i.e. the controls sit above the tabs. -->
+            <v-toolbar
+              density="compact"
+              color="surface"
+              class="flex-grow-0 rounded-t"
+              :extended="controlsStacked"
+              extension-height="48"
+            >
+              <Tabs v-if="!controlsStacked" />
+              <Controls />
+              <template v-if="controlsStacked" #extension>
+                <Tabs />
+              </template>
             </v-toolbar>
             <v-divider />
             <v-window v-model="tab" class="editor-window flex-grow-1">
@@ -163,18 +210,28 @@ const errorLines = computed(() =>
 </template>
 
 <style scoped>
-/* Fill the viewport below the app-bar. `--v-layout-top` is maintained by the
-Vuetify layout system (real app-bar height, whatever its density) — no magic
-number. The page itself never scrolls on desktop; each pane scrolls
-internally. */
 .editor-page {
-  height: calc(100dvh - var(--v-layout-top, 64px));
   display: flex;
   flex-direction: column;
 }
+/* Side-by-side layout (md+, i.e. the `md="6"` cols sit next to each other):
+fill the viewport below the app-bar and never scroll the page — each pane
+scrolls internally. `--v-layout-top` is maintained by the Vuetify layout
+system (real app-bar height, whatever its density) — no magic number. The
+`--fill` class is toggled by `mdAndUp` so it tracks the column layout exactly
+(see the script note); a hardcoded media query previously drifted from it. */
+.editor-page--fill {
+  height: calc(100dvh - var(--v-layout-top, 64px));
+}
 .editor-col {
   min-height: 0;
+}
+.editor-page--fill .editor-col {
   height: 100%;
+}
+/* Stacked layout (below md): fixed-height panes, the page scrolls normally. */
+.editor-page:not(.editor-page--fill) .editor-col {
+  height: 50dvh;
 }
 .pane-frame {
   height: 100%;
@@ -185,14 +242,5 @@ size and scroll itself. */
 .editor-window :deep(.v-window__container),
 .editor-window :deep(.v-window-item) {
   height: 100%;
-}
-/* Stacked mobile layout: fixed-height panes, the page scrolls normally. */
-@media (max-width: 959.98px) {
-  .editor-page {
-    height: auto;
-  }
-  .editor-col {
-    height: 50dvh;
-  }
 }
 </style>

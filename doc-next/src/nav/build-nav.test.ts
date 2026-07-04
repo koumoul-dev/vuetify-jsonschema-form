@@ -14,11 +14,10 @@ describe('buildNav', () => {
     expect(nav.groups[0].items.map(i => i.to)).toEqual(['/', '/introduction/getting-started', '/introduction/about'])
   })
 
-  it('exposes standalone items and carries nav.subsection through', () => {
+  it('carries nav.subsection through', () => {
     const nav = buildNav([
       { path: '/src/pages/components/text-field.md', frontmatter: { title: 'Text field', nav: { order: 10, subsection: 'Fields' } } },
     ])
-    expect(nav.standalone.map(i => i.to)).toEqual(['/editor'])
     expect(nav.groups[0].items[0].subsection).toBe('Fields')
   })
 
