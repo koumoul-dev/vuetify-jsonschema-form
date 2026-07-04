@@ -19,8 +19,10 @@ import sections from './components/sections'
 import tabsStepperPanels from './components/tabs-stepper-panels'
 import grid from './components/grid'
 import combinedSchemas from './components/combined-schemas'
+import lists from './components/lists'
+import listActions from './components/list-actions'
 
-const collections: DemoCollection[] = [home, gettingStarted, validation, expressions, dynamicData, i18n, slots, textField, number, boolean, dateTime, color, file, select, selectionGroups, sections, tabsStepperPanels, grid, combinedSchemas]
+const collections: DemoCollection[] = [home, gettingStarted, validation, expressions, dynamicData, i18n, slots, textField, number, boolean, dateTime, color, file, select, selectionGroups, sections, tabsStepperPanels, grid, combinedSchemas, lists, listActions]
 
 export function getDemoCollections (): DemoCollection[] { return collections }
 

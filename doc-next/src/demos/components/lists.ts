@@ -1,0 +1,185 @@
+import type { DemoCollection } from '../types'
+
+const contactItem = {
+  type: 'object',
+  title: 'Contact',
+  properties: {
+    name: { type: 'string', title: 'Name' },
+    email: { type: 'string', title: 'Email' },
+  },
+}
+
+const contactsData = [
+  { name: 'Ada Lovelace', email: 'ada@example.com' },
+  { name: 'Alan Turing', email: 'alan@example.com' },
+]
+
+const collection: DemoCollection = {
+  id: 'demo-lists',
+  route: '/components/lists',
+  demos: [
+    {
+      id: 'primitives',
+      title: 'Array of primitives (default: inline)',
+      schema: {
+        type: 'object',
+        properties: {
+          tags: {
+            type: 'array',
+            title: 'Tags',
+            layout: { comp: 'list' },
+            items: { type: 'string', title: 'Tag' },
+          },
+        },
+      },
+      data: { tags: ['docs', 'forms'] },
+    },
+    {
+      id: 'objects',
+      title: 'Array of objects (default: inline-single)',
+      schema: {
+        type: 'object',
+        properties: {
+          contacts: {
+            type: 'array',
+            title: 'Contacts',
+            items: contactItem,
+          },
+        },
+      },
+      data: { contacts: contactsData },
+    },
+    {
+      id: 'inline',
+      title: 'listEditMode: inline',
+      schema: {
+        type: 'object',
+        properties: {
+          contacts: {
+            type: 'array',
+            title: 'Contacts',
+            layout: { listEditMode: 'inline' },
+            items: contactItem,
+          },
+        },
+      },
+      data: { contacts: contactsData },
+    },
+    {
+      id: 'inline-single',
+      title: 'listEditMode: inline-single',
+      schema: {
+        type: 'object',
+        properties: {
+          contacts: {
+            type: 'array',
+            title: 'Contacts',
+            layout: { listEditMode: 'inline-single' },
+            items: contactItem,
+          },
+        },
+      },
+      data: { contacts: contactsData },
+    },
+    {
+      id: 'menu',
+      title: 'listEditMode: menu',
+      schema: {
+        type: 'object',
+        properties: {
+          contacts: {
+            type: 'array',
+            title: 'Contacts',
+            layout: { listEditMode: 'menu' },
+            items: contactItem,
+          },
+        },
+      },
+      data: { contacts: contactsData },
+    },
+    {
+      id: 'dialog',
+      title: 'listEditMode: dialog',
+      schema: {
+        type: 'object',
+        properties: {
+          contacts: {
+            type: 'array',
+            title: 'Contacts',
+            layout: { listEditMode: 'dialog' },
+            items: contactItem,
+          },
+        },
+      },
+      data: { contacts: contactsData },
+    },
+    {
+      id: 'menu-width',
+      title: 'listMenuWidth',
+      schema: {
+        type: 'object',
+        properties: {
+          contacts: {
+            type: 'array',
+            title: 'Contacts',
+            layout: { listEditMode: 'menu', options: { listMenuWidth: 700 } },
+            items: contactItem,
+          },
+        },
+      },
+      data: { contacts: contactsData },
+    },
+    {
+      id: 'dialog-width',
+      title: 'listDialogWidth',
+      schema: {
+        type: 'object',
+        properties: {
+          contacts: {
+            type: 'array',
+            title: 'Contacts',
+            layout: { listEditMode: 'dialog', options: { listDialogWidth: 800 } },
+            items: contactItem,
+          },
+        },
+      },
+      data: { contacts: contactsData },
+    },
+    {
+      id: 'tuple',
+      title: 'Fixed-length items array (tuple)',
+      schema: {
+        type: 'object',
+        properties: {
+          coordinates: {
+            type: 'array',
+            title: 'Coordinates',
+            items: [
+              { type: 'number', title: 'Latitude' },
+              { type: 'number', title: 'Longitude' },
+            ],
+          },
+        },
+      },
+      data: { coordinates: [48.8566, 2.3522] },
+    },
+    {
+      id: 'indexed',
+      title: 'Indexed object (patternProperties)',
+      schema: {
+        type: 'object',
+        properties: {
+          scores: {
+            type: 'object',
+            title: 'Scores (lowercase player name as key)',
+            patternProperties: {
+              '^[a-z]+$': { type: 'number', title: 'Score' },
+            },
+          },
+        },
+      },
+      data: { scores: { alice: 10, bob: 7 } },
+    },
+  ],
+}
+export default collection
