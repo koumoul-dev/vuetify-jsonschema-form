@@ -7,8 +7,12 @@ import expressions from './behavior/expressions'
 import dynamicData from './behavior/dynamic-data'
 import i18n from './behavior/i18n'
 import slots from './behavior/slots'
+import textField from './components/text-field'
+import number from './components/number'
+import boolean from './components/boolean'
+import dateTime from './components/date-time'
 
-const collections: DemoCollection[] = [home, gettingStarted, validation, expressions, dynamicData, i18n, slots]
+const collections: DemoCollection[] = [home, gettingStarted, validation, expressions, dynamicData, i18n, slots, textField, number, boolean, dateTime]
 
 export function getDemoCollections (): DemoCollection[] { return collections }
 
