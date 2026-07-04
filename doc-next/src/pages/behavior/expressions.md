@@ -61,6 +61,12 @@ Every expression, whatever its type, receives the same set of parameters:
 
 - **data** - it varies depending on the expression you are using: it can
   be the data of the current node, an item in a select component, etc.
+- second positional parameter - the same value as `data`, but exposed
+  under a context-dependent alias name. It is `value` by default, `item`
+  for the per-item `getItems` expressions (`itemTitle`, `itemSubtitle`,
+  `itemKey`, `itemValue`, `itemIcon`, `itemHeader`), and `body` for
+  `getItems.itemsResults`. This is the `item` used in the [dynamic
+  data](/behavior/dynamic-data) page's `item.label` examples.
 - **options** - the options object passed to VJSF, merged with contextual
   options from all parent nodes.
 - **context** - shortcut for `options.context`.
