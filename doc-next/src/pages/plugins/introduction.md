@@ -164,7 +164,7 @@ import VjsfRating from './rating/index.js'
 const options = { plugins: [VjsfRating] }
 ```
 
-or build-time, via `pluginsImports: ['./rating/index.js']` — and using it
+or build-time, via `pluginsImports: ['./rating']` — and using it
 in a schema is just:
 
 ```json
