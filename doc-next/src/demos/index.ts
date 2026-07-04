@@ -15,8 +15,12 @@ import color from './components/color'
 import file from './components/file'
 import select from './components/select'
 import selectionGroups from './components/selection-groups'
+import sections from './components/sections'
+import tabsStepperPanels from './components/tabs-stepper-panels'
+import grid from './components/grid'
+import combinedSchemas from './components/combined-schemas'
 
-const collections: DemoCollection[] = [home, gettingStarted, validation, expressions, dynamicData, i18n, slots, textField, number, boolean, dateTime, color, file, select, selectionGroups]
+const collections: DemoCollection[] = [home, gettingStarted, validation, expressions, dynamicData, i18n, slots, textField, number, boolean, dateTime, color, file, select, selectionGroups, sections, tabsStepperPanels, grid, combinedSchemas]
 
 export function getDemoCollections (): DemoCollection[] { return collections }
 
