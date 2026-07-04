@@ -1,8 +1,10 @@
+import { navGroups, standaloneItems, staticGroupItems } from './nav-config'
+
 export interface NavEntry {
   path: string // glob key, e.g. '/src/pages/getting-started.md'
   frontmatter: {
     title?: string
-    nav?: { order?: number, hidden?: boolean }
+    nav?: { order?: number, hidden?: boolean, subsection?: string }
   }
 }
 
@@ -10,11 +12,22 @@ export interface NavItem {
   title: string
   to: string
   order: number
-  // Optional drawer grouping label (e.g. 'Examples'). Consecutive items
-  // sharing a `section` are rendered under one subheader by App.vue;
-  // markdown-page items (built here) leave it unset. See use-nav.ts, which
-  // appends the example-category items that do set it.
-  section?: string
+  // Optional sub-grouping label within a group (e.g. 'Fields' under
+  // Components). Consecutive items sharing a `subsection` are rendered
+  // under one subheader by AppDrawer.vue.
+  subsection?: string
+}
+
+export interface NavGroup {
+  dir: string
+  title: string
+  icon: string
+  items: NavItem[]
+}
+
+export interface Nav {
+  standalone: (NavItem & { icon: string })[]
+  groups: NavGroup[]
 }
 
 function toRoute (path: string): string {
@@ -27,20 +40,34 @@ function humanize (path: string): string {
   return base.charAt(0).toUpperCase() + base.slice(1).replace(/-/g, ' ')
 }
 
-// Shared by buildNav below and by use-nav.ts, which merges in the
-// example-category items (a separately-sourced list, see getExamples())
-// before doing one final combined sort.
-export function sortNav (items: NavItem[]): NavItem[] {
-  return [...items].sort((a, b) => a.order - b.order || a.title.localeCompare(b.title))
+// A page's group is the directory it lives in directly under src/pages.
+function groupDir (path: string): string | undefined {
+  const m = path.match(/\/pages\/([^/]+)\//)
+  return m?.[1]
 }
 
-export function buildNav (entries: NavEntry[]): NavItem[] {
-  return sortNav(entries
+const byOrder = (a: NavItem, b: NavItem) => a.order - b.order || a.title.localeCompare(b.title)
+
+export function buildNav (entries: NavEntry[]): Nav {
+  const pages = entries
     .filter(e => !/\/_[^/]*\.md$/.test(e.path)) // skip underscore-prefixed files
     .filter(e => !e.frontmatter.nav?.hidden)
-    .map(e => ({
-      title: e.frontmatter.title ?? humanize(e.path),
-      to: toRoute(e.path),
-      order: e.frontmatter.nav?.order ?? 100,
-    })))
+  const groups = navGroups
+    .map(g => {
+      const items: NavItem[] = pages
+        .filter(e => groupDir(e.path) === g.dir)
+        .map(e => ({
+          title: e.frontmatter.title ?? humanize(e.path),
+          to: toRoute(e.path),
+          order: e.frontmatter.nav?.order ?? 100,
+          subsection: e.frontmatter.nav?.subsection,
+        }))
+      return { dir: g.dir, title: g.title, icon: g.icon, items }
+    })
+    // Drop empty groups before merging in static items: a static entry
+    // (e.g. the Home link) shouldn't by itself resurrect a group that has
+    // no actual page in it.
+    .filter(g => g.items.length > 0)
+    .map(g => ({ ...g, items: [...g.items, ...(staticGroupItems[g.dir] ?? [])].sort(byOrder) }))
+  return { standalone: [...standaloneItems], groups }
 }

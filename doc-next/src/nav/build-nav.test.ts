@@ -1,49 +1,40 @@
 import { describe, it, expect } from 'vitest'
-import { buildNav, sortNav } from './build-nav'
+import { buildNav } from './build-nav'
 
 describe('buildNav', () => {
-  it('derives title/route from frontmatter+path and sorts by order then title', () => {
+  it('groups pages by directory following nav-config order, sorts items by order then title', () => {
     const nav = buildNav([
-      { path: '/src/pages/getting-started.md', frontmatter: { title: 'Getting started', nav: { order: 2 } } },
-      { path: '/src/pages/index.md', frontmatter: { title: 'Home', nav: { order: 0 } } },
-      { path: '/src/pages/about.md', frontmatter: { title: 'About', nav: { order: 1 } } },
+      { path: '/src/pages/behavior/options.md', frontmatter: { title: 'Options', nav: { order: 2 } } },
+      { path: '/src/pages/introduction/about.md', frontmatter: { title: 'About', nav: { order: 2 } } },
+      { path: '/src/pages/introduction/getting-started.md', frontmatter: { title: 'Getting started', nav: { order: 1 } } },
     ])
-    expect(nav.map(n => n.to)).toEqual(['/', '/about', '/getting-started'])
-    expect(nav[0].title).toBe('Home')
+    expect(nav.groups.map(g => g.title)).toEqual(['Introduction', 'Behavior'])
+    expect(nav.groups[0].icon).toBe('mdi-script-text-outline')
+    // static Home entry sorts first in Introduction
+    expect(nav.groups[0].items.map(i => i.to)).toEqual(['/', '/introduction/getting-started', '/introduction/about'])
   })
 
-  it('excludes pages with nav.hidden and underscore-prefixed files', () => {
+  it('exposes standalone items and carries nav.subsection through', () => {
     const nav = buildNav([
-      { path: '/src/pages/index.md', frontmatter: { title: 'Home' } },
-      { path: '/src/pages/_draft.md', frontmatter: { title: 'Draft' } },
-      { path: '/src/pages/secret.md', frontmatter: { title: 'Secret', nav: { hidden: true } } },
+      { path: '/src/pages/components/text-field.md', frontmatter: { title: 'Text field', nav: { order: 10, subsection: 'Fields' } } },
     ])
-    expect(nav.map(n => n.to)).toEqual(['/'])
+    expect(nav.standalone.map(i => i.to)).toEqual(['/editor'])
+    expect(nav.groups[0].items[0].subsection).toBe('Fields')
   })
 
-  it('falls back to a humanized filename when title is missing, order defaults to 100', () => {
+  it('still excludes hidden pages and underscore-prefixed files', () => {
     const nav = buildNav([
-      { path: '/src/pages/data-types.md', frontmatter: {} },
-      { path: '/src/pages/index.md', frontmatter: { title: 'Home', nav: { order: 0 } } },
+      { path: '/src/pages/behavior/_draft.md', frontmatter: { title: 'Draft' } },
+      { path: '/src/pages/behavior/secret.md', frontmatter: { title: 'Secret', nav: { hidden: true } } },
+      { path: '/src/pages/behavior/options.md', frontmatter: { title: 'Options' } },
     ])
-    expect(nav.map(n => n.title)).toEqual(['Home', 'Data types'])
-  })
-})
-
-describe('sortNav', () => {
-  it('sorts by order then title, used to merge nav lists built from separate sources', () => {
-    const merged = sortNav([
-      { title: 'Getting started', to: '/getting-started', order: 2 },
-      { title: 'Simple properties', to: '/simple-properties', order: 10, section: 'Examples' },
-      { title: 'Home', to: '/', order: 0 },
-    ])
-    expect(merged.map(n => n.to)).toEqual(['/', '/getting-started', '/simple-properties'])
+    expect(nav.groups.flatMap(g => g.items).map(i => i.to)).toEqual(['/behavior/options'])
   })
 
-  it('does not mutate the input array', () => {
-    const input = [{ title: 'B', to: '/b', order: 1 }, { title: 'A', to: '/a', order: 0 }]
-    const copy = [...input]
-    sortNav(input)
-    expect(input).toEqual(copy)
+  it('ignores pages whose directory is not a configured group', () => {
+    const nav = buildNav([
+      { path: '/src/pages/stray.md', frontmatter: { title: 'Stray' } },
+    ])
+    expect(nav.groups.every(g => !g.items.some(i => i.title === 'Stray'))).toBe(true)
   })
 })

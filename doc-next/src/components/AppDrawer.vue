@@ -5,9 +5,9 @@
     :temporary="!lgAndUp"
   >
     <v-list nav>
-      <template v-for="(item, i) in nav" :key="item.to">
-        <v-list-subheader v-if="item.section && item.section !== nav[i - 1]?.section">
-          {{ item.section }}
+      <template v-for="(item, i) in items" :key="item.to">
+        <v-list-subheader v-if="item.subsection && item.subsection !== items[i - 1]?.subsection">
+          {{ item.subsection }}
         </v-list-subheader>
         <v-list-item :title="item.title" :to="item.to" />
       </template>
@@ -52,6 +52,7 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useDisplay } from 'vuetify'
 import { useNav } from '../nav/use-nav'
 import { appVersion, commitHash, commitUrl } from '../build-info'
@@ -59,5 +60,9 @@ import { appVersion, commitHash, commitUrl } from '../build-info'
 const drawer = defineModel<boolean>({ default: false })
 
 const nav = useNav()
+// TEMPORARY: flattens the grouped Nav back into the old flat list so this
+// component keeps compiling/working during the redesign. Task 2 replaces
+// this whole component with a proper collapsible-group rendering.
+const items = computed(() => [...nav.standalone, ...nav.groups.flatMap(g => g.items)])
 const { lgAndUp } = useDisplay()
 </script>

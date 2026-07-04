@@ -1,30 +1,39 @@
-import { describe, it, expect } from 'vitest'
-import { useNav } from './use-nav'
-import { getExamples } from '../examples'
+import { describe, it, expect, vi } from 'vitest'
+
+// Real src/pages has no group subdirectories yet (Tasks 5-14 migrate the
+// content), so exercise buildNav's grouping against fixture entries rather
+// than the live virtual module.
+vi.mock('virtual:nav-data', () => ({
+  default: [
+    { path: '/src/pages/introduction/getting-started.md', frontmatter: { title: 'Getting started', nav: { order: 1 } } },
+  ],
+}))
+
+vi.mock('../examples', () => ({
+  getExamples: () => [
+    { id: 'foo', title: 'Foo' },
+    { id: 'bar', title: 'Bar' },
+  ],
+}))
+
+const { useNav } = await import('./use-nav')
 
 describe('useNav', () => {
-  it('builds a non-empty nav from real page frontmatter, incl. the home route', () => {
+  it('builds groups from page frontmatter, incl. the static home route', () => {
     const nav = useNav()
-    expect(nav.length).toBeGreaterThan(0)
-    expect(nav.some(i => i.to === '/')).toBe(true)
-    // underscore-prefixed probe page must NOT appear in nav
-    expect(nav.some(i => i.to === '/_routing-probe')).toBe(false)
+    const introduction = nav.groups.find(g => g.dir === 'introduction')
+    expect(introduction?.items.map(i => i.to)).toEqual(['/', '/introduction/getting-started'])
   })
 
-  it('appends every example category, grouped under an "Examples" section, after the guide pages', () => {
+  it('exposes standalone items including the playground', () => {
     const nav = useNav()
-    const categories = getExamples()
-    const exampleItems = nav.filter(i => i.section === 'Examples')
-    expect(exampleItems.length).toBe(categories.length)
-    expect(exampleItems.map(i => i.to)).toEqual(categories.map(c => '/' + c.id))
-    // no filtering by id prefix (parity with the old doc site's sidebar):
-    // the '_dev' category still gets a nav link, only the page itself is
-    // marked noindex (see src/pages/[category].vue).
-    expect(exampleItems.some(i => i.to === '/_dev')).toBe(true)
-    expect(exampleItems.some(i => i.to === '/v2-compat')).toBe(true)
+    expect(nav.standalone.map(i => i.to)).toContain('/editor')
+  })
 
-    const guidePageOrders = nav.filter(i => !i.section).map(i => i.order)
-    const examplesOrders = exampleItems.map(i => i.order)
-    expect(Math.max(...guidePageOrders)).toBeLessThan(Math.min(...examplesOrders))
+  it('appends the legacy example categories as a trailing group', () => {
+    const nav = useNav()
+    const last = nav.groups[nav.groups.length - 1]
+    expect(last.dir).toBe('_legacy-examples')
+    expect(last.items.map(i => i.to)).toEqual(['/foo', '/bar'])
   })
 })
