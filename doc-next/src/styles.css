@@ -26,3 +26,10 @@ html, body, .v-application { font-family: 'Nunito', sans-serif; }
 .page-anchor-btn:focus-visible {
   opacity: 1;
 }
+/* The button is injected *inside* headings, so a v-btn icon (sized ~1.5em)
+   would inherit the heading's font-size and balloon (e.g. 36px on a 24px h2)
+   and scale differently per heading level. Pin the icon to a fixed size so it
+   reads small and consistent everywhere. */
+.page-anchor-btn .v-icon {
+  font-size: 1.125rem;
+}
