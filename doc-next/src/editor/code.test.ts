@@ -39,10 +39,12 @@ describe('formatCode', () => {
     const jsonText = formatCode(parseCode(yamlText, 'yaml'), 'json')
     expect(parseCode(jsonText, 'json')).toEqual(value)
   })
-  it('formats JS-style (unquoted keys, single quotes) in js mode', () => {
-    expect(formatCode({ a: 1, b: 'x' }, 'js')).toBe("{\n  a: 1,\n  b: 'x',\n}")
+  it('formats JS-style (unquoted keys, single quotes, no trailing commas) in js mode', () => {
+    expect(formatCode({ a: 1, b: 'x' }, 'js')).toBe("{\n  a: 1,\n  b: 'x'\n}")
     // non-identifier keys stay quoted
-    expect(formatCode({ 'd-e': 2 }, 'js')).toBe("{\n  'd-e': 2,\n}")
+    expect(formatCode({ 'd-e': 2 }, 'js')).toBe("{\n  'd-e': 2\n}")
+    // nested objects/arrays are stripped too, and commas inside strings are kept
+    expect(formatCode({ a: [1, 2], b: 'x, y' }, 'js')).toBe("{\n  a: [\n    1,\n    2\n  ],\n  b: 'x, y'\n}")
   })
   it('round-trips json -> js -> json', () => {
     const value = { type: 'object', properties: { name: { type: 'string' } } }
