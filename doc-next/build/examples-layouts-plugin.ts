@@ -33,6 +33,11 @@ const pluginComponents: Record<string, unknown> = {
 // description/warning without an interactive form for these specific keys.
 const KNOWN_INCOMPATIBLE = new Set([
   'v2-compat/select-schema-deps',
+  // Same example, also exposed under its new Task-14 "V2 compat" demo key
+  // (doc-next/src/demos/migration/v2-compat.ts's `demo-v2-advanced`
+  // collection) -- the legacy `v2-compat` category above still exists until
+  // the next task removes it, so both keys need an entry.
+  'demo-v2-advanced/select-schema-deps',
 ])
 
 const MANIFEST_ID = 'virtual:example-layouts'

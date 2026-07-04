@@ -23,8 +23,9 @@ import lists from './components/lists'
 import listActions from './components/list-actions'
 import markdown from './plugins/markdown'
 import imgCropper from './plugins/img-cropper'
+import { demoV2Properties, demoV2SectionsArrays, demoV2Advanced } from './migration/v2-compat'
 
-const collections: DemoCollection[] = [home, gettingStarted, validation, expressions, dynamicData, i18n, slots, textField, number, boolean, dateTime, color, file, select, selectionGroups, sections, tabsStepperPanels, grid, combinedSchemas, lists, listActions, markdown, imgCropper]
+const collections: DemoCollection[] = [home, gettingStarted, validation, expressions, dynamicData, i18n, slots, textField, number, boolean, dateTime, color, file, select, selectionGroups, sections, tabsStepperPanels, grid, combinedSchemas, lists, listActions, markdown, imgCropper, demoV2Properties, demoV2SectionsArrays, demoV2Advanced]
 
 export function getDemoCollections (): DemoCollection[] { return collections }
 
