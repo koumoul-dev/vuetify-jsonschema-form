@@ -10,8 +10,9 @@
 
     <v-main>
       <!-- Full-bleed routes (the playground) manage their own width/height
-      and scroll internally; everything else gets the centered container. -->
-      <router-view v-if="isFullBleed" />
+      and scroll internally; the homepage scrolls normally but lays out its
+      own full-width sections; everything else gets the centered container. -->
+      <router-view v-if="isFullBleed || isFullWidth" />
       <v-container v-else>
         <router-view />
       </v-container>
@@ -49,6 +50,11 @@ const routePath = computed(() => route.value?.path ?? '/')
 // Routes that fill the whole main area (no centered container, no page
 // scroll) — just the playground for now.
 const isFullBleed = computed(() => routePath.value === '/editor')
+
+// The homepage still scrolls normally (unlike full-bleed routes) but manages
+// its own section widths/containers, so it also skips the global centered
+// v-container.
+const isFullWidth = computed(() => routePath.value === '/')
 
 // Matches `scroll-margin-top` on headings in styles.css.
 const SCROLL_OFFSET = 80
