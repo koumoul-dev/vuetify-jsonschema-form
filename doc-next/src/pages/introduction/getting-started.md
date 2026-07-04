@@ -18,73 +18,42 @@ Install from npm:
 npm install @koumoul/vjsf
 ```
 
-## Compile at runtime
+## Your first form
 
-This is the simplest way to use VJSF. If you work with static schemas you
-might want to look into compiling at build time instead.
+The simplest way to use VJSF is to compile the schema at runtime: pass a
+JSON schema and some options to the `vjsf` component and it renders a form.
 
 ```vue
 <script setup>
   import Vjsf from '@koumoul/vjsf'
   import { VForm } from 'vuetify/components'
-</script>
-<template>
-  <v-form>
-    <vjsf v-model="data" :schema="schema" :options="options" />
-  </v-form>
-</template>
-```
 
-## Compile at build time
-
-This is a more advanced way of using VJSF. All pre-processing that can be
-done prior to execution is done at build time, this includes compiling
-validation functions, compiling expression functions, normalizing the
-layout keywords and building a skeleton tree of the components that will
-be used to render the form.
-
-In the build script:
-
-```js
-import compile from '@koumoul/vjsf-compiler'
-const code = compile(schema, options)
-await writeFile('./components/compiled/my-vjsf.vue', code)
-```
-
-In the page:
-
-```vue
-<script setup>
-  import MyVjsf from './components/compiled/my-vjsf.vue'
-  import { VForm } from 'vuetify/components'
-</script>
-<template>
-  <v-form>
-    <my-vjsf v-model="data" :options="options" />
-  </v-form>
-</template>
-```
-
-## CommonJS dependencies
-
-Unfortunately some of the dependencies used by vjsf are published in the
-CommonJS format. This breaks homogeneity with the otherwise ESM modules of
-this library. You might need to inform your build system, for example with
-Vite:
-
-```js
-import { commonjsDeps } from '@koumoul/vjsf/utils/build.js'
-// ...
-  optimizeDeps: {
-    include: commonjsDeps,
-  },
-  build: {
-    commonjsOptions: {
-      transformMixedEsModules: true,
+  const schema = {
+    type: 'object',
+    required: ['title'],
+    properties: {
+      title: { type: 'string', title: 'Title' },
+      description: { type: 'string', title: 'Description', layout: 'textarea' },
+      dueDate: { type: 'string', title: 'Due date', format: 'date' },
     },
-  },
-// ...
+  }
+</script>
+<template>
+  <v-form>
+    <vjsf v-model="data" :schema="schema" />
+  </v-form>
+</template>
 ```
 
-When changing these parameters in Vite some caching can create confusion,
-in this case you can use `vite --force` or remove `node_modules/.cache/vite`.
+<VjsfDemo demo="demo-getting-started/first-form" />
+
+## Going further
+
+- If you work with static schemas, [compile at build time](/behavior/compilation)
+  instead for better performance and a smaller runtime footprint.
+- Some of VJSF's dependencies are published as CommonJS; see
+  [compilation](/behavior/compilation) for the build configuration this
+  requires.
+- Explore the available [options](/behavior/options) to customize
+  validation, density, internationalization, and more.
+- Try schemas interactively in the [editor](/editor).

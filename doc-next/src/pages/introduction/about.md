@@ -53,3 +53,16 @@ you should be aware of:
 - Some functionalities are explicitly coupled to Vuetify. We let you use
   parameters that are directly mapped to Vuetify underlying components
   (slots, props, layout classes, etc.)
+
+## Support the project
+
+VJSF is free and open-source, maintained by [Koumoul](https://koumoul.com)
+on our own time and budget. If it saves you time, consider supporting its
+development through [GitHub Sponsors](https://github.com/sponsors/koumoul-dev).
+
+You can also help without spending anything:
+
+- star the project on [Github](https://github.com/koumoul-dev/vuetify-jsonschema-form)
+  to help other people discover it
+- [report issues](https://github.com/koumoul-dev/vuetify-jsonschema-form/issues)
+  or open a discussion when something is missing or unclear

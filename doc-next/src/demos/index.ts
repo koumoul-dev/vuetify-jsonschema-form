@@ -1,8 +1,9 @@
 import type { Example } from '../examples/types'
 import type { DemoCollection } from './types'
 import home from './introduction/home'
+import gettingStarted from './introduction/getting-started'
 
-const collections: DemoCollection[] = [home]
+const collections: DemoCollection[] = [home, gettingStarted]
 
 export function getDemoCollections (): DemoCollection[] { return collections }
 
