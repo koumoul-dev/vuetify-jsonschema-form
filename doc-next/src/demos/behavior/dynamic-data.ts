@@ -54,6 +54,27 @@ const collection: DemoCollection = {
         },
       },
     },
+    {
+      id: 'get-default-data',
+      title: 'getDefaultData computed field',
+      schema: {
+        type: 'object',
+        title: 'Contact',
+        properties: {
+          firstName: { type: 'string', title: 'First name' },
+          lastName: { type: 'string', title: 'Last name' },
+          fullName: {
+            type: 'string',
+            title: 'Full name',
+            description: 'Defaults from first + last name while left empty. Clear it to see it recompute.',
+            layout: {
+              // `parent.data` is auto-detected as impure, no `pure: false` needed
+              getDefaultData: '((parent.data?.firstName ?? \'\') + \' \' + (parent.data?.lastName ?? \'\')).trim()',
+            },
+          },
+        },
+      },
+    },
   ],
 }
 export default collection

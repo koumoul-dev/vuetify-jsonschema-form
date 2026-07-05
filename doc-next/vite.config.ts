@@ -10,6 +10,7 @@ import Markdown from 'unplugin-vue-markdown/vite'
 import VueRouter from 'unplugin-vue-router/vite'
 import anchor from 'markdown-it-anchor'
 import attrs from 'markdown-it-attrs'
+import { createHighlighter } from 'shiki'
 import fg from 'fast-glob'
 import matter from 'gray-matter'
 import { searchIndexPlugin } from './build/search-index-plugin'
@@ -101,7 +102,37 @@ export default defineConfig({
         if (frontmatter.title) head.title = `${frontmatter.title} - VJSF`
         return { head, frontmatter }
       },
-      markdownItSetup (md) {
+      async markdownItSetup (md) {
+        // Code fences are highlighted at build time (pages are compiled by
+        // this plugin), so shiki adds zero runtime weight. one-dark-pro is
+        // the same palette as the playground's CodeMirror one-dark theme and
+        // CodeBlock.vue's token colors.
+        const highlighter = await createHighlighter({
+          themes: ['one-dark-pro'],
+          langs: ['bash', 'js', 'json', 'ts', 'vue'],
+        })
+        md.options.highlight = (code, lang) => highlighter.codeToHtml(code, {
+          // 'text' (always available) still produces the styled block for
+          // fences with no language tag.
+          lang: highlighter.getLoadedLanguages().includes(lang) ? lang : 'text',
+          theme: 'one-dark-pro',
+          transformers: [{
+            // Drop the theme's inline pre style (bg/fg) and reuse the global
+            // .code-block chrome (src/styles.css) so markdown fences and the
+            // examples' source panes read as the same block.
+            pre (node) {
+              delete node.properties.style
+              this.addClassToHast(node, 'code-block')
+            },
+          }],
+        })
+        // Markdown tables render as <v-table> (auto-imported by
+        // vite-plugin-vuetify like any component in these compiled pages):
+        // thead/tbody land in the slot, inside the <table> that v-table
+        // renders. Vuetify's border/rounded utility classes replace any
+        // custom table CSS.
+        md.renderer.rules.table_open = () => '<v-table hover class="border rounded my-4">\n'
+        md.renderer.rules.table_close = () => '</v-table>\n'
         // h2+ headings get an id (markdown-it-anchor) plus a hover copy-link
         // button: the custom permalink appends a <CopyAnchor> tag that compiles
         // to the globally-registered component (src/main.ts).

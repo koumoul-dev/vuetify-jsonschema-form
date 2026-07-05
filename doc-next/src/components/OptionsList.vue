@@ -14,14 +14,18 @@
             <!-- eslint-disable-next-line vue/no-v-html -->
             <div v-html="option.description" />
           </v-list-item-subtitle>
-          <v-table v-if="option.values" density="compact" class="option-values">
-            <tbody>
-              <tr v-for="(meaning, value) in option.values" :key="value">
-                <td class="font-weight-medium text-no-wrap">{{ value }}</td>
-                <td>{{ meaning }}</td>
-              </tr>
-            </tbody>
-          </v-table>
+          <template v-if="option.values">
+            <!-- long catalogues of defaults (messages, icons) fold away so
+            they don't dwarf the rest of the list -->
+            <v-expansion-panels v-if="Object.keys(option.values).length > COLLAPSE_AFTER" density="compact" static flat rounded style="max-width: 640px">
+              <v-expansion-panel :title="`${option.valuesTitle ?? 'Values'} (${Object.keys(option.values).length})`">
+                <v-expansion-panel-text>
+                  <OptionValuesTable :option="option" />
+                </v-expansion-panel-text>
+              </v-expansion-panel>
+            </v-expansion-panels>
+            <OptionValuesTable v-else :option="option" />
+          </template>
         </v-list-item>
         <v-divider />
       </template>
@@ -32,8 +36,13 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { compileOptions, runtimeOptions } from '../doc-options'
+import OptionValuesTable from './OptionValuesTable.vue'
 
 const props = defineProps<{ type: 'compile' | 'runtime' }>()
+
+// Enum-like values tables (2-3 rows) stay inline; anything past this is a
+// catalogue of defaults and collapses.
+const COLLAPSE_AFTER = 8
 
 const options = computed(() => props.type === 'compile' ? compileOptions : runtimeOptions)
 
@@ -42,9 +51,3 @@ function formatDefault (value: unknown): string {
   return JSON.stringify(value)
 }
 </script>
-
-<style scoped>
-.option-values {
-  max-width: 640px;
-}
-</style>

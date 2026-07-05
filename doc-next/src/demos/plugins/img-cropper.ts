@@ -7,28 +7,18 @@ const collection: DemoCollection = {
     {
       id: 'default',
       title: 'layout: img-cropper',
-      schema: {
-        type: 'object',
-        properties: {
-          avatar: { type: 'string', title: 'Avatar', layout: 'img-cropper' },
-        },
-      },
+      schema: { type: 'string', title: 'Avatar', layout: 'img-cropper' },
     },
     {
       id: 'accept-placeholder',
       title: 'accept + placeholder',
       schema: {
-        type: 'object',
-        properties: {
-          avatar: {
-            type: 'string',
-            title: 'Avatar',
-            layout: {
-              comp: 'img-cropper',
-              accept: '.png,.jpg,.jpeg',
-              placeholder: 'Drop an image here',
-            },
-          },
+        type: 'string',
+        title: 'Avatar',
+        layout: {
+          comp: 'img-cropper',
+          accept: '.png,.jpg,.jpeg',
+          placeholder: 'Drop an image here',
         },
       },
     },

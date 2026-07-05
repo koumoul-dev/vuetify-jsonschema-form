@@ -7,22 +7,12 @@ const collection: DemoCollection = {
     {
       id: 'default',
       title: 'layout: markdown',
-      schema: {
-        type: 'object',
-        properties: {
-          content: { type: 'string', title: 'Content', layout: 'markdown' },
-        },
-      },
+      schema: { type: 'string', title: 'Content', layout: 'markdown' },
     },
     {
       id: 'easymde-options',
       title: 'Customizing EasyMDE (pluginsOptions.markdown)',
-      schema: {
-        type: 'object',
-        properties: {
-          content: { type: 'string', title: 'Content', layout: 'markdown' },
-        },
-      },
+      schema: { type: 'string', title: 'Content', layout: 'markdown' },
       options: {
         pluginsOptions: {
           markdown: {

@@ -7,27 +7,17 @@ const collection: DemoCollection = {
     {
       id: 'default',
       title: 'layout: file-input',
-      schema: {
-        type: 'object',
-        properties: {
-          document: { type: 'string', title: 'Document', layout: 'file-input' },
-        },
-      },
+      schema: { type: 'string', title: 'Document', layout: 'file-input' },
     },
     {
       id: 'accept',
       title: 'Restricting the accepted types',
       schema: {
-        type: 'object',
-        properties: {
-          document: {
-            type: 'string',
-            title: 'Document',
-            layout: {
-              comp: 'file-input',
-              props: { accept: '.pdf,.doc,.docx' },
-            },
-          },
+        type: 'string',
+        title: 'Document',
+        layout: {
+          comp: 'file-input',
+          props: { accept: '.pdf,.doc,.docx' },
         },
       },
     },

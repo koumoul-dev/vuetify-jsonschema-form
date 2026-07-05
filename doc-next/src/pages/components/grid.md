@@ -20,18 +20,7 @@ A plain integer from `0` to `12` sets the child's width from the `sm`
 breakpoint up; below `sm` a field always defaults to the full 12 columns,
 so narrow screens still get one field per row:
 
-<VjsfDemo demo="demo-grid/cols-number" />
-
-```json
-{
-  "type": "object",
-  "properties": {
-    "str1": { "type": "string", "title": "12 cols (default)" },
-    "str2": { "type": "string", "title": "4 cols", "layout": { "cols": 4 } },
-    "str3": { "type": "string", "title": "8 cols", "layout": { "cols": 8 } }
-  }
-}
-```
+<VjsfDemo demo="demo-grid/cols-number" expanded hide-data />
 
 ## layout.cols as a per-breakpoint object
 
@@ -41,15 +30,7 @@ the thresholds where the value actually changes — `xs` defaults to `12`,
 and any breakpoint you don't set falls through to the next smaller one
 you did set:
 
-<VjsfDemo demo="demo-grid/cols-breakpoint" />
-
-```json
-{
-  "type": "string",
-  "title": "12 cols below md, 6 cols from md up",
-  "layout": { "cols": { "md": 6 } }
-}
-```
+<VjsfDemo demo="demo-grid/cols-breakpoint" expanded hide-data />
 
 ## A two-column address form
 
@@ -57,19 +38,7 @@ Combining both forms of `cols` on a handful of fields is the usual way
 to lay out a compact form — a full-width field followed by a couple of
 half-width ones on the same row:
 
-<VjsfDemo demo="demo-grid/address" />
-
-```json
-{
-  "type": "object",
-  "properties": {
-    "street": { "type": "string", "title": "Street", "layout": { "cols": 12 } },
-    "city": { "type": "string", "title": "City", "layout": { "cols": { "sm": 6 } } },
-    "zip": { "type": "string", "title": "ZIP code", "layout": { "cols": { "sm": 6 } } },
-    "country": { "type": "string", "title": "Country", "layout": { "cols": 12 } }
-  }
-}
-```
+<VjsfDemo demo="demo-grid/address" expanded hide-data />
 
 `city` and `zip` sit side by side from the `sm` breakpoint up, and each
 takes the full row on narrower screens.
@@ -80,11 +49,7 @@ The `density` runtime option (`'default'` | `'compact'` | `'comfortable'`)
 matches Vuetify's own Material Design density concept, tightening or
 loosening the vertical spacing of every field in the form:
 
-<VjsfDemo demo="demo-grid/density" />
-
-```json
-{ "options": { "density": "compact" } }
-```
+<VjsfDemo demo="demo-grid/density" expanded hide-data />
 
 Like every runtime option, `density` can also be overridden at any level
 of the schema with `layout.options` — see [options](/behavior/options)

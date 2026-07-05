@@ -1,6 +1,6 @@
 ---
 title: Dynamic data
-description: Populating a select's items from an expression or from an HTTP API with layout.getItems
+description: Populating a select's items with layout.getItems and computing default values with layout.getDefaultData
 nav:
   order: 5
 ---
@@ -18,20 +18,7 @@ The simplest form of `getItems` is a plain expression, evaluated with
 access to the usual [expression parameters](/behavior/expressions#parameters)
 (`context` is the most commonly used one here). It must return an array:
 
-<VjsfDemo demo="demo-dynamic-data/get-items-expression" />
-
-```json
-{
-  "type": "object",
-  "properties": {
-    "fruit": {
-      "type": "string",
-      "title": "Favorite fruit",
-      "layout": { "getItems": "context.fruits" }
-    }
-  }
-}
-```
+<VjsfDemo demo="demo-dynamic-data/get-items-expression" expanded />
 
 ## Transforming items
 
@@ -55,28 +42,7 @@ items:
 - **immutable** - hint that the source data never changes, so items can
   be cached more aggressively.
 
-<VjsfDemo demo="demo-dynamic-data/transform-items" />
-
-```json
-{
-  "type": "object",
-  "properties": {
-    "person": {
-      "type": "string",
-      "title": "Pick a person",
-      "layout": {
-        "getItems": {
-          "expr": "context.people",
-          "itemsResults": "data.results",
-          "itemTitle": "item.label",
-          "itemValue": "item.id",
-          "itemIcon": "\"mdi-\" + item.icon"
-        }
-      }
-    }
-  }
-}
-```
+<VjsfDemo demo="demo-dynamic-data/transform-items" expanded />
 
 ## Fetching items from an API
 
@@ -127,16 +93,42 @@ above for the expression form.
 
 ## Fetch configuration
 
-Two runtime options control every `getItems` fetch, wherever it happens
-in the schema:
+Three runtime options control every `getItems` fetch, wherever it
+happens in the schema:
 
 - **fetchBaseURL** (default `'/'`) - a base URL resolved against every
   relative `getItems.url`.
 - **fetchOptions** (default `{}`) - options forwarded to the underlying
   [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch)
   call (headers, credentials, etc.); can also be a function of the
-  resolved `URL` returning those options.
+  resolved `URL` returning those options, when they depend on the target.
+- **fetch** - the fetch implementation itself. The default is
+  `async (url, fetchOptions) => (await fetch(url, fetchOptions)).json()`;
+  replace it for full control (custom HTTP client, caching, mocks in
+  tests) and make sure the replacement *returns* the promise of the
+  parsed items.
+
+Authenticating the requests is the most common use of `fetchOptions`:
+
+```js
+const options = {
+  fetchOptions: { headers: { Authorization: `Bearer ${token}` } },
+}
+```
 
 See [components/select](/components/select) for the rest of the
 `select`/`autocomplete` component's own options (multiple selection,
 chips, groups, etc.).
+
+## Computed default values
+
+`layout.getDefaultData` computes a node's value from an
+[expression](/behavior/expressions) while that node's own data is empty
+(see `defaultOn` on the [options](/behavior/options) page). Once the
+node's data stops being empty, whether because the user typed something
+or because the expression itself produced a non-empty result, it is left
+alone until it becomes empty again. In the demo below, `parent.data`
+reaches the sibling properties (see
+[expressions](/behavior/expressions#reaching-the-rest-of-the-form-with-parent-and-rootdata)):
+
+<VjsfDemo demo="demo-dynamic-data/get-default-data" expanded />

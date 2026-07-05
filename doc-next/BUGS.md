@@ -11,5 +11,6 @@ Found while writing the doc-next documentation (2026-07-04 navigation & content 
 
 ## Doc follow-ups
 
-- Improve heading anchor handling.
 - On a `v-select` with mdi icons: handling of headers with icon, avatar, etc.
+Améliorer l'example du slider (props,step, min, max, minimum, maximum,...)
+Review de toutes les documentations des composants

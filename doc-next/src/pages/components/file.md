@@ -16,11 +16,7 @@ convention; it doesn't carry over). You have to opt in explicitly with
 
 ## Default
 
-<VjsfDemo demo="demo-file/default" />
-
-```json
-{ "type": "string", "title": "Document", "layout": "file-input" }
-```
+<VjsfDemo demo="demo-file/default" expanded />
 
 **What actually lands in the data:** once a file is picked, the field's
 value is the native browser
@@ -44,18 +40,7 @@ itself — not a data URL, not a `{ name, size, type }` descriptor. A
 `accept` is forwarded to the underlying input, the same as the native
 HTML attribute:
 
-<VjsfDemo demo="demo-file/accept" />
-
-```json
-{
-  "type": "string",
-  "title": "Document",
-  "layout": {
-    "comp": "file-input",
-    "props": { "accept": ".pdf,.doc,.docx" }
-  }
-}
-```
+<VjsfDemo demo="demo-file/accept" expanded />
 
 ## Multiple files
 

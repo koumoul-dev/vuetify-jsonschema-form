@@ -21,22 +21,7 @@ key rather than picking it from a title/index.
 An array of **objects** always renders as a list — there's no other
 sensible component for it:
 
-<VjsfDemo demo="demo-lists/objects" />
-
-```json
-{
-  "type": "array",
-  "title": "Contacts",
-  "items": {
-    "type": "object",
-    "title": "Contact",
-    "properties": {
-      "name": { "type": "string", "title": "Name" },
-      "email": { "type": "string", "title": "Email" }
-    }
-  }
-}
-```
+<VjsfDemo demo="demo-lists/objects" expanded />
 
 An array of **primitives** (`string`/`integer`/`number`, no `enum`, no
 `layout` on the item, not a date/time format) instead defaults to a
@@ -46,16 +31,7 @@ flat list of values. To get the list
 rendering instead (one row per item, its own add/edit/delete/sort
 actions), force it with `layout.comp: "list"`:
 
-<VjsfDemo demo="demo-lists/primitives" />
-
-```json
-{
-  "type": "array",
-  "title": "Tags",
-  "layout": { "comp": "list" },
-  "items": { "type": "string", "title": "Tag" }
-}
-```
+<VjsfDemo demo="demo-lists/primitives" expanded />
 
 ## listEditMode
 
@@ -78,18 +54,9 @@ explicit `inline-single` demo below).
 
 <VjsfDemo demo="demo-lists/inline-single" />
 
-<VjsfDemo demo="demo-lists/menu" />
+<VjsfDemo demo="demo-lists/menu" expanded />
 
 <VjsfDemo demo="demo-lists/dialog" />
-
-```json
-{
-  "type": "array",
-  "title": "Contacts",
-  "layout": { "listEditMode": "menu" },
-  "items": { "...": "as above" }
-}
-```
 
 ## listMenuWidth / listDialogWidth
 
@@ -99,19 +66,7 @@ object, either globally or scoped to a single list via `layout.options`:
 
 <VjsfDemo demo="demo-lists/menu-width" />
 
-<VjsfDemo demo="demo-lists/dialog-width" />
-
-```json
-{
-  "type": "array",
-  "title": "Contacts",
-  "layout": {
-    "listEditMode": "dialog",
-    "options": { "listDialogWidth": 800 }
-  },
-  "items": { "...": "as above" }
-}
-```
+<VjsfDemo demo="demo-lists/dialog-width" expanded />
 
 ## Tuples
 
@@ -120,18 +75,7 @@ legacy JSON Schema "tuple" syntax) is **not** rendered as an editable
 list at all — it renders as a plain `section`, one child per position,
 with no add/delete/duplicate/sort actions:
 
-<VjsfDemo demo="demo-lists/tuple" />
-
-```json
-{
-  "type": "array",
-  "title": "Coordinates",
-  "items": [
-    { "type": "number", "title": "Latitude" },
-    { "type": "number", "title": "Longitude" }
-  ]
-}
-```
+<VjsfDemo demo="demo-lists/tuple" expanded />
 
 The 2020-12 `prefixItems` keyword (the modern replacement for tuple
 `items`) is not recognized by VJSF's vocabulary: an array schema that
@@ -148,17 +92,7 @@ pattern(s) declared in the schema. There is no key-generation feature —
 no auto-incrementing index, no UUID — the key is always whatever the
 user typed:
 
-<VjsfDemo demo="demo-lists/indexed" />
-
-```json
-{
-  "type": "object",
-  "title": "Scores (lowercase player name as key)",
-  "patternProperties": {
-    "^[a-z]+$": { "type": "number", "title": "Score" }
-  }
-}
-```
+<VjsfDemo demo="demo-lists/indexed" expanded />
 
 Typing a key that doesn't match `^[a-z]+$` (or one that's already used)
 keeps the add field invalid until corrected.

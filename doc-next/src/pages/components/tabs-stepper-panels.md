@@ -18,50 +18,26 @@ same schema — three nested objects, "Profile", "Address" and
 
 ## tabs
 
-<VjsfDemo demo="demo-tabs-stepper-panels/tabs" />
-
-```json
-{
-  "type": "object",
-  "layout": "tabs",
-  "properties": {
-    "profile": { "type": "object", "title": "Profile", "properties": { "...": {} } },
-    "address": { "type": "object", "title": "Address", "properties": { "...": {} } },
-    "preferences": { "type": "object", "title": "Preferences", "properties": { "...": {} } }
-  }
-}
-```
+<VjsfDemo demo="demo-tabs-stepper-panels/tabs" expanded hide-data />
 
 ## vertical-tabs
 
 Same idea, with the tabs stacked on the side instead of across the top:
 
-<VjsfDemo demo="demo-tabs-stepper-panels/vertical-tabs" />
-
-```json
-{ "layout": "vertical-tabs" }
-```
+<VjsfDemo demo="demo-tabs-stepper-panels/vertical-tabs" expanded hide-data />
 
 ## stepper
 
 Turns the children into a linear wizard: try advancing with "Next" below
 the form — each step is validated before moving on to the next one:
 
-<VjsfDemo demo="demo-tabs-stepper-panels/stepper" />
-
-```json
-{ "layout": "stepper" }
-```
+<VjsfDemo demo="demo-tabs-stepper-panels/stepper" expanded hide-data />
 
 ## expansion-panels
 
 Each child becomes a collapsible panel:
 
-<VjsfDemo demo="demo-tabs-stepper-panels/expansion-panels" />
-
-```json
-{ "layout": "expansion-panels" }
-```
+<VjsfDemo demo="demo-tabs-stepper-panels/expansion-panels" expanded hide-data />
 
 ## Related
 

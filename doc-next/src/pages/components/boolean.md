@@ -12,22 +12,14 @@ A schema with `type: "boolean"` renders as a Vuetify `v-checkbox`.
 
 ## Default
 
-<VjsfDemo demo="demo-boolean/checkbox" />
-
-```json
-{ "type": "boolean", "title": "Subscribe to the newsletter" }
-```
+<VjsfDemo demo="demo-boolean/checkbox" expanded />
 
 ## layout: switch
 
 Setting `layout` to `"switch"` renders a Vuetify `v-switch` instead, with
 the same underlying `true`/`false` data:
 
-<VjsfDemo demo="demo-boolean/switch" />
-
-```json
-{ "type": "boolean", "title": "Dark mode", "layout": "switch" }
-```
+<VjsfDemo demo="demo-boolean/switch" expanded />
 
 ## Related
 

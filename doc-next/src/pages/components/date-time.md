@@ -20,11 +20,7 @@ message, `MM/DD/YYYY` in the default `en` locale — see
 [internationalization](/behavior/i18n#overridable-messages)) and also
 opens a calendar on focus:
 
-<VjsfDemo demo="demo-date-time/date" />
-
-```json
-{ "type": "string", "format": "date", "title": "Due date" }
-```
+<VjsfDemo demo="demo-date-time/date" expanded />
 
 The stored value is a plain date, e.g. `"2026-07-04"`.
 
@@ -35,11 +31,7 @@ opens a dialog combining the calendar with a clock, one after the other.
 The field displays the selected value formatted by Vuetify's date
 adapter (its `fullDateTime` format):
 
-<VjsfDemo demo="demo-date-time/date-time" />
-
-```json
-{ "type": "string", "format": "date-time", "title": "Appointment" }
-```
+<VjsfDemo demo="demo-date-time/date-time" expanded />
 
 The stored value includes the time and a timezone offset, e.g.
 `"2026-07-04T00:00:00+02:00"`.
@@ -49,11 +41,7 @@ The stored value includes the time and a timezone offset, e.g.
 Renders a `time-picker`: a read-only input that opens an analog clock
 dialog:
 
-<VjsfDemo demo="demo-date-time/time" />
-
-```json
-{ "type": "string", "format": "time", "title": "Opening time" }
-```
+<VjsfDemo demo="demo-date-time/time" expanded />
 
 ## Restricting the range
 
@@ -98,21 +86,7 @@ of how it got there. The demo below seeds an out-of-range value
 (`"2026-07-15"`) to show the validation error immediately, alongside the
 disabled days once the calendar is opened:
 
-<VjsfDemo demo="demo-date-time/min-max" />
-
-```json
-{
-  "type": "string",
-  "format": "date",
-  "title": "Book a slot (1 to 10 July 2026)",
-  "formatMinimum": "2026-07-01",
-  "formatMaximum": "2026-07-10",
-  "layout": {
-    "comp": "date-picker",
-    "props": { "min": "2026-07-01", "max": "2026-07-10" }
-  }
-}
-```
+<VjsfDemo demo="demo-date-time/min-max" expanded />
 
 ## Related
 

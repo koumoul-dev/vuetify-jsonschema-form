@@ -1,6 +1,6 @@
 <template>
   <v-card variant="flat">
-    <v-table density="compact" class="i18n-messages-table">
+    <v-table density="compact" class="i18n-messages-table border rounded">
       <thead>
         <tr>
           <th>Key</th>

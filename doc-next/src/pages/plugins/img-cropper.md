@@ -24,11 +24,7 @@ up at build time (`pluginsImports`) or runtime (`options.plugins`).
 
 ## Default
 
-<VjsfDemo demo="demo-img-cropper/default" />
-
-```json
-{ "type": "string", "title": "Avatar", "layout": "img-cropper" }
-```
+<VjsfDemo demo="demo-img-cropper/default" expanded />
 
 ## accept and placeholder
 
@@ -36,19 +32,7 @@ Both come from the plugin's `info.schema`, so they are set directly on
 `layout` (next to `comp`), not under `layout.props`. `accept` defaults to
 `image/*`:
 
-<VjsfDemo demo="demo-img-cropper/accept-placeholder" />
-
-```json
-{
-  "type": "string",
-  "title": "Avatar",
-  "layout": {
-    "comp": "img-cropper",
-    "accept": ".png,.jpg,.jpeg",
-    "placeholder": "Drop an image here"
-  }
-}
-```
+<VjsfDemo demo="demo-img-cropper/accept-placeholder" expanded />
 
 ## What lands in the data
 

@@ -12,10 +12,10 @@ VJSF is a library to create forms for [Vue.js](https://vuejs.org/) /
 annotated [JSON Schemas](https://json-schema.org/). The core of VJSF is
 [JSON Layout](https://github.com/json-layout/json-layout).
 
-It is written primarily as a "scratch my own itch" project by
-[Koumoul](https://koumoul.com), and we use it extensively. But it is opened
-to feedback and contributions on
-[Github](https://github.com/koumoul-dev/vuetify-jsonschema-form) and it is
+It was initially written by [Koumoul](https://koumoul.com) to cover our
+own internal needs, and we use it extensively. It is open to feedback and
+contributions on
+[GitHub](https://github.com/koumoul-dev/vuetify-jsonschema-form) and it is
 published under the very permissive MIT license.
 
 It might be suited for you if:
@@ -30,29 +30,29 @@ It might be suited for you if:
 
 We try to strike a nice balance between these qualities:
 
-- **simplicity** - feed VJSF a simple and valid JSON schema and you should
-  get a viable form
-- **completeness** - the main JSON schema semantics should be covered as
-  well as the most common use-cases for forms in Web applications
-- **extensibility** - more specific use cases should also be supported
+- **Simplicity**: feed VJSF a simple and valid JSON schema and you should
+  get a viable form.
+- **Completeness**: the main JSON schema semantics should be covered, as
+  well as the most common use-cases for forms in Web applications.
+- **Extensibility**: more specific use cases should also be supported
   through the use of lower level tools like slots, custom styles, etc.
-- **validity** - the output of the form should be valid against the
-  provided schema
-- **homogeneity** - the look and feel should be consistent across all form
-  functionalities and inside your application as a whole
+- **Validity**: the output of the form should be valid against the
+  provided schema.
+- **Homogeneity**: the look and feel should be consistent across all form
+  functionalities and inside your application as a whole.
 
 ## Debatable choices
 
 While trying to strike this balance we made some debatable choices that
 you should be aware of:
 
-- Structure and presentation are coupled. Meaning that the rendering of
-  the form is derived directly from the schema (as well as some options)
-  and you will need to change the schema in order to modify a label,
-  create a section, etc.
-- Some functionalities are explicitly coupled to Vuetify. We let you use
-  parameters that are directly mapped to Vuetify underlying components
-  (slots, props, layout classes, etc.)
+- **Structure and presentation are coupled**: the rendering of the form
+  is derived directly from the schema (as well as some options) and you
+  will need to change the schema in order to modify a label, create a
+  section, etc.
+- **Some functionalities are explicitly coupled to Vuetify**: we let you
+  use parameters that are directly mapped to the underlying Vuetify
+  components (slots, props, layout classes, etc.).
 
 ## Support the project
 
@@ -62,7 +62,7 @@ development through [GitHub Sponsors](https://github.com/sponsors/koumoul-dev).
 
 You can also help without spending anything:
 
-- star the project on [Github](https://github.com/koumoul-dev/vuetify-jsonschema-form)
+- star the project on [GitHub](https://github.com/koumoul-dev/vuetify-jsonschema-form)
   to help other people discover it
 - [report issues](https://github.com/koumoul-dev/vuetify-jsonschema-form/issues)
   or open a discussion when something is missing or unclear

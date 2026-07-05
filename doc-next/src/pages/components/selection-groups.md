@@ -21,16 +21,7 @@ explicit `layout`.
 Overrides the default `select` for a single-value `enum` (or `oneOf`),
 rendering a Vuetify `v-radio-group` with one `v-radio` per item instead:
 
-<VjsfDemo demo="demo-selection-groups/radio-group" />
-
-```json
-{
-  "type": "string",
-  "title": "Plan",
-  "enum": ["free", "pro", "enterprise"],
-  "layout": "radio-group"
-}
-```
+<VjsfDemo demo="demo-selection-groups/radio-group" expanded />
 
 ## layout: checkbox-group
 
@@ -39,32 +30,14 @@ The array counterpart: overrides the default multi-select for a `type:
 per item and storing the checked values as an array, same as the
 multi-select would:
 
-<VjsfDemo demo="demo-selection-groups/checkbox-group" />
-
-```json
-{
-  "type": "array",
-  "title": "Toppings",
-  "items": { "type": "string", "enum": ["cheese", "mushroom", "olives"] },
-  "layout": "checkbox-group"
-}
-```
+<VjsfDemo demo="demo-selection-groups/checkbox-group" expanded />
 
 ## layout: switch-group
 
 The same array-of-enum pattern, but with `v-switch` toggles instead of
 checkboxes — handy for a group of independent on/off features:
 
-<VjsfDemo demo="demo-selection-groups/switch-group" />
-
-```json
-{
-  "type": "array",
-  "title": "Features",
-  "items": { "type": "string", "enum": ["darkMode", "notifications", "autoSave"] },
-  "layout": "switch-group"
-}
-```
+<VjsfDemo demo="demo-selection-groups/switch-group" expanded />
 
 ## Related
 

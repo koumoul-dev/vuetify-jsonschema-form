@@ -27,25 +27,7 @@ Slots shared by every node type:
 hint" }` is equivalent to `{ "before": { "markdown": "A **markdown**
 hint" } }`.
 
-<VjsfDemo demo="demo-slots/positioning" />
-
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "title": "Name",
-      "layout": {
-        "slots": {
-          "before": "Some **markdown** hint before the field.",
-          "after": { "text": "A plain text note after the field." }
-        }
-      }
-    }
-  }
-}
-```
+<VjsfDemo demo="demo-slots/positioning" expanded hide-data />
 
 ## Slot content types
 
@@ -66,41 +48,18 @@ itself. The slot function receives `{ node, statefulLayout, ...props }`,
 where `props` is whatever `layout.slots.<slot>.props` declared in the
 schema.
 
-Because this page's live demos are driven by a shared example widget that
-cannot inject page-defined Vue slots, this one is illustrated in code
-only:
+In this demo the string field's normal input is replaced by a custom
+textarea; the Slots tab shows the template given to `vjsf`:
 
-```json
-{
-  "type": "object",
-  "properties": {
-    "text": {
-      "type": "string",
-      "title": "A text string",
-      "layout": {
-        "slots": { "component": "custom-textarea" }
-      }
-    }
-  }
-}
-```
-
-```vue
-<script setup>
-import Vjsf from '@koumoul/vjsf'
-</script>
-<template>
-  <vjsf v-model="data" :schema="schema">
-    <template #custom-textarea="{ node, statefulLayout }">
-      <textarea
-        :value="node.data"
-        placeholder="A custom textarea"
-        @input="event => statefulLayout.input(node, event.target.value)"
-      />
-    </template>
-  </vjsf>
+<VjsfDemo demo="demo-slots/custom-textarea" expanded>
+<template #custom-textarea="{ node, statefulLayout }">
+  <textarea
+    :value="node.data"
+    placeholder="A custom textarea"
+    @input="event => statefulLayout.input(node, event.target.value)"
+  />
 </template>
-```
+</VjsfDemo>
 
 Using the slot system to write a custom input component is limiting (it
 has to manage its own value and call `statefulLayout.input` itself); for
@@ -109,21 +68,9 @@ anything beyond a small tweak, consider writing a plugin instead.
 `props` given in the schema are merged into the slot's context, alongside
 `node` and `statefulLayout`:
 
-```json
-{
-  "type": "object",
-  "properties": {
-    "text": { "type": "string", "title": "A text string" }
-  },
-  "layout": [
-    { "key": "text" },
-    { "name": "custom-message", "props": { "prop1": "A prop given to the code slot" } }
-  ]
-}
-```
-
-```vue
-<template #custom-message="{ node, statefulLayout, prop1 }">
-  This message is defined in a slot (key={{ node.key }}, data={{ node.data }}, additional prop={{ prop1 }})
+<VjsfDemo demo="demo-slots/custom-message" expanded hide-data>
+<template #custom-message="{ node, prop1 }">
+  This message is defined in a slot
+  (key={{ node.key }}, data={{ node.data }}, additional prop={{ prop1 }})
 </template>
-```
+</VjsfDemo>

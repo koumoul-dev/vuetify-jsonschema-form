@@ -17,11 +17,7 @@ search stops being optional at that size.
 
 ## Items from enum
 
-<VjsfDemo demo="demo-select/enum" />
-
-```json
-{ "type": "string", "title": "Size", "enum": ["S", "M", "L", "XL"] }
-```
+<VjsfDemo demo="demo-select/enum" expanded />
 
 Without a `title`, each item's label falls back to the raw enum value.
 
@@ -31,18 +27,7 @@ Without a `title`, each item's label falls back to the raw enum value.
 with its own `title` for the label) — this is the idiomatic way to give
 enum-like values a human-readable label without a side lookup table:
 
-<VjsfDemo demo="demo-select/one-of" />
-
-```json
-{
-  "type": "string",
-  "title": "Status",
-  "oneOf": [
-    { "const": "draft", "title": "Draft" },
-    { "const": "published", "title": "Published" }
-  ]
-}
-```
+<VjsfDemo demo="demo-select/one-of" expanded />
 
 The stored value is still the `const` (`"draft"`/`"published"`), never
 the `title`.
@@ -54,16 +39,7 @@ page, `examples` with the default `useExamples: 'items'` switches the
 component to a `v-combobox`: a free-form text field that also suggests
 the listed examples, rather than restricting input to them:
 
-<VjsfDemo demo="demo-select/combobox" />
-
-```json
-{
-  "type": "string",
-  "title": "Tag",
-  "description": "Pick a suggestion or type your own",
-  "examples": ["frontend", "backend", "devops"]
-}
-```
+<VjsfDemo demo="demo-select/combobox" expanded />
 
 ## Autocomplete with getItems
 
@@ -75,15 +51,7 @@ typing re-queries the server as the user searches. The example below
 forces `comp: "autocomplete"` explicitly to show the same search-as-you-
 type UI over a plain in-memory list — try typing a couple of letters:
 
-<VjsfDemo demo="demo-select/autocomplete" />
-
-```json
-{
-  "type": "string",
-  "title": "Favorite fruit",
-  "layout": { "comp": "autocomplete", "getItems": "context.fruits" }
-}
-```
+<VjsfDemo demo="demo-select/autocomplete" expanded />
 
 See [dynamic data](/behavior/dynamic-data) for the full `getItems`
 reference, including fetching items from a real API.
@@ -94,15 +62,7 @@ Wrapping the same `enum`/`oneOf`/`getItems` pattern inside a `type:
 "array"` property turns the select into a multi-select, storing an array
 of the chosen values:
 
-<VjsfDemo demo="demo-select/multi-select" />
-
-```json
-{
-  "type": "array",
-  "title": "Toppings",
-  "items": { "type": "string", "enum": ["cheese", "mushroom", "olives"] }
-}
-```
+<VjsfDemo demo="demo-select/multi-select" expanded />
 
 ## returnObjects
 
@@ -114,25 +74,10 @@ value instead — useful when the rest of the item (not just an id) is
 needed downstream. Note that `returnObjects` only takes effect when
 `itemValue` is left unset; if both are present, `itemValue` wins:
 
-<VjsfDemo demo="demo-select/return-objects" />
-
-```json
-{
-  "type": "object",
-  "title": "Pick a person",
-  "layout": {
-    "getItems": {
-      "expr": "[{id: 1, label: 'Ada'}, {id: 2, label: 'Alan'}]",
-      "itemTitle": "item.label",
-      "itemKey": "item.id",
-      "returnObjects": true
-    }
-  }
-}
-```
+<VjsfDemo demo="demo-select/return-objects" expanded />
 
 Picking "Alan" here stores `{ "id": 2, "label": "Alan" }` as the
-property's whole value (hence the schema's `type: "object"`).
+field's whole value (hence the schema's `type: "object"`).
 
 ## Related
 

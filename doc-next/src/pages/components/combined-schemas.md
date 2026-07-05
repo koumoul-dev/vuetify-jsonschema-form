@@ -20,33 +20,7 @@ user choose which subschema (branch) is active; the chosen branch's own
 fields then appear below it. Each branch needs a `title` for its option
 label in the select:
 
-<VjsfDemo demo="demo-combined-schemas/one-of" />
-
-```json
-{
-  "type": "object",
-  "title": "Payment method",
-  "oneOfLayout": { "label": "Choose a payment method" },
-  "oneOf": [
-    {
-      "title": "Credit card",
-      "required": ["cardNumber"],
-      "properties": {
-        "method": { "const": "card" },
-        "cardNumber": { "type": "string", "title": "Card number" }
-      }
-    },
-    {
-      "title": "Bank transfer",
-      "required": ["iban"],
-      "properties": {
-        "method": { "const": "transfer" },
-        "iban": { "type": "string", "title": "IBAN" }
-      }
-    }
-  ]
-}
-```
+<VjsfDemo demo="demo-combined-schemas/one-of" expanded />
 
 A `const` property in a branch (like `method` here) never renders an
 input of its own — it's a good place to keep a discriminator value in
@@ -68,28 +42,7 @@ An `allOf` on an object schema renders each branch as its own section,
 one below the other — a way to compose a schema (and its layout) out of
 reusable fragments while still grouping their fields visually:
 
-<VjsfDemo demo="demo-combined-schemas/all-of" />
-
-```json
-{
-  "type": "object",
-  "allOf": [
-    {
-      "title": "Identity",
-      "properties": {
-        "firstName": { "type": "string", "title": "First name" },
-        "lastName": { "type": "string", "title": "Last name" }
-      }
-    },
-    {
-      "title": "Contact",
-      "properties": {
-        "email": { "type": "string", "title": "Email", "format": "email" }
-      }
-    }
-  ]
-}
-```
+<VjsfDemo demo="demo-combined-schemas/all-of" expanded />
 
 ## if/then/else
 
@@ -97,25 +50,7 @@ JSON Schema's own conditional keywords are interpreted too: `then`'s
 properties are shown while `if`'s subschema validates against the
 current data, `else`'s properties otherwise:
 
-<VjsfDemo demo="demo-combined-schemas/if-then-else" />
-
-```json
-{
-  "type": "object",
-  "properties": {
-    "accountType": { "type": "string", "title": "Account type", "enum": ["personal", "business"] }
-  },
-  "required": ["accountType"],
-  "if": { "properties": { "accountType": { "const": "business" } } },
-  "then": {
-    "properties": { "companyName": { "type": "string", "title": "Company name" } },
-    "required": ["companyName"]
-  },
-  "else": {
-    "properties": { "firstName": { "type": "string", "title": "First name" } }
-  }
-}
-```
+<VjsfDemo demo="demo-combined-schemas/if-then-else" expanded />
 
 Switch "Account type" between "personal" and "business" to see "First
 name" swap for "Company name". Notice that "Company name" ("then") is
@@ -136,21 +71,7 @@ to a validation rule, or that need to reach outside the current node's
 own data. Reaching a *sibling* property (rather than the node's own
 value) requires an impure expression reading `parent.data`:
 
-<VjsfDemo demo="demo-combined-schemas/layout-if" />
-
-```json
-{
-  "type": "object",
-  "properties": {
-    "country": { "type": "string", "title": "Country", "enum": ["France", "Other"] },
-    "vatNumber": {
-      "type": "string",
-      "title": "VAT number",
-      "layout": { "if": { "expr": "parent.data?.country === \"France\"", "pure": false } }
-    }
-  }
-}
-```
+<VjsfDemo demo="demo-combined-schemas/layout-if" expanded />
 
 Unlike `if`/`then`/`else`, a field hidden by `layout.if` is a purely
 visual/layout concern: it is not a JSON Schema semantic, so nothing about

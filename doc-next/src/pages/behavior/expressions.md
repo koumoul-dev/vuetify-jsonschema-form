@@ -16,8 +16,18 @@ nav:
 
 Expressions are used throughout VJSF to provide dynamic functionalities
 like conditional rendering (`layout.if`), computing default data
-(`layout.getDefaultData`), fetching items for a select component
-(`layout.getItems`), and more.
+(`layout.getDefaultData`, see [dynamic data](/behavior/dynamic-data)),
+fetching items for a select component (`layout.getItems`), and more.
+
+An expression is usually written as a plain string:
+
+```json
+{ "layout": { "if": "parent.data?.needsInvoice" } }
+```
+
+The object form `{ "expr": "...", "type": "...", "pure": ... }` exists to
+override the defaults described in the rest of this page, but most
+schemas never need it.
 
 There are 3 types of expressions: `js-eval`, `js-tpl` and `js-fn`. All of
 them are compiled to JavaScript functions that accept the same parameters.
@@ -80,9 +90,12 @@ Every expression, whatever its type, receives the same set of parameters:
 - **validates** - whether the compiled layout's validation functions are
   available.
 
+Impure expressions additionally receive `rootData` and `parent`, described
+[below](#reaching-the-rest-of-the-form-with-parent-and-rootdata).
+
 Content of the `display` parameter:
 
-```
+```ts
 {
   width: number, // the width of the parent container
   xs: boolean,
@@ -103,11 +116,32 @@ Content of the `display` parameter:
 }
 ```
 
-## Pure and impure expressions
+## Reaching the rest of the form with parent and rootData
 
-Expressions are considered pure by default: they should only use their
-input parameters, no global variable. This allows for caching
-optimizations. You can declare that an expression is not pure like this:
+Inside a property's own expression, `data` is that property's *own*
+value, not the object that contains it. To make a field depend on another
+part of the form, two extra parameters are available:
+
+- **parent** - a wrapper around the parent node: `parent.data` is the
+  parent's data (so `parent.data.someSibling` reads a sibling property),
+  and you can climb higher up the tree with `parent.parent`.
+- **rootData** - the root data of the whole form.
+
+In the demo below, `parent.data` reaches the sibling `needsInvoice`
+property to toggle the company name field:
+
+<VjsfDemo demo="demo-expressions/if-visibility" expanded />
+
+## Pure expressions and caching
+
+An expression that only uses its input parameters is *pure*, which allows
+VJSF to cache its results. Purity is detected automatically: expressions
+whose text references `parent.data`, `parent.parent` or `rootData` are
+treated as impure, everything else as pure. You never have to declare
+anything in the common cases.
+
+The explicit `"pure": false` form is only needed when the impurity is not
+visible in the expression's text, typically a global variable:
 
 ```json
 {
@@ -115,43 +149,3 @@ optimizations. You can declare that an expression is not pure like this:
   "pure": false
 }
 ```
-
-Impure expressions have access to two extra parameters:
-
-- **rootData** - the root data of this VJSF instance.
-- **parent** - a wrapper to access data from the parent node (use
-  `parent.data`, or go higher up the tree with `parent.parent`).
-
-This is also how you reach a *sibling* property from inside a property's
-own expression: `data` there is that property's own value, not the parent
-object's. To condition a field on a sibling, use `parent.data` in an
-impure expression:
-
-<VjsfDemo demo="demo-expressions/if-visibility" />
-
-The schema behind this demo:
-
-```json
-{
-  "type": "object",
-  "properties": {
-    "needsInvoice": { "type": "boolean", "title": "I need an invoice" },
-    "companyName": {
-      "type": "string",
-      "title": "Company name",
-      "layout": {
-        "if": { "expr": "parent.data?.needsInvoice", "pure": false }
-      }
-    }
-  }
-}
-```
-
-`layout.getDefaultData` works the same way: it computes a value for a
-node while that node's own data is still empty (see `defaultOn` on the
-[options](/behavior/options) page). Once the node's data stops being
-empty, whether because the user typed something or because the
-expression itself produced a non-empty result, it is left alone until it
-becomes empty again:
-
-<VjsfDemo demo="demo-expressions/get-default-data" />

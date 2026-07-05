@@ -19,29 +19,19 @@ const collection: DemoCollection = {
       id: 'validation',
       title: 'minimum, maximum & multipleOf',
       schema: {
-        type: 'object',
-        properties: {
-          n: {
-            type: 'number',
-            title: 'Between 0 and 100, multiple of 5',
-            minimum: 0,
-            maximum: 100,
-            multipleOf: 5,
-          },
-        },
+        type: 'number',
+        title: 'Between 0 and 100, multiple of 5',
+        minimum: 0,
+        maximum: 100,
+        multipleOf: 5,
       },
-      data: { n: 42 },
+      data: 42,
       options: { initialValidation: 'always' },
     },
     {
       id: 'slider',
       title: 'layout: slider',
-      schema: {
-        type: 'object',
-        properties: {
-          volume: { type: 'number', title: 'Volume', layout: 'slider', minimum: 0, maximum: 10 },
-        },
-      },
+      schema: { type: 'number', title: 'Volume', layout: 'slider', minimum: 0, maximum: 10 },
     },
   ],
 }

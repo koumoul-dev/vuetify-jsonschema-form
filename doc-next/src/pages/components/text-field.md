@@ -13,22 +13,14 @@ renders as a Vuetify `v-text-field`.
 
 ## Default
 
-<VjsfDemo demo="demo-text-field/default-string" />
-
-```json
-{ "type": "string", "title": "Name" }
-```
+<VjsfDemo demo="demo-text-field/default-string" expanded />
 
 ## layout: textarea
 
 Setting `layout` to `"textarea"` switches the component to a multi-line
 `v-textarea`, keeping the same `type: "string"` schema:
 
-<VjsfDemo demo="demo-text-field/textarea" />
-
-```json
-{ "type": "string", "title": "Bio", "layout": "textarea" }
-```
+<VjsfDemo demo="demo-text-field/textarea" expanded />
 
 ## A password input
 
@@ -36,18 +28,7 @@ There is no dedicated `password` component: instead, `layout.props` is
 forwarded as-is to the underlying Vuetify component, so setting `type:
 "password"` on the `text-field` component gives you a masked input:
 
-<VjsfDemo demo="demo-text-field/password" />
-
-```json
-{
-  "type": "string",
-  "title": "Password",
-  "layout": {
-    "comp": "text-field",
-    "props": { "type": "password" }
-  }
-}
-```
+<VjsfDemo demo="demo-text-field/password" expanded />
 
 ## Hints and labels
 
@@ -55,19 +36,11 @@ Several schema annotations surface on the rendered field, controlled by
 their matching `use*` runtime option (all documented on
 [options](/behavior/options)):
 
-<VjsfDemo demo="demo-text-field/annotations" />
+<VjsfDemo demo="demo-text-field/annotations" expanded />
 
-```json
-{
-  "type": "string",
-  "title": "Nickname",
-  "description": "How your name is shown to others",
-  "examples": ["Ada", "Alan"],
-  "default": "Anonymous"
-}
-```
-
-- `title` becomes the field's label (`useTitle`, default `label`).
+- `title` becomes the field's label (`useTitle`, default `label`); with
+  no `title`, the property key is used. `layout.label` overrides both,
+  and an empty string (`"label": ""`) removes the label entirely.
 - `description` shows as a help tooltip next to the label (`useDescription`,
   default `['help', 'subtitle']`).
 - `default` becomes the field's initial value (`useDefault`, default

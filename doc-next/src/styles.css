@@ -33,3 +33,26 @@ html, body, .v-application { font-family: 'Nunito', sans-serif; }
 .page-anchor-btn .v-icon {
   font-size: 1.125rem;
 }
+
+/* Shared chrome for static code blocks: CodeBlock.vue (the examples' source
+   pane) and the shiki-highlighted markdown fences (vite.config.ts) carry this
+   class so both read as the same block. The base text color follows the
+   CodeMirror one-dark theme the playground's editors use; token colors come
+   from CodeBlock's scoped rules or shiki's inline spans. The doc shell is
+   dark-only (see src/theme.ts), no light variant needed. */
+.code-block {
+  margin: 0;
+  padding: 12px;
+  overflow: auto;
+  border-radius: 4px;
+  background: rgba(var(--v-theme-on-surface), 0.05);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+  white-space: pre;
+  color: #abb2bf;
+}
+/* In markdown flow the block provides its own vertical rhythm (the margin: 0
+   above is for the examples' source pane, which pads around it). */
+.markdown-body pre.code-block {
+  margin: 16px 0;
+}

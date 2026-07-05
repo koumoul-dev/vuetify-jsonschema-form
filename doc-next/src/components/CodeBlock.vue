@@ -44,20 +44,9 @@ const html = computed(() => {
 </template>
 
 <style scoped>
-.code-block {
-  margin: 0;
-  padding: 12px;
-  overflow: auto;
-  border-radius: 4px;
-  background: rgba(var(--v-theme-on-surface), 0.05);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.85rem;
-  white-space: pre;
-  /* Token colors follow the CodeMirror one-dark theme the playground's
-  editors use, so example blocks and the editor read as the same code. The
-  doc shell is dark-only (see src/theme.ts), no light variant needed. */
-  color: #abb2bf;
-}
+/* The block chrome (.code-block) is global in src/styles.css, shared with the
+markdown pages' shiki-highlighted fences. Only the token colors live here,
+following the same CodeMirror one-dark palette. */
 /* :deep() because the spans come from v-html and carry no scope attribute. */
 .code-block :deep(.tok-key) {
   color: #e06c75;

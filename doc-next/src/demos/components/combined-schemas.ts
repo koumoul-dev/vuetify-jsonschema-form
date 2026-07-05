@@ -9,31 +9,26 @@ const collection: DemoCollection = {
       title: 'oneOf as a subschema selector',
       schema: {
         type: 'object',
-        properties: {
-          payment: {
-            type: 'object',
-            title: 'Payment method',
-            oneOfLayout: { label: 'Choose a payment method' },
-            oneOf: [
-              {
-                title: 'Credit card',
-                required: ['cardNumber'],
-                properties: {
-                  method: { const: 'card' },
-                  cardNumber: { type: 'string', title: 'Card number' },
-                },
-              },
-              {
-                title: 'Bank transfer',
-                required: ['iban'],
-                properties: {
-                  method: { const: 'transfer' },
-                  iban: { type: 'string', title: 'IBAN' },
-                },
-              },
-            ],
+        title: 'Payment method',
+        oneOfLayout: { label: 'Choose a payment method' },
+        oneOf: [
+          {
+            title: 'Credit card',
+            required: ['cardNumber'],
+            properties: {
+              method: { const: 'card' },
+              cardNumber: { type: 'string', title: 'Card number' },
+            },
           },
-        },
+          {
+            title: 'Bank transfer',
+            required: ['iban'],
+            properties: {
+              method: { const: 'transfer' },
+              iban: { type: 'string', title: 'IBAN' },
+            },
+          },
+        ],
       },
     },
     {

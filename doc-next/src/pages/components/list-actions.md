@@ -30,31 +30,14 @@ Left unset, `listActions` defaults to `["add", "edit", "delete", "sort",
 "duplicate"]` for a plain array — no `copy`/`paste` (those need an
 explicit `clipboardKey`, see below):
 
-<VjsfDemo demo="demo-list-actions/defaults" />
-
-```json
-{
-  "type": "array",
-  "title": "Contacts",
-  "items": { "...": "as on the lists page" }
-}
-```
+<VjsfDemo demo="demo-list-actions/defaults" expanded />
 
 ## sort
 
 Hover a row to reveal its drag handle, or open its menu for explicit
 "Move up" / "Move down" entries (the `up`/`down` [messages](/behavior/i18n#overriding)):
 
-<VjsfDemo demo="demo-list-actions/sort" />
-
-```json
-{
-  "type": "array",
-  "title": "Contacts",
-  "layout": { "listActions": ["add", "delete", "sort"] },
-  "items": { "...": "as on the lists page" }
-}
-```
+<VjsfDemo demo="demo-list-actions/sort" expanded />
 
 ## duplicate + itemCopy
 
@@ -63,19 +46,7 @@ is an [expression](/behavior/expressions) that computes the copy's data
 instead — here it's used to tweak the duplicated contact's name so the
 two are told apart:
 
-<VjsfDemo demo="demo-list-actions/duplicate" />
-
-```json
-{
-  "type": "array",
-  "title": "Contacts",
-  "layout": {
-    "listActions": ["add", "edit", "delete", "duplicate"],
-    "itemCopy": "{...item, name: item.name + ' (copy)'}"
-  },
-  "items": { "...": "as on the lists page" }
-}
-```
+<VjsfDemo demo="demo-list-actions/duplicate" expanded />
 
 `itemCopy` also runs on `paste` (see below), so a pasted item goes
 through the same transform as a duplicated one.
@@ -85,16 +56,7 @@ through the same transform as a duplicated one.
 Unlike `add` (always appends at the end), `insertAfter` inserts the new
 empty item right after the one whose menu it was opened from:
 
-<VjsfDemo demo="demo-list-actions/insert-after" />
-
-```json
-{
-  "type": "array",
-  "title": "Contacts",
-  "layout": { "listActions": ["add", "edit", "delete", "insertAfter"] },
-  "items": { "...": "as on the lists page" }
-}
-```
+<VjsfDemo demo="demo-list-actions/insert-after" expanded />
 
 ## copy / paste and clipboardKey
 
@@ -104,33 +66,7 @@ own full key when unset), so two lists sharing the same `clipboardKey`
 share the same clipboard — copy an entry from Team A below, then paste
 it into Team B:
 
-<VjsfDemo demo="demo-list-actions/copy-paste" />
-
-```json
-{
-  "type": "object",
-  "properties": {
-    "teamA": {
-      "type": "array",
-      "title": "Team A",
-      "layout": {
-        "listActions": ["add", "edit", "delete", "copy", "paste"],
-        "clipboardKey": "contact"
-      },
-      "items": { "...": "as on the lists page" }
-    },
-    "teamB": {
-      "type": "array",
-      "title": "Team B",
-      "layout": {
-        "listActions": ["add", "edit", "delete", "copy", "paste"],
-        "clipboardKey": "contact"
-      },
-      "items": { "...": "as on the lists page" }
-    }
-  }
-}
-```
+<VjsfDemo demo="demo-list-actions/copy-paste" expanded />
 
 The shared clipboard only works between lists that live in the *same*
 rendered form (they need a common ancestor providing it) — two entirely
@@ -143,11 +79,7 @@ not share one, even with an identical `clipboardKey`.
 place of the menu). Setting the root `confirmDeleteItem` option to
 `false` makes it delete immediately instead:
 
-<VjsfDemo demo="demo-list-actions/confirm-delete-false" />
-
-```js
-const options = { confirmDeleteItem: false }
-```
+<VjsfDemo demo="demo-list-actions/confirm-delete-false" expanded />
 
 ## Context-dependent defaults
 

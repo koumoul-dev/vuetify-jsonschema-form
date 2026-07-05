@@ -25,11 +25,7 @@ up at build time (`pluginsImports`) or runtime (`options.plugins`).
 
 ## Default
 
-<VjsfDemo demo="demo-markdown/default" />
-
-```json
-{ "type": "string", "title": "Content", "layout": "markdown" }
-```
+<VjsfDemo demo="demo-markdown/default" expanded />
 
 ## Customizing EasyMDE
 
@@ -37,18 +33,7 @@ Options are forwarded to the underlying `EasyMDE` instance through
 `pluginsOptions.markdown.easyMDEOptions` (only available at runtime — see
 [using a plugin](/plugins/introduction#using-a-plugin)):
 
-<VjsfDemo demo="demo-markdown/easymde-options" />
-
-```js
-const options = {
-  plugins: [VjsfMarkdown],
-  pluginsOptions: {
-    markdown: {
-      easyMDEOptions: { minHeight: '150px', maxHeight: '150px' },
-    },
-  },
-}
-```
+<VjsfDemo demo="demo-markdown/easymde-options" expanded />
 
 Any [EasyMDE configuration option](https://github.com/Ionaru/easy-markdown-editor#configuration)
 can go here; it is merged on top of the toolbar/behavior VJSF configures

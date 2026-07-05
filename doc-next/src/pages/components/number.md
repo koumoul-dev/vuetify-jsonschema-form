@@ -20,14 +20,7 @@ point, but for `integer` the input filters it out as you type — entering
 `1.5` in the field below silently produces `15`, rather than a validation
 error, since the schema never actually receives a fractional value:
 
-<VjsfDemo demo="demo-number/number-vs-integer" />
-
-```json
-{
-  "weight": { "type": "number", "title": "Weight (number)" },
-  "quantity": { "type": "integer", "title": "Quantity (integer)" }
-}
-```
+<VjsfDemo demo="demo-number/number-vs-integer" expanded />
 
 ## minimum, maximum & multipleOf
 
@@ -37,34 +30,17 @@ any other constraint — errors are shown inline, timed by `validateOn`
 multiples of 5 between 0 and 100; it starts out with an invalid value
 (`42`) to show the message immediately:
 
-<VjsfDemo demo="demo-number/validation" />
-
-```json
-{
-  "type": "number",
-  "title": "Between 0 and 100, multiple of 5",
-  "minimum": 0,
-  "maximum": 100,
-  "multipleOf": 5
-}
-```
+<VjsfDemo demo="demo-number/validation" expanded />
 
 ## layout: slider
 
 Setting `layout` to `"slider"` renders a Vuetify `v-slider` instead. It
-reads `minimum`/`maximum` from the schema for its range:
+reads `minimum`/`maximum` from the schema for its range, and the step
+between values is set with `layout.step` — a first-class layout key,
+not a `layout.props` passthrough (it defaults to `1` when the type is
+`integer`):
 
-<VjsfDemo demo="demo-number/slider" />
-
-```json
-{
-  "type": "number",
-  "title": "Volume",
-  "layout": "slider",
-  "minimum": 0,
-  "maximum": 10
-}
-```
+<VjsfDemo demo="demo-number/slider" expanded />
 
 ## Related
 

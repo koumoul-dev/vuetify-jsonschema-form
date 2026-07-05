@@ -6,7 +6,6 @@
     class="page-anchor-btn ml-2"
     variant="text"
     color="primary"
-    density="comfortable"
     size="x-small"
     @click="copyLink"
   />

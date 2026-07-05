@@ -11,7 +11,15 @@ import { loadLayout } from 'virtual:example-layouts'
 import CodeBlock from './CodeBlock.vue'
 import type { Example } from '../demos/types'
 
-const props = defineProps<{ example: Example, layoutKey: string, v2compat?: boolean }>()
+const props = defineProps<{
+  example: Example,
+  layoutKey: string,
+  v2compat?: boolean,
+  /** open the source pane on mount */
+  expanded?: boolean,
+  /** drop the Data tab when watching the live data adds nothing */
+  hideData?: boolean,
+}>()
 
 // v2-compat examples ported from the old doc carry a legacy `model` field
 // instead of `data`; widen locally rather than touching demos/types.ts.
@@ -22,16 +30,30 @@ type LegacyExample = Example & { model?: unknown }
 // `defaultOn: 'empty'` synthesizes the right empty value per root type.
 const data = ref(structuredClone(props.example.data ?? (props.example as LegacyExample).model ?? null))
 const theme = ref<'light' | 'dark'>('light')
-const tab = ref<'schema' | 'data' | 'options'>('schema')
-// Vuetify-doc-style source pane: collapsed by default.
-const expanded = ref(false)
+const tab = ref<'schema' | 'data' | 'options' | 'slots'>('schema')
+// Vuetify-doc-style source pane: collapsed by default unless the page asks
+// for it (prop read once, the toggle button owns the state afterwards).
+const expanded = ref(props.expanded ?? false)
+
+// Only meaningful tabs: Data unless the page opted out, Options when the
+// example has some, Slots when the example carries a template to display.
+// With a single tab left the tabs row disappears, the pane shows the schema.
+const tabs = computed(() => {
+  const values: { value: typeof tab.value, title: string }[] = [{ value: 'schema', title: 'Schema' }]
+  if (!props.hideData) values.push({ value: 'data', title: 'Data' })
+  if (Object.keys(props.example.options as Record<string, unknown> ?? {}).length) values.push({ value: 'options', title: 'Options' })
+  if (props.example.slotsCode) values.push({ value: 'slots', title: 'Slots' })
+  return values
+})
 
 const copied = ref(false)
 let copiedTimer: ReturnType<typeof setTimeout> | undefined
 // Copies the active tab; same serialization as CodeBlock's display.
 async function copy () {
-  const values = { schema: props.example.schema, data: data.value, options: props.example.options ?? {} }
-  await navigator.clipboard.writeText(JSON.stringify(values[tab.value], null, 2))
+  const text = tab.value === 'slots'
+    ? (props.example.slotsCode ?? '')
+    : JSON.stringify({ schema: props.example.schema, data: data.value, options: props.example.options ?? {} }[tab.value], null, 2)
+  await navigator.clipboard.writeText(text)
   copied.value = true
   clearTimeout(copiedTimer)
   copiedTimer = setTimeout(() => { copied.value = false }, 2000)
@@ -91,11 +113,10 @@ function edit () {
   <ClientOnly>
     <v-sheet class="my-4" border rounded color="transparent">
       <v-toolbar density="compact" color="surface" rounded>
-        <!-- The tabs only make sense once the source pane is open. -->
-        <v-tabs v-if="expanded" v-model="tab" density="compact">
-          <v-tab value="schema">Schema</v-tab>
-          <v-tab value="data">Data</v-tab>
-          <v-tab value="options">Options</v-tab>
+        <!-- The tabs only make sense once the source pane is open, and only
+        when there is more than the schema to switch to. -->
+        <v-tabs v-if="expanded && tabs.length > 1" v-model="tab" density="compact">
+          <v-tab v-for="t in tabs" :key="t.value" :value="t.value">{{ t.title }}</v-tab>
         </v-tabs>
         <v-spacer />
         <v-btn
@@ -127,11 +148,16 @@ function edit () {
             <v-window-item value="schema">
               <CodeBlock :value="example.schema" />
             </v-window-item>
-            <v-window-item value="data">
+            <v-window-item v-if="!hideData" value="data">
               <CodeBlock :value="data" />
             </v-window-item>
             <v-window-item value="options">
               <CodeBlock :value="example.options ?? {}" />
+            </v-window-item>
+            <v-window-item v-if="example.slotsCode" value="slots">
+              <!-- Vue template code, not JSON: skip CodeBlock's tokenizer and
+              reuse the shared block chrome only. -->
+              <pre class="code-block">{{ example.slotsCode }}</pre>
             </v-window-item>
           </v-window>
         </div>
@@ -151,7 +177,12 @@ function edit () {
             :schema="example.schema"
             :precompiled-layout="layout"
             :options="renderOptions"
-          />
+          >
+            <!-- forward page-defined slots (named Vue slots demos) -->
+            <template v-for="(_, name) in $slots" #[name]="slotProps">
+              <slot :name="name" v-bind="slotProps" />
+            </template>
+          </vjsf>
           <div v-if="showValidate" class="d-flex justify-end pt-2">
             <v-btn color="success" density="compact" text="Validate" variant="flat" @click="form?.validate()" />
           </div>
@@ -164,8 +195,11 @@ function edit () {
 <style scoped>
 /* The source pane never grows past half the viewport; past that the code
 block scrolls internally (CodeBlock's own `overflow: auto`). :deep()
-because the pre lives inside the child CodeBlock component. */
+because the pre lives inside the child CodeBlock component. margin: 0
+cancels the `.markdown-body pre.code-block` rhythm rule (styles.css) that
+would otherwise leak in here — the pane's own padding already spaces it. */
 .source-window :deep(.code-block) {
   max-height: 50dvh;
+  margin: 0;
 }
 </style>

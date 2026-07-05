@@ -23,67 +23,47 @@ const collection: DemoCollection = {
       id: 'defaults',
       title: 'Default actions (no listActions set)',
       schema: {
-        type: 'object',
-        properties: {
-          contacts: {
-            type: 'array',
-            title: 'Contacts',
-            items: contactItem,
-          },
-        },
+        type: 'array',
+        title: 'Contacts',
+        items: contactItem,
       },
-      data: { contacts: contactsData },
+      data: contactsData,
     },
     {
       id: 'sort',
       title: 'sort',
       schema: {
-        type: 'object',
-        properties: {
-          contacts: {
-            type: 'array',
-            title: 'Contacts',
-            layout: { listActions: ['add', 'delete', 'sort'] },
-            items: contactItem,
-          },
-        },
+        type: 'array',
+        title: 'Contacts',
+        layout: { listActions: ['add', 'delete', 'sort'] },
+        items: contactItem,
       },
-      data: { contacts: contactsData },
+      data: contactsData,
     },
     {
       id: 'duplicate',
       title: 'duplicate + itemCopy',
       schema: {
-        type: 'object',
-        properties: {
-          contacts: {
-            type: 'array',
-            title: 'Contacts',
-            layout: {
-              listActions: ['add', 'edit', 'delete', 'duplicate'],
-              itemCopy: "{...item, name: item.name + ' (copy)'}",
-            },
-            items: contactItem,
-          },
+        type: 'array',
+        title: 'Contacts',
+        layout: {
+          listActions: ['add', 'edit', 'delete', 'duplicate'],
+          itemCopy: "{...item, name: item.name + ' (copy)'}",
         },
+        items: contactItem,
       },
-      data: { contacts: contactsData },
+      data: contactsData,
     },
     {
       id: 'insert-after',
       title: 'insertAfter',
       schema: {
-        type: 'object',
-        properties: {
-          contacts: {
-            type: 'array',
-            title: 'Contacts',
-            layout: { listActions: ['add', 'edit', 'delete', 'insertAfter'] },
-            items: contactItem,
-          },
-        },
+        type: 'array',
+        title: 'Contacts',
+        layout: { listActions: ['add', 'edit', 'delete', 'insertAfter'] },
+        items: contactItem,
       },
-      data: { contacts: contactsData },
+      data: contactsData,
     },
     {
       id: 'copy-paste',
@@ -111,16 +91,11 @@ const collection: DemoCollection = {
       id: 'confirm-delete-false',
       title: 'confirmDeleteItem: false',
       schema: {
-        type: 'object',
-        properties: {
-          contacts: {
-            type: 'array',
-            title: 'Contacts',
-            items: contactItem,
-          },
-        },
+        type: 'array',
+        title: 'Contacts',
+        items: contactItem,
       },
-      data: { contacts: contactsData },
+      data: contactsData,
       options: { confirmDeleteItem: false },
     },
   ],

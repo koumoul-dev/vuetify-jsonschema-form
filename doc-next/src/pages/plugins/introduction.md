@@ -54,9 +54,11 @@ alongside VJSF.
 ## Writing a plugin
 
 A plugin is the recommended way to extend VJSF with a custom component —
-much more capable than the `component` slot, since it participates in
-compilation, validation and the normal `layout` schema like any built-in
-component. A plugin is a plain object matching this contract
+much more capable than the [`component` slot](/behavior/slots), since it
+participates in compilation, validation and the normal `layout` schema
+like any built-in component. Think of a plugin as an optional standard
+component added to the vocabulary, and of a slot as a one-off tweak
+local to an application. A plugin is a plain object matching this contract
 (`lib/src/types.ts`):
 
 ```ts

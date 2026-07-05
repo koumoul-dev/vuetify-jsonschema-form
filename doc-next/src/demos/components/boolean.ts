@@ -7,22 +7,12 @@ const collection: DemoCollection = {
     {
       id: 'checkbox',
       title: 'type: boolean (default)',
-      schema: {
-        type: 'object',
-        properties: {
-          subscribe: { type: 'boolean', title: 'Subscribe to the newsletter' },
-        },
-      },
+      schema: { type: 'boolean', title: 'Subscribe to the newsletter' },
     },
     {
       id: 'switch',
       title: 'layout: switch',
-      schema: {
-        type: 'object',
-        properties: {
-          darkMode: { type: 'boolean', title: 'Dark mode', layout: 'switch' },
-        },
-      },
+      schema: { type: 'boolean', title: 'Dark mode', layout: 'switch' },
     },
   ],
 }

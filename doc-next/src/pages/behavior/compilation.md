@@ -16,19 +16,20 @@ form is first mounted, or ahead of time, at build time.
 ## Runtime compilation
 
 This is the default and the simplest way to use VJSF. Give the `vjsf`
-component a schema and some options, and it compiles and renders the form
-on mount.
+component a schema, and it compiles and renders the form on mount.
+[Options](/behavior/options) can be added but none is required.
 
 ```vue
+<template>
+  <v-form>
+    <vjsf v-model="data" :schema="schema" />
+  </v-form>
+</template>
+
 <script setup>
   import Vjsf from '@koumoul/vjsf'
   import { VForm } from 'vuetify/components'
 </script>
-<template>
-  <v-form>
-    <vjsf v-model="data" :schema="schema" :options="options" />
-  </v-form>
-</template>
 ```
 
 This is fine for most applications: compilation is fast and only happens
@@ -57,15 +58,16 @@ await writeFile('./components/compiled/my-vjsf.vue', code)
 In the page:
 
 ```vue
-<script setup>
-  import MyVjsf from './components/compiled/my-vjsf.vue'
-  import { VForm } from 'vuetify/components'
-</script>
 <template>
   <v-form>
     <my-vjsf v-model="data" :options="options" />
   </v-form>
 </template>
+
+<script setup>
+  import MyVjsf from './components/compiled/my-vjsf.vue'
+  import { VForm } from 'vuetify/components'
+</script>
 ```
 
 Benefits over runtime compilation:
@@ -77,17 +79,28 @@ Benefits over runtime compilation:
   in the browser, which also plays better with strict Content-Security-Policy
   setups
 
-`compile` accepts a couple of compiler-specific options on top of the
-regular ones, for example `pluginsImports`: an array of plugin package
-names (e.g. `['@koumoul/vjsf-markdown']`) to resolve and bundle alongside
-the compiled component, for schemas that use a plugin's component type.
+`compile` takes the same [options](/behavior/options) object as the
+`vjsf` component, plus two entries that only make sense at build time:
+
+- **pluginsImports** (default `[]`) - an array of plugin package names
+  (e.g. `['@koumoul/vjsf-markdown']`) that the compiler resolves to
+  generate the plugin imports in the emitted component. It is the
+  build-time counterpart of the `plugins` runtime option, which takes the
+  already-imported modules and is of no use to the compiler.
+- **webmcp** (default `false`) - generates the WebMCP-enabled variant of
+  the component (the equivalent of importing `@koumoul/vjsf/webmcp`
+  instead of `@koumoul/vjsf` at runtime), which registers the form
+  through the browser's `navigator.modelContext` as a set of tools that
+  in-page AI agents can discover and use to fill it.
 
 ## CommonJS dependencies
 
-Some of the dependencies used by VJSF are published in the CommonJS
-format. This breaks homogeneity with the otherwise ESM modules of this
-library. You might need to inform your build system, for example with
-Vite:
+Some of the dependencies used by VJSF (Ajv and its companions, `debug`,
+`fast-deep-equal`) are published in the CommonJS format. This breaks
+homogeneity with the otherwise ESM modules of this library: Vite's dev
+server converts CommonJS dependencies on the fly, but only if it knows
+about them ahead of time, so list them in `optimizeDeps.include` to avoid
+interop errors and page reloads on first access:
 
 ```js
 import { commonjsDeps } from '@koumoul/vjsf/utils/build.js'
@@ -96,13 +109,12 @@ export default defineConfig({
   optimizeDeps: {
     include: commonjsDeps,
   },
-  build: {
-    commonjsOptions: {
-      transformMixedEsModules: true,
-    },
-  },
 })
 ```
+
+This is usually all you need. If your production build fails on one of
+these modules because it mixes `import` and `require` statements, also
+set `build: { commonjsOptions: { transformMixedEsModules: true } }`.
 
 When changing these parameters, Vite's dependency cache can create
 confusion; use `vite --force` or remove `node_modules/.cache/vite` if

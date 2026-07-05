@@ -7,10 +7,12 @@ nav:
 
 # Getting started
 
-> VJSF and its core *JSON Layout* are not pre-bundled. They are distributed
-> as pure ESM modules written in JS code with type annotations. The
-> transpiling, tree-shaking, minifying, etc should be performed on your
-> side.
+<v-alert type="warning" variant="outlined" class="my-4">
+VJSF and its core <i>JSON Layout</i> are not pre-bundled. They are
+distributed as pure ESM modules written in JS code with type annotations.
+The transpiling, tree-shaking, minifying, etc should be performed on your
+side.
+</v-alert>
 
 Install from npm:
 
@@ -21,13 +23,21 @@ npm install @koumoul/vjsf
 ## Your first form
 
 The simplest way to use VJSF is to compile the schema at runtime: pass a
-JSON schema and some options to the `vjsf` component and it renders a form.
+JSON schema to the `vjsf` component and it renders a form.
 
 ```vue
+<template>
+  <v-form>
+    <vjsf v-model="data" :schema="schema" />
+  </v-form>
+</template>
+
 <script setup>
+  import { ref } from 'vue'
   import Vjsf from '@koumoul/vjsf'
   import { VForm } from 'vuetify/components'
 
+  const data = ref({})
   const schema = {
     type: 'object',
     required: ['title'],
@@ -38,11 +48,6 @@ JSON schema and some options to the `vjsf` component and it renders a form.
     },
   }
 </script>
-<template>
-  <v-form>
-    <vjsf v-model="data" :schema="schema" />
-  </v-form>
-</template>
 ```
 
 <VjsfDemo demo="demo-getting-started/first-form" />

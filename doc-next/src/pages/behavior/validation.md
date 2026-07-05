@@ -19,15 +19,21 @@ options, so they can be overwritten per-node with `layout.options`.
 `validateOn` controls when a form input's validation errors are actually
 displayed, independently of when the data is validated. Try typing an
 invalid name or email in each of these three demos, which only differ by
-this option:
+this option.
+
+**`validateOn: "input"`** (the default) — errors show as you type:
 
 <VjsfDemo demo="demo-validation/validate-on-input" />
-<VjsfDemo demo="demo-validation/validate-on-blur" />
-<VjsfDemo demo="demo-validation/validate-on-submit" />
 
-With `validateOn: "submit"` the errors stay hidden until the form is
-explicitly validated — use the Validate button that appears at the bottom
-of that demo to trigger them.
+**`validateOn: "blur"`** — errors show when the input loses focus:
+
+<VjsfDemo demo="demo-validation/validate-on-blur" />
+
+**`validateOn: "submit"`** — errors stay hidden until the form is
+explicitly validated; use the Validate button at the bottom of the demo
+to trigger them:
+
+<VjsfDemo demo="demo-validation/validate-on-submit" />
 
 ## Initial validation
 

@@ -7,53 +7,33 @@ const collection: DemoCollection = {
     {
       id: 'date',
       title: 'format: date',
-      schema: {
-        type: 'object',
-        properties: {
-          dueDate: { type: 'string', format: 'date', title: 'Due date' },
-        },
-      },
+      schema: { type: 'string', format: 'date', title: 'Due date' },
     },
     {
       id: 'date-time',
       title: 'format: date-time',
-      schema: {
-        type: 'object',
-        properties: {
-          appointment: { type: 'string', format: 'date-time', title: 'Appointment' },
-        },
-      },
+      schema: { type: 'string', format: 'date-time', title: 'Appointment' },
     },
     {
       id: 'time',
       title: 'format: time',
-      schema: {
-        type: 'object',
-        properties: {
-          openingTime: { type: 'string', format: 'time', title: 'Opening time' },
-        },
-      },
+      schema: { type: 'string', format: 'time', title: 'Opening time' },
     },
     {
       id: 'min-max',
       title: 'Restricting the range with min/max',
       schema: {
-        type: 'object',
-        properties: {
-          slot: {
-            type: 'string',
-            format: 'date',
-            title: 'Book a slot (1 to 10 July 2026)',
-            formatMinimum: '2026-07-01',
-            formatMaximum: '2026-07-10',
-            layout: {
-              comp: 'date-picker',
-              props: { min: '2026-07-01', max: '2026-07-10' },
-            },
-          },
+        type: 'string',
+        format: 'date',
+        title: 'Book a slot (1 to 10 July 2026)',
+        formatMinimum: '2026-07-01',
+        formatMaximum: '2026-07-10',
+        layout: {
+          comp: 'date-picker',
+          props: { min: '2026-07-01', max: '2026-07-10' },
         },
       },
-      data: { slot: '2026-07-15' },
+      data: '2026-07-15',
       options: { initialValidation: 'always' },
     },
   ],

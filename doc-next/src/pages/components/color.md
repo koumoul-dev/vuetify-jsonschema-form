@@ -16,11 +16,7 @@ field with a color swatch pip that opens a full color picker on click.
 
 ## Default
 
-<VjsfDemo demo="demo-color/default" />
-
-```json
-{ "type": "string", "title": "Brand color", "layout": "color-picker" }
-```
+<VjsfDemo demo="demo-color/default" expanded />
 
 The stored value is a hex color string, e.g. `"#C80000"`. If you lower
 the picker's alpha slider below 1, the value gains a two-digit alpha
@@ -33,27 +29,7 @@ from Vuetify's `v-color-picker`, so anything that component accepts can
 be forwarded through `layout.props.pickerProps`. For example, replacing
 the gradient canvas with a fixed palette of swatches:
 
-<VjsfDemo demo="demo-color/swatches" />
-
-```json
-{
-  "type": "string",
-  "title": "Brand color",
-  "layout": {
-    "comp": "color-picker",
-    "props": {
-      "pickerProps": {
-        "hideCanvas": true,
-        "showSwatches": true,
-        "swatches": [
-          ["#F44336", "#E91E63", "#9C27B0"],
-          ["#3F51B5", "#2196F3", "#03A9F4"]
-        ]
-      }
-    }
-  }
-}
-```
+<VjsfDemo demo="demo-color/swatches" expanded />
 
 ## Related
 
