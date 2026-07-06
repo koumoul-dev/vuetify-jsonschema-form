@@ -5,9 +5,9 @@ import { useDisplay } from 'vuetify'
 // `ClientOnly` is auto-registered globally by ViteSSG (see src/main.ts)
 import EditorSandbox from '../components/EditorSandbox.vue'
 import type CodeEditorType from '../components/CodeEditor.vue'
-import type { CodeLanguage } from '../editor/code'
-import { vjsfMetaSchema } from '../editor/vjsf-meta-schema'
-import { runtimeOptions } from '../doc-options'
+import type { CodeLanguage } from '../utils/editor/code'
+import { vjsfMetaSchema } from '../utils/editor/vjsf-meta-schema'
+import { runtimeOptions } from '../utils/doc-options'
 
 // Lazy: CodeEditor.vue pulls in `codemirror-json-schema`, whose published
 // build breaks Node ESM resolution (vite-ssg's prerender step) — a

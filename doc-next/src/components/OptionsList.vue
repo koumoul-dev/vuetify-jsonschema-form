@@ -35,7 +35,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { compileOptions, runtimeOptions } from '../doc-options'
+import { compileOptions, runtimeOptions } from '../utils/doc-options'
 import OptionValuesTable from './OptionValuesTable.vue'
 
 const props = defineProps<{ type: 'compile' | 'runtime' }>()

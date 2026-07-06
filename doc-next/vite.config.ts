@@ -13,8 +13,8 @@ import attrs from 'markdown-it-attrs'
 import { createHighlighter } from 'shiki'
 import fg from 'fast-glob'
 import matter from 'gray-matter'
-import { searchIndexPlugin } from './build/search-index-plugin'
-import { examplesLayoutsPlugin } from './build/examples-layouts-plugin'
+import { searchIndexPlugin } from './src/utils/search/search-index-plugin'
+import { examplesLayoutsPlugin } from './src/demos/examples-layouts-plugin'
 
 // Base path for GitHub Pages versioned subpaths.
 const base = process.env.TARGET ? new URL(process.env.TARGET).pathname : '/'

@@ -81,7 +81,7 @@ import { ref, computed, watch, nextTick, getCurrentInstance } from 'vue'
 import { useDisplay } from 'vuetify'
 import type { Router } from 'vue-router'
 import { useDebounceFn, useEventListener } from '@vueuse/core'
-import { useSearch } from '../search/use-search'
+import { useSearch } from '../utils/search/use-search'
 
 // Local minisearch index (offline, no Algolia); modal-dialog UI with
 // keyboard nav, VitePress local-search style.

@@ -1,6 +1,6 @@
 import fg from 'fast-glob'
 import { toSearchDoc, exampleToSearchDoc } from './search-doc'
-import { getDemoCollections } from '../src/demos'
+import { getDemoCollections } from '../../demos'
 
 export function searchIndexPlugin (pagesDir: string) {
   const fileName = 'search-index.json'

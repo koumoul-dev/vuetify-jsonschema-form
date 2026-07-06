@@ -1,7 +1,7 @@
 // Global (script) declaration file — NO top-level import/export, so these
 // `declare module` blocks declare/merge ambient modules rather than augment.
 
-// Emitted by build/examples-layouts-plugin.ts.
+// Emitted by src/demos/examples-layouts-plugin.ts.
 declare module 'virtual:example-layouts' {
   import type { CompiledLayout } from '@json-layout/core'
   export function loadLayout (key: string): Promise<CompiledLayout | null>

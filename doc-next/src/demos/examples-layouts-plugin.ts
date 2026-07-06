@@ -3,8 +3,8 @@ import { serialize } from '@json-layout/core/src/compile/serialize'
 import markdownInfo from '@koumoul/vjsf-markdown/info.js'
 import imgCropperInfo from '@koumoul/vjsf-img-cropper/info.js'
 import { v2compat } from '@koumoul/vjsf/compat/v2'
-import { getDemoCollections } from '../src/demos/index'
-import type { Example } from '../src/demos/types'
+import { getDemoCollections } from './index'
+import type { Example } from './types'
 
 // compile() only needs a ComponentInfo (name + capability flags) for plugin
 // components referenced by demo schemas — never the Vue component itself.

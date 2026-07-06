@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { DocOption } from '../doc-options'
+import type { DocOption } from '../utils/doc-options'
 
 const props = defineProps<{ option: DocOption }>()
 

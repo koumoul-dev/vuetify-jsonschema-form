@@ -61,7 +61,7 @@ async function copy () {
 
 const layout = shallowRef<CompiledLayout | null>(null)
 // Distinguishes "still loading" from "resolved with no compiled layout"
-// (the KNOWN_INCOMPATIBLE examples of build/examples-layouts-plugin.ts).
+// (the KNOWN_INCOMPATIBLE examples of demos/examples-layouts-plugin.ts).
 const layoutReady = ref(false)
 
 // guards against a stale response clobbering a newer one

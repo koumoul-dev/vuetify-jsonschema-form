@@ -67,7 +67,7 @@
 import { ref, computed, watch, getCurrentInstance } from 'vue'
 import { useDisplay } from 'vuetify'
 import type { RouteLocationNormalizedLoaded } from 'vue-router'
-import { useNav } from '../nav/use-nav'
+import { useNav } from '../utils/nav/use-nav'
 import { appVersion, commitHash, commitUrl } from '../build-info'
 
 const drawer = defineModel<boolean>({ default: false })

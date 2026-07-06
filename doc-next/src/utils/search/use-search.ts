@@ -1,6 +1,6 @@
 import { ref, shallowRef } from 'vue'
 import { createSearcher, type SearchResult } from './searcher'
-import type { SearchDocument } from '../../build/search-doc'
+import type { SearchDocument } from './search-doc'
 
 let searcher: ReturnType<typeof createSearcher> | null = null
 let loading: Promise<void> | null = null

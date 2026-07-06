@@ -1,5 +1,5 @@
 import MiniSearch from 'minisearch'
-import type { SearchDocument } from '../../build/search-doc'
+import type { SearchDocument } from './search-doc'
 
 export interface SearchResult {
   id: string

@@ -15,7 +15,7 @@ import { stateExtensions, handleRefresh, updateSchema } from 'codemirror-json-sc
 import { json5SchemaLinter, json5SchemaHover, json5Completion } from 'codemirror-json-schema/json5'
 import { yamlSchemaLinter, yamlSchemaHover, yamlCompletion } from 'codemirror-json-schema/yaml'
 import { disableErrorLogging } from 'best-effort-json-parser'
-import { parseCode, formatCode, type CodeLanguage } from '../editor/code'
+import { parseCode, formatCode, type CodeLanguage } from '../utils/editor/code'
 
 // best-effort-json-parser logs every transiently-invalid buffer to
 // console.error; real diagnostics come from the CM linters below.

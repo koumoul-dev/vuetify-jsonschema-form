@@ -7,7 +7,7 @@ import { createApp, h, shallowRef } from 'vue'
 import { createVuetify } from 'vuetify'
 import { VForm } from 'vuetify/components/VForm'
 import Vjsf from '@koumoul/vjsf'
-import { vuetifyTheme } from '../theme'
+import { vuetifyTheme } from '../utils/theme'
 import { isRenderMessage, isValidateMessage, type SandboxToParent } from './protocol'
 
 // Same theme definitions as the parent doc app, so both sides resolve e.g.
