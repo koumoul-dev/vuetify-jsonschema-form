@@ -11,6 +11,11 @@ html, body, .v-application { font-family: 'Nunito', sans-serif; }
 .v-main :is(h1, h2, h3, h4, h5, h6)[id] {
   scroll-margin-top: 80px;
 }
+/* Same clearance for the layout-keyword reference's anchored rows (property
+   and component entries), which are list items rather than headings. */
+.v-main .reference-anchor[id] {
+  scroll-margin-top: 80px;
+}
 
 /* Hover-reveal copy-link button after each section heading (Vuetify-docs
    style). The <CopyAnchor> v-btn is injected inline by markdown-it-anchor
@@ -55,4 +60,15 @@ html, body, .v-application { font-family: 'Nunito', sans-serif; }
    above is for the examples' source pane, which pads around it). */
 .markdown-body pre.code-block {
   margin: 16px 0;
+}
+/* Inline code in prose: same surface-tint family as .code-block but boosted
+   (0.05 is enough for a large block, invisible on a few characters), plus a
+   warm one-dark accent so `code` spans stand out from the body text. */
+.markdown-body :not(pre) > code {
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+  background: rgba(var(--v-theme-on-surface), 0.1);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  color: #e5c07b;
 }

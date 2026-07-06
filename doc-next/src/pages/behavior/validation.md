@@ -2,7 +2,7 @@
 title: Validation
 description: How and when VJSF validates form data, emits it, and applies defaults
 nav:
-  order: 3
+  order: 4
 ---
 
 # Validation
@@ -65,6 +65,17 @@ the form data:
 - `missing`: applied when the property is not defined in the data at all
 - `empty` (default): applied when the property is undefined *or* empty
   (empty string, empty object, etc.)
+
+## Nullable values
+
+A type union with `"null"` (e.g. `type: ["string", "null"]`) marks the
+node as nullable (surfacing as `layout.nullable` in the compiled
+layout): clearing the field then stores `null` instead of removing the
+property — useful when a backend distinguishes an absent key from an
+explicitly cleared one. Clear both fields below and compare them in the
+Data tab:
+
+<VjsfDemo demo="demo-validation/nullable" expanded />
 
 ## Additional & readOnly properties
 

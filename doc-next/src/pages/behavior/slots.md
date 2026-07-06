@@ -2,7 +2,7 @@
 title: Slots
 description: Injecting extra content around or instead of a node's rendering with layout.slots
 nav:
-  order: 7
+  order: 8
 ---
 
 # Slots

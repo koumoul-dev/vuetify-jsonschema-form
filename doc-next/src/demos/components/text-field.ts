@@ -20,18 +20,37 @@ const collection: DemoCollection = {
       schema: {
         type: 'string',
         title: 'Password',
-        layout: { comp: 'text-field', props: { type: 'password' } },
+        layout: { props: { type: 'password' } },
       },
+      // defaultOn: 'missing' keeps a cleared field emitting "" instead of
+      // dropping the value (which surfaces as null on a root string)
+      options: { defaultOn: 'missing' },
     },
     {
       id: 'annotations',
-      title: 'title, description, examples & default',
+      title: 'title, description & default',
+      // wrapped in an object: on a root-level primitive the initial null
+      // model is not considered "empty" so the default would not be applied
+      // (see BUGS.md) — a missing object property is, matching real forms
+      schema: {
+        type: 'object',
+        properties: {
+          nickname: {
+            type: 'string',
+            title: 'Nickname',
+            description: 'How your name is shown to others',
+            default: 'Anonymous',
+          },
+        },
+      },
+    },
+    {
+      id: 'examples',
+      title: 'examples as suggestions',
       schema: {
         type: 'string',
         title: 'Nickname',
-        description: 'How your name is shown to others',
         examples: ['Ada', 'Alan'],
-        default: 'Anonymous',
       },
     },
   ],

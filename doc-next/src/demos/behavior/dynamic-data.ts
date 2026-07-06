@@ -75,6 +75,51 @@ const collection: DemoCollection = {
         },
       },
     },
+    {
+      id: 'const-data',
+      title: 'constData and getConstData forced values',
+      schema: {
+        type: 'object',
+        properties: {
+          plan: {
+            type: 'string',
+            title: 'Plan',
+            enum: ['free', 'pro'],
+            default: 'free',
+          },
+          price: {
+            type: 'string',
+            title: 'Price',
+            layout: {
+              getConstData: 'parent.data?.plan === \'pro\' ? \'9€ / month\' : \'Free forever\'',
+            },
+          },
+          source: {
+            type: 'string',
+            // invisible, but still written to the data — check the Data tab.
+            // `const` + the string shorthand, NOT { comp: 'none', constData }:
+            // the object form drops the sibling props (BUGS.md #8)
+            const: 'doc-demo',
+            layout: 'none',
+          },
+        },
+      },
+    },
+    {
+      id: 'transform-data',
+      title: 'transformData normalizing user input',
+      schema: {
+        type: 'object',
+        properties: {
+          countryCode: {
+            type: 'string',
+            title: 'Country code',
+            description: 'Whatever the case you type in, the stored value is upper-cased.',
+            layout: { transformData: 'data && data.toUpperCase()' },
+          },
+        },
+      },
+    },
   ],
 }
 export default collection

@@ -42,6 +42,21 @@ not a `layout.props` passthrough (it defaults to `1` when the type is
 
 <VjsfDemo demo="demo-number/slider" expanded />
 
+## A slider label on its own line
+
+By default the slider's label sits *inline*, to the left of the track. On
+a narrow layout that leaves little room for the slider itself and the
+label wraps awkwardly. A slider is a *simple* component, so its label is
+the `layout.label` key — setting it to an empty string drops that inline
+label, and a [`before` slot](/behavior/slots) puts the title on its own
+line *above* the track instead (a string slot is rendered as Markdown, so
+no template is needed). The same schema forwards `thumb-label` and
+`show-ticks` straight to the `v-slider` through `layout.props` (see
+[Vuetify integration](/behavior/vuetify-integration)), while `step`
+remains the first-class `layout` key from the previous section:
+
+<VjsfDemo demo="demo-number/slider-label-before" expanded />
+
 ## Related
 
 - [`useTitle`, `useDescription`, `useDefault`, `useExamples`](/behavior/options) —

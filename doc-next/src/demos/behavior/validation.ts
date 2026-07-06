@@ -58,6 +58,18 @@ const collection: DemoCollection = {
       options: { removeAdditional: true },
     },
     {
+      id: 'nullable',
+      title: 'Nullable property storing null when emptied',
+      schema: {
+        type: 'object',
+        properties: {
+          name: { type: 'string', title: 'Name (plain string)' },
+          nickname: { type: ['string', 'null'], title: 'Nickname (nullable)' },
+        },
+      },
+      data: { name: 'Ada Lovelace', nickname: 'ada' },
+    },
+    {
       id: 'read-only-modes',
       title: 'readOnlyPropertiesMode: hide',
       schema: {

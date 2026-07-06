@@ -13,6 +13,8 @@ import VjsfDemo from './components/VjsfDemo.vue'
 import OptionsList from './components/OptionsList.vue'
 import I18nMessages from './components/I18nMessages.vue'
 import CopyAnchor from './components/CopyAnchor.vue'
+import LayoutPropsTable from './components/LayoutPropsTable.vue'
+import LayoutCompCatalogue from './components/LayoutCompCatalogue.vue'
 
 // `ClientOnly` is not registered here — ViteSSG() registers it globally itself.
 export const createApp = ViteSSG(App, { routes }, ({ app }) => {
@@ -24,4 +26,6 @@ export const createApp = ViteSSG(App, { routes }, ({ app }) => {
   app.component('OptionsList', OptionsList)
   app.component('I18nMessages', I18nMessages)
   app.component('CopyAnchor', CopyAnchor)
+  app.component('LayoutPropsTable', LayoutPropsTable)
+  app.component('LayoutCompCatalogue', LayoutCompCatalogue)
 })

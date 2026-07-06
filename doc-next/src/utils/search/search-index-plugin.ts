@@ -1,6 +1,7 @@
 import fg from 'fast-glob'
-import { toSearchDoc, exampleToSearchDoc } from './search-doc'
+import { toSearchDoc, exampleToSearchDoc, layoutRefToSearchDocs } from './search-doc'
 import { getDemoCollections } from '../../demos'
+import { buildLayoutVocabulary } from '../../reference/layout-vocabulary'
 
 export function searchIndexPlugin (pagesDir: string) {
   const fileName = 'search-index.json'
@@ -14,7 +15,8 @@ export function searchIndexPlugin (pagesDir: string) {
     let runningId = docs.length
     const exampleDocs = getDemoCollections()
       .flatMap(c => c.demos.map(d => exampleToSearchDoc(d, c.route, c.id, runningId++)))
-    return JSON.stringify(docs.concat(exampleDocs))
+    const refDocs = layoutRefToSearchDocs(buildLayoutVocabulary().doc, runningId)
+    return JSON.stringify(docs.concat(exampleDocs, refDocs))
   }
 
   return {

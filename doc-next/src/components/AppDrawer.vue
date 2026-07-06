@@ -4,7 +4,7 @@
     :permanent="lgAndUp"
     :temporary="!lgAndUp"
   >
-    <v-list v-model:opened="opened" nav>
+    <v-list v-model:opened="opened" color="primary" nav>
       <v-list-group
         v-for="group in nav.groups"
         :key="group.dir"

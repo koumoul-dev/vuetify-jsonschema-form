@@ -33,6 +33,32 @@ const collection: DemoCollection = {
       title: 'layout: slider',
       schema: { type: 'number', title: 'Volume', layout: 'slider', minimum: 0, maximum: 10 },
     },
+    {
+      id: 'slider-label-before',
+      title: 'layout: slider — label on its own line',
+      description:
+        'On a narrow layout the built-in slider label is squeezed inline to the ' +
+        'left of the track and wraps awkwardly. A slider is a simple component, so ' +
+        'its label is the layout.label key — setting it to an empty string drops the ' +
+        'inline label, and a before slot (a plain string is rendered as Markdown) ' +
+        're-renders the title on its own line above the track. thumb-label and ' +
+        'show-ticks are passed straight through to the v-slider via layout.props, ' +
+        'while step stays a first-class layout key.',
+      schema: {
+        type: 'integer',
+        default: 1,
+        minimum: 0,
+        maximum: 6,
+        layout: {
+          label: '',
+          comp: 'slider',
+          step: 1,
+          slots: { before: 'Margin between items' },
+          props: { 'thumb-label': 'hover', 'show-ticks': 'always' },
+        },
+      },
+      data: 3,
+    },
   ],
 }
 export default collection

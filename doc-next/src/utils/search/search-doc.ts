@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { relative } from 'node:path'
 import matter from 'gray-matter'
+import type { LayoutVocabularyDoc } from '../../reference/types'
 
 export interface SearchDocument {
   id: string
@@ -52,6 +53,39 @@ export function exampleToSearchDoc (ex: { id: string, title: string, description
     headings: [],
     content: stripMarkdown(ex.description ?? '').slice(0, 5000),
   }
+}
+
+// The layout-keyword reference entries deep-link to the anchored rows
+// rendered by LayoutPropsTable.vue (`#<group>-<prop>`) and
+// LayoutCompCatalogue.vue (`#comp-<name>`). One doc per common property; one
+// doc per component, carrying its specific properties as content so searching
+// a property name (e.g. "placeholder") surfaces the components exposing it.
+export function layoutRefToSearchDocs (vocabulary: LayoutVocabularyDoc, firstId: number): SearchDocument[] {
+  const page = '/behavior/layout-keyword'
+  const docs: SearchDocument[] = []
+  for (const group of vocabulary.groups) {
+    for (const prop of group.props) {
+      docs.push({
+        id: `ref-${firstId + docs.length}`,
+        title: `layout.${prop.name}`,
+        category: 'reference',
+        path: `${page}#${group.key}-${prop.name}`,
+        headings: [],
+        content: stripMarkdown(prop.description ?? ''),
+      })
+    }
+  }
+  for (const comp of vocabulary.components) {
+    docs.push({
+      id: `ref-${firstId + docs.length}`,
+      title: `${comp.name} component`,
+      category: 'reference',
+      path: `${page}#comp-${comp.name}`,
+      headings: comp.props.map(p => p.name),
+      content: stripMarkdown([comp.description ?? '', ...comp.props.map(p => `${p.name}: ${p.description ?? ''}`)].join(' ')),
+    })
+  }
+  return docs
 }
 
 export function toSearchDoc (file: string, id: number, pagesDir: string): SearchDocument {

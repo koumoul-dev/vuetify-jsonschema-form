@@ -13,6 +13,12 @@ declare module 'virtual:layout-keyword-schema' {
   export default schema
 }
 
+// Emitted by src/reference/layout-vocabulary-plugin.ts.
+declare module 'virtual:layout-vocabulary' {
+  const doc: import('./reference/types').LayoutVocabularyDoc
+  export default doc
+}
+
 // typed-router.d.ts declares RouteNamedMap for this module but not its runtime
 // `routes` value export; this merges the missing export in.
 declare module 'vue-router/auto-routes' {

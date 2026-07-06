@@ -64,6 +64,18 @@ of the chosen values:
 
 <VjsfDemo demo="demo-select/multi-select" expanded />
 
+## Separator-joined strings
+
+A plain `type: "string"` schema with `layout.separator` gets a
+multi-valued input too, but the selection is stored as a single
+delimited string instead of an array — the value is split and joined on
+the separator both ways. The selectable values come from `layout.items`
+(a schema `enum` cannot be used here, since validation would apply to
+the whole joined string), and the component defaults to a `combobox`,
+free values being impossible to rule out anyway:
+
+<VjsfDemo demo="demo-select/separator" expanded />
+
 ## returnObjects
 
 When `getItems` returns a list of objects, the value stored in the form

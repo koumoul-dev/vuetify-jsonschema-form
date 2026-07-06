@@ -6,6 +6,8 @@ import expressions from './behavior/expressions'
 import dynamicData from './behavior/dynamic-data'
 import i18n from './behavior/i18n'
 import slots from './behavior/slots'
+import vuetifyIntegration from './behavior/vuetify-integration'
+import layoutKeyword from './behavior/layout-keyword'
 import textField from './components/text-field'
 import number from './components/number'
 import boolean from './components/boolean'
@@ -24,7 +26,7 @@ import markdown from './plugins/markdown'
 import imgCropper from './plugins/img-cropper'
 import { demoV2Properties, demoV2SectionsArrays, demoV2Advanced } from './migration/v2-compat'
 
-const collections: DemoCollection[] = [home, gettingStarted, validation, expressions, dynamicData, i18n, slots, textField, number, boolean, dateTime, color, file, select, selectionGroups, sections, tabsStepperPanels, grid, combinedSchemas, lists, listActions, markdown, imgCropper, demoV2Properties, demoV2SectionsArrays, demoV2Advanced]
+const collections: DemoCollection[] = [home, gettingStarted, validation, expressions, dynamicData, i18n, slots, vuetifyIntegration, layoutKeyword, textField, number, boolean, dateTime, color, file, select, selectionGroups, sections, tabsStepperPanels, grid, combinedSchemas, lists, listActions, markdown, imgCropper, demoV2Properties, demoV2SectionsArrays, demoV2Advanced]
 
 export function getDemoCollections (): DemoCollection[] { return collections }
 

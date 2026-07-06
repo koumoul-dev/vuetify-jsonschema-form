@@ -15,6 +15,7 @@ import fg from 'fast-glob'
 import matter from 'gray-matter'
 import { searchIndexPlugin } from './src/utils/search/search-index-plugin'
 import { examplesLayoutsPlugin } from './src/demos/examples-layouts-plugin'
+import { layoutVocabularyPlugin } from './src/reference/layout-vocabulary-plugin'
 
 // Base path for GitHub Pages versioned subpaths.
 const base = process.env.TARGET ? new URL(process.env.TARGET).pathname : '/'
@@ -151,6 +152,7 @@ export default defineConfig({
     }),
     navData(),
     layoutKeywordSchema(),
+    layoutVocabularyPlugin(),
     searchIndexPlugin(pagesDir),
     examplesLayoutsPlugin(),
     vuetify({ autoImport: true }),

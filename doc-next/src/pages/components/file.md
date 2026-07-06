@@ -64,6 +64,6 @@ For image uploads specifically, with cropping built in, see
   annotation surfacing described on the
   [text field](/components/text-field#hints-and-labels) page applies to
   file inputs too.
-- [`layout.props`](/components/text-field#a-password-input) — how extra
-  props like `accept` are forwarded as-is to the underlying Vuetify
-  component.
+- [`layout.props`](/behavior/vuetify-integration#passing-props-with-layout.props) —
+  how extra props like `accept` are forwarded as-is to the underlying
+  Vuetify component.

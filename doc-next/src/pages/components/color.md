@@ -37,6 +37,6 @@ the gradient canvas with a fixed palette of swatches:
   same annotation surfacing described on the
   [text field](/components/text-field#hints-and-labels) page applies to
   the color picker too.
-- [`layout.props`](/components/text-field#a-password-input) — how extra
-  props are forwarded as-is to the underlying Vuetify component, as used
-  above for `pickerProps`.
+- [`layout.props`](/behavior/vuetify-integration#passing-props-with-layout.props) —
+  how extra props are forwarded as-is to the underlying Vuetify
+  component, as used above for `pickerProps`.

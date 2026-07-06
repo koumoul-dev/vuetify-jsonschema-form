@@ -15,7 +15,8 @@ keep acting on the rendered form.
 Both kinds are passed together in a single object, to the `vjsf`
 component or to the compiler. The object is typed; runtime options can
 additionally be overwritten at any level of the schema with the
-`layout.options` keyword:
+`layout.options` keyword — or computed from an
+[expression](/behavior/expressions) with `layout.getOptions`:
 
 <v-row>
 <v-col cols="12" md="6">

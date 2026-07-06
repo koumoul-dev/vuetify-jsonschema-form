@@ -51,6 +51,23 @@ const collection: DemoCollection = {
       },
     },
     {
+      id: 'separator',
+      title: 'Multi-select stored as a separator-joined string',
+      schema: {
+        type: 'object',
+        properties: {
+          tags: {
+            type: 'string',
+            title: 'Tags',
+            // items, not enum: schema validation would apply to the whole
+            // joined string, so every combination would have to be listed
+            layout: { separator: ', ', items: ['vue', 'vuetify', 'json-schema', 'forms'] },
+          },
+        },
+      },
+      data: { tags: 'vue, forms' },
+    },
+    {
       id: 'return-objects',
       title: 'returnObjects',
       schema: {

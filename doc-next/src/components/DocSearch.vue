@@ -32,6 +32,7 @@
         <v-text-field
           ref="fieldRef"
           v-model="query"
+          color="primary"
           density="comfortable"
           placeholder="Search the documentation"
           prepend-inner-icon="mdi-magnify"
@@ -45,7 +46,7 @@
       <v-divider />
 
       <div class="doc-search-results" style="max-height: 60vh; overflow-y: auto">
-        <v-list v-if="results.length" class="py-0" density="comfortable">
+        <v-list v-if="results.length" class="py-0" color="primary" density="comfortable">
           <v-list-item
             v-for="(r, i) in results"
             :key="r.id"

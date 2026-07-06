@@ -30,7 +30,7 @@ type LegacyExample = Example & { model?: unknown }
 // `defaultOn: 'empty'` synthesizes the right empty value per root type.
 const data = ref(structuredClone(props.example.data ?? (props.example as LegacyExample).model ?? null))
 const theme = ref<'light' | 'dark'>('light')
-const tab = ref<'schema' | 'data' | 'options' | 'slots'>('schema')
+const tab = ref<'schema' | 'data' | 'options' | 'defaults' | 'slots'>('schema')
 // Vuetify-doc-style source pane: collapsed by default unless the page asks
 // for it (prop read once, the toggle button owns the state afterwards).
 const expanded = ref(props.expanded ?? false)
@@ -42,6 +42,7 @@ const tabs = computed(() => {
   const values: { value: typeof tab.value, title: string }[] = [{ value: 'schema', title: 'Schema' }]
   if (!props.hideData) values.push({ value: 'data', title: 'Data' })
   if (Object.keys(props.example.options as Record<string, unknown> ?? {}).length) values.push({ value: 'options', title: 'Options' })
+  if (props.example.vuetifyDefaults) values.push({ value: 'defaults', title: 'Vuetify defaults' })
   if (props.example.slotsCode) values.push({ value: 'slots', title: 'Slots' })
   return values
 })
@@ -52,7 +53,7 @@ let copiedTimer: ReturnType<typeof setTimeout> | undefined
 async function copy () {
   const text = tab.value === 'slots'
     ? (props.example.slotsCode ?? '')
-    : JSON.stringify({ schema: props.example.schema, data: data.value, options: props.example.options ?? {} }[tab.value], null, 2)
+    : JSON.stringify({ schema: props.example.schema, data: data.value, options: props.example.options ?? {}, defaults: props.example.vuetifyDefaults ?? {} }[tab.value], null, 2)
   await navigator.clipboard.writeText(text)
   copied.value = true
   clearTimeout(copiedTimer)
@@ -154,6 +155,9 @@ function edit () {
             <v-window-item value="options">
               <CodeBlock :value="example.options ?? {}" />
             </v-window-item>
+            <v-window-item v-if="example.vuetifyDefaults" value="defaults">
+              <CodeBlock :value="example.vuetifyDefaults" />
+            </v-window-item>
             <v-window-item v-if="example.slotsCode" value="slots">
               <!-- Vue template code, not JSON: skip CodeBlock's tokenizer and
               reuse the shared block chrome only. -->
@@ -172,17 +176,22 @@ function edit () {
           <template v-else>This example is not supported in VJSF 3.</template>
         </v-alert>
         <v-form v-else ref="form">
-          <vjsf
-            v-model="data"
-            :schema="example.schema"
-            :precompiled-layout="layout"
-            :options="renderOptions"
-          >
-            <!-- forward page-defined slots (named Vue slots demos) -->
-            <template v-for="(_, name) in $slots" #[name]="slotProps">
-              <slot :name="name" v-bind="slotProps" />
-            </template>
-          </vjsf>
+          <!-- scoped equivalent of createVuetify({ defaults }) for the demos
+          documenting the Vjsf* defaults aliases; renders no DOM and passes
+          straight through when the example carries no vuetifyDefaults -->
+          <v-defaults-provider :defaults="example.vuetifyDefaults">
+            <vjsf
+              v-model="data"
+              :schema="example.schema"
+              :precompiled-layout="layout"
+              :options="renderOptions"
+            >
+              <!-- forward page-defined slots (named Vue slots demos) -->
+              <template v-for="(_, name) in $slots" #[name]="slotProps">
+                <slot :name="name" v-bind="slotProps" />
+              </template>
+            </vjsf>
+          </v-defaults-provider>
           <div v-if="showValidate" class="d-flex justify-end pt-2">
             <v-btn color="success" density="compact" text="Validate" variant="flat" @click="form?.validate()" />
           </div>

@@ -1,8 +1,8 @@
 ---
 title: Dynamic data
-description: Populating a select's items with layout.getItems and computing default values with layout.getDefaultData
+description: Populating a select's items with layout.getItems, computing default values, forcing constant data and transforming entered data
 nav:
-  order: 5
+  order: 6
 ---
 
 # Dynamic data
@@ -132,3 +132,29 @@ reaches the sibling properties (see
 [expressions](/behavior/expressions#reaching-the-rest-of-the-form-with-parent-and-rootdata)):
 
 <VjsfDemo demo="demo-dynamic-data/get-default-data" expanded />
+
+`layout.defaultData` is the static counterpart: a fixed default value
+carried by the layout, equivalent to the schema's `default` keyword and
+applied under the same `defaultOn` rule (see
+[validation](/behavior/validation#default-values)).
+
+## Constant data
+
+Where a default only fills an *empty* node, `layout.constData` (a fixed
+value, the layout counterpart of the schema's `const` keyword) and
+`layout.getConstData` (an [expression](/behavior/expressions)) force
+the node's data outright: whatever the user or the rest of the form
+does, the stored value always follows. The standard way to inject a
+fixed technical value is the schema's `const` keyword with the node
+hidden by `layout: "none"` — it renders nothing but its data is still
+written (check the hidden `source` property in the Data tab):
+
+<VjsfDemo demo="demo-dynamic-data/const-data" expanded />
+
+## Transforming entered data
+
+`layout.transformData` sits between the input and the stored data: the
+[expression](/behavior/expressions) runs every time the node's data
+changes, and its result is what gets stored:
+
+<VjsfDemo demo="demo-dynamic-data/transform-data" expanded />
