@@ -54,7 +54,7 @@ if (props.statefulLayout._renderCounts) {
 // or by whatever wrapped this part of the form), only nodes that actually change the
 // density need to provide it, a disabled v-defaults-provider skips the costly
 // per-node mergeDeep of the vuetify defaults chain
-const vuetifyDefaults = inject(Symbol.for('vuetify:defaults'), undefined)
+const vuetifyDefaults = /** @type {import('vue').Ref<import('vuetify').DefaultsInstance> | undefined} */ (inject(Symbol.for('vuetify:defaults'), undefined))
 const setsDensity = computed(() => {
   const density = props.modelValue.options.density
   return density !== undefined && vuetifyDefaults?.value?.global?.density !== density
