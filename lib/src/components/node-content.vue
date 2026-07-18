@@ -1,6 +1,6 @@
 <script setup>
 import Debug from 'debug'
-import { computed, onRenderTriggered, onUpdated } from 'vue'
+import { computed, inject, onRenderTriggered, onUpdated } from 'vue'
 import { useTheme, useDefaults } from 'vuetify'
 import { VCol } from 'vuetify/components/VGrid'
 import { VDefaultsProvider } from 'vuetify/components/VDefaultsProvider'
@@ -50,6 +50,15 @@ if (props.statefulLayout._renderCounts) {
   })
 }
 
+// almost all nodes share the density already provided above them (by the root node
+// or by whatever wrapped this part of the form), only nodes that actually change the
+// density need to provide it, a disabled v-defaults-provider skips the costly
+// per-node mergeDeep of the vuetify defaults chain
+const vuetifyDefaults = inject(Symbol.for('vuetify:defaults'), undefined)
+const setsDensity = computed(() => {
+  const density = props.modelValue.options.density
+  return density !== undefined && vuetifyDefaults?.value?.global?.density !== density
+})
 const densityDefaults = computed(() => ({ global: { density: props.modelValue.options.density } }))
 
 const indent = computed(() => {
@@ -84,7 +93,10 @@ if (props.modelValue.layout.comp !== 'none' && !props.modelValue.slots?.componen
 </script>
 
 <template>
-  <v-defaults-provider :defaults="densityDefaults">
+  <v-defaults-provider
+    :defaults="densityDefaults"
+    :disabled="!setsDensity"
+  >
     <v-col
       v-if="modelValue.layout.comp !== 'none'"
       :cols="modelValue.cols"
