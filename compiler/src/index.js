@@ -34,12 +34,16 @@ function listComps (comps, layout) {
 }
 
 /**
+ * Compile a schema and return both the generated `.vue` component code and the
+ * serialized compiled layout it embeds. Exposing `compiledLayoutCode` lets callers
+ * that also need the standalone compiled layout (e.g. the `compiledLayout` export of
+ * @data-fair/lib-types-builder) reuse it instead of compiling+serializing a second time.
  * @param {object} schema
  * @param {import('./types.js').PartialVjsfCompilerOptions} [options]
  * @param {string} [baseImport]
- * @returns {Promise<string>}
+ * @returns {Promise<{ code: string, compiledLayoutCode: string }>}
  */
-export async function compile (schema, options = {}, baseImport = '@koumoul/vjsf') {
+export async function compileParts (schema, options = {}, baseImport = '@koumoul/vjsf') {
   const fullOptions = getFullOptions(options)
   /** @type {Record<string, string>} */
   const pluginsImportsByName = {}
@@ -78,7 +82,17 @@ export async function compile (schema, options = {}, baseImport = '@koumoul/vjsf
   })
 
   const code = ejs.render(template, { compiledLayoutCode, compImports, baseImport, pluginsComponents, webmcp: !!fullOptions.webmcp })
-  return code
+  return { code, compiledLayoutCode }
+}
+
+/**
+ * @param {object} schema
+ * @param {import('./types.js').PartialVjsfCompilerOptions} [options]
+ * @param {string} [baseImport]
+ * @returns {Promise<string>}
+ */
+export async function compile (schema, options = {}, baseImport = '@koumoul/vjsf') {
+  return (await compileParts(schema, options, baseImport)).code
 }
 
 export default compile
