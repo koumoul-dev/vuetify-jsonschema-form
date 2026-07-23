@@ -154,6 +154,16 @@ const pushEmptyIndexedItem = () => {
 }
 
 /**
+ * follow the item to its new position instead of closing the menu, so that successive moves don't require re-opening it
+ * @param {number} childIndex
+ * @param {number} targetIndex
+ */
+const moveItem = (childIndex, targetIndex) => {
+  props.statefulLayout.input(props.modelValue, moveDataItem(props.modelValue.data, childIndex, targetIndex))
+  menuOpened.value = targetIndex
+}
+
+/**
  * @param {number} childIndex
  */
 const clickDeleteItem = (childIndex) => {
@@ -443,7 +453,7 @@ const toggleDialog = (/** @type {boolean} */value) => {
                     <v-list-item
                       v-if="modelValue.layout.listActions.includes('sort')"
                       :disabled="childIndex === 0"
-                      @click="statefulLayout.input(modelValue, moveDataItem(modelValue.data, childIndex, childIndex - 1)); menuOpened = -1"
+                      @click="moveItem(childIndex, childIndex - 1)"
                     >
                       <template #prepend>
                         <v-icon :icon="options.icons.sortUp" />
@@ -453,7 +463,7 @@ const toggleDialog = (/** @type {boolean} */value) => {
                     <v-list-item
                       v-if="modelValue.layout.listActions.includes('sort')"
                       :disabled="childIndex === modelValue.data.length - 1"
-                      @click="statefulLayout.input(modelValue, moveDataItem(modelValue.data, childIndex, childIndex + 1)); menuOpened = -1"
+                      @click="moveItem(childIndex, childIndex + 1)"
                     >
                       <template #prepend>
                         <v-icon :icon="options.icons.sortDown" />
