@@ -2,7 +2,7 @@
 // @ts-nocheck
 
 import { StatefulLayout } from '@json-layout/core/state'
-import { ref, shallowRef, getCurrentInstance, useSlots, computed<% if (webmcp) { %>, watch<% } %> } from 'vue'
+import { ref, shallowRef, getCurrentInstance, useSlots, computed<% if (webmcp) { %>, watch, onScopeDispose<% } %> } from 'vue'
 import { useElementSize } from '@vueuse/core'
 <% if (webmcp) { %>
 import { WebMCP } from '@json-layout/core/webmcp'
@@ -72,6 +72,12 @@ watch(statefulLayout, () => {
     webMCP.value.registerTools()
   }
 }, { immediate: true })
+
+// always unregister our tools when the component is torn down, otherwise a later
+// instance mounted with the same prefixName would fail to register them again
+onScopeDispose(() => {
+  if (webMCP.value) webMCP.value.unregisterTools()
+})
 <% } %>
 </script>
 
