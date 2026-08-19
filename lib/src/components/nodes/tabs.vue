@@ -53,6 +53,7 @@ const tab = ref(0)
       >
         <v-icon
           v-if="child.validated && (child.error || child.childError)"
+          start
           color="error"
           :icon="statefulLayout.options.icons.alert"
         />

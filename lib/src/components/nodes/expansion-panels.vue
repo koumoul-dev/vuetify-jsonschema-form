@@ -40,8 +40,8 @@ const { compProps } = useNode(toRef(props, 'modelValue'), props.statefulLayout)
       <v-expansion-panel-title>
         <v-icon
           v-if="child.validated && (child.error || child.childError)"
+          start
           color="error"
-          class="mr-2"
           :icon="statefulLayout.options.icons.alert"
         />
         {{ child.layout.title ?? child.layout.label }}
