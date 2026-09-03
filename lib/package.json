@@ -12,6 +12,11 @@
   },
   "author": "Alban Mouton <alban.mouton@gmail.com>",
   "license": "MIT",
+  "homepage": "https://koumoul-dev.github.io/vuetify-jsonschema-form/latest/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koumoul-dev/vuetify-jsonschema-form.git"
+  },
   "files": [
     "types",
     "src",
