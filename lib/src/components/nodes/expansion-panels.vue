@@ -1,5 +1,5 @@
 <script setup>
-import { computed, toRef } from 'vue'
+import { computed, ref, toRef, watch } from 'vue'
 import { VExpansionPanels, VExpansionPanel, VExpansionPanelTitle, VExpansionPanelText } from 'vuetify/components/VExpansionPanel'
 import { VContainer, VRow } from 'vuetify/components/VGrid'
 import { VIcon } from 'vuetify/components/VIcon'
@@ -8,6 +8,7 @@ import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'
 import ChildSubtitle from '../fragments/child-subtitle.vue'
 import useNode from '../../composables/use-node.js'
+import { useVisibleChildren } from '../../composables/use-visible-children.js'
 import { useDefaults } from 'vuetify'
 
 useDefaults({}, 'VjsfExpansionPanels')
@@ -27,19 +28,39 @@ const props = defineProps({
 
 const { compProps } = useNode(toRef(props, 'modelValue'), props.statefulLayout)
 
-// a child hidden by a "if" expression is kept in the state tree as a "none" node,
-// it must not get a panel of its own
-const visibleChildren = computed(() => props.modelValue.children.filter(child => child.layout.comp !== 'none'))
+const panelsProps = computed(() => {
+  const panelsProps = { ...compProps.value }
+  // the open panels are managed locally, a modelValue in layout.props is only an initial value
+  delete panelsProps.modelValue
+  return panelsProps
+})
+
+const visibleChildren = useVisibleChildren(() => props.modelValue.children)
+
+const openPanels = ref(compProps.value.modelValue)
+watch(visibleChildren, (children) => {
+  const isVisible = (/** @type {unknown} */index) => children.some(visible => visible.index === index)
+  if (Array.isArray(openPanels.value)) {
+    // with the "multiple" prop several panels are open at once, forget the ones that became hidden
+    if (!openPanels.value.every(isVisible)) openPanels.value = openPanels.value.filter(isVisible)
+  } else if (openPanels.value !== undefined && !isVisible(openPanels.value)) {
+    // the open panel became hidden, the "mandatory" prop promises that one stays open
+    openPanels.value = compProps.value.mandatory ? children[0]?.index : undefined
+  }
+})
 
 </script>
 
 <template>
   <section-header :node="modelValue" />
-  <v-expansion-panels v-bind="compProps">
+  <v-expansion-panels
+    v-model="openPanels"
+    v-bind="panelsProps"
+  >
     <v-expansion-panel
-      v-for="child of visibleChildren"
+      v-for="{ child, index } of visibleChildren"
       :key="child.key"
-      :value="child.key"
+      :value="index"
     >
       <v-expansion-panel-title>
         <v-icon

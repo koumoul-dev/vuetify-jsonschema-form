@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import { VStepper, VStepperHeader, VStepperItem, VStepperWindow, VStepperWindowItem, VStepperActions } from 'vuetify/components/VStepper'
 import { VContainer, VRow, VSpacer } from 'vuetify/components/VGrid'
 import { VBtn } from 'vuetify/components/VBtn'
@@ -9,6 +9,7 @@ import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'
 import ChildSubtitle from '../fragments/child-subtitle.vue'
 import { useDefaults } from 'vuetify'
+import { useVisibleChildren, useActiveChildIndex } from '../../composables/use-visible-children.js'
 
 useDefaults({}, 'VjsfStepper')
 
@@ -26,10 +27,17 @@ const props = defineProps({
 })
 
 const nodeProps = computed(() => {
-  return props.modelValue.props
+  const nodeProps = { ...props.modelValue.props }
+  // the current step is managed locally, a modelValue in layout.props is only an initial value
+  delete nodeProps.modelValue
+  return nodeProps
 })
 
-const step = ref(0)
+const visibleChildren = useVisibleChildren(() => props.modelValue.children)
+const step = useActiveChildIndex(visibleChildren, props.modelValue.props?.modelValue)
+
+const previousStep = computed(() => visibleChildren.value.filter(({ index }) => index < /** @type {number} */(step.value)).pop()?.index)
+const nextStep = computed(() => visibleChildren.value.find(({ index }) => index > /** @type {number} */(step.value))?.index)
 
 const firstErrorIndex = computed(() => {
   const index = props.modelValue.children.findIndex(child => child.validated && !!(child.error || child.childError))
@@ -37,9 +45,9 @@ const firstErrorIndex = computed(() => {
 })
 
 const goNext = () => {
-  const child = props.modelValue.children[step.value]
+  const child = props.modelValue.children[/** @type {number} */(step.value)]
   props.statefulLayout.validateNodeRecurse(child)
-  if (!(child.error || child.childError)) step.value++
+  if (!(child.error || child.childError)) step.value = nextStep.value
 }
 </script>
 
@@ -51,23 +59,24 @@ const goNext = () => {
   >
     <v-stepper-header>
       <template
-        v-for="(child, i) of modelValue.children"
+        v-for="{ child, index } of visibleChildren"
         :key="child.key"
       >
         <v-stepper-item
-          :value="i"
+          :value="index"
           :title="/** @type {string | undefined} */(child.layout.title ?? child.layout.label)"
           :error="child.validated && !!(child.error || child.childError)"
           :complete="child.validated && !(child.error || child.childError)"
-          :editable="i <= firstErrorIndex"
+          :editable="index <= firstErrorIndex"
         />
         <v-divider />
       </template>
     </v-stepper-header>
     <v-stepper-window>
       <v-stepper-window-item
-        v-for="(child) of modelValue.children"
+        v-for="{ child, index } of visibleChildren"
         :key="child.key"
+        :value="index"
       >
         <v-container
           fluid
@@ -88,9 +97,9 @@ const goNext = () => {
     <v-stepper-actions>
       <template #prev>
         <v-btn
-          v-if="step > 0"
+          v-if="previousStep !== undefined"
           variant="text"
-          @click="step--"
+          @click="step = previousStep"
         >
           Back
         </v-btn>
@@ -98,7 +107,7 @@ const goNext = () => {
       <template #next>
         <v-spacer />
         <v-btn
-          v-if="step < modelValue.children.length - 1"
+          v-if="nextStep !== undefined"
           variant="flat"
           color="primary"
           @click="goNext"

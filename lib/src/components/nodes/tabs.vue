@@ -5,12 +5,13 @@ import { VIcon } from 'vuetify/components/VIcon'
 import { VSheet } from 'vuetify/components/VSheet'
 import { VWindow, VWindowItem } from 'vuetify/components/VWindow'
 import { useDefaults } from 'vuetify'
-import { ref, computed, watch } from 'vue'
+import { computed } from 'vue'
 import { isSection } from '@json-layout/core/state'
 import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'
 import ChildSubtitle from '../fragments/child-subtitle.vue'
 import useCompDefaults from '../../composables/use-comp-defaults.js'
+import { useVisibleChildren, useActiveChildIndex } from '../../composables/use-visible-children.js'
 
 useDefaults({}, 'VjsfTabs')
 const vSheetProps = useCompDefaults('VjsfTabs-VSheet', { border: true })
@@ -29,21 +30,18 @@ const { modelValue, statefulLayout } = defineProps({
 })
 
 const nodeProps = computed(() => {
-  return {
+  /** @type {Record<string, any>} */
+  const nodeProps = {
     ...modelValue.props,
     direction: /** @type {'horizontal'} */ ('horizontal')
   }
+  // the selected tab is managed locally, a modelValue in layout.props is only an initial value
+  delete nodeProps.modelValue
+  return nodeProps
 })
 
-// a child hidden by a "if" expression is kept in the state tree as a "none" node,
-// it must not get a tab of its own in the tabs bar
-const visibleChildren = computed(() => modelValue.children.filter(child => child.layout.comp !== 'none'))
-
-const tab = ref(visibleChildren.value[0]?.key)
-watch(visibleChildren, (children) => {
-  // the active tab can become hidden, fallback on the first remaining one
-  if (!children.some(child => child.key === tab.value)) tab.value = children[0]?.key
-})
+const visibleChildren = useVisibleChildren(() => modelValue.children)
+const tab = useActiveChildIndex(visibleChildren, modelValue.props?.modelValue)
 </script>
 
 <template>
@@ -54,9 +52,9 @@ watch(visibleChildren, (children) => {
       v-bind="nodeProps"
     >
       <v-tab
-        v-for="child of visibleChildren"
+        v-for="{ child, index } of visibleChildren"
         :key="child.key"
-        :value="child.key"
+        :value="index"
         :color="child.validated && (child.error || child.childError) ? 'error' : undefined"
       >
         <v-icon
@@ -70,9 +68,9 @@ watch(visibleChildren, (children) => {
     </v-tabs>
     <v-window v-model="tab">
       <v-window-item
-        v-for="child of visibleChildren"
+        v-for="{ child, index } of visibleChildren"
         :key="child.key"
-        :value="child.key"
+        :value="index"
       >
         <v-container fluid>
           <child-subtitle :model-value="child" />
