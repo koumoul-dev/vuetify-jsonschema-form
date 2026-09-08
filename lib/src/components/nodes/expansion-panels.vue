@@ -1,5 +1,5 @@
 <script setup>
-import { toRef } from 'vue'
+import { computed, toRef } from 'vue'
 import { VExpansionPanels, VExpansionPanel, VExpansionPanelTitle, VExpansionPanelText } from 'vuetify/components/VExpansionPanel'
 import { VContainer, VRow } from 'vuetify/components/VGrid'
 import { VIcon } from 'vuetify/components/VIcon'
@@ -27,15 +27,19 @@ const props = defineProps({
 
 const { compProps } = useNode(toRef(props, 'modelValue'), props.statefulLayout)
 
+// a child hidden by a "if" expression is kept in the state tree as a "none" node,
+// it must not get a panel of its own
+const visibleChildren = computed(() => props.modelValue.children.filter(child => child.layout.comp !== 'none'))
+
 </script>
 
 <template>
   <section-header :node="modelValue" />
   <v-expansion-panels v-bind="compProps">
     <v-expansion-panel
-      v-for="(child, i) of modelValue.children"
+      v-for="child of visibleChildren"
       :key="child.key"
-      :value="i"
+      :value="child.key"
     >
       <v-expansion-panel-title>
         <v-icon

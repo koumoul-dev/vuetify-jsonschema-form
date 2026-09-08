@@ -5,7 +5,7 @@ import { VContainer, VRow } from 'vuetify/components/VGrid'
 import { VIcon } from 'vuetify/components/VIcon'
 import { VSheet } from 'vuetify/components/VSheet'
 import { VWindow, VWindowItem } from 'vuetify/components/VWindow'
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'
 import ChildSubtitle from '../fragments/child-subtitle.vue'
@@ -35,7 +35,15 @@ const nodeProps = computed(() => {
   }
 })
 
-const tab = ref(0)
+// a child hidden by a "if" expression is kept in the state tree as a "none" node,
+// it must not get a tab of its own in the tabs bar
+const visibleChildren = computed(() => modelValue.children.filter(child => child.layout.comp !== 'none'))
+
+const tab = ref(visibleChildren.value[0]?.key)
+watch(visibleChildren, (children) => {
+  // the active tab can become hidden, fallback on the first remaining one
+  if (!children.some(child => child.key === tab.value)) tab.value = children[0]?.key
+})
 </script>
 
 <template>
@@ -47,9 +55,9 @@ const tab = ref(0)
         v-bind="nodeProps"
       >
         <v-tab
-          v-for="(child, i) of modelValue.children"
+          v-for="child of visibleChildren"
           :key="child.key"
-          :value="i"
+          :value="child.key"
           :color="child.validated && (child.error || child.childError) ? 'error' : undefined"
         >
           <v-icon
@@ -66,9 +74,9 @@ const tab = ref(0)
         class="flex-fill"
       >
         <v-window-item
-          v-for="(child, i) of modelValue.children"
+          v-for="child of visibleChildren"
           :key="child.key"
-          :value="i"
+          :value="child.key"
         >
           <v-container fluid>
             <child-subtitle :model-value="child" />
