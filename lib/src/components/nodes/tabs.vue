@@ -5,12 +5,13 @@ import { VIcon } from 'vuetify/components/VIcon'
 import { VSheet } from 'vuetify/components/VSheet'
 import { VWindow, VWindowItem } from 'vuetify/components/VWindow'
 import { useDefaults } from 'vuetify'
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import { isSection } from '@json-layout/core/state'
 import Node from '../node.vue'
 import SectionHeader from '../fragments/section-header.vue'
 import ChildSubtitle from '../fragments/child-subtitle.vue'
 import useCompDefaults from '../../composables/use-comp-defaults.js'
+import { useVisibleChildren, useActiveChildIndex } from '../../composables/use-visible-children.js'
 
 useDefaults({}, 'VjsfTabs')
 const vSheetProps = useCompDefaults('VjsfTabs-VSheet', { border: true })
@@ -29,13 +30,18 @@ const { modelValue, statefulLayout } = defineProps({
 })
 
 const nodeProps = computed(() => {
-  return {
+  /** @type {Record<string, any>} */
+  const nodeProps = {
     ...modelValue.props,
     direction: /** @type {'horizontal'} */ ('horizontal')
   }
+  // the selected tab is managed locally, a modelValue in layout.props is only an initial value
+  delete nodeProps.modelValue
+  return nodeProps
 })
 
-const tab = ref(0)
+const visibleChildren = useVisibleChildren(() => modelValue.children)
+const tab = useActiveChildIndex(visibleChildren, modelValue.props?.modelValue)
 </script>
 
 <template>
@@ -46,9 +52,9 @@ const tab = ref(0)
       v-bind="nodeProps"
     >
       <v-tab
-        v-for="(child, i) of modelValue.children"
+        v-for="{ child, index } of visibleChildren"
         :key="child.key"
-        :value="i"
+        :value="index"
         :color="child.validated && (child.error || child.childError) ? 'error' : undefined"
       >
         <v-icon
@@ -62,9 +68,9 @@ const tab = ref(0)
     </v-tabs>
     <v-window v-model="tab">
       <v-window-item
-        v-for="(child, i) of modelValue.children"
+        v-for="{ child, index } of visibleChildren"
         :key="child.key"
-        :value="i"
+        :value="index"
       >
         <v-container fluid>
           <child-subtitle :model-value="child" />
