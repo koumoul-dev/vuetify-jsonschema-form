@@ -64,6 +64,17 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2024-07-22',
 
+  nitro: {
+    rollupConfig: {
+      // nitro considers every external module side-effect free, which drops the bare
+      // prismjs grammar imports of assets/prism.js. Prerendering is then left with prism's
+      // built-in languages only and any page using bash/json/yaml fails to render.
+      treeshake: {
+        moduleSideEffects: (id, external) => id.includes('prismjs') || !external,
+      },
+    },
+  },
+
   vite: {
     optimizeDeps: {
       include: [
@@ -74,10 +85,10 @@ export default defineNuxtConfig({
         '@vue/devtools-core',
         '@vue/devtools-kit',
         'prismjs', // CJS
-        'prismjs/components/prism-javascript', // CJS
-        'prismjs/components/prism-bash', // CJS
-        'prismjs/components/prism-json', // CJS
-        'prismjs/components/prism-yaml', // CJS
+        'prismjs/components/prism-javascript.js', // CJS
+        'prismjs/components/prism-bash.js', // CJS
+        'prismjs/components/prism-json.js', // CJS
+        'prismjs/components/prism-yaml.js', // CJS
         'vue-prism-editor',
         'immer',
         '@vueuse/core',
