@@ -1,0 +1,1 @@
+import{Ct as e,H as t,K as n,it as r,p as i,x as a}from"./DAU6Le7d.js";import{n as o,t as s}from"./IQ992JSF.js";var c={__name:`void`,setup(c){return(c,l)=>(t(),i(e(o),null,{default:r(()=>[a(e(s),null,{default:r(()=>[n(c.$slots,`default`)]),_:3})]),_:3}))}};export{c as default};

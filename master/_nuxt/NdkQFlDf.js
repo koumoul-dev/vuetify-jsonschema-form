@@ -1,0 +1,1 @@
+import{y as e}from"./cYdfBdP-.js";var t=e({tag:{type:[String,Object,Function],default:`div`}},`tag`);export{t};

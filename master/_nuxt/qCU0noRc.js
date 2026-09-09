@@ -1,0 +1,1 @@
+import{bt as e,ht as t,vt as n,z as r}from"./DAU6Le7d.js";function i(){let i=n(!1);return r(()=>{window.requestAnimationFrame(()=>{i.value=!0})}),{ssrBootStyles:e(()=>i.value?void 0:{transition:`none !important`}),isBooted:t(i)}}export{i as t};
