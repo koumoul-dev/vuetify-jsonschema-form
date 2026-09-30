@@ -62,4 +62,27 @@ describe('date utils', () => {
     parsed = dates.localeKeyboardFormat('fr').parse('2020-12-03')
     assert.deepEqual(parsed && dates.getDateTimeParts(parsed), ['2020-12-03', '00:00'])
   })
+
+  describe('on a day of the month that some months do not have', () => {
+    // Dates used to be built from today, one part at a time: on September 30th,
+    // setting February gave "February 30th", which rolled over to March 2nd, and
+    // February 18th came out as March 18th — shown, and written back on blur.
+    beforeEach(() => { vi.useFakeTimers(); vi.setSystemTime(new Date('2026-09-30T10:00:00')) })
+    afterEach(() => { vi.useRealTimers() })
+
+    it('keeps the month of a date-time', () => {
+      assert.ok(dates.getDateTime(['2026-02-18', '00:00']).startsWith('2026-02-18T00:00:00'))
+      assert.ok(dates.getDateTime(['2026-04-01', '12:30']).startsWith('2026-04-01T12:30:00'))
+    })
+
+    it('keeps the month of a typed date', () => {
+      const parsed = dates.localeKeyboardFormat('fr').parse('18/02/2026')
+      assert.equal(parsed?.getMonth(), 1)
+      assert.equal(parsed?.getDate(), 18)
+    })
+
+    it('rejects a day the month does not have', () => {
+      assert.equal(dates.localeKeyboardFormat('fr').parse('31/02/2026'), null)
+    })
+  })
 })
