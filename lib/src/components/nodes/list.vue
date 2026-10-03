@@ -357,6 +357,8 @@ const toggleDialog = (/** @type {boolean} */value) => {
                   <template #activator="{props: activatorProps}">
                     <v-btn
                       v-bind="activatorProps"
+                      :title="modelValue.messages.actions"
+                      :aria-label="modelValue.messages.actions"
                       :icon="options.icons.menu"
                       variant="plain"
                       slim
