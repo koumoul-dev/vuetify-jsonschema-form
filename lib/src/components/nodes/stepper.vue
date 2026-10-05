@@ -34,7 +34,7 @@ const nodeProps = computed(() => {
 })
 
 const visibleChildren = useVisibleChildren(() => props.modelValue.children)
-const step = useActiveChildIndex(visibleChildren, props.modelValue.props?.modelValue)
+const step = useActiveChildIndex(visibleChildren, props.modelValue.props?.modelValue, () => props.modelValue, props.statefulLayout)
 
 const previousStep = computed(() => visibleChildren.value.filter(({ index }) => index < /** @type {number} */(step.value)).pop()?.index)
 const nextStep = computed(() => visibleChildren.value.find(({ index }) => index > /** @type {number} */(step.value))?.index)
