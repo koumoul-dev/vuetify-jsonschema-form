@@ -41,7 +41,7 @@ const nodeProps = computed(() => {
 })
 
 const visibleChildren = useVisibleChildren(() => modelValue.children)
-const tab = useActiveChildIndex(visibleChildren, modelValue.props?.modelValue)
+const tab = useActiveChildIndex(visibleChildren, modelValue.props?.modelValue, () => modelValue, statefulLayout)
 </script>
 
 <template>
