@@ -6,6 +6,9 @@ node_modules
 /doc/.output
 /doc/components/compiled
 /doc/pages/compiled
+/doc-next/dist
+/doc-next/.vite-ssg-temp
+/doc-next/typed-router.d.ts
 .idea/
 /lib/README.md
 /lib/LICENSE
