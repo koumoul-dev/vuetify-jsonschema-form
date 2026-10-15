@@ -17,7 +17,7 @@ import LayoutPropsTable from './components/LayoutPropsTable.vue'
 import LayoutCompCatalogue from './components/LayoutCompCatalogue.vue'
 
 // `ClientOnly` is not registered here — ViteSSG() registers it globally itself.
-export const createApp = ViteSSG(App, { routes }, ({ app }) => {
+export const createApp = ViteSSG(App, { routes, base: import.meta.env.BASE_URL }, ({ app }) => {
   app.use(createVuetify({ ssr: true, icons: { defaultSet: 'mdi' }, theme: vuetifyTheme }))
   // Registered globally so markdown pages (compiled by unplugin-vue-markdown)
   // can use them without imports. CopyAnchor is injected into every heading
