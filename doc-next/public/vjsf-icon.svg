@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- Form-field V: a form tapering into the Vuetify V -->
+  <polygon points="32,50 224,50 128,214" fill="#64b5f6"
+    stroke="#64b5f6" stroke-width="20" stroke-linejoin="round"/>
+  <polygon points="86,122 170,122 128,214" fill="#1e88e5"
+    stroke="#1e88e5" stroke-width="20" stroke-linejoin="round"/>
+  <g fill="#ffffff">
+    <circle cx="70" cy="84" r="9"/>
+    <rect x="88" y="75" width="104" height="18" rx="9"/>
+    <circle cx="86" cy="120" r="9"/>
+    <rect x="104" y="111" width="66" height="18" rx="9"/>
+  </g>
+</svg>

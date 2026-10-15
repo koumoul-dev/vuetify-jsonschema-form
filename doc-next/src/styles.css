@@ -1,0 +1,74 @@
+:root {
+  --v-font-body: 'Nunito', sans-serif;
+  --v-font-heading: 'Nunito', sans-serif;
+}
+html, body, .v-application { font-family: 'Nunito', sans-serif; }
+
+/* Anchored headings scroll clear of the fixed app bar. Both native `#hash`
+   jumps and `scrollIntoView()` (used for deep-links / TOC clicks) honor
+   scroll-margin-top. Keep the value in sync with SCROLL_OFFSET in
+   components/PageToc.vue. */
+.v-main :is(h1, h2, h3, h4, h5, h6)[id] {
+  scroll-margin-top: 80px;
+}
+/* Same clearance for the layout-keyword reference's anchored rows (property
+   and component entries), which are list items rather than headings. */
+.v-main .reference-anchor[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Hover-reveal copy-link button after each section heading (Vuetify-docs
+   style). The <CopyAnchor> v-btn is injected inline by markdown-it-anchor
+   (vite.config.ts); it stays hidden until the heading is hovered or the button
+   itself is keyboard-focused, then copies the section deep link on click. The
+   reveal is global (not scoped in CopyAnchor) because it keys on the *parent*
+   heading's :hover, and the heading is plain markdown-rendered HTML. */
+.page-anchor-btn {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.v-main :is(h1, h2, h3, h4, h5, h6):hover .page-anchor-btn,
+.page-anchor-btn:focus-visible {
+  opacity: 1;
+}
+/* The button is injected *inside* headings, so a v-btn icon (sized ~1.5em)
+   would inherit the heading's font-size and balloon (e.g. 36px on a 24px h2)
+   and scale differently per heading level. Pin the icon to a fixed size so it
+   reads small and consistent everywhere. */
+.page-anchor-btn .v-icon {
+  font-size: 1.125rem;
+}
+
+/* Shared chrome for static code blocks: CodeBlock.vue (the examples' source
+   pane) and the shiki-highlighted markdown fences (vite.config.ts) carry this
+   class so both read as the same block. The base text color follows the
+   CodeMirror one-dark theme the playground's editors use; token colors come
+   from CodeBlock's scoped rules or shiki's inline spans. The doc shell is
+   dark-only (see src/theme.ts), no light variant needed. */
+.code-block {
+  margin: 0;
+  padding: 12px;
+  overflow: auto;
+  border-radius: 4px;
+  background: rgba(var(--v-theme-on-surface), 0.05);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+  white-space: pre;
+  color: #abb2bf;
+}
+/* In markdown flow the block provides its own vertical rhythm (the margin: 0
+   above is for the examples' source pane, which pads around it). */
+.markdown-body pre.code-block {
+  margin: 16px 0;
+}
+/* Inline code in prose: same surface-tint family as .code-block but boosted
+   (0.05 is enough for a large block, invisible on a few characters), plus a
+   warm one-dark accent so `code` spans stand out from the body text. */
+.markdown-body :not(pre) > code {
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+  background: rgba(var(--v-theme-on-surface), 0.1);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  color: #e5c07b;
+}
