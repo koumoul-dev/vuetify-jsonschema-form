@@ -404,6 +404,8 @@ const toggleDialog = (/** @type {boolean} */value) => {
               >
                 <v-btn
                   :ref="(menuButton) => { menuButtonRefs[childIndex] = menuButton }"
+                  :title="modelValue.messages.actions"
+                  :aria-label="modelValue.messages.actions"
                   :icon="options.icons.menu"
                   variant="plain"
                   slim

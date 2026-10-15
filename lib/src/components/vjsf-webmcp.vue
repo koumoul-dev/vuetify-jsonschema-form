@@ -61,7 +61,7 @@ watch(statefulLayout, () => {
   if (statefulLayout.value) {
     webMCP.value = new WebMCP(
       /** @type {import('@json-layout/core').StatefulLayout} */(/** @type {unknown} */(statefulLayout.value)),
-      { prefixName: props.prefixName, dataTitle: props.dataTitle, schema: props.schema, includeSubAgent: props.subAgent }
+      { prefixName: props.prefixName, dataTitle: props.dataTitle, includeSubAgent: props.subAgent }
     )
     webMCP.value.registerTools()
   }

@@ -1,6 +1,6 @@
 {
   "name": "@koumoul/vjsf",
-  "version": "4.5.4",
+  "version": "4.7.0",
   "description": "Generate forms for the vuetify UI library (vuejs) based on annotated JSON schemas.",
   "scripts": {
     "test-tz1": "TZ=Europe/Paris vitest run",
@@ -12,6 +12,11 @@
   },
   "author": "Alban Mouton <alban.mouton@gmail.com>",
   "license": "MIT",
+  "homepage": "https://koumoul-dev.github.io/vuetify-jsonschema-form/latest/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koumoul-dev/vuetify-jsonschema-form.git"
+  },
   "files": [
     "types",
     "src",
@@ -78,17 +83,17 @@
     "vuetify": "^4.1.0"
   },
   "dependencies": {
-    "@json-layout/core": "~2.8.1",
-    "@json-layout/vocabulary": "~2.13.1",
+    "@json-layout/core": "~2.12.1",
+    "@json-layout/vocabulary": "~2.13.2",
     "@vueuse/core": "^12.5.0",
     "debug": "^4.3.4"
   },
   "devDependencies": {
     "@types/debug": "^4.1.8",
-    "@vitejs/plugin-vue": "^5.0.0",
+    "@vitejs/plugin-vue": "^6.0.8",
     "@vue/test-utils": "^2.4.6",
-    "happy-dom": "^15.0.0",
-    "vitest": "^1.1.1",
+    "happy-dom": "^20.14.0",
+    "vitest": "^5.0.0",
     "vue": "^3.5.6",
     "vue-tsc": "^3.2.2"
   }
