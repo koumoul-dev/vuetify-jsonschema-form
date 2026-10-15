@@ -8,6 +8,7 @@
     "dev-zellij": "zellij --layout .zellij.kdl",
     "publish:master": "npm -w doc run build:master && gh-pages-multi deploy -v -s doc/.output/public -t master && dotenv -- sh -c 'sleep 30 &&curl -X POST \"$MASTER_WEBHOOK\"'",
     "publish:latest": "npm -w doc run build:latest && gh-pages-multi deploy -v -s doc/.output/public -t latest && dotenv -- sh -c 'sleep 30 &&curl -X POST \"$LATEST_WEBHOOK\"'",
+    "publish:next": "TARGET=https://koumoul-dev.github.io/vuetify-jsonschema-form/next/ npm -w doc-next run build && gh-pages-multi deploy -v -s doc-next/dist -t next",
     "prepare": "husky && npx relative-deps"
   },
   "repository": {
