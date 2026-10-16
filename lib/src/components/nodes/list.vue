@@ -708,7 +708,6 @@ const toggleDialog = (/** @type {boolean} */value) => {
 .vjsf-list-item__header {
   display: flex;
   align-items: start;
-  gap: 4px;
   /* the start padding matches the pa-3 of the row below, so that the title aligns with the fields */
   padding-block: 8px 0;
   padding-inline: 12px;
