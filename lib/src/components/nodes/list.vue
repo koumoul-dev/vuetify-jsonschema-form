@@ -133,12 +133,16 @@ const itemSubtitles = computed(() => {
 })
 
 /*
- * the header line of an item carries its title and its close button
- * the remaining actions are overlaid in the top-right corner and reserve no width,
- * so the header is rendered as soon as there is anything to put in it, to give
- * those overlaid actions a line of their own instead of letting them sit on the content
+ * in a list with item titles or subtitles each item has a header line that carries them,
+ * its actions (menu, sort handle, close button) are overlaid in the header's top-right corner and reserve no width
+ * in a list without, the items keep their actions in a column of their own on the right
+ * the choice is made for the whole list, not per item, so that an item whose title evaluates to nothing
+ * stays aligned with its siblings and does not jump when its title appears while typing
  */
-const showOverlaidActions = computed(() => {
+const hasItemHeaders = computed(() => {
+  return !!(layout.value.itemTitle || layout.value.itemSubtitle || layout.value.indexed)
+})
+const showActions = computed(() => {
   return !options.value.readOnly && menuActions.value.length > 0
 })
 const itemHeaderTitles = computed(() => {
@@ -154,10 +158,9 @@ const showItemCloseButton = (/** @type {number} */childIndex) => {
     layout.value.listEditMode === 'inline-single' &&
     editedItemIndex.value === childIndex
 }
+// an empty header is still rendered when it has actions to host, it is skipped in a readOnly list
 const showItemHeader = (/** @type {number} */childIndex) => {
-  if (itemHeaderTitles.value[childIndex] || itemSubtitles.value?.[childIndex]) return true
-  if (showItemCloseButton(childIndex)) return true
-  return showOverlaidActions.value
+  return hasItemHeaders.value && !!(itemHeaderTitles.value[childIndex] || itemSubtitles.value?.[childIndex] || showActions.value)
 }
 
 /** the nodes rendered in the body of each item, empty when a summary is configured to display nothing */
@@ -169,7 +172,7 @@ const itemsChildren = computed(() => {
 })
 
 /**
- * the single action displayed in the overlaid actions column of an item, if any
+ * the single action displayed in the actions column of an item, if any
  * the menu button is rendered even when the item is idle, so that it can be reached with the keyboard,
  * and only made invisible through the vjsf-list-item-action--idle class
  * the menu overlay itself is only mounted for the active item, one per idle item would weigh on large lists
@@ -178,8 +181,7 @@ const itemAppendAction = (/** @type {number} */childIndex) => {
   // while a drag is in progress the list reorders under the pointer but dragPrepared
   // keeps pointing at the original index, so all actions are hidden until the drop
   if (dragging.value !== -1) return null
-  // the close button lives in the header line, not here
-  if (showItemCloseButton(childIndex)) return null
+  if (showItemCloseButton(childIndex)) return 'close'
   if (dragPrepared.value === childIndex) return 'sort'
   if (editedItem.value === undefined || layout.value.listEditMode === 'menu') return 'menu'
   return null
@@ -339,13 +341,13 @@ const toggleDialog = (/** @type {boolean} */value) => {
           :draggable="draggable === childIndex"
           :style="`border: 1px solid ${itemBorderColor(child, childIndex)}`"
           class="vjsf-list-item"
+          :class="{ 'vjsf-list-item--overlaid-actions': hasItemHeaders }"
         >
           <div
             v-if="showItemHeader(childIndex)"
             class="vjsf-list-item__header"
             :class="{
-              'vjsf-list-item__header--with-actions': showOverlaidActions && !showItemCloseButton(childIndex),
-              'vjsf-list-item__header--with-close': showItemCloseButton(childIndex),
+              'vjsf-list-item__header--with-actions': showActions,
               'vjsf-list-item__header--alone': !itemsChildren[childIndex].length
             }"
           >
@@ -357,17 +359,6 @@ const toggleDialog = (/** @type {boolean} */value) => {
                 {{ itemSubtitles?.[childIndex] }}
               </v-list-item-subtitle>
             </div>
-            <v-spacer />
-            <v-btn
-              v-if="showItemCloseButton(childIndex)"
-              :title="modelValue.messages.close"
-              :icon="options.icons.edit"
-              variant="flat"
-              color="primary"
-              :density="buttonDensity"
-              :disabled="modelValue.loading"
-              @click="statefulLayout.deactivateItem(modelValue)"
-            />
           </div>
           <v-row
             v-if="itemsChildren[childIndex].length"
@@ -381,12 +372,25 @@ const toggleDialog = (/** @type {boolean} */value) => {
             />
           </v-row>
           <template
-            v-if="showOverlaidActions"
+            v-if="showActions"
             #append
           >
             <div class="vjsf-list-item-actions-wrapper">
               <v-list-item-action
-                v-if="itemAppendAction(childIndex) === 'sort'"
+                v-if="itemAppendAction(childIndex) === 'close'"
+              >
+                <v-btn
+                  :title="modelValue.messages.close"
+                  :icon="options.icons.edit"
+                  variant="flat"
+                  color="primary"
+                  :density="buttonDensity"
+                  :disabled="modelValue.loading"
+                  @click="statefulLayout.deactivateItem(modelValue)"
+                />
+              </v-list-item-action>
+              <v-list-item-action
+                v-else-if="itemAppendAction(childIndex) === 'sort'"
               >
                 <v-btn
                   :title="modelValue.messages.sort"
@@ -467,7 +471,7 @@ const toggleDialog = (/** @type {boolean} */value) => {
                         v-else
                         :density="modelValue.options.density"
                         base-color="primary"
-                        @click="statefulLayout.activateItem(modelValue, childIndex); menuOpened = -1"
+                        @click="statefulLayout.activateItem(modelValue, layout.indexed ? child.key : childIndex); menuOpened = -1"
                       >
                         <template #prepend>
                           <v-icon :icon="options.icons.edit" />
@@ -554,6 +558,16 @@ const toggleDialog = (/** @type {boolean} */value) => {
                     </v-list-item>
                   </v-list>
                 </v-menu>
+              </v-list-item-action>
+              <!-- keeps the width of the actions column of an item without header, so that its content does not jump -->
+              <v-list-item-action v-else-if="!hasItemHeaders">
+                <v-btn
+                  style="visibility:hidden"
+                  variant="text"
+                  :density="buttonDensity"
+                  :icon="options.icons.edit"
+                  :disabled="modelValue.loading"
+                />
               </v-list-item-action>
             </div>
           </template>
@@ -662,16 +676,23 @@ const toggleDialog = (/** @type {boolean} */value) => {
 </template>
 
 <style>
+/* child combinators so that a v-list-item rendered by a custom component in the item body is left alone */
+.vjsf-list-item > .v-list-item__append {
+  height: 100%;
+  align-items: start;
+}
+.vjsf-list-item > .v-list-item__content {
+  padding-right: 4px;
+}
 /*
- * the actions column is overlaid in the top-right corner of the item instead of
- * being a column of its own, so that it reserves no width ; nested lists used to
- * lose 36px of content width per level to it
+ * in a list with item headers the actions column is overlaid in the top-right corner
+ * instead of being a column of its own, so that it reserves no width ; nested lists
+ * used to lose 36px of content width per level to it
  */
-.vjsf-list-item {
+.vjsf-list-item--overlaid-actions {
   position: relative;
 }
-/* child combinator so that a v-list-item rendered by a custom component in the item body is left alone */
-.vjsf-list-item > .v-list-item__append {
+.vjsf-list-item--overlaid-actions > .v-list-item__append {
   position: absolute;
   top: 0;
   /* logical property so that the column stays on the end side in rtl, as it was when in flow */
@@ -712,10 +733,6 @@ const toggleDialog = (/** @type {boolean} */value) => {
 }
 .vjsf-density-compact {
   --vjsf-list-item-header-min-height: 32px;
-}
-/* the close button occupies the corner itself, nothing to reserve */
-.vjsf-list-item__header--with-close {
-  padding-inline-end: 4px;
 }
 /* when the header is the whole item it fills its content box, so that its text is vertically centered */
 .vjsf-list-item__header--alone {
