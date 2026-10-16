@@ -58,6 +58,11 @@ export default defineComponent({
     cspNonce: {
       type: String,
       default: ''
+    },
+    slots: {
+      /** @type {import('vue').PropType<Record<string, any>>} */
+      type: Object,
+      default: () => ({})
     }
   },
   emits: ['update:modelValue', 'blur'],
@@ -72,7 +77,8 @@ export default defineComponent({
     })
 
     const fieldSlots = computed(() => {
-      const fieldSlots = {}
+      /** @type {Record<string, any>} */
+      const fieldSlots = { ...props.slots }
       fieldSlots.default = () => {
         const children = [
           h(VLabel, { text: props.label })
