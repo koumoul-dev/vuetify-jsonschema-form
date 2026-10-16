@@ -112,6 +112,8 @@ const buttonDensity = computed(() => {
   if (options.value.density === 'default') return 'comfortable'
   return options.value.density
 })
+// the height of an action button, so that a header with overlaid actions is at least as tall
+const itemHeaderMinHeight = computed(() => buttonDensity.value === 'compact' ? '28px' : '36px')
 
 const menuActions = computed(() => {
   return layout.value.listActions.filter(a => {
@@ -350,15 +352,14 @@ const toggleDialog = (/** @type {boolean} */value) => {
               'vjsf-list-item__header--with-actions': showActions,
               'vjsf-list-item__header--alone': !itemsChildren[childIndex].length
             }"
+            :style="showActions ? { minHeight: itemHeaderMinHeight } : undefined"
           >
-            <div class="vjsf-list-item__header-text">
-              <v-list-item-title v-if="itemHeaderTitles[childIndex]">
-                {{ itemHeaderTitles[childIndex] }}
-              </v-list-item-title>
-              <v-list-item-subtitle v-if="itemSubtitles?.[childIndex]">
-                {{ itemSubtitles?.[childIndex] }}
-              </v-list-item-subtitle>
-            </div>
+            <v-list-item-title v-if="itemHeaderTitles[childIndex]">
+              {{ itemHeaderTitles[childIndex] }}
+            </v-list-item-title>
+            <v-list-item-subtitle v-if="itemSubtitles?.[childIndex]">
+              {{ itemSubtitles?.[childIndex] }}
+            </v-list-item-subtitle>
           </div>
           <v-row
             v-if="itemsChildren[childIndex].length"
@@ -706,45 +707,24 @@ const toggleDialog = (/** @type {boolean} */value) => {
 }
 
 .vjsf-list-item__header {
-  display: flex;
-  align-items: start;
   /* the start padding matches the pa-3 of the row below, so that the title aligns with the fields */
   padding-block: 8px 0;
   padding-inline: 12px;
 }
-/*
- * only when actions are overlaid in the corner: the end padding keeps the title clear of them,
- * and the min-height gives them a line of their own instead of letting them cover the content below
- */
+/* the end padding keeps the title clear of the overlaid actions, the min-height (set inline) keeps them off the content below */
 .vjsf-list-item__header--with-actions {
   padding-inline-end: 40px;
-  min-height: var(--vjsf-list-item-header-min-height, 36px);
 }
-/*
- * the density wrappers carry a variable instead of styling the header through descendant selectors,
- * so that the closest wrapper wins in nested forms of mixed densities
- */
-.vjsf-density-default {
-  --vjsf-list-item-header-min-height: 40px;
-}
-.vjsf-density-comfortable {
-  --vjsf-list-item-header-min-height: 36px;
-}
-.vjsf-density-compact {
-  --vjsf-list-item-header-min-height: 32px;
-}
-/* when the header is the whole item it fills its content box, so that its text is vertically centered */
+/* when the header is the whole item its text is vertically centered */
 .vjsf-list-item__header--alone {
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding-block: 0;
 }
-.vjsf-list-item__header-text {
-  flex: 1 1 auto;
-  min-width: 0;
-}
 /* a long item title wraps instead of being truncated by the vuetify defaults */
-.vjsf-list-item__header-text .v-list-item-title,
-.vjsf-list-item__header-text .v-list-item-subtitle {
+.vjsf-list-item__header .v-list-item-title,
+.vjsf-list-item__header .v-list-item-subtitle {
   white-space: normal;
   overflow: visible;
   text-overflow: clip;
