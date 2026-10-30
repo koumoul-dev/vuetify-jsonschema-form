@@ -15,8 +15,8 @@ export default {
   createLink: 'Créer un lien',
   insertImage: 'Insérer une image',
   createTable: 'Créer un tableau',
-  preview: 'Preview',
-  mdeGuide: 'Syntax documentation',
+  preview: 'Aperçu du rendu',
+  mdeGuide: 'Documentation de la syntaxe',
   undo: 'Défaire',
   redo: 'Refaire',
 }
