@@ -35,6 +35,7 @@ const props = defineProps({
     type: String,
     default: null
   },
+  // deprecated: the form's skill now comes with its tools, there is no sub-agent anymore
   subAgent: {
     type: Boolean,
     default: false
@@ -54,6 +55,8 @@ const { el, statefulLayout, stateTree } = useVjsf(
   computed(() => props.precompiledLayout)
 )
 
+if (props.subAgent) console.warn('vjsf: the subAgent prop is deprecated and ignored, the form\'s skill now comes with its tools')
+
 /** @type import('vue').ShallowRef<WebMCP | null> */
 const webMCP = shallowRef(null)
 watch(statefulLayout, () => {
@@ -61,7 +64,7 @@ watch(statefulLayout, () => {
   if (statefulLayout.value) {
     webMCP.value = new WebMCP(
       /** @type {import('@json-layout/core').StatefulLayout} */(/** @type {unknown} */(statefulLayout.value)),
-      { prefixName: props.prefixName, dataTitle: props.dataTitle, includeSubAgent: props.subAgent }
+      { prefixName: props.prefixName, dataTitle: props.dataTitle }
     )
     webMCP.value.registerTools()
   }
