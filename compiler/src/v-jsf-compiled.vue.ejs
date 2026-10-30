@@ -2,7 +2,7 @@
 // @ts-nocheck
 
 import { StatefulLayout } from '@json-layout/core/state'
-import { ref, shallowRef, getCurrentInstance, useSlots, computed<% if (webmcp) { %>, watch, onScopeDispose<% } %> } from 'vue'
+import { ref, shallowRef, getCurrentInstance, useSlots, computed<% if (webmcp) { %>, watch, onScopeDispose, toRaw<% } %> } from 'vue'
 import { useElementSize } from '@vueuse/core'
 <% if (webmcp) { %>
 import { WebMCP } from '@json-layout/core/webmcp'
@@ -50,12 +50,20 @@ const props = defineProps({
 
 const emit = defineEmits(emits)
 
+<% if (webmcp) { %>
+// the data last given to the parent, to tell its echo through v-model from other data loaded
+let lastEmittedData
+const emitAndTrack = (name, ...args) => {
+  if (name === 'update:modelValue') lastEmittedData = args[0]
+  emit(name, ...args)
+}
+<% } %>
 const { el, statefulLayout, stateTree } = useVjsf(
   null,
   computed(() => props.modelValue),
   computed(() => ({...props.options, components: <%- JSON.stringify(pluginsComponents) %>})),
   nodeComponents,
-  emit,
+  <%= webmcp ? 'emitAndTrack' : 'emit' %>,
   null,
   null,
   computed(() => compiledLayout)
@@ -75,6 +83,12 @@ watch(statefulLayout, () => {
     webMCP.value.registerTools()
   }
 }, { immediate: true })
+
+// other data loaded into the form (after a save, to start a new document): the values it
+// holds count as picked, not typed by the agent
+watch(() => props.modelValue, (data) => {
+  if (webMCP.value && toRaw(data) !== toRaw(lastEmittedData)) webMCP.value.resetBaseline()
+})
 
 // always unregister our tools when the component is torn down, otherwise a later
 // instance mounted with the same prefixName would fail to register them again
