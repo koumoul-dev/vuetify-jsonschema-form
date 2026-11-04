@@ -1,6 +1,6 @@
 <script>
 import { defineComponent, h, computed, onMounted, onBeforeUnmount, ref, shallowRef, onUnmounted, watch } from 'vue'
-import { useDefaults, useTheme } from 'vuetify'
+import { useDefaults } from 'vuetify'
 import { VInput, VLabel } from 'vuetify/components'
 import { marked } from 'marked'
 import debugModule from 'debug'
@@ -75,6 +75,7 @@ export default defineComponent({
       type: Object,
       default: () => ({})
     },
+    // deprecated, no longer used: the dark theme is a static stylesheet, no inline style is rendered anymore
     cspNonce: {
       type: String,
       default: ''
@@ -371,75 +372,13 @@ export default defineComponent({
       return inputProps
     })
 
-    const theme = useTheme()
-    const darkStyle = computed(() => getDarkStyle(theme))
+    // still a fragment root, as when a <style> element was rendered next to the input
     return () => [
-      h('style', { innerHTML: darkStyle.value, nonce: props.cspNonce || undefined }),
       // @ts-ignore
       h(VInput, inputProps.value, fieldSlots.value)
     ]
   }
 })
-
-const getDarkStyle = (/** @type {import('vuetify').ThemeInstance} */theme) => {
-  // Inspired by https://github.com/Ionaru/easy-markdown-editor/issues/131#issuecomment-1738202589
-  return `
-.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .CodeMirror {
-    color: white;
-    border-color: ${theme.current.value.variables['border-color']};
-    background-color: ${theme.current.value.colors.surface};
-}
-.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .cm-s-easymde .CodeMirror-cursor {
-    border-color: white;
-}
-.vjsf-markdown-input.v-theme--dark .CodeMirror-cursor {
-    border-left:1px solid white;
-    border-right:none;width:0;
-}
-.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .editor-toolbar > * {
-    border-color: ${theme.current.value.colors.surface};
-}
-.vjsf-markdown-input.v-theme--dark .editor-toolbar {
-    border-top: 1px solid ${theme.current.value.variables['border-color']};
-    border-left: 1px solid ${theme.current.value.variables['border-color']};
-    border-right: 1px solid ${theme.current.value.variables['border-color']};
-}
-.vjsf-markdown-input.v-theme--dark .editor-toolbar i.separator {
-    border-left: 1px solid ${theme.current.value.variables['border-color']};
-    border-right: 1px solid ${theme.current.value.variables['border-color']};
-}
-.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .editor-toolbar > .active, .editor-toolbar > button:hover, .editor-preview pre, .cm-s-easymde .cm-comment {
-    background-color: ${theme.current.value.colors.surface};
-}
-.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .CodeMirror-fullscreen {
-    background: ${theme.current.value.colors.surface};
-}
-.vjsf-markdown-input.v-theme--dark .editor-toolbar.fullscreen {
-    background: ${theme.current.value.colors.surface};
-}
-.vjsf-markdown-input.v-theme--dark .editor-preview {
-    background: ${theme.current.value.colors.surface};
-}
-.vjsf-markdown-input.v-theme--dark .editor-preview-side {
-    border-color: ${theme.current.value.variables['border-color']};
-}
-.vjsf-markdown-input.v-theme--dark .CodeMirror-selected {
-    background: ${theme.current.value.colors.secondary};
-}
-.vjsf-markdown-input.v-theme--dark .CodeMirror-focused .CodeMirror-selected {
-    background: ${theme.current.value.colors.secondary};
-}
-.vjsf-markdown-input.v-theme--dark .CodeMirror-line::selection,.CodeMirror-line>span::selection,.CodeMirror-line>span>span::selection {
-    background:${theme.current.value.colors.secondary}
-}
-.vjsf-markdown-input.v-theme--dark .CodeMirror-line::-moz-selection,.CodeMirror-line>span::-moz-selection,.CodeMirror-line>span>span::-moz-selection {
-    background:${theme.current.value.colors.secondary}
-}
-.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .CodeMirror-focused .CodeMirror-selected {
-    background: ${theme.current.value.colors.secondary}
-}
-  `
-}
 
 </script>
 
@@ -485,5 +424,63 @@ const getDarkStyle = (/** @type {import('vuetify').ThemeInstance} */theme) => {
 
 .vjsf-markdown-input .editor-toolbar i.separator {
   height: 20px;
+}
+
+/* dark theme, inspired by https://github.com/Ionaru/easy-markdown-editor/issues/131#issuecomment-1738202589
+   static and based on the theme CSS variables of Vuetify (one stylesheet for all instances, nothing to regenerate
+   on theme change), every selector is scoped so that the light theme and other editors of the page are untouched */
+.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .CodeMirror {
+  color: white;
+  border-color: rgb(var(--v-border-color));
+  background-color: rgb(var(--v-theme-surface));
+}
+.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .cm-s-easymde .CodeMirror-cursor {
+  border-color: white;
+}
+.vjsf-markdown-input.v-theme--dark .CodeMirror-cursor {
+  border-left: 1px solid white;
+  border-right: none;
+  width: 0;
+}
+.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .editor-toolbar > * {
+  border-color: rgb(var(--v-theme-surface));
+}
+.vjsf-markdown-input.v-theme--dark .editor-toolbar {
+  border-top: 1px solid rgb(var(--v-border-color));
+  border-left: 1px solid rgb(var(--v-border-color));
+  border-right: 1px solid rgb(var(--v-border-color));
+}
+.vjsf-markdown-input.v-theme--dark .editor-toolbar i.separator {
+  border-left: 1px solid rgb(var(--v-border-color));
+  border-right: 1px solid rgb(var(--v-border-color));
+}
+.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .editor-toolbar > .active,
+.vjsf-markdown-input.v-theme--dark .editor-toolbar > button:hover,
+.vjsf-markdown-input.v-theme--dark .editor-preview pre,
+.vjsf-markdown-input.v-theme--dark .cm-s-easymde .cm-comment {
+  background-color: rgb(var(--v-theme-surface));
+}
+.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .CodeMirror-fullscreen,
+.vjsf-markdown-input.v-theme--dark .editor-toolbar.fullscreen,
+.vjsf-markdown-input.v-theme--dark .editor-preview {
+  background: rgb(var(--v-theme-surface));
+}
+.vjsf-markdown-input.v-theme--dark .editor-preview-side {
+  border-color: rgb(var(--v-border-color));
+}
+.vjsf-markdown-input.v-theme--dark .CodeMirror-selected,
+.vjsf-markdown-input.v-theme--dark .CodeMirror-focused .CodeMirror-selected,
+.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .CodeMirror-focused .CodeMirror-selected {
+  background: rgb(var(--v-theme-secondary));
+}
+.vjsf-markdown-input.v-theme--dark .CodeMirror-line::selection,
+.vjsf-markdown-input.v-theme--dark .CodeMirror-line > span::selection,
+.vjsf-markdown-input.v-theme--dark .CodeMirror-line > span > span::selection {
+  background: rgb(var(--v-theme-secondary));
+}
+.vjsf-markdown-input.v-theme--dark .CodeMirror-line::-moz-selection,
+.vjsf-markdown-input.v-theme--dark .CodeMirror-line > span::-moz-selection,
+.vjsf-markdown-input.v-theme--dark .CodeMirror-line > span > span::-moz-selection {
+  background: rgb(var(--v-theme-secondary));
 }
 </style>
