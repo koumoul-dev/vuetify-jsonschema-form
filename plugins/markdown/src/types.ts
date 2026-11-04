@@ -17,5 +17,6 @@ export type VjsfMarkdownIcons = {
 export type VjsfPluginMarkdownOptions = {
   easyMDEOptions?: Record<string, any>, 
   icons?: Partial<VjsfMarkdownIcons>,
+  /** @deprecated no longer used, the editor does not render any inline style anymore */
   cspNonce?: string
 }
