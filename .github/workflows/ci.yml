@@ -31,3 +31,6 @@ jobs:
 
       - name: Test (America/Sao_Paulo)
         run: npm -w lib run test-tz2
+
+      - name: Test markdown plugin
+        run: npm -w plugins/markdown test

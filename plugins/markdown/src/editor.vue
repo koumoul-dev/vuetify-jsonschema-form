@@ -1,5 +1,5 @@
 <script>
-import { defineComponent, h, computed, onMounted, onBeforeUnmount, ref, onUnmounted, watch } from 'vue'
+import { defineComponent, h, computed, onMounted, onBeforeUnmount, ref, shallowRef, onUnmounted, watch } from 'vue'
 import { useDefaults, useTheme } from 'vuetify'
 import { VInput, VLabel } from 'vuetify/components'
 import { marked } from 'marked'
@@ -8,6 +8,26 @@ import i18n from './i18n/index.js'
 import 'easymde/dist/easymde.min.css'
 
 const debug = debugModule('vjsf-markdown')
+
+/** @typedef {typeof import('dompurify').default} DOMPurify */
+
+// the markdown is user data, possibly written by another user than the one displaying it:
+// the HTML produced by marked must never be injected without sanitization.
+// DOMPurify is lazy loaded, like EasyMDE, to keep it out of the initial bundle of the applications
+/** @type {Promise<DOMPurify> | null} */
+let purifyPromise = null
+/** @type {DOMPurify | null} */
+let loadedPurify = null
+const loadPurify = () => {
+  purifyPromise = purifyPromise ?? import('dompurify').then(m => { loadedPurify = m.default; return m.default })
+  return purifyPromise
+}
+
+// target is kept so that raw HTML links opening in a new tab still do (browsers imply noopener)
+// without a DOM DOMPurify returns its input untouched, nothing is rendered then
+const sanitizeHtml = (/** @type {DOMPurify} */purify, /** @type {string} */html) => {
+  return purify.isSupported ? purify.sanitize(html, { ADD_ATTR: ['target'] }) : ''
+}
 
 const iconSvg = (/** @type {string} */svgPath) => {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="${svgPath}" /></svg>`
@@ -76,6 +96,21 @@ export default defineComponent({
       return { ...i18n.en, ...i18n[props.locale], ...props.messages }
     })
 
+    // once DOMPurify is loaded the content is rendered from the first render, before that
+    // it is loaded on mount (never server side, so that the hydration matches an empty content)
+    const purify = shallowRef(loadedPurify)
+    const loadReadOnlyPurify = () => {
+      if (!purify.value) loadPurify().then(p => { purify.value = p })
+    }
+    onMounted(() => { if (props.readOnly) loadReadOnlyPurify() })
+    watch(() => props.readOnly, (readOnly) => { if (readOnly) loadReadOnlyPurify() })
+
+    // computed so that the parsing and the sanitization only run when the content changes
+    const readOnlyHtml = computed(() => {
+      if (!props.readOnly || !purify.value) return ''
+      return sanitizeHtml(purify.value, /** @type {string} */(marked.parse(props.modelValue)))
+    })
+
     const fieldSlots = computed(() => {
       /** @type {Record<string, any>} */
       const fieldSlots = { ...props.slots }
@@ -84,7 +119,7 @@ export default defineComponent({
           h(VLabel, { text: props.label })
         ]
         if (props.readOnly) {
-          children.push(h('div', { innerHTML: marked.parse(props.modelValue) }))
+          children.push(h('div', { innerHTML: readOnlyHtml.value }))
         } else {
           children.push(h('textarea', { ref: element }))
         }
@@ -106,7 +141,8 @@ export default defineComponent({
       if (!element.value) throw new Error('component was not mounted for markdown editor')
       debug('initEasyMDE')
 
-      const EasyMDE = (await import('easymde')).default
+      // DOMPurify is loaded alongside EasyMDE (much bigger), the preview can be sanitized as soon as it is displayed
+      const [EasyMDE, purifyForPreview] = await Promise.all([import('easymde').then(m => m.default), loadPurify()])
 
       /** @type {import('./types.js').VjsfMarkdownIcons} */
       const icons = {
@@ -130,7 +166,6 @@ export default defineComponent({
       const config = {
         element: element.value,
         initialValue: props.modelValue,
-        renderingConfig: {},
         status: false,
         autoDownloadFontAwesome: false,
         spellChecker: false,
@@ -243,7 +278,13 @@ export default defineComponent({
           title: messages.value.mdeGuide,
           noDisable: true
         }],
-        ...props.easyMdeOptions
+        ...props.easyMdeOptions,
+        // merged after the application options, so that passing a renderingConfig
+        // does not silently drop the sanitization of the preview
+        renderingConfig: {
+          sanitizerFunction: (/** @type {string} */html) => sanitizeHtml(purifyForPreview, html),
+          ...props.easyMdeOptions.renderingConfig
+        }
       }
 
       if (easymde) easymde.toTextArea()
