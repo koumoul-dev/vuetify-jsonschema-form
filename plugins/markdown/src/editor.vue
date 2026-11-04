@@ -24,7 +24,7 @@ const loadPurify = () => {
 }
 
 // target is kept so that raw HTML links opening in a new tab still do (browsers imply noopener)
-// without a DOM DOMPurify returns its input untouched, nothing is rendered then
+// fail closed: DOMPurify returns its input untouched when the environment does not support it, render nothing then
 const sanitizeHtml = (/** @type {DOMPurify} */purify, /** @type {string} */html) => {
   return purify.isSupported ? purify.sanitize(html, { ADD_ATTR: ['target'] }) : ''
 }
@@ -372,7 +372,7 @@ export default defineComponent({
       return inputProps
     })
 
-    // still a fragment root, as when a <style> element was rendered next to the input
+    // a fragment root: the attributes given to the editor are not forwarded to the input
     return () => [
       // @ts-ignore
       h(VInput, inputProps.value, fieldSlots.value)

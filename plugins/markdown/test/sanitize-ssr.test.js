@@ -5,8 +5,8 @@ import { renderToString } from 'vue/server-renderer'
 import { createVuetify } from 'vuetify'
 import { MarkdownEditor } from '../src/index.js'
 
-// without a DOM DOMPurify cannot sanitize and returns its input untouched,
-// the server rendering must not contain the raw HTML
+// DOMPurify is only loaded once mounted, so the server rendering leaves the readOnly content empty
+// (an unsanitized HTML in the server response would run before the hydration)
 it('does not render unsanitized HTML server side', async () => {
   const app = createSSRApp({
     render: () => h(MarkdownEditor, { label: 'Description', readOnly: true, modelValue: '# Title\n\n<img src=x onerror="alert(1)">' })
