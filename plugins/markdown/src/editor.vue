@@ -136,6 +136,15 @@ export default defineComponent({
 
     let changed = false
 
+    // toTextArea() alone leaves the keydown listener EasyMDE puts on document,
+    // its closure keeps the whole instance (CodeMirror and its detached DOM) in memory
+    const destroyEasyMDE = () => {
+      if (!easymde) return
+      easymde.cleanup()
+      easymde.toTextArea()
+      easymde = null
+    }
+
     const initEasyMDE = async () => {
       if (props.readOnly) return
       if (!element.value) throw new Error('component was not mounted for markdown editor')
@@ -287,7 +296,7 @@ export default defineComponent({
         }
       }
 
-      if (easymde) easymde.toTextArea()
+      destroyEasyMDE()
       // @ts-ignore
       easymde = new EasyMDE(config)
 
@@ -329,9 +338,7 @@ export default defineComponent({
       }
     })
 
-    onUnmounted(() => {
-      if (easymde) easymde.toTextArea()
-    })
+    onUnmounted(destroyEasyMDE)
 
     // update data from outside
     watch(() => props.modelValue, () => {
