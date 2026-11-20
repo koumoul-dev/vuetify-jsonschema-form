@@ -439,18 +439,11 @@ export default defineComponent({
   padding-bottom: 6px;
 }
 
-/* adjust to readOnly/summary mode */
-.vjsf-markdown-input.vjsf-readonly .EasyMDEContainer .CodeMirror  {
-  border-width: 0;
-  padding: 0;
-}
-.vjsf-markdown-input.vjsf-summary .vjsf-markdown-content  {
+/* summary mode, the vjsf-summary class is set by vjsf on the node that wraps the input */
+.vjsf-summary .vjsf-markdown-input .vjsf-markdown-content {
   height: 96px;
   overflow: hidden;
   mask-image: linear-gradient(180deg, #000 66%, transparent 90%);
-}
-.vjsf-markdown-input.vjsf-readonly .vjsf-markdown-content textarea {
-  display: none;
 }
 
 .vjsf-markdown-input .editor-toolbar i.separator {
