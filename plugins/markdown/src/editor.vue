@@ -146,13 +146,29 @@ export default defineComponent({
       easymde = null
     }
 
+    // incremented by every init and destroy request, an init that resumes after the lazy loading
+    // of EasyMDE gives up if another request was made meanwhile (unmount, switch to readOnly,
+    // newer config): the textarea may be gone and EasyMDE would then be created without CodeMirror
+    let initToken = 0
+
     const initEasyMDE = async () => {
-      if (props.readOnly) return
-      if (!element.value) throw new Error('component was not mounted for markdown editor')
+      const token = ++initToken
+      if (props.readOnly) {
+        destroyEasyMDE()
+        return
+      }
+      if (!element.value) {
+        debug('initEasyMDE skipped, the textarea is not rendered')
+        return
+      }
       debug('initEasyMDE')
 
       // DOMPurify is loaded alongside EasyMDE (much bigger), the preview can be sanitized as soon as it is displayed
       const [EasyMDE, purifyForPreview] = await Promise.all([import('easymde').then(m => m.default), loadPurify()])
+      if (token !== initToken || props.readOnly || !element.value) {
+        debug('initEasyMDE cancelled while loading EasyMDE')
+        return
+      }
 
       /** @type {import('./types.js').VjsfMarkdownIcons} */
       const icons = {
@@ -339,7 +355,10 @@ export default defineComponent({
       }
     })
 
-    onUnmounted(destroyEasyMDE)
+    onUnmounted(() => {
+      initToken++
+      destroyEasyMDE()
+    })
 
     // update data from outside
     watch(() => props.modelValue, () => {
@@ -349,13 +368,24 @@ export default defineComponent({
       }
     })
 
-    // update easymde config from outside
+    // switching to readOnly: EasyMDE moved the textarea inside its own container, destroy it
+    // before the render, toTextArea() puts the textarea back where Vue expects it and Vue can
+    // replace it, otherwise the container would stay in the DOM with an editor still emitting changes
+    watch(() => props.readOnly, (readOnly) => {
+      if (readOnly) {
+        initToken++
+        destroyEasyMDE()
+      }
+    })
+
+    // update easymde config from outside, after the render so that the textarea exists
+    // when switching from readOnly to editable
     watch(() => [props.readOnly, props.messages, props.locale, props.easyMdeOptions], (newValues, oldValues) => {
       if (JSON.stringify(newValues) !== JSON.stringify(oldValues)) {
         debug('easymde config was updated from outside, reinit easymde')
         initEasyMDE()
       }
-    })
+    }, { flush: 'post' })
 
     /* TODO: manage autofocus change ? statefulLayout.events no longer exists
     props.statefulLayout.events.on('autofocus', () => {
