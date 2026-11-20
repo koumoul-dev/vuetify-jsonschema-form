@@ -146,17 +146,32 @@ export default defineComponent({
       easymde = null
     }
 
+    // incremented by every init and destroy request, an init that resumes after the lazy loading
+    // of EasyMDE gives up if another request was made meanwhile (unmount, switch to readOnly,
+    // newer config): the textarea may be gone and EasyMDE would then be created without CodeMirror
+    let initToken = 0
+
     const initEasyMDE = async () => {
-      if (props.readOnly) return
-      if (!element.value) throw new Error('component was not mounted for markdown editor')
+      const token = ++initToken
+      if (props.readOnly) {
+        destroyEasyMDE()
+        return
+      }
+      if (!element.value) {
+        debug('initEasyMDE skipped, the textarea is not rendered')
+        return
+      }
       debug('initEasyMDE')
 
       // DOMPurify is loaded alongside EasyMDE (much bigger), the preview can be sanitized as soon as it is displayed
       const [EasyMDE, purifyForPreview] = await Promise.all([import('easymde').then(m => m.default), loadPurify()])
+      if (token !== initToken || props.readOnly || !element.value) {
+        debug('initEasyMDE cancelled while loading EasyMDE')
+        return
+      }
 
       /** @type {import('./types.js').VjsfMarkdownIcons} */
       const icons = {
-        ...props.icons,
         // codes are copied from here https://raw.githubusercontent.com/Templarian/MaterialDesign-JS/refs/heads/master/mdi.js
         formatBold: 'M13.5,15.5H10V12.5H13.5A1.5,1.5 0 0,1 15,14A1.5,1.5 0 0,1 13.5,15.5M10,6.5H13A1.5,1.5 0 0,1 14.5,8A1.5,1.5 0 0,1 13,9.5H10M15.6,10.79C16.57,10.11 17.25,9 17.25,8C17.25,5.74 15.5,4 13.25,4H7V18H14.04C16.14,18 17.75,16.3 17.75,14.21C17.75,12.69 16.89,11.39 15.6,10.79Z',
         formatItalic: 'M10,4V7H12.21L8.79,15H6V18H14V15H11.79L15.21,7H18V4H10Z',
@@ -170,7 +185,9 @@ export default defineComponent({
         eye: 'M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z',
         undo: 'M12.5,8C9.85,8 7.45,9 5.6,10.6L2,7V16H11L7.38,12.38C8.77,11.22 10.54,10.5 12.5,10.5C16.04,10.5 19.05,12.81 20.1,16L22.47,15.22C21.08,11.03 17.15,8 12.5,8Z',
         redo: 'M18.4,10.6C16.55,9 14.15,8 11.5,8C6.85,8 2.92,11.03 1.54,15.22L3.9,16C4.95,12.81 7.95,10.5 11.5,10.5C13.45,10.5 15.23,11.22 16.62,12.38L13,16H22V7L18.4,10.6Z',
-        helpCircle: 'M15.07,11.25L14.17,12.17C13.45,12.89 13,13.5 13,15H11V14.5C11,13.39 11.45,12.39 12.17,11.67L13.41,10.41C13.78,10.05 14,9.55 14,9C14,7.89 13.1,7 12,7A2,2 0 0,0 10,9H8A4,4 0 0,1 12,5A4,4 0 0,1 16,9C16,9.88 15.64,10.67 15.07,11.25M13,19H11V17H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z'
+        helpCircle: 'M15.07,11.25L14.17,12.17C13.45,12.89 13,13.5 13,15H11V14.5C11,13.39 11.45,12.39 12.17,11.67L13.41,10.41C13.78,10.05 14,9.55 14,9C14,7.89 13.1,7 12,7A2,2 0 0,0 10,9H8A4,4 0 0,1 12,5A4,4 0 0,1 16,9C16,9.88 15.64,10.67 15.07,11.25M13,19H11V17H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z',
+        // after the defaults, so that the application can override them
+        ...props.icons
       }
 
       const config = {
@@ -301,6 +318,9 @@ export default defineComponent({
       // @ts-ignore
       easymde = new EasyMDE(config)
 
+      // the VLabel is not linked to the input field of CodeMirror, give it an accessible name
+      easymde.codemirror.getInputField().setAttribute('aria-label', props.label)
+
       changed = false
       easymde.codemirror.on('change', () => {
         changed = true
@@ -339,7 +359,10 @@ export default defineComponent({
       }
     })
 
-    onUnmounted(destroyEasyMDE)
+    onUnmounted(() => {
+      initToken++
+      destroyEasyMDE()
+    })
 
     // update data from outside
     watch(() => props.modelValue, () => {
@@ -349,13 +372,28 @@ export default defineComponent({
       }
     })
 
-    // update easymde config from outside
+    watch(() => props.label, (label) => {
+      easymde?.codemirror.getInputField().setAttribute('aria-label', label)
+    })
+
+    // switching to readOnly: EasyMDE moved the textarea inside its own container, destroy it
+    // before the render, toTextArea() puts the textarea back where Vue expects it and Vue can
+    // replace it, otherwise the container would stay in the DOM with an editor still emitting changes
+    watch(() => props.readOnly, (readOnly) => {
+      if (readOnly) {
+        initToken++
+        destroyEasyMDE()
+      }
+    })
+
+    // update easymde config from outside, after the render so that the textarea exists
+    // when switching from readOnly to editable
     watch(() => [props.readOnly, props.messages, props.locale, props.easyMdeOptions], (newValues, oldValues) => {
       if (JSON.stringify(newValues) !== JSON.stringify(oldValues)) {
         debug('easymde config was updated from outside, reinit easymde')
         initEasyMDE()
       }
-    })
+    }, { flush: 'post' })
 
     /* TODO: manage autofocus change ? statefulLayout.events no longer exists
     props.statefulLayout.events.on('autofocus', () => {
@@ -408,18 +446,11 @@ export default defineComponent({
   padding-bottom: 6px;
 }
 
-/* adjust to readOnly/summary mode */
-.vjsf-markdown-input.vjsf-readonly .EasyMDEContainer .CodeMirror  {
-  border-width: 0;
-  padding: 0;
-}
-.vjsf-markdown-input.vjsf-summary .vjsf-markdown-content  {
+/* summary mode, the vjsf-summary class is set by vjsf on the node that wraps the input */
+.vjsf-summary .vjsf-markdown-input .vjsf-markdown-content {
   height: 96px;
   overflow: hidden;
   mask-image: linear-gradient(180deg, #000 66%, transparent 90%);
-}
-.vjsf-markdown-input.vjsf-readonly .vjsf-markdown-content textarea {
-  display: none;
 }
 
 .vjsf-markdown-input .editor-toolbar i.separator {

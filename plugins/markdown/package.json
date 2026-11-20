@@ -55,8 +55,10 @@
     "vue-tsc": "^3.2.2"
   },
   "dependencies": {
+    "debug": "^4.3.4",
     "dompurify": "^3.4.17",
-    "easymde": "^2.18.0"
+    "easymde": "^2.18.0",
+    "marked": "^15.0.7"
   },
   "overrides": {
     "easymde": {
