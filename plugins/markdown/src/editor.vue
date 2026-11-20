@@ -318,6 +318,9 @@ export default defineComponent({
       // @ts-ignore
       easymde = new EasyMDE(config)
 
+      // the VLabel is not linked to the input field of CodeMirror, give it an accessible name
+      easymde.codemirror.getInputField().setAttribute('aria-label', props.label)
+
       changed = false
       easymde.codemirror.on('change', () => {
         changed = true
@@ -367,6 +370,10 @@ export default defineComponent({
         debug('data was updated from outside, apply to easymde')
         easymde.value(props.modelValue ?? '')
       }
+    })
+
+    watch(() => props.label, (label) => {
+      easymde?.codemirror.getInputField().setAttribute('aria-label', label)
     })
 
     // switching to readOnly: EasyMDE moved the textarea inside its own container, destroy it

@@ -43,3 +43,13 @@ it('uses the icons given in the options instead of the default ones', async () =
   expect(toolbar.querySelector('button.italic path')?.getAttribute('d')).toBe('M10,4V7H12.21L8.79,15H6V18H14V15H11.79L15.21,7H18V4H10Z')
   wrapper.unmount()
 })
+
+it('gives an accessible name to the input field of the editor', async () => {
+  const wrapper = mount(MarkdownEditor, { props: { label: 'Description' }, global: { plugins: [vuetify] }, attachTo: document.body })
+  await waitForEasyMDE(wrapper)
+  const inputField = () => wrapper.element.parentElement?.querySelector('.CodeMirror textarea')
+  expect(inputField()?.getAttribute('aria-label')).toBe('Description')
+  await wrapper.setProps({ label: 'Summary' })
+  expect(inputField()?.getAttribute('aria-label')).toBe('Summary')
+  wrapper.unmount()
+})
