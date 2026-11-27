@@ -56,6 +56,33 @@ const collection: DemoCollection = {
       title: 'layout: "expansion-panels"',
       schema: sectionsSchema('expansion-panels'),
     },
+    {
+      id: 'conditional-child',
+      title: 'A tab shown only when "Company account" is checked',
+      schema: {
+        type: 'object',
+        layout: 'tabs',
+        properties: {
+          profile: {
+            type: 'object',
+            title: 'Profile',
+            properties: {
+              name: { type: 'string', title: 'Name' },
+              isCompany: { type: 'boolean', title: 'Company account' },
+            },
+          },
+          company: {
+            type: 'object',
+            title: 'Company',
+            layout: { if: 'parent.data?.profile?.isCompany' },
+            properties: {
+              companyName: { type: 'string', title: 'Company name' },
+              vatNumber: { type: 'string', title: 'VAT number' },
+            },
+          },
+        },
+      },
+    },
   ],
 }
 export default collection

@@ -91,7 +91,19 @@ Benefits over runtime compilation:
   the component (the equivalent of importing `@koumoul/vjsf/webmcp`
   instead of `@koumoul/vjsf` at runtime), which registers the form
   through the browser's `navigator.modelContext` as a set of tools that
-  in-page AI agents can discover and use to fill it.
+  in-page AI agents can discover and use to fill it. The form's guide is
+  published as a skill beside these tools. The `subAgent` prop of the
+  WebMCP component is deprecated and ignored.
+
+`compileParts` takes the same arguments as `compile` and returns both
+the component code and the serialized compiled layout it embeds, for a
+build script that needs the compiled layout on its own too:
+
+```js
+import { compileParts } from '@koumoul/vjsf-compiler'
+
+const { code, compiledLayoutCode } = await compileParts(schema, options)
+```
 
 ## CommonJS dependencies
 

@@ -39,11 +39,29 @@ Any [EasyMDE configuration option](https://github.com/Ionaru/easy-markdown-edito
 can go here; it is merged on top of the toolbar/behavior VJSF configures
 by default.
 
+## Icons
+
+The toolbar icons are SVG paths from
+[Material Design Icons](https://pictogrammers.com/library/mdi/). Replace
+any of them with `pluginsOptions.markdown.icons`, an object keyed by
+`formatBold`, `formatItalic`, `formatTitle`, `formatQuoteOpen`,
+`formatListBulleted`, `formatListNumbered`, `link`, `image`, `table`,
+`eye`, `undo`, `redo` and `helpCircle`. The keys you leave out keep
+their default icon.
+
+## Read-only rendering
+
+In read-only mode the field shows the markdown rendered as HTML instead
+of the editor. That HTML, and the editor's preview, is sanitized with
+[DOMPurify](https://github.com/cure53/DOMPurify), so content written by
+another user cannot run scripts. DOMPurify is loaded lazily, like
+EasyMDE, and nothing is rendered server side.
+
 ## Internationalization
 
 The toolbar's tooltips and the link/image/table snippets it inserts are
-translatable. They ship with English, French, Dutch and German
-translations and follow the same `options.locale` used everywhere else
+translatable. They ship with English, French, Dutch, German, Spanish,
+Italian and Portuguese translations and follow the same `options.locale` used everywhere else
 in VJSF (see [i18n](/behavior/i18n)); override individual strings with
 `modelValue.messages` if needed. The available keys are:
 

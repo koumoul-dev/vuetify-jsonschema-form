@@ -39,6 +39,19 @@ Each child becomes a collapsible panel:
 
 <VjsfDemo demo="demo-tabs-stepper-panels/expansion-panels" expanded hide-data />
 
+## Conditional children
+
+A child hidden by an `if` [expression](/behavior/expressions) gets no
+tab, step or panel at all, rather than an empty one. Check "Company
+account" in the "Profile" tab to bring the "Company" tab in:
+
+<VjsfDemo demo="demo-tabs-stepper-panels/conditional-child" expanded hide-data />
+
+The open tab or step is kept in the form's state rather than in the
+component: it survives a re-render of the form, and the
+[WebMCP](/behavior/compilation#build-time-compilation) form tools can
+read it and open the tab holding a field they just changed.
+
 ## Related
 
 - [Sections](/components/sections) — the plain default composite these
