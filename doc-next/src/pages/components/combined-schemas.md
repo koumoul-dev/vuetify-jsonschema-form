@@ -32,9 +32,12 @@ plain field.
 
 VJSF also recognizes the OpenAPI-style `discriminator: { propertyName:
 "..." }` keyword next to `oneOf`, which requires every branch to declare
-that property as a `const`; it does not change what's rendered, it's an
-optimization hint used while resolving which branch matches existing
-data.
+that property as a `const`. It does not change what's rendered, but it
+lets the active branch be resolved directly instead of trying every
+branch, which matters on a `oneOf` with many variants. Ajv only applies it
+with the `ajvOptions: { discriminator: true }` compile option, and then
+rejects the whole schema when a branch does not declare the discriminant
+as required: see [pitfalls](/behavior/pitfalls#oneof-with-variants).
 
 ## allOf as merged sections
 

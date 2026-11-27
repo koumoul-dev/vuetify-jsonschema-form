@@ -18,7 +18,13 @@ occupies.
 
 A plain integer from `0` to `12` sets the child's width from the `sm`
 breakpoint up; below `sm` a field always defaults to the full 12 columns,
-so narrow screens still get one field per row:
+so narrow forms still get one field per row.
+
+Breakpoints are not read from the viewport: they apply to the width of the
+form itself (the `<vjsf>` element), then to each child's share of its
+parent. A section with `cols: 6` in a 1000px wide form lays out its own
+children as if in a 500px wide form, so nested sections and forms placed
+in a narrow column or a dialog fall back to one field per row on their own:
 
 <VjsfDemo demo="demo-grid/cols-number" expanded hide-data />
 
@@ -58,9 +64,9 @@ for the general mechanism.
 ## Responsive behavior beyond cols
 
 `layout.cols` only affects the grid columns. For anything more dynamic —
-showing, hiding or otherwise adapting content to the viewport size — an
+showing, hiding or otherwise adapting content to the available width — an
 expression can read the `display` parameter (`display.mobile`,
-`display.mdAndUp`, the exact viewport `width`, …). See
+`display.mdAndUp`, the exact `width` of the parent container, …). See
 [expressions](/behavior/expressions#parameters) for the full `display`
 reference.
 
