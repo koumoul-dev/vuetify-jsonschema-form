@@ -16,6 +16,9 @@ import matter from 'gray-matter'
 import { searchIndexPlugin } from './src/utils/search/search-index-plugin'
 import { examplesLayoutsPlugin } from './src/demos/examples-layouts-plugin'
 import { layoutVocabularyPlugin } from './src/reference/layout-vocabulary-plugin'
+import { markdownExportPlugin } from './src/utils/markdown-export/markdown-export-plugin'
+import { slugify } from './src/utils/slugify'
+import { readLayoutKeywordSchema } from './src/reference/layout-keyword-schema'
 
 // Base path for GitHub Pages versioned subpaths.
 const base = process.env.TARGET ? new URL(process.env.TARGET).pathname : '/'
@@ -63,9 +66,7 @@ function navData () {
 }
 
 // The playground's Schema tab autocompletes/validates against the vjsf
-// meta-schema (draft-07 + the `layout` keyword). The layout-keyword schema
-// file is not exposed by @json-layout/vocabulary's exports map, so read it
-// from disk next to the package's resolved entry.
+// meta-schema (draft-07 + the `layout` keyword).
 function layoutKeywordSchema () {
   const virtualId = 'virtual:layout-keyword-schema'
   const resolvedId = '\0' + virtualId
@@ -74,10 +75,7 @@ function layoutKeywordSchema () {
     resolveId (id: string) { if (id === virtualId) return resolvedId },
     load (id: string) {
       if (id !== resolvedId) return
-      // import.meta.resolve honors the package's ESM-only exports map (CJS resolve throws)
-      const indexPath = fileURLToPath(import.meta.resolve('@json-layout/vocabulary'))
-      const schemaPath = resolve(dirname(indexPath), 'layout-keyword/schema.json')
-      return `export default ${readFileSync(schemaPath, 'utf8')}`
+      return `export default ${readLayoutKeywordSchema()}`
     },
   }
 }
@@ -140,6 +138,7 @@ export default defineConfig({
         const mit = md as any
         mit.use(anchor, {
           level: 2,
+          slugify,
           permalink (slug: string, _opts: unknown, state: any, idx: number) {
             // push an html_inline child so the tag survives into the compiled template
             const token = new state.Token('html_inline', '', 0)
@@ -148,12 +147,20 @@ export default defineConfig({
           },
         })
         mit.use(attrs)
+        // markdown links are plain <a>, not router-links: they need the base path themselves
+        const defaultLinkOpen = mit.renderer.rules.link_open ?? ((tokens: any, idx: number, opts: any, _env: unknown, self: any) => self.renderToken(tokens, idx, opts))
+        mit.renderer.rules.link_open = (tokens: any, idx: number, opts: any, env: unknown, self: any) => {
+          const href = tokens[idx].attrGet('href')
+          if (href?.startsWith('/') && !href.startsWith('//')) tokens[idx].attrSet('href', base + href.slice(1))
+          return defaultLinkOpen(tokens, idx, opts, env, self)
+        }
       },
     }),
     navData(),
     layoutKeywordSchema(),
     layoutVocabularyPlugin(),
     searchIndexPlugin(pagesDir),
+    markdownExportPlugin(pagesDir, base, appVersion, process.env.TARGET),
     examplesLayoutsPlugin(),
     vuetify({ autoImport: true }),
   ],

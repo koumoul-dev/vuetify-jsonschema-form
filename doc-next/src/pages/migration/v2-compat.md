@@ -39,8 +39,9 @@ If you are migrating an existing v2 application, run your schemas through
 `v2compat()` at the start of the migration, get the app working again with
 minimal changes, then progressively rewrite each schema to the native v3+
 vocabulary at your own pace (the new vocabulary is more expressive and
-better documented, see [components](/components) and
-[behavior](/behavior)).
+better documented, see the [layout keyword](/behavior/layout-keyword)
+reference and the component pages, starting with
+[text field](/components/text-field)).
 
 ## Using v2compat permanently
 
