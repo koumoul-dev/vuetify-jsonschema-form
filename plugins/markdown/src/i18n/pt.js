@@ -1,0 +1,22 @@
+/** @type {import('./types.js').VjsfMarkdownMessages} */
+export default {
+  mdeLink1: '[título da ligação',
+  mdeLink2: '](endereço da ligação)',
+  mdeImg1: '![](',
+  mdeImg2: 'endereço da imagem)',
+  mdeTable1: '',
+  mdeTable2: '\n\n| Coluna 1 | Coluna 2 | Coluna 3 |\n| -------- | -------- | -------- |\n| Texto     | Texto     | Texto     |\n\n',
+  bold: 'Negrito',
+  italic: 'Itálico',
+  heading: 'Título',
+  quote: 'Citação',
+  unorderedList: 'Lista com marcas',
+  orderedList: 'Lista numerada',
+  createLink: 'Inserir uma ligação',
+  insertImage: 'Inserir uma imagem',
+  createTable: 'Inserir uma tabela',
+  preview: 'Pré-visualização',
+  mdeGuide: 'Documentação da sintaxe',
+  undo: 'Anular',
+  redo: 'Refazer',
+}

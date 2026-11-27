@@ -77,6 +77,6 @@ it('keeps a single editor when re-initialized while EasyMDE is loading', async (
   await sleep(100)
   expect(errors).toEqual([])
   expect(toolbarCount()).toBe(1)
-  expect(document.querySelector('.editor-toolbar button.preview')?.getAttribute('title')).toContain('Aperçu du rendu')
+  expect(document.querySelector('.editor-toolbar button.preview')?.getAttribute('title')).toContain('Aperçu')
   wrapper.unmount()
 })
