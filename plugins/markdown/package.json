@@ -19,26 +19,26 @@
   "exports": {
     ".": {
       "import": {
-        "default": "./src/index.js",
-        "types": "./types/index.d.ts"
+        "types": "./types/index.d.ts",
+        "default": "./src/index.js"
       }
     },
     "./info.js": {
       "import": {
-        "default": "./src/info.js",
-        "types": "./types/info.d.ts"
+        "types": "./types/info.d.ts",
+        "default": "./src/info.js"
       }
     },
     "./node.vue": {
       "import": {
-        "default": "./src/node.vue",
-        "types": "./types/node.vue.d.ts"
+        "types": "./types/node.vue.d.ts",
+        "default": "./src/node.vue"
       }
     },
     "./editor.vue": {
       "import": {
-        "default": "./src/editor.vue",
-        "types": "./types/editor.vue.d.ts"
+        "types": "./types/editor.vue.d.ts",
+        "default": "./src/editor.vue"
       }
     }
   },
