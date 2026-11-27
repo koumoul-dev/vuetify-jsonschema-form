@@ -1,6 +1,6 @@
 <script>
-import { defineComponent, h, computed, onMounted, onBeforeUnmount, ref, onUnmounted, watch } from 'vue'
-import { useDefaults, useTheme } from 'vuetify'
+import { defineComponent, h, computed, onMounted, onBeforeUnmount, ref, shallowRef, onUnmounted, watch } from 'vue'
+import { useDefaults } from 'vuetify'
 import { VInput, VLabel } from 'vuetify/components'
 import { marked } from 'marked'
 import debugModule from 'debug'
@@ -8,6 +8,26 @@ import i18n from './i18n/index.js'
 import 'easymde/dist/easymde.min.css'
 
 const debug = debugModule('vjsf-markdown')
+
+/** @typedef {typeof import('dompurify').default} DOMPurify */
+
+// the markdown is user data, possibly written by another user than the one displaying it:
+// the HTML produced by marked must never be injected without sanitization.
+// DOMPurify is lazy loaded, like EasyMDE, to keep it out of the initial bundle of the applications
+/** @type {Promise<DOMPurify> | null} */
+let purifyPromise = null
+/** @type {DOMPurify | null} */
+let loadedPurify = null
+const loadPurify = () => {
+  purifyPromise = purifyPromise ?? import('dompurify').then(m => { loadedPurify = m.default; return m.default })
+  return purifyPromise
+}
+
+// target is kept so that raw HTML links opening in a new tab still do (browsers imply noopener)
+// fail closed: DOMPurify returns its input untouched when the environment does not support it, render nothing then
+const sanitizeHtml = (/** @type {DOMPurify} */purify, /** @type {string} */html) => {
+  return purify.isSupported ? purify.sanitize(html, { ADD_ATTR: ['target'] }) : ''
+}
 
 const iconSvg = (/** @type {string} */svgPath) => {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="${svgPath}" /></svg>`
@@ -55,9 +75,15 @@ export default defineComponent({
       type: Object,
       default: () => ({})
     },
+    // deprecated, no longer used: the dark theme is a static stylesheet, no inline style is rendered anymore
     cspNonce: {
       type: String,
       default: ''
+    },
+    slots: {
+      /** @type {import('vue').PropType<Record<string, any>>} */
+      type: Object,
+      default: () => ({})
     }
   },
   emits: ['update:modelValue', 'blur'],
@@ -71,14 +97,30 @@ export default defineComponent({
       return { ...i18n.en, ...i18n[props.locale], ...props.messages }
     })
 
+    // once DOMPurify is loaded the content is rendered from the first render, before that
+    // it is loaded on mount (never server side, so that the hydration matches an empty content)
+    const purify = shallowRef(loadedPurify)
+    const loadReadOnlyPurify = () => {
+      if (!purify.value) loadPurify().then(p => { purify.value = p })
+    }
+    onMounted(() => { if (props.readOnly) loadReadOnlyPurify() })
+    watch(() => props.readOnly, (readOnly) => { if (readOnly) loadReadOnlyPurify() })
+
+    // computed so that the parsing and the sanitization only run when the content changes
+    const readOnlyHtml = computed(() => {
+      if (!props.readOnly || !purify.value) return ''
+      return sanitizeHtml(purify.value, /** @type {string} */(marked.parse(props.modelValue)))
+    })
+
     const fieldSlots = computed(() => {
-      const fieldSlots = {}
+      /** @type {Record<string, any>} */
+      const fieldSlots = { ...props.slots }
       fieldSlots.default = () => {
         const children = [
           h(VLabel, { text: props.label })
         ]
         if (props.readOnly) {
-          children.push(h('div', { innerHTML: marked.parse(props.modelValue) }))
+          children.push(h('div', { innerHTML: readOnlyHtml.value }))
         } else {
           children.push(h('textarea', { ref: element }))
         }
@@ -95,16 +137,41 @@ export default defineComponent({
 
     let changed = false
 
+    // toTextArea() alone leaves the keydown listener EasyMDE puts on document,
+    // its closure keeps the whole instance (CodeMirror and its detached DOM) in memory
+    const destroyEasyMDE = () => {
+      if (!easymde) return
+      easymde.cleanup()
+      easymde.toTextArea()
+      easymde = null
+    }
+
+    // incremented by every init and destroy request, an init that resumes after the lazy loading
+    // of EasyMDE gives up if another request was made meanwhile (unmount, switch to readOnly,
+    // newer config): the textarea may be gone and EasyMDE would then be created without CodeMirror
+    let initToken = 0
+
     const initEasyMDE = async () => {
-      if (props.readOnly) return
-      if (!element.value) throw new Error('component was not mounted for markdown editor')
+      const token = ++initToken
+      if (props.readOnly) {
+        destroyEasyMDE()
+        return
+      }
+      if (!element.value) {
+        debug('initEasyMDE skipped, the textarea is not rendered')
+        return
+      }
       debug('initEasyMDE')
 
-      const EasyMDE = (await import('easymde')).default
+      // DOMPurify is loaded alongside EasyMDE (much bigger), the preview can be sanitized as soon as it is displayed
+      const [EasyMDE, purifyForPreview] = await Promise.all([import('easymde').then(m => m.default), loadPurify()])
+      if (token !== initToken || props.readOnly || !element.value) {
+        debug('initEasyMDE cancelled while loading EasyMDE')
+        return
+      }
 
       /** @type {import('./types.js').VjsfMarkdownIcons} */
       const icons = {
-        ...props.icons,
         // codes are copied from here https://raw.githubusercontent.com/Templarian/MaterialDesign-JS/refs/heads/master/mdi.js
         formatBold: 'M13.5,15.5H10V12.5H13.5A1.5,1.5 0 0,1 15,14A1.5,1.5 0 0,1 13.5,15.5M10,6.5H13A1.5,1.5 0 0,1 14.5,8A1.5,1.5 0 0,1 13,9.5H10M15.6,10.79C16.57,10.11 17.25,9 17.25,8C17.25,5.74 15.5,4 13.25,4H7V18H14.04C16.14,18 17.75,16.3 17.75,14.21C17.75,12.69 16.89,11.39 15.6,10.79Z',
         formatItalic: 'M10,4V7H12.21L8.79,15H6V18H14V15H11.79L15.21,7H18V4H10Z',
@@ -118,13 +185,14 @@ export default defineComponent({
         eye: 'M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z',
         undo: 'M12.5,8C9.85,8 7.45,9 5.6,10.6L2,7V16H11L7.38,12.38C8.77,11.22 10.54,10.5 12.5,10.5C16.04,10.5 19.05,12.81 20.1,16L22.47,15.22C21.08,11.03 17.15,8 12.5,8Z',
         redo: 'M18.4,10.6C16.55,9 14.15,8 11.5,8C6.85,8 2.92,11.03 1.54,15.22L3.9,16C4.95,12.81 7.95,10.5 11.5,10.5C13.45,10.5 15.23,11.22 16.62,12.38L13,16H22V7L18.4,10.6Z',
-        helpCircle: 'M15.07,11.25L14.17,12.17C13.45,12.89 13,13.5 13,15H11V14.5C11,13.39 11.45,12.39 12.17,11.67L13.41,10.41C13.78,10.05 14,9.55 14,9C14,7.89 13.1,7 12,7A2,2 0 0,0 10,9H8A4,4 0 0,1 12,5A4,4 0 0,1 16,9C16,9.88 15.64,10.67 15.07,11.25M13,19H11V17H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z'
+        helpCircle: 'M15.07,11.25L14.17,12.17C13.45,12.89 13,13.5 13,15H11V14.5C11,13.39 11.45,12.39 12.17,11.67L13.41,10.41C13.78,10.05 14,9.55 14,9C14,7.89 13.1,7 12,7A2,2 0 0,0 10,9H8A4,4 0 0,1 12,5A4,4 0 0,1 16,9C16,9.88 15.64,10.67 15.07,11.25M13,19H11V17H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z',
+        // after the defaults, so that the application can override them
+        ...props.icons
       }
 
       const config = {
         element: element.value,
         initialValue: props.modelValue,
-        renderingConfig: {},
         status: false,
         autoDownloadFontAwesome: false,
         spellChecker: false,
@@ -237,12 +305,21 @@ export default defineComponent({
           title: messages.value.mdeGuide,
           noDisable: true
         }],
-        ...props.easyMdeOptions
+        ...props.easyMdeOptions,
+        // merged after the application options, so that passing a renderingConfig
+        // does not silently drop the sanitization of the preview
+        renderingConfig: {
+          sanitizerFunction: (/** @type {string} */html) => sanitizeHtml(purifyForPreview, html),
+          ...props.easyMdeOptions.renderingConfig
+        }
       }
 
-      if (easymde) easymde.toTextArea()
+      destroyEasyMDE()
       // @ts-ignore
       easymde = new EasyMDE(config)
+
+      // the VLabel is not linked to the input field of CodeMirror, give it an accessible name
+      easymde.codemirror.getInputField().setAttribute('aria-label', props.label)
 
       changed = false
       easymde.codemirror.on('change', () => {
@@ -283,7 +360,8 @@ export default defineComponent({
     })
 
     onUnmounted(() => {
-      if (easymde) easymde.toTextArea()
+      initToken++
+      destroyEasyMDE()
     })
 
     // update data from outside
@@ -294,13 +372,28 @@ export default defineComponent({
       }
     })
 
-    // update easymde config from outside
+    watch(() => props.label, (label) => {
+      easymde?.codemirror.getInputField().setAttribute('aria-label', label)
+    })
+
+    // switching to readOnly: EasyMDE moved the textarea inside its own container, destroy it
+    // before the render, toTextArea() puts the textarea back where Vue expects it and Vue can
+    // replace it, otherwise the container would stay in the DOM with an editor still emitting changes
+    watch(() => props.readOnly, (readOnly) => {
+      if (readOnly) {
+        initToken++
+        destroyEasyMDE()
+      }
+    })
+
+    // update easymde config from outside, after the render so that the textarea exists
+    // when switching from readOnly to editable
     watch(() => [props.readOnly, props.messages, props.locale, props.easyMdeOptions], (newValues, oldValues) => {
       if (JSON.stringify(newValues) !== JSON.stringify(oldValues)) {
         debug('easymde config was updated from outside, reinit easymde')
         initEasyMDE()
       }
-    })
+    }, { flush: 'post' })
 
     /* TODO: manage autofocus change ? statefulLayout.events no longer exists
     props.statefulLayout.events.on('autofocus', () => {
@@ -317,75 +410,13 @@ export default defineComponent({
       return inputProps
     })
 
-    const theme = useTheme()
-    const darkStyle = computed(() => getDarkStyle(theme))
+    // a fragment root: the attributes given to the editor are not forwarded to the input
     return () => [
-      h('style', { innerHTML: darkStyle.value, nonce: props.cspNonce || undefined }),
       // @ts-ignore
       h(VInput, inputProps.value, fieldSlots.value)
     ]
   }
 })
-
-const getDarkStyle = (/** @type {import('vuetify').ThemeInstance} */theme) => {
-  // Inspired by https://github.com/Ionaru/easy-markdown-editor/issues/131#issuecomment-1738202589
-  return `
-.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .CodeMirror {
-    color: white;
-    border-color: ${theme.current.value.variables['border-color']};
-    background-color: ${theme.current.value.colors.surface};
-}
-.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .cm-s-easymde .CodeMirror-cursor {
-    border-color: white;
-}
-.vjsf-markdown-input.v-theme--dark .CodeMirror-cursor {
-    border-left:1px solid white;
-    border-right:none;width:0;
-}
-.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .editor-toolbar > * {
-    border-color: ${theme.current.value.colors.surface};
-}
-.vjsf-markdown-input.v-theme--dark .editor-toolbar {
-    border-top: 1px solid ${theme.current.value.variables['border-color']};
-    border-left: 1px solid ${theme.current.value.variables['border-color']};
-    border-right: 1px solid ${theme.current.value.variables['border-color']};
-}
-.vjsf-markdown-input.v-theme--dark .editor-toolbar i.separator {
-    border-left: 1px solid ${theme.current.value.variables['border-color']};
-    border-right: 1px solid ${theme.current.value.variables['border-color']};
-}
-.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .editor-toolbar > .active, .editor-toolbar > button:hover, .editor-preview pre, .cm-s-easymde .cm-comment {
-    background-color: ${theme.current.value.colors.surface};
-}
-.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .CodeMirror-fullscreen {
-    background: ${theme.current.value.colors.surface};
-}
-.vjsf-markdown-input.v-theme--dark .editor-toolbar.fullscreen {
-    background: ${theme.current.value.colors.surface};
-}
-.vjsf-markdown-input.v-theme--dark .editor-preview {
-    background: ${theme.current.value.colors.surface};
-}
-.vjsf-markdown-input.v-theme--dark .editor-preview-side {
-    border-color: ${theme.current.value.variables['border-color']};
-}
-.vjsf-markdown-input.v-theme--dark .CodeMirror-selected {
-    background: ${theme.current.value.colors.secondary};
-}
-.vjsf-markdown-input.v-theme--dark .CodeMirror-focused .CodeMirror-selected {
-    background: ${theme.current.value.colors.secondary};
-}
-.vjsf-markdown-input.v-theme--dark .CodeMirror-line::selection,.CodeMirror-line>span::selection,.CodeMirror-line>span>span::selection {
-    background:${theme.current.value.colors.secondary}
-}
-.vjsf-markdown-input.v-theme--dark .CodeMirror-line::-moz-selection,.CodeMirror-line>span::-moz-selection,.CodeMirror-line>span>span::-moz-selection {
-    background:${theme.current.value.colors.secondary}
-}
-.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .CodeMirror-focused .CodeMirror-selected {
-    background: ${theme.current.value.colors.secondary}
-}
-  `
-}
 
 </script>
 
@@ -415,21 +446,72 @@ const getDarkStyle = (/** @type {import('vuetify').ThemeInstance} */theme) => {
   padding-bottom: 6px;
 }
 
-/* adjust to readOnly/summary mode */
-.vjsf-markdown-input.vjsf-readonly .EasyMDEContainer .CodeMirror  {
-  border-width: 0;
-  padding: 0;
-}
-.vjsf-markdown-input.vjsf-summary .vjsf-markdown-content  {
+/* summary mode, the vjsf-summary class is set by vjsf on the node that wraps the input */
+.vjsf-summary .vjsf-markdown-input .vjsf-markdown-content {
   height: 96px;
   overflow: hidden;
   mask-image: linear-gradient(180deg, #000 66%, transparent 90%);
 }
-.vjsf-markdown-input.vjsf-readonly .vjsf-markdown-content textarea {
-  display: none;
-}
 
 .vjsf-markdown-input .editor-toolbar i.separator {
   height: 20px;
+}
+
+/* dark theme, inspired by https://github.com/Ionaru/easy-markdown-editor/issues/131#issuecomment-1738202589
+   static and based on the theme CSS variables of Vuetify (one stylesheet for all instances, nothing to regenerate
+   on theme change), every selector is scoped so that the light theme and other editors of the page are untouched */
+.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .CodeMirror {
+  color: white;
+  border-color: rgb(var(--v-border-color));
+  background-color: rgb(var(--v-theme-surface));
+}
+.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .cm-s-easymde .CodeMirror-cursor {
+  border-color: white;
+}
+.vjsf-markdown-input.v-theme--dark .CodeMirror-cursor {
+  border-left: 1px solid white;
+  border-right: none;
+  width: 0;
+}
+.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .editor-toolbar > * {
+  border-color: rgb(var(--v-theme-surface));
+}
+.vjsf-markdown-input.v-theme--dark .editor-toolbar {
+  border-top: 1px solid rgb(var(--v-border-color));
+  border-left: 1px solid rgb(var(--v-border-color));
+  border-right: 1px solid rgb(var(--v-border-color));
+}
+.vjsf-markdown-input.v-theme--dark .editor-toolbar i.separator {
+  border-left: 1px solid rgb(var(--v-border-color));
+  border-right: 1px solid rgb(var(--v-border-color));
+}
+.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .editor-toolbar > .active,
+.vjsf-markdown-input.v-theme--dark .editor-toolbar > button:hover,
+.vjsf-markdown-input.v-theme--dark .editor-preview pre,
+.vjsf-markdown-input.v-theme--dark .cm-s-easymde .cm-comment {
+  background-color: rgb(var(--v-theme-surface));
+}
+.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .CodeMirror-fullscreen,
+.vjsf-markdown-input.v-theme--dark .editor-toolbar.fullscreen,
+.vjsf-markdown-input.v-theme--dark .editor-preview {
+  background: rgb(var(--v-theme-surface));
+}
+.vjsf-markdown-input.v-theme--dark .editor-preview-side {
+  border-color: rgb(var(--v-border-color));
+}
+.vjsf-markdown-input.v-theme--dark .CodeMirror-selected,
+.vjsf-markdown-input.v-theme--dark .CodeMirror-focused .CodeMirror-selected,
+.vjsf-markdown-input.v-theme--dark .EasyMDEContainer .CodeMirror-focused .CodeMirror-selected {
+  background: rgb(var(--v-theme-secondary));
+}
+.vjsf-markdown-input.v-theme--dark .CodeMirror-line::selection,
+.vjsf-markdown-input.v-theme--dark .CodeMirror-line > span::selection,
+.vjsf-markdown-input.v-theme--dark .CodeMirror-line > span > span::selection {
+  background: rgb(var(--v-theme-secondary));
+}
+.vjsf-markdown-input.v-theme--dark .CodeMirror-line::-moz-selection,
+.vjsf-markdown-input.v-theme--dark .CodeMirror-line > span::-moz-selection,
+.vjsf-markdown-input.v-theme--dark .CodeMirror-line > span > span::-moz-selection {
+  background: rgb(var(--v-theme-secondary));
 }
 </style>

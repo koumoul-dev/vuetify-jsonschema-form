@@ -20,7 +20,7 @@ export default defineComponent({
     }
   },
   setup (props, { expose }) {
-    const { inputProps, localData } = useNode(toRef(props, 'modelValue'), props.statefulLayout)
+    const { inputProps, localData, compSlots } = useNode(toRef(props, 'modelValue'), props.statefulLayout)
     const pluginOptions = /** @type {import('./types.js').VjsfPluginMarkdownOptions | undefined} */(props.modelValue.options.pluginsOptions.markdown)
 
     return () => h(VjsfMarkdownEditor, {
@@ -34,6 +34,7 @@ export default defineComponent({
       easyMdeOptions: pluginOptions?.easyMDEOptions ?? {},
       icons: pluginOptions?.icons ?? {},
       cspNonce: pluginOptions?.cspNonce ?? '',
+      slots: compSlots.value,
       onBlur: () => props.statefulLayout.blur(props.modelValue),
       'onUpdate:modelValue': (/** @type {string} */value) => props.statefulLayout.input(props.modelValue, value)
     })

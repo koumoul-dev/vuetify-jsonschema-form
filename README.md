@@ -1,5 +1,8 @@
 # VJSF
 
+[![npm version](https://img.shields.io/npm/v/@koumoul/vjsf)](https://www.npmjs.com/package/@koumoul/vjsf)
+[![License: MIT](https://img.shields.io/npm/l/@koumoul/vjsf)](./LICENSE)
+
 *vuetify-json-schema-form* - *@koumoul/vjsf on npm*
 
 Easily create beautiful forms that output valid data.

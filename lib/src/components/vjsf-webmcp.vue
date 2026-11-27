@@ -1,5 +1,5 @@
 <script setup>
-import { computed, shallowRef, watch, onScopeDispose } from 'vue'
+import { computed, shallowRef, watch, onScopeDispose, toRaw } from 'vue'
 
 import { compile, produceCompileOptions } from '@json-layout/core/compile'
 import { WebMCP } from '@json-layout/core/webmcp'
@@ -35,6 +35,7 @@ const props = defineProps({
     type: String,
     default: null
   },
+  // deprecated: the form's skill now comes with its tools, there is no sub-agent anymore
   subAgent: {
     type: Boolean,
     default: false
@@ -43,16 +44,31 @@ const props = defineProps({
 
 const emit = defineEmits(emits)
 
+// the data last given to the parent, to tell its echo through v-model from other data loaded
+/** @type {unknown} */
+let lastEmittedData
+/**
+ * @param {any} name
+ * @param {any[]} args
+ */
+const emitAndTrack = (name, ...args) => {
+  if (name === 'update:modelValue') lastEmittedData = args[0]
+  // @ts-ignore
+  emit(name, ...args)
+}
+
 const { el, statefulLayout, stateTree } = useVjsf(
   computed(() => props.schema),
   computed(() => props.modelValue),
   computed(() => props.options),
   nodeComponents,
-  emit,
+  emitAndTrack,
   compile,
   produceCompileOptions,
   computed(() => props.precompiledLayout)
 )
+
+if (props.subAgent) console.warn('vjsf: the subAgent prop is deprecated and ignored, the form\'s skill now comes with its tools')
 
 /** @type import('vue').ShallowRef<WebMCP | null> */
 const webMCP = shallowRef(null)
@@ -61,11 +77,17 @@ watch(statefulLayout, () => {
   if (statefulLayout.value) {
     webMCP.value = new WebMCP(
       /** @type {import('@json-layout/core').StatefulLayout} */(/** @type {unknown} */(statefulLayout.value)),
-      { prefixName: props.prefixName, dataTitle: props.dataTitle, schema: props.schema, includeSubAgent: props.subAgent }
+      { prefixName: props.prefixName, dataTitle: props.dataTitle }
     )
     webMCP.value.registerTools()
   }
 }, { immediate: true })
+
+// other data loaded into the form (after a save, to start a new document): the values it
+// holds count as picked, not typed by the agent
+watch(() => props.modelValue, (data) => {
+  if (webMCP.value && toRaw(data) !== toRaw(lastEmittedData)) webMCP.value.resetBaseline()
+})
 
 // always unregister our tools when the component is torn down, otherwise a later
 // instance mounted with the same prefixName would fail to register them again

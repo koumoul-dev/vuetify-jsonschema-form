@@ -1,6 +1,6 @@
 {
   "name": "@koumoul/vjsf-markdown",
-  "version": "0.5.2",
+  "version": "0.5.5",
   "description": "A plugin to add markdown edition capability to vjsf.",
   "scripts": {
     "test": "vitest",
@@ -19,26 +19,26 @@
   "exports": {
     ".": {
       "import": {
-        "default": "./src/index.js",
-        "types": "./types/index.d.ts"
+        "types": "./types/index.d.ts",
+        "default": "./src/index.js"
       }
     },
     "./info.js": {
       "import": {
-        "default": "./src/info.js",
-        "types": "./types/info.d.ts"
+        "types": "./types/info.d.ts",
+        "default": "./src/info.js"
       }
     },
     "./node.vue": {
       "import": {
-        "default": "./src/node.vue",
-        "types": "./types/node.vue.d.ts"
+        "types": "./types/node.vue.d.ts",
+        "default": "./src/node.vue"
       }
     },
     "./editor.vue": {
       "import": {
-        "default": "./src/editor.vue",
-        "types": "./types/editor.vue.d.ts"
+        "types": "./types/editor.vue.d.ts",
+        "default": "./src/editor.vue"
       }
     }
   },
@@ -49,12 +49,16 @@
   },
   "devDependencies": {
     "@koumoul/vjsf": ">=3.3.3",
-    "vitest": "^1.1.1",
+    "jsdom": "^30.1.3",
+    "vitest": "^5.0.0",
     "vue": "^3.4.2",
     "vue-tsc": "^3.2.2"
   },
   "dependencies": {
-    "easymde": "^2.18.0"
+    "debug": "^4.3.4",
+    "dompurify": "^3.4.17",
+    "easymde": "^2.18.0",
+    "marked": "^15.0.7"
   },
   "overrides": {
     "easymde": {

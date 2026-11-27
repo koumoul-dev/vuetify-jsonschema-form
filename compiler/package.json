@@ -1,6 +1,6 @@
 {
   "name": "@koumoul/vjsf-compiler",
-  "version": "1.4.0",
+  "version": "1.6.0",
   "description": "Pre-compile components for @koumoul/vjsf.",
   "scripts": {
     "build": "tsc",
@@ -23,8 +23,8 @@
     }
   },
   "dependencies": {
-    "@json-layout/core": "~2.8.1",
-    "@json-layout/vocabulary": "~2.13.1",
+    "@json-layout/core": "~2.13.0",
+    "@json-layout/vocabulary": "~2.13.3",
     "debug": "^4.3.4",
     "ejs": "^3.1.9"
   },

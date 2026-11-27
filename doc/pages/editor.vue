@@ -159,17 +159,29 @@ const options = ref(null)
 const data = ref(null)
 const theme = ref('light')
 
+// options that the editor writes into the options tab when they are missing,
+// so that their value is always visible and editable instead of being an
+// invisible default diverging from the library's own defaults
+/** @param {any} editorOptions */
+const withEditorOptions = (editorOptions) => {
+  // the persisted options can be anything the user typed in the options tab
+  if (!editorOptions || typeof editorOptions !== 'object' || Array.isArray(editorOptions)) return editorOptions
+  // xI18n is opt-in in the library, but the editor pre-fills it so that
+  // x-i18n-* annotations can be tried out without retyping the option
+  return { ...editorOptions, xI18n: editorOptions.xI18n ?? true }
+}
+
 onMounted(() => {
   const editorStateStr = window.localStorage.getItem('vjsf-editor-state')
   if (editorStateStr) {
     const editorState = JSON.parse(editorStateStr)
     schema.value = editorState.schema
-    options.value = editorState.options ?? {}
+    options.value = withEditorOptions(editorState.options ?? {})
     data.value = editorState.data ?? {}
   }
   else {
     schema.value = firstExample.schema
-    options.value = firstExample.options ?? {}
+    options.value = withEditorOptions({ ...firstExample.options })
     data.value = firstExample.data ?? {}
   }
   watchDebounced([schema, options, data], () => {
