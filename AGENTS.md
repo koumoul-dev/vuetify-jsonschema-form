@@ -31,6 +31,11 @@ npm run build
 npm run dev-zellij
 ```
 
+- The root `prepare` script runs `npx relative-deps`: when a `../json-layout` checkout exists, `npm install` / `npm ci` silently copy its local build over the registry versions of `@json-layout/*` (`relativeDependencies` in package.json). Use `npm ci --ignore-scripts` (then `npx husky`) to get the registry versions.
+- In a fresh checkout, run `npx nuxi prepare` in `doc/` before the first commit: the pre-commit hook runs `npm run lint`, which includes the doc eslint config importing `doc/.nuxt/eslint.config.mjs`.
+- To test against a local json-layout without touching package.json, symlink `lib/node_modules/@json-layout/core` and `node_modules/@json-layout/vocabulary` to the json-layout checkout and run `npm -w core run build` there (the lib build, vue-tsc, reads the built core types).
+- `npm install <dep> -w <ws>` rewrites the root `"name"` of package-lock.json from the folder name: reset it to `vuetify-jsonschema-form`.
+
 ## Quality Checks
 
 - Uses **husky** for pre-commit hooks
